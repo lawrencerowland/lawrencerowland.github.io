@@ -32,7 +32,6 @@ It is my experience that by building and re-building useful frameworks, the mech
 This time can be used for the real work of understanding the company, the context of the portfolio, and finding the unique approach, or having the right conversation, that gives the current portfolio a chance to succeed. 
 ![Howgills](https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/images/Howgills.jpeg)
 
-
 ### Acknowledgements
 ![Image of fast.ai logo](images/logo.png) for website template
 
