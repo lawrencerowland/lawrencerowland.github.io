@@ -1,3 +1,7 @@
-# Your blog
+# This website introduces the various repositories
 
-This is the repository for your blog! Click *_config.yml* above to get started and fill in the details. Then click *index.md* and edit it to start creating your home page.
+Go to this [website](https://lawrencerowland.github.io) here
+
+Or the code and document repositories are available from [my main Github page](https://github.com/lawrencerowland)
+
+Lawrence
