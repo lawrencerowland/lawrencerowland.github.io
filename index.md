@@ -1,5 +1,4 @@
 # Purpose
-
 This site is all about managing project portfolios more easily. 
 
 I provide open frameworks and tool-sets to set up and deliver projects, programmes and portfolios. 
@@ -31,7 +30,7 @@ Finally, it should go without saying, but project management is still more of an
 It is my experience that by building and re-building useful frameworks, the mechanics of projects take a little less time, and so time and attention is freed up on a project. 
 
 This time can be used for the real work of understanding the company, the context of the portfolio, and finding the unique approach, or having the right conversation, that gives the current portfolio a chance to succeed. 
-
+![Howgills](https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/images/Howgills.jpeg)
 
 
 ### Acknowledgements
