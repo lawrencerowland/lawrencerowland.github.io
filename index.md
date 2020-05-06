@@ -1,3 +1,6 @@
+1. TOC
+{:toc}
+
 # Purpose
 This site is all about managing project portfolios more easily. 
 
