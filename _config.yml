@@ -11,8 +11,7 @@ description: This site is all about managing project portfolios more easily. I p
 github_username: lawrencerowland
 
 
-# Set this to true to get LaTeX math equation support
-use_math:TRUE
+
 
 # Add your Google Analytics ID here if you have one and want to use it
 google_analytics:
