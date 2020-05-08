@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by yFiles for HTML 2.2.0.3-->
+<graphml xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml.html/2.0/ygraphml.xsd " xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:demostyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoStyle/1.0" xmlns:icon-style="http://www.yworks.com/yed-live/icon-style/1.0" xmlns:bpmn="http://www.yworks.com/xml/yfiles-bpmn/2.0" xmlns:demotablestyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoTableStyle/1.0" xmlns:uml="http://www.yworks.com/yFilesHTML/demos/UMLDemoStyle/1.0" xmlns:compat="http://www.yworks.com/xml/yfiles-compat-arrows/1.0" xmlns:GraphvizNodeStyle="http://www.yworks.com/yFilesHTML/graphviz-node-style/1.0" xmlns:VuejsNodeStyle="http://www.yworks.com/demos/yfiles-vuejs-node-style/1.0" xmlns:y="http://www.yworks.com/xml/yfiles-common/3.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/3.0" xmlns:yjs="http://www.yworks.com/xml/yfiles-for-html/2.0/xaml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<key id="d0" for="node" attr.type="boolean" attr.name="Expanded" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/Expanded">
+		<default>true</default>
+	</key>
+	<key id="d1" for="node" attr.type="string" attr.name="url"/>
+	<key id="d2" for="node" attr.type="string" attr.name="description"/>
+	<key id="d3" for="node" attr.name="NodeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeLabels"/>
+	<key id="d4" for="node" attr.name="NodeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeGeometry"/>
+	<key id="d5" for="all" attr.name="UserTags" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/UserTags"/>
+	<key id="d6" for="node" attr.name="NodeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeStyle"/>
+	<key id="d7" for="node" attr.name="NodeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/NodeViewState"/>
+	<key id="d8" for="edge" attr.type="string" attr.name="url"/>
+	<key id="d9" for="edge" attr.type="string" attr.name="description"/>
+	<key id="d10" for="edge" attr.name="EdgeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeLabels"/>
+	<key id="d11" for="edge" attr.name="EdgeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeGeometry"/>
+	<key id="d12" for="edge" attr.name="EdgeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeStyle"/>
+	<key id="d13" for="edge" attr.name="EdgeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/EdgeViewState"/>
+	<key id="d14" for="port" attr.name="PortLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLabels"/>
+	<key id="d15" for="port" attr.name="PortLocationParameter" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLocationParameter">
+		<default>
+			<x:Static Member="y:FreeNodePortLocationModel.NodeCenterAnchored"/>
+		</default>
+	</key>
+	<key id="d16" for="port" attr.name="PortStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortStyle">
+		<default>
+			<x:Static Member="y:VoidPortStyle.Instance"/>
+		</default>
+	</key>
+	<key id="d17" for="port" attr.name="PortViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/PortViewState"/>
+	<key id="d18" attr.name="SharedData" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/SharedData"/>
+	<data key="d18">
+		<y:SharedData>
+			<y:ExteriorLabelModel x:Key="1" Insets="5"/>
+			<y:CompositeLabelModelParameter x:Key="2">
+				<y:CompositeLabelModelParameter.Parameter>
+					<y:ExteriorLabelModelParameter Position="South" Model="{y:GraphMLReference 1}"/>
+				</y:CompositeLabelModelParameter.Parameter>
+				<y:CompositeLabelModelParameter.Model>
+					<y:CompositeLabelModel>
+						<y:CompositeLabelModel.LabelModels>
+							<y:GraphMLReference ResourceKey="1"/>
+							<y:InteriorLabelModel/>
+							<y:FreeNodeLabelModel/>
+						</y:CompositeLabelModel.LabelModels>
+					</y:CompositeLabelModel>
+				</y:CompositeLabelModelParameter.Model>
+			</y:CompositeLabelModelParameter>
+			<yjs:DefaultLabelStyle x:Key="3" verticalTextAlignment="BOTTOM" horizontalTextAlignment="CENTER" textFill="BLACK">
+				<yjs:DefaultLabelStyle.font>
+					<yjs:Font fontSize="12" fontFamily="'Arial'"/>
+				</yjs:DefaultLabelStyle.font>
+			</yjs:DefaultLabelStyle>
+			<icon-style:ColoredIconNodeStyle x:Key="4" image="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20fill%3D%22rgb(51%2C102%2C153)%22%20fill-opacity%3D%221%22%3E%3Cpath%20d%3D%22M496%20384H64V80c0-8.84-7.16-16-16-16H16C7.16%2064%200%2071.16%200%2080v336c0%2017.67%2014.33%2032%2032%2032h464c8.84%200%2016-7.16%2016-16v-32c0-8.84-7.16-16-16-16zM464%2096H345.94c-21.38%200-32.09%2025.85-16.97%2040.97l32.4%2032.4L288%20242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25%200l-68.69%2068.69c-6.25%206.25-6.25%2016.38%200%2022.63l22.62%2022.62c6.25%206.25%2016.38%206.25%2022.63%200L192%20237.25l73.37%2073.37c12.5%2012.5%2032.76%2012.5%2045.25%200l96-96%2032.4%2032.4c15.12%2015.12%2040.97%204.41%2040.97-16.97V112c.01-8.84-7.15-16-15.99-16z%22%2F%3E%3C%2Fsvg%3E" color="#FF336699" clipMode="outline"/>
+			<yjs:Stroke x:Key="5" fill="#FF336699"/>
+			<yjs:PolylineEdgeStyle x:Key="6" stroke="{y:GraphMLReference 5}">
+				<yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:Arrow type="TRIANGLE" scale="0.75" stroke="{y:GraphMLReference 5}" fill="#FF336699" cropLength="1"/>
+				</yjs:PolylineEdgeStyle.targetArrow>
+			</yjs:PolylineEdgeStyle>
+		</y:SharedData>
+	</data>
+	<graph id="G" edgedefault="directed">
+		<data key="d5">
+			<y:Json>{"version":"2.0.0","theme":{"name":"light","version":"1.0.0"}}</y:Json>
+		</data>
+		<node id="n0">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 2}" Style="{y:GraphMLReference 3}">
+						<y:Label.Text><![CDATA[Current analytics]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="33.5" Y="-36.5" Width="79" Height="84"/>
+			</data>
+			<data key="d6">
+				<icon-style:CroppingImageNodeStyle image="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2075%2075%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%233f8624%3B%7D.cls-2%7Bfill%3A%23fff%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EAWS-IoT-Analytics_light-bg%3C%2Ftitle%3E%3Cg%20id%3D%22Reference%22%3E%3Crect%20id%3D%22Green_Light_BG%22%20data-name%3D%22Green%20Light%20BG%22%20class%3D%22cls-1%22%20width%3D%2275%22%20height%3D%2275%22%2F%3E%3Cg%20id%3D%22Product_Icon%22%20data-name%3D%22Product%20Icon%22%3E%3Cpath%20class%3D%22cls-2%22%20d%3D%22M57%2C32.72a5.49%2C5.49%2C0%2C0%2C0-1.58.23%2C22%2C22%2C0%2C0%2C0-4.5-7.49l.26-.26a5.51%2C5.51%2C0%2C1%2C0-1.42-1.42l-.26.26A21.9%2C21.9%2C0%2C0%2C0%2C42%2C19.56a5.27%2C5.27%2C0%2C0%2C0%2C.2-1.44%2C5.5%2C5.5%2C0%2C0%2C0-11%2C0c0%2C.14%2C0%2C.28%2C0%2C.41A22%2C22%2C0%2C0%2C0%2C15.47%2C51.3a5.5%2C5.5%2C0%2C0%2C0%2C7.68%2C7.87%2C22%2C22%2C0%2C0%2C0%2C27-3.25%2C22.14%2C22.14%2C0%2C0%2C0%2C6.2-12.23%2C5.44%2C5.44%2C0%2C0%2C0%2C.57%2C0%2C5.5%2C5.5%2C0%2C1%2C0%2C0-11ZM54.25%2C17.17a3.5%2C3.5%2C0%2C1%2C1-3.5%2C3.5A3.5%2C3.5%2C0%2C0%2C1%2C54.25%2C17.17Zm-.67%2C16.72a5.47%2C5.47%2C0%2C0%2C0-2.12%2C4.33%2C5.17%2C5.17%2C0%2C0%2C0%2C.13%2C1.19L24.54%2C53.29a4.64%2C4.64%2C0%2C0%2C0-.49-1L49.46%2C26.88A19.68%2C19.68%2C0%2C0%2C1%2C53.58%2C33.89ZM41.14%2C21.38A19.66%2C19.66%2C0%2C0%2C1%2C48%2C25.46L22.7%2C50.8a4.61%2C4.61%2C0%2C0%2C0-1-.6L35.44%2C23.47a5.4%2C5.4%2C0%2C0%2C0%2C1.28.15A5.48%2C5.48%2C0%2C0%2C0%2C41.14%2C21.38Zm-4.42-6.76a3.5%2C3.5%2C0%2C1%2C1-3.5%2C3.5A3.5%2C3.5%2C0%2C0%2C1%2C36.72%2C14.62ZM14.54%2C40.32A20.06%2C20.06%2C0%2C0%2C1%2C31.76%2C20.48a5.48%2C5.48%2C0%2C0%2C0%2C1.85%2C2.17l-13.87%2C27a2.17%2C2.17%2C0%2C0%2C0-.36%2C0%2C5.32%2C5.32%2C0%2C0%2C0-2.25.49A19.87%2C19.87%2C0%2C0%2C1%2C14.54%2C40.32Zm4.84%2C18.35a3.5%2C3.5%2C0%2C1%2C1%2C3.5-3.5A3.5%2C3.5%2C0%2C0%2C1%2C19.38%2C58.67ZM48.77%2C54.5a20%2C20%2C0%2C0%2C1-24.44%2C3%2C5.2%2C5.2%2C0%2C0%2C0%2C.54-2.18L52.38%2C41.26a5.45%2C5.45%2C0%2C0%2C0%2C2.08%2C1.85A20%2C20%2C0%2C0%2C1%2C48.77%2C54.5ZM57%2C41.72a3.5%2C3.5%2C0%2C1%2C1%2C3.5-3.5A3.5%2C3.5%2C0%2C0%2C1%2C57%2C41.72Z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" clipMode="outline"/>
+			</data>
+			<port name="p0">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.012345679012345678,0.5"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9876543209876543,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n1">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 2}" Style="{y:GraphMLReference 3}">
+						<y:Label.Text><![CDATA[Project Database]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="-130.5" Y="-36.5" Width="95" Height="84"/>
+			</data>
+			<data key="d6">
+				<icon-style:CroppingImageNodeStyle image="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%233f8624%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EAWS-IoT-Analytics_Data-Store_light-bg%3C%2Ftitle%3E%3Cg%20id%3D%22Working%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M25%2C1.71c-8%2C0-16%2C2-16%2C5.68V42.61c0%2C3.73%2C8.07%2C5.68%2C16%2C5.68s16-1.95%2C16-5.68V7.39C41%2C3.66%2C33%2C1.71%2C25%2C1.71Zm0%2C2c8.44%2C0%2C14%2C2.22%2C14%2C3.68s-5.6%2C3.69-14%2C3.69S11%2C8.86%2C11%2C7.39%2C16.56%2C3.71%2C25%2C3.71Zm0%2C42.58c-8.44%2C0-14-2.22-14-3.68V33.76c2.89%2C1.84%2C8.48%2C2.8%2C14%2C2.8s11.15-1%2C14-2.8v8.85C39%2C44.07%2C33.44%2C46.29%2C25%2C46.29Zm0-11.73c-8.44%2C0-14-2.22-14-3.69V22c2.89%2C1.84%2C8.48%2C2.8%2C14%2C2.8s11.15-1%2C14-2.8v8.85C39%2C32.34%2C33.44%2C34.56%2C25%2C34.56Zm0-11.74c-9.22%2C0-14-2.4-14-3.69V10.29c2.89%2C1.84%2C8.48%2C2.79%2C14%2C2.79s11.15-.95%2C14-2.79v8.84C39%2C20.42%2C34.22%2C22.82%2C25%2C22.82Z%22%2F%3E%3Crect%20class%3D%22cls-1%22%20x%3D%2213.6%22%20y%3D%2215.85%22%20width%3D%222.37%22%20height%3D%222%22%2F%3E%3Crect%20class%3D%22cls-1%22%20x%3D%2213.6%22%20y%3D%2227.59%22%20width%3D%222.37%22%20height%3D%222%22%2F%3E%3Crect%20class%3D%22cls-1%22%20x%3D%2213.6%22%20y%3D%2239.33%22%20width%3D%222.37%22%20height%3D%222%22%2F%3E%3Crect%20class%3D%22cls-1%22%20x%3D%2217.12%22%20y%3D%2215.85%22%20width%3D%224.18%22%20height%3D%222%22%2F%3E%3Crect%20class%3D%22cls-1%22%20x%3D%2217.12%22%20y%3D%2227.59%22%20width%3D%224.18%22%20height%3D%222%22%2F%3E%3Crect%20class%3D%22cls-1%22%20x%3D%2217.12%22%20y%3D%2239.33%22%20width%3D%224.18%22%20height%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" clipMode="outline"/>
+			</data>
+			<port name="p0"/>
+			<port name="p1">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.011627906976744207"/>
+				</data>
+			</port>
+			<port name="p2">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.9883720930232558"/>
+				</data>
+			</port>
+			<port name="p3">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9896907216494846,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n2">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 2}" Style="{y:GraphMLReference 3}">
+						<y:Label.Text><![CDATA[Current insight]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="181.5" Y="-36.5" Width="79" Height="84"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="4"/>
+			</data>
+			<port name="p0">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.012345679012345678,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n3">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 2}" Style="{y:GraphMLReference 3}">
+						<y:Label.Text><![CDATA[Graph database]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="23" Y="96.5" Width="89.5" Height="74"/>
+			</data>
+			<data key="d6">
+				<icon-style:CroppingImageNodeStyle image="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2075%2075%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%233b48cc%3B%7D.cls-2%7Bfill%3A%23fff%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EAmazon-Neptune_light-bg%3C%2Ftitle%3E%3Cg%20id%3D%22Reference%22%3E%3Crect%20id%3D%22Blue_Light_BG%22%20data-name%3D%22Blue%20Light%20BG%22%20class%3D%22cls-1%22%20width%3D%2275%22%20height%3D%2275%22%2F%3E%3Cg%20id%3D%22Product_Icon%22%20data-name%3D%22Product%20Icon%22%3E%3Cpath%20class%3D%22cls-2%22%20d%3D%22M44.47%2C32.42a4.51%2C4.51%2C0%2C0%2C1%2C2%2C1.88V19.72c0-4.69-8.76-7.22-17-7.22s-17%2C2.53-17%2C7.22V55.28c0%2C4.69%2C8.76%2C7.22%2C17%2C7.22s17-2.53%2C17-7.22V50.5h-2v4.78c0%2C2.47-6.16%2C5.22-15%2C5.22s-15-2.75-15-5.22V47.86c3%2C2.44%2C9.17%2C3.73%2C15%2C3.73a39.08%2C39.08%2C0%2C0%2C0%2C5.09-.33%2C5.24%2C5.24%2C0%2C0%2C1-.9-1.89%2C39.6%2C39.6%2C0%2C0%2C1-4.19.22c-8.81%2C0-15-2.75-15-5.22H14.5V35.64c3%2C2.44%2C9.17%2C3.73%2C15%2C3.73a37.71%2C37.71%2C0%2C0%2C0%2C8.91-1%2C4.49%2C4.49%2C0%2C0%2C1-.39-1.84v-.11a35%2C35%2C0%2C0%2C1-8.52%2C1c-8.81%2C0-15-2.75-15-5.22H14.5v-8.9c3.07%2C2.42%2C9.17%2C3.69%2C15%2C3.69s11.93-1.27%2C15-3.69v8.9A1.24%2C1.24%2C0%2C0%2C1%2C44.47%2C32.42Zm-15-7.48c-8.84%2C0-15-2.75-15-5.22s6.16-5.22%2C15-5.22%2C15%2C2.75%2C15%2C5.22S38.34%2C24.94%2C29.5%2C24.94ZM60%2C50.5A2.5%2C2.5%2C0%2C0%2C0%2C57.5%2C53a2.33%2C2.33%2C0%2C0%2C0%2C.06.53L54.25%2C55.6a3.88%2C3.88%2C0%2C0%2C0-1.92-1l-.2-4.45a5.16%2C5.16%2C0%2C0%2C0%2C2.22-8.85L57.47%2C36a3.22%2C3.22%2C0%2C0%2C0%2C1%2C.16%2C3.5%2C3.5%2C0%2C1%2C0-3.5-3.5%2C3.43%2C3.43%2C0%2C0%2C0%2C.81%2C2.23l-3.18%2C5.35A5%2C5%2C0%2C0%2C0%2C50.9%2C40a5%2C5%2C0%2C0%2C0-2.8.84l-3.28-3.36A2.46%2C2.46%2C0%2C0%2C0%2C45%2C36.5%2C2.5%2C2.5%2C0%2C1%2C0%2C42.5%2C39a2.55%2C2.55%2C0%2C0%2C0%2C.88-.16l3.28%2C3.35a5%2C5%2C0%2C0%2C0-.93%2C2.94v0L41.86%2C46a3.49%2C3.49%2C0%2C1%2C0%2C.64%2C2%2C.34.34%2C0%2C0%2C0%2C0-.1l3.65-.76a5.15%2C5.15%2C0%2C0%2C0%2C4%2C3.09l.2%2C4.44A4%2C4%2C0%2C1%2C0%2C55.5%2C58.5a3.68%2C3.68%2C0%2C0%2C0-.19-1.2l3.43-2.14A2.45%2C2.45%2C0%2C0%2C0%2C60%2C55.5a2.5%2C2.5%2C0%2C0%2C0%2C0-5ZM58.5%2C31.19a1.5%2C1.5%2C0%2C1%2C1-1.5%2C1.5A1.5%2C1.5%2C0%2C0%2C1%2C58.5%2C31.19ZM42.5%2C37a.5.5%2C0%2C0%2C1%2C0-1%2C.5.5%2C0%2C0%2C1%2C0%2C1ZM39%2C49.5A1.5%2C1.5%2C0%2C1%2C1%2C40.5%2C48%2C1.5%2C1.5%2C0%2C0%2C1%2C39%2C49.5Zm8.73-4.37A3.17%2C3.17%2C0%2C1%2C1%2C50.9%2C48.3%2C3.17%2C3.17%2C0%2C0%2C1%2C47.73%2C45.13ZM51.5%2C60.5a2%2C2%2C0%2C1%2C1%2C2-2A2%2C2%2C0%2C0%2C1%2C51.5%2C60.5Zm8.5-7a.5.5%2C0%2C0%2C1%2C0-1%2C.5.5%2C0%2C0%2C1%2C0%2C1Z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" clipMode="outline"/>
+			</data>
+			<port name="p0">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.010928961748633892,0.5"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9890710382513661,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n4">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 2}" Style="{y:GraphMLReference 3}">
+						<y:Label.Text><![CDATA[New insight]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="181.5" Y="91.5" Width="79" Height="84"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="4"/>
+			</data>
+			<port name="p0">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.012345679012345678,0.5"/>
+				</data>
+			</port>
+		</node>
+		<edge id="e0" source="n1" target="n1" sourceport="p0" targetport="p1">
+			<data key="d11">
+				<x:List>
+					<y:Bend Location="-108.5,0.5"/>
+				</x:List>
+			</data>
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="6"/>
+			</data>
+		</edge>
+		<edge id="e1" source="n1" target="n3" sourceport="p2" targetport="p0">
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="6"/>
+			</data>
+		</edge>
+		<edge id="e2" source="n1" target="n0" sourceport="p3" targetport="p0">
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="6"/>
+			</data>
+		</edge>
+		<edge id="e3" source="n0" target="n2" sourceport="p1" targetport="p0">
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="6"/>
+			</data>
+		</edge>
+		<edge id="e4" source="n3" target="n4" sourceport="p1" targetport="p0">
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="6"/>
+			</data>
+		</edge>
+	</graph>
+</graphml>
