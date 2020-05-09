@@ -1,5 +1,7 @@
 # Data models for project portfolios
 
+{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Graph_Option.png" %}
+
 # PURPOSE
 
 Use a graph database to maintain and visualise a portfolio of projects.
@@ -22,6 +24,8 @@ See further below for discussing of when  to apply at which project level.
 1. Portfolio is new and team needs to move from whiteboard charts to a portfolio database that fits the business. Here, the team will set up, manage and visualise their portfolio data within a graph database. 
 
 2. Portfolio is working well, and recorded well either in spreadsheet, or relational database, or Project Management System. Team wants to gain insight into how projects and objectives relate to each other, and chooses to view the same data in parallel with a graph database. Here one runs a graph database alongside existing database, analytics and reporting.
+
+![](/images/2020-05-07-Data-models-for-Project-Portfolios/Graph_Future.png)
 
 3. The Portfolio data model is no longer suitable for the type of new projects or current business environment. The portfolio is well recorded in spreadsheet, or relational database, or Project Management System, and the team wish to move their data across to a new data model using a graph database. Here, the team runs the portfolio from a graph database. 
 
@@ -55,6 +59,8 @@ In most portfolios, the data model is either:
 
 # Typical status within companies
 
+{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Graph_Now.png" %}
+
 Typically, a portfolio data model is in one of the following states:
 1. Over time, most projects have come record the same attributes
 2. A data model and database has been designed based upon company needs
@@ -66,7 +72,6 @@ Typically, a portfolio data model is in one of the following states:
 3. have project data in a database or spreadsheets or just within a cloud Project Management system
 
 
-
 ## ACKNOWLEDGEMENTS
 https://www.yworks.com Free products YEd Live and YEd are a good entry level to seeing the portfolio relationships as a graph
 https://neo4j.com provide Neo4j Desktop for running graph databases as a Community edition, along with a number of more sophisticated enterprise products. 
@@ -75,8 +80,8 @@ https://neo4j.com provide Neo4j Desktop for running graph databases as a Communi
 
 
 
-![](/images/2020-05-07-Data-models-for-Project-Portfolios/Graph_Future.png)
 
-{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Graph_Now.png" %}
 
-{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Graph_Option.png" %}
+
+
+
