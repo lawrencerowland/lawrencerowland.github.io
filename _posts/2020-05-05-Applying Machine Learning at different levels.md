@@ -13,7 +13,7 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 Below shows the phase of project delivery and Operations these use cases first appear.
 
-![Image description](images/2020-05-05-Applying-Machine-Learning-at-different-levels/Usecase-to-Operations-subgraph-ML-models-created.png)
+![Image description](/images/2020-05-05-Applying-Machine-Learning-at-different-levels/Usecase-to-Operations-subgraph-ML-models-created.png)
   
 ## Summary of start-up steps for application
 
@@ -27,7 +27,7 @@ Once a use-case has been chosen, the following decisions can be made:
 -Choose a code library or algorithm to apply that model
 -Select data-set
 
-More is said about each stage [here](https://lawrencerowland.github.io/2020/05/08/Applying-appropriate-machine-learning-approach.md.html)
+More is said about each stage [here](https://lawrencerowland.github.io/2020/05/08/Applying-appropriate-machine-learning-approach.html)
 
 ## Applying machine learning at project or programme or portfolio levels
 
