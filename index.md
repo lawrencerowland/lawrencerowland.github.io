@@ -13,7 +13,7 @@ That saves time to allow us all to focus on the more complex, contextual, cultur
 This site is a general guide to a more detailed code and documentation library. 
 Start with the guide unless you know exactly what you want. 
 
-1. For applying machine-learning approaches to projects, the is [here](https://lawrencerowland.github.io/2020/05/08/Applying-appropriate-machine-learning-approach.html), the library is [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) 
+1. For applying machine-learning approaches to projects, the is [here](https://lawrencerowland.github.io/2020/05/05/Applying-Machine-Learning-at-different-levels.html), the library is [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) 
 
 1. For choosing and developing your own portfolio framework, the guide is XXXX, the library is [here](https://github.com/lawrencerowland/Data-Model-for-Project-Frameworks). A framework sets out how the portfolio's projects will be set up and delivered
 
