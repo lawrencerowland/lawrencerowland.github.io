@@ -29,7 +29,7 @@ More is said about each stage [here](https://lawrencerowland.github.io/2020/05/0
 
 ## Applying machine learning at project or programme or portfolio levels
 
-Machine learning provides different types of insight at different project levels. 
+Machine learning provides different types of insight at different project levels. Some machine learning approaches make the most of the extra context provided by graph databases, specifically in terms of which relationships are meaningful. 
 
 1. PROJECT & PROGRAMME level: node, edge and property prediction for risks, dependencies, project sectoral properties and success.
 
@@ -40,8 +40,7 @@ Eventually exploring Graph-Graph neural networks & Seq-Seq/ Transformer approach
 
 1. PMO and CENTRE OF EXCELLENCE. NLP applied to boost taxonomic and semantic approaches to curating body of project practice for the orgranisation. 
 
-## Applying machine learning on top of graph databases
-Some machine learning approaches make the most of the extra context provided by graph databases, specifically in terms of which relationships are meaningful. 
+
 
 
 
