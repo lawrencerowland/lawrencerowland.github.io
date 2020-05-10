@@ -1,9 +1,9 @@
 # Project Portfolio Management
 
 # Purpose
-This site is all about managing project portfolios more easily. 
+Managing project portfolios more easily. 
 
-I provide open frameworks and tool-sets to set up and deliver projects, programmes and portfolios. 
+The site provides open frameworks and tool-sets to set up and deliver projects, programmes and portfolios. 
 
 As well as conventional project management, this site introduces specific ways to use machine-learning, natural language understanding and graph databases to deliver better projects. 
 
