@@ -2,10 +2,29 @@
 
 1. TOC
 {:toc}
+
 ## Purpose
+Apply machine learning to understand how to improve the project portfolio
 
 ## Code and library base
-If you wish to go straight to the code and document libraries, start [](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
+If you wish to go straight to the code and document libraries, start [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
+
+## Use cases for machine learning in managing projects. 
+
+Below shows the phase of project delivery and Operations these use cases first appear.
+
+<!-- wp:image {"id":474,"sizeSlug":"medium"} -->
+<figure class="wp-block-image size-medium"><img src="https://atmiddlenight.com/wp-content/uploads/2020/02/2020-02-Use-case-to-Operations-subgraph-ML-models-created.png" alt="" class="wp-image-474"/>
+<!-- /wp:image -->
+  
+## Summary of start-up steps for application
+
+Once a use-case has been chosen, the following decisions can be made:
+
+<!-- wp:list {"ordered":true} -->
+<ol><li>Identify possible use cases</li><li> Map  to business area/lifecycle</li><li>Narrow down to a generic ML method</li><li>Select a straightforward ML model</li><li>Choose a suitable model environment</li><li>Choose a code library or algorithm to apply that model</li><li>Select data-set</li></ol>
+<!-- /wp:list -->
+More is said about each stage below::
 
 ## Applying machine learning at project or programme or portfolio levels
 
