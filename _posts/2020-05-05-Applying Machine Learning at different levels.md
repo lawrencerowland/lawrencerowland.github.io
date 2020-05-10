@@ -24,7 +24,8 @@ Once a use-case has been chosen, the following decisions can be made:
 <!-- wp:list {"ordered":true} -->
 <ol><li>Identify possible use cases</li><li> Map  to business area/lifecycle</li><li>Narrow down to a generic ML method</li><li>Select a straightforward ML model</li><li>Choose a suitable model environment</li><li>Choose a code library or algorithm to apply that model</li><li>Select data-set</li></ol>
 <!-- /wp:list -->
-More is said about each stage below::
+
+More is said about each stage [here](https://lawrencerowland.github.io/2020/05/08/Applying-appropriate-machine-learning-approach.md.html)
 
 ## Applying machine learning at project or programme or portfolio levels
 
