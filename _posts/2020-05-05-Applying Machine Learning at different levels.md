@@ -17,6 +17,8 @@ Below shows the phase of project delivery and Operations these use cases first a
 <figure class="wp-block-image size-medium"><img src="https://atmiddlenight.com/wp-content/uploads/2020/02/2020-02-Use-case-to-Operations-subgraph-ML-models-created.png" alt="" class="wp-image-474"/>
 <!-- /wp:image -->
   
+  
+  
 ## Summary of start-up steps for application
 
 Once a use-case has been chosen, the following decisions can be made:
