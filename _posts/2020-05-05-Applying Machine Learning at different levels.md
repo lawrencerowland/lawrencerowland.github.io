@@ -13,7 +13,7 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 Below shows the phase of project delivery and Operations these use cases first appear.
 
-![Image description](/images/2020-05-05-Applying-Machine-Learning-at-different-levels/Usecase-to-Operations-subgraph-ML-models-created.png)
+{% include screenshot url="2020-05-05-Applying-Machine-Learning-at-different-levels/Usecase-to-Operations-subgraph-ML-models-created.png" %}
   
 ## Summary of start-up steps for application
 
