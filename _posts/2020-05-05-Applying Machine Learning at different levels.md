@@ -13,19 +13,19 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 Below shows the phase of project delivery and Operations these use cases first appear.
 
-<!-- wp:image {"id":474,"sizeSlug":"medium"} -->
-<figure class="wp-block-image size-medium"><img src="https://atmiddlenight.com/wp-content/uploads/2020/02/2020-02-Use-case-to-Operations-subgraph-ML-models-created.png" alt="" class="wp-image-474"/>
-<!-- /wp:image -->
-  
-  
+<figure class="wp-block-image size-medium"><img src="https://atmiddlenight.com/wp-content/uploads/2020/02/2020-02-Use-case-to-Operations-subgraph-ML-models-created.png" alt="" class="wp-image-474"/> 
   
 ## Summary of start-up steps for application
 
 Once a use-case has been chosen, the following decisions can be made:
 
-<!-- wp:list {"ordered":true} -->
-<ol><li>Identify possible use cases</li><li> Map  to business area/lifecycle</li><li>Narrow down to a generic ML method</li><li>Select a straightforward ML model</li><li>Choose a suitable model environment</li><li>Choose a code library or algorithm to apply that model</li><li>Select data-set</li></ol>
-<!-- /wp:list -->
+-Identify possible use cases
+-Map  to business area/lifecycle
+-Narrow down to a generic ML method
+-Select a straightforward ML model
+-Choose a suitable model environment
+-Choose a code library or algorithm to apply that model
+-Select data-set
 
 More is said about each stage [here](https://lawrencerowland.github.io/2020/05/08/Applying-appropriate-machine-learning-approach.md.html)
 
