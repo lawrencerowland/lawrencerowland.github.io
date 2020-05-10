@@ -1,5 +1,10 @@
 # Applying appropriate machine-learning approach.
 
+Once a project-managmet use case has been selected [see here](https://lawrencerowland.github.io/2020/05/05/Applying-Machine-Learning-at-different-levels.html), then the following steps can be applied to apply the approach to the projects.
+
+1. TOC
+{:toc}
+
 ## Selection of machine-learning method 
 Use cases will be better suited to one type of ML method or another.
 
@@ -43,8 +48,6 @@ Use cases will be better suited to one type of ML method or another.
 <!-- wp:paragraph -->
 <p>Machine learning boosts most stages of the project lifecycle, from Project definition to close-out </p>
 <!-- /wp:paragraph -->
-
-
 
 <!-- wp:paragraph -->
 <p>This gives something to play with, and get something to work. There are plenty of ML prototyping frameworks available to provide structure for developing a prototype. <a href="https://predictionmachines.ai">Agrawal et al </a> have a canvas for planning it at high level, understanding purpose and constraints. </p>
