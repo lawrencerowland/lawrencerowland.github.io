@@ -3,7 +3,7 @@
 {:toc}
 
 ## Purpose
-This site is about more easily managing project portfolios. 
+Easier project portfolio management. 
 
 It is about open-sourcing the nuts and bolts of project management.
 
