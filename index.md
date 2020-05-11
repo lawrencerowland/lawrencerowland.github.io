@@ -3,21 +3,21 @@
 {:toc}
 
 ## Purpose
-Easier project portfolio management. 
+Simpler deployment of project portfolios.
 
-It is about open-sourcing the nuts and bolts of project management.
-
-That saves time to allow us all to focus on the more complex, contextual, cultural and person aspects of the business.  
+## Objectives
+- Open-source the nuts and bolts of project management.
+- So saving time for portfolio teams to focus on the contextual, cultural and person aspects of the business.  
 
 ## Where to go for what 
 This site is a general guide to a more detailed code and documentation library. 
-Start with the guide unless you know exactly what you want. 
+Start with the guides unless you know exactly what you want. 
 
-1. For applying machine-learning approaches to projects, the is [here](https://lawrencerowland.github.io/2020/05/05/Applying-Machine-Learning-at-different-levels.html), the library is [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) 
+1. For applying **machine-learning approaches to projects**, the guide is [here](https://lawrencerowland.github.io/2020/05/05/Applying-Machine-Learning-at-different-levels.html), the library is [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) 
 
-1. For choosing and developing your own portfolio framework, the guide is XXXX, the library is [here](https://github.com/lawrencerowland/Data-Model-for-Project-Frameworks). A framework sets out how the portfolio's projects will be set up and delivered
+1. For **choosing and developing your own portfolio framework**, the guide is XXXX, the library is [here](https://github.com/lawrencerowland/Data-Model-for-Project-Frameworks). A framework sets out how the portfolio's projects will be set up and delivered.
 
-1. For constructing a data model for your projects, the guide is [here](https://lawrencerowland.github.io/2020/05/07/Data-models-for-Project-Portfolios.html), and the libraries are here
+1. For constructing a **data model for your projects**, the guide is [here](https://lawrencerowland.github.io/2020/05/07/Data-models-for-Project-Portfolios.html), and the libraries are here:
 
 - [portfolio level](https://github.com/lawrencerowland/Data-models-for-portfolios)
 - [programme level](https://github.com/lawrencerowland/Data-models-for-programmes)
