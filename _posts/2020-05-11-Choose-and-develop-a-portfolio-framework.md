@@ -20,6 +20,10 @@ It is helpful to have a practice framework for project portfolio management that
 If you wish to go straight to the code and document libraries, start [here](https://github.com/lawrencerowland/Data-Model-for-Project-Frameworks)
 
 ## Use cases
+1. Set-up for a framework for a particular sector/company.
+1. Extract and modify from existing frameworks.
+1. Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
+
 
 ## Other Alternative frameworks
 I tend to use whatever will be understood by my colleagues, or whatever has worked in the past in the same organisation. Going beyond the work on this site, other recommended starting points are:
