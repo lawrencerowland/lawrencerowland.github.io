@@ -10,15 +10,15 @@ Manage and visualise a portfolio of projects with a data-model that is adapted t
 
 These repositories use freely available graph-database technology to manage project data.
 
-{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Digital-Transformation-Programme-Education-pared back-ego-graph.png" %}
+{% include screenshot url="images/2020-05-07-Data-models-for-Project-Portfolios/Digital-Transformation-Programme-Education-pared back-ego-graph.png" %}
 
 # Code and library base
 To skip this guidance, go straight to these code and document libraries:
-- **at portfolio level** [](https://github.com/lawrencerowland/Data-models-for-portfolios)
+- **at portfolio level** [here](https://github.com/lawrencerowland/Data-models-for-portfolios)
 
-- **at programme level** [](https://github.com/lawrencerowland/Data-models-for-programmes)
+- **at programme level** [here](https://github.com/lawrencerowland/Data-models-for-programmes)
 
-- **at project level** [](https://github.com/lawrencerowland/Data-models-for-projects)
+- **at project level** [here](https://github.com/lawrencerowland/Data-models-for-projects)
 
 # Benefits
 
