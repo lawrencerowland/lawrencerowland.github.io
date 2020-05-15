@@ -10,7 +10,7 @@ Manage and visualise a portfolio of projects with a data-model that is adapted t
 
 These repositories use freely available graph-database technology to manage project data.
 
-![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital-Transformation-Programme-Education-pared back-ego-graph.jpg)
+![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital_Programme_simplified_graph_schema.jpg)
 
 # Code and library base
 To skip this guidance, go straight to these code and document libraries:
@@ -32,17 +32,21 @@ To skip this guidance, go straight to these code and document libraries:
 
 1. The data-model relates outcomes, objectives, benefits, scope, KPIs etc, in the way that your business understands these features
 
-![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital_Programme_simplified_graph_schema.jpg)
+![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital-Transformation-Programme-Education-pared back-ego-graph.jpg)
 
 # Use cases
 1. **Set-up a new portfolio** Portfolio is new and team needs to move from whiteboard charts to a portfolio database that fits the business. Here, the team will set up, manage and visualise their portfolio data within a graph database. 
 
-2. **Gain insight on project dependencies for an existing portfolio** Portfolio is working well, and recorded well either in spreadsheet, or relational database, or Project Management System. Team wants to gain insight into how projects and objectives relate to each other, and chooses to view the same data in parallel with a graph database. Here one runs a graph database alongside existing database, analytics and reporting.
 
 ![](/images/2020-05-07-Data-models-for-Project-Portfolios/Graph_Option.png)
 
+2. **Gain insight on project dependencies for an existing portfolio** Portfolio is working well, and recorded well either in spreadsheet, or relational database, or Project Management System. Team wants to gain insight into how projects and objectives relate to each other, and chooses to view the same data in parallel with a graph database. Here one runs a graph database alongside existing database, analytics and reporting.
+
+{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Graph_Now.png" %}
+
 
 3. **Reset a current portfolio with an appropriate data structure** The Portfolio data model is no longer suitable for the type of new projects or current business environment. The portfolio is well recorded in spreadsheet, or relational database, or Project Management System, and the team wish to move their data across to a new data model using a graph database. Here, the team runs the portfolio from a graph database. 
+
 ![](/images/2020-05-07-Data-models-for-Project-Portfolios/Graph_Future.png)
 
 # Why have a data-model at all?
@@ -87,14 +91,14 @@ To get started, go to the relevant code and document library, which will have th
 
 ***Summary of steps***
 1. Get an idea of the possible by looking at the examples provided
-1. Review what you currently record and track per project
-1. Sketch out what you would like to see for all projects
-1. Select your preferred level: portfolio, programme or project level
-1. Prepare 3 columns CSV representing what data is connected in your current portfolio (if any) e.g. |project| has |project risk|
-1. If each current data type have attributes, then record this in a CSV e.g. |Project Risk|Risk-description| Risk impact| Risk probability|
-1. Turn your to-be sketch into similar CSVs
-1. Import your CSVs into YEd Live or turn the CSVs into Cypher code and import them into Neo4j 
-1. Look at the visualisations created from this import, and refine your data model. 
+2. Review what you currently record and track per project
+3. Sketch out what you would like to see for all projects
+4. Select your preferred level: portfolio, programme or project level
+5. Prepare 3 columns CSV representing what data is connected in your current portfolio (if any) e.g. |project| has |project risk|
+6. If each current data type have attributes, then record this in a CSV e.g. |Project Risk|Risk-description| Risk impact| Risk probability|
+7. Turn your to-be sketch into similar CSVs
+8. Import your CSVs into YEd Live or turn the CSVs into Cypher code and import them into Neo4j 
+9. Look at the visualisations created from this import, and refine your data model. 
 
 This is now the data-model. One agreed, work on bringing in Instance data for all the projects. 
 
@@ -104,12 +108,16 @@ There is an even faster method, which is to import all current data tables into 
 
 ## What is a Data model ?
 
-The data model is what project attributes are consistently recorded and tracked in a given portfolio. 
-For example, most projects will have data recorded for Scope, cost and schedule. 
-It is often shown as a data schema.
-If the data is held in a relational database, then you may see shown as a series of tables, and joins between tables. 
+-The data model is what project attributes are consistently recorded and tracked in a given portfolio. 
+
+-For example, most projects will have data recorded for Scope, cost and schedule. 
+
+-It is often shown as a data schema.
+
+-If the data is held in a relational database, then you may see shown as a series of tables, and joins between tables. 
 
 ## Where can we find the data model for our current portfolio ?
+
 In most portfolios, the data model is either:
 1. implicit, and more or less the list of project attributes in a project spreadsheet
 2. implied by the project /portfolio management software used
@@ -118,19 +126,21 @@ In most portfolios, the data model is either:
 
 ## How many portfolios have good data-models?
 
-{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Graph_Now.png" %}
-
 Typically, a portfolio data model is in one of the following states:
-1. Over time, most projects have come record the same attributes
-1. A data model and database has been designed based upon company needs
-1. conflicted, where historical project records now do not sit well with the new projects being set up. 
+
+1. **evolved** Over time, most projects have come to have similar records, but there is no formal data model
+
+1. **designed** A data model and database has been designed based upon company needs
+
+1. **conflicted**, where historical project records now do not sit well with the new projects being set up. 
 
 ## Which organisations will this help?
 
 A clear data-model with a graph database is useful for companies that:
+
 1. run many projects or programmes, OR
-2. manage this portfolio in cloud Project Management system (Jira, Asana, Project online etc)or via their own documented Project framework, OR 
-3. have project data in a database or spreadsheets or just within a cloud Project Management system
+1. manage this portfolio in cloud Project Management system (Jira, Asana, Project online etc)or via their own documented Project framework, OR 
+1. have project data in a database or spreadsheets or just within a cloud Project Management system
 
 
 # Acknowledgements
