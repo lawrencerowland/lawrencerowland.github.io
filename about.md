@@ -1,6 +1,7 @@
 # About
 
-TOC {:toc}
+1. TOC 
+{:toc}
 
 # Purpose
 
