@@ -80,7 +80,7 @@ Options:
 
 1. **Project level**. There are a number of mature project data models available, and at the project level it often makes the most sense to stick with the implied data model your team already uses for projects. i.e. the data model often 'comes with' the enterprise project management system you are using, whether an in-house system or Jira/Asana etc. There is probably no need for a graph database data model at project level unless your team is handling projects that have unique business contexts. However, a graph-based data model can be run in parallel if you are looking for additional insight in visualising the ways your projects fit together. 
 
-## Summary of start-up steps for application
+# Summary of start-up steps for application
 To get started, go to the relevant code and document library, which will have the appropriate steps.
 
 - **at portfolio level** [here](https://github.com/lawrencerowland/Data-models-for-portfolios)
@@ -94,8 +94,10 @@ To get started, go to the relevant code and document library, which will have th
 2. Review what you currently record and track per project
 3. Sketch out what you would like to see for all projects
 4. Select your preferred level: portfolio, programme or project level
-5. Prepare 3 columns CSV representing what data is connected in your current portfolio (if any) e.g. |project| has |project risk|
-6. If each current data type have attributes, then record this in a CSV e.g. |Project Risk|Risk-description| Risk impact| Risk probability|
+5. Prepare 3 columns CSV representing what data is connected in your current portfolio (if any) 
+e.g. |project| has |project risk|
+6. If each current data type have attributes, then record this in a CSV 
+e.g. |Project Risk|Risk-description| Risk impact| Risk probability|
 7. Turn your to-be sketch into similar CSVs
 8. Import your CSVs into YEd Live or turn the CSVs into Cypher code and import them into Neo4j 
 9. Look at the visualisations created from this import, and refine your data model. 
