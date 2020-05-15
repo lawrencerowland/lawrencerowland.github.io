@@ -10,7 +10,7 @@ Manage and visualise a portfolio of projects with a data-model that is adapted t
 
 These repositories use freely available graph-database technology to manage project data.
 
-![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital-Transformation-Programme-Education-pared back-ego-graph.png)
+![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital-Transformation-Programme-Education-pared back-ego-graph.jpg)
 
 # Code and library base
 To skip this guidance, go straight to these code and document libraries:
@@ -32,14 +32,14 @@ To skip this guidance, go straight to these code and document libraries:
 
 1. The data-model relates outcomes, objectives, benefits, scope, KPIs etc, in the way that your business understands these features
 
-![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital_Programme_simplified_graph_schema.png)
+![](/images/2020-05-07-Data-models-for-Project-Portfolios/Digital_Programme_simplified_graph_schema.jpg)
 
 # Use cases
 1. **Set-up a new portfolio** Portfolio is new and team needs to move from whiteboard charts to a portfolio database that fits the business. Here, the team will set up, manage and visualise their portfolio data within a graph database. 
 
 2. **Gain insight on project dependencies for an existing portfolio** Portfolio is working well, and recorded well either in spreadsheet, or relational database, or Project Management System. Team wants to gain insight into how projects and objectives relate to each other, and chooses to view the same data in parallel with a graph database. Here one runs a graph database alongside existing database, analytics and reporting.
 
-![](/images/2020-05-07-Data-models-for-Project-Portfolios/Graph_Option.png" %)
+![](/images/2020-05-07-Data-models-for-Project-Portfolios/Graph_Option.png)
 
 
 3. **Reset a current portfolio with an appropriate data structure** The Portfolio data model is no longer suitable for the type of new projects or current business environment. The portfolio is well recorded in spreadsheet, or relational database, or Project Management System, and the team wish to move their data across to a new data model using a graph database. Here, the team runs the portfolio from a graph database. 
