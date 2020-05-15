@@ -1,15 +1,17 @@
-# Project Portfolio Management
+# Main
 1. TOC
 {:toc}
 
 ## Purpose
+
 Simpler deployment of project portfolios.
 
 ## Objectives
 - Open-source the nuts and bolts of project management.
-- So saving time for portfolio teams to focus on the contextual, cultural and person aspects of the business.  
+- So save time for leads to focus on contextual, cultural and people aspects of the business.  
 
 ## Where to go for what 
+
 This site is a general guide to a more detailed code and documentation library. 
 Start with the guides unless you know exactly what you want. 
 
@@ -30,27 +32,6 @@ Start with the guides unless you know exactly what you want.
 1. **choosing and developing your own portfolio framework** is a delivery framework showing what project activities and workflows need to be done for each proect, each programme, and for managing the whole portfolio. The framework includies only necessary management tasks applicable to a particular business, and so the framework consists of a number of operating modules, selected from a broader set of modules. This framework generates a project lifecycle as well as lean work-plan of governance, reporting, controls and support activities at each level. 
 
 1. **data model for your projects** shows how each project and programme type is described and fits together as a portfolio. This not about management work-flows, but about the content of the portfolio and projects. It relates to how all the business stakeholders understand your projects-relating together outcomes, objectives, benefits, scope, KPIs etc.  These repositories use freely available graph-database technology to manage project data in a way that emphasises the particular structure of your industry, and that emphasises the relationship and dependencies between projects.
-
-## Description of site
-This site provides open frameworks and tool-sets to set up and deliver projects, programmes and portfolios. 
-
-As well as conventional project management, this site introduces specific ways to use machine-learning, natural language understanding and graph databases to deliver better projects. 
-
-Each project and portfolio delivered teaches lessons which are built back into the frameworks. 
-
-The examples provided are no-code or low-code approaches so that portfolio managers can apply them directly.
-
-
-## The motivation for the site
-
-Other project and portfolio managers can use tools and frameworks that have worked well for me. The generosity of Open Source practice has helped me to learn and work better, and to continually improve on these frameworks. I also learn from the ways that others apply and extend things that have worked for me. 
-
-Despite all this, project management remains as art as science. It is more about people and teams than charts and KPIs. More about consensus, stories, incentives and unintended consequences than top-down planning and flowcharts. Tools and frameworks only do so much. 
-
-It is my experience that by building and re-building useful frameworks, the mechanics of projects take a little less time, and so time and attention is freed up on a project. 
-
-This time can be used for the real work of understanding the company, the context of the portfolio, and finding the unique approach, or having the right conversation, that gives the current portfolio a chance to succeed. 
-![Howgills](images/Howgills.png)
 
 ## Acknowledgements for website template
 ![Image of fast.ai logo](images/logo.png)
