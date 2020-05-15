@@ -9,7 +9,7 @@
 
 - It shows what to use for different business challenges. 
 
-## Description of site
+# Description 
 
 This site provides open frameworks and tool-sets to set up and deliver projects, programmes and portfolios. 
 
@@ -29,7 +29,7 @@ Or go straight to my code and document libraries (repositories) for implementati
 
 Please feel free to use for commercial or private purposes. Where you make improvements, please share them if appropriate. 
 
-# The motivation for the site
+# Motivation
 
 Other project and portfolio managers can use tools and frameworks that have worked well for me. The generosity of Open Source practice has helped me to learn and work better, and to continually improve on these frameworks. I also learn from the ways that others apply and extend things that have worked for me. 
 
