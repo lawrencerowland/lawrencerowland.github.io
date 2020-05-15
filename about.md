@@ -1,12 +1,15 @@
 # About
 
+TOC {:toc}
+
 # Purpose
 
--This website introduces various tools and frameworks available for better project portfolio management. 
+- This website introduces various tools and frameworks available for better project portfolio management. 
 
--It shows what to use for different business challenges. 
+- It shows what to use for different business challenges. 
 
 ## Description of site
+
 This site provides open frameworks and tool-sets to set up and deliver projects, programmes and portfolios. 
 
 As well as conventional project management, this site introduces specific ways to use machine-learning, natural language understanding and graph databases to deliver better projects. 
@@ -15,8 +18,9 @@ Each project and portfolio delivered teaches lessons which are built back into t
 
 The examples provided are no-code or low-code approaches so that portfolio managers can apply them directly.
 
-
 # How to use 
+
+Start on the main page to access various pages of [guidance](https://lawrencerowland.github.io/)
 
 When you are ready to test or apply a particular tool or approach,then you will find a link to the relevant library (repository), which can be downloaded or cloned, ready for use and modification. 
 
@@ -35,3 +39,5 @@ It is my experience that by building and re-building useful frameworks, the mech
 This time can be used for the real work of understanding the company, the context of the portfolio, and finding the unique approach, or having the right conversation, that gives the current portfolio a chance to succeed. 
 ![Howgills](images/Howgills.png)
 
+# Contact
+I am easy to find on twitter and Linked in (Uk). Or raise an issue/suggestion in the relevant repository. 
