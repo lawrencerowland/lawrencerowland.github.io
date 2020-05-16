@@ -8,28 +8,30 @@ Once a project-management use case has been selected [see here](https://lawrence
 # Selection of machine-learning method 
 Use cases will be better suited to one type of ML method or another.
 
-![](/images/2020-05-08-Applying-appropriate-machine-learning approach/2020-02-subgraph-use-case-to-ML-type.png)
+![](/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-use-case-to-ML-type.png)
 
 # Selection of machine-learning model
 To apply this type of ML method, one may wish to use one of the following specific model types as a first pass. 
 
-![](/images/2020-05-08-Applying-appropriate-machine-learning approach/2020-02-subgraph-project-use-case-to-ML-model.png)
+![](/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-project-use-case-to-ML-model.png)
 
-Type of ML model suitable per Project Use Case. Models that are classical rather than machine learning in brackets.
+Type of ML model suitable per Project Use Case. 
+***Models that are classical rather than machine learning in brackets***
   
 # Selection of model environment
 Here are some accessible environments where one can apply these types of ML methods. 
 
-![](/images/2020-05-08-Applying-appropriate-machine-learning approach/2020-02-ML-project-use-case-subgraph-for-environments.png)
+![](/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-ML-project-use-case-subgraph-for-environments.png)
 
 # Selection of machine-learning code library
 Here are some examples of libraries where these models can be found in a convenient format
 
-![](/images/2020-05-08-Applying-appropriate-machine-learning approach/2020-02-subgraph-ML-models-to-library.png) 
-Example code libraries with these ML models 
+![](/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-ML-models-to-library.png) 
 
-# Examples of suitable data-sets for each Use Case
-![](/images/2020-05-08-Applying-appropriate-machine-learning approach/2020-02-subgraph-ML-model-to-data.png)
+
+# Selection of suitable data-sets for each Use Case
+For example, these data-sets could be selected. 
+![](/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-ML-model-to-data.png)
 
 # Summary 
 Machine learning boosts most stages of the project lifecycle, from Project definition to close-out.
