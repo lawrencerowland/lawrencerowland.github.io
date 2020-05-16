@@ -15,7 +15,7 @@ Simpler deployment of project portfolios.
 This site is a general guide to a more detailed code and documentation library. 
 Start with the guides unless you know exactly what you want. 
 
-1. For applying **machine-learning approaches to projects**, the guide is [here](https://lawrencerowland.github.io/2020/05/05/Applying-Machine-Learning-at-different-levels.html), the library is [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) 
+1. For applying **machine-learning approaches to projects**, the guide is [here](https://lawrencerowland.github.io/ML-for-portfolios.html), the library is [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) 
 
 1. For **choosing and developing your own portfolio framework**, the guide is [here](https://lawrencerowland.github.io/2020/05/11/Choose-and-develop-a-portfolio-framework.html), the library is [here](https://github.com/lawrencerowland/Data-Model-for-Project-Frameworks). A framework sets out how the portfolio's projects will be set up and delivered. It is a delivery framework.
 
