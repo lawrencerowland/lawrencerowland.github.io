@@ -1,3 +1,5 @@
+# Portfolio frameworks
+
 # Choose and develop a portfolio framework
 
 1. TOC
@@ -8,6 +10,8 @@
 - Select practical portfolio frameworks for deployment as working-practice
 
 - Be able to adapt a portfolio framework to suit a particular business area and organisation.
+
+![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/P3M-categories-Wikipedia-Higher-structure-LR-Neo4j.png)
 
 # Motivation
 
@@ -42,8 +46,16 @@ If you wish to go straight to the code and document libraries, start [here](http
 # Use cases
 
 1. Set-up for a framework for a particular sector/company.
+
+![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/portfolio-tier1.png)
+
+
 1. Extract and modify from existing frameworks.
+
+![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/2020-02-P3M-categories-in-Wikipedia-neo4j-LR.png)
+
 1. Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
+![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/Orange-NLP-example.png)
 
 # FAQ
 
@@ -84,8 +96,5 @@ I like to use whatever will be understood by my colleagues, or whatever has work
 
 - Cynefin (https://cognitive-edge.com) sometimes for high consequence environments for organisational sense making. 
 
-![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/Orange-NLP-example.png)
 
-![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/2020 02-P3M-categories-in-Wikipedia-neo4j-LR.png)
 
-![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/P3M-categories-Wikipedia-Higher-structure-LR-Neo4j.png)
