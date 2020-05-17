@@ -1,6 +1,6 @@
 # Portfolio frameworks
 
-# Choose and develop a portfolio framework
+## Choose and develop a portfolio framework
 
 1. TOC
 {:toc}
@@ -34,9 +34,13 @@ There are several excellent standard frameworks to begin from (Praxis, Axelos Mo
 It is recommended that your preferred framework is tailored to:
 
 1. reflect how the portfolio is currently managed in reality
+
 1. goes into more detail on working practices
+
 1. is tailored to suit the particular business domain
+
 1. is regularly updated as lessons are learned.
+
 1. avoid prescribing unnecessary procedures. 
 
 # Code and library base
@@ -47,15 +51,15 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 1. Set-up for a framework for a particular sector/company.
 
-![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/portfolio-tier1.png)
+![](/images/Portfolio-frameworks/portfolio-tier1.png)
 
 
 1. Extract and modify from existing frameworks.
 
-![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/2020-02-P3M-categories-in-Wikipedia-neo4j-LR.png)
+![](/images/Portfolio-frameworks/2020-02-P3M-categories-in-Wikipedia-neo4j-LR.png)
 
 1. Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
-![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/Orange-NLP-example.png)
+![](/images/Portfolio-frameworks/Orange-NLP-example.png)
 
 # FAQ
 
