@@ -1,6 +1,6 @@
 # Portfolio frameworks
 
-## Choose and develop a portfolio framework
+***Choose and develop a portfolio framework***
 
 1. TOC
 {:toc}
@@ -11,7 +11,7 @@
 
 - Be able to adapt a portfolio framework to suit a particular business area and organisation.
 
-![](/images/2020-05-11-Choose-and-develop-a-portfolio-framework/P3M-categories-Wikipedia-Higher-structure-LR-Neo4j.png)
+![](/images/Portfolio-frameworks/P3M-categories-Wikipedia-Higher-structure-LR-Neo4j.png)
 
 # Motivation
 
