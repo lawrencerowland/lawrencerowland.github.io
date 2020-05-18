@@ -49,7 +49,7 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 # Use cases
 
-1. Set-up for a framework for a particular sector/company.
+1. Adopt our framework to get started on new portfolio
 
 ![](/images/Portfolio-frameworks/portfolio-tier1.png)
 
@@ -59,6 +59,16 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 3. Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
 ![](/images/Portfolio-frameworks/Orange-NLP-example.png)
+
+# Use case 1: Adopt a framework
+We have a  framework that has been built up across time through working on various portfolios. It can be a useful starting point which can then be tailored to meet the particular business needs. 
+Guidance is provided [here](https://lawrencerowland.github.io/2020-05-16-Adopt-existing-portfolio-framework.html)
+
+# Use Case 2: Extract from existing framework
+There are other useful frameworks to start from. If you have a framework in mind, whether from a book, or from a particular standard, then this use case addresses the challenge of turning the general content into a framework that the team can use and adapt. 
+
+# Use case 3: Apply NLP to understand a particular business domain
+This is about taking a unique business area, company or portfolio, and using text-mining techniques to understand the main topics, categories and relationships within that domain. That then allows the team to create a portfolio management framework that meets the specific requirements and constraints of that business area. 
 
 # FAQ
 
