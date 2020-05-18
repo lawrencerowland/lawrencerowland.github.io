@@ -49,15 +49,17 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 # Use cases
 
-1. Adopt our framework to get started on new portfolio
+1.Adopt our framework to get started on new portfolio
 
 ![](/images/Portfolio-frameworks/portfolio-tier1.png)
 
-2. Extract and modify from existing frameworks.
+
+2.Extract and modify from existing frameworks.
 
 ![](/images/Portfolio-frameworks/2020-02-P3M-categories-in-Wikipedia-neo4j-LR.png)
 
-3. Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
+
+3.Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
 ![](/images/Portfolio-frameworks/Orange-NLP-example.png)
 
 # Use case 1: Adopt a framework
