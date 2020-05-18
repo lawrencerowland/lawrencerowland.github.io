@@ -32,15 +32,16 @@ Start with the guides unless you know exactly what you want.
 
 1. **machine-learning approaches to projects** Machine-learning has become usable for everyday business in the last couple of years. Whilst all companies are progressing their digital transformation plans, there is merit in using small machine-learning tools on -in-year, current project problems to improve project understanding, project prediction and project content management. This needs to be done by project and portfolio managers who understand their business area, and it allows both in-year improvements, as well as allowing portfolio managers to understand and shape the broader digital transformation within their companies, so that the right machine learning use cases are considered and specified during the procurement of major AI and cloud procurement
 
+![](/images/index/Orange-NLP-example.png)
+
+
 1. **choosing and developing your own portfolio framework** is a delivery framework showing what project activities and workflows need to be done for each project, each programme, and for managing the whole portfolio. The framework includes only necessary management tasks applicable to a particular business, and so the framework consists of a number of operating modules, selected from a broader set of modules. This framework generates a project lifecycle as well as lean work-plan of governance, reporting, controls and support activities at each level. 
+
+![](/images/index/portfolio-tier1.png)
 
 1. **data model for your projects** shows how each project and programme type is described and fits together as a portfolio. This not about management work-flows, but about the content of the portfolio and projects. It relates to how all the business stakeholders understand your projects-relating together outcomes, objectives, benefits, scope, KPIs etc.  These repositories use freely available graph-database technology to manage project data in a way that emphasises the particular structure of your industry, and that emphasises the relationship and dependencies between projects.
 
 ![](/images/index/Digital_Programme_simplified_graph_schema.jpg)
-
-![](/images/index/P3M-categories-Wikipedia-Higher-structure-LR-Neo4j.png)
-
-![](/images/index/portfolio-tier1.png)
 
 
 

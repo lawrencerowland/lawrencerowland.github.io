@@ -1,6 +1,6 @@
 # Portfolio frameworks
 
-***Choose and develop a portfolio framework***
+**Choose and develop a portfolio framework**
 
 1. TOC
 {:toc}
@@ -53,12 +53,11 @@ If you wish to go straight to the code and document libraries, start [here](http
 
 ![](/images/Portfolio-frameworks/portfolio-tier1.png)
 
-
-1. Extract and modify from existing frameworks.
+2. Extract and modify from existing frameworks.
 
 ![](/images/Portfolio-frameworks/2020-02-P3M-categories-in-Wikipedia-neo4j-LR.png)
 
-1. Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
+3. Apply Natural Language Processing to your current project documents to find the structure of your particular business domain.
 ![](/images/Portfolio-frameworks/Orange-NLP-example.png)
 
 # FAQ
@@ -78,11 +77,11 @@ The frameworks are about management activities, but the data models are about th
 
 In more detail:
 
-	-These frameworks are about the project management plans and processes for running the projects. (governance,reporting etc)
+-These frameworks are about the project management plans and processes for running the projects. (governance,reporting etc)
 
-	-The data models are about how the project data and reporting is structured to represent the important aspects of the project content, as well as what stakeholders and users experience from the project. (scope, outputs, outcomes etc)
+-The data models are about how the project data and reporting is structured to represent the important aspects of the project content, as well as what stakeholders and users experience from the project. (scope, outputs, outcomes etc)
 
-	-the data-model can influence the framework and vice versa, but it is helpful to distinguish the how from the what. 
+-the data-model can influence the framework and vice versa, but it is helpful to distinguish the how from the what. 
 
 ## Are there any other frameworks elsewhere ?
 
@@ -98,7 +97,7 @@ I like to use whatever will be understood by my colleagues, or whatever has work
 
 - For agile projects I would use whatever framework project members are most comfortable with. SCRUM or KANBAN is straightforward.
 
-- Cynefin (https://cognitive-edge.com) sometimes for high consequence environments for organisational sense making. 
+- [Cynefin](https://cognitive-edge.com) sometimes for high consequence environments for organisational sense making. 
 
 
 

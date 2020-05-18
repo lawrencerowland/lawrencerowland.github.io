@@ -12,7 +12,7 @@ Manage and visualise a portfolio of projects with a data-model that is adapted t
 
 These repositories use freely available graph-database technology to manage project data.
 
-![](/images/Portfolio-data-model/Digital_Programme_simplified_graph_schema.jpg)
+![](/images/Portfolio-data-model/Digital-Transformation-Programme-Education-pared-back-ego-graph.jpg)
 
 # Code and library base
 To skip this guidance, go straight to these code and document libraries:
@@ -33,8 +33,6 @@ To skip this guidance, go straight to these code and document libraries:
 1. The data-model can be tuned to match how all the business stakeholders understand your projects
 
 1. The data-model relates outcomes, objectives, benefits, scope, KPIs etc, in the way that your business understands these features
-
-![](/images/Portfolio-data-model/Digital-Transformation-Programme-Education-pared-back-ego-graph.jpg)
 
 ![](/images/Portfolio-data-model/Full-programme-data-model.png)
 
@@ -151,8 +149,9 @@ A clear data-model with a graph database is useful for companies that:
 
 
 # Acknowledgements
-https://www.yworks.com Free products YEd Live and YEd are a good entry level to seeing the portfolio relationships as a graph
-https://neo4j.com provide Neo4j Desktop for running graph databases as a Community edition, along with a number of more sophisticated enterprise products. 
+-[](https://www.yworks.com) Free products YEd Live and YEd are a good entry level to seeing the portfolio relationships as a graph
+
+-[](https://neo4j.com) provide Neo4j Desktop for running graph databases as a Community edition, along with a number of more sophisticated enterprise products. 
 
 
 
