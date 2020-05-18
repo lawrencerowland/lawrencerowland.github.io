@@ -1,6 +1,6 @@
 # Portfolio data models
 
-***Data models for project portfolios***
+**Data models for project portfolios**
 
 
 1. TOC
@@ -36,7 +36,10 @@ To skip this guidance, go straight to these code and document libraries:
 
 ![](/images/Portfolio-data-model/Digital-Transformation-Programme-Education-pared-back-ego-graph.jpg)
 
+![](/images/Portfolio-data-model/Full-programme-data-model.png)
+
 # Use cases
+
 1. **Set-up a new portfolio** Portfolio is new and team needs to move from whiteboard charts to a portfolio database that fits the business. Here, the team will set up, manage and visualise their portfolio data within a graph database. 
 
 
