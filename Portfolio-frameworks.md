@@ -71,7 +71,7 @@ It can be applied at:
 
 ## What is the difference between these frameworks and your data-models ?
 
-Data models are described [here](https://lawrencerowland.github.io/2020/05/07/Data-models-for-Project-Portfolios.html)
+Data models are described [here](https://lawrencerowland.github.io/Portfolio-data-model.html)
 
 The frameworks are about management activities, but the data models are about the projects themselves.
 
