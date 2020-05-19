@@ -48,5 +48,9 @@ This has illustrated some routes to first application of machine learning models
 
 This gives something to play with, and get something to work. There are plenty of ML prototyping frameworks available to provide structure for developing a prototype.
 
+# Get started
+Please go to the relevant code and document library[here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
+
+
 # Acknowledgements
 Agrawal et al </a> have a canvas [here](https://predictionmachines.ai) for planning it at high level, understanding purpose and constraints.
