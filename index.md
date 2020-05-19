@@ -43,6 +43,13 @@ Start with the guides unless you know exactly what you want.
 
 ![](/images/index/Digital_Programme_simplified_graph_schema.jpg)
 
+# Where to go next
+
+1. **machine-learning approaches to projects** [here](https://lawrencerowland.github.io/ML-for-portfolios.html)
+
+1. **choose and develop a portfolio framework**,[here](https://lawrencerowland.github.io/Portfolio-frameworks.html)
+
+1. **data model for your projects** [here](https://lawrencerowland.github.io/Portfolio-data-model.html)
 
 
 # Acknowledgements for website template
