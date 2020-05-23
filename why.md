@@ -1,6 +1,4 @@
-# Why?
-
-# An excuse for this whole exercise...
+# Why ?
 
 # 4 common problems with project portfolios.
 

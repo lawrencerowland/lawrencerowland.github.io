@@ -43,12 +43,12 @@ To skip this guidance, go straight to these code and document libraries:
 
 ![](/images/Portfolio-data-model/Graph_Option.png)
 
-2. **Gain insight on project dependencies for an existing portfolio** Portfolio is working well, and recorded well either in spreadsheet, or relational database, or Project Management System. Team wants to gain insight into how projects and objectives relate to each other, and chooses to view the same data in parallel with a graph database. Here one runs a graph database alongside existing database, analytics and reporting.
+1. **Gain insight on project dependencies for an existing portfolio** Portfolio is working well, and recorded well either in spreadsheet, or relational database, or Project Management System. Team wants to gain insight into how projects and objectives relate to each other, and chooses to view the same data in parallel with a graph database. Here one runs a graph database alongside existing database, analytics and reporting.
 
 ![](/images/Portfolio-data-model/Graph_Now.png)
 
 
-3. **Reset a current portfolio with an appropriate data structure** The Portfolio data model is no longer suitable for the type of new projects or current business environment. The portfolio is well recorded in spreadsheet, or relational database, or Project Management System, and the team wish to move their data across to a new data model using a graph database. Here, the team runs the portfolio from a graph database. 
+1. **Reset a current portfolio with an appropriate data structure** The Portfolio data model is no longer suitable for the type of new projects or current business environment. The portfolio is well recorded in spreadsheet, or relational database, or Project Management System, and the team wish to move their data across to a new data model using a graph database. Here, the team runs the portfolio from a graph database. 
 
 ![](/images/Portfolio-data-model/Graph_Future.png)
 
