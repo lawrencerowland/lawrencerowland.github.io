@@ -44,4 +44,14 @@ This library of tools is intended to address each of these.
 
 - Deploying your own portfolio is the best way of getting to know the projects inside-out.
 
+# Summary
+
+| Sudden project failures | business dependencies |, cumbersome frameworks | botched set-up |
+
+| project success prediction | Graph database | Modular project frameworks | Framework deployment |
+
+
+
+
+
 
