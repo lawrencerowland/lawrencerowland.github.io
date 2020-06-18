@@ -72,6 +72,10 @@ There are other useful frameworks to start from. If you have a framework in mind
 # Use case 3: Apply NLP to understand a particular business domain
 This is about taking a unique business area, company or portfolio, and using text-mining techniques to understand the main topics, categories and relationships within that domain. That then allows the team to create a portfolio management framework that meets the specific requirements and constraints of that business area. 
 
+# Other business examples (external to this site)
+
+[IT services firm](https://go.neo4j.com/rs/710-RRC-335/images/Neo4j-case-study-IT%20Services-EN-US.pdf)
+
 # FAQ
 
 ## At what project level can this be applied ?
@@ -109,7 +113,8 @@ I like to use whatever will be understood by my colleagues, or whatever has work
 
 - For agile projects I would use whatever framework project members are most comfortable with. SCRUM or KANBAN is straightforward.
 
-- [Cynefin](https://cognitive-edge.com) sometimes for high consequence environments for organisational sense making. 
+- [Cynefin](https://cognitive-edge.com) sometimes for high consequence environments for organisational sense making.
+ 
 
 
 
