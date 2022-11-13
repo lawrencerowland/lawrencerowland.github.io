@@ -3,23 +3,23 @@
   "version": "1.0",
   "data": "data.json",
   "logo": {
-    "file": "",
+    "file": "https://github.com/lawrencerowland/lawrencerowland.github.io/blob/96814407b9039ca70cf9191f509123a0f3728b23/images/Howgills.png",
     "link": "",
     "text": "LR"
   },
   "text": {
-    "more": "qedwqedf",
-    "intro": "sdcds",
+    "more": "",
+    "intro": "Whilst reading, I collected various concepts in the strategy and complexity space. \nThese are the nodes.\nThe edges are where I saw possible connections. \nHigher levels seem to be more general concepts, but I worked towards them from the bottom. ",
     "title": ""
   },
   "legend": {
-    "edgeLabel": "e",
+    "edgeLabel": "a suggested assertion linking two concepts",
     "colorLabel": "red",
-    "nodeLabel": "n"
+    "nodeLabel": "A strategy or concept"
   },
   "features": {
     "search": true,
-    "groupSelectorAttribute": "Label",
+    "groupSelectorAttribute": "Computed Z-Level",
     "hoverBehavior": "dim"
   },
   "informationPanel": {
