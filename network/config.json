@@ -3,7 +3,7 @@
   "version": "1.0",
   "data": "data.json",
   "logo": {
-    "file": "https://github.com/lawrencerowland/lawrencerowland.github.io/blob/96814407b9039ca70cf9191f509123a0f3728b23/images/Howgills.png",
+    "file": "https://raw.githubusercontent.com/lawrencerowland/lawrencerowland.github.io/96814407b9039ca70cf9191f509123a0f3728b23/images/Howgills.png",
     "link": "",
     "text": "LR"
   },
@@ -14,7 +14,7 @@
   },
   "legend": {
     "edgeLabel": "a suggested assertion linking two concepts",
-    "colorLabel": "red",
+    "colorLabel": "each colour is a cluster of related ideas identified by modularity graph algorithm",
     "nodeLabel": "A strategy or concept"
   },
   "features": {
