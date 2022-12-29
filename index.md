@@ -10,7 +10,7 @@ Simpler deployment of project portfolios.
 
 Go straight to the [Interactive Project Graphs](https://lawrencerowland.github.io/graphs)
 
-Interactive project graph 1.png
+https://raw.githubusercontent.com/lawrencerowland/lawrencerowland.github.io/master/images/Interactive_project_graph_1.png
 
 # Objectives
 

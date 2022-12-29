@@ -3,7 +3,7 @@
 
 1. Strategy mapping
 
-https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/images/Interactive_project_graph_1.png
+https://raw.githubusercontent.com/lawrencerowland/lawrencerowland.github.io/master/images/Interactive_project_graph_1.png
 
 [Interact with this here](https://lawrencerowland.github.io/network/)
 
