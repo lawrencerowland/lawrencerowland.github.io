@@ -3,16 +3,12 @@
 
 1. Strategy mapping
 
-Interactive project graph 1.png
+https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/images/Interactive_project_graph_1.png
 
 [Interact with this here](https://lawrencerowland.github.io/network/)
 
 2. Roadmaps for machine learning on projects 
-lawrencerowland.github.io/images/ML-Project-models-status-LR.png
+https://lawrencerowland.github.io/images/ML-Project-models-status-LR.png
 
-[Interact with this here ](https://gist.github.com/lawrencerowland/4c049d1955d7d3c70059a68de0ea8b64)
+[Interact with this here ](https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/lawrencerowland/6f3830da76044da038502c25a0d08959/raw/0547835523e2c0d7526fc675390a55581a224b5f/2020%252002%2520ML%2520models%2520created%2520roadmp%2520LR)
 
-`‌script src="https://gist.github.com/lawrencerowland/4c049d1955d7d3c70059a68de0ea8b64.js"></script`
-```
-<script src="https://gist.github.com/lawrencerowland/4c049d1955d7d3c70059a68de0ea8b64.js"></script>
-````‌`
