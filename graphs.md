@@ -2,17 +2,16 @@
 
 Do ask if you would like the code, data or graph for each of the examples. 
 
-| 1. Strategy mapping for projects 
+|Strategy mapping for projects 
 [link](#strategy-mapping-for-projects)
-![](/images/Interactive_project_graph_1.png) | 2. Mapping a Target Operating Model for a project
-[2.]
-![](/images/Interactive_project_graph_2.png) |  3. Roadmaps for machine learning on projects 
-![](/images/ML-Project-models-status-LR.png)|
-|:--|:--|:--|
-|  |  |  |
+![](/images/Interactive_project_graph_1.png)|Mapping a Target Operating Model for a project ![](/images/Interactive_project_graph_2.png)|
+|:--|:--|
+|Roadmaps for machine learning on projects 
+![](/images/ML-Project-models-status-LR.png)|Fourth example|
 
 
 {{TOC}}
+
 
 # Strategy mapping for projects
 
