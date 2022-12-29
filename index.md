@@ -6,6 +6,12 @@
 
 Simpler deployment of project portfolios.
 
+# What's popular right now ?
+
+Go straight to the [Interactive Project Graphs](https://lawrencerowland.github.io/graphs)
+
+Interactive project graph 1.png
+
 # Objectives
 
 - Open-source the nuts and bolts of project management.
