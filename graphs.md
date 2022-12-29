@@ -1,7 +1,20 @@
 # Interactive project graphs
 
+Do ask if you would like the code, data or graph for each of the examples. 
 
-1. Strategy mapping for projects
+| 1. Strategy mapping for projects 
+[link](#strategy-mapping-for-projects)
+![](/images/Interactive_project_graph_1.png) | 2. Mapping a Target Operating Model for a project
+[2.]
+![](/images/Interactive_project_graph_2.png) |  3. Roadmaps for machine learning on projects 
+![](/images/ML-Project-models-status-LR.png)|
+|:--|:--|:--|
+|  |  |  |
+
+
+{{TOC}}
+
+# Strategy mapping for projects
 
 ![](/images/Interactive_project_graph_1.png)
 
@@ -9,7 +22,8 @@ This graph has been visualised with a Javascript library. It had originally been
 
 [Interact with this here](https://lawrencerowland.github.io/network/)
 
-2. Mapping a Target Operating Model for a project
+
+# Mapping a Target Operating Model for a project
 
 ![](/images/Interactive_project_graph_2.png)
 
@@ -17,7 +31,8 @@ This graph has been visualised with a powerful graph visualisation service calle
 
 [Interact with this here](https://hub.graphistry.com/graph/graph.html?dataset=0c0253ab5cba497aa8e86b05cd7889a0&play=5000&splashAfter=false&session=de053e917db14bedbe57544cc6cc6119)
 
-3. Roadmaps for machine learning on projects 
+
+# Roadmaps for machine learning on projects 
 ![](/images/ML-Project-models-status-LR.png)
 
 [Interact with this here ](https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/lawrencerowland/6f3830da76044da038502c25a0d08959/raw/0547835523e2c0d7526fc675390a55581a224b5f/2020%252002%2520ML%2520models%2520created%2520roadmp%2520LR)
