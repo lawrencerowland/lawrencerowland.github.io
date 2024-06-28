@@ -1,0 +1,19 @@
+{
+  "homepage": "https://lawrencerowland.github.io/claude_example",
+  "dependencies": {
+    "@radix-ui/react-slider": "^1.2.0",
+    "@radix-ui/react-tabs": "^1.1.0",
+    "recharts": "^2.12.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
