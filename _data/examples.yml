@@ -1,0 +1,6 @@
+- title: "Decision Tree"
+  description: "Selecting a SAAS project product decision tree"
+  origin: "Gemini or ChatGPT"
+  tags: [decision, procurement]
+  path: "/examples/decision-tree.html"
+  thumbnail: "/images/examples/decision_tree.png"
