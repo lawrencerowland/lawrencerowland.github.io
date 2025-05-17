@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 # Adopt existing portfolio framework
 
 This provides guidance for Use Case 1,

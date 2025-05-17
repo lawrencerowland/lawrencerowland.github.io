@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Portfolio data models
 
 **Data models for project portfolios**

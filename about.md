@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # About
 
 1. TOC 

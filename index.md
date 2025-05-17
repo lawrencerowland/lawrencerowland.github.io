@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Main
 1. TOC
 {:toc}

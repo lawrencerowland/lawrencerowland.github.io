@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 # Applying appropriate machine-learning approach.
 
 Once a project-management use case has been selected [see here](https://lawrencerowland.github.io/ML-for-portfolios.html), then the following steps can be applied to apply the approach to the projects.

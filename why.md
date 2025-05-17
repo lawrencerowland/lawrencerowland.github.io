@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Why ?
 
 # 4 common problems with project portfolios.
