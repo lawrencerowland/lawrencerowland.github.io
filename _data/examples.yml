@@ -4,3 +4,9 @@
   tags: [decision, procurement]
   path: "/examples/decision-tree.html"
   thumbnail: "/images/examples/decision_tree.png"
+- title: "Grounded Theory as Colimit"
+  description: "Interactive visualisation of grounded theory through a category theory lens"
+  origin: "ChatGPT"
+  tags: [category theory, methods, social-science, knowledge-management]
+  path: "/examples/grounded-theory-colimit.html"
+  thumbnail: "/images/examples/decision_tree.png"

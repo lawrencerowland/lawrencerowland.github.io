@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounded Theory as Colimit – Interactive Visual</title>
+<style>
+    /* === Critical CSS ( < 9 kB ) === */
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fafafa;color:#111;line-height:1.45}
+    h1{font-size:clamp(1.4rem,2vw+1rem,2.4rem);margin:0 0 .5em;text-align:center}
+    #app{display:flex;flex-direction:column;gap:1rem;max-width:1200px;width:90%;margin:0 auto;padding:2vh 0}
+    #vis-wrapper{position:relative;width:100%;flex:1;min-height:20rem;border:1px dashed #bbb;border-radius:1rem;overflow:auto}
+    #controls{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+    button{padding:.6em 1em;border:none;border-radius:1rem;font-size:1rem;cursor:pointer;background:#333;color:#fff}
+    button:active{transform:scale(.97)}
+    #explanation,#readalong{font-size:clamp(.9rem,1.2vw+0.4rem,1.1rem);background:#fff;border-radius:1rem;padding:1rem;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    #readalong{border-left:4px solid #4f8df7}
+    .toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:.7em 1.2em;border-radius:1rem;font-size:.9rem;opacity:0;transition:opacity .4s}
+    .toast.show{opacity:1}
+    svg text{user-select:none;font-size:.8rem}
+</style>
+</head>
+<body>
+<p><a href="../project-examples.html">Back to Project Examples</a></p>
+<div id="app" data-timeout="3000">
+    <h1>Grounded Theory as a Colimit &amp; Initial Algebra</h1>
+    <div id="explanation">
+        <p>Each empirical <em>incident</em> is an <strong>object</strong>; your comparison memos are <strong>morphisms</strong>. Coding phases quotient this diagram until a universal cone – the <strong>core category</strong> – emerges. You’re effectively constructing the diagram’s colimit, an <em>initial algebra</em> into which every future incident factors uniquely.</p>
+    </div>
+    <div id="readalong"></div>
+    <div id="controls">
+        <button id="addIncident">Add Incident</button>
+        <button id="addMorphism">Add Morphism</button>
+        <button id="stepPhase">Next Phase</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div id="vis-wrapper" class="min-h-64">
+        <noscript>Interactive visualisation (enable JavaScript).</noscript>
+    </div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+(()=>{"use strict";
+/********************
+ * Helper functions *
+ *******************/
+const $ = sel => document.querySelector(sel);
+const showToast = msg => { const t=$('#toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2500); };
+const rnd = (min,max) => Math.random()*(max-min)+min;
+/************************
+ * Main visualisation    *
+ ************************/
+try {
+    const visWrapper = $('#vis-wrapper');
+    const readBox    = $('#readalong');
+    const NS         = 'http://www.w3.org/2000/svg';
+    let phase = 0; // 0=open,1=axial,2=selective,3=saturation
+    const phases = ['Open coding','Axial coding','Selective coding','Saturation'];
+    const phaseText = {
+        0:`<strong>Open coding</strong>: fracture the data; each incident stands alone as you name properties and dimensions without assuming relations.`,
+        1:`<strong>Axial coding</strong>: relate categories to sub‑categories; you start clustering incidents by shared properties, turning the diagram into coloured branches.`,
+        2:`<strong>Selective coding</strong>: integrate around a <em>core</em> category; branches attach to a universal node, giving the colimit that organises the model.`,
+        3:`<strong>Saturation</strong>: no new incidents re‑shape the core; morphisms now factor uniquely through it – the structure has stabilised.`
+    };
+    // --- data stores ---
+    let incidents  = []; // {id,label,x,y,group}
+    let morphisms  = []; // {from,to}
+    // --- SVG set‑up ---
+    const svg = document.createElementNS(NS,'svg');
+    svg.setAttribute('width','100%');
+    svg.style.height = '400px';  // starting height; will auto‑grow
+    visWrapper.appendChild(svg);
+    // mark pending for watchdog
+    visWrapper.dataset.smoke = 'pending';
+    /*********************
+     * Utility functions *
+     *********************/
+    const safeSize = () => {
+        const rect = svg.getBoundingClientRect();
+        let  w = rect.width  || visWrapper.clientWidth  || 600; // guarantee sane size
+        let  h = rect.height || parseFloat(svg.style.height) || 400;
+        if (w < 200) w = 600; // fallback if measured too early
+        return { w, h };
+    };
+    const updateReadAlong = () => { readBox.innerHTML = phaseText[phase]; };
+    const applyTreeLayout = () => {
+        const { w } = safeSize();
+        const groups = [...new Set(incidents.map(n => n.group))].sort((a,b)=>a-b);
+        const spacingX = w / (groups.length + 1);
+        const vStart   = 120;
+        const vSpacing = 50;
+        groups.forEach((g, gi) => {
+            const nodes = incidents.filter(n => n.group === g);
+            nodes.forEach((n, ni) => {
+                n.x = (gi+1) * spacingX;
+                n.y = vStart + ni * vSpacing;
+            });
+        });
+    };
+    /********************
+     * Drawing pipeline *
+     *******************/
+    const draw = () => {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        const { w } = safeSize();
+        const coreX = w/2;
+        const coreY = phase >= 2 ? 60 : 200;
+        if (phase >= 2) applyTreeLayout();
+        // --- morphisms ---
+        morphisms.forEach(m => {
+            const from = incidents.find(i => i.id === m.from);
+            const to   = incidents.find(i => i.id === m.to);
+            if (!from || !to) return;
+            const line = document.createElementNS(NS,'line');
+            line.setAttribute('x1', from.x);
+            line.setAttribute('y1', from.y);
+            line.setAttribute('x2', to.x);
+            line.setAttribute('y2', to.y);
+            line.setAttribute('stroke', '#888');
+            line.setAttribute('stroke-width', '1.5');
+            svg.appendChild(line);
+            // arrow‑head (guard against zero‑length)
+            if (from.x !== to.x || from.y !== to.y) {
+                const head  = document.createElementNS(NS,'polygon');
+                const angle = Math.atan2(to.y - from.y, to.x - from.x);
+                const size  = 6;
+                const pts = [
+                    [to.x, to.y],
+                    [to.x - size*Math.cos(angle - Math.PI/6), to.y - size*Math.sin(angle - Math.PI/6)],
+                    [to.x - size*Math.cos(angle + Math.PI/6), to.y - size*Math.sin(angle + Math.PI/6)]
+                ].map(p => p.join(',')).join(' ');
+                head.setAttribute('points', pts);
+                head.setAttribute('fill', '#888');
+                svg.appendChild(head);
+            }
+        });
+        // --- incidents ---
+        incidents.forEach(node => {
+            const g = document.createElementNS(NS,'g');
+            const circle = document.createElementNS(NS,'circle');
+            circle.setAttribute('cx', node.x);
+            circle.setAttribute('cy', node.y);
+            circle.setAttribute('r', 12);
+            circle.setAttribute('fill', phase >= 1 ? `hsl(${node.group*60},60%,70%)` : '#4f8df7');
+            circle.setAttribute('stroke', '#222');
+            circle.setAttribute('stroke-width', '1');
+            g.appendChild(circle);
+            const txt = document.createElementNS(NS,'text');
+            txt.setAttribute('x', node.x);
+            txt.setAttribute('y', node.y + 4);
+            txt.setAttribute('text-anchor', 'middle');
+            txt.textContent = node.label;
+            g.appendChild(txt);
+            svg.appendChild(g);
+        });
+        // --- core ---
+        if (phase >= 2) {
+            const core = document.createElementNS(NS,'circle');
+            core.setAttribute('cx', coreX);
+            core.setAttribute('cy', coreY);
+            core.setAttribute('r', phase === 2 ? 18 : 24);
+            core.setAttribute('fill', phase === 2 ? '#ffb347' : '#ff8c00');
+            svg.appendChild(core);
+            const txt = document.createElementNS(NS,'text');
+            txt.setAttribute('x', coreX);
+            txt.setAttribute('y', coreY + 6);
+            txt.setAttribute('text-anchor', 'middle');
+            txt.setAttribute('font-weight', 'bold');
+            txt.textContent = 'Core';
+            svg.appendChild(txt);
+            incidents.forEach(node => {
+                const line = document.createElementNS(NS,'line');
+                line.setAttribute('x1', coreX);
+                line.setAttribute('y1', coreY);
+                line.setAttribute('x2', node.x);
+                line.setAttribute('y2', node.y);
+                line.setAttribute('stroke', phase === 3 ? '#ff8c00' : '#ffa500');
+                line.setAttribute('stroke-dasharray', '4 3');
+                svg.appendChild(line);
+            });
+        }
+        // --- auto‑height ---
+        const maxY = incidents.length ? Math.max(...incidents.map(n => n.y)) : coreY;
+        const needed = maxY + 100;
+        if (needed > parseFloat(svg.style.height)) svg.style.height = needed + 'px';
+    };
+    /****************
+     * UI handlers  *
+     ***************/
+    $('#addIncident').addEventListener('click', () => {
+        const { w } = safeSize();
+        incidents.push({
+            id: Date.now() + Math.random(),
+            label: `I${incidents.length + 1}`,
+            x: rnd(50, Math.max(100, w - 50)),
+            y: rnd(80, 200),
+            group: 0
+        });
+        draw();
+    });
+    $('#addMorphism').addEventListener('click', () => {
+        if (incidents.length < 2) { showToast('Need ≥ 2 incidents'); return; }
+        let aIdx = Math.floor(rnd(0, incidents.length));
+        let bIdx = Math.floor(rnd(0, incidents.length - 1));
+        if (bIdx >= aIdx) bIdx++;
+        morphisms.push({ from: incidents[aIdx].id, to: incidents[bIdx].id });
+        draw();
+    });
+    $('#stepPhase').addEventListener('click', () => {
+        const prev = phase;
+        phase = (phase + 1) % 4;
+        if (phase === 1) incidents.forEach(n => n.group = Math.floor(rnd(0, 3)));
+        if (prev < 2 && phase >= 2) applyTreeLayout();
+        draw();
+        updateReadAlong();
+        showToast(phases[phase]);
+    });
+    $('#reset').addEventListener('click', () => {
+        phase = 0; incidents = []; morphisms = []; svg.style.height = '400px'; draw(); updateReadAlong();
+    });
+    /****************
+     * Bootstrap    *
+     ***************/
+    const bootstrap = () => {
+        for (let i = 0; i < 4; i++) $('#addIncident').click();
+        draw(); updateReadAlong();
+    };
+    // run bootstrap after layout to ensure width > 0
+    window.addEventListener('load', () => requestAnimationFrame(bootstrap));
+    /****************
+     * Watchdog     *
+     ***************/
+    const limit = +visWrapper.dataset.timeout || 3000;
+    let waited = 0;
+    const watchdog = setInterval(() => {
+        if (visWrapper.dataset.smoke === 'ok') { clearInterval(watchdog); return; }
+        waited += 500;
+        if (waited >= limit) { clearInterval(watchdog); fallback('timeout'); }
+    }, 500);
+    requestAnimationFrame(() => { visWrapper.dataset.smoke = 'ok'; window.__canvasStatus = 'ready'; });
+} catch (err) {
+    fallback(err && err.message ? err.message : 'unknown error');
+}
+/****************
+ * Fallback     *
+ ****************/
+function fallback(reason) {
+    console.error('Fallback due to', reason);
+    window.__canvasStatus = 'fallback';
+    const w = document.querySelector('#vis-wrapper');
+    w.innerHTML = '<svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="80" fill="#eee" stroke="#999" stroke-width="2"/><text x="100" y="105" font-size="14" text-anchor="middle" fill="#666">Static Diagram</text></svg>';
+    showToast(`Interactive view failed \u2013 static diagram shown (${reason}).`);
+    w.dataset.smoke = 'ok';
+}
+})();
+</script>
+</body>
+</html>
