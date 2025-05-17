@@ -9,6 +9,7 @@
 title: Project Portfolio Management
 description: This site is all about managing project portfolios more easily. I provide open frameworks and tool-sets to set up and deliver projects, programmes and portfolios.
 github_username: lawrencerowland
+url: "https://lawrencerowland.github.io"
 
 
 
@@ -23,6 +24,7 @@ plugins:
   - jekyll-gist
   - jekyll-octicons
   - jekyll-github-metadata
+  - jekyll-sitemap
 
 # Avoid processing large example files that aren't part of the site
 exclude:
