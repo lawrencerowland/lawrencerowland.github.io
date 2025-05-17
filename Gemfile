@@ -16,6 +16,7 @@ gem "github-pages", group: :jekyll_plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem 'jekyll-octicons'
+  gem 'jekyll-sitemap'
 end
 
 gem "jekyll-github-metadata"
