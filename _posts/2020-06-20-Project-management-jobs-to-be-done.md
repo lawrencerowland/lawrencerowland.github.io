@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 # Project management: Some jobs to be done
 
 

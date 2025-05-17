@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # ML for portfolios
 
 **Using machine learning to improve portfolios**

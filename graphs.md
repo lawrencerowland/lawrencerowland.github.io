@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Interactive project graphs
 
 Do ask if you would like the code, data or graph for each of the examples. 

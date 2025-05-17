@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Portfolio frameworks
 
 **Choose and develop a portfolio framework**
