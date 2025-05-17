@@ -115,7 +115,7 @@ function initSigma(config) {
         a.parseGexf(data,dataReady);
     else
 	    a.parseJson(data,dataReady);
-    gexf = sigmaInst = null;
+    gexf = sigInst = null;
 }
 
 
