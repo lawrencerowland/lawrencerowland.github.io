@@ -105,7 +105,7 @@ I like to use whatever will be understood by my colleagues, or whatever has work
 
 - [Praxis](https://www.praxisframework.org) P3M Open source comprehensive and thoughtful framework 
 
-- [Axelos](htpps://axelos.com) Proprietary frameworks MoP, MSP and Prince. Managing Successful Programmes MSP Axelos because it clearly distinguishes programmes from projects, and it is clear about how to integrate with Business as usual via Business Change Managers or similar. Going this route, I would use PRINCE for the projects. Axelos P3M3 maturity framework for projects and programmes so that only programme process that will be understood will be used. 
+- [Axelos](https://axelos.com) Proprietary frameworks MoP, MSP and Prince. Managing Successful Programmes MSP Axelos because it clearly distinguishes programmes from projects, and it is clear about how to integrate with Business as usual via Business Change Managers or similar. Going this route, I would use PRINCE for the projects. Axelos P3M3 maturity framework for projects and programmes so that only programme process that will be understood will be used. 
 
 - APM BOK and PMBOK are bodies of knowledge which are worth using for particular project types, especially regulatory or technical projects. 
 
