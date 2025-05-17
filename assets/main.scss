@@ -60,3 +60,21 @@
 
 .codecell table { width: auto; }
 
+
+/* styles for project examples */
+.filter button {
+  margin: 0.2rem;
+  padding: 0.3rem 0.6rem;
+}
+.example-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem;
+  display: inline-block;
+  width: 250px;
+  vertical-align: top;
+}
+.example-card img {
+  max-width: 100%;
+  height: auto;
+}
