@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HS2 Supply Chain Risk and Value Decision Making Knowledge Graph</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        #container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+        
+        #graph-container {
+            flex: 3;
+            position: relative;
+            overflow: hidden;
+            min-width: 65%;
+            height: 100vh;
+        }
+        
+        #sidebar {
+            flex: 1;
+            width: 35%;
+            max-width: 400px;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        h1, h2, h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        h1 {
+            font-size: 1.4em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.2em;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        
+        h3 {
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        
+        #node-details {
+            margin-bottom: 20px;
+        }
+        
+        #scenario-info {
+            flex: 1;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9em;
+            margin: 5px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .slider-container {
+            margin: 10px 0;
+        }
+        
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+        
+        input[type="range"] {
+            vertical-align: middle;
+        }
+        
+        .node {
+            cursor: pointer;
+        }
+        
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+        
+        .scenario-section {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .scenario-entity {
+            background-color: #eef7ee;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+            border-left: 3px solid #4CAF50;
+        }
+        
+        .highlight-node {
+            font-weight: bold;
+            color: #2c662d;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #eee;
+            text-align: center;
+            border: none;
+            outline: none;
+        }
+        
+        .tab-button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border: 8px solid #4CAF50;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #4CAF50 transparent transparent transparent;
+        }
+        
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+        
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+        
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+        
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .legend {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<p><a href="../project-examples.html">Back to Project Examples</a></p>
+    <div id="loading">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        <p>Loading knowledge graph...</p>
+    </div>
+    
+    <div id="container">
+        <div id="graph-container">
+            <!-- Graph will be rendered here -->
+            <div style="position: absolute; bottom: 50px; right: 10px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 5px; z-index: 100;">
+                <p style="margin: 0; font-size: 12px;">Drag to pan, scroll to zoom</p>
+            </div>
+        </div>
+        
+        <div id="sidebar">
+            <div class="tab-buttons">
+                <button id="overview-tab" class="tab-button active">Overview</button>
+                <button id="details-tab" class="tab-button">Node Details</button>
+                <button id="scenario-tab" class="tab-button">Scenario</button>
+            </div>
+            
+            <div id="overview-content" class="tab-content active">
+                <h1>HS2 Supply Chain Risk & Value Decision Making</h1>
+                <p>This knowledge graph visualizes risk and value decision making processes within the HS2 supply chain, based on the COVER ontology. The graph shows relationships between various entities like agents, events, outcomes, and assessments.</p>
+                
+                <h2>Interaction Guide</h2>
+                <p>
+                    <strong>Navigation:</strong> Drag to pan, scroll to zoom<br>
+                    <strong>Select:</strong> Click on nodes to view details<br>
+                    <strong>Explore:</strong> Double-click to expand connections<br>
+                    <strong>Reset:</strong> Use the controls to reset view
+                </p>
+                
+                <h2>Scenario Overview</h2>
+                <p>The scenario demonstrates a decision-making process regarding a potential delay in concrete supply for a critical HS2 viaduct construction, showcasing how risk assessment and value evaluation interact in major infrastructure projects.</p>
+            </div>
+            
+            <div id="details-content" class="tab-content">
+                <h1>Node Details</h1>
+                <div id="node-details">
+                    <p>Click on a node in the graph to view its details.</p>
+                </div>
+            </div>
+            
+            <div id="scenario-content" class="tab-content">
+                <h1>HS2 Supply Chain Decision Scenario</h1>
+                <div id="scenario-info">
+                    <div class="scenario-section">
+                        <h2>Context: Concrete Supply Risk for Chiltern Viaduct</h2>
+                        <p>The HS2 project team has identified a potential risk regarding the concrete supply for the Chiltern Viaduct, a critical construction component. Recent quality control tests showed inconsistencies in the supplied concrete mix, which could affect structural integrity if not addressed.</p>
+                    </div>
+                        </div>
+
+                    <div class="scenario-section">
+                        <h2>Key Entities Involved</h2>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Risk Subject: HS2 Construction Manager</h3>
+                            <p>Responsible for ensuring timely and quality construction of the viaduct section.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Value Assessor: Quality Control Team</h3>
+                            <p>Performs tests and evaluates the quality of materials used in construction.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Object at Risk: Chiltern Viaduct</h3>
+                            <p>A critical infrastructure component that requires high-quality concrete for structural integrity.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Threat Object: Concrete Supplier</h3>
+                            <p>The supplier responsible for delivering the concrete mixture that showed quality inconsistencies.</p>
+                        </div>
+                    </div>
+
+                    <div class="scenario-section">
+                        <h2>Risk Assessment Process</h2>
+                        <p>The HS2 Construction Manager initiates a risk assessment process to evaluate the potential impact of the concrete quality issues:</p>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Vulnerability: Material Quality Variance</h3>
+                            <p>The inconsistent concrete mix strength represents a vulnerability in the construction process.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Threat Capability: Production Control Issues</h3>
+                            <p>The supplier's production control system has limitations that affect consistency.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Risk Assessment: Structural Integrity Risk</h3>
+                            <p>Evaluation of how the concrete quality issues might affect the viaduct's structural integrity.</p>
+                        </div>
+                    </div>
+
+                    <div class="scenario-section">
+                        <h2>Value Considerations</h2>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Value Object: Viaduct Structural Performance</h3>
+                            <p>The long-term structural performance of the viaduct is a key value consideration.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Value Enabler: Alternative Supplier</h3>
+                            <p>An alternative concrete supplier could provide higher quality material but at a higher cost and with potential delays.</p>
+                        </div>
+                    </div>
+
+                    <div class="scenario-section">
+                        <h2>Potential Events</h2>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Threat Event: Concrete Quality Failure</h3>
+                            <p>The potential event where the concrete fails to meet required specifications during construction.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Loss Event: Construction Delay</h3>
+                            <p>A delay in construction timeline if the concrete needs to be replaced or remediated.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Loss Situation: Project Timeline Slippage</h3>
+                            <p>The resulting situation where the project timeline is extended, affecting other dependent components.</p>
+                        </div>
+                    </div>
+
+                    <div class="scenario-section">
+                        <h2>Decision Making</h2>
+                        <p>After analyzing the risks and value considerations, the HS2 Construction Manager must decide between:</p>
+                        <ol>
+                            <li>Continue with the current supplier but implement additional quality control measures</li>
+                            <li>Switch to the alternative supplier, accepting higher costs and a short-term delay</li>
+                            <li>Modify the concrete mix specifications to accommodate the current supplier's capabilities</li>
+                        </ol>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Value Ascription: Long-term Structural Reliability</h3>
+                            <p>The decision prioritizes the long-term structural reliability of the viaduct over short-term schedule considerations.</p>
+                        </div>
+                        
+                        <div class="scenario-entity">
+                            <h3 class="highlight-node">Outcome: Supplier Replacement</h3>
+                            <p>The decision to replace the current concrete supplier with the alternative that can consistently meet quality requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="scenario-section">
+                        <h2>Decision Outcome</h2>
+                        <p>The Construction Manager decides to switch to the alternative supplier, accepting a 2-week delay in exchange for guaranteed concrete quality that meets specifications. This decision:</p>
+                        <ul>
+                            <li>Mitigates the vulnerability in material quality</li>
+                            <li>Reduces the risk of future structural issues</li>
+                            <li>Increases project costs by 3% for this component</li>
+                            <li>Creates a short-term delay that can be partially mitigated through schedule optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button id="reset-zoom">Reset View</button>
+        <button id="highlight-path">Highlight Decision Path</button>
+        <div class="slider-container">
+            <label for="charge-slider">Force:</label>
+            <input type="range" id="charge-slider" min="-1000" max="-100" value="-300">
+        </div>
+        <div class="slider-container">
+            <label for="distance-slider">Distance:</label>
+            <input type="range" id="distance-slider" min="50" max="300" value="100">
+        </div>
+    </div>
+    
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #4285F4;"></div>
+            <span>Agent</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #EA4335;"></div>
+            <span>Event</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #FBBC05;"></div>
+            <span>Situation</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #34A853;"></div>
+            <span>Object</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #9C27B0;"></div>
+            <span>Aspect</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #FF9800;"></div>
+            <span>Relator</span>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script>
+        // Wait for complete DOM and resources to load
+        window.addEventListener('load', function() {
+            // Force resize for proper rendering
+            window.dispatchEvent(new Event('resize'));
+            
+            // Set initial SVG dimensions
+            const graphContainer = document.getElementById('graph-container');
+            if (graphContainer && graphContainer.querySelector('svg')) {
+                const svg = graphContainer.querySelector('svg');
+                svg.setAttribute('width', graphContainer.clientWidth);
+                svg.setAttribute('height', graphContainer.clientHeight);
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const graphContainer = document.getElementById('graph-container');
+            if (graphContainer && graphContainer.querySelector('svg')) {
+                const svg = graphContainer.querySelector('svg');
+                svg.setAttribute('width', graphContainer.clientWidth);
+                svg.setAttribute('height', graphContainer.clientHeight);
+            }
+        });
+        
+        // Main Graph Data Structure
+        const ontologyData = {
+            nodes: [
+                // Agents
+                { id: "constructionManager", name: "HS2 Construction Manager", type: "Agent", group: "Agent", description: "Project manager responsible for the viaduct construction", category: "RiskSubject ValueSubject" },
+                { id: "qualityControlTeam", name: "Quality Control Team", type: "Agent", group: "Agent", description: "Team that evaluates material quality and adherence to standards", category: "ValueAssessor RiskAssessor" },
+                { id: "concreteSuppplier", name: "Concrete Supplier", type: "Agent", group: "Agent", description: "Current supplier providing concrete with quality issues", category: "ThreatAgent" },
+                { id: "alternativeSupplier", name: "Alternative Supplier", type: "Agent", group: "Agent", description: "Potential replacement supplier with higher quality standards", category: "ValueEnabler" },
+                
+                // Objects
+                { id: "chilternViaduct", name: "Chiltern Viaduct", type: "Object", group: "Object", description: "Critical infrastructure component requiring high-quality concrete", category: "ObjectAtRisk ValueObject" },
+                { id: "concreteDelivery", name: "Concrete Delivery", type: "Object", group: "Object", description: "The material deliveries for viaduct construction", category: "ThreatObject" },
+                
+                // Aspects - Dispositions
+                { id: "materialQualityVariance", name: "Material Quality Variance", type: "Vulnerability", group: "Aspect", description: "Inconsistent concrete mix strength representing construction vulnerability", category: "Vulnerability" },
+                { id: "productionControlIssues", name: "Production Control Issues", type: "Capability", group: "Aspect", description: "Supplier's production control limitations affecting consistency", category: "ThreatCapability" },
+                
+                // Aspects - Intentions
+                { id: "timelineAdherence", name: "Timeline Adherence", type: "Intention", group: "Aspect", description: "Intention to complete the viaduct construction on schedule", category: "Intention" },
+                { id: "qualityStandardsCompliance", name: "Quality Standards Compliance", type: "Intention", group: "Aspect", description: "Intention to ensure all materials meet quality standards", category: "Intention" },
+                
+                // Aspects - Qualities
+                { id: "structuralReliability", name: "Structural Reliability", type: "Quality", group: "Aspect", description: "Long-term structural performance of the viaduct", category: "Value" },
+                { id: "structuralIntegrityRisk", name: "Structural Integrity Risk", type: "Quality", group: "Aspect", description: "Risk of compromised structural integrity due to material issues", category: "Risk" },
+                { id: "qualityFailureLikelihood", name: "Quality Failure Likelihood", type: "Likelihood", group: "Aspect", description: "Probability of concrete failing to meet specifications", category: "TriggeringLikelihood" },
+                
+                // Events
+                { id: "concreteQualityFailure", name: "Concrete Quality Failure", type: "Event", group: "Event", description: "Event where concrete fails to meet required specifications", category: "ThreatEvent" },
+                { id: "constructionDelay", name: "Construction Delay", type: "Event", group: "Event", description: "Delay in construction timeline due to material issues", category: "LossEvent" },
+                { id: "supplierReplacement", name: "Supplier Replacement", type: "Event", group: "Event", description: "Decision event to replace current supplier", category: "Action" },
+                
+                // Situations
+                { id: "projectTimelineSlippage", name: "Project Timeline Slippage", type: "Situation", group: "Situation", description: "Situation where project timeline is extended", category: "LossSituation" },
+                { id: "materialQualityUncertainty", name: "Material Quality Uncertainty", type: "Situation", group: "Situation", description: "Uncertain situation regarding concrete quality", category: "HazardousSituation" },
+                
+                // Relators - Assessments
+                { id: "concreteQualityAssessment", name: "Concrete Quality Assessment", type: "Relator", group: "Relator", description: "Evaluation of concrete quality and its implications", category: "ObjectRiskAssess" },
+                { id: "scheduleImpactAssessment", name: "Schedule Impact Assessment", type: "Relator", group: "Relator", description: "Assessment of how quality issues might impact schedule", category: "ExperienceRiskAssess" },
+                
+                // Relators - Value ascriptions
+                { id: "supplierReliabilityValuation", name: "Supplier Reliability Valuation", type: "Relator", group: "Relator", description: "Evaluation of supplier reliability importance", category: "ObjectValueAsc" },
+                { id: "longTermReliabilityValuation", name: "Long-term Reliability Valuation", type: "Relator", group: "Relator", description: "Valuation of long-term structural reliability over schedule", category: "ValueAscription" }
+            ],
+            links: [
+                // Risk Subject/Value Subject relationships
+                { source: "constructionManager", target: "timelineAdherence", type: "inheresIn" },
+                { source: "constructionManager", target: "qualityStandardsCompliance", type: "inheresIn" },
+                
+                // Vulnerability relationships
+                { source: "materialQualityVariance", target: "chilternViaduct", type: "inheresIn" },
+                { source: "materialQualityVariance", target: "concreteQualityFailure", type: "manifestedIn" },
+                
+                // Threat capability relationships
+                { source: "productionControlIssues", target: "concreteSuppplier", type: "inheresIn" },
+                { source: "productionControlIssues", target: "concreteQualityFailure", type: "manifestedIn" },
+                
+                // Event relationships
+                { source: "concreteQualityFailure", target: "constructionDelay", type: "historicallyDependsOn" },
+                { source: "concreteQualityFailure", target: "materialQualityUncertainty", type: "contributedToTrigger" },
+                { source: "constructionDelay", target: "projectTimelineSlippage", type: "broughtAbout" },
+                
+                // Intention impacts
+                { source: "constructionDelay", target: "timelineAdherence", type: "impacts" },
+                { source: "projectTimelineSlippage", target: "timelineAdherence", type: "impacts" },
+                
+                // Risk and Value Quality relationships
+                { source: "structuralIntegrityRisk", target: "concreteQualityAssessment", type: "inheresIn" },
+                { source: "structuralReliability", target: "longTermReliabilityValuation", type: "inheresIn" },
+                
+                // Risk Assessment relationships
+                { source: "concreteQualityAssessment", target: "qualityControlTeam", type: "mediates" },
+                { source: "concreteQualityAssessment", target: "chilternViaduct", type: "mediates" },
+                { source: "scheduleImpactAssessment", target: "constructionManager", type: "mediates" },
+                
+                // Value Assessment relationships
+                { source: "longTermReliabilityValuation", target: "qualityControlTeam", type: "mediates" },
+                { source: "supplierReliabilityValuation", target: "alternativeSupplier", type: "mediates" },
+                
+                // Decision path
+                { source: "concreteQualityAssessment", target: "structuralIntegrityRisk", type: "identifies" },
+                { source: "scheduleImpactAssessment", target: "concreteQualityFailure", type: "evaluates" },
+                { source: "longTermReliabilityValuation", target: "supplierReplacement", type: "influences" },
+                { source: "supplierReplacement", target: "constructionDelay", type: "mitigates" },
+                
+                // Additional connections
+                { source: "concreteSuppplier", target: "concreteDelivery", type: "provides" },
+                { source: "alternativeSupplier", target: "structuralReliability", type: "enables" },
+                { source: "qualityFailureLikelihood", target: "concreteQualityFailure", type: "quantifies" }
+            ]
+        };
+
+        // Decision path to highlight
+        const decisionPath = [
+            "materialQualityVariance", 
+            "concreteQualityAssessment", 
+            "structuralIntegrityRisk", 
+            "longTermReliabilityValuation", 
+            "supplierReplacement", 
+            "alternativeSupplier"
+        ];
+
+        // Set up graph visualization
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const graphContainer = document.getElementById('graph-container');
+            const resetButton = document.getElementById('reset-zoom');
+            const highlightPathButton = document.getElementById('highlight-path');
+            const chargeSlider = document.getElementById('charge-slider');
+            const distanceSlider = document.getElementById('distance-slider');
+            const nodeDetails = document.getElementById('node-details');
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const loading = document.getElementById('loading');
+            
+            // Tab switching
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Show corresponding tab content
+                    const contentId = this.id.replace('-tab', '-content');
+                    document.getElementById(contentId).classList.add('active');
+                });
+            });
+            
+            // Graph dimensions
+            const width = graphContainer.clientWidth;
+            const height = graphContainer.clientHeight;
+            
+            // Create SVG with responsive dimensions
+            const svg = d3.select('#graph-container')
+                .append('svg')
+                .attr('width', '100%')
+                .attr('height', '100%')
+                .attr('viewBox', `0 0 ${width} ${height}`)
+                .attr('preserveAspectRatio', 'xMidYMid meet')
+                .call(d3.zoom().on('zoom', function(event) {
+                    container.attr('transform', event.transform);
+                }));
+            
+            const container = svg.append('g');
+            
+            // Force simulation
+            let simulation = d3.forceSimulation(ontologyData.nodes)
+                .force('link', d3.forceLink(ontologyData.links).id(d => d.id).distance(100))
+                .force('charge', d3.forceManyBody().strength(-300))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(70));
+            
+            // Arrow marker definitions
+            svg.append('defs').selectAll('marker')
+                .data(['arrow'])
+                .enter().append('marker')
+                .attr('id', d => d)
+                .attr('viewBox', '0 -5 10 10')
+                .attr('refX', 25)
+                .attr('refY', 0)
+                .attr('markerWidth', 6)
+                .attr('markerHeight', 6)
+                .attr('orient', 'auto')
+                .append('path')
+                .attr('d', 'M0,-5L10,0L0,5')
+                .attr('fill', '#999');
+            
+            // Create links
+            const link = container.append('g')
+                .selectAll('line')
+                .data(ontologyData.links)
+                .enter().append('line')
+                .attr('class', 'link')
+                .attr('marker-end', 'url(#arrow)')
+                .attr('stroke-width', 1.5);
+            
+            // Node color scale based on group
+            const colorScale = d3.scaleOrdinal()
+                .domain(['Agent', 'Object', 'Aspect', 'Event', 'Situation', 'Relator'])
+                .range(['#4285F4', '#34A853', '#9C27B0', '#EA4335', '#FBBC05', '#FF9800']);
+            
+            // Create node groups
+            const node = container.append('g')
+                .selectAll('.node')
+                .data(ontologyData.nodes)
+                .enter().append('g')
+                .attr('class', 'node')
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+            
+            // Add circles to nodes
+            node.append('circle')
+                .attr('r', d => getNodeSize(d))
+                .attr('fill', d => colorScale(d.group))
+                .attr('stroke', '#fff')
+                .attr('stroke-width', 1.5);
+            
+            // Add text labels to nodes
+            node.append('text')
+                .attr('dy', 4)
+                .attr('text-anchor', 'middle')
+                .text(d => getNodeLabel(d))
+                .attr('font-size', '10px')
+                .attr('fill', '#fff');
+            
+            // Link text labels
+            const linkText = container.append('g')
+                .selectAll('text')
+                .data(ontologyData.links)
+                .enter().append('text')
+                .attr('dy', -5)
+                .attr('text-anchor', 'middle')
+                .text(d => d.type)
+                .attr('font-size', '8px')
+                .attr('fill', '#666')
+                .attr('opacity', 0);  // Initially hidden
+            
+            // Handle node click to show details
+            node.on('click', function(event, d) {
+                event.stopPropagation();
+                showNodeDetails(d);
+                
+                // Highlight connected nodes
+                const connectedLinks = ontologyData.links.filter(link => 
+                    link.source.id === d.id || link.source === d.id || 
+                    link.target.id === d.id || link.target === d.id
+                );
+                
+                const connectedNodeIds = new Set();
+                connectedLinks.forEach(link => {
+                    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                    connectedNodeIds.add(sourceId);
+                    connectedNodeIds.add(targetId);
+                });
+                
+                // Highlight connected nodes and links
+                node.select('circle')
+                    .attr('stroke', function(n) {
+                        return connectedNodeIds.has(n.id) ? '#ff0' : '#fff';
+                    })
+                    .attr('stroke-width', function(n) {
+                        return connectedNodeIds.has(n.id) ? 3 : 1.5;
+                    });
+                
+                link
+                    .attr('stroke', function(l) {
+                        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                        return (sourceId === d.id || targetId === d.id) ? '#ff0' : '#999';
+                    })
+                    .attr('stroke-width', function(l) {
+                        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                        return (sourceId === d.id || targetId === d.id) ? 3 : 1.5;
+                    });
+                
+                // Show link labels for connected links
+                linkText
+                    .attr('opacity', function(l) {
+                        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                        return (sourceId === d.id || targetId === d.id) ? 1 : 0;
+                    });
+            });
+            
+            // Double-click to fix/release node
+            node.on('dblclick', function(event, d) {
+                if (d.fx !== null && d.fy !== null) {
+                    d.fx = null;
+                    d.fy = null;
+                } else {
+                    d.fx = d.x;
+                    d.fy = d.y;
+                }
+            });
+            
+            // Reset view button
+            resetButton.addEventListener('click', function() {
+                svg.transition().duration(750).call(
+                    d3.zoom().transform,
+                    d3.zoomIdentity.translate(width / 2, height / 2).scale(1)
+                );
+                
+                // Reset node positions
+                simulation.alpha(1).restart();
+                
+                // Reset highlighting
+                node.select('circle')
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 1.5);
+                
+                link
+                    .attr('stroke', '#999')
+                    .attr('stroke-width', 1.5);
+                
+                linkText.attr('opacity', 0);
+                
+                // Reset fixed positions
+                ontologyData.nodes.forEach(node => {
+                    node.fx = null;
+                    node.fy = null;
+                });
+            });
+            
+            // Highlight decision path
+            highlightPathButton.addEventListener('click', function() {
+                // Reset previous highlights
+                node.select('circle')
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 1.5);
+                
+                link
+                    .attr('stroke', '#999')
+                    .attr('stroke-width', 1.5);
+                
+                // Highlight nodes in the decision path
+                node.select('circle')
+                    .attr('stroke', function(d) {
+                        return decisionPath.includes(d.id) ? '#ff0' : '#fff';
+                    })
+                    .attr('stroke-width', function(d) {
+                        return decisionPath.includes(d.id) ? 3 : 1.5;
+                    });
+                
+                // Highlight links in the decision path
+                link
+                    .attr('stroke', function(l) {
+                        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                        
+                        const sourceInPath = decisionPath.includes(sourceId);
+                        const targetInPath = decisionPath.includes(targetId);
+                        
+                        return (sourceInPath && targetInPath) ? '#ff0' : '#999';
+                    })
+                    .attr('stroke-width', function(l) {
+                        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                        
+                        const sourceInPath = decisionPath.includes(sourceId);
+                        const targetInPath = decisionPath.includes(targetId);
+                        
+                        return (sourceInPath && targetInPath) ? 3 : 1.5;
+                    });
+                
+                // Show link labels for decision path links
+                linkText
+                    .attr('opacity', function(l) {
+                        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                        
+                        const sourceInPath = decisionPath.includes(sourceId);
+                        const targetInPath = decisionPath.includes(targetId);
+                        
+                        return (sourceInPath && targetInPath) ? 1 : 0;
+                    });
+                
+                // Optional: focus the view on the decision path
+                const decisionPathNodes = ontologyData.nodes.filter(n => decisionPath.includes(n.id));
+                
+                if (decisionPathNodes.length > 0) {
+                    const bounds = getNodesBounds(decisionPathNodes);
+                    zoomToBounds(bounds);
+                }
+            });
+            
+            // Force strength slider
+            chargeSlider.addEventListener('input', function() {
+                simulation.force('charge').strength(parseFloat(this.value));
+                simulation.alpha(1).restart();
+            });
+            
+            // Link distance slider
+            distanceSlider.addEventListener('input', function() {
+                simulation.force('link').distance(parseFloat(this.value));
+                simulation.alpha(1).restart();
+            });
+            
+            // Background click to deselect
+            svg.on('click', function() {
+                // Reset highlighting
+                node.select('circle')
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 1.5);
+                
+                link
+                    .attr('stroke', '#999')
+                    .attr('stroke-width', 1.5);
+                
+                linkText.attr('opacity', 0);
+                
+                // Reset node details
+                nodeDetails.innerHTML = "<p>Click on a node in the graph to view its details.</p>";
+            });
+            
+            // Simulation tick function
+            simulation.on('tick', function() {
+                link
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+                
+                node
+                    .attr('transform', d => `translate(${d.x},${d.y})`);
+                
+                linkText
+                    .attr('x', d => (d.source.x + d.target.x) / 2)
+                    .attr('y', d => (d.source.y + d.target.y) / 2);
+            });
+            
+            // Helper function to show node details
+            function showNodeDetails(d) {
+                let categoryDisplay = '';
+                if (d.category) {
+                    const categories = d.category.split(" ");
+                    categoryDisplay = categories.map(cat => 
+                        `<span style="display: inline-block; background-color: #eef7ee; padding: 2px 5px; margin: 2px; border-radius: 3px;">${cat}</span>`
+                    ).join(' ');
+                }
+                
+                nodeDetails.innerHTML = `
+                    <h2>${d.name}</h2>
+                    <p><strong>Type:</strong> ${d.type}</p>
+                    <p><strong>Categories:</strong> ${categoryDisplay}</p>
+                    <p><strong>Description:</strong> ${d.description}</p>
+                    
+                    <h3>Connections:</h3>
+                    <div id="connections"></div>
+                `;
+                
+                const connectionsDiv = document.getElementById('connections');
+                
+                // Find all connections for this node
+                const connections = ontologyData.links.filter(link => {
+                    return (typeof link.source === 'object' ? link.source.id : link.source) === d.id || 
+                           (typeof link.target === 'object' ? link.target.id : link.target) === d.id;
+                });
+                
+                if (connections.length > 0) {
+                    const connectionsList = document.createElement('ul');
+                    connectionsList.style.padding = '0 0 0 20px';
+                    
+                    connections.forEach(conn => {
+                        const sourceId = typeof conn.source === 'object' ? conn.source.id : conn.source;
+                        const targetId = typeof conn.target === 'object' ? conn.target.id : conn.target;
+                        
+                        const otherNodeId = sourceId === d.id ? targetId : sourceId;
+                        const otherNode = ontologyData.nodes.find(n => n.id === otherNodeId);
+                        
+                        const direction = sourceId === d.id ? 'to' : 'from';
+                        
+                        const li = document.createElement('li');
+                        li.textContent = `${conn.type} ${direction} ${otherNode.name}`;
+                        connectionsList.appendChild(li);
+                    });
+                    
+                    connectionsDiv.appendChild(connectionsList);
+                } else {
+                    connectionsDiv.textContent = 'No connections found.';
+                }
+                
+                // Switch to the details tab
+                document.getElementById('details-tab').click();
+            }
+            
+            // Helper functions for drag behavior
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+            
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+            
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                // Keep the node fixed at its current position
+                // d.fx = null;
+                // d.fy = null;
+            }
+            
+            // Helper function to determine node size based on importance
+            function getNodeSize(d) {
+                if (decisionPath.includes(d.id)) {
+                    return 12;  // Larger size for decision path nodes
+                }
+                
+                switch (d.group) {
+                    case 'Agent': return 10;
+                    case 'Event': return 10;
+                    case 'Object': return 10;
+                    case 'Aspect': return 8;
+                    case 'Situation': return 9;
+                    case 'Relator': return 9;
+                    default: return 8;
+                }
+            }
+            
+            // Helper function to get shortened node labels
+            function getNodeLabel(d) {
+                if (d.name.length > 15) {
+                    return d.name.substring(0, 12) + '...';
+                }
+                return d.name;
+            }
+            
+            // Helper function to get bounds of a set of nodes
+            function getNodesBounds(nodes) {
+                let minX = Infinity, minY = Infinity;
+                let maxX = -Infinity, maxY = -Infinity;
+                
+                nodes.forEach(node => {
+                    minX = Math.min(minX, node.x);
+                    minY = Math.min(minY, node.y);
+                    maxX = Math.max(maxX, node.x);
+                    maxY = Math.max(maxY, node.y);
+                });
+                
+                return {
+                    x: minX,
+                    y: minY,
+                    width: maxX - minX,
+                    height: maxY - minY
+                };
+            }
+            
+            // Helper function to zoom to specific bounds
+            function zoomToBounds(bounds) {
+                const dx = bounds.width;
+                const dy = bounds.height;
+                const x = bounds.x + (dx / 2);
+                const y = bounds.y + (dy / 2);
+                
+                const scale = 0.9 / Math.max(dx / width, dy / height);
+                const translate = [width / 2 - scale * x, height / 2 - scale * y];
+                
+                svg.transition().duration(750).call(
+                    d3.zoom().transform,
+                    d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+                );
+            }
+            
+            // Apply initial layout and remove loading screen
+            simulation.alpha(1).restart();
+            
+            // Hide loading screen after the graph has stabilized
+            setTimeout(() => {
+                loading.style.display = 'none';
+                
+                // Force a resize event to properly size the SVG after loading
+                window.dispatchEvent(new Event('resize'));
+                
+                // Center the graph within the visible area
+                const bounds = {
+                    x: 0,
+                    y: 0,
+                    width: width,
+                    height: height
+                };
+                zoomToBounds(bounds);
+            }, 2000);
+            
+            // Also trigger resize on tab switch to ensure proper rendering
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Allow time for the DOM to update
+                    setTimeout(() => {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
