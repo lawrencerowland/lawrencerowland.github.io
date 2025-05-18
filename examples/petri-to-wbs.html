@@ -56,12 +56,14 @@ pre{background:#e2e8f0;border-radius:.25rem;padding:.75rem;overflow:auto}
 (function(){
   const root=document.getElementById('specRoot');
   const toastEl=document.getElementById('toast');
+  root.dataset.smoke='pending';
   const showToast=(msg)=>{toastEl.textContent=msg;toastEl.classList.add('show');setTimeout(()=>toastEl.classList.remove('show'),2600);};
   function fallback(reason){
     console.error('Fallback:',reason);
     showToast('Interactive spec failed: '+reason);
     root.innerHTML='<p style="padding:1rem">Interactive components failed to load. See console for details.</p>';
     root.setAttribute('data-smoke','error');
+    root.dataset.smoke='error';
     window.__canvasStatus='fallback';
   }
 
@@ -70,7 +72,7 @@ pre{background:#e2e8f0;border-radius:.25rem;padding:.75rem;overflow:auto}
   let elapsed=0;
   const iv=setInterval(()=>{
     elapsed+=500;
-    if(root.querySelector('[data-smoke="ok"]')){clearInterval(iv);}
+    if(root.dataset.smoke==='ok'){clearInterval(iv);}
     if(elapsed>=timeout){clearInterval(iv);fallback('timeout');}
   },500);
 
@@ -280,6 +282,7 @@ root.innerHTML=`
   }
   update(Object.keys(dataModel.markings)[0]);
 
+  root.dataset.smoke='ok';
   root.setAttribute('data-smoke','ok');
   window.__canvasStatus='ready';
 
