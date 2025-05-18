@@ -10,3 +10,9 @@
   tags: [category theory, methods, social-science, knowledge-management]
   path: "/examples/grounded-theory-colimit.html"
   thumbnail: "/images/examples/decision_tree.png"
+- title: "HS2 decision graph"
+  description: "HS2 Supply Chain Risk and Value Decision Making Knowledge Graph"
+  origin: "Claude 3.7 Sonnet"
+  tags: [knowledge-graph, ontology, risk, value, rail, decision]
+  path: "/examples/hs2-decision-graph.html"
+  thumbnail: "/images/examples/decision_tree.png"
