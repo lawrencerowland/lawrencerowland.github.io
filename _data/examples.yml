@@ -16,3 +16,9 @@
   tags: [knowledge-graph, ontology, risk, value, rail, decision]
   path: "/examples/hs2-decision-graph.html"
   thumbnail: "/images/examples/decision_tree.png"
+- title: "Petri to WBS"
+  description: "Toy shed build model using Petri nets to generate SMC morphisms and candidate WBS schedules."
+  origin: "ChatGPT o3"
+  tags: [category theory, WBS, petri net, generative model, possible futures]
+  path: "/examples/petri-to-wbs.html"
+  thumbnail: "/images/examples/decision_tree.png"

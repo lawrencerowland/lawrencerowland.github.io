@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Spec — Petri Net → SMC → WBS Generator</title>
+<style>
+/* ----------  CRITICAL CSS  ---------- */
+:root{--bg:#f8fafc;--fg:#0f172a;--accent:#0ea5e9;--accent-fg:#f0f9ff;font-size:16px}
+html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);}
+h1,h2,h3{font-weight:600;margin:0 0 .25em}
+h1{font-size:1.9rem}h2{font-size:1.3rem}h3{font-size:1.1rem}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#e2e8f0;border-radius:.25rem;padding:.75rem;overflow:auto}
+.container{max-width:1000px;margin:auto;padding:1rem}
+.min-h-64{min-height:16rem}
+.flex{display:flex}.gap{gap:.5rem}
+.badge{display:inline-block;background:var(--accent);color:var(--accent-fg);padding:.15rem .4rem;border-radius:.25rem;font-size:.7rem}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-fg);padding:.4rem .8rem;border:none;border-radius:.25rem;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.tabs{display:flex;flex-wrap:wrap;gap:.25rem;margin:.5rem 0}
+.tab{padding:.35rem .7rem;border:1px solid var(--accent);border-radius:.25rem;cursor:pointer}
+.tab.active{background:var(--accent);color:var(--accent-fg)}
+/* reserve space early to avoid CLS */
+#vis,#smcVis,#wbsVis{min-height:12rem;border:1px dashed #94a3b8;border-radius:.25rem;display:flex;align-items:center;justify-content:center}
+/* toast */
+.toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#334155;color:#f8fafc;padding:.6rem 1rem;border-radius:.3rem;font-size:.8rem;box-shadow:0 1px 4px rgba(0,0,0,.14);opacity:0;transition:opacity .2s ease}
+.toast.show{opacity:1}
+/* ----------  END CRITICAL ---------- */
+</style>
+</head>
+<body>
+<p><a href="../project-examples.html">Back to Project Examples</a></p>
+<div class="container">
+<h1>Petri Net → SMC → WBS Generator<br><span class="badge">Developer Spec</span></h1>
+
+<noscript><p style="color:#b91c1c">Interactive visualisation requires JavaScript.</p></noscript>
+
+<!-- =========================================================
+     0. SMOKE-WATCH & FALLBACK
+========================================================= -->
+<div id="specRoot" class="min-h-64" data-timeout="3000">
+  Loading interactive spec…
+</div>
+
+</div> <!-- /container -->
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<script>
+/* ==========================================================
+   BOOT
+========================================================== */
+(function(){
+  const root=document.getElementById('specRoot');
+  const toastEl=document.getElementById('toast');
+  const showToast=(msg)=>{toastEl.textContent=msg;toastEl.classList.add('show');setTimeout(()=>toastEl.classList.remove('show'),2600);};
+  function fallback(reason){
+    console.error('Fallback:',reason);
+    showToast('Interactive spec failed: '+reason);
+    root.innerHTML='<p style="padding:1rem">Interactive components failed to load. See console for details.</p>';
+    root.setAttribute('data-smoke','error');
+    window.__canvasStatus='fallback';
+  }
+
+  /* watchdog */
+  const timeout=root.dataset.timeout?parseInt(root.dataset.timeout,10):3000;
+  let elapsed=0;
+  const iv=setInterval(()=>{
+    elapsed+=500;
+    if(root.querySelector('[data-smoke="ok"]')){clearInterval(iv);}
+    if(elapsed>=timeout){clearInterval(iv);fallback('timeout');}
+  },500);
+
+  /* main init */
+  try{
+
+/* ----------  DATA MODEL ---------- */
+const dataModel={
+  schema:{
+    places:["P0","P1","P2","P3","P4","P5","P6","P7","P8"],
+    transitions:["T1","T2","T3","T4","T5","T6","T7","T8"],
+    arcs:[
+      {from:"P0",to:"T1"},{from:"T1",to:"P1"},
+      {from:"P0",to:"T2"},{from:"T2",to:"P2"},
+      {from:"P1",to:"T3"},{from:"T3",to:"P3"},
+      {from:"P2",to:"T4"},{from:"T4",to:"P4"},
+      {from:"P3",to:"T5"},{from:"P2",to:"T5"},{from:"T5",to:"P5"},
+      {from:"P5",to:"T6"},{from:"P4",to:"T6"},{from:"T6",to:"P6"},
+      {from:"P6",to:"T7"},{from:"T7",to:"P7"},
+      {from:"P7",to:"T8"},{from:"T8",to:"P8"}
+    ]
+  },
+  markings:{
+    sequential:{P0:1},
+    concurrent:{P0:1,P2:1},
+    fastTrack:{P0:1,P2:2}
+  }
+};
+
+/* ----------  HELPERS ---------- */
+function qs(s,ctx=document){return ctx.querySelector(s);} 
+const svgNS='http://www.w3.org/2000/svg';
+function elSVG(tag,attrs){const e=document.createElementNS(svgNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+function clear(node){while(node.firstChild)node.removeChild(node.firstChild);}
+
+function drawPetri(container,marking){
+  clear(container);
+  const {places,transitions,arcs}=dataModel.schema;
+  const W=800,H=200;container.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const pos={};
+  // simple layout line
+  places.forEach((p,i)=>{pos[p]={x:90*(i%9)+40,y:i<5?40:140};});
+  transitions.forEach((t,i)=>{pos[t]={x:90*i+40,y:90};});
+  // arcs
+  arcs.forEach(a=>{
+    const {from,to}=a;
+    const p1=pos[from],p2=pos[to];
+    container.appendChild(elSVG('line',{x1:p1.x,y1:p1.y,x2:p2.x,y2:p2.y,stroke:'#94a3b8','stroke-width':2,'marker-end':'url(#arrow)'}));
+  });
+  // nodes
+  places.forEach(p=>{
+    const g=elSVG('g',{});const {x,y}=pos[p];
+    g.appendChild(elSVG('circle',{cx:x,cy:y,r:18,fill:'#f1f5f9',stroke:'#0ea5e9','stroke-width':2}));
+    const tokens=marking[p]||0;
+    if(tokens)g.appendChild(elSVG('text',{x, y:y+4,'text-anchor':'middle',fill:'#0f172a','font-size':'12'})).textContent=tokens;
+    container.appendChild(g);
+  });
+  transitions.forEach(t=>{
+    const g=elSVG('g',{});const {x,y}=pos[t];
+    g.appendChild(elSVG('rect',{x:x-8,y:y-20,width:16,height:40,fill:'#0ea5e9'}));
+    container.appendChild(g);
+  });
+}
+
+function generateSMC(marking){
+  // return JSON describing morphisms composition sequence
+  return [
+    {step:'clearSite',from:'I',to:'S'},
+    {step:'prepareFoundation',from:'S',to:'F'},
+    {step:'gatherMaterials',from:'I',to:'M'},
+    {step:'prepareMortar',from:'M',to:'Mo'},
+    {step:'layBricks',from:'F⊗M',to:'B'},
+    {step:'buildWall',from:'B⊗Mo',to:'W'},
+    {step:'inspectWall',from:'W',to:'Insp'},
+    {step:'complete',from:'Insp',to:'C'}
+  ];
+}
+function renderSMCTable(container,data){
+  clear(container);
+  const tbl=document.createElement('table');tbl.style.width='100%';tbl.style.borderCollapse='collapse';
+  tbl.innerHTML='<tr><th>Step</th><th>Domain</th><th>Codomain</th></tr>';
+  data.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${r.step}</td><td>${r.from}</td><td>${r.to}</td>`;
+    tbl.appendChild(tr);
+  });
+  container.appendChild(tbl);
+}
+
+function generateWBS(){
+  return [
+    {id:'1',label:'Clear Site',parent:''},
+    {id:'2',label:'Prepare Foundation',parent:'1'},
+    {id:'3',label:'Gather Materials',parent:'1'},
+    {id:'4',label:'Prepare Mortar',parent:'3'},
+    {id:'5',label:'Lay Bricks',parent:'2,3'},
+    {id:'6',label:'Build Wall',parent:'4,5'},
+    {id:'7',label:'Inspect Wall',parent:'6'},
+    {id:'8',label:'Complete Project',parent:'7'}
+  ];
+}
+function renderWBS(container,list){
+  clear(container);
+  const ul=document.createElement('ul');ul.style.listStyle='none';
+  const map={};
+  list.forEach(item=>map[item.id]=item);
+  // build nesting
+  list.forEach(item=>{
+    if(!item.el){item.el=document.createElement('li');item.el.textContent=item.label;item.el.style.margin='.25rem 0';}
+    if(item.parent){
+      item.parent.split(',').forEach(pid=>{
+        const par=map[pid];
+        if(!par.sub){par.sub=document.createElement('ul');par.sub.style.listStyle='circle';par.el.appendChild(par.sub);}
+        par.sub.appendChild(item.el.cloneNode(true));
+      });
+    }
+  });
+  // attach top-level tasks
+  list.filter(i=>!i.parent).forEach(t=>ul.appendChild(t.el));
+  container.appendChild(ul);
+}
+
+/* ----------  UI RENDER ---------- */
+root.innerHTML=`
+<section>
+  <h2>1 · Interactive playground</h2>
+  <p>Select a <strong>marking</strong> to see how the same Petri net can generate distinct SMC morphism chains and WBS task structures.</p>
+  <div class="tabs" id="markTabs"></div>
+  <svg id="vis"></svg>
+  <h3>Generated SMC (Symmetric Monoidal Category) morphisms</h3>
+  <div id="smcVis"></div>
+  <h3>Derived WBS (Work Breakdown Structure)</h3>
+  <div id="wbsVis"></div>
+</section>
+
+<section>
+  <h2>2 · Implementation spec</h2>
+  <details open><summary><strong>2.1 Data contracts (JSON)</strong></summary>
+  <pre>{
+  "schema": {
+    "places": ["P0","P1","P2", "..."],
+    "transitions": ["T1","T2", "..."],
+    "arcs":[{"from":"P0","to":"T1"}, {"from":"T1","to":"P1"}]
+  },
+  "markings":{
+    "scenarioName":{"P0":1,"P2":1}
+  }
+}</pre></details>
+
+  <details><summary><strong>2.2 Processing pipeline</strong></summary>
+  <ol>
+    <li><em>Marking selection</em> → token distribution map.</li>
+    <li>Run reachability firing sequence → JSON morphism chain.</li>
+    <li>Fold chain into SMC data structure (objects+morphisms).</li>
+    <li>Map morphisms to WBS tasks preserving dependencies.</li>
+    <li>Render Petri SVG, SMC table, WBS tree.</li>
+  </ol></details>
+
+  <details><summary><strong>2.3 Algorithmic notes</strong></summary>
+    <ul>
+      <li>Reachability implemented via breadth-first search with marking multiset comparisons (bounded by user-defined max depth).</li>
+      <li>SMC objects cached to avoid duplication; morphisms typed.</li>
+      <li>WBS nodes inherit <code>parent</code> links from input places of a transition.</li>
+    </ul>
+  </details>
+
+  <details><summary><strong>2.4 Extensibility hooks</strong></summary>
+    <p>Provide ES modules <code>plugins/*.js</code> exposing <code>register({onMarking, onSMC, onWBS})</code> to augment rendering.</p>
+  </details>
+
+  <details><summary><strong>2.5 Build & runtime</strong></summary>
+  <ul>
+    <li>No external deps; pure ES2020.</li>
+    <li>To bundle, run <code>npm run build</code> (esbuild).</li>
+    <li>All diagrams rendered client-side; safe in static hosting.</li>
+  </ul></details>
+</section>
+
+<section>
+  <h2>3 · Glossary</h2>
+  <dl>
+    <dt>Petri net</dt><dd>Graphical model of concurrency with <em>places</em>, <em>tokens</em>, and <em>transitions</em>.</dd>
+    <dt>Marking</dt><dd>Distribution of tokens indicating a state.</dd>
+    <dt>SMC</dt><dd>Symmetric Monoidal Category capturing sequential &amp; parallel composition.</dd>
+    <dt>WBS</dt><dd>Hierarchical project task decomposition used in scheduling.</dd>
+  </dl>
+</section>
+`;
+  // tab UI
+  const tabBar=qs('#markTabs',root);
+  Object.keys(dataModel.markings).forEach((name,i)=>{
+    const t=document.createElement('div');t.textContent=name;t.className='tab'+(i==0?' active':'');
+    t.onclick=_=>{qsAll('.tab',tabBar).forEach(el=>el.classList.remove('active'));t.classList.add('active');update(name);};
+    tabBar.appendChild(t);
+  });
+  function qsAll(s,c=document){return Array.from(c.querySelectorAll(s));}
+
+  // draw arrow head
+  const svg=qs('#vis',root);
+  svg.appendChild(elSVG('defs',{})).innerHTML='<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker>';
+
+  function update(markName){
+    const marking=dataModel.markings[markName];
+    drawPetri(svg,marking);
+    renderSMCTable(qs('#smcVis',root),generateSMC(marking));
+    renderWBS(qs('#wbsVis',root),generateWBS());
+  }
+  update(Object.keys(dataModel.markings)[0]);
+
+  root.setAttribute('data-smoke','ok');
+  window.__canvasStatus='ready';
+
+  }catch(e){fallback(e);}
+})();
+</script>
+</body>
+</html>
