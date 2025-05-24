@@ -140,6 +140,42 @@ function drawPetri(container,marking){
 }
 
 function generateSMC(marking){
+  // compute sequence of reachable transitions via BFS
+  const {places,transitions,arcs}=dataModel.schema;
+  const inMap={},outMap={};
+  arcs.forEach(a=>{
+    if(transitions.includes(a.to)){
+      (inMap[a.to]||(inMap[a.to]=[])).push(a.from);
+    }else if(transitions.includes(a.from)){
+      (outMap[a.from]||(outMap[a.from]=[])).push(a.to);
+    }
+  });
+  const toKey=m=>places.map(p=>m[p]||0).join(',');
+  const visitedMarks=new Set();
+  const seenTrans=new Set();
+  const queue=[Object.assign({},marking)];
+  const seq=[];
+  while(queue.length){
+    const mark=queue.shift();
+    const k=toKey(mark);
+    if(visitedMarks.has(k))continue;
+    visitedMarks.add(k);
+    transitions.forEach(t=>{
+      if(seenTrans.has(t))return;
+      const ins=inMap[t]||[];
+      if(ins.every(p=>mark[p]>0)){
+        const outs=outMap[t]||[];
+        seq.push({step:t,from:ins.join('⊗'),to:outs.join('⊗')});
+        seenTrans.add(t);
+        const nm={...mark};
+        ins.forEach(p=>{nm[p]--;});
+        outs.forEach(p=>{nm[p]=(nm[p]||0)+1;});
+        queue.push(nm);
+      }
+    });
+  }
+  return seq;
+=======
   // return JSON describing morphisms composition sequence
   return [
     {step:'clearSite',from:'I',to:'S'},
@@ -163,18 +199,6 @@ function renderSMCTable(container,data){
   });
   container.appendChild(tbl);
 }
-
-function generateWBS(){
-  return [
-    {id:'1',label:'Clear Site',parent:''},
-    {id:'2',label:'Prepare Foundation',parent:'1'},
-    {id:'3',label:'Gather Materials',parent:'1'},
-    {id:'4',label:'Build Floor',parent:'2,3'},
-    {id:'5',label:'Build Walls',parent:'4'},
-    {id:'6',label:'Install Roof',parent:'5,4'},
-    {id:'7',label:'Inspect Shed',parent:'6'},
-    {id:'8',label:'Finish',parent:'7'}
-  ];
 }
 function renderWBS(container,list){
   clear(container);
@@ -279,8 +303,9 @@ root.innerHTML=`
   function update(markName){
     const marking=dataModel.markings[markName];
     drawPetri(svg,marking);
-    renderSMCTable(qs('#smcVis',root),generateSMC(marking));
-    renderWBS(qs('#wbsVis',root),generateWBS());
+    const seq=generateSMC(marking);
+    renderSMCTable(qs('#smcVis',root),seq);
+    renderWBS(qs('#wbsVis',root),generateWBS(seq));
   }
   update(Object.keys(dataModel.markings)[0]);
 
