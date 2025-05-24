@@ -26,3 +26,5 @@ Clayton Christensen would always ask, when it came to a service or a product, wh
 
 # Acknowledgements
 Christensen
+
+[Back to Blog]({{ '/blog.html' | relative_url }})

@@ -28,3 +28,5 @@ Adopt an existing portfolio framework
 Howard Lewis set out the event triggers and client needs. 
 
 
+
+[Back to Blog]({{ '/blog.html' | relative_url }})
