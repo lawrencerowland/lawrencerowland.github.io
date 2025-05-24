@@ -33,9 +33,11 @@ pre{background:#e2e8f0;border-radius:.25rem;padding:.75rem;overflow:auto}
 <body>
 <p><a href="../project-examples.html">Back to Project Examples</a></p>
 <div class="container">
-<h1>Petri Net → SMC → WBS Generator<br><span class="badge">Developer Spec</span></h1>
+<h1>Petri Net → SMC → WBS Generator<br><span class="badge">Toy Shed Build Example</span></h1>
 
 <noscript><p style="color:#b91c1c">Interactive visualisation requires JavaScript.</p></noscript>
+
+<p>This page demonstrates how a small shed building project can be modelled as a Petri net. Different token <em>markings</em> correspond to alternative scheduling options. Selecting a marking below generates a chain of SMC morphisms and a compatible work breakdown structure.</p>
 
 <!-- =========================================================
      0. SMOKE-WATCH & FALLBACK
@@ -82,23 +84,23 @@ pre{background:#e2e8f0;border-radius:.25rem;padding:.75rem;overflow:auto}
 /* ----------  DATA MODEL ---------- */
 const dataModel={
   schema:{
-    places:["P0","P1","P2","P3","P4","P5","P6","P7","P8"],
-    transitions:["T1","T2","T3","T4","T5","T6","T7","T8"],
+    places:["Start","SiteCleared","FoundationReady","MaterialsReady","FloorBuilt","WallsBuilt","RoofOn","Inspected","ShedComplete"],
+    transitions:["clearSite","prepareFoundation","gatherMaterials","buildFloor","buildWalls","installRoof","inspect","finish"],
     arcs:[
-      {from:"P0",to:"T1"},{from:"T1",to:"P1"},
-      {from:"P0",to:"T2"},{from:"T2",to:"P2"},
-      {from:"P1",to:"T3"},{from:"T3",to:"P3"},
-      {from:"P2",to:"T4"},{from:"T4",to:"P4"},
-      {from:"P3",to:"T5"},{from:"P2",to:"T5"},{from:"T5",to:"P5"},
-      {from:"P5",to:"T6"},{from:"P4",to:"T6"},{from:"T6",to:"P6"},
-      {from:"P6",to:"T7"},{from:"T7",to:"P7"},
-      {from:"P7",to:"T8"},{from:"T8",to:"P8"}
+      {from:"Start",to:"clearSite"},{from:"clearSite",to:"SiteCleared"},
+      {from:"SiteCleared",to:"prepareFoundation"},{from:"prepareFoundation",to:"FoundationReady"},
+      {from:"SiteCleared",to:"gatherMaterials"},{from:"gatherMaterials",to:"MaterialsReady"},
+      {from:"FoundationReady",to:"buildFloor"},{from:"MaterialsReady",to:"buildFloor"},{from:"buildFloor",to:"FloorBuilt"},
+      {from:"FloorBuilt",to:"buildWalls"},{from:"buildWalls",to:"WallsBuilt"},
+      {from:"WallsBuilt",to:"installRoof"},{from:"FloorBuilt",to:"installRoof"},{from:"installRoof",to:"RoofOn"},
+      {from:"RoofOn",to:"inspect"},{from:"inspect",to:"Inspected"},
+      {from:"Inspected",to:"finish"},{from:"finish",to:"ShedComplete"}
     ]
   },
   markings:{
-    sequential:{P0:1},
-    concurrent:{P0:1,P2:1},
-    fastTrack:{P0:1,P2:2}
+    sequential:{Start:1},
+    parallel:{Start:2},
+    accelerated:{Start:2,MaterialsReady:1}
   }
 };
 
@@ -142,12 +144,12 @@ function generateSMC(marking){
   return [
     {step:'clearSite',from:'I',to:'S'},
     {step:'prepareFoundation',from:'S',to:'F'},
-    {step:'gatherMaterials',from:'I',to:'M'},
-    {step:'prepareMortar',from:'M',to:'Mo'},
-    {step:'layBricks',from:'F⊗M',to:'B'},
-    {step:'buildWall',from:'B⊗Mo',to:'W'},
-    {step:'inspectWall',from:'W',to:'Insp'},
-    {step:'complete',from:'Insp',to:'C'}
+    {step:'gatherMaterials',from:'S',to:'M'},
+    {step:'buildFloor',from:'F⊗M',to:'FL'},
+    {step:'buildWalls',from:'FL',to:'W'},
+    {step:'installRoof',from:'W',to:'R'},
+    {step:'inspect',from:'R',to:'I2'},
+    {step:'finish',from:'I2',to:'C'}
   ];
 }
 function renderSMCTable(container,data){
@@ -167,11 +169,11 @@ function generateWBS(){
     {id:'1',label:'Clear Site',parent:''},
     {id:'2',label:'Prepare Foundation',parent:'1'},
     {id:'3',label:'Gather Materials',parent:'1'},
-    {id:'4',label:'Prepare Mortar',parent:'3'},
-    {id:'5',label:'Lay Bricks',parent:'2,3'},
-    {id:'6',label:'Build Wall',parent:'4,5'},
-    {id:'7',label:'Inspect Wall',parent:'6'},
-    {id:'8',label:'Complete Project',parent:'7'}
+    {id:'4',label:'Build Floor',parent:'2,3'},
+    {id:'5',label:'Build Walls',parent:'4'},
+    {id:'6',label:'Install Roof',parent:'5,4'},
+    {id:'7',label:'Inspect Shed',parent:'6'},
+    {id:'8',label:'Finish',parent:'7'}
   ];
 }
 function renderWBS(container,list){
