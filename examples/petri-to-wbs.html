@@ -101,6 +101,16 @@ const dataModel={
     sequential:{Start:1},
     parallel:{Start:2},
     accelerated:{Start:2,MaterialsReady:1}
+  },
+  durations:{
+    clearSite:1,
+    prepareFoundation:2,
+    gatherMaterials:1,
+    buildFloor:3,
+    buildWalls:3,
+    installRoof:2,
+    inspect:1,
+    finish:1
   }
 };
 
@@ -222,6 +232,30 @@ function renderWBS(container,list){
   container.appendChild(ul);
 }
 
+function generateSchedule(tasks){
+  const start={},finish={},dur=dataModel.durations||{};
+  tasks.forEach(t=>{
+    const deps=t.parent?t.parent.split(','):[];
+    const st=Math.max(0,...deps.map(d=>finish[d]||0));
+    start[t.id]=st;
+    finish[t.id]=st+(dur[t.label]||1);
+  });
+  return tasks.map(t=>({label:t.label,start:start[t.id],finish:finish[t.id]}));
+}
+
+function renderSchedule(container,list){
+  clear(container);
+  const tbl=document.createElement('table');
+  tbl.style.width='100%';tbl.style.borderCollapse='collapse';
+  tbl.innerHTML='<tr><th>Task</th><th>Start</th><th>Finish</th></tr>';
+  list.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${r.label}</td><td>${r.start}</td><td>${r.finish}</td>`;
+    tbl.appendChild(tr);
+  });
+  container.appendChild(tbl);
+}
+
 /* ----------  UI RENDER ---------- */
 root.innerHTML=`
 <section>
@@ -233,6 +267,8 @@ root.innerHTML=`
   <div id="smcVis"></div>
   <h3>Derived WBS (Work Breakdown Structure)</h3>
   <div id="wbsVis"></div>
+  <h3>Simple Schedule</h3>
+  <div id="schedVis"></div>
 </section>
 
 <section>
@@ -256,6 +292,7 @@ root.innerHTML=`
     <li>Fold chain into SMC data structure (objects+morphisms).</li>
     <li>Map morphisms to WBS tasks preserving dependencies.</li>
     <li>Render Petri SVG, SMC table, WBS tree.</li>
+    <li>Calculate simple schedule from WBS and task durations.</li>
   </ol></details>
 
   <details><summary><strong>2.3 Algorithmic notes</strong></summary>
@@ -285,6 +322,7 @@ root.innerHTML=`
     <dt>Marking</dt><dd>Distribution of tokens indicating a state.</dd>
     <dt>SMC</dt><dd>Symmetric Monoidal Category capturing sequential &amp; parallel composition.</dd>
     <dt>WBS</dt><dd>Hierarchical project task decomposition used in scheduling.</dd>
+    <dt>Schedule</dt><dd>Start and finish times computed from task durations and dependencies.</dd>
   </dl>
 </section>
 `;
@@ -306,7 +344,9 @@ root.innerHTML=`
     drawPetri(svg,marking);
     const seq=generateSMC(marking);
     renderSMCTable(qs('#smcVis',root),seq);
-    renderWBS(qs('#wbsVis',root),generateWBS(seq));
+    const tasks=generateWBS(seq);
+    renderWBS(qs('#wbsVis',root),tasks);
+    renderSchedule(qs('#schedVis',root),generateSchedule(tasks));
   }
   update(Object.keys(dataModel.markings)[0]);
 
