@@ -175,18 +175,6 @@ function generateSMC(marking){
     });
   }
   return seq;
-=======
-  // return JSON describing morphisms composition sequence
-  return [
-    {step:'clearSite',from:'I',to:'S'},
-    {step:'prepareFoundation',from:'S',to:'F'},
-    {step:'gatherMaterials',from:'S',to:'M'},
-    {step:'buildFloor',from:'F⊗M',to:'FL'},
-    {step:'buildWalls',from:'FL',to:'W'},
-    {step:'installRoof',from:'W',to:'R'},
-    {step:'inspect',from:'R',to:'I2'},
-    {step:'finish',from:'I2',to:'C'}
-  ];
 }
 function renderSMCTable(container,data){
   clear(container);
@@ -199,7 +187,20 @@ function renderSMCTable(container,data){
   });
   container.appendChild(tbl);
 }
+function generateWBS(seq){
+  const tasks=[];
+  const produced={};
+  seq.forEach((tr,i)=>{
+    const id=String(i+1);
+    const inputs=tr.from?tr.from.split('⊗').filter(Boolean):[];
+    const parents=[...new Set(inputs.map(p=>produced[p]).filter(Boolean))];
+    tasks.push({id,label:tr.step,parent:parents.join(',')});
+    const outputs=tr.to?tr.to.split('⊗').filter(Boolean):[];
+    outputs.forEach(p=>{produced[p]=id;});
+  });
+  return tasks;
 }
+
 function renderWBS(container,list){
   clear(container);
   const ul=document.createElement('ul');ul.style.listStyle='none';
