@@ -19,7 +19,6 @@ title: Project Examples
   {% for example in site.data.examples %}
   <div class="example-card" data-tags="{{ example.tags | join: ' ' }}">
     <h2><a href="{{ example.path }}">{{ example.title }}</a></h2>
-    <img src="{{ example.thumbnail }}" alt="{{ example.title }} thumbnail">
     <p>{{ example.description }}</p>
     <p><strong>Origin:</strong> {{ example.origin }}</p>
     <p><strong>Tags:</strong> {% for tag in example.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
