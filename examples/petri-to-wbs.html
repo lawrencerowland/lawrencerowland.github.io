@@ -138,17 +138,41 @@ function drawPetri(container,marking){
 }
 
 function generateSMC(marking){
-  // return JSON describing morphisms composition sequence
-  return [
-    {step:'clearSite',from:'I',to:'S'},
-    {step:'prepareFoundation',from:'S',to:'F'},
-    {step:'gatherMaterials',from:'I',to:'M'},
-    {step:'prepareMortar',from:'M',to:'Mo'},
-    {step:'layBricks',from:'F⊗M',to:'B'},
-    {step:'buildWall',from:'B⊗Mo',to:'W'},
-    {step:'inspectWall',from:'W',to:'Insp'},
-    {step:'complete',from:'Insp',to:'C'}
-  ];
+  // compute sequence of reachable transitions via BFS
+  const {places,transitions,arcs}=dataModel.schema;
+  const inMap={},outMap={};
+  arcs.forEach(a=>{
+    if(transitions.includes(a.to)){
+      (inMap[a.to]||(inMap[a.to]=[])).push(a.from);
+    }else if(transitions.includes(a.from)){
+      (outMap[a.from]||(outMap[a.from]=[])).push(a.to);
+    }
+  });
+  const toKey=m=>places.map(p=>m[p]||0).join(',');
+  const visitedMarks=new Set();
+  const seenTrans=new Set();
+  const queue=[Object.assign({},marking)];
+  const seq=[];
+  while(queue.length){
+    const mark=queue.shift();
+    const k=toKey(mark);
+    if(visitedMarks.has(k))continue;
+    visitedMarks.add(k);
+    transitions.forEach(t=>{
+      if(seenTrans.has(t))return;
+      const ins=inMap[t]||[];
+      if(ins.every(p=>mark[p]>0)){
+        const outs=outMap[t]||[];
+        seq.push({step:t,from:ins.join('⊗'),to:outs.join('⊗')});
+        seenTrans.add(t);
+        const nm={...mark};
+        ins.forEach(p=>{nm[p]--;});
+        outs.forEach(p=>{nm[p]=(nm[p]||0)+1;});
+        queue.push(nm);
+      }
+    });
+  }
+  return seq;
 }
 function renderSMCTable(container,data){
   clear(container);
@@ -162,17 +186,18 @@ function renderSMCTable(container,data){
   container.appendChild(tbl);
 }
 
-function generateWBS(){
-  return [
-    {id:'1',label:'Clear Site',parent:''},
-    {id:'2',label:'Prepare Foundation',parent:'1'},
-    {id:'3',label:'Gather Materials',parent:'1'},
-    {id:'4',label:'Prepare Mortar',parent:'3'},
-    {id:'5',label:'Lay Bricks',parent:'2,3'},
-    {id:'6',label:'Build Wall',parent:'4,5'},
-    {id:'7',label:'Inspect Wall',parent:'6'},
-    {id:'8',label:'Complete Project',parent:'7'}
-  ];
+function generateWBS(seq){
+  const tasks=[];
+  const produced={};
+  seq.forEach((tr,i)=>{
+    const id=String(i+1);
+    const inputs=tr.from?tr.from.split('⊗').filter(Boolean):[];
+    const parents=[...new Set(inputs.map(p=>produced[p]).filter(Boolean))];
+    tasks.push({id,label:tr.step,parent:parents.join(',')});
+    const outputs=tr.to?tr.to.split('⊗').filter(Boolean):[];
+    outputs.forEach(p=>{produced[p]=id;});
+  });
+  return tasks;
 }
 function renderWBS(container,list){
   clear(container);
@@ -277,8 +302,9 @@ root.innerHTML=`
   function update(markName){
     const marking=dataModel.markings[markName];
     drawPetri(svg,marking);
-    renderSMCTable(qs('#smcVis',root),generateSMC(marking));
-    renderWBS(qs('#wbsVis',root),generateWBS());
+    const seq=generateSMC(marking);
+    renderSMCTable(qs('#smcVis',root),seq);
+    renderWBS(qs('#wbsVis',root),generateWBS(seq));
   }
   update(Object.keys(dataModel.markings)[0]);
 
