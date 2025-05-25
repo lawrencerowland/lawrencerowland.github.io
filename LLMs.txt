@@ -1,0 +1,24 @@
+This website hosts documentation and examples on project portfolio management. It is built with Jekyll and published at https://lawrencerowland.github.io.
+
+Main sections
+-------------
+- **Home** (`/` or `/index.html`): introduction and links to the main guides.
+- **Books** (`/Books.html`): recommended reading list.
+- **ML for portfolios** (`/ML-for-portfolios.html`): applying machine learning to portfolios.
+- **Data models** (`/Portfolio-data-model.html`): graph based portfolio data models.
+- **Frameworks** (`/Portfolio-frameworks.html`): building a portfolio framework.
+- **Examples** (`/project-examples.html`): list of interactive example pages from `_data/examples.yml`.
+- **Graphs** (`/graphs.html`): showcases interactive network graphs, with a demo under `/network/`.
+- **Blog** (`/blog.html`): lists posts from the `_posts/` directory.
+- **About** (`/about.html`): information about the author and site purpose.
+
+Other content
+-------------
+- Interactive HTML files live under `/examples/`.
+- The page `/network/index.html` shows an example network visualisation.
+- A sitemap is available at `/sitemap.xml` and `robots.txt` allows indexing.
+- Errors redirect to `/404.html`.
+
+Navigation tips
+---------------
+Use the navigation bar at the top of each page to jump between sections. On small screens click the menu toggle to reveal links. Many pages contain further links to GitHub repositories or external interactive tools. Start at the home page or sitemap to explore everything.
