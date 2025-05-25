@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Project Examples
+schema_type: CollectionPage
 ---
 
 # Project Examples

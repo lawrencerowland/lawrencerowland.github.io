@@ -1,3 +1,8 @@
+---
+layout: post
+schema_type: BlogPosting
+title: Data models for project portfolios
+---
 # Data models for project portfolios
 
 {% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios/Graph_Option.png" %}

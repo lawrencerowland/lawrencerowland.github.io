@@ -1,5 +1,6 @@
 ---
 layout: post
+schema_type: BlogPosting
 ---
 
 # Adopt existing portfolio framework

@@ -1,5 +1,6 @@
 ---
 layout: post
+schema_type: BlogPosting
 ---
 
 # Applying appropriate machine-learning approach.

@@ -1,5 +1,6 @@
 ---
 layout: post
+schema_type: BlogPosting
 ---
 
 # Project management: Some jobs to be done

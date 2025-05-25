@@ -1,5 +1,6 @@
 ---
 layout: default
+schema_type: CollectionPage
 ---
 
 # Interactive project graphs

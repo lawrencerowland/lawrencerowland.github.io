@@ -1,5 +1,6 @@
 ---
 layout: default
+schema_type: TechArticle
 ---
 
 # ML for portfolios

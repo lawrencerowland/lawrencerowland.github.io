@@ -1,0 +1,11 @@
+{% if page.schema_type %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ page.schema_type }}",
+  "name": "{{ page.title | default: site.title | escape }}",
+  "url": "{{ page.url | absolute_url }}"{% if page.date %},
+  "datePublished": "{{ page.date | date_to_xmlschema }}"{% endif %}
+}
+</script>
+{% endif %}
