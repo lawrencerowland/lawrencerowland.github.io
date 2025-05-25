@@ -18,7 +18,7 @@ schema_type: CollectionPage
 
 <div id="example-container">
   {% for example in site.data.examples %}
-  <div class="example-card" data-tags="{{ example.tags | join: ' ' }}">
+  <div class="example-card" data-tags="{{ example.tags | join: ',' }}">
     <h2><a href="{{ example.path }}">{{ example.title }}</a></h2>
     <p>{{ example.description }}</p>
     <p><strong>Origin:</strong> {{ example.origin }}</p>
@@ -31,7 +31,7 @@ schema_type: CollectionPage
 function filterExamples(tag) {
   const cards = document.querySelectorAll('.example-card');
   cards.forEach(card => {
-    const tags = card.dataset.tags.split(' ');
+    const tags = card.dataset.tags.split(',').map(t => t.trim());
     if (tag === 'all' || tags.includes(tag)) {
       card.style.display = 'inline-block';
     } else {
