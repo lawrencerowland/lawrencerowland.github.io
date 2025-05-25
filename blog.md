@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+schema_type: Blog
 ---
 
 # Blog Posts
