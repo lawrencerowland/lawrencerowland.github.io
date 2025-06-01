@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: AboutPage
+tags: [PortfolioManagement, ProjectManagement, GraphDatabases, MachineLearning, KnowledgeManagement]
 ---
 
 # About

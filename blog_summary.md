@@ -2,6 +2,7 @@
 layout: default
 title: Blog Summary
 schema_type: CollectionPage
+tags: [BlogPosts, PortfolioManagement, ProjectManagement]
 ---
 
 # Blog Summary

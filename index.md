@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: WebPage
+tags: [ProjectManagement, PortfolioManagement, MachineLearning, GraphDatabases, ProjectFrameworks]
 ---
 
 # Main

@@ -2,6 +2,7 @@
 layout: default
 title: Sitemap
 schema_type: CollectionPage
+tags: [KnowledgeManagement]
 ---
 
 # Sitemap

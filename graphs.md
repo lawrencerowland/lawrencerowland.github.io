@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: CollectionPage
+tags: [Visualization, GraphDatabases, PortfolioManagement]
 ---
 
 # Interactive project graphs

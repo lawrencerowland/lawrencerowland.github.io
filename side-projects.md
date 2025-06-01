@@ -2,6 +2,7 @@
 layout: default
 title: Side Projects
 schema_type: CollectionPage
+tags: [SideProjects, Examples]
 ---
 
 # Side Projects

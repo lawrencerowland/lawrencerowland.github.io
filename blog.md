@@ -2,6 +2,7 @@
 layout: default
 title: Blog
 schema_type: Blog
+tags: [BlogPosts, PortfolioManagement, ProjectManagement]
 ---
 
 # Blog Posts

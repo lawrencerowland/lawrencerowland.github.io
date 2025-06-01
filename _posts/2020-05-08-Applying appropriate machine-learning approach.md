@@ -1,6 +1,7 @@
 ---
 layout: post
 schema_type: BlogPosting
+tags: [MachineLearning, ProjectManagement]
 ---
 
 # Applying appropriate machine-learning approach.
