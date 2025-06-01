@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: TechArticle
+tags: [DataModeling, GraphDatabases, PortfolioManagement]
 ---
 
 # Portfolio data models

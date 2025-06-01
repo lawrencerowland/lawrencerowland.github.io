@@ -1,6 +1,7 @@
 ---
 layout: post
 schema_type: BlogPosting
+tags: [ProjectFrameworks, PortfolioManagement]
 ---
 
 # Adopt existing portfolio framework

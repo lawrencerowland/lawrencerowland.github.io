@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: TechArticle
+tags: [ProjectFrameworks, PortfolioManagement, NaturalLanguageProcessing]
 ---
 
 # Portfolio frameworks

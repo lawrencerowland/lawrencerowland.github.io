@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: ItemList
+tags: [Books, Innovation, KnowledgeManagement]
 ---
 
 # Book-suggestions

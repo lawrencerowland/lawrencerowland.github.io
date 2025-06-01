@@ -1,6 +1,7 @@
 ---
 layout: post
 schema_type: BlogPosting
+tags: [ProjectManagement, PortfolioManagement]
 ---
 
 # Project management: Some jobs to be done

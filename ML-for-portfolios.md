@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: TechArticle
+tags: [MachineLearning, PortfolioManagement, GraphDatabases, ProjectManagement]
 ---
 
 # ML for portfolios

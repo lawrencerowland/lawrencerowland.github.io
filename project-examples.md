@@ -2,6 +2,7 @@
 layout: default
 title: Project Examples
 schema_type: CollectionPage
+tags: [Examples, Visualization, KnowledgeManagement]
 ---
 
 # Project Examples

@@ -1,6 +1,7 @@
 ---
 layout: default
 schema_type: Article
+tags: [PortfolioManagement, ProjectManagement, MachineLearning, GraphDatabases]
 ---
 
 # Why ?

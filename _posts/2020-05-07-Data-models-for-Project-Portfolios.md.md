@@ -2,6 +2,7 @@
 layout: post
 schema_type: BlogPosting
 title: Data models for project portfolios
+tags: [DataModeling, GraphDatabases, PortfolioManagement]
 ---
 # Data models for project portfolios
 
