@@ -7,7 +7,7 @@ Main sections
 - **ML for portfolios** (`/ML-for-portfolios.html`): applying machine learning to portfolios.
 - **Data models** (`/Portfolio-data-model.html`): graph based portfolio data models.
 - **Frameworks** (`/Portfolio-frameworks.html`): building a portfolio framework.
-- **Examples** (`/project-examples.html`): list of interactive example pages from `_data/examples.yml`.
+- **Project apps** (https://lawrencerowland.github.io/Project-web-apps/): list of interactive example pages from `_data/examples.yml`.
 - **Graphs** (`/graphs.html`): showcases interactive network graphs, with a demo under `/network/`.
 - **Blog** (`/blog.html`): lists posts from the `_posts/` directory.
 - **About** (`/about.html`): information about the author and site purpose.
