@@ -62,7 +62,7 @@ Start with the guides unless you know exactly what you want.
 1. **choose and develop a portfolio framework**,[here](https://lawrencerowland.github.io/Portfolio-frameworks.html)
 
 1. **data model for your projects** [here](https://lawrencerowland.github.io/Portfolio-data-model.html)
-1. **project examples** [here](https://lawrencerowland.github.io/project-examples.html)
+1. **project apps** [here](https://lawrencerowland.github.io/Project-web-apps/)
 1. **side projects** [here](https://lawrencerowland.github.io/side-projects.html)
 1. **blog summary** [here](https://lawrencerowland.github.io/blog_summary.html)
 
