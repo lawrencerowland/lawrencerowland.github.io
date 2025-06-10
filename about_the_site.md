@@ -33,7 +33,9 @@ When you are ready to test or apply a particular tool or approach,then you will 
 
 Or go straight to my code and document libraries (repositories) for implementation [here](https://www.github.com/lawrencerowland)
 
-Please feel free to use for commercial or private purposes. Where you make improvements, please share them if appropriate. 
+For information about me personally, feel free to contact me directly.
+
+Please feel free to use for commercial or private purposes. Where you make improvements, please share them if appropriate.
 
 # Motivation
 

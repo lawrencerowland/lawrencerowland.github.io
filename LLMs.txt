@@ -10,8 +10,7 @@ Main sections
 - **Project apps** (https://lawrencerowland.github.io/Project-web-apps/): list of interactive example pages from `_data/examples.yml`.
 - **Graphs** (`/graphs.html`): showcases interactive network graphs, with a demo under `/network/`.
 - **Blog** (`/blog.html`): lists posts from the `_posts/` directory.
-- **About** (`/about.html`): information about the author and site purpose.
-
+- **About the site** (`/about_the_site.html`): overview of the site's purpose.
 Other content
 -------------
 - Interactive HTML files live under `/examples/`.
