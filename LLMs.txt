@@ -11,8 +11,6 @@ Main sections
 - **Graphs** (`/graphs.html`): showcases interactive network graphs, with a demo under `/network/`.
 - **Blog** (`/blog.html`): lists posts from the `_posts/` directory.
 - **About the site** (`/about_the_site.html`): overview of the site's purpose.
-- **About me** (`/about_me.html`): information about the author.
-
 Other content
 -------------
 - Interactive HTML files live under `/examples/`.
