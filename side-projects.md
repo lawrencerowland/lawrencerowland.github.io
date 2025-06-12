@@ -8,7 +8,7 @@ tags: [SideProjects, Examples]
 # Side Projects
 
 [Home](/)
-[My Custom GPTs](/my-custom-gpts.html)
+[My Custom GPTs](/gpt-links-page.html)
 
 <div class="filter">
   <button data-tag="all">All</button>
