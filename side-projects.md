@@ -24,7 +24,7 @@ tags: [SideProjects, Examples]
     <h2><a href="{{ project.path }}">{{ project.title }}</a></h2>
     <p>{{ project.description }}</p>
     <p><strong>Origin:</strong> {{ project.origin }}</p>
-    <p><strong>Tags:</strong> {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    <p><strong>Tags:</strong> {% for tag in project.tags | sort %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
   </div>
   {% endfor %}
 </div>

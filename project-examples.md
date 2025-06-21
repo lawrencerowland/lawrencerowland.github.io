@@ -23,7 +23,7 @@ tags: [Examples, Visualization, KnowledgeManagement]
     <h2><a href="{{ example.path }}">{{ example.title }}</a></h2>
     <p>{{ example.description }}</p>
     <p><strong>Origin:</strong> {{ example.origin }}</p>
-    <p><strong>Tags:</strong> {% for tag in example.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    <p><strong>Tags:</strong> {% for tag in example.tags | sort %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
   </div>
   {% endfor %}
 </div>
