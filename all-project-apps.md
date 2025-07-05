@@ -1,0 +1,108 @@
+---
+layout: default
+title: All Project Apps
+schema_type: CollectionPage
+tags: [Examples, Projects]
+---
+
+# All Project Apps
+
+<div id="filter-container" class="filter"></div>
+
+<div id="app-container"></div>
+
+<script>
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  const headers = lines.shift().split(',');
+  return lines.map(line => {
+    const values = line.split(',');
+    const obj = {};
+    headers.forEach((h, i) => { obj[h.trim()] = (values[i] || '').trim(); });
+    return obj;
+  });
+}
+
+function createFilters(tags) {
+  const container = document.getElementById('filter-container');
+  container.innerHTML = '';
+  tags.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.textContent = tag;
+    btn.dataset.tag = tag;
+    btn.addEventListener('click', () => filterCards(tag));
+    container.appendChild(btn);
+  });
+}
+
+function createCards(data) {
+  const container = document.getElementById('app-container');
+  container.innerHTML = '';
+  data.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'example-card';
+    card.dataset.tags = item.tags;
+
+    const title = document.createElement('h2');
+    const link = document.createElement('a');
+    if (item.repo === 'Project-web-apps') {
+      link.href = '/Project-web-apps/web_apps/' + item.name + '.html';
+    } else {
+      link.href = '/React_proj-apps/apps/' + item.name + '/index.html';
+    }
+    link.textContent = item.name;
+    title.appendChild(link);
+    card.appendChild(title);
+
+    const img = document.createElement('img');
+    if (item.repo === 'Project-web-apps') {
+      img.src = '/Project-web-apps/pics/' + item['#'] + '.png';
+    } else {
+      img.src = '/React_proj-apps/pics/' + item['#'] + '.png';
+    }
+    img.alt = item.name;
+    card.appendChild(img);
+
+    const desc = document.createElement('p');
+    desc.textContent = item.description;
+    card.appendChild(desc);
+
+    const origin = document.createElement('p');
+    origin.innerHTML = '<strong>Origin:</strong> ' + item.origin;
+    card.appendChild(origin);
+
+    const tags = document.createElement('p');
+    tags.innerHTML = '<strong>Tags:</strong> ' + item.tags.split(',').map(t => '<span class="tag">' + t.trim() + '</span>').join(', ');
+    card.appendChild(tags);
+
+    container.appendChild(card);
+  });
+}
+
+function filterCards(tag) {
+  document.querySelectorAll('.example-card').forEach(card => {
+    const tags = card.dataset.tags.split(',').map(t => t.trim());
+    if (tag === 'all' || tags.includes(tag)) {
+      card.style.display = 'inline-block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function loadData() {
+  Promise.all([
+    fetch('/Project-web-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
+    fetch('/React_proj-apps/app-index.csv?t=' + Date.now()).then(r => r.text())
+  ]).then(([c1, c2]) => {
+    const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
+    const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
+    const data = d1.concat(d2);
+    const tags = Array.from(new Set(data.flatMap(d => d.tags.split(',').map(t => t.trim())))).sort();
+    createFilters(['all'].concat(tags));
+    createCards(data);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadData);
+</script>
