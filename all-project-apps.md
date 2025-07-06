@@ -61,7 +61,10 @@ function createCards(data) {
       img.src = imgName;
     } else {
       const ext = /\.(png|jpg|jpeg|gif|svg)$/i.test(imgName) ? '' : '.png';
-      img.src = '/' + item.repo + '/pics/' + imgName + ext;
+      const base = item.repo === 'Project-web-apps'
+        ? '/Project-web-apps/web_apps/pics/'
+        : '/' + item.repo + '/pics/';
+      img.src = base + imgName + ext;
     }
     img.alt = item.name;
     card.appendChild(img);
