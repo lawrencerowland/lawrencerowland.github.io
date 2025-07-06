@@ -5,6 +5,27 @@ schema_type: CollectionPage
 tags: [Examples, Projects]
 ---
 
+<style>
+  /* Ensure four-column layout for app cards */
+  #app-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+  }
+  .example-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1em;
+    margin: 0.5em;
+  }
+  .example-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5em;
+  }
+</style>
+
+
 # All Project Apps
 
 <div id="filter-container" class="filter"></div>
