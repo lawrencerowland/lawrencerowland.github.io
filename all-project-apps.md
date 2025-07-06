@@ -41,7 +41,8 @@ function createCards(data) {
   data.forEach(item => {
     const card = document.createElement('div');
     card.className = 'example-card';
-    card.dataset.tags = item.tags || '';
+    const tagStr = item.tags || item.tag || item.keywords || item.categories || '';
+    card.dataset.tags = tagStr;
 
     const title = document.createElement('h2');
     const link = document.createElement('a');
@@ -59,7 +60,8 @@ function createCards(data) {
     if (/^https?:/.test(imgName)) {
       img.src = imgName;
     } else {
-      img.src = '/' + item.repo + '/pics/' + imgName + '.png';
+      const ext = /\.(png|jpg|jpeg|gif|svg)$/i.test(imgName) ? '' : '.png';
+      img.src = '/' + item.repo + '/pics/' + imgName + ext;
     }
     img.alt = item.name;
     card.appendChild(img);
@@ -73,7 +75,7 @@ function createCards(data) {
     card.appendChild(origin);
 
     const tags = document.createElement('p');
-    tags.innerHTML = '<strong>Tags:</strong> ' + (item.tags || '').split(/[,;]/).map(t => t.trim()).filter(Boolean).map(t => '<span class="tag">' + t + '</span>').join(', ');
+    tags.innerHTML = '<strong>Tags:</strong> ' + tagStr.split(/[,;]/).map(t => t.trim()).filter(Boolean).map(t => '<span class="tag">' + t + '</span>').join(', ');
     card.appendChild(tags);
 
     container.appendChild(card);
@@ -100,7 +102,7 @@ function loadData() {
     const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
     const data = d1.concat(d2);
     const tags = Array.from(new Set(data.flatMap(d => {
-      const tagField = d.tags || '';
+      const tagField = d.tags || d.tag || d.keywords || d.categories || '';
       return tagField.split(/[,;]/).map(t => t.trim()).filter(Boolean);
     }))).sort();
     createFilters(['all'].concat(tags));
