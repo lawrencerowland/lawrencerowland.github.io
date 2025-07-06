@@ -153,14 +153,20 @@ sup.footnote-ref:hover .footnote-popup {
 .example-card {
   border: 1px solid #ccc;
   padding: 1rem;
-  margin: 1rem;
-  display: inline-block;
-  width: 250px;
-  vertical-align: top;
+  margin: 0;
+  display: block;
+  width: auto;
 }
 .example-card img {
   max-width: 100%;
   height: auto;
+}
+
+#app-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem;
 }
 
 /* Navbar layout */

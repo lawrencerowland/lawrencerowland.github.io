@@ -14,11 +14,11 @@ tags: [Examples, Projects]
 <script>
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
-  const headers = lines.shift().split(',');
+  const headers = lines.shift().split(',').map(h => h.trim().toLowerCase());
   return lines.map(line => {
     const values = line.split(',');
     const obj = {};
-    headers.forEach((h, i) => { obj[h.trim()] = (values[i] || '').trim(); });
+    headers.forEach((h, i) => { obj[h] = (values[i] || '').trim(); });
     return obj;
   });
 }
@@ -41,7 +41,7 @@ function createCards(data) {
   data.forEach(item => {
     const card = document.createElement('div');
     card.className = 'example-card';
-    card.dataset.tags = item.tags;
+    card.dataset.tags = item.tags || '';
 
     const title = document.createElement('h2');
     const link = document.createElement('a');
@@ -55,10 +55,11 @@ function createCards(data) {
     card.appendChild(title);
 
     const img = document.createElement('img');
-    if (item.repo === 'Project-web-apps') {
-      img.src = '/Project-web-apps/pics/' + item['#'] + '.png';
+    let imgName = item.image || item.pic || item.img || item['#'] || item.name;
+    if (/^https?:/.test(imgName)) {
+      img.src = imgName;
     } else {
-      img.src = '/React_proj-apps/pics/' + item['#'] + '.png';
+      img.src = '/' + item.repo + '/pics/' + imgName + '.png';
     }
     img.alt = item.name;
     card.appendChild(img);
@@ -72,7 +73,7 @@ function createCards(data) {
     card.appendChild(origin);
 
     const tags = document.createElement('p');
-    tags.innerHTML = '<strong>Tags:</strong> ' + item.tags.split(',').map(t => '<span class="tag">' + t.trim() + '</span>').join(', ');
+    tags.innerHTML = '<strong>Tags:</strong> ' + (item.tags || '').split(/[,;]/).map(t => t.trim()).filter(Boolean).map(t => '<span class="tag">' + t + '</span>').join(', ');
     card.appendChild(tags);
 
     container.appendChild(card);
@@ -81,9 +82,9 @@ function createCards(data) {
 
 function filterCards(tag) {
   document.querySelectorAll('.example-card').forEach(card => {
-    const tags = card.dataset.tags.split(',').map(t => t.trim());
+    const tags = card.dataset.tags.split(/[,;]/).map(t => t.trim());
     if (tag === 'all' || tags.includes(tag)) {
-      card.style.display = 'inline-block';
+      card.style.display = 'block';
     } else {
       card.style.display = 'none';
     }
@@ -98,7 +99,10 @@ function loadData() {
     const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
     const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
     const data = d1.concat(d2);
-    const tags = Array.from(new Set(data.flatMap(d => d.tags.split(',').map(t => t.trim())))).sort();
+    const tags = Array.from(new Set(data.flatMap(d => {
+      const tagField = d.tags || '';
+      return tagField.split(/[,;]/).map(t => t.trim()).filter(Boolean);
+    }))).sort();
     createFilters(['all'].concat(tags));
     createCards(data);
   });
