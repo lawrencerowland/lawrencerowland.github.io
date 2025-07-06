@@ -62,7 +62,7 @@ function createCards(data) {
     } else {
       const ext = /\.(png|jpg|jpeg|gif|svg)$/i.test(imgName) ? '' : '.png';
       const base = item.repo === 'Project-web-apps'
-        ? '/Project-web-apps/web_apps/pics/'
+        ? '/Project-web-apps/pics/'
         : '/' + item.repo + '/pics/';
       img.src = base + imgName + ext;
     }
