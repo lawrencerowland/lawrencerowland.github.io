@@ -24,6 +24,10 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
+.page-content.wide {
+  max-width: 80rem;
+}
+
 a {
   color: #703030;
 }

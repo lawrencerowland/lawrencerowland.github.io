@@ -6,7 +6,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXM2VXQH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {% include header.html %}
-    <main class="page-content" aria-label="Content">
+    <main class="page-content{% if page.wide %} wide{% endif %}" aria-label="Content">
       {{ content }}
     </main>
     {% include footer.html %}

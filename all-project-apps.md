@@ -3,6 +3,7 @@ layout: default
 title: All Project Apps
 schema_type: CollectionPage
 tags: [Examples, Projects]
+wide: true
 ---
 
 <style>
