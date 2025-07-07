@@ -33,6 +33,8 @@ wide: true
 
 <div id="app-container"></div>
 
+<div id="tag-cloud" class="filter"></div>
+
 <script>
 const canonicalMap = {
   agi: 'strategy_portfolio',
@@ -154,7 +156,19 @@ function createFilters(tags) {
     const btn = document.createElement('button');
     btn.textContent = tag;
     btn.dataset.tag = tag;
-    btn.addEventListener('click', () => filterCards(tag));
+    btn.addEventListener('click', () => setActiveCategory(tag));
+    container.appendChild(btn);
+  });
+}
+
+function createTagCloud(tags) {
+  const container = document.getElementById('tag-cloud');
+  container.innerHTML = '';
+  tags.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.textContent = tag;
+    btn.dataset.tag = tag;
+    btn.addEventListener('click', () => filterByTag(tag));
     container.appendChild(btn);
   });
 }
@@ -216,6 +230,21 @@ function createCards(data) {
   });
 }
 
+function setActiveCategory(category) {
+  document.querySelectorAll('#filter-container button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tag === category);
+  });
+  document.querySelectorAll('#tag-cloud button').forEach(btn => btn.classList.remove('active'));
+  filterCards(category);
+}
+
+function filterByTag(tag) {
+  setActiveCategory(canonicalMap[tag] || 'all');
+  document.querySelectorAll('#tag-cloud button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tag === tag);
+  });
+}
+
 function filterCards(category) {
   document.querySelectorAll('.example-card').forEach(card => {
     if (category === 'all') {
@@ -235,7 +264,12 @@ function loadData() {
     const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
     const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
     const data = d1.concat(d2);
+    const allTags = Array.from(new Set(data.flatMap(d => {
+      const tagField = d.tags || d.tag || d.keywords || d.categories || '';
+      return tagField.split(/[,;]/).map(t => t.trim()).filter(Boolean);
+    }))).sort();
     createFilters(canonicalCategories);
+    createTagCloud(allTags);
     createCards(data);
   });
 }

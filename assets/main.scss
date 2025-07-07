@@ -154,6 +154,10 @@ sup.footnote-ref:hover .footnote-popup {
   margin: 0.2rem;
   padding: 0.3rem 0.6rem;
 }
+.filter button.active {
+  font-weight: bold;
+  border-bottom: 2px solid currentColor;
+}
 .example-card {
   border: 1px solid #ccc;
   padding: 1rem;
