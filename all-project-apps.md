@@ -34,6 +34,89 @@ wide: true
 <div id="app-container"></div>
 
 <script>
+const canonicalMap = {
+  agi: 'strategy_portfolio',
+  ai_adoption: 'ai_data',
+  ashbys_law: 'complexity_systems',
+  pbs: 'governance_controls',
+  pmo: 'governance_controls',
+  tom: 'strategy_portfolio',
+  viable_systems_model: 'complexity_systems',
+  wbs: 'governance_controls',
+  wardley_map: 'strategy_portfolio',
+  abstraction: 'decision_intelligence',
+  active_inference: 'complexity_systems',
+  behaviour: 'stakeholders_culture',
+  benefits: 'value_benefits',
+  business_model: 'strategy_portfolio',
+  capabilities: 'learning_capability',
+  category_theory: 'ai_data',
+  change_management: 'complexity_systems',
+  classification_tree: 'ai_data',
+  complexity: 'complexity_systems',
+  competition: 'stakeholders_culture',
+  consulting: 'strategy_portfolio',
+  contract_management: 'governance_controls',
+  correlation: 'ai_data',
+  culture: 'stakeholders_culture',
+  decision: 'decision_intelligence',
+  dependencies: 'governance_controls',
+  feedback_loops: 'complexity_systems',
+  gamification: 'stakeholders_culture',
+  game_theory: 'stakeholders_culture',
+  generative_model: 'ai_data',
+  graph_pathways: 'ai_data',
+  graphs: 'ai_data',
+  higher_order_networks: 'complexity_systems',
+  hs2: 'governance_controls',
+  idea_maze: 'learning_capability',
+  imagination: 'learning_capability',
+  interactions: 'stakeholders_culture',
+  jsx: 'ai_data',
+  knowledge_graph: 'ai_data',
+  knowledge_graph_dependencies: 'ai_data',
+  knowledge_management: 'ai_data',
+  learning: 'learning_capability',
+  methods: 'learning_capability',
+  moving_between_perspectives: 'stakeholders_culture',
+  multiple_perspectives: 'stakeholders_culture',
+  negotiation: 'stakeholders_culture',
+  non_linearity: 'complexity_systems',
+  ontology: 'ai_data',
+  output: 'value_benefits',
+  portfolio_management: 'strategy_portfolio',
+  polarities: 'decision_intelligence',
+  prediction_error: 'decision_intelligence',
+  procurement: 'governance_controls',
+  product_management: 'learning_capability',
+  qualitative_research: 'stakeholders_culture',
+  rail: 'governance_controls',
+  resources: 'learning_capability',
+  risk: 'governance_controls',
+  roadmap: 'strategy_portfolio',
+  scope: 'value_benefits',
+  sequential_decisions: 'decision_intelligence',
+  social_science: 'stakeholders_culture',
+  solution: 'learning_capability',
+  stakeholder: 'stakeholders_culture',
+  stakeholder_management: 'stakeholders_culture',
+  surprise: 'decision_intelligence',
+  svg: 'ai_data',
+  tasks: 'governance_controls',
+  teamwork: 'stakeholders_culture',
+  timeline: 'strategy_portfolio',
+  tsx: 'ai_data',
+  uncertainty: 'decision_intelligence',
+  use_cases: 'ai_data',
+  value: 'value_benefits',
+  visualisation: 'ai_data',
+  workflow: 'governance_controls',
+  physics: 'complexity_systems',
+  everyday: 'learning_capability'
+};
+
+const canonicalCategories = ['all', ...Array.from(new Set(Object.values(canonicalMap)))];
+
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
   const headers = lines.shift().split(',').map(h => h.trim().toLowerCase());
@@ -84,6 +167,13 @@ function createCards(data) {
     card.className = 'example-card';
     const tagStr = item.tags || item.tag || item.keywords || item.categories || '';
     card.dataset.tags = tagStr;
+    const canonSet = new Set();
+    tagStr.split(/[,;]/).map(t => t.trim().toLowerCase()).forEach(t => {
+      if (canonicalMap[t]) {
+        canonSet.add(canonicalMap[t]);
+      }
+    });
+    card.dataset.canonical = Array.from(canonSet).join(',');
 
     const title = document.createElement('h2');
     const link = document.createElement('a');
@@ -126,13 +216,13 @@ function createCards(data) {
   });
 }
 
-function filterCards(tag) {
+function filterCards(category) {
   document.querySelectorAll('.example-card').forEach(card => {
-    const tags = card.dataset.tags.split(/[,;]/).map(t => t.trim());
-    if (tag === 'all' || tags.includes(tag)) {
+    if (category === 'all') {
       card.style.display = 'block';
     } else {
-      card.style.display = 'none';
+      const cats = (card.dataset.canonical || '').split(',').map(c => c.trim());
+      card.style.display = cats.includes(category) ? 'block' : 'none';
     }
   });
 }
@@ -145,11 +235,7 @@ function loadData() {
     const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
     const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
     const data = d1.concat(d2);
-    const tags = Array.from(new Set(data.flatMap(d => {
-      const tagField = d.tags || d.tag || d.keywords || d.categories || '';
-      return tagField.split(/[,;]/).map(t => t.trim()).filter(Boolean);
-    }))).sort();
-    createFilters(['all'].concat(tags));
+    createFilters(canonicalCategories);
     createCards(data);
   });
 }
