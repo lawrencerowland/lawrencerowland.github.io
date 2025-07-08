@@ -11,7 +11,7 @@ tags: [Examples, Visualization, KnowledgeManagement]
 
 <div class="filter">
   <button data-tag="all">All</button>
-  {% assign all_tags = site.data.examples | map: 'tags' | join: ',' | split: ',' | sort | uniq %}
+  {% assign all_tags = site.data.examples | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
   {% for tag in all_tags %}
   <button data-tag="{{ tag }}">{{ tag }}</button>
   {% endfor %}
@@ -23,7 +23,7 @@ tags: [Examples, Visualization, KnowledgeManagement]
     <h2><a href="{{ example.path }}">{{ example.title }}</a></h2>
     <p>{{ example.description }}</p>
     <p><strong>Origin:</strong> {{ example.origin }}</p>
-    <p><strong>Tags:</strong> {% for tag in example.tags | sort %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    <p><strong>Tags:</strong> {% for tag in example.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
   </div>
   {% endfor %}
 </div>

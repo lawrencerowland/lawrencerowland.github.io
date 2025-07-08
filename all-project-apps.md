@@ -24,12 +24,27 @@ wide: true
     height: auto;
     margin-bottom: 0.5em;
   }
+  #heatmap-container {
+    display: flex;
+    height: 1.5em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+  }
+  #heatmap-container .heat-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.8em;
+  }
 </style>
 
 
 # All Project Apps
 
 <div id="filter-container" class="filter"></div>
+
+<div id="heatmap-container" class="heatmap"></div>
 
 <div id="app-container"></div>
 
@@ -118,6 +133,17 @@ const canonicalMap = {
 };
 
 const canonicalCategories = ['all', ...Array.from(new Set(Object.values(canonicalMap)))];
+
+const colorMap = {
+  strategy_portfolio: '#e41a1c',
+  ai_data: '#377eb8',
+  complexity_systems: '#4daf4a',
+  governance_controls: '#984ea3',
+  decision_intelligence: '#ff7f00',
+  stakeholders_culture: '#ffff33',
+  learning_capability: '#a65628',
+  value_benefits: '#f781bf'
+};
 
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
@@ -230,6 +256,30 @@ function createCards(data) {
   });
 }
 
+function renderHeatmap(data) {
+  const counts = {};
+  data.forEach(item => {
+    const tagField = item.tags || item.tag || item.keywords || item.categories || '';
+    const cats = new Set();
+    tagField.split(/[,;]/).map(t => t.trim().toLowerCase()).forEach(t => {
+      if (canonicalMap[t]) cats.add(canonicalMap[t]);
+    });
+    cats.forEach(cat => { counts[cat] = (counts[cat] || 0) + 1; });
+  });
+  canonicalCategories.slice(1).forEach(cat => { if (!counts[cat]) counts[cat] = 0; });
+  const container = document.getElementById('heatmap-container');
+  container.innerHTML = '';
+  Object.entries(counts).forEach(([cat, count]) => {
+    const seg = document.createElement('div');
+    seg.className = 'heat-segment';
+    seg.style.flexGrow = count;
+    seg.style.background = colorMap[cat] || '#999';
+    seg.title = cat + ': ' + count;
+    seg.textContent = count;
+    container.appendChild(seg);
+  });
+}
+
 function setActiveCategory(category) {
   document.querySelectorAll('#filter-container button').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.tag === category);
@@ -271,6 +321,7 @@ function loadData() {
     createFilters(canonicalCategories);
     createTagCloud(allTags);
     createCards(data);
+    renderHeatmap(data);
   });
 }
 

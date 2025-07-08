@@ -12,7 +12,7 @@ tags: [SideProjects, Examples]
 
 <div class="filter">
   <button data-tag="all">All</button>
-  {% assign all_tags = site.data.side_projects | map: 'tags' | join: ',' | split: ',' | sort | uniq %}
+  {% assign all_tags = site.data.side_projects | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
   {% for tag in all_tags %}
   <button data-tag="{{ tag }}">{{ tag }}</button>
   {% endfor %}
@@ -24,7 +24,7 @@ tags: [SideProjects, Examples]
     <h2><a href="{{ project.path }}">{{ project.title }}</a></h2>
     <p>{{ project.description }}</p>
     <p><strong>Origin:</strong> {{ project.origin }}</p>
-    <p><strong>Tags:</strong> {% for tag in project.tags | sort %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    <p><strong>Tags:</strong> {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
   </div>
   {% endfor %}
 </div>
