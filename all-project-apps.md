@@ -258,18 +258,19 @@ function createCards(data) {
 
 function renderHeatmap(data) {
   const counts = {};
+  canonicalCategories.slice(1).forEach(cat => { counts[cat] = 0; });
   data.forEach(item => {
     const tagField = item.tags || item.tag || item.keywords || item.categories || '';
     const cats = new Set();
     tagField.split(/[,;]/).map(t => t.trim().toLowerCase()).forEach(t => {
       if (canonicalMap[t]) cats.add(canonicalMap[t]);
     });
-    cats.forEach(cat => { counts[cat] = (counts[cat] || 0) + 1; });
+    cats.forEach(cat => { counts[cat] += 1; });
   });
-  canonicalCategories.slice(1).forEach(cat => { if (!counts[cat]) counts[cat] = 0; });
   const container = document.getElementById('heatmap-container');
   container.innerHTML = '';
-  Object.entries(counts).forEach(([cat, count]) => {
+  canonicalCategories.slice(1).forEach(cat => {
+    const count = counts[cat];
     const seg = document.createElement('div');
     seg.className = 'heat-segment';
     seg.style.flexGrow = count;
