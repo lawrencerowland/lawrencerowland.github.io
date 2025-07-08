@@ -238,6 +238,12 @@ function createCards(data) {
       img.src = base + imgName + ext;
     }
     img.alt = item.name;
+    img.onerror = () => {
+      img.onerror = null;
+      if (img.src.toLowerCase().endsWith('.png')) {
+        img.src = img.src.replace(/\.png$/, '.PNG');
+      }
+    };
     card.appendChild(img);
 
     const desc = document.createElement('p');
