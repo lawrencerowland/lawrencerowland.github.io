@@ -78,6 +78,7 @@ main{flex:1;display:flex;overflow:hidden;position:relative;}
 <div id="filters">
   <input type="text" id="searchBox" placeholder="Search by keyword…" />
   <div id="domainFilters"></div>
+  <div style="font-size:0.8rem;color:var(--muted);margin-top:0.25rem">Unchecking a domain hides items only in that domain.</div>
 </div>
 <main>
   <div id="listView"></div>
@@ -87,7 +88,7 @@ main{flex:1;display:flex;overflow:hidden;position:relative;}
 
 <!-- Modals -->
 <div id="whatModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>What is this?</h2><p>This tool visualizes the relationships between common challenges (Gaps), solutions (Capabilities), and external knowledge (Resources) in the field of project management.</p><p>It's designed to help project professionals, students, and organizations identify areas for improvement and discover relevant solutions and resources to enhance their project delivery practices.</p></div></div>
-<div id="howToModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>How to Use</h2><ul><li><strong>Browse:</strong> Use the "Gaps", "Capabilities", and "Resources" buttons to switch between categories.</li><li><strong>Filter:</strong> Use the search box and domain checkboxes to narrow down items.</li><li><strong>Explore:</strong> Click "▼" to see linked items. Click any item in the list or a node in the graph to highlight it across both views.</li></ul></div></div>
+<div id="howToModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>How to Use</h2><ul><li><strong>Browse:</strong> Use the "Gaps", "Capabilities", and "Resources" buttons to switch between categories.</li><li><strong>Filter:</strong> Use the search box and domain checkboxes to narrow down items. Unchecking a domain hides only those items that belong solely to that domain.</li><li><strong>Explore:</strong> Click "▼" to see linked items. Click any item in the list or a node in the graph to highlight it across both views.</li></ul></div></div>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
@@ -386,6 +387,10 @@ function buildDomainFilters(){
   });
 }
 
+// Returns true if the item should be visible given the currently unchecked
+// domains in `activeDomains`. By default an item is shown if it belongs to at
+// least one domain that remains checked. To hide items containing any unchecked
+// domain instead, replace `some` with `every` below.
 function domainMatch(item){
   if(activeDomains.size===0)return true;
   return item.domains.some(d=>!activeDomains.has(d));
