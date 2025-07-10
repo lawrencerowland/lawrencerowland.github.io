@@ -380,12 +380,15 @@ function buildDomainFilters(){
     label.innerHTML=`<input type="checkbox" id="${id}" data-domain="${d}" checked> ${d}`;
     container.appendChild(label);
   });
-  container.addEventListener('change',e=>{
-    if(e.target.type==='checkbox'){
-      const domain=e.target.dataset.domain;
-      if(e.target.checked){activeDomains.delete(domain);}else{activeDomains.add(domain);}renderList();
-    }
-  });
+  if(!container.dataset.listener){
+    container.addEventListener('change',e=>{
+      if(e.target.type==='checkbox'){
+        const domain=e.target.dataset.domain;
+        if(e.target.checked){activeDomains.delete(domain);}else{activeDomains.add(domain);}renderList();
+      }
+    });
+    container.dataset.listener='true';
+  }
 }
 
 // Returns true if the item should be visible given the currently unchecked
