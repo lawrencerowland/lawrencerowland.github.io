@@ -315,6 +315,7 @@ function loadResourcesData(){
     integrateApps(d1.concat(d2));
     buildDomainFilters();
     renderList();
+    if(graphVisible) drawGraph();
   });
 }
 
