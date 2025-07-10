@@ -6,6 +6,15 @@ schema_type: WebPage
 ---
 
 <style>
+html, body { height:100%; margin:0; }
+.page-content.wide {
+  display:flex !important;
+  flex-direction:column;
+  flex:1 0 auto;
+  margin:0;
+  max-width:100%;
+  min-height:0;
+}
 :root {
   --gap: #c62828;
   --cap: #1565c0;
@@ -30,7 +39,7 @@ nav button.active{background:var(--cap);color:#fff;border-color:var(--cap);font-
 #domainFilters{display:flex;flex-wrap:wrap;gap:0.5rem 1rem;}
 #domainFilters label{font-size:0.8rem;display:flex;align-items:center;cursor:pointer;}
 #domainFilters input{margin-right:0.35rem;}
-main{flex:1 1 auto;display:flex;overflow:hidden;position:relative;}
+main{flex:1;display:flex;overflow:hidden;position:relative;}
 #listView{flex:1 1 auto;overflow:auto;padding:1rem;}
 .item{border:1px solid #e0e0e0;border-radius:6px;padding:1rem;margin-bottom:1rem;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.2s ease-in-out;}
 .item:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,0.1);}
