@@ -296,14 +296,15 @@ function integrateApps(apps){
 }
 
 function loadResourcesData(){
-  Promise.all([
+  return Promise.all([
     fetch('/Project-web-apps/app-index.csv?t='+Date.now()).then(r=>r.text()),
     fetch('/React_proj-apps/app-index.csv?t='+Date.now()).then(r=>r.text())
   ]).then(([c1,c2])=>{
     const d1=parseCSV(c1).map(d=>{d.repo='Project-web-apps';return d;});
     const d2=parseCSV(c2).map(d=>{d.repo='React_proj-apps';return d;});
     integrateApps(d1.concat(d2));
-    init();
+    buildDomainFilters();
+    renderList();
   });
 }
 
@@ -470,5 +471,8 @@ function setupModal(btnId,modalId){
   window.onclick=event=>{if(event.target==modal){modal.style.display='none';}}
 }
 
-document.addEventListener('DOMContentLoaded',loadResourcesData);
+document.addEventListener('DOMContentLoaded',()=>{
+  init();
+  loadResourcesData().catch(err=>console.error('Failed to load resources',err));
+});
 </script>
