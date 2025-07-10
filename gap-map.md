@@ -137,8 +137,6 @@ const data = {
   ]
 };
 
-data.resources = [];
-data.capabilities.forEach(c => c.linkedResources = []);
 
 const canonicalMap = {
   agi: 'strategy_portfolio',
@@ -282,7 +280,10 @@ function parseCSV(text){
 }
 
 function integrateApps(apps){
-  let nextId=101;
+  let nextId = data.resources.reduce((max, r) => {
+    const n = parseInt(String(r.id).replace(/^R/, ''));
+    return !isNaN(n) && n > max ? n : max;
+  }, 0) + 1;
   apps.forEach(app=>{
     const tags=(app.tags||app.tag||'').split(/[,;]/).map(t=>t.trim().toLowerCase()).filter(Boolean);
     const domainSet=new Set();
