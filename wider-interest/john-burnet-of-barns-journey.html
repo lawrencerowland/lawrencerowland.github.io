@@ -1,11 +1,734 @@
----
-layout: default
-title: John Burnet of Barn's journey
-schema_type: Article
----
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>John Burnet Scottish Route – Interactive Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  html,body,#map{height:100%;margin:0;padding:0}
+  .legend{
+    background:white;
+    padding:6px 10px;
+    border-radius:4px;
+    font-size:12px;
+    line-height:1.4;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+  }
+  .legend span{display:inline-block;width:12px;height:12px;margin-right:4px;vertical-align:middle;}
+</style>
+</head>
+<body>
+<div id="map"></div>
 
-<p>John Buchan's obscure early novel about someone being chased across the southern uplands after being falsely accused of being a traitor, in the years leading up to the Glorious Revolution.</p>
-<p>A year ago I asked AI to map the hero's journey and it only managed a chapter or two. This morning I asked AI to read the book, identify all the journeys he makes, and mark them on a map.</p>
-<p>Its done an excellent job and you can interact with the map here. <a href="https://lnkd.in/eWkDcqd9">https://lnkd.in/eWkDcqd9</a> if you click on the red dots, it tells you what is happening to the hero at the time. It took about an hour.</p>
-<p>Many of John Buchan's books are free to download <a href="https://lnkd.in/eNa-g693">here</a>, including this one.</p>
-<p>As often I defaulted to starting with o3Pro for the hard work, moving to o3 for the first draft of the app, and then moving across to Gemini 2.5 for reliably making improvements.</p>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/geodesy/2.2.1/osgridref.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/geodesy/2.2.1/latlon-ellipsoidal.min.js"></script>
+<script>
+const legs = [
+  {
+    "day": "US1",
+    "from_name": "Barns",
+    "from_grid": "NT240390",
+    "to_name": "Tweed_Ford",
+    "to_grid": "NT238389",
+    "km": 0.2
+  },
+  {
+    "day": "US1",
+    "from_name": "Tweed_Ford",
+    "from_grid": "NT238389",
+    "to_name": "Wood_of_Dawyck",
+    "to_grid": "NT166319",
+    "km": 10.0
+  },
+  {
+    "day": "US1",
+    "from_name": "Wood_of_Dawyck",
+    "from_grid": "NT166319",
+    "to_name": "Barns",
+    "to_grid": "NT240390",
+    "km": 10.3
+  },
+  {
+    "day": "US2",
+    "from_name": "Barns",
+    "from_grid": "NT240390",
+    "to_name": "Peebles_Bridge",
+    "to_grid": "NT251403",
+    "km": 1.7
+  },
+  {
+    "day": "US2",
+    "from_name": "Peebles_Bridge",
+    "from_grid": "NT251403",
+    "to_name": "Manor_Detour",
+    "to_grid": "NT235350",
+    "km": 5.5
+  },
+  {
+    "day": "US2",
+    "from_name": "Manor_Detour",
+    "from_grid": "NT235350",
+    "to_name": "Barns",
+    "to_grid": "NT240390",
+    "km": 4.1
+  },
+  {
+    "day": "US3",
+    "from_name": "Barns",
+    "from_grid": "NT240390",
+    "to_name": "Biggar",
+    "to_grid": "NT046375",
+    "km": 19.5
+  },
+  {
+    "day": "US3",
+    "from_name": "Biggar",
+    "from_grid": "NT046375",
+    "to_name": "Lanark",
+    "to_grid": "NS878425",
+    "km": 17.5
+  },
+  {
+    "day": "US3",
+    "from_name": "Lanark",
+    "from_grid": "NS878425",
+    "to_name": "Crossford",
+    "to_grid": "NS820460",
+    "km": 6.8
+  },
+  {
+    "day": "US3+1",
+    "from_name": "Crossford",
+    "from_grid": "NS820460",
+    "to_name": "Hamilton",
+    "to_grid": "NS715567",
+    "km": 15.0
+  },
+  {
+    "day": "US3+1",
+    "from_name": "Hamilton",
+    "from_grid": "NS715567",
+    "to_name": "Glasgow_Bridge",
+    "to_grid": "NS592650",
+    "km": 14.8
+  },
+  {
+    "day": "US4",
+    "from_name": "Glasgow_Bridge",
+    "from_grid": "NS592650",
+    "to_name": "Hamilton",
+    "to_grid": "NS715567",
+    "km": 14.8
+  },
+  {
+    "day": "US4+1",
+    "from_name": "Hamilton",
+    "from_grid": "NS715567",
+    "to_name": "Lanark_Moor",
+    "to_grid": "NS878430",
+    "km": 21.3
+  },
+  {
+    "day": "US4+1",
+    "from_name": "Lanark_Moor",
+    "from_grid": "NS878430",
+    "to_name": "Symington_Knoll",
+    "to_grid": "NS986373",
+    "km": 12.2
+  },
+  {
+    "day": "US4+1",
+    "from_name": "Symington_Knoll",
+    "from_grid": "NS986373",
+    "to_name": "Barns",
+    "to_grid": "NT240390",
+    "km": 25.5
+  },
+  {
+    "day": "US5",
+    "from_name": "Barns",
+    "from_grid": "NT240390",
+    "to_name": "Scrape_Spur",
+    "to_grid": "NT165285",
+    "km": 12.9
+  },
+  {
+    "day": "US5",
+    "from_name": "Scrape_Spur",
+    "from_grid": "NT165285",
+    "to_name": "Red_Syke",
+    "to_grid": "NT180300",
+    "km": 2.1
+  },
+  {
+    "day": "US5",
+    "from_name": "Red_Syke",
+    "from_grid": "NT180300",
+    "to_name": "Barns",
+    "to_grid": "NT240390",
+    "km": 10.8
+  },
+  {
+    "day": "US6",
+    "from_name": "Barns",
+    "from_grid": "NT240390",
+    "to_name": "Eddleston",
+    "to_grid": "NT245460",
+    "km": 7.0
+  },
+  {
+    "day": "US6",
+    "from_name": "Eddleston",
+    "from_grid": "NT245460",
+    "to_name": "Leadburn_Inn",
+    "to_grid": "NT241573",
+    "km": 11.3
+  },
+  {
+    "day": "US6",
+    "from_name": "Leadburn_Inn",
+    "from_grid": "NT241573",
+    "to_name": "Leith_Harbour",
+    "to_grid": "NT275766",
+    "km": 19.6
+  },
+  {
+    "day": "US7",
+    "from_name": "Leith_Harbour",
+    "from_grid": "NT275766",
+    "to_name": "Leith_Walk",
+    "to_grid": "NT270735",
+    "km": 3.1
+  },
+  {
+    "day": "US7",
+    "from_name": "Leith_Walk",
+    "from_grid": "NT270735",
+    "to_name": "Liberton_Kirk",
+    "to_grid": "NT273689",
+    "km": 4.6
+  },
+  {
+    "day": "US7+1",
+    "from_name": "Liberton_Kirk",
+    "from_grid": "NT273689",
+    "to_name": "Penicuik_Hawes_Burn",
+    "to_grid": "NT235600",
+    "km": 9.7
+  },
+  {
+    "day": "US7+1",
+    "from_name": "Penicuik_Hawes_Burn",
+    "from_grid": "NT235600",
+    "to_name": "Leadburn_X_roads",
+    "to_grid": "NT241573",
+    "km": 2.8
+  },
+  {
+    "day": "US7+1",
+    "from_name": "Leadburn_X_roads",
+    "from_grid": "NT241573",
+    "to_name": "Newlands_Moor",
+    "to_grid": "NT196509",
+    "km": 7.8
+  },
+  {
+    "day": "US7+1",
+    "from_name": "Newlands_Moor",
+    "from_grid": "NT196509",
+    "to_name": "Kirkurd_Ford",
+    "to_grid": "NT154447",
+    "km": 7.5
+  },
+  {
+    "day": "US7+1",
+    "from_name": "Kirkurd_Ford",
+    "from_grid": "NT154447",
+    "to_name": "Hells_Cleuch",
+    "to_grid": "NT163424",
+    "km": 2.5
+  },
+  {
+    "day": "US7+1",
+    "from_name": "Hells_Cleuch",
+    "from_grid": "NT163424",
+    "to_name": "Broughton",
+    "to_grid": "NT152352",
+    "km": 7.3
+  },
+  {
+    "day": "US7+2",
+    "from_name": "Broughton",
+    "from_grid": "NT152352",
+    "to_name": "Dawyck_House",
+    "to_grid": "NT159316",
+    "km": 3.7
+  },
+  {
+    "day": "US7+3",
+    "from_name": "Dawyck_House",
+    "from_grid": "NT159316",
+    "to_name": "Scrape_Brow",
+    "to_grid": "NT165285",
+    "km": 3.2
+  },
+  {
+    "day": "US7+3",
+    "from_name": "Scrape_Brow",
+    "from_grid": "NT165285",
+    "to_name": "Powsail_Burn",
+    "to_grid": "NT165260",
+    "km": 2.5
+  },
+  {
+    "day": "US7+3",
+    "from_name": "Powsail_Burn",
+    "from_grid": "NT165260",
+    "to_name": "Stanhope_Watershed",
+    "to_grid": "NT163235",
+    "km": 2.5
+  },
+  {
+    "day": "US7+3",
+    "from_name": "Stanhope_Watershed",
+    "from_grid": "NT163235",
+    "to_name": "Talla_Linns_Ford",
+    "to_grid": "NT152223",
+    "km": 1.6
+  },
+  {
+    "day": "US7+3",
+    "from_name": "Talla_Linns_Ford",
+    "from_grid": "NT152223",
+    "to_name": "Cor_Water_Cave",
+    "to_grid": "NT140220",
+    "km": 1.2
+  },
+  {
+    "day": "US7+4",
+    "from_name": "Foot_of_Cor_Glen",
+    "from_grid": "NT141218",
+    "to_name": "Cor_Water_Cave",
+    "to_grid": "NT140220",
+    "km": 0.2
+  },
+  {
+    "day": "US8",
+    "from_name": "Cor_Water_Cave",
+    "from_grid": "NT140220",
+    "to_name": "Kingledoors_Ridge",
+    "to_grid": "NT119225",
+    "km": 2.2
+  },
+  {
+    "day": "US8",
+    "from_name": "Kingledoors_Ridge",
+    "from_grid": "NT119225",
+    "to_name": "Wormel",
+    "to_grid": "NT140240",
+    "km": 2.6
+  },
+  {
+    "day": "US8",
+    "from_name": "Wormel",
+    "from_grid": "NT140240",
+    "to_name": "Caerdon_Cairn",
+    "to_grid": "NT116246",
+    "km": 2.5
+  },
+  {
+    "day": "US8",
+    "from_name": "Caerdon_Cairn",
+    "from_grid": "NT116246",
+    "to_name": "Wormel",
+    "to_grid": "NT140240",
+    "km": 2.5
+  },
+  {
+    "day": "US8",
+    "from_name": "Wormel",
+    "from_grid": "NT140240",
+    "to_name": "Cor_Water_Cave",
+    "to_grid": "NT140220",
+    "km": 2.0
+  },
+  {
+    "day": "US8+2",
+    "from_name": "Cor_Water_Cave",
+    "from_grid": "NT140220",
+    "to_name": "Wormel",
+    "to_grid": "NT140240",
+    "km": 2.0
+  },
+  {
+    "day": "US8+2",
+    "from_name": "Wormel",
+    "from_grid": "NT140240",
+    "to_name": "Coulter_Fell_Shldr",
+    "to_grid": "NT054279",
+    "km": 9.4
+  },
+  {
+    "day": "US8+2",
+    "from_name": "Coulter_Fell_Shldr",
+    "from_grid": "NT054279",
+    "to_name": "Holmes_Water_Head",
+    "to_grid": "NT063246",
+    "km": 3.4
+  },
+  {
+    "day": "US8+2",
+    "from_name": "Holmes_Water_Head",
+    "from_grid": "NT063246",
+    "to_name": "Coomb_Dod_Plateau",
+    "to_grid": "NT083250",
+    "km": 2.0
+  },
+  {
+    "day": "US8+3",
+    "from_name": "Coomb_Dod_Plateau",
+    "from_grid": "NT083250",
+    "to_name": "Redshaw_Shieling",
+    "to_grid": "NT088235",
+    "km": 1.6
+  },
+  {
+    "day": "US8+3",
+    "from_name": "Redshaw_Shieling",
+    "from_grid": "NT088235",
+    "to_name": "Wildshaw",
+    "to_grid": "NT078225",
+    "km": 1.4
+  },
+  {
+    "day": "US8+3",
+    "from_name": "Wildshaw",
+    "from_grid": "NT078225",
+    "to_name": "Roberton_Burn",
+    "to_grid": "NT031274",
+    "km": 6.8
+  },
+  {
+    "day": "US8+4",
+    "from_name": "Potrail_Shoulder",
+    "from_grid": "NT061288",
+    "to_name": "Biggar",
+    "to_grid": "NT046375",
+    "km": 8.8
+  },
+  {
+    "day": "US8+4",
+    "from_name": "Biggar",
+    "from_grid": "NT046375",
+    "to_name": "Kilbucho",
+    "to_grid": "NT067358",
+    "km": 2.7
+  },
+  {
+    "day": "US8+4",
+    "from_name": "Kilbucho",
+    "from_grid": "NT067358",
+    "to_name": "Blendewing",
+    "to_grid": "NT084380",
+    "km": 2.8
+  },
+  {
+    "day": "US8+4",
+    "from_name": "Blendewing",
+    "from_grid": "NT084380",
+    "to_name": "Whiteslade",
+    "to_grid": "NT089368",
+    "km": 1.3
+  },
+  {
+    "day": "US8+4",
+    "from_name": "Whiteslade",
+    "from_grid": "NT089368",
+    "to_name": "Wormel",
+    "to_grid": "NT140240",
+    "km": 13.8
+  },
+  {
+    "day": "US8+4",
+    "from_name": "Wormel",
+    "from_grid": "NT140240",
+    "to_name": "Tweed_Ford",
+    "to_grid": "NT150350",
+    "km": 11.0
+  },
+  {
+    "day": "US8+4",
+    "from_name": "Tweed_Ford",
+    "from_grid": "NT150350",
+    "to_name": "Little_Scrape_Hags",
+    "to_grid": "NT162274",
+    "km": 7.7
+  },
+  {
+    "day": "US8+9",
+    "from_name": "Little_Scrape_Hags",
+    "from_grid": "NT162274",
+    "to_name": "Stanhope_Ridge",
+    "to_grid": "NT163235",
+    "km": 6.1
+  },
+  {
+    "day": "US8+9",
+    "from_name": "Stanhope_Ridge",
+    "from_grid": "NT163235",
+    "to_name": "Caerdon_Cairn",
+    "to_grid": "NT116246",
+    "km": 5.4
+  },
+  {
+    "day": "US8+9",
+    "from_name": "Caerdon_Cairn",
+    "from_grid": "NT116246",
+    "to_name": "Little_Scrape_Hags",
+    "to_grid": "NT162274",
+    "km": 1.9
+  },
+  {
+    "day": "US8+18",
+    "from_name": "Little_Scrape_Hags",
+    "from_grid": "NT162274",
+    "to_name": "Stanhope_Ridge",
+    "to_grid": "NT163235",
+    "km": 6.1
+  },
+  {
+    "day": "US8+18",
+    "from_name": "Stanhope_Ridge",
+    "from_grid": "NT163235",
+    "to_name": "Caerdon_Cairn",
+    "to_grid": "NT116246",
+    "km": 5.4
+  },
+  {
+    "day": "US8+18",
+    "from_name": "Caerdon_Cairn",
+    "from_grid": "NT116246",
+    "to_name": "Little_Scrape_Hags",
+    "to_grid": "NT162274",
+    "km": 1.9
+  },
+  {
+    "day": "US8+26",
+    "from_name": "Glenhurn_Ravine",
+    "from_grid": "NT168275",
+    "to_name": "Scrape_Top",
+    "to_grid": "NT165285",
+    "km": 1.0
+  },
+  {
+    "day": "US8+26",
+    "from_name": "Scrape_Top",
+    "from_grid": "NT165285",
+    "to_name": "Pykestone_Hill",
+    "to_grid": "NT172260",
+    "km": 2.6
+  },
+  {
+    "day": "US9",
+    "from_name": "Rachan",
+    "from_grid": "NT086347",
+    "to_name": "Mossfennan",
+    "to_grid": "NT137300",
+    "km": 6.9
+  },
+  {
+    "day": "US9",
+    "from_name": "Mossfennan",
+    "from_grid": "NT137300",
+    "to_name": "Broughton",
+    "to_grid": "NT152352",
+    "km": 5.4
+  },
+  {
+    "day": "US9",
+    "from_name": "Broughton",
+    "from_grid": "NT152352",
+    "to_name": "Biggar",
+    "to_grid": "NT046375",
+    "km": 10.8
+  },
+  {
+    "day": "US10",
+    "from_name": "Biggar",
+    "from_grid": "NT046375",
+    "to_name": "Lanark_Moor",
+    "to_grid": "NS878430",
+    "km": 17.7
+  },
+  {
+    "day": "US10",
+    "from_name": "Lanark_Moor",
+    "from_grid": "NS878430",
+    "to_name": "Douglas_Water",
+    "to_grid": "NS840368",
+    "km": 7.3
+  },
+  {
+    "day": "US10",
+    "from_name": "Douglas_Water",
+    "from_grid": "NS840368",
+    "to_name": "Fords_o_Clyde_Inn",
+    "to_grid": "NS820460",
+    "km": 9.4
+  },
+  {
+    "day": "US10+1",
+    "from_name": "Fords_o_Clyde_Inn",
+    "from_grid": "NS820460",
+    "to_name": "Blantyre",
+    "to_grid": "NS686592",
+    "km": 18.8
+  },
+  {
+    "day": "US10+1",
+    "from_name": "Blantyre",
+    "from_grid": "NS686592",
+    "to_name": "Cambuslang",
+    "to_grid": "NS645615",
+    "km": 4.7
+  },
+  {
+    "day": "US10+1",
+    "from_name": "Cambuslang",
+    "from_grid": "NS645615",
+    "to_name": "Rutherglen",
+    "to_grid": "NS622622",
+    "km": 2.4
+  },
+  {
+    "day": "US10+1",
+    "from_name": "Rutherglen",
+    "from_grid": "NS622622",
+    "to_name": "Gorbals",
+    "to_grid": "NS597646",
+    "km": 3.5
+  },
+  {
+    "day": "US10+1",
+    "from_name": "Gorbals",
+    "from_grid": "NS597646",
+    "to_name": "Glasgow_Gates",
+    "to_grid": "NS595650",
+    "km": 0.4
+  },
+  {
+    "day": "US11",
+    "from_name": "Glasgow",
+    "from_grid": "NS595650",
+    "to_name": "Hamilton",
+    "to_grid": "NS715567",
+    "km": 14.6
+  },
+  {
+    "day": "US11",
+    "from_name": "Hamilton",
+    "from_grid": "NS715567",
+    "to_name": "Douglas_Muir",
+    "to_grid": "NS833344",
+    "km": 25.2
+  },
+  {
+    "day": "US11",
+    "from_name": "Douglas_Muir",
+    "from_grid": "NS833344",
+    "to_name": "Smitwood_House",
+    "to_grid": "NS840330",
+    "km": 1.6
+  }
+];
+
+function colourForDay(day) {
+    let hash = 0;
+    for (let i = 0; i < day.length; i++) {
+        hash = day.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const r = 80 + (hash & 63);
+    const g = 80 + ((hash >> 6) & 63);
+    const b = 80 + ((hash >> 12) & 63);
+    return `rgb(${r},${g},${b})`;
+}
+
+// Convert compact OS grid ref (e.g., "NT240390") to OsGridRef instance
+function parseOSGrid(grid) {
+    const letters = grid.slice(0, 2);
+    const digits = grid.slice(2);
+    const half = digits.length / 2;
+    const e = digits.slice(0, half);
+    const n = digits.slice(half);
+    return OsGridRef.parse(`${letters} ${e} ${n}`);
+}
+
+const map = L.map('map').setView([55.5, -3.5], 7);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19
+}).addTo(map);
+
+const dayGroups = {};
+const legendColours = {};
+let allBounds = L.latLngBounds([]);
+
+legs.forEach(leg => {
+    try {
+        const fromOS = parseOSGrid(leg.from_grid);
+        const toOS = parseOSGrid(leg.to_grid);
+        const fromWGS = fromOS.toLatLon().toWGS84();
+        const toWGS = toOS.toLatLon().toWGS84();
+        const points = [[fromWGS.lat, fromWGS.lon], [toWGS.lat, toWGS.lon]];
+        const colour = colourForDay(leg.day);
+
+        if (!dayGroups[leg.day]) {
+            dayGroups[leg.day] = L.featureGroup();
+            legendColours[leg.day] = colour;
+        }
+
+        const poly = L.polyline(points, {
+            color: colour,
+            weight: 4,
+            opacity: 0.8
+        }).bindPopup(`<b>${leg.day}</b><br>${leg.from_name} &rarr; ${leg.to_name}<br>${leg.km} km`);
+        dayGroups[leg.day].addLayer(poly);
+
+        const startMarker = L.circleMarker(points[0], { radius: 4, color: colour });
+        const endMarker = L.circleMarker(points[1], { radius: 4, color: colour });
+        dayGroups[leg.day].addLayer(startMarker);
+        dayGroups[leg.day].addLayer(endMarker);
+
+        allBounds.extend(points);
+    } catch(err) {
+        console.warn('Failed on', leg, err);
+    }
+});
+
+const overlayLayers = {};
+Object.keys(dayGroups).forEach(day => {
+    dayGroups[day].addTo(map);
+    overlayLayers[day] = dayGroups[day];
+});
+L.control.layers(null, overlayLayers, { collapsed: false, position: 'topright' }).addTo(map);
+
+map.fitBounds(allBounds);
+
+// Legend block
+const legend = L.control({ position: 'bottomright' });
+legend.onAdd = function(map) {
+    const div = L.DomUtil.create('div', 'legend');
+    let html = '<b>Day colour key</b><br>';
+    Object.entries(legendColours).forEach(([day, colour]) => {
+        html += `<span style="background:${colour}"></span>${day}<br>`;
+    });
+    div.innerHTML = html;
+    return div;
+};
+legend.addTo(map);
+
+</script>
+</body>
+</html>
