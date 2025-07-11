@@ -326,7 +326,6 @@ let searchTerm="";
 let graphVisible=false;
 let simulation;
 let graphContainer;
-let graphOffsetY=0;
 
 function init(){
   setupEventListeners();
@@ -460,8 +459,10 @@ function drawGraph(){
   const graphView=document.getElementById('graphView');
   const svg=d3.select('#graphSvg');
   svg.selectAll('*').remove();
-  graphOffsetY=0;
   graphContainer=svg.append('g').attr('class','graph-container');
+  svg.call(d3.zoom().scaleExtent([0.5,4]).on('zoom',event=>{
+    graphContainer.attr('transform',event.transform);
+  }));
   const width=graphView.clientWidth;const height=graphView.clientHeight;const tooltip=d3.select('.graph-tooltip');
   const nodes=[...data.gaps.map(d=>({...d,type:'gap'})),...data.capabilities.map(d=>({...d,type:'cap'})),...data.resources.map(d=>({...d,type:'res'}))];
   const links=[];
@@ -476,16 +477,10 @@ function drawGraph(){
     .force('x',d3.forceX(d=>colX[d.type]).strength(0.5))
     .force('y',d3.forceY(height/2).strength(0.05));
   const link=graphContainer.append('g').attr('stroke','#999').attr('stroke-opacity',0.6).selectAll('line').data(links).join('line').attr('stroke-width',1.5);
-  const node=graphContainer.append('g').selectAll('circle').data(nodes).join('circle').attr('class','node').attr('id',d=>`node-${d.id}`).attr('r',8).attr('fill',d=>color[d.type]).call(dragGraph()).on('click',(event,d)=>{selectItemFromGraph(d);}).on('mouseover',(event,d)=>{tooltip.transition().duration(200).style('opacity',.9);tooltip.html(`<strong>${d.type.toUpperCase()}:</strong> ${d.title}`).style('left',(event.pageX+10)+'px').style('top',(event.pageY-28)+'px');d3.select(event.currentTarget).attr('r',12);}).on('mouseout',(event,d)=>{tooltip.transition().duration(500).style('opacity',0);if(!document.getElementById(`item-${d.id}`)?.classList.contains('highlighted')){d3.select(event.currentTarget).attr('r',8);}});
+  const node=graphContainer.append('g').selectAll('circle').data(nodes).join('circle').attr('class','node').attr('id',d=>`node-${d.id}`).attr('r',8).attr('fill',d=>color[d.type]).on('click',(event,d)=>{selectItemFromGraph(d);}).on('mouseover',(event,d)=>{tooltip.transition().duration(200).style('opacity',.9);tooltip.html(`<strong>${d.type.toUpperCase()}:</strong> ${d.title}`).style('left',(event.pageX+10)+'px').style('top',(event.pageY-28)+'px');d3.select(event.currentTarget).attr('r',12);}).on('mouseout',(event,d)=>{tooltip.transition().duration(500).style('opacity',0);if(!document.getElementById(`item-${d.id}`)?.classList.contains('highlighted')){d3.select(event.currentTarget).attr('r',8);}});
   simulation.on('tick',()=>{link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);node.attr('cx',d=>d.x).attr('cy',d=>d.y);});
 }
 
-function dragGraph(){
-  let startY;
-  function dragstarted(event){startY=event.y;}
-  function dragged(event){const dy=event.y-startY;graphOffsetY+=dy;graphContainer.attr('transform',`translate(0,${graphOffsetY})`);startY=event.y;}
-  return d3.drag().on('start',dragstarted).on('drag',dragged);
-}
 
 function setupModal(btnId,modalId){
   const modal=document.getElementById(modalId);const span=modal.querySelector('.close-button');
