@@ -22,7 +22,7 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/geodesy/2.2.1/osgridref.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/geodesy/2.2.1/latlon-ellipsoidal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/geodesy/2.2.1/latlon-ellipsoidal-datum.min.js"></script>
 <script>
 const legs = [
   {
@@ -679,8 +679,8 @@ legs.forEach(leg => {
     try {
         const fromOS = parseOSGrid(leg.from_grid);
         const toOS = parseOSGrid(leg.to_grid);
-        const fromWGS = fromOS.toLatLon().toWGS84();
-        const toWGS = toOS.toLatLon().toWGS84();
+        const fromWGS = fromOS.toLatLon().convertDatum(LatLon.datums.WGS84);
+        const toWGS = toOS.toLatLon().convertDatum(LatLon.datums.WGS84);
         const points = [[fromWGS.lat, fromWGS.lon], [toWGS.lat, toWGS.lon]];
         const colour = colourForDay(leg.day);
 
