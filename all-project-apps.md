@@ -52,97 +52,148 @@ wide: true
 
 <script>
 const canonicalMap = {
-  agi: 'strategy_portfolio',
-  ai_adoption: 'ai_data',
-  ashbys_law: 'complexity_systems',
-  pbs: 'governance_controls',
-  pmo: 'governance_controls',
-  tom: 'strategy_portfolio',
-  viable_systems_model: 'complexity_systems',
-  wbs: 'governance_controls',
-  wardley_map: 'strategy_portfolio',
-  abstraction: 'decision_intelligence',
-  active_inference: 'complexity_systems',
-  behaviour: 'stakeholders_culture',
-  benefits: 'value_benefits',
-  business_model: 'strategy_portfolio',
-  capabilities: 'learning_capability',
-  category_theory: 'ai_data',
-  change_management: 'complexity_systems',
-  classification_tree: 'ai_data',
-  complexity: 'complexity_systems',
-  competition: 'stakeholders_culture',
-  consulting: 'strategy_portfolio',
-  contract_management: 'governance_controls',
-  correlation: 'ai_data',
-  culture: 'stakeholders_culture',
-  decision: 'decision_intelligence',
-  dependencies: 'governance_controls',
-  feedback_loops: 'complexity_systems',
-  gamification: 'stakeholders_culture',
-  game_theory: 'stakeholders_culture',
-  generative_model: 'ai_data',
-  graph_pathways: 'ai_data',
-  graphs: 'ai_data',
-  higher_order_networks: 'complexity_systems',
-  hs2: 'governance_controls',
-  idea_maze: 'learning_capability',
-  imagination: 'learning_capability',
-  interactions: 'stakeholders_culture',
-  jsx: 'ai_data',
-  knowledge_graph: 'ai_data',
-  knowledge_graph_dependencies: 'ai_data',
-  knowledge_management: 'ai_data',
-  learning: 'learning_capability',
-  methods: 'learning_capability',
-  moving_between_perspectives: 'stakeholders_culture',
-  multiple_perspectives: 'stakeholders_culture',
-  negotiation: 'stakeholders_culture',
-  non_linearity: 'complexity_systems',
-  ontology: 'ai_data',
-  output: 'value_benefits',
-  portfolio_management: 'strategy_portfolio',
-  polarities: 'decision_intelligence',
-  prediction_error: 'decision_intelligence',
-  procurement: 'governance_controls',
-  product_management: 'learning_capability',
-  qualitative_research: 'stakeholders_culture',
-  rail: 'governance_controls',
-  resources: 'learning_capability',
-  risk: 'governance_controls',
-  roadmap: 'strategy_portfolio',
-  scope: 'value_benefits',
-  sequential_decisions: 'decision_intelligence',
-  social_science: 'stakeholders_culture',
-  solution: 'learning_capability',
-  stakeholder: 'stakeholders_culture',
-  stakeholder_management: 'stakeholders_culture',
-  surprise: 'decision_intelligence',
-  svg: 'ai_data',
-  tasks: 'governance_controls',
-  teamwork: 'stakeholders_culture',
-  timeline: 'strategy_portfolio',
-  tsx: 'ai_data',
-  uncertainty: 'decision_intelligence',
-  use_cases: 'ai_data',
-  value: 'value_benefits',
-  visualisation: 'ai_data',
-  workflow: 'governance_controls',
-  physics: 'complexity_systems',
-  everyday: 'learning_capability'
+  // Change Management
+  agile: 'change_management',
+  change_management: 'change_management',
+
+  // Emerging Practice
+  capabilities: 'emerging_practice',
+  everyday: 'emerging_practice',
+  idea_maze: 'emerging_practice',
+  imagination: 'emerging_practice',
+  learning: 'emerging_practice',
+  methods: 'emerging_practice',
+  product_management: 'emerging_practice',
+  solution: 'emerging_practice',
+
+  // Innovation in PM
+  active_inference: 'innovation_pm',
+  ashbys_law: 'innovation_pm',
+  complexity: 'innovation_pm',
+  feedback_loops: 'innovation_pm',
+  higher_order_networks: 'innovation_pm',
+  non_linearity: 'innovation_pm',
+  physics: 'innovation_pm',
+  systems_thinking: 'innovation_pm',
+  viable_systems_model: 'innovation_pm',
+
+  // Portfolio Management
+  agi: 'portfolio_management',
+  business_model: 'portfolio_management',
+  consulting: 'portfolio_management',
+  portfolio_management: 'portfolio_management',
+  roadmap: 'portfolio_management',
+  tom: 'portfolio_management',
+  wardley_map: 'portfolio_management',
+
+  // Project Evaluation & Measurement
+  benefits: 'project_evaluation',
+  output: 'project_evaluation',
+  scope: 'project_evaluation',
+  value: 'project_evaluation',
+
+  // Project Governance
+  contract_management: 'project_governance',
+  hs2: 'project_governance',
+  pbs: 'project_governance',
+  pmo: 'project_governance',
+  procurement: 'project_governance',
+  rail: 'project_governance',
+  wbs: 'project_governance',
+  workflow: 'project_governance',
+
+  // Project Leadership & Team Dynamics
+  collaboration: 'leadership_team',
+  culture: 'leadership_team',
+  feedback: 'leadership_team',
+  leadership: 'leadership_team',
+  motivation: 'leadership_team',
+  team_culture: 'leadership_team',
+  teamwork: 'leadership_team',
+
+  // Resource Allocation & Optimization
+  resource: 'resource_optimization',
+  resources: 'resource_optimization',
+
+  // Risk Management
+  abstraction: 'risk_management',
+  decision: 'risk_management',
+  polarities: 'risk_management',
+  prediction_error: 'risk_management',
+  risk: 'risk_management',
+  risk_culture: 'risk_management',
+  sequential_decisions: 'risk_management',
+  surprise: 'risk_management',
+  uncertainty: 'risk_management',
+
+  // Schedule & Time Management
+  dependencies: 'schedule_time',
+  schedule: 'schedule_time',
+  tasks: 'schedule_time',
+  timeline: 'schedule_time',
+
+  // Stakeholder Engagement
+  behaviour: 'stakeholder_engagement',
+  competition: 'stakeholder_engagement',
+  game_theory: 'stakeholder_engagement',
+  interactions: 'stakeholder_engagement',
+  moving_between_perspectives: 'stakeholder_engagement',
+  multiple_perspectives: 'stakeholder_engagement',
+  negotiation: 'stakeholder_engagement',
+  qualitative_research: 'stakeholder_engagement',
+  social_science: 'stakeholder_engagement',
+  stakeholder: 'stakeholder_engagement',
+  stakeholder_analysis: 'stakeholder_engagement',
+  stakeholder_management: 'stakeholder_engagement',
+
+  // Technology Integration
+  ai: 'technology_integration',
+  ai_adoption: 'technology_integration',
+  category_theory: 'technology_integration',
+  chatbot: 'technology_integration',
+  classification_tree: 'technology_integration',
+  correlation: 'technology_integration',
+  generative_model: 'technology_integration',
+  graph_pathways: 'technology_integration',
+  graphs: 'technology_integration',
+  jsx: 'technology_integration',
+  knowledge_graph: 'technology_integration',
+  knowledge_graph_dependencies: 'technology_integration',
+  knowledge_management: 'technology_integration',
+  ontology: 'technology_integration',
+  svg: 'technology_integration',
+  tsx: 'technology_integration',
+  use_cases: 'technology_integration',
+  visualisation: 'technology_integration',
+
+  // Tags with multiple domains
+  ai_planning: ['technology_integration','schedule_time'],
+  ai_risk: ['technology_integration','risk_management'],
+  analytics: ['technology_integration','project_controls'],
+  coaching: ['leadership_team','emerging_practice'],
+  gamification: ['stakeholder_engagement','leadership_team'],
+  mentoring: ['leadership_team','emerging_practice'],
+  predictive_modeling: ['technology_integration','risk_management'],
+  sustainability: ['project_governance','stakeholder_engagement'],
+  training: ['leadership_team','emerging_practice']
 };
 
-const canonicalCategories = ['all', ...Array.from(new Set(Object.values(canonicalMap)))];
+const canonicalCategories = ['all', ...Array.from(new Set([].concat(...Object.values(canonicalMap).map(v => Array.isArray(v) ? v : [v]))))];
 
 const colorMap = {
-  strategy_portfolio: '#e41a1c',
-  ai_data: '#377eb8',
-  complexity_systems: '#4daf4a',
-  governance_controls: '#984ea3',
-  decision_intelligence: '#ff7f00',
-  stakeholders_culture: '#ffff33',
-  learning_capability: '#a65628',
-  value_benefits: '#f781bf'
+  change_management: '#e41a1c',
+  emerging_practice: '#377eb8',
+  innovation_pm: '#4daf4a',
+  leadership_team: '#984ea3',
+  portfolio_management: '#ff7f00',
+  project_controls: '#ffff33',
+  project_evaluation: '#a65628',
+  project_governance: '#f781bf',
+  resource_optimization: '#999999',
+  risk_management: '#a6cee3',
+  schedule_time: '#1f78b4',
+  stakeholder_engagement: '#b2df8a',
+  technology_integration: '#33a02c'
 };
 
 function parseCSV(text) {
@@ -209,8 +260,10 @@ function createCards(data) {
     card.dataset.tags = tagStr;
     const canonSet = new Set();
     tagStr.split(/[,;]/).map(t => t.trim().toLowerCase()).forEach(t => {
-      if (canonicalMap[t]) {
-        canonSet.add(canonicalMap[t]);
+      const canon = canonicalMap[t];
+      if (canon) {
+        const arr = Array.isArray(canon) ? canon : [canon];
+        arr.forEach(c => canonSet.add(c));
       }
     });
     card.dataset.canonical = Array.from(canonSet).join(',');
@@ -269,7 +322,11 @@ function renderHeatmap(data) {
     const tagField = item.tags || item.tag || item.keywords || item.categories || '';
     const cats = new Set();
     tagField.split(/[,;]/).map(t => t.trim().toLowerCase()).forEach(t => {
-      if (canonicalMap[t]) cats.add(canonicalMap[t]);
+      const canon = canonicalMap[t];
+      if (canon) {
+        const arr = Array.isArray(canon) ? canon : [canon];
+        arr.forEach(c => cats.add(c));
+      }
     });
     cats.forEach(cat => { counts[cat] += 1; });
   });
@@ -296,7 +353,9 @@ function setActiveCategory(category) {
 }
 
 function filterByTag(tag) {
-  setActiveCategory(canonicalMap[tag] || 'all');
+  const val = canonicalMap[tag];
+  const first = Array.isArray(val) ? val[0] : val;
+  setActiveCategory(first || 'all');
   document.querySelectorAll('#tag-cloud button').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.tag === tag);
   });
