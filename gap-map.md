@@ -57,6 +57,7 @@ main{flex:1;display:flex;overflow:hidden;position:relative;}
 .modal-content h2{margin-top:0;}
 .close-button{color:#aaa;float:right;font-size:28px;font-weight:bold;cursor:pointer;}
 @media (max-width:768px){h1{font-size:1.1rem;}header{flex-direction:column;align-items:flex-start;}.controls-right{margin-left:0;}#filters{flex-direction:column;align-items:stretch;}}
+footer.site-footer{padding:0.25rem 0;font-size:0.8rem;}
 </style>
 
 <header>
