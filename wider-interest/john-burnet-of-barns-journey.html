@@ -1,734 +1,408 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<title>John Burnet Scottish Route – Interactive Map</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<style>
-  html,body,#map{height:100%;margin:0;padding:0}
-  .legend{
-    background:white;
-    padding:6px 10px;
-    border-radius:4px;
-    font-size:12px;
-    line-height:1.4;
-    box-shadow:0 0 15px rgba(0,0,0,.2);
-  }
-  .legend span{display:inline-block;width:12px;height:12px;margin-right:4px;vertical-align:middle;}
-</style>
-</head>
-<body>
-<div id="map"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Burnet's Scottish Journey (1678-1690)</title>
+    
+    <!-- Leaflet.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/geodesy/2.2.1/osgridref.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/geodesy/2.2.1/latlon-ellipsoidal-datum.min.js"></script>
-<script>
-const legs = [
-  {
-    "day": "US1",
-    "from_name": "Barns",
-    "from_grid": "NT240390",
-    "to_name": "Tweed_Ford",
-    "to_grid": "NT238389",
-    "km": 0.2
-  },
-  {
-    "day": "US1",
-    "from_name": "Tweed_Ford",
-    "from_grid": "NT238389",
-    "to_name": "Wood_of_Dawyck",
-    "to_grid": "NT166319",
-    "km": 10.0
-  },
-  {
-    "day": "US1",
-    "from_name": "Wood_of_Dawyck",
-    "from_grid": "NT166319",
-    "to_name": "Barns",
-    "to_grid": "NT240390",
-    "km": 10.3
-  },
-  {
-    "day": "US2",
-    "from_name": "Barns",
-    "from_grid": "NT240390",
-    "to_name": "Peebles_Bridge",
-    "to_grid": "NT251403",
-    "km": 1.7
-  },
-  {
-    "day": "US2",
-    "from_name": "Peebles_Bridge",
-    "from_grid": "NT251403",
-    "to_name": "Manor_Detour",
-    "to_grid": "NT235350",
-    "km": 5.5
-  },
-  {
-    "day": "US2",
-    "from_name": "Manor_Detour",
-    "from_grid": "NT235350",
-    "to_name": "Barns",
-    "to_grid": "NT240390",
-    "km": 4.1
-  },
-  {
-    "day": "US3",
-    "from_name": "Barns",
-    "from_grid": "NT240390",
-    "to_name": "Biggar",
-    "to_grid": "NT046375",
-    "km": 19.5
-  },
-  {
-    "day": "US3",
-    "from_name": "Biggar",
-    "from_grid": "NT046375",
-    "to_name": "Lanark",
-    "to_grid": "NS878425",
-    "km": 17.5
-  },
-  {
-    "day": "US3",
-    "from_name": "Lanark",
-    "from_grid": "NS878425",
-    "to_name": "Crossford",
-    "to_grid": "NS820460",
-    "km": 6.8
-  },
-  {
-    "day": "US3+1",
-    "from_name": "Crossford",
-    "from_grid": "NS820460",
-    "to_name": "Hamilton",
-    "to_grid": "NS715567",
-    "km": 15.0
-  },
-  {
-    "day": "US3+1",
-    "from_name": "Hamilton",
-    "from_grid": "NS715567",
-    "to_name": "Glasgow_Bridge",
-    "to_grid": "NS592650",
-    "km": 14.8
-  },
-  {
-    "day": "US4",
-    "from_name": "Glasgow_Bridge",
-    "from_grid": "NS592650",
-    "to_name": "Hamilton",
-    "to_grid": "NS715567",
-    "km": 14.8
-  },
-  {
-    "day": "US4+1",
-    "from_name": "Hamilton",
-    "from_grid": "NS715567",
-    "to_name": "Lanark_Moor",
-    "to_grid": "NS878430",
-    "km": 21.3
-  },
-  {
-    "day": "US4+1",
-    "from_name": "Lanark_Moor",
-    "from_grid": "NS878430",
-    "to_name": "Symington_Knoll",
-    "to_grid": "NS986373",
-    "km": 12.2
-  },
-  {
-    "day": "US4+1",
-    "from_name": "Symington_Knoll",
-    "from_grid": "NS986373",
-    "to_name": "Barns",
-    "to_grid": "NT240390",
-    "km": 25.5
-  },
-  {
-    "day": "US5",
-    "from_name": "Barns",
-    "from_grid": "NT240390",
-    "to_name": "Scrape_Spur",
-    "to_grid": "NT165285",
-    "km": 12.9
-  },
-  {
-    "day": "US5",
-    "from_name": "Scrape_Spur",
-    "from_grid": "NT165285",
-    "to_name": "Red_Syke",
-    "to_grid": "NT180300",
-    "km": 2.1
-  },
-  {
-    "day": "US5",
-    "from_name": "Red_Syke",
-    "from_grid": "NT180300",
-    "to_name": "Barns",
-    "to_grid": "NT240390",
-    "km": 10.8
-  },
-  {
-    "day": "US6",
-    "from_name": "Barns",
-    "from_grid": "NT240390",
-    "to_name": "Eddleston",
-    "to_grid": "NT245460",
-    "km": 7.0
-  },
-  {
-    "day": "US6",
-    "from_name": "Eddleston",
-    "from_grid": "NT245460",
-    "to_name": "Leadburn_Inn",
-    "to_grid": "NT241573",
-    "km": 11.3
-  },
-  {
-    "day": "US6",
-    "from_name": "Leadburn_Inn",
-    "from_grid": "NT241573",
-    "to_name": "Leith_Harbour",
-    "to_grid": "NT275766",
-    "km": 19.6
-  },
-  {
-    "day": "US7",
-    "from_name": "Leith_Harbour",
-    "from_grid": "NT275766",
-    "to_name": "Leith_Walk",
-    "to_grid": "NT270735",
-    "km": 3.1
-  },
-  {
-    "day": "US7",
-    "from_name": "Leith_Walk",
-    "from_grid": "NT270735",
-    "to_name": "Liberton_Kirk",
-    "to_grid": "NT273689",
-    "km": 4.6
-  },
-  {
-    "day": "US7+1",
-    "from_name": "Liberton_Kirk",
-    "from_grid": "NT273689",
-    "to_name": "Penicuik_Hawes_Burn",
-    "to_grid": "NT235600",
-    "km": 9.7
-  },
-  {
-    "day": "US7+1",
-    "from_name": "Penicuik_Hawes_Burn",
-    "from_grid": "NT235600",
-    "to_name": "Leadburn_X_roads",
-    "to_grid": "NT241573",
-    "km": 2.8
-  },
-  {
-    "day": "US7+1",
-    "from_name": "Leadburn_X_roads",
-    "from_grid": "NT241573",
-    "to_name": "Newlands_Moor",
-    "to_grid": "NT196509",
-    "km": 7.8
-  },
-  {
-    "day": "US7+1",
-    "from_name": "Newlands_Moor",
-    "from_grid": "NT196509",
-    "to_name": "Kirkurd_Ford",
-    "to_grid": "NT154447",
-    "km": 7.5
-  },
-  {
-    "day": "US7+1",
-    "from_name": "Kirkurd_Ford",
-    "from_grid": "NT154447",
-    "to_name": "Hells_Cleuch",
-    "to_grid": "NT163424",
-    "km": 2.5
-  },
-  {
-    "day": "US7+1",
-    "from_name": "Hells_Cleuch",
-    "from_grid": "NT163424",
-    "to_name": "Broughton",
-    "to_grid": "NT152352",
-    "km": 7.3
-  },
-  {
-    "day": "US7+2",
-    "from_name": "Broughton",
-    "from_grid": "NT152352",
-    "to_name": "Dawyck_House",
-    "to_grid": "NT159316",
-    "km": 3.7
-  },
-  {
-    "day": "US7+3",
-    "from_name": "Dawyck_House",
-    "from_grid": "NT159316",
-    "to_name": "Scrape_Brow",
-    "to_grid": "NT165285",
-    "km": 3.2
-  },
-  {
-    "day": "US7+3",
-    "from_name": "Scrape_Brow",
-    "from_grid": "NT165285",
-    "to_name": "Powsail_Burn",
-    "to_grid": "NT165260",
-    "km": 2.5
-  },
-  {
-    "day": "US7+3",
-    "from_name": "Powsail_Burn",
-    "from_grid": "NT165260",
-    "to_name": "Stanhope_Watershed",
-    "to_grid": "NT163235",
-    "km": 2.5
-  },
-  {
-    "day": "US7+3",
-    "from_name": "Stanhope_Watershed",
-    "from_grid": "NT163235",
-    "to_name": "Talla_Linns_Ford",
-    "to_grid": "NT152223",
-    "km": 1.6
-  },
-  {
-    "day": "US7+3",
-    "from_name": "Talla_Linns_Ford",
-    "from_grid": "NT152223",
-    "to_name": "Cor_Water_Cave",
-    "to_grid": "NT140220",
-    "km": 1.2
-  },
-  {
-    "day": "US7+4",
-    "from_name": "Foot_of_Cor_Glen",
-    "from_grid": "NT141218",
-    "to_name": "Cor_Water_Cave",
-    "to_grid": "NT140220",
-    "km": 0.2
-  },
-  {
-    "day": "US8",
-    "from_name": "Cor_Water_Cave",
-    "from_grid": "NT140220",
-    "to_name": "Kingledoors_Ridge",
-    "to_grid": "NT119225",
-    "km": 2.2
-  },
-  {
-    "day": "US8",
-    "from_name": "Kingledoors_Ridge",
-    "from_grid": "NT119225",
-    "to_name": "Wormel",
-    "to_grid": "NT140240",
-    "km": 2.6
-  },
-  {
-    "day": "US8",
-    "from_name": "Wormel",
-    "from_grid": "NT140240",
-    "to_name": "Caerdon_Cairn",
-    "to_grid": "NT116246",
-    "km": 2.5
-  },
-  {
-    "day": "US8",
-    "from_name": "Caerdon_Cairn",
-    "from_grid": "NT116246",
-    "to_name": "Wormel",
-    "to_grid": "NT140240",
-    "km": 2.5
-  },
-  {
-    "day": "US8",
-    "from_name": "Wormel",
-    "from_grid": "NT140240",
-    "to_name": "Cor_Water_Cave",
-    "to_grid": "NT140220",
-    "km": 2.0
-  },
-  {
-    "day": "US8+2",
-    "from_name": "Cor_Water_Cave",
-    "from_grid": "NT140220",
-    "to_name": "Wormel",
-    "to_grid": "NT140240",
-    "km": 2.0
-  },
-  {
-    "day": "US8+2",
-    "from_name": "Wormel",
-    "from_grid": "NT140240",
-    "to_name": "Coulter_Fell_Shldr",
-    "to_grid": "NT054279",
-    "km": 9.4
-  },
-  {
-    "day": "US8+2",
-    "from_name": "Coulter_Fell_Shldr",
-    "from_grid": "NT054279",
-    "to_name": "Holmes_Water_Head",
-    "to_grid": "NT063246",
-    "km": 3.4
-  },
-  {
-    "day": "US8+2",
-    "from_name": "Holmes_Water_Head",
-    "from_grid": "NT063246",
-    "to_name": "Coomb_Dod_Plateau",
-    "to_grid": "NT083250",
-    "km": 2.0
-  },
-  {
-    "day": "US8+3",
-    "from_name": "Coomb_Dod_Plateau",
-    "from_grid": "NT083250",
-    "to_name": "Redshaw_Shieling",
-    "to_grid": "NT088235",
-    "km": 1.6
-  },
-  {
-    "day": "US8+3",
-    "from_name": "Redshaw_Shieling",
-    "from_grid": "NT088235",
-    "to_name": "Wildshaw",
-    "to_grid": "NT078225",
-    "km": 1.4
-  },
-  {
-    "day": "US8+3",
-    "from_name": "Wildshaw",
-    "from_grid": "NT078225",
-    "to_name": "Roberton_Burn",
-    "to_grid": "NT031274",
-    "km": 6.8
-  },
-  {
-    "day": "US8+4",
-    "from_name": "Potrail_Shoulder",
-    "from_grid": "NT061288",
-    "to_name": "Biggar",
-    "to_grid": "NT046375",
-    "km": 8.8
-  },
-  {
-    "day": "US8+4",
-    "from_name": "Biggar",
-    "from_grid": "NT046375",
-    "to_name": "Kilbucho",
-    "to_grid": "NT067358",
-    "km": 2.7
-  },
-  {
-    "day": "US8+4",
-    "from_name": "Kilbucho",
-    "from_grid": "NT067358",
-    "to_name": "Blendewing",
-    "to_grid": "NT084380",
-    "km": 2.8
-  },
-  {
-    "day": "US8+4",
-    "from_name": "Blendewing",
-    "from_grid": "NT084380",
-    "to_name": "Whiteslade",
-    "to_grid": "NT089368",
-    "km": 1.3
-  },
-  {
-    "day": "US8+4",
-    "from_name": "Whiteslade",
-    "from_grid": "NT089368",
-    "to_name": "Wormel",
-    "to_grid": "NT140240",
-    "km": 13.8
-  },
-  {
-    "day": "US8+4",
-    "from_name": "Wormel",
-    "from_grid": "NT140240",
-    "to_name": "Tweed_Ford",
-    "to_grid": "NT150350",
-    "km": 11.0
-  },
-  {
-    "day": "US8+4",
-    "from_name": "Tweed_Ford",
-    "from_grid": "NT150350",
-    "to_name": "Little_Scrape_Hags",
-    "to_grid": "NT162274",
-    "km": 7.7
-  },
-  {
-    "day": "US8+9",
-    "from_name": "Little_Scrape_Hags",
-    "from_grid": "NT162274",
-    "to_name": "Stanhope_Ridge",
-    "to_grid": "NT163235",
-    "km": 6.1
-  },
-  {
-    "day": "US8+9",
-    "from_name": "Stanhope_Ridge",
-    "from_grid": "NT163235",
-    "to_name": "Caerdon_Cairn",
-    "to_grid": "NT116246",
-    "km": 5.4
-  },
-  {
-    "day": "US8+9",
-    "from_name": "Caerdon_Cairn",
-    "from_grid": "NT116246",
-    "to_name": "Little_Scrape_Hags",
-    "to_grid": "NT162274",
-    "km": 1.9
-  },
-  {
-    "day": "US8+18",
-    "from_name": "Little_Scrape_Hags",
-    "from_grid": "NT162274",
-    "to_name": "Stanhope_Ridge",
-    "to_grid": "NT163235",
-    "km": 6.1
-  },
-  {
-    "day": "US8+18",
-    "from_name": "Stanhope_Ridge",
-    "from_grid": "NT163235",
-    "to_name": "Caerdon_Cairn",
-    "to_grid": "NT116246",
-    "km": 5.4
-  },
-  {
-    "day": "US8+18",
-    "from_name": "Caerdon_Cairn",
-    "from_grid": "NT116246",
-    "to_name": "Little_Scrape_Hags",
-    "to_grid": "NT162274",
-    "km": 1.9
-  },
-  {
-    "day": "US8+26",
-    "from_name": "Glenhurn_Ravine",
-    "from_grid": "NT168275",
-    "to_name": "Scrape_Top",
-    "to_grid": "NT165285",
-    "km": 1.0
-  },
-  {
-    "day": "US8+26",
-    "from_name": "Scrape_Top",
-    "from_grid": "NT165285",
-    "to_name": "Pykestone_Hill",
-    "to_grid": "NT172260",
-    "km": 2.6
-  },
-  {
-    "day": "US9",
-    "from_name": "Rachan",
-    "from_grid": "NT086347",
-    "to_name": "Mossfennan",
-    "to_grid": "NT137300",
-    "km": 6.9
-  },
-  {
-    "day": "US9",
-    "from_name": "Mossfennan",
-    "from_grid": "NT137300",
-    "to_name": "Broughton",
-    "to_grid": "NT152352",
-    "km": 5.4
-  },
-  {
-    "day": "US9",
-    "from_name": "Broughton",
-    "from_grid": "NT152352",
-    "to_name": "Biggar",
-    "to_grid": "NT046375",
-    "km": 10.8
-  },
-  {
-    "day": "US10",
-    "from_name": "Biggar",
-    "from_grid": "NT046375",
-    "to_name": "Lanark_Moor",
-    "to_grid": "NS878430",
-    "km": 17.7
-  },
-  {
-    "day": "US10",
-    "from_name": "Lanark_Moor",
-    "from_grid": "NS878430",
-    "to_name": "Douglas_Water",
-    "to_grid": "NS840368",
-    "km": 7.3
-  },
-  {
-    "day": "US10",
-    "from_name": "Douglas_Water",
-    "from_grid": "NS840368",
-    "to_name": "Fords_o_Clyde_Inn",
-    "to_grid": "NS820460",
-    "km": 9.4
-  },
-  {
-    "day": "US10+1",
-    "from_name": "Fords_o_Clyde_Inn",
-    "from_grid": "NS820460",
-    "to_name": "Blantyre",
-    "to_grid": "NS686592",
-    "km": 18.8
-  },
-  {
-    "day": "US10+1",
-    "from_name": "Blantyre",
-    "from_grid": "NS686592",
-    "to_name": "Cambuslang",
-    "to_grid": "NS645615",
-    "km": 4.7
-  },
-  {
-    "day": "US10+1",
-    "from_name": "Cambuslang",
-    "from_grid": "NS645615",
-    "to_name": "Rutherglen",
-    "to_grid": "NS622622",
-    "km": 2.4
-  },
-  {
-    "day": "US10+1",
-    "from_name": "Rutherglen",
-    "from_grid": "NS622622",
-    "to_name": "Gorbals",
-    "to_grid": "NS597646",
-    "km": 3.5
-  },
-  {
-    "day": "US10+1",
-    "from_name": "Gorbals",
-    "from_grid": "NS597646",
-    "to_name": "Glasgow_Gates",
-    "to_grid": "NS595650",
-    "km": 0.4
-  },
-  {
-    "day": "US11",
-    "from_name": "Glasgow",
-    "from_grid": "NS595650",
-    "to_name": "Hamilton",
-    "to_grid": "NS715567",
-    "km": 14.6
-  },
-  {
-    "day": "US11",
-    "from_name": "Hamilton",
-    "from_grid": "NS715567",
-    "to_name": "Douglas_Muir",
-    "to_grid": "NS833344",
-    "km": 25.2
-  },
-  {
-    "day": "US11",
-    "from_name": "Douglas_Muir",
-    "from_grid": "NS833344",
-    "to_name": "Smitwood_House",
-    "to_grid": "NS840330",
-    "km": 1.6
-  }
-];
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-function colourForDay(day) {
-    let hash = 0;
-    for (let i = 0; i < day.length; i++) {
-        hash = day.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const r = 80 + (hash & 63);
-    const g = 80 + ((hash >> 6) & 63);
-    const b = 80 + ((hash >> 12) & 63);
-    return `rgb(${r},${g},${b})`;
-}
-
-// Convert compact OS grid ref (e.g., "NT240390") to OsGridRef instance
-function parseOSGrid(grid) {
-    const letters = grid.slice(0, 2);
-    const digits = grid.slice(2);
-    const half = digits.length / 2;
-    const e = digits.slice(0, half);
-    const n = digits.slice(half);
-    return OsGridRef.parse(`${letters} ${e} ${n}`);
-}
-
-const map = L.map('map').setView([55.5, -3.5], 7);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-    maxZoom: 19
-}).addTo(map);
-
-const dayGroups = {};
-const legendColours = {};
-let allBounds = L.latLngBounds([]);
-
-legs.forEach(leg => {
-    try {
-        const fromOS = parseOSGrid(leg.from_grid);
-        const toOS = parseOSGrid(leg.to_grid);
-        const fromWGS = fromOS.toLatLon().convertDatum(LatLon.datums.WGS84);
-        const toWGS = toOS.toLatLon().convertDatum(LatLon.datums.WGS84);
-        const points = [[fromWGS.lat, fromWGS.lon], [toWGS.lat, toWGS.lon]];
-        const colour = colourForDay(leg.day);
-
-        if (!dayGroups[leg.day]) {
-            dayGroups[leg.day] = L.featureGroup();
-            legendColours[leg.day] = colour;
+    <style>
+        /* Basic styles for the page */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
         }
 
-        const poly = L.polyline(points, {
-            color: colour,
-            weight: 4,
-            opacity: 0.8
-        }).bindPopup(`<b>${leg.day}</b><br>${leg.from_name} &rarr; ${leg.to_name}<br>${leg.km} km`);
-        dayGroups[leg.day].addLayer(poly);
+        /* Set the map container to fill the viewport */
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
 
-        const startMarker = L.circleMarker(points[0], { radius: 4, color: colour });
-        const endMarker = L.circleMarker(points[1], { radius: 4, color: colour });
-        dayGroups[leg.day].addLayer(startMarker);
-        dayGroups[leg.day].addLayer(endMarker);
+        /* Custom styles for the Leaflet popup */
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .leaflet-popup-content {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 15px 20px;
+        }
+        .leaflet-popup-content b {
+            font-weight: 700;
+            color: #333;
+        }
+        .leaflet-popup-tip {
+            box-shadow: none;
+        }
+        
+        /* Custom styles for the tooltip */
+        .leaflet-tooltip {
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
 
-        allBounds.extend(points);
-    } catch(err) {
-        console.warn('Failed on', leg, err);
-    }
-});
+        /* Custom styles for the legend control */
+        .legend {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            line-height: 1.5;
+            color: #333;
+            max-height: 50vh;
+            width: 300px;
+            overflow-y: auto;
+            font-size: 13px;
+        }
+        .legend h4 {
+            margin: 0 0 10px;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            text-align: center;
+        }
+        .legend-day {
+            margin-bottom: 10px;
+        }
+        .legend-day-title {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        .legend-day-title i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.9;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        .legend-waypoints {
+            font-size: 12px;
+            color: #555;
+            padding-left: 26px; /* Align with title text */
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- The div element where the map will be rendered -->
+    <div id="map"></div>
 
-const overlayLayers = {};
-Object.keys(dayGroups).forEach(day => {
-    dayGroups[day].addTo(map);
-    overlayLayers[day] = dayGroups[day];
-});
-L.control.layers(null, overlayLayers, { collapsed: false, position: 'topright' }).addTo(map);
+    <!-- Leaflet.js JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    
+    <script>
+        // --- START OF EMBEDDED OS GRID REFERENCE CONVERSION LIBRARY ---
+        // This code is an adaptation of the geodesy library by Chris Veness (MIT licence)
+        // to remove the external dependency.
 
-map.fitBounds(allBounds);
+        class LatLonEllipsoidal {
+            constructor(lat, lon, height=0) {
+                if (isNaN(lat) || isNaN(lon)) throw new TypeError(`Invalid LatLon [${lat},${lon}]`);
+                this._lat = Number(lat);
+                this._lon = Number(lon);
+                this._height = Number(height);
+            }
+            get lat() { return this._lat; }
+            get latitude() { return this._lat; }
+            get lon() { return this._lon; }
+            get longitude() { return this._lon; }
+            get height() { return this._height; }
+            static get Dms() { return { N: 'N', S: 'S', E: 'E', W: 'W' }; }
+        }
 
-// Legend block
-const legend = L.control({ position: 'bottomright' });
-legend.onAdd = function(map) {
-    const div = L.DomUtil.create('div', 'legend');
-    let html = '<b>Day colour key</b><br>';
-    Object.entries(legendColours).forEach(([day, colour]) => {
-        html += `<span style="background:${colour}"></span>${day}<br>`;
-    });
-    div.innerHTML = html;
-    return div;
-};
-legend.addTo(map);
+        class OsGridRef {
+            constructor(easting, northing) {
+                this.easting = Number(easting);
+                this.northing = Number(northing);
+            }
 
-</script>
+            static parse(gridref) {
+                gridref = String(gridref).trim();
+                let match = gridref.match(/^([STNHO][A-Z])\s*(\d{2,10})$/i);
+                if (!match) throw new Error(`Invalid OS Grid Reference ‘${gridref}’`);
+                let gr = match[1].toUpperCase();
+                let e = match[2].slice(0, match[2].length / 2);
+                let n = match[2].slice(match[2].length / 2);
+                if (e.length != n.length) throw new Error(`Invalid OS Grid Reference ‘${gridref}’`);
+                e = e.padEnd(5, '0');
+                n = n.padEnd(5, '0');
+                let l1 = gr.charCodeAt(0) - 'A'.charCodeAt(0);
+                let l2 = gr.charCodeAt(1) - 'A'.charCodeAt(0);
+                if (l1 > 7) l1--;
+                if (l2 > 7) l2--;
+                let e100km = ((l1 - 2) % 5) * 5 + (l2 % 5);
+                let n100km = (19 - Math.floor(l1 / 5) * 5) - Math.floor(l2 / 5);
+                if (e100km < 0 || e100km > 6 || n100km < 0 || n100km > 12) throw new Error(`Invalid OS Grid Reference ‘${gridref}’`);
+                let easting = e100km * 100000 + Number(e);
+                let northing = n100km * 100000 + Number(n);
+                return new OsGridRef(easting, northing);
+            }
+
+            toLatLon(datum = LatLonEllipsoidal.datums.WGS84) {
+                const { easting: E, northing: N } = this;
+                const { a, b } = datum.ellipsoid;
+                const F0 = 0.9996012717;
+                const φ0 = 49 * Math.PI / 180;
+                const λ0 = -2 * Math.PI / 180;
+                const N0 = -100000, E0 = 400000;
+                const e2 = 1 - (b * b) / (a * a);
+                const n = (a - b) / (a + b);
+                let φ = φ0, M = 0;
+                do {
+                    φ = (N - N0 - M) / (a * F0) + φ;
+                    let Ma = (1 + n + (5 / 4) * n * n + (5 / 4) * n * n * n) * (φ - φ0);
+                    let Mb = (3 * n + 3 * n * n + (21 / 8) * n * n * n) * Math.sin(φ - φ0) * Math.cos(φ + φ0);
+                    let Mc = ((15 / 8) * n * n + (15 / 8) * n * n * n) * Math.sin(2 * (φ - φ0)) * Math.cos(2 * (φ + φ0));
+                    let Md = (35 / 24) * n * n * n * Math.sin(3 * (φ - φ0)) * Math.cos(3 * (φ + φ0));
+                    M = b * F0 * (Ma - Mb + Mc - Md);
+                } while (N - N0 - M >= 0.00001);
+                const cosφ = Math.cos(φ), sinφ = Math.sin(φ);
+                const ν = a * F0 / Math.sqrt(1 - e2 * sinφ * sinφ);
+                const ρ = a * F0 * (1 - e2) / Math.pow(1 - e2 * sinφ * sinφ, 1.5);
+                const η2 = ν / ρ - 1;
+                const tanφ = Math.tan(φ);
+                let secφ = 1 / cosφ;
+                let VII = tanφ / (2 * ρ * ν);
+                let VIII = tanφ / (24 * ρ * Math.pow(ν, 3)) * (5 + 3 * tanφ * tanφ + η2 - 9 * tanφ * tanφ * η2);
+                let IX = tanφ / (720 * ρ * Math.pow(ν, 5)) * (61 + 90 * tanφ * tanφ + 45 * Math.pow(tanφ, 4));
+                let X = secφ / ν;
+                let XI = secφ / (6 * Math.pow(ν, 3)) * (ν / ρ + 2 * tanφ * tanφ);
+                let XII = secφ / (120 * Math.pow(ν, 5)) * (5 + 28 * tanφ * tanφ + 24 * Math.pow(tanφ, 4));
+                let XIIA = secφ / (5040 * Math.pow(ν, 7)) * (61 + 662 * tanφ * tanφ + 1320 * Math.pow(tanφ, 4) + 720 * Math.pow(tanφ, 6));
+                const dE = E - E0;
+                φ = φ - VII * dE * dE + VIII * Math.pow(dE, 4) - IX * Math.pow(dE, 6);
+                let λ = λ0 + X * dE - XI * Math.pow(dE, 3) + XII * Math.pow(dE, 5) - XIIA * Math.pow(dE, 7);
+                return new LatLonEllipsoidal(φ * 180 / Math.PI, λ * 180 / Math.PI, 0);
+            }
+        }
+        
+        LatLonEllipsoidal.datums = {
+            WGS84: { ellipsoid: { a: 6378137, b: 6356752.314245, f: 1 / 298.257223563 } }
+        };
+
+        // --- END OF EMBEDDED LIBRARY ---
+
+
+        // --- DATA ---
+        // John Burnet's journey data, with additional waypoints from the source text.
+        const journeyData = [
+            { day: "US1", description: "Barns–Tweed–Dawyck loop", total_km: 20.5, ascent_m: 200, legs: [["Barns", "NT240390", "Tweed_Ford", "NT238389", 243, 0.2], ["Tweed_Ford", "NT238389", "Wood_of_Dawyck", "NT166319", 226, 10.0], ["Wood_of_Dawyck", "NT166319", "Barns", "NT240390", 46, 10.3]] },
+            { day: "US2", description: "Flood round of Peebles & Manor", total_km: 11.3, ascent_m: 120, legs: [["Barns", "NT240390", "Peebles_Bridge", "NT251403", 40, 1.7], ["Peebles_Bridge", "NT251403", "Manor_Detour", "NT235350", 197, 5.5], ["Manor_Detour", "NT235350", "Barns", "NT240390", 7, 4.1]] },
+            { day: "US3", description: "Barns → Biggar → Lanark → Crossford", total_km: 43.8, ascent_m: 650, legs: [["Barns", "NT240390", "Biggar", "NT046375", 266, 19.5], ["Biggar", "NT046375", "Lanark", "NS878425", 287, 17.5], ["Lanark", "NS878425", "Crossford", "NS820460", 301, 6.8]] },
+            { day: "US3+1", description: "Crossford → Hamilton → Glasgow", total_km: 29.8, ascent_m: 300, legs: [["Crossford", "NS820460", "Hamilton", "NS715567", 316, 15.0], ["Hamilton", "NS715567", "Glasgow_Bridge", "NS592650", 304, 14.8]] },
+            { day: "US4", description: "Glasgow → Hamilton (term break ride)", total_km: 14.8, ascent_m: 200, legs: [["Glasgow_Bridge", "NS592650", "Hamilton", "NS715567", 124, 14.8]] },
+            { day: "US4+1", description: "Hamilton → Lanark Moor → Symington → Barns", total_km: 59.0, ascent_m: 700, legs: [["Hamilton", "NS715567", "Lanark_Moor", "NS878430", 130, 21.3], ["Lanark_Moor", "NS878430", "Symington_Knoll", "NS986373", 118, 12.2], ["Symington_Knoll", "NS986373", "Barns", "NT240390", 86, 25.5]] },
+            { day: "US5", description: "‘Red Syke’ wager circuit", total_km: 25.8, ascent_m: 600, legs: [["Barns", "NT240390", "The_Deid_Wife", "NT198305", 227, 9.8], ["The_Deid_Wife", "NT198305", "Red_Syke", "NT180300", 215, 3.0], ["Red_Syke", "NT180300", "Barns", "NT240390", 34, 13.0]] },
+            { day: "US6", description: "Barns → Eddleston → Leadburn → Leith", total_km: 37.9, ascent_m: 400, legs: [["Barns", "NT240390", "Eddleston", "NT245460", 4, 7.0], ["Eddleston", "NT245460", "Leadburn_Inn", "NT241573", 358, 11.3], ["Leadburn_Inn", "NT241573", "Leith_Harbour", "NT275766", 10, 19.6]] },
+            { day: "US7", description: "Leith → Liberton (evening landing dash)", total_km: 7.7, ascent_m: 90, legs: [["Leith_Harbour", "NT275766", "Leith_Walk", "NT270735", 189, 3.1], ["Leith_Walk", "NT270735", "Liberton_Kirk", "NT273689", 176, 4.6]] },
+            { day: "US7+1", description: "Pentlands night ride to Broughton", total_km: 37.6, ascent_m: 880, legs: [["Liberton_Kirk", "NT273689", "Penicuik_Hawes_Burn", "NT235600", 203, 9.7], ["Penicuik_Hawes_Burn", "NT235600", "Leadburn_X-roads", "NT241573", 167, 2.8], ["Newlands_Moor", "NT196509", "Black_Mount", "NT135470", 235, 7.2], ["Black_Mount", "NT135470", "Kirkurd_Ford", "NT154447", 148, 3.5], ["Kirkurd_Ford", "NT154447", "Hell’s_Cleuch", "NT163424", 159, 2.5], ["Hell’s_Cleuch", "NT163424", "Broughton", "NT152352", 189, 7.3]] },
+            { day: "US7+2", description: "Dawn trot into Dawyck", total_km: 3.7, ascent_m: 120, legs: [["Broughton", "NT152352", "Dawyck_House", "NT159316", 169, 3.7]] },
+            { day: "US7+3", description: "Stanhope & Talla ridges to Cor", total_km: 11.0, ascent_m: 620, legs: [["Dawyck_House", "NT159316", "Glenstivon_Dod", "NT158275", 172, 4.2], ["Glenstivon_Dod", "NT158275", "Stanhope_Watershed", "NT163235", 125, 4.1], ["Stanhope_Watershed", "NT163235", "Talla_Linns_Ford", "NT152223", 223, 1.6], ["Talla_Linns_Ford", "NT152223", "Cor_Water_Cave", "NT140220", 256, 1.2]] },
+            { day: "US7+4", description: "Final scramble into cave", total_km: 0.2, ascent_m: 40, legs: [["Foot_of_Cor_Glen", "NT141218", "Cor_Water_Cave", "NT140220", 256, 0.2]] },
+            { day: "US8", description: "Cor → Caerdon courier loop", total_km: 11.8, ascent_m: 530, legs: [["Cor_Water_Cave", "NT140220", "Kingledoors_Ridge", "NT119225", 283, 2.2], ["Kingledoors_Ridge", "NT119225", "Wormel", "NT140240", 54, 2.6], ["Wormel", "NT140240", "Caerdon_Cairn", "NT116246", 284, 2.5], ["Caerdon_Cairn", "NT116246", "Wormel", "NT140240", 104, 2.5], ["Wormel", "NT140240", "Cor_Water_Cave", "NT140220", 180, 2.0]] },
+            { day: "US8+2", description: "Storm escape – Cor → Coomb Dod", total_km: 16.8, ascent_m: 790, legs: [["Cor_Water_Cave", "NT140220", "Wormel", "NT140240", 0, 2.0], ["Wormel", "NT140240", "Coulter_Fell_Shldr", "NT054279", 294, 9.4], ["Coulter_Fell_Shldr", "NT054279", "Holmes_Water_Head", "NT063246", 165, 3.4], ["Holmes_Water_Head", "NT063246", "Coomb_Dod_Plateau", "NT083250", 79, 2.0]] },
+            { day: "US8+3", description: "Descent to Roberton", total_km: 9.8, ascent_m: 120, legs: [["Coomb_Dod_Plateau", "NT083250", "Redshaw_Shieling", "NT088235", 162, 1.6], ["Redshaw_Shieling", "NT088235", "Wildshaw", "NT078225", 225, 1.4], ["Wildshaw", "NT078225", "Roberton_Burn", "NT031274", 316, 6.8]] },
+            { day: "US8+4", description: "White-out chase – Coulter Fell → Little Scrape", total_km: 48.1, ascent_m: 1050, legs: [["Coulter_Fell_Shldr", "NT054279", "Biggar", "NT046375", 350, 8.8], ["Biggar", "NT046375", "Kilbucho", "NT067358", 129, 2.7], ["Kilbucho", "NT067358", "Blendewing", "NT084380", 38, 2.8], ["Blendewing", "NT084380", "Whiteslade", "NT089368", 157, 1.3], ["Whiteslade", "NT089368", "Wormel", "NT140240", 158, 13.8], ["Wormel", "NT140240", "Tweed_Ford", "NT150350", 5, 11.0], ["Tweed_Ford", "NT150350", "Little_Scrape_Hags", "NT162274", 171, 7.7]] },
+            { day: "US8+9", description: "First Scrape → Caerdon letter-run", total_km: 13.4, ascent_m: 510, legs: [["Little_Scrape_Hags", "NT162274", "Stanhope_Ridge", "NT163235", 10, 6.1], ["Stanhope_Ridge", "NT163235", "Caerdon_Cairn", "NT116246", 284, 5.4], ["Caerdon_Cairn", "NT116246", "Little_Scrape_Hags", "NT162274", 118, 1.9]] },
+            { day: "US8+18", description: "Repeat courier loop", total_km: 13.4, ascent_m: 510, legs: [["Little_Scrape_Hags", "NT162274", "Stanhope_Ridge", "NT163235", 10, 6.1], ["Stanhope_Ridge", "NT163235", "Caerdon_Cairn", "NT116246", 284, 5.4], ["Caerdon_Cairn", "NT116246", "Little_Scrape_Hags", "NT162274", 118, 1.9]] },
+            { day: "US8+26", description: "Shift lair – Glenhurn → Pykestone", total_km: 3.6, ascent_m: 110, legs: [["Glenhurn_Ravine", "NT168275", "Scrape_Top", "NT165285", 343, 1.0], ["Scrape_Top", "NT165285", "Pykestone_Hill", "NT172260", 164, 2.6]] },
+            { day: "US9", description: "Gipsy escort – Rachan → Biggar", total_km: 23.2, ascent_m: 400, legs: [["Rachan", "NT086347", "Mossfennan", "NT137300", 133, 6.9], ["Mossfennan", "NT137300", "Broughton", "NT152352", 16, 5.4], ["Broughton", "NT152352", "Biggar", "NT046375", 282, 10.8]] },
+            { day: "US10", description: "Pursuit – Biggar → Lanark Moor → Douglas W. → Fords o’ Clyde", total_km: 34.4, ascent_m: 600, legs: [["Biggar", "NT046375", "Lanark_Moor", "NS878430", 288, 17.7], ["Lanark_Moor", "NS878430", "Douglas_Water", "NS840368", 212, 7.3], ["Douglas_Water", "NS840368", "Fords_o_Clyde_Inn", "NS820460", 99, 9.4]] },
+            { day: "US10+1", description: "Snow-ride – Fords o’ Clyde → Glasgow", total_km: 29.8, ascent_m: 350, legs: [["Fords_o_Clyde_Inn", "NS820460", "Blantyre", "NS686592", 315, 18.8], ["Blantyre", "NS686592", "Cambuslang", "NS645615", 299, 4.7], ["Cambuslang", "NS645615", "Rutherglen", "NS622622", 287, 2.4], ["Rutherglen", "NS622622", "Gorbals", "NS597646", 314, 3.5], ["Gorbals", "NS597646", "Glasgow_Gates", "NS595650", 333, 0.4]] },
+            { day: "US11", description: "Westlands climax – Glasgow → Douglas Muir → Smitwood", total_km: 41.4, ascent_m: 500, legs: [["Glasgow", "NS595650", "Hamilton", "NS715567", 125, 14.6], ["Hamilton", "NS715567", "Douglas_Muir", "NS833344", 152, 25.2], ["Douglas_Muir", "NS833344", "Smitwood_House", "NS840330", 153, 1.6]] }
+        ];
+        
+        // Narrative tooltips for key waypoints
+        const waypointTooltips = {
+            'Wood_of_Dawyck': "Here, a boy of twelve, I first met Marjory Veitch after falling asleep and tumbling into the Tweed.",
+            'Peebles_Bridge': "Watching the annual match at bowls when news of a great flood arrived.",
+            'Glasgow_Bridge': "Arriving in the city to begin my studies at the College.",
+            'Red_Syke': "The goal of a foolhardy race against my cousin Gilbert over the wild hills.",
+            'Leith_Harbour': "Riding to Leith to take ship for the Low Countries and a life of study.",
+            'Cor_Water_Cave': "Seeking refuge in the hillmen's cave on the Cor Water.",
+            'Coomb_Dod_Plateau': "Fleeing the collapsing cave, I made for the desolate moors of Clyde.",
+            'Little_Scrape_Hags': "Hiding in the moss-hags after being hunted across the moors.",
+            'Fords_o_Clyde_Inn': "The pursuit of my cousin Gilbert begins in earnest.",
+            'Smitwood_House': "The final ride to Smitwood, where I believed my troubles would end."
+        };
+
+        /**
+         * Main function to plot the journey on the map.
+         * This function is set to run only after the entire page (including libraries) has loaded.
+         */
+        window.onload = function() {
+            // Center the map on the Southern Uplands of Scotland.
+            const map = L.map('map').setView([55.45, -3.4], 9);
+
+            // Add the OpenStreetMap tile layer.
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            // --- STYLING & HELPERS ---
+
+            // A palette of distinct colors for the different journey days.
+            const colors = [
+                '#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', 
+                '#f781bf', '#999999', '#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3', '#a6d854',
+                '#ffd92f', '#e5c494', '#b3b3b3', '#8dd3c7', '#ffffb3', '#bebada', '#fb8072',
+                '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#d9d9d9'
+            ];
+
+            function getColor(index) {
+                return colors[index % colors.length];
+            }
+            
+            // Custom icon for waypoint markers
+            const waypointIcon = L.divIcon({
+                className: 'custom-waypoint-icon',
+                html: `<div style="background-color: #c0392b; width: 10px; height: 10px; border-radius: 50%; border: 1px solid #ffffff; box-shadow: 0 0 3px rgba(0,0,0,0.5);"></div>`,
+                iconSize: [10, 10],
+                iconAnchor: [5, 5]
+            });
+
+            // --- ROUTE PLOTTING ---
+
+            const legendItems = [];
+            const placedMarkers = new Set();
+
+            journeyData.forEach((dayData, index) => {
+                const dayColor = getColor(index);
+                
+                const dayLayerGroup = L.featureGroup();
+                let waypoints = [dayData.legs[0][0].replace(/_/g, ' ')];
+
+                dayData.legs.forEach(leg => {
+                    try {
+                        const startWaypointName = leg[0];
+                        const startRefStr = leg[1];
+                        const endWaypointName = leg[2];
+                        const endRefStr = leg[3];
+
+                        const startGridRef = OsGridRef.parse(startRefStr);
+                        const endGridRef = OsGridRef.parse(endRefStr);
+                        const startLatLng = startGridRef.toLatLon();
+                        const endLatLng = endGridRef.toLatLon();
+
+                        const latlngs = [
+                            [startLatLng.lat, startLatLng.lon],
+                            [endLatLng.lat, endLatLng.lon]
+                        ];
+                        
+                        const polyline = L.polyline(latlngs, {
+                            color: dayColor,
+                            weight: 5,
+                            opacity: 0.75
+                        });
+
+                        const popupContent = `
+                            <b>Day:</b> ${dayData.day} (${dayData.description})<br>
+                            <b>Leg:</b> ${startWaypointName.replace(/_/g, ' ')} &rarr; ${endWaypointName.replace(/_/g, ' ')}<br>
+                            <b>Distance:</b> ${leg[5]} km<br>
+                            <b>Bearing:</b> ${leg[4]}&deg;<br>
+                            <b>OS Grid Ref:</b> ${startRefStr} &rarr; ${endRefStr}
+                        `;
+                        polyline.bindPopup(popupContent);
+
+                        polyline.on('mouseover', function (e) {
+                            this.setStyle({ weight: 8, opacity: 1 });
+                        });
+                        polyline.on('mouseout', function (e) {
+                            this.setStyle({ weight: 5, opacity: 0.75 });
+                        });
+
+                        dayLayerGroup.addLayer(polyline);
+                        
+                        // Add tooltip marker if it exists and hasn't been placed
+                        if (waypointTooltips[startWaypointName] && !placedMarkers.has(startWaypointName)) {
+                            const marker = L.marker([startLatLng.lat, startLatLng.lon], { icon: waypointIcon })
+                                .bindTooltip(waypointTooltips[startWaypointName], { permanent: false, direction: 'top' })
+                                .addTo(map);
+                            placedMarkers.add(startWaypointName);
+                        }
+
+                        const cleanEndWaypoint = endWaypointName.replace(/_/g, ' ');
+                        if (waypoints[waypoints.length - 1] !== cleanEndWaypoint) {
+                           waypoints.push(cleanEndWaypoint);
+                        }
+
+                    } catch (error) {
+                        console.error(`Could not process leg for day ${dayData.day}:`, leg, error);
+                    }
+                });
+
+                dayLayerGroup.addTo(map);
+                
+                legendItems.push({
+                    label: `${dayData.day}: ${dayData.description}`,
+                    color: dayColor,
+                    waypoints: waypoints.join(' → ')
+                });
+            });
+
+            // Add a marker for the very last waypoint if it has a tooltip
+            const lastDay = journeyData[journeyData.length - 1];
+            const lastLeg = lastDay.legs[lastDay.legs.length - 1];
+            const finalWaypointName = lastLeg[2];
+            if (waypointTooltips[finalWaypointName] && !placedMarkers.has(finalWaypointName)) {
+                const finalGridRef = OsGridRef.parse(lastLeg[3]);
+                const finalLatLng = finalGridRef.toLatLon();
+                const marker = L.marker([finalLatLng.lat, finalLatLng.lon], { icon: waypointIcon })
+                    .bindTooltip(waypointTooltips[finalWaypointName], { permanent: false, direction: 'top' })
+                    .addTo(map);
+            }
+
+            // --- LEGEND ---
+
+            const legend = L.control({ position: 'bottomright' });
+
+            legend.onAdd = function (map) {
+                const div = L.DomUtil.create('div', 'info legend');
+                div.innerHTML = '<h4>John Burnet\'s Journey</h4>';
+                
+                legendItems.forEach(item => {
+                    div.innerHTML += `
+                        <div class="legend-day">
+                            <div class="legend-day-title">
+                                <i style="background:${item.color}"></i>
+                                <span>${item.label}</span>
+                            </div>
+                            <div class="legend-waypoints">${item.waypoints}</div>
+                        </div>`;
+                });
+
+                L.DomEvent.disableClickPropagation(div);
+                L.DomEvent.disableScrollPropagation(div);
+
+                return div;
+            };
+
+            legend.addTo(map);
+        }
+    </script>
 </body>
 </html>
