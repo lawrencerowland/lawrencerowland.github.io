@@ -150,95 +150,149 @@ const data = {
 
 
 const canonicalMap = {
-  agi: 'strategy_portfolio',
-  ai_adoption: 'ai_data',
-  ashbys_law: 'complexity_systems',
-  pbs: 'governance_controls',
-  pmo: 'governance_controls',
-  tom: 'strategy_portfolio',
-  viable_systems_model: 'complexity_systems',
-  wbs: 'governance_controls',
-  wardley_map: 'strategy_portfolio',
-  abstraction: 'decision_intelligence',
-  active_inference: 'complexity_systems',
-  behaviour: 'stakeholders_culture',
-  benefits: 'value_benefits',
-  business_model: 'strategy_portfolio',
-  capabilities: 'learning_capability',
-  category_theory: 'ai_data',
-  change_management: 'complexity_systems',
-  classification_tree: 'ai_data',
-  complexity: 'complexity_systems',
-  competition: 'stakeholders_culture',
-  consulting: 'strategy_portfolio',
-  contract_management: 'governance_controls',
-  correlation: 'ai_data',
-  culture: 'stakeholders_culture',
-  decision: 'decision_intelligence',
-  dependencies: 'governance_controls',
-  feedback_loops: 'complexity_systems',
-  gamification: 'stakeholders_culture',
-  game_theory: 'stakeholders_culture',
-  generative_model: 'ai_data',
-  graph_pathways: 'ai_data',
-  graphs: 'ai_data',
-  higher_order_networks: 'complexity_systems',
-  hs2: 'governance_controls',
-  idea_maze: 'learning_capability',
-  imagination: 'learning_capability',
-  interactions: 'stakeholders_culture',
-  jsx: 'ai_data',
-  knowledge_graph: 'ai_data',
-  knowledge_graph_dependencies: 'ai_data',
-  knowledge_management: 'ai_data',
-  learning: 'learning_capability',
-  methods: 'learning_capability',
-  moving_between_perspectives: 'stakeholders_culture',
-  multiple_perspectives: 'stakeholders_culture',
-  negotiation: 'stakeholders_culture',
-  non_linearity: 'complexity_systems',
-  ontology: 'ai_data',
-  output: 'value_benefits',
-  portfolio_management: 'strategy_portfolio',
-  polarities: 'decision_intelligence',
-  prediction_error: 'decision_intelligence',
-  procurement: 'governance_controls',
-  product_management: 'learning_capability',
-  qualitative_research: 'stakeholders_culture',
-  rail: 'governance_controls',
-  resources: 'learning_capability',
-  risk: 'governance_controls',
-  roadmap: 'strategy_portfolio',
-  scope: 'value_benefits',
-  sequential_decisions: 'decision_intelligence',
-  social_science: 'stakeholders_culture',
-  solution: 'learning_capability',
-  stakeholder: 'stakeholders_culture',
-  stakeholder_management: 'stakeholders_culture',
-  surprise: 'decision_intelligence',
-  svg: 'ai_data',
-  tasks: 'governance_controls',
-  teamwork: 'stakeholders_culture',
-  timeline: 'strategy_portfolio',
-  tsx: 'ai_data',
-  uncertainty: 'decision_intelligence',
-  use_cases: 'ai_data',
-  value: 'value_benefits',
-  visualisation: 'ai_data',
-  workflow: 'governance_controls',
-  physics: 'complexity_systems',
-  everyday: 'learning_capability'
+  // Change Management (organizational change, Agile/hybrid adoption)
+  agile: 'change_management',
+  change_management: 'change_management',
+
+  // Emerging Practice (new methodologies, continuous learning & development)
+  capabilities: 'emerging_practice',
+  everyday: 'emerging_practice',
+  idea_maze: 'emerging_practice',
+  imagination: 'emerging_practice',
+  learning: 'emerging_practice',
+  methods: 'emerging_practice',
+  product_management: 'emerging_practice',
+  solution: 'emerging_practice',
+
+  // Innovation in PM (complexity science, systems thinking, advanced concepts)
+  active_inference: 'innovation_pm',
+  ashbys_law: 'innovation_pm',
+  complexity: 'innovation_pm',
+  feedback_loops: 'innovation_pm',
+  higher_order_networks: 'innovation_pm',
+  non_linearity: 'innovation_pm',
+  physics: 'innovation_pm',
+  systems_thinking: 'innovation_pm',
+  viable_systems_model: 'innovation_pm',
+
+  // Portfolio Management (strategic alignment, portfolio oversight, roadmapping)
+  agi: 'portfolio_management',
+  business_model: 'portfolio_management',
+  consulting: 'portfolio_management',
+  portfolio_management: 'portfolio_management',
+  roadmap: 'portfolio_management',
+  tom: 'portfolio_management',
+  wardley_map: 'portfolio_management',
+
+  // Project Controls (integrated control systems; e.g. analytics via multi-domain tags)
+  // *No direct single-tag mappings here; see multi-domain tags like "analytics" below*
+
+  // Project Evaluation & Measurement (benefits realization, value tracking, metrics)
+  benefits: 'project_evaluation',
+  output: 'project_evaluation',
+  scope: 'project_evaluation',
+  value: 'project_evaluation',
+
+  // Project Governance (PMO, governance frameworks, controls, compliance)
+  contract_management: 'project_governance',
+  hs2: 'project_governance',
+  pbs: 'project_governance',
+  pmo: 'project_governance',
+  procurement: 'project_governance',
+  rail: 'project_governance',
+  wbs: 'project_governance',
+  workflow: 'project_governance',
+
+  // Project Leadership & Team Dynamics (team collaboration, culture, motivation, leadership)
+  collaboration: 'leadership_team',
+  culture: 'leadership_team',
+  feedback: 'leadership_team',
+  leadership: 'leadership_team',
+  motivation: 'leadership_team',
+  team_culture: 'leadership_team',
+  teamwork: 'leadership_team',
+
+  // Resource Allocation & Optimization (resource management and optimization techniques)
+  resource: 'resource_optimization',
+  resources: 'resource_optimization',
+
+  // Risk Management (decision-making under uncertainty, bias mitigation)
+  abstraction: 'risk_management',
+  decision: 'risk_management',
+  polarities: 'risk_management',
+  prediction_error: 'risk_management',
+  risk: 'risk_management',
+  risk_culture: 'risk_management',
+  sequential_decisions: 'risk_management',
+  surprise: 'risk_management',
+  uncertainty: 'risk_management',
+
+  // Schedule & Time Management (scheduling, sequencing, time management)
+  dependencies: 'schedule_time',
+  schedule: 'schedule_time',
+  tasks: 'schedule_time',
+  timeline: 'schedule_time',
+
+  // Stakeholder Engagement (stakeholder analysis, management, negotiation, cultural aspects)
+  behaviour: 'stakeholder_engagement',
+  competition: 'stakeholder_engagement',
+  game_theory: 'stakeholder_engagement',
+  interactions: 'stakeholder_engagement',
+  moving_between_perspectives: 'stakeholder_engagement',
+  multiple_perspectives: 'stakeholder_engagement',
+  negotiation: 'stakeholder_engagement',
+  qualitative_research: 'stakeholder_engagement',
+  social_science: 'stakeholder_engagement',
+  stakeholder: 'stakeholder_engagement',
+  stakeholder_analysis: 'stakeholder_engagement',
+  stakeholder_management: 'stakeholder_engagement',
+
+  // Technology Integration (AI, data analytics, and tech adoption in PM)
+  ai: 'technology_integration',
+  ai_adoption: 'technology_integration',
+  category_theory: 'technology_integration',
+  chatbot: 'technology_integration',
+  classification_tree: 'technology_integration',
+  correlation: 'technology_integration',
+  generative_model: 'technology_integration',
+  graph_pathways: 'technology_integration',
+  graphs: 'technology_integration',
+  jsx: 'technology_integration',
+  knowledge_graph: 'technology_integration',
+  knowledge_graph_dependencies: 'technology_integration',
+  knowledge_management: 'technology_integration',
+  ontology: 'technology_integration',
+  svg: 'technology_integration',
+  tsx: 'technology_integration',
+  use_cases: 'technology_integration',
+  visualisation: 'technology_integration',
+
+  // Tags mapping to multiple domains:
+  ai_planning: ['technology_integration', 'schedule_time'],
+  ai_risk: ['technology_integration', 'risk_management'],
+  analytics: ['technology_integration', 'project_controls'],
+  coaching: ['leadership_team', 'emerging_practice'],
+  gamification: ['stakeholder_engagement', 'leadership_team'],
+  mentoring: ['leadership_team', 'emerging_practice'],
+  predictive_modeling: ['technology_integration', 'risk_management'],
+  sustainability: ['project_governance', 'stakeholder_engagement'],
+  training: ['leadership_team', 'emerging_practice']
 };
 
 const canonicalToDomain = {
-  strategy_portfolio: 'Portfolio Management',
-  ai_data: 'Technology Integration',
-  complexity_systems: 'Innovation in PM',
-  governance_controls: 'Project Governance',
-  decision_intelligence: 'Risk Management',
-  stakeholders_culture: 'Stakeholder Engagement',
-  learning_capability: 'Emerging Practice',
-  value_benefits: 'Project Evaluation & Measurement'
+  change_management: 'Change Management',
+  emerging_practice: 'Emerging Practice',
+  innovation_pm: 'Innovation in PM',
+  leadership_team: 'Project Leadership & Team Dynamics',
+  portfolio_management: 'Portfolio Management',
+  project_controls: 'Project Controls',
+  project_evaluation: 'Project Evaluation & Measurement',
+  project_governance: 'Project Governance',
+  resource_optimization: 'Resource Allocation & Optimization',
+  risk_management: 'Risk Management',
+  schedule_time: 'Schedule & Time Management',
+  stakeholder_engagement: 'Stakeholder Engagement',
+  technology_integration: 'Technology Integration'
 };
 
 const tagToCaps = {
@@ -298,7 +352,13 @@ function integrateApps(apps){
   apps.forEach(app=>{
     const tags=(app.tags||app.tag||'').split(/[,;]/).map(t=>t.trim().toLowerCase()).filter(Boolean);
     const domainSet=new Set();
-    tags.forEach(t=>{const canon=canonicalMap[t]; if(canon){const dom=canonicalToDomain[canon]; if(dom) domainSet.add(dom);}});
+    tags.forEach(t=>{
+      const canon=canonicalMap[t];
+      if(canon){
+        const arr=Array.isArray(canon)?canon:[canon];
+        arr.forEach(c=>{const dom=canonicalToDomain[c]; if(dom) domainSet.add(dom);});
+      }
+    });
     const resId='R'+(nextId++);
     const resource={id:resId,title:app.name,type:'App',domains:Array.from(domainSet),url:app.repo==='Project-web-apps'?`/Project-web-apps/web_apps/${app.name}.html`:`/${app.repo}/apps/${app.name}/index.html`,linkedCapabilities:[]};
     data.resources.push(resource);
