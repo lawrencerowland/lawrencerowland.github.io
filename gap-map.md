@@ -32,7 +32,8 @@ nav button,.info-buttons button{margin-right:0.5rem;padding:0.35rem 0.75rem;bord
 nav button:hover,.info-buttons button:hover{background:#e0e0e0;border-color:#999;}
 nav button.active{background:var(--cap);color:#fff;border-color:var(--cap);font-weight:600;}
 .controls-right{margin-left:auto;display:flex;gap:0.5rem;}
-#toggleGraph,#clearSelectionBtn{padding:0.35rem 0.75rem;border:1px solid #ccc;border-radius:1rem;background:#fff;cursor:pointer;}
+#toggleGraph,#clearSelectionBtn,#refreshGraph{padding:0.35rem 0.75rem;border:1px solid #ccc;border-radius:1rem;background:#fff;cursor:pointer;}
+#refreshGraph{display:none;}
 #clearSelectionBtn{display:none;background-color:var(--highlight);color:black;}
 #filters{padding:0.75rem 1rem;border-bottom:1px solid #e0e0e0;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;background:#fff;}
 #searchBox{flex:1 1 200px;padding:0.5rem;border:1px solid #ccc;border-radius:4px;font-size:1rem;}
@@ -73,6 +74,7 @@ main{flex:1;display:flex;overflow:hidden;position:relative;}
   <div class="controls-right">
     <button id="clearSelectionBtn">Clear Selection</button>
     <button id="toggleGraph">Graph View</button>
+    <button id="refreshGraph">Refresh Graph</button>
   </div>
 </header>
 <div id="filters">
@@ -337,6 +339,7 @@ function setupEventListeners(){
   document.getElementById('btnR').onclick=()=>setCategory('res');
   document.getElementById('searchBox').oninput=e=>{searchTerm=e.target.value.toLowerCase();renderList();};
   document.getElementById('toggleGraph').onclick=toggleGraph;
+  document.getElementById('refreshGraph').onclick=drawGraph;
   document.getElementById('clearSelectionBtn').onclick=clearSelection;
   setupModal('whatBtn','whatModal');
   setupModal('howToBtn','howToModal');
@@ -450,6 +453,7 @@ function toggleGraph(){
   document.getElementById('graphView').style.display=graphVisible?'block':'none';
   document.getElementById('listView').style.display=graphVisible?'none':'block';
   document.getElementById('toggleGraph').textContent=graphVisible?'List View':'Graph View';
+  document.getElementById('refreshGraph').style.display=graphVisible?'inline-block':'none';
   if(graphVisible){setTimeout(drawGraph,0);}else if(simulation){simulation.stop();}
 }
 
@@ -458,10 +462,15 @@ function drawGraph(){
   const svg=d3.select('#graphSvg');
   svg.selectAll('*').remove();
   const width=graphView.clientWidth;const height=graphView.clientHeight;const tooltip=d3.select('.graph-tooltip');
-  const nodes=[...data.gaps.map(d=>({...d,type:'gap'})),...data.capabilities.map(d=>({...d,type:'cap'})),...data.resources.map(d=>({...d,type:'res'}))];
+  const nodes=[
+    ...data.gaps.filter(domainMatch).map(d=>({...d,type:'gap'})),
+    ...data.capabilities.filter(domainMatch).map(d=>({...d,type:'cap'})),
+    ...data.resources.filter(domainMatch).map(d=>({...d,type:'res'}))
+  ];
+  const visible=new Set(nodes.map(n=>n.id));
   const links=[];
-  data.gaps.forEach(g=>g.linkedCapabilities.forEach(cid=>links.push({source:g.id,target:cid})));
-  data.capabilities.forEach(c=>c.linkedResources.forEach(rid=>links.push({source:c.id,target:rid})));
+  data.gaps.forEach(g=>g.linkedCapabilities.forEach(cid=>{if(visible.has(g.id)&&visible.has(cid))links.push({source:g.id,target:cid});}));
+  data.capabilities.forEach(c=>c.linkedResources.forEach(rid=>{if(visible.has(c.id)&&visible.has(rid))links.push({source:c.id,target:rid});}));
   const colX={gap:width*0.2,cap:width*0.5,res:width*0.8};
   const color={gap:'var(--gap)',cap:'var(--cap)',res:'var(--res)'};
   simulation=d3.forceSimulation(nodes)
