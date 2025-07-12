@@ -277,7 +277,7 @@ const canonicalMap = {
   mentoring: ['leadership_team', 'emerging_practice'],
   predictive_modeling: ['technology_integration', 'risk_management'],
   sustainability: ['project_governance', 'stakeholder_engagement'],
-  training: ['leadership_team', 'emerging_practice']
+  training: ['leadership_team', 'emerging_practice'],
 
   // Legacy App tags mapped to current taxonomy
   strategy_portfolio: 'portfolio_management',
