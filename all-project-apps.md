@@ -37,6 +37,7 @@ wide: true
     color: #fff;
     font-size: 0.8em;
   }
+  .example-card.highlight { border: 2px solid var(--highlight, #ffab40); background: #fff8e1; }
 </style>
 
 
@@ -226,6 +227,10 @@ function parseCSV(text) {
   });
 }
 
+function slugify(str){
+  return str.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+}
+
 function createFilters(tags) {
   const container = document.getElementById('filter-container');
   container.innerHTML = '';
@@ -255,7 +260,9 @@ function createCards(data) {
   container.innerHTML = '';
   data.forEach(item => {
     const card = document.createElement('div');
+    const slug = slugify(item.name);
     card.className = 'example-card';
+    card.id = 'app-' + slug;
     const tagStr = item.tags || item.tag || item.keywords || item.categories || '';
     card.dataset.tags = tagStr;
     const canonSet = new Set();
@@ -372,6 +379,17 @@ function filterCards(category) {
   });
 }
 
+function highlightFromQuery(){
+  const params=new URLSearchParams(window.location.search);
+  const slug=params.get('app');
+  if(!slug) return;
+  const el=document.getElementById('app-'+slug);
+  if(el){
+    el.classList.add('highlight');
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+
 function loadData() {
   Promise.all([
     fetch('/Project-web-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
@@ -388,6 +406,7 @@ function loadData() {
     createTagCloud(allTags);
     createCards(data);
     renderHeatmap(data);
+    highlightFromQuery();
   });
 }
 
