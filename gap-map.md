@@ -278,6 +278,16 @@ const canonicalMap = {
   predictive_modeling: ['technology_integration', 'risk_management'],
   sustainability: ['project_governance', 'stakeholder_engagement'],
   training: ['leadership_team', 'emerging_practice']
+
+  // Legacy App tags mapped to current taxonomy
+  strategy_portfolio: 'portfolio_management',
+  ai_data: 'technology_integration',
+  complexity_systems: 'innovation_pm',
+  governance_controls: ['project_governance', 'project_controls'],
+  decision_intelligence: 'risk_management',
+  stakeholders_culture: 'stakeholder_engagement',
+  learning_capability: 'emerging_practice',
+  value_benefits: 'project_evaluation'
 };
 
 const canonicalToDomain = {
