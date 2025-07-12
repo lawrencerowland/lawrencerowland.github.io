@@ -336,8 +336,11 @@ const tagToCaps = {
   resources: ['C16']
 };
 
+function slugify(str){
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
 function parseCSV(text){
-function slugify(str){return str.toLowerCase().replace(/[^a-z0-9]+/g,"-");}
   const lines=text.trim().split(/\r?\n/);
   const headers=lines.shift().split(',').map(h=>h.trim().toLowerCase());
   return lines.map(line=>{
