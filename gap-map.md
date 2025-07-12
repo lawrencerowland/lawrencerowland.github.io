@@ -42,6 +42,7 @@ nav button.active{background:var(--cap);color:#fff;border-color:var(--cap);font-
 main{flex:1;display:flex;overflow:hidden;position:relative;}
 #listView{flex:1 1 auto;overflow:auto;padding:1rem;}
 .item{border:1px solid #e0e0e0;border-radius:6px;padding:1rem;margin-bottom:1rem;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.2s ease-in-out;}
+.item.from-app{border:2px solid var(--highlight);}
 .item:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,0.1);}
 .item.highlighted{border-left:5px solid var(--highlight);}
 .item h3{margin:0;font-size:1.1rem;}
@@ -431,7 +432,7 @@ function renderList(){
 function addItem(container,obj,type){
   if(!domainMatch(obj)|| (searchTerm && !obj.title.toLowerCase().includes(searchTerm) && !(obj.description||'').toLowerCase().includes(searchTerm)))return;
   const div=document.createElement('div');
-  div.className=`item ${type}`;
+  div.className=`item ${type} ${obj.fromApp?'from-app':''}`;
   div.id=`item-${obj.id}`;
   div.innerHTML=`<h3>${obj.title}</h3><div class="domains">${obj.domains.join(' • ')}</div><p style="font-size:0.85rem;margin-top:0.35rem">${obj.description||''}</p>`;
   if(type==='res' && obj.fromApp){
