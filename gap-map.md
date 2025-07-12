@@ -58,6 +58,7 @@ main{flex:1;display:flex;overflow:hidden;position:relative;}
 .close-button{color:#aaa;float:right;font-size:28px;font-weight:bold;cursor:pointer;}
 @media (max-width:768px){h1{font-size:1.1rem;}header{flex-direction:column;align-items:flex-start;}.controls-right{margin-left:0;}#filters{flex-direction:column;align-items:stretch;}}
 footer.site-footer{padding:0.25rem 0;font-size:0.8rem;}
+.app-ring{fill:none;stroke:var(--highlight);stroke-width:2px;}
 </style>
 
 <header>
@@ -326,6 +327,7 @@ const tagToCaps = {
 };
 
 function parseCSV(text){
+function slugify(str){return str.toLowerCase().replace(/[^a-z0-9]+/g,"-");}
   const lines=text.trim().split(/\r?\n/);
   const headers=lines.shift().split(',').map(h=>h.trim().toLowerCase());
   return lines.map(line=>{
@@ -360,7 +362,8 @@ function integrateApps(apps){
       }
     });
     const resId='R'+(nextId++);
-    const resource={id:resId,title:app.name,type:'App',domains:Array.from(domainSet),url:app.repo==='Project-web-apps'?`/Project-web-apps/web_apps/${app.name}.html`:`/${app.repo}/apps/${app.name}/index.html`,linkedCapabilities:[]};
+    const slug=slugify(app.name);
+    const resource={id:resId,title:app.name,type:'App',slug:slug,fromApp:true,domains:Array.from(domainSet),url:app.repo==='Project-web-apps'?`/Project-web-apps/web_apps/${app.name}.html`:`/${app.repo}/apps/${app.name}/index.html`,linkedCapabilities:[]};
     data.resources.push(resource);
     tags.forEach(t=>{const caps=tagToCaps[t]; if(caps){caps.forEach(cid=>{const cap=data.capabilities.find(c=>c.id===cid); if(cap && !cap.linkedResources.includes(resId)) cap.linkedResources.push(resId); if(!resource.linkedCapabilities.includes(cid)) resource.linkedCapabilities.push(cid);});}});
   });
@@ -418,7 +421,11 @@ function addItem(container,obj,type){
   div.className=`item ${type}`;
   div.id=`item-${obj.id}`;
   div.innerHTML=`<h3>${obj.title}</h3><div class="domains">${obj.domains.join(' • ')}</div><p style="font-size:0.85rem;margin-top:0.35rem">${obj.description||''}</p>`;
-  div.onclick=()=>highlightItem(obj.id);
+  if(type==='res' && obj.fromApp){
+    div.onclick=()=>{window.location.href='/all-project-apps.html?app='+encodeURIComponent(obj.slug);};
+  }else{
+    div.onclick=()=>highlightItem(obj.id);
+  }
   const linkedItemsKey=type==='gap'?'linkedCapabilities':type==='cap'?'linkedResources':null;
   if(linkedItemsKey && obj[linkedItemsKey] && obj[linkedItemsKey].length>0){
     const linkedDataType=type==='gap'?'capabilities':'resources';
@@ -524,7 +531,11 @@ function drawGraph(){
     graphContainer.attr('transform',event.transform);
   }));
   const width=graphView.clientWidth;const height=graphView.clientHeight;const tooltip=d3.select('.graph-tooltip');
-  const nodes=[...data.gaps.map(d=>({...d,type:'gap'})),...data.capabilities.map(d=>({...d,type:'cap'})),...data.resources.map(d=>({...d,type:'res'}))];
+  const nodes=[
+    ...data.gaps.map(d=>({ ...d, type:'gap' })),
+    ...data.capabilities.map(d=>({ ...d, type:'cap' })),
+    ...data.resources.map(d=>({ ...d, type:'res', resType:d.type, slug:d.slug, fromApp:d.fromApp }))
+  ];
   const links=[];
   data.gaps.forEach(g=>g.linkedCapabilities.forEach(cid=>links.push({source:g.id,target:cid})));
   data.capabilities.forEach(c=>c.linkedResources.forEach(rid=>links.push({source:c.id,target:rid})));
@@ -537,8 +548,34 @@ function drawGraph(){
     .force('x',d3.forceX(d=>colX[d.type]).strength(0.5))
     .force('y',d3.forceY(height/2).strength(0.05));
   const link=graphContainer.append('g').attr('stroke','#999').attr('stroke-opacity',0.6).selectAll('line').data(links).join('line').attr('stroke-width',1.5);
-  const node=graphContainer.append('g').selectAll('circle').data(nodes).join('circle').attr('class','node').attr('id',d=>`node-${d.id}`).attr('r',8).attr('fill',d=>color[d.type]).on('click',(event,d)=>{selectItemFromGraph(d);}).on('mouseover',(event,d)=>{tooltip.transition().duration(200).style('opacity',.9);tooltip.html(`<strong>${d.type.toUpperCase()}:</strong> ${d.title}`).style('left',(event.pageX+10)+'px').style('top',(event.pageY-28)+'px');d3.select(event.currentTarget).attr('r',12);}).on('mouseout',(event,d)=>{tooltip.transition().duration(500).style('opacity',0);if(!document.getElementById(`item-${d.id}`)?.classList.contains('highlighted')){d3.select(event.currentTarget).attr('r',8);}});
-  simulation.on('tick',()=>{link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);node.attr('cx',d=>d.x).attr('cy',d=>d.y);});
+
+  const nodeGroup=graphContainer.append('g').selectAll('g').data(nodes).join('g').attr('class','node-group')
+    .on('click',(event,d)=>{
+      if(d.type==='res' && d.fromApp){
+        window.location.href='/all-project-apps.html?app='+encodeURIComponent(d.slug);
+      }else{
+        selectItemFromGraph(d);
+      }
+    })
+    .on('mouseover',(event,d)=>{
+      tooltip.transition().duration(200).style('opacity',.9);
+      tooltip.html(`<strong>${d.type.toUpperCase()}:</strong> ${d.title}`).style('left',(event.pageX+10)+'px').style('top',(event.pageY-28)+'px');
+      d3.select(event.currentTarget).select('circle.node').attr('r',12);
+    })
+    .on('mouseout',(event,d)=>{
+      tooltip.transition().duration(500).style('opacity',0);
+      if(!document.getElementById(`item-${d.id}`)?.classList.contains('highlighted')){
+        d3.select(event.currentTarget).select('circle.node').attr('r',8);
+      }
+    });
+
+  nodeGroup.append('circle').attr('class','node').attr('id',d=>`node-${d.id}`).attr('r',8).attr('fill',d=>color[d.type]);
+  nodeGroup.filter(d=>d.fromApp).append('circle').attr('class','app-ring').attr('r',12);
+
+  simulation.on('tick',()=>{
+    link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    nodeGroup.attr('transform',d=>`translate(${d.x},${d.y})`);
+  });
 }
 
 

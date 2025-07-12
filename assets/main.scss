@@ -171,6 +171,10 @@ sup.footnote-ref:hover .footnote-popup {
   max-width: 100%;
   height: auto;
 }
+.example-card.highlight {
+  border: 2px solid var(--highlight, #ffab40);
+  background: #fff8e1;
+}
 
 #app-container {
   display: grid;
