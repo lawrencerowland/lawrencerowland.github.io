@@ -381,6 +381,12 @@ function integrateApps(apps){
     data.resources.push(resource);
     tags.forEach(t=>{const caps=tagToCaps[t]; if(caps){caps.forEach(cid=>{const cap=data.capabilities.find(c=>c.id===cid); if(cap && !cap.linkedResources.includes(resId)) cap.linkedResources.push(resId); if(!resource.linkedCapabilities.includes(cid)) resource.linkedCapabilities.push(cid);});}});
   });
+  // Ensure resources from apps appear first in listings
+  data.resources.sort((a,b)=>{
+    if(a.fromApp && !b.fromApp) return -1;
+    if(!a.fromApp && b.fromApp) return 1;
+    return 0;
+  });
 }
 
 function loadResourcesData(){
