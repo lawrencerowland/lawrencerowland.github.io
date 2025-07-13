@@ -590,6 +590,7 @@ function drawGraph(){
     });
 
   nodeGroup.append('circle').attr('class','node').attr('id',d=>`node-${d.id}`).attr('r',8).attr('fill',d=>color[d.type]);
+  nodeGroup.append('title').text(d=>d.title);
   nodeGroup.filter(d=>d.fromApp).append('circle').attr('class','app-ring').attr('r',12);
 
   simulation.on('tick',()=>{
