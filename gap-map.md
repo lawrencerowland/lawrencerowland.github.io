@@ -60,6 +60,7 @@ main{flex:1;display:flex;overflow:hidden;position:relative;}
 @media (max-width:768px){h1{font-size:1.1rem;}header{flex-direction:column;align-items:flex-start;}.controls-right{margin-left:0;}#filters{flex-direction:column;align-items:stretch;}}
 footer.site-footer{padding:0.25rem 0;font-size:0.8rem;}
 .app-ring{fill:none;stroke:var(--highlight);stroke-width:2px;}
+.link.highlighted{stroke:var(--highlight)!important;stroke-width:3px;}
 </style>
 
 <header>
@@ -409,6 +410,7 @@ let searchTerm="";
 let graphVisible=false;
 let simulation;
 let graphContainer;
+let linkSelection;
 
 function init(){
   setupEventListeners();
@@ -504,7 +506,17 @@ function highlightItem(itemId){
   document.querySelectorAll('.item').forEach(el=>el.classList.remove('highlighted'));
   const listItem=document.getElementById(`item-${itemId}`);
   if(listItem)listItem.classList.add('highlighted');
-  if(graphVisible){d3.selectAll('.node').attr('r',8).style('stroke','none');d3.select(`#node-${itemId}`).attr('r',12).style('stroke','var(--highlight)').style('stroke-width','3px');}
+  if(graphVisible){
+    d3.selectAll('.node').attr('r',8).style('stroke','none');
+    d3.selectAll('.link').classed('highlighted',false);
+    d3.select(`#node-${itemId}`).attr('r',12).style('stroke','var(--highlight)').style('stroke-width','3px');
+    const isGap=data.gaps.some(g=>g.id===itemId);
+    const isCap=data.capabilities.some(c=>c.id===itemId);
+    if((isGap||isCap) && linkSelection){
+      linkSelection.filter(l=>l.source.id===itemId || l.target.id===itemId)
+        .classed('highlighted',true);
+    }
+  }
 }
 
 function selectItemFromGraph(item){
@@ -521,7 +533,10 @@ function clearSelection(){
   searchTerm='';
   document.getElementById('clearSelectionBtn').style.display='none';
   document.querySelectorAll('.item').forEach(el=>el.classList.remove('highlighted'));
-  if(graphVisible){d3.selectAll('.node').attr('r',8).style('stroke','none');}
+  if(graphVisible){
+    d3.selectAll('.node').attr('r',8).style('stroke','none');
+    d3.selectAll('.link').classed('highlighted',false);
+  }
   renderList();
 }
 
@@ -567,7 +582,10 @@ function drawGraph(){
     .force('center',d3.forceCenter(width/2,height/2))
     .force('x',d3.forceX(d=>colX[d.type]).strength(0.5))
     .force('y',d3.forceY(height/2).strength(0.05));
-  const link=graphContainer.append('g').attr('stroke','#999').attr('stroke-opacity',0.6).selectAll('line').data(links).join('line').attr('stroke-width',1.5);
+  linkSelection=graphContainer.append('g').attr('stroke','#999').attr('stroke-opacity',0.6)
+    .selectAll('line').data(links).join('line')
+    .attr('class','link')
+    .attr('stroke-width',1.5);
 
   const nodeGroup=graphContainer.append('g').selectAll('g').data(nodes).join('g').attr('class','node-group')
     .on('click',(event,d)=>{
@@ -589,14 +607,36 @@ function drawGraph(){
       }
     });
 
+  nodeGroup.call(d3.drag()
+    .on('start',dragstarted)
+    .on('drag',dragged)
+    .on('end',dragended));
+
   nodeGroup.append('circle').attr('class','node').attr('id',d=>`node-${d.id}`).attr('r',8).attr('fill',d=>color[d.type]);
   nodeGroup.append('title').text(d=>d.title);
   nodeGroup.filter(d=>d.fromApp).append('circle').attr('class','app-ring').attr('r',12);
 
   simulation.on('tick',()=>{
-    link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    linkSelection.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
     nodeGroup.attr('transform',d=>`translate(${d.x},${d.y})`);
   });
+}
+
+function dragstarted(event,d){
+  if(!event.active) simulation.alphaTarget(0.3).restart();
+  d.fx=d.x;
+  d.fy=d.y;
+}
+
+function dragged(event,d){
+  d.fx=event.x;
+  d.fy=event.y;
+}
+
+function dragended(event,d){
+  if(!event.active) simulation.alphaTarget(0);
+  d.fx=null;
+  d.fy=null;
 }
 
 
