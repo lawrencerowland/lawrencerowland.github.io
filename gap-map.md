@@ -407,7 +407,12 @@ function assignAppCapabilities(){
   };
   Object.entries(mapping).forEach(([name,caps])=>{
     const res=data.resources.find(r=>r.title===name);
-    if(res) res.linkedCapabilities=caps;
+    if(!res) return;
+    caps.forEach(cid=>{
+      if(!res.linkedCapabilities.includes(cid)) res.linkedCapabilities.push(cid);
+      const cap=data.capabilities.find(c=>c.id===cid);
+      if(cap && !cap.linkedResources.includes(res.id)) cap.linkedResources.push(res.id);
+    });
   });
 }
 
