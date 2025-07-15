@@ -126,8 +126,8 @@ const data = {
     {id:"C11",title:"Integrated Project Controls & Analytics",domains:["Project Controls","Schedule & Time Management","Cost Management","Technology Integration"],description:"Unified schedule-cost-risk dashboards with analytics.",linkedResources:["R10","R6"],linkedGaps:["G8","G1"]},
     {id:"C12",title:"Benefits Realization Management",domains:["Project Evaluation & Measurement","Project Governance"],description:"Disciplined approach to define, track and realize benefits.",linkedResources:["R3","R12"],linkedGaps:["G9"]},
     {id:"C13",title:"Knowledge Management & Lessons Learned",domains:["Project Evaluation & Measurement","Innovation in PM"],description:"Repositories and communities to capture and reuse knowledge.",linkedResources:["R15"],linkedGaps:["G9","G12"]},
-    {id:"C14",title:"Quantitative Risk Analysis Techniques",domains:["Risk Management","Schedule & Time Management","Cost Management"],description:"Monte-Carlo, reference-class forecasting, decision trees.",linkedResources:["R4","R10"],linkedGaps:["G10"]},
-    {id:"C15",title:"Risk Culture & Bias Mitigation Training",domains:["Risk Management","Project Leadership & Team Dynamics"],description:"Workshops and practices to counter optimism bias and encourage open risk dialogue.",linkedResources:["R4","R1"],linkedGaps:["G10"]},
+    {id:"C14",title:"Cognitive Framing & Perspective Shifting",domains:["Project Governance","Innovation in PM"],description:"Tools and approaches to reframe problems and switch viewpoints.",linkedResources:[],linkedGaps:[]},
+    {id:"C15",title:"Historical Insight & Trend Analysis",domains:["Project Controls","Project Governance"],description:"Learning from past evolution of PM tools and practices to anticipate future developments.",linkedResources:[],linkedGaps:[]},
     {id:"C16",title:"Resource Optimization Techniques",domains:["Resource Allocation & Optimization","Schedule & Time Management","Portfolio Management"],description:"Critical Chain, capacity planning, AI-driven leveling.",linkedResources:["R14"],linkedGaps:["G11","G1"]},
     {id:"C17",title:"Gamification & Engagement",domains:["Project Leadership & Team Dynamics","Stakeholder Engagement"],description:"Game-design elements to boost motivation and participation.",linkedResources:["R2","R1"],linkedGaps:["G13","G6","G12"]},
     {id:"C18",title:"Coaching & Mentoring Programs",domains:["Project Leadership & Team Dynamics","Emerging Practice"],description:"One-on-one or team coaching and structured mentoring.",linkedResources:["R1","R11"],linkedGaps:["G4","G13"]}
@@ -390,6 +390,25 @@ function integrateApps(apps){
   });
 }
 
+function assignAppCapabilities(){
+  const mapping={
+    'olaf-delivery-dashboard':['C9'],
+    'pareto_projects':['C14'],
+    'interactive-concept-map':['C14','C9'],
+    'decision-path-guide':['C6','C9'],
+    'pm-software-evolution':['C15'],
+    'Project_Decision_Framing_Tool':['C6','C9'],
+    'IT-project-seq-decisions':['C6'],
+    'hs2_WBS_to_PBS':['C14','C9'],
+    'project-management-simulation':['C6','C9'],
+    'Project_Controls_2010-2025_Transformation':['C15']
+  };
+  Object.entries(mapping).forEach(([name,caps])=>{
+    const res=data.resources.find(r=>r.title===name);
+    if(res) res.linkedCapabilities=caps;
+  });
+}
+
 function loadResourcesData(){
   return Promise.all([
     fetch('/Project-web-apps/app-index.csv?t='+Date.now()).then(r=>r.text()),
@@ -398,6 +417,7 @@ function loadResourcesData(){
     const d1=parseCSV(c1).map(d=>{d.repo='Project-web-apps';return d;});
     const d2=parseCSV(c2).map(d=>{d.repo='React_proj-apps';return d;});
     integrateApps(d1.concat(d2));
+    assignAppCapabilities();
     buildDomainFilters();
     renderList();
     if(graphVisible) drawGraph();
