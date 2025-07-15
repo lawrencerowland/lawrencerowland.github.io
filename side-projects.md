@@ -7,7 +7,6 @@ tags: [SideProjects, Examples]
 
 # Side Projects
 
-[Home](/)
 [My Custom GPTs](/gpt-links-page.html)
 
 <div class="filter">
