@@ -411,6 +411,7 @@ let graphVisible=false;
 let simulation;
 let graphContainer;
 let linkSelection;
+let selectedId=null;
 
 function init(){
   setupEventListeners();
@@ -498,14 +499,27 @@ function toggleChildList(linkElement,parentObj,linkedItemsKey,linkedDataType,lin
   else{
     const childDiv=document.createElement('div');
     childDiv.className='childList';
-    parentObj[linkedItemsKey].forEach(cid=>{const childItem=data[linkedDataType].find(c=>c.id===cid);if(childItem){const p=document.createElement('div');p.textContent=childItem.title;childDiv.appendChild(p);}});
+    parentObj[linkedItemsKey].forEach(cid=>{
+      const childItem=data[linkedDataType].find(c=>c.id===cid);
+      if(childItem){
+        const p=document.createElement('div');
+        p.textContent=childItem.title;
+        p.className='childItem';
+        p.onclick=e=>{e.stopPropagation();selectLinkedItem(childItem.id, linkedDataType==='capabilities'?'cap':linkedDataType==='gaps'?'gap':'res');};
+        childDiv.appendChild(p);
+      }
+    });
     linkElement.insertAdjacentElement('afterend',childDiv);linkElement.textContent=`Hide ${linkNoun} ▲`;}
 }
 
 function highlightItem(itemId){
+  selectedId=itemId;
   document.querySelectorAll('.item').forEach(el=>el.classList.remove('highlighted'));
   const listItem=document.getElementById(`item-${itemId}`);
-  if(listItem)listItem.classList.add('highlighted');
+  if(listItem){
+    listItem.classList.add('highlighted');
+    listItem.scrollIntoView({block:'nearest'});
+  }
   if(graphVisible){
     d3.selectAll('.node').attr('r',8).style('stroke','none');
     d3.selectAll('.link').classed('highlighted',false);
@@ -528,7 +542,13 @@ function selectItemFromGraph(item){
   highlightItem(item.id);
 }
 
+function selectLinkedItem(id,type){
+  setCategory(type);
+  highlightItem(id);
+}
+
 function clearSelection(){
+  selectedId=null;
   document.getElementById('searchBox').value='';
   searchTerm='';
   document.getElementById('clearSelectionBtn').style.display='none';
@@ -546,7 +566,12 @@ function setCategory(cat,doRenderGraph=true){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   document.querySelector(`[data-cat="${cat}"]`).classList.add('active');
   renderList();
-  if(graphVisible && doRenderGraph)drawGraph();
+  if(graphVisible && doRenderGraph){
+    drawGraph();
+    if(selectedId) highlightItem(selectedId);
+  } else if(selectedId){
+    highlightItem(selectedId);
+  }
 }
 
 function toggleGraph(){
@@ -554,7 +579,12 @@ function toggleGraph(){
   document.getElementById('graphView').style.display=graphVisible?'block':'none';
   document.getElementById('listView').style.display=graphVisible?'none':'block';
   document.getElementById('toggleGraph').textContent=graphVisible?'List View':'Graph View';
-  if(graphVisible){setTimeout(drawGraph,0);}else if(simulation){simulation.stop();}
+  if(graphVisible){
+    setTimeout(()=>{drawGraph(); if(selectedId) highlightItem(selectedId);},0);
+  }else{
+    if(simulation)simulation.stop();
+    if(selectedId) highlightItem(selectedId);
+  }
 }
 
 function drawGraph(){
