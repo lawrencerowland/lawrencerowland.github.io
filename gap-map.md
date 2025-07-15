@@ -68,6 +68,7 @@ footer.site-footer{display:none}
   <div class="info-buttons">
     <button id="whatBtn">What is this?</button>
     <button id="howToBtn">How to use</button>
+    <button id="moreInfoBtn">More information</button>
   </div>
   <nav>
     <button id="btnG" class="active" data-cat="gap">Gaps</button>
@@ -91,8 +92,9 @@ footer.site-footer{display:none}
 </main>
 
 <!-- Modals -->
-<div id="whatModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>What is this?</h2><p>This tool visualizes the relationships between common challenges (Gaps), solutions (Capabilities), and external knowledge (Resources) in the field of project management.</p><p>It's designed to help project professionals, students, and organizations identify areas for improvement and discover relevant solutions and resources to enhance their project delivery practices.</p></div></div>
-<div id="howToModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>How to Use</h2><ul><li><strong>Browse:</strong> Use the "Gaps", "Capabilities", and "Resources" buttons to switch between categories.</li><li><strong>Filter:</strong> Use the search box and domain checkboxes to narrow down items. Unchecking a domain hides only those items that belong solely to that domain.</li><li><strong>Explore:</strong> Click "▼" to see linked items. Click any item in the list or a node in the graph to highlight it across both views.</li></ul></div></div>
+<div id="whatModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>What is this?</h2><p>This tool visualizes the relationships between common challenges (Gaps), solutions (Capabilities), and external knowledge (Resources) in the field of project management.</p><p>It's designed to help project professionals, students, and organizations identify areas for improvement and discover relevant solutions and resources to enhance their project delivery practices.</p><p>The yellow bordered Resources are from the 'All Project Apps', and you can click through to find the apps.</p></div></div>
+<div id="howToModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>How to Use</h2><ul><li><strong>Browse:</strong> Choose "Gaps", "Capabilities", or "Resources" to change the list.</li><li><strong>Filter:</strong> Use the search box and domain checkboxes to narrow the results.</li><li><strong>Explore:</strong> Expand linked items with the "▼" arrows. Selecting an item highlights it in both the list and graph.</li><li><strong>Graph:</strong> Use the "Graph View" button to see an interactive network. Drag to move nodes, zoom with the mouse wheel, and click nodes to select.</li><li><strong>Reset:</strong> Use "Clear Selection" to remove filters and highlights.</li></ul></div></div>
+<div id="moreInfoModal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>More Information</h2><p>Read the <a href="https://experimentinai.substack.com/p/gaps-in-project-delivery?utm_source=publication-search" target="_blank" rel="noopener">blog post</a> for additional background on this map.</p></div></div>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
@@ -448,6 +450,7 @@ function setupEventListeners(){
   document.getElementById('clearSelectionBtn').onclick=clearSelection;
   setupModal('whatBtn','whatModal');
   setupModal('howToBtn','howToModal');
+  setupModal('moreInfoBtn','moreInfoModal');
 }
 
 function renderList(){
