@@ -7,7 +7,6 @@ tags: [BlogPosts, PortfolioManagement, ProjectManagement]
 
 # Blog Summary
 
-[Home](/)
 
 This page summarises the main blog posts available on this site.
 

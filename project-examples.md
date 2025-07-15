@@ -7,7 +7,6 @@ tags: [Examples, Visualization, KnowledgeManagement]
 
 # Project Examples
 
-[Home](/)
 
 <div class="filter">
   <button data-tag="all">All</button>

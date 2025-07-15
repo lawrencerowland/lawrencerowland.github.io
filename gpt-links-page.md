@@ -7,7 +7,6 @@ tags: [CustomGPTs, ProjectManagement]
 
 # My Custom GPTs
 
-[Home](/)  
 [Side Projects](/side-projects.html)
 
 1. TOC
