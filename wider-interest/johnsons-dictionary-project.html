@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project Management Demo: Johnson’s Dictionary</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 20px;
+    background: #f9f9f9;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.section {
+    margin-bottom: 20px;
+}
+#gantt {
+    display: grid;
+    /* first column is for labels, followed by one column per year */
+    grid-template-columns: 200px repeat(10, 1fr);
+    grid-auto-rows: 40px;
+    border: 1px solid #ccc;
+    background: #fff;
+    width: 100%;
+}
+/* Header cells for each year */
+.header {
+    background: #f0f0f0;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+/* Task labels */
+.label {
+    padding: 10px;
+    background: #fafafa;
+    border-right: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+/* Bars representing activities */
+.bar {
+    height: 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+/* Colour classes for different tasks */
+.bar.research {
+    background-color: #87CEEB; /* sky blue */
+}
+.bar.writing {
+    background-color: #FFA07A; /* salmon */
+}
+.bar.editing {
+    background-color: #90EE90; /* light green */
+}
+.bar.printing {
+    background-color: #9370DB; /* medium purple */
+}
+.bar.event {
+    background-color: #FF6F61; /* red for event */
+}
+/* Risk matrix styling */
+.risk-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.risk-table th,
+.risk-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+.risk-table th {
+    background: #eee;
+}
+/* Colour coding for risk cells */
+.risk-low {
+    background-color: #d1e7dd;
+}
+.risk-med {
+    background-color: #fff3cd;
+}
+.risk-high {
+    background-color: #f8d7da;
+}
+.footnotes {
+    font-size: 0.8em;
+}
+.footnotes ol {
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+<h1>Samuel Johnson’s Dictionary: A Project Management Perspective</h1>
+
+<div class="section">
+<p>In June 1746, a nearly unknown writer named Samuel Johnson signed a contract with a consortium of London booksellers to produce a comprehensive English dictionary within three years�.  The 1,500‑guinea advance allowed him to rent a house and hire assistants, but the task proved Herculean: Johnson worked largely alone and repeatedly abandoned and restarted procedures�.  The work took nine years and was finally published on 15 April 1755�, and along the way his wife Tetty died in March 1952�.</p>
+</div>
+
+<div class="section">
+<h2>Gantt Chart of the Dictionary Project (1746–1755)</h2>
+<div id="gantt">
+    <!-- Empty cell in top left corner -->
+    <div class="header"></div>
+    <div class="header">1746</div>
+    <div class="header">1747</div>
+    <div class="header">1748</div>
+    <div class="header">1749</div>
+    <div class="header">1750</div>
+    <div class="header">1751</div>
+    <div class="header">1752</div>
+    <div class="header">1753</div>
+    <div class="header">1754</div>
+    <div class="header">1755</div>
+
+    <!-- Row: Contract & Planning -->
+    <div class="label">Contract &amp; Planning</div>
+    <div class="bar" style="grid-column:2/span 1; background-color:#FFC107; height:20px; margin-top:10px;"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+
+    <!-- Row: Lexical Research & Reading -->
+    <div class="label">Lexical Research &amp; Reading</div>
+    <div class="bar research" style="grid-column:2/span 4;"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+
+    <!-- Row: Writing Definitions & Quoting -->
+    <div class="label">Writing Definitions &amp; Quoting</div>
+    <div class="bar"></div>
+    <div class="bar writing" style="grid-column:3/span 8;"></div>
+
+    <!-- Row: Copying & Editing -->
+    <div class="label">Copying &amp; Editing</div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar editing" style="grid-column:6/span 6;"></div>
+
+    <!-- Row: Printing & Publication -->
+    <div class="label">Printing &amp; Publication</div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar printing" style="grid-column:10/span 2;"></div>
+
+    <!-- Row: Personal Event -->
+    <div class="label">Personal Event: Tetty’s death</div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar event" style="grid-column:8/span 1;"></div>
+</div>
+<p>This simplified Gantt chart maps major activities and events across the ten‑year span of Johnson’s project.  Tasks overlap substantially; lexical research continued as he wrote definitions and gathered quotations, while copying and editing overlapped with the final printing stages.  The single red bar marks the death of his wife, a personal tragedy that disrupted the schedule and reveals how personal risk events can affect project timelines.</p>
+</div>
+
+<div class="section">
+<h2>Risk Matrix for the Dictionary Project</h2>
+<table class="risk-table">
+<tr>
+<th>Probability/Impact</th>
+<th>Low Impact</th>
+<th>Medium Impact</th>
+<th>High Impact</th>
+</tr>
+<tr>
+<th>Low Probability</th>
+<td class="risk-low">Sponsorship dispute with publishers</td>
+<td class="risk-med">Discovery of lexical duplicates</td>
+<td class="risk-high">Political censorship</td>
+</tr>
+<tr>
+<th>Medium Probability</th>
+<td class="risk-med">Assistants’ turnover</td>
+<td class="risk-med">Cost overruns (materials &amp; printing)</td>
+<td class="risk-high">Schedule slippage (three‑year plan proving unrealistic)</td>
+</tr>
+<tr>
+<th>High Probability</th>
+<td class="risk-med">Quality variance in definitions</td>
+<td class="risk-high">Expansion of scope (adding quotations and etymologies)</td>
+<td class="risk-high">Personal health &amp; life events (Tetty’s death, illness)</td>
+</tr>
+</table>
+<p>The risk matrix frames uncertainties Johnson faced.  His contract promised completion within three years�, making schedule slippage a high‑impact risk; adding thousands of literary quotations expanded the project’s scope, and both risks were realised.  Financial and human‑resource risks were moderate but persistent, as he quarrelled with publishers and relied on a small team of copyists�.  The death of his wife mid‑project exemplifies high‑probability, high‑impact personal risk that modern project managers often overlook.</p>
+</div>
+
+<div class="section footnotes">
+<h2>Footnotes</h2>
+<ol>
+<li>In June 1746 Johnson signed a contract with booksellers for 1,500 guineas; this allowed him to rent a house and hire assistants, but his wife Tetty died in 1752�.</li>
+<li>Johnson promised to deliver his dictionary in three years but worked almost alone and repeatedly restarted his processes; completing the dictionary took nine years from the signing of the contract in 1746 to publication in 1755�.</li>
+<li>The dictionary was published on 15 April 1755 in two volumes with roughly 43,000 entries�.</li>
+<li>Elizabeth “Tetty” Johnson died on 17 March 1752�.</li>
+</ol>
+</div>
+
+</body>
+</html>
