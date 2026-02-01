@@ -186,6 +186,42 @@
       return chain.catch((err) => Promise.reject(lastErr || err));
     };
 
+    const loadModuleWithUrl = (urls) => {
+      let lastErr = null;
+      let chain = Promise.reject(new Error("init"));
+      urls.forEach((url) => {
+        chain = chain.catch((err) => {
+          if (err) lastErr = err;
+          return import(url).then((module) => ({ module, url }));
+        });
+      });
+      return chain.catch((err) => Promise.reject(lastErr || err));
+    };
+
+    const loadModuleWithThree = async (urls, threeUrl) => {
+      let lastErr = null;
+      for (const url of urls) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch module ${url}: ${response.status}`);
+          }
+          const source = await response.text();
+          const rewritten = source.replace(/from\s+["']three["']/g, `from "${threeUrl}"`);
+          const blob = new Blob([rewritten], { type: "text/javascript" });
+          const blobUrl = URL.createObjectURL(blob);
+          try {
+            return await import(blobUrl);
+          } finally {
+            URL.revokeObjectURL(blobUrl);
+          }
+        } catch (err) {
+          lastErr = err;
+        }
+      }
+      throw lastErr || new Error("Unable to load module with Three.js rewrite");
+    };
+
     if (location.protocol === "file:") {
       warn(
         `If you see a blank screen: some browsers block ES-module imports for local files.
@@ -198,31 +234,47 @@
       Could not load the 3D modules (Three.js). This can happen if a blocker or network rule prevents CDN access.
       Try refreshing, disabling blockers for this page, or using a different network.`;
 
-    const [threeModule, controlsModule, convexModule] = await Promise.all([
-      loadModule([
+    let threeModule = null;
+    let threeUrl = null;
+    try {
+      const threeResult = await loadModuleWithUrl([
         "https://unpkg.com/three@0.161.0/build/three.module.js",
         "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"
-      ]).catch((err) => {
-        console.error(err);
-        warn(moduleErrorNote);
-        return null;
-      }),
-      loadModule([
-        "https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js",
-        "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/controls/OrbitControls.js"
-      ]).catch((err) => {
-        console.error(err);
-        warn(moduleErrorNote);
-        return null;
-      }),
-      loadModule([
-        "https://unpkg.com/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js",
-        "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js"
-      ]).catch((err) => {
-        console.error(err);
-        warn(moduleErrorNote);
-        return null;
-      })
+      ]);
+      threeModule = threeResult.module;
+      threeUrl = threeResult.url;
+    } catch (err) {
+      console.error(err);
+      warn(moduleErrorNote);
+    }
+
+    const [controlsModule, convexModule] = await Promise.all([
+      threeUrl
+        ? loadModuleWithThree(
+            [
+              "https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js",
+              "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/controls/OrbitControls.js"
+            ],
+            threeUrl
+          ).catch((err) => {
+            console.error(err);
+            warn(moduleErrorNote);
+            return null;
+          })
+        : Promise.resolve(null),
+      threeUrl
+        ? loadModuleWithThree(
+            [
+              "https://unpkg.com/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js",
+              "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js"
+            ],
+            threeUrl
+          ).catch((err) => {
+            console.error(err);
+            warn(moduleErrorNote);
+            return null;
+          })
+        : Promise.resolve(null)
     ]);
 
     if (!threeModule || !controlsModule || !convexModule) {
