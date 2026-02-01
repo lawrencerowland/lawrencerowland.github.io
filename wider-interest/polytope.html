@@ -4,6 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Seeing the fourth dimension inside the third</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+      }
+    }
+  </script>
   <style>
     html, body { height: 100%; margin: 0; background: #0b0d12; color: #e9ecf1; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
     #c { display: block; width: 100vw; height: 100vh; }
@@ -174,66 +182,6 @@
       moduleWarn.style.display = "block";
     };
 
-    const loadModule = (urls) => {
-      let lastErr = null;
-      let chain = Promise.reject(new Error("init"));
-      urls.forEach((url) => {
-        chain = chain.catch((err) => {
-          if (err) lastErr = err;
-          return import(url);
-        });
-      });
-      return chain.catch((err) => Promise.reject(lastErr || err));
-    };
-
-    const loadModuleWithUrl = (urls) => {
-      let lastErr = null;
-      let chain = Promise.reject(new Error("init"));
-      urls.forEach((url) => {
-        chain = chain.catch((err) => {
-          if (err) lastErr = err;
-          return import(url).then((module) => ({ module, url }));
-        });
-      });
-      return chain.catch((err) => Promise.reject(lastErr || err));
-    };
-
-    const rewriteModuleSource = (source, moduleUrl, threeUrl) => {
-      const rewriteRelative = (match, specifier) => {
-        const absolute = new URL(specifier, moduleUrl).toString();
-        return match.replace(specifier, absolute);
-      };
-
-      return source
-        .replace(/from\s+["']three["']/g, `from "${threeUrl}"`)
-        .replace(/from\s+["'](\.?\.?\/[^"']+)["']/g, rewriteRelative)
-        .replace(/import\(\s*["'](\.?\.?\/[^"']+)["']\s*\)/g, rewriteRelative);
-    };
-
-    const loadModuleWithThree = async (urls, threeUrl) => {
-      let lastErr = null;
-      for (const url of urls) {
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error(`Failed to fetch module ${url}: ${response.status}`);
-          }
-          const source = await response.text();
-          const rewritten = rewriteModuleSource(source, url, threeUrl);
-          const blob = new Blob([rewritten], { type: "text/javascript" });
-          const blobUrl = URL.createObjectURL(blob);
-          try {
-            return await import(blobUrl);
-          } finally {
-            URL.revokeObjectURL(blobUrl);
-          }
-        } catch (err) {
-          lastErr = err;
-        }
-      }
-      throw lastErr || new Error("Unable to load module with Three.js rewrite");
-    };
-
     if (location.protocol === "file:") {
       warn(
         `If you see a blank screen: some browsers block ES-module imports for local files.
@@ -246,56 +194,20 @@
       Could not load the 3D modules (Three.js). This can happen if a blocker or network rule prevents CDN access.
       Try refreshing, disabling blockers for this page, or using a different network.`;
 
-    let threeModule = null;
-    let threeUrl = null;
+    let THREE;
+    let OrbitControls;
+    let ConvexGeometry;
     try {
-      const threeResult = await loadModuleWithUrl([
-        "https://unpkg.com/three@0.161.0/build/three.module.js",
-        "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"
+      [THREE, { OrbitControls }, { ConvexGeometry }] = await Promise.all([
+        import("three"),
+        import("three/addons/controls/OrbitControls.js"),
+        import("three/addons/geometries/ConvexGeometry.js")
       ]);
-      threeModule = threeResult.module;
-      threeUrl = threeResult.url;
     } catch (err) {
       console.error(err);
       warn(moduleErrorNote);
-    }
-
-    const [controlsModule, convexModule] = await Promise.all([
-      threeUrl
-        ? loadModuleWithThree(
-            [
-              "https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js",
-              "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/controls/OrbitControls.js"
-            ],
-            threeUrl
-          ).catch((err) => {
-            console.error(err);
-            warn(moduleErrorNote);
-            return null;
-          })
-        : Promise.resolve(null),
-      threeUrl
-        ? loadModuleWithThree(
-            [
-              "https://unpkg.com/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js",
-              "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js"
-            ],
-            threeUrl
-          ).catch((err) => {
-            console.error(err);
-            warn(moduleErrorNote);
-            return null;
-          })
-        : Promise.resolve(null)
-    ]);
-
-    if (!threeModule || !controlsModule || !convexModule) {
       throw new Error("Required 3D modules failed to load.");
     }
-
-    const THREE = threeModule;
-    const { OrbitControls } = controlsModule;
-    const { ConvexGeometry } = convexModule;
 
     const gl = canvas.getContext("webgl2") || canvas.getContext("webgl");
     if (!gl) {
