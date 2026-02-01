@@ -1,0 +1,760 @@
+@doctype html
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tesseract in 3D over time: projection + diagonal slices</title>
+  <style>
+    html, body { height: 100%; margin: 0; background: #0b0d12; color: #e9ecf1; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    #c { display: block; width: 100vw; height: 100vh; }
+    #overlay {
+      position: fixed; inset: 0;
+      pointer-events: none;
+    }
+    #topbar {
+      position: absolute; top: 10px; left: 10px; right: 10px;
+      display: flex; flex-wrap: wrap; gap: 8px;
+      align-items: center;
+      pointer-events: auto;
+      user-select: none;
+    }
+    .btn {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: #e9ecf1;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1;
+    }
+    .btn:hover { background: rgba(255,255,255,0.10); }
+    .btn.active { background: rgba(110,210,255,0.18); border-color: rgba(110,210,255,0.45); }
+    .spacer { flex: 1 1 auto; }
+    .label {
+      font-size: 12px;
+      opacity: 0.9;
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+    input[type="range"] { width: min(340px, 48vw); }
+    #hud {
+      position: absolute; bottom: 12px; left: 12px;
+      padding: 10px 12px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      font-size: 12px;
+      max-width: min(520px, 92vw);
+      pointer-events: auto;
+      backdrop-filter: blur(6px);
+    }
+    #hud code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 11px; }
+    #modalBack {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      pointer-events: auto;
+    }
+    #modal {
+      position: fixed; inset: 0;
+      display: none;
+      place-items: center;
+      pointer-events: none;
+    }
+    #modalCard {
+      width: min(920px, 92vw);
+      max-height: min(86vh, 860px);
+      overflow: auto;
+      background: rgba(10,12,18,0.92);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 16px 16px 12px 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+      pointer-events: auto;
+    }
+    #modalCard h2 { margin: 0 0 8px 0; font-size: 16px; }
+    #modalCard p { margin: 8px 0; font-size: 13px; line-height: 1.35; color: rgba(233,236,241,0.92); }
+    #modalCard li { font-size: 13px; line-height: 1.35; margin: 6px 0; color: rgba(233,236,241,0.92); }
+    #modalCard a { color: #9ad7ff; }
+    #modalCloseRow { display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .warn {
+      display: none;
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,180,120,0.35);
+      background: rgba(255,180,120,0.10);
+      color: rgba(255,240,230,0.95);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="c" aria-label="3D canvas"></canvas>
+
+  <div id="overlay">
+    <div id="topbar">
+      <button class="btn active" id="btnProjection" title="Rotating 4D→3D projection">Projection</button>
+      <button class="btn" id="btnSlice" title="A 3D polytope appears as you slice the 4D cube diagonally">Diagonal slice</button>
+
+      <button class="btn" id="btnPlayPause" title="Pause / resume time">Pause</button>
+
+      <span class="label" id="paramLabel">4D speed</span>
+      <input id="paramSlider" type="range" min="0" max="200" value="90" />
+
+      <button class="btn" id="btnCycleCells" title="Highlight the 8 cubic cells (3D 'faces') of the tesseract">Cycle cells</button>
+
+      <span class="spacer"></span>
+
+      <button class="btn" id="btnExplain1">What am I looking at?</button>
+      <button class="btn" id="btnExplain2">How to read it</button>
+      <button class="btn" id="btnExplain3">Math notes</button>
+    </div>
+
+    <div id="hud">
+      <div><strong id="hudTitle">Projection mode</strong> <span id="hudSub" style="opacity:0.82"></span></div>
+      <div id="hudLines" style="margin-top:6px"></div>
+      <div class="warn" id="moduleWarn">
+        If you see a blank screen: some browsers block ES-module imports for local files.
+        Fix: run a tiny local server in this folder (e.g. <span class="mono">python -m http.server 8000</span>)
+        and open <span class="mono">http://localhost:8000/</span>.
+      </div>
+    </div>
+  </div>
+
+  <div id="modalBack"></div>
+  <div id="modal">
+    <div id="modalCard">
+      <h2 id="modalTitle">Title</h2>
+      <div id="modalBody"></div>
+      <div id="modalCloseRow">
+        <button class="btn" id="modalClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    // --- Imports (CDN) -------------------------------------------------------
+    import * as THREE from "https://unpkg.com/three@0.161.0/build/three.module.js";
+    import { OrbitControls } from "https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js";
+    import { ConvexGeometry } from "https://unpkg.com/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js";
+
+    // --- DOM -----------------------------------------------------------------
+    const canvas = document.getElementById("c");
+    const btnProjection = document.getElementById("btnProjection");
+    const btnSlice = document.getElementById("btnSlice");
+    const btnPlayPause = document.getElementById("btnPlayPause");
+    const btnCycleCells = document.getElementById("btnCycleCells");
+
+    const paramLabel = document.getElementById("paramLabel");
+    const paramSlider = document.getElementById("paramSlider");
+
+    const hudTitle = document.getElementById("hudTitle");
+    const hudSub = document.getElementById("hudSub");
+    const hudLines = document.getElementById("hudLines");
+    const moduleWarn = document.getElementById("moduleWarn");
+
+    const modalBack = document.getElementById("modalBack");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+    const modalClose = document.getElementById("modalClose");
+
+    const explain1 = document.getElementById("btnExplain1");
+    const explain2 = document.getElementById("btnExplain2");
+    const explain3 = document.getElementById("btnExplain3");
+
+    // --- Renderer / Scene / Camera ------------------------------------------
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0b0d12);
+
+    const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 0.01, 200);
+    camera.position.set(4.2, 3.4, 6.8);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+
+    // Lights (mostly for the slice mesh)
+    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+    const key = new THREE.DirectionalLight(0xffffff, 0.8);
+    key.position.set(4, 6, 7);
+    scene.add(key);
+
+    // --- Utility math --------------------------------------------------------
+    const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+    const lerp = (a, b, t) => a + (b - a) * t;
+
+    function dot4(a, b) { return a[0]*b[0] + a[1]*b[1] + a[2]*b[2] + a[3]*b[3]; }
+    function sub4(a, b) { return [a[0]-b[0], a[1]-b[1], a[2]-b[2], a[3]-b[3]]; }
+    function scale4(a, s) { return [a[0]*s, a[1]*s, a[2]*s, a[3]*s]; }
+    function add4(a, b) { return [a[0]+b[0], a[1]+b[1], a[2]+b[2], a[3]+b[3]]; }
+
+    function norm4(a) { return Math.sqrt(dot4(a, a)); }
+    function normalize4(a) { const n = norm4(a) || 1; return scale4(a, 1/n); }
+
+    // Orthonormal basis for the hyperplane x+y+z+w = const (i.e., the subspace sum=0).
+    // We use a fixed Gram–Schmidt so the slice projection is stable.
+    function makeOrthonormalBasisForSumZero() {
+      const b1 = [1, -1, 0, 0];
+      const b2 = [1, 1, -2, 0];
+      const b3 = [1, 1, 1, -3];
+
+      // Gram-Schmidt
+      let u1 = normalize4(b1);
+
+      let v2 = sub4(b2, scale4(u1, dot4(b2, u1)));
+      let u2 = normalize4(v2);
+
+      let v3 = sub4(b3, add4(scale4(u1, dot4(b3, u1)), scale4(u2, dot4(b3, u2))));
+      let u3 = normalize4(v3);
+
+      return [u1, u2, u3];
+    }
+    const sliceBasis = makeOrthonormalBasisForSumZero();
+
+    function project4Dto3D(v4, perspectiveDistance = 4.0) {
+      // Perspective from 4D→3D along the w-axis: (x,y,z,w) ↦ (x,y,z) * d/(d - w)
+      const w = v4[3];
+      const denom = (perspectiveDistance - w);
+      const k = perspectiveDistance / denom;
+      return new THREE.Vector3(v4[0] * k, v4[1] * k, v4[2] * k);
+    }
+
+    function projectSlicePointTo3D(p4, t) {
+      // Slice lives in hyperplane x+y+z+w=t. The "center" is (t/4,...,t/4). Subtract it,
+      // then express in the sum=0 basis.
+      const c = [t/4, t/4, t/4, t/4];
+      const q = sub4(p4, c);
+      const x = dot4(q, sliceBasis[0]);
+      const y = dot4(q, sliceBasis[1]);
+      const z = dot4(q, sliceBasis[2]);
+      return new THREE.Vector3(x, y, z);
+    }
+
+    // 4D rotation in a coordinate plane (i,j) with angle θ.
+    function rotPlane(v, i, j, theta) {
+      const c = Math.cos(theta), s = Math.sin(theta);
+      const out = v.slice();
+      out[i] = c*v[i] - s*v[j];
+      out[j] = s*v[i] + c*v[j];
+      return out;
+    }
+
+    // --- Mode state ----------------------------------------------------------
+    let mode = "projection"; // "projection" | "slice"
+    let playing = true;
+
+    // Projection mode parameters
+    let speed4D = 0.9;       // 0..2
+    let cellCycling = false;
+    let cellIndex = 0;
+    let cellClock = 0;
+
+    // Slice mode parameters
+    let tSlice = 2.0;        // 0..4
+    let sliceDir = 1;        // for ping-pong animation
+    let sliceSpeed = 0.35;   // units of t per second (scaled)
+    let lastSliderSetByUser = false;
+
+    // --- Build the tesseract (4D hypercube) ---------------------------------
+    // Vertices are all sign combinations of (±1,±1,±1,±1)
+    const vertices4 = [];
+    for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) for (const sw of [-1, 1]) {
+      vertices4.push([sx, sy, sz, sw]);
+    }
+
+    // Edge list: connect vertices that differ in exactly one coordinate.
+    const edges = [];
+    for (let a = 0; a < vertices4.length; a++) {
+      for (let b = a+1; b < vertices4.length; b++) {
+        const va = vertices4[a], vb = vertices4[b];
+        let diff = 0;
+        for (let k = 0; k < 4; k++) if (va[k] !== vb[k]) diff++;
+        if (diff === 1) edges.push([a, b]);
+      }
+    }
+    // Sanity: should be 32 edges.
+    // console.log(edges.length);
+
+    // Precompute the 8 cubic cells: fix one coordinate to ±1.
+    // cellSpec = { axis: 0..3, sign: -1|+1 }
+    const cellSpecs = [];
+    for (let axis = 0; axis < 4; axis++) {
+      cellSpecs.push({ axis, sign: -1 });
+      cellSpecs.push({ axis, sign: +1 });
+    }
+
+    function isVertexInCell(v4, cellSpec) {
+      return v4[cellSpec.axis] === cellSpec.sign;
+    }
+
+    // Build a set of edges that lie entirely within a cell.
+    function cellEdges(cellSpec) {
+      const idxSet = new Set();
+      vertices4.forEach((v, i) => { if (isVertexInCell(v, cellSpec)) idxSet.add(i); });
+      const inCell = (i) => idxSet.has(i);
+      const out = [];
+      for (const [a, b] of edges) {
+        if (inCell(a) && inCell(b)) out.push([a, b]);
+      }
+      return out;
+    }
+    const cellEdgeLists = cellSpecs.map(cellEdges);
+
+    // --- 3D objects: Projection mode ----------------------------------------
+    const groupProjection = new THREE.Group();
+    scene.add(groupProjection);
+
+    const baseLineGeom = new THREE.BufferGeometry();
+    const baseLinePositions = new Float32Array(edges.length * 2 * 3);
+    baseLineGeom.setAttribute("position", new THREE.BufferAttribute(baseLinePositions, 3));
+    const baseLines = new THREE.LineSegments(
+      baseLineGeom,
+      new THREE.LineBasicMaterial({ color: 0x9aa3b2, transparent: true, opacity: 0.70 })
+    );
+    groupProjection.add(baseLines);
+
+    const vertexGeom = new THREE.BufferGeometry();
+    const vertexPositions = new Float32Array(vertices4.length * 3);
+    vertexGeom.setAttribute("position", new THREE.BufferAttribute(vertexPositions, 3));
+    const vertexPoints = new THREE.Points(
+      vertexGeom,
+      new THREE.PointsMaterial({ color: 0xffffff, size: 0.06, sizeAttenuation: true })
+    );
+    groupProjection.add(vertexPoints);
+
+    // Highlighted cell edges
+    const cellLineGeom = new THREE.BufferGeometry();
+    // allocate for max edges in any cell (a cube has 12 edges)
+    const maxCellEdges = 12;
+    const cellLinePositions = new Float32Array(maxCellEdges * 2 * 3);
+    cellLineGeom.setAttribute("position", new THREE.BufferAttribute(cellLinePositions, 3));
+    cellLineGeom.setDrawRange(0, 0);
+    const cellLines = new THREE.LineSegments(
+      cellLineGeom,
+      new THREE.LineBasicMaterial({ color: 0x6ed2ff, transparent: true, opacity: 0.95 })
+    );
+    groupProjection.add(cellLines);
+
+    // --- 3D objects: Slice mode ---------------------------------------------
+    const groupSlice = new THREE.Group();
+    groupSlice.visible = false;
+    scene.add(groupSlice);
+
+    let sliceMesh = null;
+    let sliceEdgeLines = null;
+    let slicePointCloud = null;
+
+    function disposeObject(obj) {
+      if (!obj) return;
+      if (obj.geometry) obj.geometry.dispose();
+      if (obj.material) {
+        if (Array.isArray(obj.material)) obj.material.forEach(m => m.dispose());
+        else obj.material.dispose();
+      }
+    }
+
+    function uniquePoints4(points, eps = 1e-9) {
+      const out = [];
+      for (const p of points) {
+        let ok = true;
+        for (const q of out) {
+          const dx = Math.abs(p[0]-q[0]);
+          const dy = Math.abs(p[1]-q[1]);
+          const dz = Math.abs(p[2]-q[2]);
+          const dw = Math.abs(p[3]-q[3]);
+          if (dx < eps && dy < eps && dz < eps && dw < eps) { ok = false; break; }
+        }
+        if (ok) out.push(p);
+      }
+      return out;
+    }
+
+    function sliceIntersectionPoints4(t) {
+      // Intersection of the unit 4-cube [0,1]^4 with the hyperplane x+y+z+w=t.
+      // We enumerate all 32 edges and intersect when possible.
+      const pts = [];
+      // For each axis i, fix the other 3 coordinates (each 0 or 1), and vary xi ∈ [0,1].
+      for (let axis = 0; axis < 4; axis++) {
+        for (let mask = 0; mask < 8; mask++) {
+          const fixed = [0,0,0,0];
+          let idx = 0;
+          for (let j = 0; j < 4; j++) {
+            if (j === axis) continue;
+            fixed[j] = (mask >> idx) & 1;
+            idx++;
+          }
+          const sumFixed = fixed[0] + fixed[1] + fixed[2] + fixed[3];
+          const xi = t - sumFixed;
+          if (xi >= -1e-10 && xi <= 1 + 1e-10) {
+            const p = fixed.slice();
+            p[axis] = clamp(xi, 0, 1);
+            pts.push(p);
+          }
+        }
+      }
+      return uniquePoints4(pts, 1e-8);
+    }
+
+    function sliceName(t) {
+      // Combinatorial type changes at integer thresholds.
+      // We gently "snap" close values for readability.
+      const snap = (x) => {
+        for (const k of [0,1,2,3,4]) if (Math.abs(x-k) < 1e-3) return k;
+        return x;
+      };
+      const s = snap(t);
+      if (s === 0 || s === 4) return "degenerate (a point)";
+      if (s > 0 && s < 1) return "tetrahedron (growing)";
+      if (s === 1) return "tetrahedron (Δ(4,1))";
+      if (s > 1 && s < 2) return "truncated tetrahedron (affine)";
+      if (s === 2) return "octahedron (Δ(4,2))";
+      if (s > 2 && s < 3) return "truncated tetrahedron (affine)";
+      if (s === 3) return "tetrahedron (Δ(4,3))";
+      if (s > 3 && s < 4) return "tetrahedron (shrinking)";
+      return "slice polytope";
+    }
+
+    function rebuildSliceMesh(t) {
+      const pts4 = sliceIntersectionPoints4(t);
+      const pts3 = pts4.map(p => projectSlicePointTo3D(p, t));
+
+      // Scale a little so the slice "reads" similarly across t.
+      // (Affine changes in the slice are real; this just keeps it on-screen.)
+      const scale = 2.2;
+      for (const v of pts3) v.multiplyScalar(scale);
+
+      // Remove old objects
+      disposeObject(sliceMesh); disposeObject(sliceEdgeLines); disposeObject(slicePointCloud);
+      if (sliceMesh) groupSlice.remove(sliceMesh);
+      if (sliceEdgeLines) groupSlice.remove(sliceEdgeLines);
+      if (slicePointCloud) groupSlice.remove(slicePointCloud);
+
+      if (pts3.length < 4) {
+        sliceMesh = null; sliceEdgeLines = null; slicePointCloud = null;
+        return;
+      }
+
+      const geom = new ConvexGeometry(pts3);
+      const mat = new THREE.MeshStandardMaterial({
+        color: 0x6ed2ff,
+        roughness: 0.30,
+        metalness: 0.05,
+        transparent: true,
+        opacity: 0.28,
+        side: THREE.DoubleSide
+      });
+      sliceMesh = new THREE.Mesh(geom, mat);
+      groupSlice.add(sliceMesh);
+
+      const egeom = new THREE.EdgesGeometry(geom);
+      sliceEdgeLines = new THREE.LineSegments(
+        egeom,
+        new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 })
+      );
+      groupSlice.add(sliceEdgeLines);
+
+      const pgeom = new THREE.BufferGeometry().setFromPoints(pts3);
+      slicePointCloud = new THREE.Points(
+        pgeom,
+        new THREE.PointsMaterial({ color: 0xffffff, size: 0.06, sizeAttenuation: true })
+      );
+      groupSlice.add(slicePointCloud);
+    }
+
+    // --- Update projection geometry -----------------------------------------
+    let aXY = 0, aZW = 0, aXW = 0, aYZ = 0;
+
+    function rotatedVertex4(v, dt) {
+      let out = v;
+      // A gentle mix of planes; feel free to tweak.
+      out = rotPlane(out, 0, 1, aXY);
+      out = rotPlane(out, 2, 3, aZW);
+      out = rotPlane(out, 0, 3, aXW);
+      out = rotPlane(out, 1, 2, aYZ);
+      return out;
+    }
+
+    function updateProjectionGeometry() {
+      const projDist = 4.2;
+
+      // Rotate+project vertices
+      const verts3 = new Array(vertices4.length);
+      for (let i = 0; i < vertices4.length; i++) {
+        const vRot = rotatedVertex4(vertices4[i], 0);
+        const v3 = project4Dto3D(vRot, projDist);
+        v3.multiplyScalar(1.25);
+        verts3[i] = v3;
+        vertexPositions[i*3+0] = v3.x;
+        vertexPositions[i*3+1] = v3.y;
+        vertexPositions[i*3+2] = v3.z;
+      }
+      vertexGeom.attributes.position.needsUpdate = true;
+
+      // Update base edges
+      for (let e = 0; e < edges.length; e++) {
+        const [a, b] = edges[e];
+        const va = verts3[a], vb = verts3[b];
+        const k = e * 6;
+        baseLinePositions[k+0] = va.x; baseLinePositions[k+1] = va.y; baseLinePositions[k+2] = va.z;
+        baseLinePositions[k+3] = vb.x; baseLinePositions[k+4] = vb.y; baseLinePositions[k+5] = vb.z;
+      }
+      baseLineGeom.attributes.position.needsUpdate = true;
+
+      // Update highlighted cell edges if enabled
+      if (cellCycling) {
+        const cellEdgesNow = cellEdgeLists[cellIndex];
+        const needed = cellEdgesNow.length;
+        for (let e = 0; e < needed; e++) {
+          const [a, b] = cellEdgesNow[e];
+          const va = verts3[a], vb = verts3[b];
+          const k = e * 6;
+          cellLinePositions[k+0] = va.x; cellLinePositions[k+1] = va.y; cellLinePositions[k+2] = va.z;
+          cellLinePositions[k+3] = vb.x; cellLinePositions[k+4] = vb.y; cellLinePositions[k+5] = vb.z;
+        }
+        cellLineGeom.setDrawRange(0, needed * 2);
+        cellLineGeom.attributes.position.needsUpdate = true;
+      } else {
+        cellLineGeom.setDrawRange(0, 0);
+      }
+    }
+
+    // --- UI: mode switching --------------------------------------------------
+    function setMode(next) {
+      mode = next;
+      const isProj = (mode === "projection");
+
+      btnProjection.classList.toggle("active", isProj);
+      btnSlice.classList.toggle("active", !isProj);
+
+      groupProjection.visible = isProj;
+      groupSlice.visible = !isProj;
+
+      if (isProj) {
+        paramLabel.textContent = "4D speed";
+        paramSlider.min = "0";
+        paramSlider.max = "200";
+        paramSlider.value = String(Math.round(speed4D * 100));
+        hudTitle.textContent = "Projection mode";
+        hudSub.textContent = " (4D rotation → 3D perspective)";
+      } else {
+        paramLabel.textContent = "slice t";
+        paramSlider.min = "0";
+        paramSlider.max = "400";
+        paramSlider.value = String(Math.round(tSlice * 100));
+        hudTitle.textContent = "Diagonal slice mode";
+        hudSub.textContent = " (x+y+z+w = t inside the 4-cube)";
+        rebuildSliceMesh(tSlice);
+      }
+
+      updateHud();
+    }
+
+    function updateHud() {
+      if (mode === "projection") {
+        const cellText = cellCycling ? describeCell(cellSpecs[cellIndex]) : "(cell highlighting off)";
+        hudLines.innerHTML = `
+          <div>Wireframe is the 1-skeleton (vertices+edges) of the tesseract.</div>
+          <div>Time animates a rotation in 4D planes (e.g. <code>(x,w)</code>, <code>(z,w)</code>), then projects to 3D.</div>
+          <div style="margin-top:6px; opacity:0.92"><strong>Cell:</strong> ${cellText}</div>
+          <div style="opacity:0.80">Drag to orbit; scroll to zoom; right-drag to pan.</div>
+        `;
+      } else {
+        const name = sliceName(tSlice);
+        hudLines.innerHTML = `
+          <div>These are 3D polytopes appearing as a <em>diagonal</em> hyperplane slice of the 4D cube.</div>
+          <div style="margin-top:6px"><strong>t</strong> = ${tSlice.toFixed(3)} → <strong>${name}</strong></div>
+          <div style="opacity:0.80">If playing, <code>t</code> sweeps 0→4→0 so you see births/deaths and the “octahedral” mid-slice.</div>
+        `;
+      }
+    }
+
+    function describeCell(spec) {
+      const axisNames = ["x", "y", "z", "w"];
+      const sgn = (spec.sign > 0) ? "+" : "−";
+      // A tesseract cell is a cube {coord = ±1} with the other 3 coords free.
+      return `<code>${axisNames[spec.axis]}=${sgn}1</code> (a cubic cell)`;
+    }
+
+    // --- UI: explainer modal -------------------------------------------------
+    function showModal(title, html) {
+      modalTitle.textContent = title;
+      modalBody.innerHTML = html;
+      modalBack.style.display = "block";
+      modal.style.display = "grid";
+    }
+    function hideModal() {
+      modalBack.style.display = "none";
+      modal.style.display = "none";
+    }
+    modalBack.addEventListener("click", hideModal);
+    modalClose.addEventListener("click", hideModal);
+
+    explain1.addEventListener("click", () => showModal(
+      "What am I looking at?",
+      `
+        <p>
+          Two complementary ways to “see” a tesseract (the 4D cube) using only 3D geometry plus time.
+          A 4D object can’t be embedded faithfully in 3D, so we either <em>project</em> it (like a shadow) or we
+          <em>slice</em> it (like CT scans).
+        </p>
+        <ul>
+          <li><strong>Projection mode</strong>: rotate in 4D, then map (x,y,z,w) → (x,y,z) with a perspective factor depending on w. You’ll often see the classic “cube inside a cube” picture, but it deforms as we rotate in mixed 4D planes.</li>
+          <li><strong>Diagonal slice mode</strong>: intersect the unit 4-cube [0,1]^4 with the hyperplane x+y+z+w = t. As t runs from 0 to 4, the intersection is a family of 3D polytopes: tetrahedron → (affine) truncated tetrahedron → octahedron → truncated tetrahedron → tetrahedron → point.</li>
+        </ul>
+        <p>
+          If you want a clean mental model: projection is “<em>all of the tesseract at once, but distorted</em>”; slicing is “<em>a true 3D polytope, but only one layer at a time</em>.”
+        </p>
+      `
+    ));
+
+    explain2.addEventListener("click", () => showModal(
+      "How to read it",
+      `
+        <p><strong>Projection mode</strong></p>
+        <ul>
+          <li>The gray wireframe is the tesseract’s 1-skeleton: 16 vertices, 32 edges.</li>
+          <li>When the picture looks like two nested cubes connected by struts, that’s a familiar 3D projection (a Schlegel-style view): two opposite “layers” in the w-direction appear at different scales.</li>
+          <li>Turn on <em>Cycle cells</em> to highlight one of the 8 cubic cells at a time (each is a 3D cube sitting on the boundary of the 4D cube).</li>
+        </ul>
+        <p><strong>Diagonal slice mode</strong></p>
+        <ul>
+          <li>The solid mesh is the actual 3D polytope <em>inside the slicing hyperplane</em>; its vertices come from intersecting the hyperplane with edges of the 4-cube.</li>
+          <li>At <code>t=1</code> and <code>t=3</code> you get tetrahedra (the “one-hot” and “three-hot” layers of {0,1}^4). At <code>t=2</code> you get the octahedron (the “two-hot” layer).</li>
+          <li>Between these integer layers the combinatorics stabilizes as a truncated tetrahedron; it’s “affine” because the slice inherits the cube’s coordinate geometry, not a uniform truncation metric.</li>
+        </ul>
+      `
+    ));
+
+    explain3.addEventListener("click", () => showModal(
+      "Math notes",
+      `
+        <p><strong>1) The tesseract</strong> is the 4D hypercube: vertices (±1,±1,±1,±1) and edges joining vertices that differ in exactly one coordinate.</p>
+        <p><strong>2) 4D rotation</strong> is just ordinary rotation, but in a chosen coordinate plane. For example, in the (x,w)-plane:
+          <span class="mono">x' = x cosθ − w sinθ,  w' = x sinθ + w cosθ</span>.
+          We compose several such plane-rotations to avoid a “too simple” motion.</p>
+        <p><strong>3) Projection</strong> uses a 4D perspective along w:
+          <span class="mono">(x,y,z,w) ↦ (x,y,z) · d/(d−w)</span>.
+          (So w close to d looks “large”, w far from d looks “small”.)</p>
+        <p><strong>4) Diagonal slices</strong>: intersect [0,1]^4 with <span class="mono">x+y+z+w=t</span>. The vertices of the slice occur on cube edges:
+          if the other three coordinates sum to S, then the varying coordinate is <span class="mono">t−S</span>, provided it lies in [0,1].</p>
+        <p><strong>5) Hypersimplices</strong>: at integer t=k, the slice is the (4,k)-hypersimplex Δ(4,k), the convex hull of 0–1 vectors with k ones (so Δ(4,1) is a tetrahedron and Δ(4,2) is an octahedron).</p>
+        <p style="margin-top:10px; opacity:0.92"><strong>Further reading</strong></p>
+        <ul>
+          <li>Thomas Banchoff’s classic tour of projection and slicing (search “Banchoff Hypercube: Projections &amp; Slicing”).</li>
+          <li>Look up “hypersimplex” and “Schlegel diagram” for the combinatorics behind the “tetrahedron–octahedron” story.</li>
+        </ul>
+      `
+    ));
+
+    // --- UI events -----------------------------------------------------------
+    btnProjection.addEventListener("click", () => setMode("projection"));
+    btnSlice.addEventListener("click", () => setMode("slice"));
+
+    btnPlayPause.addEventListener("click", () => {
+      playing = !playing;
+      btnPlayPause.textContent = playing ? "Pause" : "Play";
+    });
+
+    btnCycleCells.addEventListener("click", () => {
+      cellCycling = !cellCycling;
+      btnCycleCells.classList.toggle("active", cellCycling);
+      if (!cellCycling) {
+        cellClock = 0;
+      }
+      updateHud();
+    });
+
+    paramSlider.addEventListener("input", () => {
+      if (mode === "projection") {
+        speed4D = clamp(parseInt(paramSlider.value, 10) / 100, 0, 2);
+      } else {
+        tSlice = clamp(parseInt(paramSlider.value, 10) / 100, 0, 4);
+        lastSliderSetByUser = true;
+        rebuildSliceMesh(tSlice);
+        updateHud();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    });
+
+    // --- Initial build -------------------------------------------------------
+    setMode("projection");
+    updateProjectionGeometry();
+
+    // --- Animation loop ------------------------------------------------------
+    let last = performance.now();
+    function tick(now) {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+
+      if (mode === "projection") {
+        if (playing) {
+          // update rotation angles
+          const s = speed4D;
+          aXY += dt * 0.35 * s;
+          aZW += dt * 0.28 * s;
+          aXW += dt * 0.40 * s;
+          aYZ += dt * 0.22 * s;
+
+          // cycle cells at ~0.9 Hz
+          if (cellCycling) {
+            cellClock += dt;
+            if (cellClock >= 1.1) {
+              cellClock = 0;
+              cellIndex = (cellIndex + 1) % cellSpecs.length;
+              updateHud();
+            }
+          }
+        }
+        updateProjectionGeometry();
+      } else {
+        if (playing && !lastSliderSetByUser) {
+          // Ping-pong t in [0,4]
+          const speedFactor = lerp(0.08, 1.0, clamp(speed4D / 2, 0, 1)); // reuse speed slider feel
+          const v = sliceSpeed * speedFactor;
+          tSlice += dt * v * sliceDir;
+          if (tSlice >= 4) { tSlice = 4; sliceDir = -1; }
+          if (tSlice <= 0) { tSlice = 0; sliceDir = +1; }
+          paramSlider.value = String(Math.round(tSlice * 100));
+          rebuildSliceMesh(tSlice);
+          updateHud();
+        } else if (!playing) {
+          lastSliderSetByUser = false;
+        }
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    // --- A friendly warning if module imports failed ------------------------
+    // If this script itself runs, imports succeeded. The most common blank-screen case
+    // is module import blocked by the browser when opened as file://.
+    // We heuristically show the tip if running from file:// (many users double-click).
+    if (location.protocol === "file:") {
+      moduleWarn.style.display = "block";
+    }
+  </script>
+
+  <noscript>
+    <div style="position:fixed; inset: 0; display:flex; align-items:center; justify-content:center; padding:24px; color:#fff;">
+      This page needs JavaScript to run the 3D visualization.
+    </div>
+  </noscript>
+</body>
+</html>
