@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tesseract in 3D over time: projection + diagonal slices</title>
+  <title>Seeing the fourth dimension inside the third</title>
   <style>
     html, body { height: 100%; margin: 0; background: #0b0d12; color: #e9ecf1; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
     #c { display: block; width: 100vw; height: 100vh; }
@@ -110,9 +110,12 @@
 
       <span class="spacer"></span>
 
+      <button class="btn" id="btnPrompt">Prompt</button>
       <button class="btn" id="btnExplain1">What am I looking at?</button>
       <button class="btn" id="btnExplain2">How to read it</button>
       <button class="btn" id="btnExplain3">Math notes</button>
+      <button class="btn" id="btnExplain4">How to use it</button>
+      <button class="btn" id="btnExplain5">Why two modes?</button>
     </div>
 
     <div id="hud">
@@ -164,9 +167,12 @@
     const modalBody = document.getElementById("modalBody");
     const modalClose = document.getElementById("modalClose");
 
+    const promptBtn = document.getElementById("btnPrompt");
     const explain1 = document.getElementById("btnExplain1");
     const explain2 = document.getElementById("btnExplain2");
     const explain3 = document.getElementById("btnExplain3");
+    const explain4 = document.getElementById("btnExplain4");
+    const explain5 = document.getElementById("btnExplain5");
 
     // --- Renderer / Scene / Camera ------------------------------------------
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
@@ -599,6 +605,17 @@
     modalBack.addEventListener("click", hideModal);
     modalClose.addEventListener("click", hideModal);
 
+    promptBtn.addEventListener("click", () => showModal(
+      "Prompt",
+      `
+        <p>
+          Can you visualise in time the appearance of some polytopes of a tesseract, and obviously use it in time
+          so that we can understand, and in three dimensions so that we can actually get a flavour for what's going on.
+          Make sure you include explainer buttons to explain what this is all about. Good luck. Thank you.
+        </p>
+      `
+    ));
+
     explain1.addEventListener("click", () => showModal(
       "What am I looking at?",
       `
@@ -653,6 +670,75 @@
           <li>Thomas Banchoff’s classic tour of projection and slicing (search “Banchoff Hypercube: Projections &amp; Slicing”).</li>
           <li>Look up “hypersimplex” and “Schlegel diagram” for the combinatorics behind the “tetrahedron–octahedron” story.</li>
         </ul>
+      `
+    ));
+
+    explain4.addEventListener("click", () => showModal(
+      "How to use it",
+      `
+        <p>
+          I’ve put the “time” into a single interactive 3D scene: one mode shows a continuously rotating 4D hypercube
+          projected into 3D (so you watch the same 4D adjacency graph deform), and a second mode shows a diagonal
+          hyperplane slice whose 3D cross-sections genuinely change polytope type (tetrahedron → truncated tetrahedron →
+          octahedron → …). It ships with explainer buttons inside the page so you can treat it like a miniature guided
+          instrument rather than a static diagram.
+        </p>
+        <p><strong>How to use it</strong></p>
+        <ul>
+          <li>Open the file in a modern browser.</li>
+          <li>If you get a blank canvas, run a local server in that folder (e.g. <span class="mono">python -m http.server 8000</span>)
+          and open <span class="mono">http://localhost:8000/</span> (the HUD warns you when you’re on <span class="mono">file://</span>).</li>
+          <li>Use Projection vs Diagonal slice buttons; Pause to inspect; Cycle cells to highlight the 8 cubic cells one-by-one.</li>
+        </ul>
+      `
+    ));
+
+    explain5.addEventListener("click", () => showModal(
+      "Why these two modes complement each other",
+      `
+        <p><strong>What it’s actually showing (the “less misleading” reading)</strong></p>
+        <p>
+          Most popular tesseract pictures are projections (Schlegel-like nested cubes), which are pedagogically useful
+          but ontologically treacherous: you’re watching a 4D object’s incidence structure in 3D disguise—16 vertices and
+          32 edges are invariant, while lengths/angles are artefacts of the chosen projection. The “Cycle cells” button
+          singles out each of the 8 cubic cells (fixing one coordinate to ±1) so you can track a 3D cube-as-a-3-face
+          moving through a 3D shadow.
+        </p>
+        <p>
+          The diagonal-slice mode is the more structural view: intersect the (translated/scaled) tesseract with the hyperplane
+          <span class="mono">x+y+z+w=t</span> and animate <span class="mono">t∈[0,4]</span>. At integer <span class="mono">t=k</span> you land on the
+          (4,k)-hypersimplex Δ(4,k), i.e. the convex hull of 0–1 vectors of Hamming weight k: Δ(4,1) is a tetrahedron and Δ(4,2)
+          is an octahedron—so the “Platonic solids hidden in a tesseract” aren’t mystical, they’re literally the cube’s weight strata.
+        </p>
+        <p>
+          Between <span class="mono">t=1</span> and <span class="mono">t=2</span> (and symmetrically between 2 and 3), the slice has 12 vertices and 8 faces
+          that group as 4 triangles + 4 hexagons—combinatorially a truncated tetrahedron—but it’s affine rather than the uniform
+          Archimedean solid unless you tune the metric; the code computes this slice by intersecting the slicing plane with all 32 edges
+          of the 4-cube and taking the convex hull in the slicing hyperplane.
+        </p>
+        <p><strong>Why these two modes complement each other</strong></p>
+        <ul>
+          <li><strong>Projection</strong> is like shadow theatre: you learn adjacency, symmetry, and “what stays glued to what” under 4D rotation.</li>
+          <li><strong>Slicing</strong> is like CT: every frame is a legitimate 3D polytope, and time is the parameter that lets you watch birth/death of vertices at the integer “Hamming layers,” with the octahedron sitting at the central weight layer <span class="mono">k=2</span>.</li>
+        </ul>
+        <p>
+          A small historical aside that helps people stop expecting a “perfect” 3D picture: Charles Howard Hinton coined the term “tesseract”
+          in <em>A New Era of Thought</em>, and his whole rhetorical strategy was already to trade direct visualization for systems of analogy
+          (nets, projections, slicing)—what we’d now call a choice of functor from 4D geometry to 3D perceptual invariants.
+        </p>
+        <p>
+          If you want a canonical “serious but visual” guide in the same spirit, Thomas Banchoff explicitly frames hypercubes by alternating
+          projection and slicing rather than chasing a single privileged picture.
+        </p>
+        <p>
+          If you want the combinatorial rabbit hole behind the slice mode, the hypersimplex literature (e.g. Günter M. Ziegler’s notes
+          orbiting the “hypersimplex” family) is where the tesseract stops being a curiosity and becomes a gateway into matroid polytopes,
+          triangulations, and enumerative invariants.
+        </p>
+        <p>
+          Try swapping the diagonal slice <span class="mono">x+y+z+w=t</span> for the “balanced” slice <span class="mono">x+y=z+w</span> and see which
+          symmetry you feel more sharply in the resulting 3D polytope family.
+        </p>
       `
     ));
 

@@ -11,4 +11,4 @@ This section gathers topics outside the main theme of the site.
 - [John Burnet of Barn's journey](john-burnet-of-barns-journey.html)
 - [Johnson's Dictionary Project](johnsons-dictionary-project.html)
 - [Caesar's Gallic Wars Rivers](caesars_gallic_wars_rivers.html)
-- [Fourth-dimension tesseract visualisation](polytope.html)
+- [Seeing the fourth dimension inside the third](polytope.html)
