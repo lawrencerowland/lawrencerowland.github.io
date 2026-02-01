@@ -198,6 +198,18 @@
       return chain.catch((err) => Promise.reject(lastErr || err));
     };
 
+    const rewriteModuleSource = (source, moduleUrl, threeUrl) => {
+      const rewriteRelative = (match, specifier) => {
+        const absolute = new URL(specifier, moduleUrl).toString();
+        return match.replace(specifier, absolute);
+      };
+
+      return source
+        .replace(/from\s+["']three["']/g, `from "${threeUrl}"`)
+        .replace(/from\s+["'](\.?\.?\/[^"']+)["']/g, rewriteRelative)
+        .replace(/import\(\s*["'](\.?\.?\/[^"']+)["']\s*\)/g, rewriteRelative);
+    };
+
     const loadModuleWithThree = async (urls, threeUrl) => {
       let lastErr = null;
       for (const url of urls) {
@@ -207,7 +219,7 @@
             throw new Error(`Failed to fetch module ${url}: ${response.status}`);
           }
           const source = await response.text();
-          const rewritten = source.replace(/from\s+["']three["']/g, `from "${threeUrl}"`);
+          const rewritten = rewriteModuleSource(source, url, threeUrl);
           const blob = new Blob([rewritten], { type: "text/javascript" });
           const blobUrl = URL.createObjectURL(blob);
           try {
