@@ -141,11 +141,6 @@
   </div>
 
   <script type="module">
-    // --- Imports (CDN) -------------------------------------------------------
-    import * as THREE from "https://unpkg.com/three@0.161.0/build/three.module.js";
-    import { OrbitControls } from "https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js";
-    import { ConvexGeometry } from "https://unpkg.com/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js";
-
     // --- DOM -----------------------------------------------------------------
     const canvas = document.getElementById("c");
     const btnProjection = document.getElementById("btnProjection");
@@ -174,8 +169,78 @@
     const explain4 = document.getElementById("btnExplain4");
     const explain5 = document.getElementById("btnExplain5");
 
+    const warn = (html) => {
+      moduleWarn.innerHTML = html;
+      moduleWarn.style.display = "block";
+    };
+
+    const loadModule = (urls) => {
+      let lastErr = null;
+      let chain = Promise.reject(new Error("init"));
+      urls.forEach((url) => {
+        chain = chain.catch((err) => {
+          if (err) lastErr = err;
+          return import(url);
+        });
+      });
+      return chain.catch((err) => Promise.reject(lastErr || err));
+    };
+
+    if (location.protocol === "file:") {
+      warn(
+        `If you see a blank screen: some browsers block ES-module imports for local files.
+        Fix: run a tiny local server in this folder (e.g. <span class="mono">python -m http.server 8000</span>)
+        and open <span class="mono">http://localhost:8000/</span>.`
+      );
+    }
+
+    const moduleErrorNote = `
+      Could not load the 3D modules (Three.js). This can happen if a blocker or network rule prevents CDN access.
+      Try refreshing, disabling blockers for this page, or using a different network.`;
+
+    const [threeModule, controlsModule, convexModule] = await Promise.all([
+      loadModule([
+        "https://unpkg.com/three@0.161.0/build/three.module.js",
+        "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"
+      ]).catch((err) => {
+        console.error(err);
+        warn(moduleErrorNote);
+        return null;
+      }),
+      loadModule([
+        "https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js",
+        "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/controls/OrbitControls.js"
+      ]).catch((err) => {
+        console.error(err);
+        warn(moduleErrorNote);
+        return null;
+      }),
+      loadModule([
+        "https://unpkg.com/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js",
+        "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/geometries/ConvexGeometry.js"
+      ]).catch((err) => {
+        console.error(err);
+        warn(moduleErrorNote);
+        return null;
+      })
+    ]);
+
+    if (!threeModule || !controlsModule || !convexModule) {
+      throw new Error("Required 3D modules failed to load.");
+    }
+
+    const THREE = threeModule;
+    const { OrbitControls } = controlsModule;
+    const { ConvexGeometry } = convexModule;
+
+    const gl = canvas.getContext("webgl2") || canvas.getContext("webgl");
+    if (!gl) {
+      warn("WebGL is unavailable in this browser. Try enabling hardware acceleration or using a modern browser.");
+      throw new Error("WebGL unavailable");
+    }
+
     // --- Renderer / Scene / Camera ------------------------------------------
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+    const renderer = new THREE.WebGLRenderer({ canvas, context: gl, antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -829,13 +894,6 @@
     }
     requestAnimationFrame(tick);
 
-    // --- A friendly warning if module imports failed ------------------------
-    // If this script itself runs, imports succeeded. The most common blank-screen case
-    // is module import blocked by the browser when opened as file://.
-    // We heuristically show the tip if running from file:// (many users double-click).
-    if (location.protocol === "file:") {
-      moduleWarn.style.display = "block";
-    }
   </script>
 
   <noscript>
