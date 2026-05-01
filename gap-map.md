@@ -100,18 +100,18 @@ footer.site-footer{display:none}
 <script>
 const data = {
   gaps:[
-    {id:"G1",title:"Integration of AI and Data Analytics in Project Management",domains:["Technology Integration","Risk Management","Schedule & Time Management","Resource Allocation & Optimization"],description:"The project management field faces a gap in fully leveraging AI and big data analytics for decision support.",linkedCapabilities:["C1","C11","C16"]},
+    {id:"G1",title:"Integration of AI and Data Analytics in Project Management",domains:["Technology Integration","Risk Management","Schedule & Time Management","Resource Allocation & Optimization"],description:"The project management field faces a gap in fully leveraging AI and big data analytics for decision support.",linkedCapabilities:["C1","C11","C16","C21"]},
     {id:"G2",title:"Managing Hybrid and Remote Project Teams",domains:["Project Leadership & Team Dynamics","Stakeholder Engagement"],description:"Gap in maintaining team cohesion and productivity in hybrid environments.",linkedCapabilities:["C2","C3"]},
     {id:"G3",title:"Embedding Sustainability and Social Value in Projects",domains:["Project Governance","Stakeholder Engagement","Innovation in PM"],description:"Need to integrate sustainability metrics into PM frameworks.",linkedCapabilities:["C4","C7"]},
     {id:"G4",title:"Project Management Skills Gap and Talent Development",domains:["Project Leadership & Team Dynamics","Emerging Practice"],description:"Insufficient numbers of project professionals with emerging skills.",linkedCapabilities:["C5","C18"]},
     {id:"G5",title:"Adapting Agile and Hybrid Methodologies in Traditional Projects",domains:["Change Management","Schedule & Time Management","Project Governance"],description:"Traditional sectors struggle to adopt agile/hybrid PM.",linkedCapabilities:["C6","C9"]},
-    {id:"G6",title:"Effective Stakeholder Engagement in Complex Projects",domains:["Stakeholder Engagement","Project Governance","Change Management"],description:"Need improved frameworks for multi-stakeholder alignment.",linkedCapabilities:["C7","C8","C17"]},
+    {id:"G6",title:"Effective Stakeholder Engagement in Complex Projects",domains:["Stakeholder Engagement","Project Governance","Change Management"],description:"Need improved frameworks for multi-stakeholder alignment.",linkedCapabilities:["C7","C8","C17","C19"]},
     {id:"G7",title:"Integrating Organizational Change Management with Projects",domains:["Change Management","Stakeholder Engagement","Project Leadership & Team Dynamics"],description:"Disconnect between technical delivery and people change.",linkedCapabilities:["C10","C5"]},
     {id:"G8",title:"Modernizing Project Controls and Performance Management",domains:["Project Controls","Schedule & Time Management","Technology Integration"],description:"Shift from manual to real-time, data-driven controls.",linkedCapabilities:["C1","C11"]},
-    {id:"G9",title:"Benefits Realization and Project Value Measurement",domains:["Project Evaluation & Measurement","Project Governance"],description:"Output-based metrics dominate over outcome-based value.",linkedCapabilities:["C12","C13"]},
-    {id:"G10",title:"Addressing Cognitive Biases in Project Risk Management",domains:["Risk Management","Project Governance"],description:"Optimism bias undermines realistic planning.",linkedCapabilities:["C14","C15"]},
+    {id:"G9",title:"Benefits Realization and Project Value Measurement",domains:["Project Evaluation & Measurement","Project Governance"],description:"Output-based metrics dominate over outcome-based value.",linkedCapabilities:["C12","C13","C20"]},
+    {id:"G10",title:"Addressing Cognitive Biases in Project Risk Management",domains:["Risk Management","Project Governance"],description:"Optimism bias undermines realistic planning.",linkedCapabilities:["C14","C15","C20","C21"]},
     {id:"G11",title:"Resource Allocation and Multi-Project Optimization Challenges",domains:["Resource Allocation & Optimization","Schedule & Time Management","Portfolio Management"],description:"Need better techniques for portfolio-level resource balancing.",linkedCapabilities:["C1","C16"]},
-    {id:"G12",title:"Fostering Innovation and Continuous Improvement in PM Practices",domains:["Innovation in PM","Emerging Practice","Project Leadership & Team Dynamics"],description:"Conservative PM culture slows adoption of new practices.",linkedCapabilities:["C9","C13","C17"]},
+    {id:"G12",title:"Fostering Innovation and Continuous Improvement in PM Practices",domains:["Innovation in PM","Emerging Practice","Project Leadership & Team Dynamics"],description:"Conservative PM culture slows adoption of new practices.",linkedCapabilities:["C9","C13","C17","C19","C20"]},
     {id:"G13",title:"Enhancing Team Engagement and Motivation in Projects",domains:["Project Leadership & Team Dynamics","Workforce Engagement"],description:"Sustain motivation in long/high-pressure projects.",linkedCapabilities:["C17","C18"]}
   ],
   capabilities:[
@@ -132,7 +132,10 @@ const data = {
     {id:"C15",title:"Historical Insight & Trend Analysis",domains:["Project Controls","Project Governance"],description:"Learning from past evolution of PM tools and practices to anticipate future developments.",linkedResources:[],linkedGaps:[]},
     {id:"C16",title:"Resource Optimization Techniques",domains:["Resource Allocation & Optimization","Schedule & Time Management","Portfolio Management"],description:"Critical Chain, capacity planning, AI-driven leveling.",linkedResources:["R14"],linkedGaps:["G11","G1"]},
     {id:"C17",title:"Gamification & Engagement",domains:["Project Leadership & Team Dynamics","Stakeholder Engagement"],description:"Game-design elements to boost motivation and participation.",linkedResources:["R2","R1"],linkedGaps:["G13","G6","G12"]},
-    {id:"C18",title:"Coaching & Mentoring Programs",domains:["Project Leadership & Team Dynamics","Emerging Practice"],description:"One-on-one or team coaching and structured mentoring.",linkedResources:["R1","R11"],linkedGaps:["G4","G13"]}
+    {id:"C18",title:"Coaching & Mentoring Programs",domains:["Project Leadership & Team Dynamics","Emerging Practice"],description:"One-on-one or team coaching and structured mentoring.",linkedResources:["R1","R11"],linkedGaps:["G4","G13"]},
+    {id:"C19",title:"Hypothesis Generation Workshops",domains:["Innovation in PM","Stakeholder Engagement","Emerging Practice"],description:"Structured sessions that turn ambiguous project problems into testable problem-solution hypotheses.",linkedResources:["R16","R17"],linkedGaps:["G6","G12"]},
+    {id:"C20",title:"Assumption Testing Backlog",domains:["Project Evaluation & Measurement","Risk Management","Innovation in PM"],description:"A lightweight backlog of hypotheses, assumptions, evidence tests and decision points for project teams.",linkedResources:["R16","R18"],linkedGaps:["G9","G10","G12"]},
+    {id:"C21",title:"AI-Assisted Hypothesis Discovery",domains:["Technology Integration","Risk Management","Innovation in PM"],description:"Using AI prompts and project data to generate candidate explanations, risks, interventions and experiments.",linkedResources:["R17","R18"],linkedGaps:["G1","G10"]}
   ],
   resources:[
     {id:"R1",title:"Coaching in the Project Environment",type:"Report",domains:["Project Leadership & Team Dynamics","Emerging Practice"],url:"#",linkedCapabilities:["C3","C18","C17","C10","C15"]},
@@ -149,7 +152,10 @@ const data = {
     {id:"R12",title:"Microsoft Teams",type:"Tool",domains:["Stakeholder Engagement","Technology Integration"],url:"#",linkedCapabilities:["C1","C2","C12"]},
     {id:"R13",title:"Associate Project Manager Apprenticeship",type:"Training",domains:["Project Leadership & Team Dynamics"],url:"#",linkedCapabilities:["C5"]},
     {id:"R14",title:"Atlassian Jira",type:"Tool",domains:["Schedule & Time Management","Technology Integration"],url:"#",linkedCapabilities:["C2","C16"]},
-    {id:"R15",title:"APM/RICS Stakeholder Engagement Guide",type:"Guide",domains:["Stakeholder Engagement"],url:"#",linkedCapabilities:["C7","C13"]}
+    {id:"R15",title:"APM/RICS Stakeholder Engagement Guide",type:"Guide",domains:["Stakeholder Engagement"],url:"#",linkedCapabilities:["C7","C13"]},
+    {id:"R16",title:"Lean Startup Build-Measure-Learn Loop",type:"Method",domains:["Innovation in PM","Project Evaluation & Measurement"],url:"https://theleanstartup.com/principles",linkedCapabilities:["C19","C20"]},
+    {id:"R17",title:"Design Thinking Hypothesis Framing",type:"Method",domains:["Innovation in PM","Stakeholder Engagement"],url:"https://www.interaction-design.org/literature/topics/design-thinking",linkedCapabilities:["C19","C21"]},
+    {id:"R18",title:"Evidence-Based Management Guide",type:"Guide",domains:["Project Evaluation & Measurement","Risk Management"],url:"https://www.scrum.org/resources/evidence-based-management-guide",linkedCapabilities:["C20","C21"]}
   ]
 };
 
@@ -471,23 +477,48 @@ function addItem(container,obj,type){
   const div=document.createElement('div');
   div.className=`item ${type} ${obj.fromApp?'from-app':''}`;
   div.id=`item-${obj.id}`;
-  div.innerHTML=`<h3>${obj.title}</h3><div class="domains">${obj.domains.join(' • ')}</div><p style="font-size:0.85rem;margin-top:0.35rem">${obj.description||''}</p>`;
+  const typeLabel=type==='res' && obj.type ? `${obj.type} • ` : '';
+  div.innerHTML=`<h3>${obj.title}</h3><div class="domains">${typeLabel}${obj.domains.join(' • ')}</div><p style="font-size:0.85rem;margin-top:0.35rem">${obj.description||''}</p>`;
   if(type==='res' && obj.fromApp){
     div.onclick=()=>{window.location.href='/all-project-apps.html?app='+encodeURIComponent(obj.slug);};
   }else{
     div.onclick=()=>highlightItem(obj.id);
   }
-  const linkedItemsKey=type==='gap'?'linkedCapabilities':type==='cap'?'linkedResources':null;
-  if(linkedItemsKey && obj[linkedItemsKey] && obj[linkedItemsKey].length>0){
-    const linkedDataType=type==='gap'?'capabilities':'resources';
-    const linkNoun=type==='gap'?'Capabilities':'Resources';
+  if(type==='res' && obj.url && obj.url !== '#'){
+    const sourceLink=document.createElement('a');
+    sourceLink.className='linkCount';
+    sourceLink.href=obj.url;
+    sourceLink.target='_blank';
+    sourceLink.rel='noopener';
+    sourceLink.textContent='Open reference';
+    sourceLink.onclick=e=>e.stopPropagation();
+    div.appendChild(sourceLink);
+  }
+  getLinkedSections(type,obj).forEach(section=>{
+    if(section.ids.length===0)return;
     const link=document.createElement('div');
     link.className='linkCount';
-    link.textContent=`${obj[linkedItemsKey].length} ${linkNoun} ▼`;
-    link.onclick=e=>{e.stopPropagation();toggleChildList(e.target,obj,linkedItemsKey,linkedDataType,linkNoun);};
+    link.textContent=`${section.ids.length} ${section.noun} ▼`;
+    link.onclick=e=>{e.stopPropagation();toggleChildList(e.target,section.ids,section.dataType,section.noun);};
     div.appendChild(link);
-  }
+  });
   container.appendChild(div);
+}
+
+function getLinkedSections(type,obj){
+  if(type==='gap'){
+    return [{ids:obj.linkedCapabilities||[],dataType:'capabilities',noun:'Solution capabilities'}];
+  }
+  if(type==='cap'){
+    return [
+      {ids:obj.linkedGaps||[],dataType:'gaps',noun:'Problem gaps'},
+      {ids:obj.linkedResources||[],dataType:'resources',noun:'Resources'}
+    ];
+  }
+  if(type==='res'){
+    return [{ids:obj.linkedCapabilities||[],dataType:'capabilities',noun:'Linked capabilities'}];
+  }
+  return [];
 }
 
 function buildDomainFilters(){
@@ -520,18 +551,17 @@ function domainMatch(item){
   return item.domains.some(d=>!activeDomains.has(d));
 }
 
-function toggleChildList(linkElement,parentObj,linkedItemsKey,linkedDataType,linkNoun){
-  const itemDiv=linkElement.closest('.item');
-  const existingChild=itemDiv.querySelector('.childList');
-  if(existingChild){existingChild.remove();linkElement.textContent=`${parentObj[linkedItemsKey].length} ${linkNoun} ▼`;}
+function toggleChildList(linkElement,linkedIds,linkedDataType,linkNoun){
+  const existingChild=linkElement.nextElementSibling?.classList.contains('childList') ? linkElement.nextElementSibling : null;
+  if(existingChild){existingChild.remove();linkElement.textContent=`${linkedIds.length} ${linkNoun} ▼`;}
   else{
     const childDiv=document.createElement('div');
     childDiv.className='childList';
-    parentObj[linkedItemsKey].forEach(cid=>{
+    linkedIds.forEach(cid=>{
       const childItem=data[linkedDataType].find(c=>c.id===cid);
       if(childItem){
         const p=document.createElement('div');
-        p.textContent=childItem.title;
+        p.innerHTML=`<strong>${childItem.title}</strong><br><span>${childItem.description||childItem.type||''}</span>`;
         p.className='childItem';
         p.onclick=e=>{e.stopPropagation();selectLinkedItem(childItem.id, linkedDataType==='capabilities'?'cap':linkedDataType==='gaps'?'gap':'res');};
         childDiv.appendChild(p);
