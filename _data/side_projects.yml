@@ -1,3 +1,9 @@
+- title: "Hollman and Dilworth Project Controls Lab"
+  description: "Tabbed GitHub Pages lab for schedule-spine attempts: Dilworth lanes, Hollman 2024, review loops, and future project-controls cases."
+  origin: "Codex from Claude share"
+  tags: [schedule, project-controls, posets, github-pages, side-project]
+  path: "https://lawrencerowland.github.io/hollman-dilworth-project-controls/"
+
 - title: "CSV to Gantt"
   description: "Side project created by ChatGPT's Operator using Deep Research and Codex"
   origin: "ChatGPT's Operator"
