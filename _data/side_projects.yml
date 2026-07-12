@@ -9,3 +9,9 @@
   origin: "ChatGPT's Operator"
   tags: [gantt, csv, side-project]
   path: "https://lawrencerowland.github.io/csv-to-gantt/"
+
+- title: "Which way is quickest to exit Hinton House?"
+  description: "Interactive walking-time isobars by floor around Hinton House in Warrington."
+  origin: "User-provided HTML"
+  tags: [mapping, leaflet, side-project]
+  path: "/which-way-is-quickest-to-exit-hinton-house.html"

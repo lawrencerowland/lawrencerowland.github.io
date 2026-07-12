@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hinton House (Warrington) — Walking-time isobars per floor</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100%; width: 100%; }
+    .controlPane {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 9999;
+      background: rgba(255,255,255,0.92);
+      padding: 10px;
+      border-radius: 6px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      max-width: 320px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      line-height: 1.25;
+    }
+    .row { display: flex; align-items: center; justify-content: space-between; margin: 6px 0; }
+    .row label { font-weight: 600; margin-right: 8px; }
+    .row input { width: 120px; }
+    .small { font-size: 12px; color: #333; margin-top: 6px; }
+    .btn {
+      display: inline-block;
+      padding: 6px 10px;
+      background: #0b5cff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 6px;
+      width: 100%;
+    }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .warn { color: #b10; font-weight: 700; }
+  </style>
+</head>
+
+<body>
+<div id="map"></div>
+
+<div class="controlPane">
+  <div class="row">
+    <label for="floorSel">Floor</label>
+    <select id="floorSel">
+      <option value="0">Ground</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <label for="speed">Speed (m/s)</label>
+    <input id="speed" type="number" min="0.2" max="3.0" step="0.1" value="1.3" />
+  </div>
+
+  <div class="row">
+    <label for="vert">Vertical penalty</label>
+    <input id="vert" type="number" min="0" max="120" step="5" value="30" />
+  </div>
+
+  <div class="row">
+    <label for="thresh">Isobars (min)</label>
+    <input id="thresh" type="text" value="0.5,1,1.5,2,3,4,5" />
+  </div>
+
+  <button class="btn" id="recomputeBtn" disabled>Recompute</button>
+
+  <div class="small">
+    Move the entrance marker (drag or map-click) — contours update on release.<br/>
+    Outside-mask cells are excluded, so the field stays inside the footprint.
+  </div>
+  <div class="small warn" id="status">Loading building footprint…</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/osmtogeojson@3.0.0/osmtogeojson.js"></script>
+<script src="https://unpkg.com/@turf/helpers@6.5.0/dist/js/index.min.js"></script>
+<script src="https://unpkg.com/@turf/boolean-point-in-polygon@6.5.0/dist/js/index.min.js"></script>
+<script src="https://unpkg.com/d3-contours@3.0.1/dist/d3-contours.min.js"></script>
+
+<script>
+(function() {
+  const STATUS = document.getElementById('status');
+  function setStatus(msg, isWarn=false) {
+    STATUS.textContent = msg;
+    STATUS.classList.toggle('warn', !!isWarn);
+  }
+
+  const map = L.map('map');
+  const TILE = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Hinton House vicinity (Hinton House entrance in public waypoint lists)
+  const initLatLng = [53.427995, -2.532070];
+  map.setView(initLatLng, 18);
+
+  // Controls
+  const floorSel = document.getElementById('floorSel');
+  const speedInput = document.getElementById('speed');
+  const vertInput = document.getElementById('vert');
+  const threshInput = document.getElementById('thresh');
+  const recomputeBtn = document.getElementById('recomputeBtn');
+
+  // Entrance marker — we NEVER replace it (so handlers stay attached).
+  const entranceMarker = L.marker(initLatLng, { draggable: true }).addTo(map);
+  entranceMarker.bindPopup('Entrance (drag me)', { closeButton: false }).openPopup();
+
+  // Allow clicking inside the building footprint to move the marker, but keep same marker instance.
+  map.on('click', (e) => {
+    entranceMarker.setLatLng(e.latlng);
+    recompute();
+  });
+  entranceMarker.on('dragend', recompute);
+
+  let buildingFeatures = [];  // GeoJSON Polygons + MultiPolygons
+  let buildingLayer = null;
+
+  // Cost-distance grid state
+  let originX = 0, originY = 0;
+  let step = 2.5; // meters (2.5m gives good fidelity without being too heavy)
+  let gridW = 0, gridH = 0;
+  let mask = null; // Uint8Array: 1=inside footprint, 0=outside
+  let baseTime = null; // Float32Array: shortest time to reach each cell, seconds; outside mask NaN
+  let contourLayers = [];
+
+  function degToRad(d) { return d * Math.PI / 180; }
+  // Simple local projection (Equirectangular with scale-corrected lon)
+  function project(lon, lat, lat0) {
+    const R = 6378137;
+    const x = degToRad(lon) * R * Math.cos(degToRad(lat0));
+    const y = degToRad(lat) * R;
+    return [x, y];
+  }
+  function unproject(x, y, lat0) {
+    const R = 6378137;
+    const lat = (y / R) * (180 / Math.PI);
+    const lon = (x / (R * Math.cos(degToRad(lat0)))) * (180 / Math.PI);
+    return [lon, lat];
+  }
+
+  function safeParseThresholds(str) {
+    const arr = (str || '')
+      .split(',')
+      .map((s) => parseFloat(s.trim()))
+      .filter((v) => Number.isFinite(v) && v > 0)
+      .sort((a, b) => a - b);
+    return Array.from(new Set(arr)); // unique
+  }
+
+  function clearContours() {
+    contourLayers.forEach((l) => map.removeLayer(l));
+    contourLayers = [];
+  }
+
+  function withTimeout(ms, promise) {
+    return Promise.race([
+      promise,
+      new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))
+    ]);
+  }
+
+  async function loadFootprint() {
+    // Overpass (tolerant: includes relation/way) near centre
+    // fallback to other endpoints if needed
+    const endpoints = [
+      'https://overpass.kumi.systems/api/interpreter',
+      'https://overpass-api.de/api/interpreter',
+      'https://lz4.overpass-api.de/api/interpreter'
+    ];
+
+    // Bounding box by "around" is the simplest: 350m radius
+    const q = `
+[out:json][timeout:25];
+(
+  way["building"](around:350,53.4280,-2.5320);
+  relation["building"](around:350,53.4280,-2.5320);
+);
+out body;
+>;
+out skel qt;
+`.trim();
+
+    let geo = null;
+    let lastErr = null;
+
+    for (const ep of endpoints) {
+      try {
+        setStatus(`Fetching footprint… (${ep})`);
+        const res = await withTimeout(20000, fetch(ep, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: `data=${encodeURIComponent(q)}`
+        }));
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const gj = osmtogeojson(data);
+        // Keep only polygonal building geometries (ways and relations) and exclude tiny sheds.
+        const polys = gj.features
+          .filter((f) => {
+            if (!f || !f.geometry) return false;
+            return f.geometry.type === 'Polygon' || f.geometry.type === 'MultiPolygon';
+          });
+
+        if (!polys.length) throw new Error('No building polygons returned');
+        geo = { type: 'FeatureCollection', features: polys };
+        break;
+      } catch (err) {
+        lastErr = err;
+        setStatus(`Overpass fetch failed (${ep}): ${err.message}`, true);
+      }
+    }
+
+    if (!geo) {
+      throw new Error(`Could not load footprint from Overpass (last error: ${lastErr && lastErr.message})`);
+    }
+    return geo;
+  }
+
+  function buildMaskAndGrid() {
+    // compute footprint bbox + margin in projected meters
+    const lat0 = initLatLng[0];
+    const pts = [];
+
+    // Collect all polygon coords
+    for (const f of buildingFeatures) {
+      const g = f.geometry;
+      if (g.type === 'Polygon') {
+        pts.push(...g.coordinates.flat());
+      } else if (g.type === 'MultiPolygon') {
+        pts.push(...g.coordinates.flat(2));
+      }
+    }
+    let minX = +Infinity, maxX = -Infinity, minY = +Infinity, maxY = -Infinity;
+    pts.forEach(([lon, lat]) => {
+      const [x, y] = project(lon, lat, lat0);
+      minX = Math.min(minX, x);
+      maxX = Math.max(maxX, x);
+      minY = Math.min(minY, y);
+      maxY = Math.max(maxY, y);
+    });
+
+    const margin = 15; // meters
+    minX -= margin; minY -= margin;
+    maxX += margin; maxY += margin;
+
+    originX = minX;
+    originY = minY;
+    gridW = Math.max(1, Math.ceil((maxX - minX) / step));
+    gridH = Math.max(1, Math.ceil((maxY - minY) / step));
+    mask = new Uint8Array(gridW * gridH);
+
+    // Cheap point-in-polygon mask: cell centers
+    for (let j = 0; j < gridH; j++) {
+      for (let i = 0; i < gridW; i++) {
+        const idx = j * gridW + i;
+        const cx = originX + (i + 0.5) * step;
+        const cy = originY + (j + 0.5) * step;
+        const [lon, lat] = unproject(cx, cy, lat0);
+        // If inside any building poly, mark.
+        let inside = false;
+        for (const f of buildingFeatures) {
+          if (turf.booleanPointInPolygon([lon, lat], f)) { inside = true; break; }
+        }
+        mask[idx] = inside ? 1 : 0;
+      }
+    }
+  }
+
+  function buildBuildingLayer(geo) {
+    if (buildingLayer) map.removeLayer(buildingLayer);
+    buildingLayer = L.geoJSON(geo, {
+      style: { color: '#333', weight: 1, fill: false }
+    }).addTo(map);
+  }
+
+  function findSeedCell(lon, lat) {
+    const lat0 = initLatLng[0];
+    const [x, y] = project(lon, lat, lat0);
+    let i = Math.floor((x - originX) / step);
+    let j = Math.floor((y - originY) / step);
+
+    // If outside grid, clamp
+    i = Math.max(0, Math.min(gridW - 1, i));
+    j = Math.max(0, Math.min(gridH - 1, j));
+
+    // If outside mask, walk outward in spiral until we hit an inside cell.
+    if (mask[j * gridW + i] === 1) return { i, j };
+
+    const maxR = Math.max(gridW, gridH);
+    for (let r = 1; r <= maxR; r++) {
+      for (let dj = -r; dj <= r; dj++) {
+        const top = j - r, bottom = j + r;
+        const left = i - r, right = i + r;
+        const jj1 = top, jj2 = bottom;
+        const ii1 = i + dj, ii2 = i + dj;
+
+        // top row
+        if (jj1 >= 0 && jj1 < gridH) {
+          const ii = i + dj;
+          if (ii >= 0 && ii < gridW && mask[jj1 * gridW + ii]) return { i: ii, j: jj1 };
+        }
+        // bottom row
+        if (jj2 >= 0 && jj2 < gridH) {
+          const ii = i + dj;
+          if (ii >= 0 && ii < gridW && mask[jj2 * gridW + ii]) return { i: ii, j: jj2 };
+        }
+      }
+      for (let di = -r + 1; di <= r - 1; di++) {
+        const ii = i - r, ii2 = i + r;
+        const jj = j + di, jj2 = j + di;
+        if (ii >= 0 && ii < gridW && jj >= 0 && jj < gridH && mask[jj * gridW + ii]) return { i: ii, j: jj };
+        if (ii2 >= 0 && ii2 < gridW && jj2 >= 0 && jj2 < gridH && mask[jj2 * gridW + ii2]) return { i: ii2, j: jj2 };
+      }
+    }
+    throw new Error('Entrance seed cannot be placed (mask is empty)');
+  }
+
+  function computeBaseTime(lon, lat) {
+    const speed = Number(speedInput.value) || 1.3; // m/s
+    const seed = findSeedCell(lon, lat);
+
+    // Distance cost, then divide by speed for seconds (but keep as seconds in gridTime)
+    const dist = new Float32Array(gridW * gridH);
+    const INF = 1e30;
+    dist.fill(INF);
+    const speedInv = 1.0 / speed;
+
+    // Binary heap priority queue (min-heap) for Dijkstra
+    const heapDist = [];
+    const heapId = [];
+    function heapPush(d, id) {
+      heapDist.push(d);
+      heapId.push(id);
+      let k = heapDist.length - 1;
+      while (k > 0) {
+        const p = (k - 1) >> 1;
+        if (heapDist[p] <= heapDist[k]) break;
+        [heapDist[p], heapDist[k]] = [heapDist[k], heapDist[p]];
+        [heapId[p], heapId[k]] = [heapId[k], heapId[p]];
+        k = p;
+      }
+    }
+    function heapPop() {
+      const d0 = heapDist[0], id0 = heapId[0];
+      const lastD = heapDist.pop();
+      const lastId = heapId.pop();
+      if (heapDist.length > 0) {
+        heapDist[0] = lastD;
+        heapId[0] = lastId;
+        let k = 0;
+        while (true) {
+          const l = 2 * k + 1, r = l + 1;
+          let m = k;
+          if (l < heapDist.length && heapDist[l] < heapDist[m]) m = l;
+          if (r < heapDist.length && heapDist[r] < heapDist[m]) m = r;
+          if (m === k) break;
+          [heapDist[k], heapDist[m]] = [heapDist[m], heapDist[k]];
+          [heapId[k], heapId[m]] = [heapId[m], heapId[k]];
+          k = m;
+        }
+      }
+      return { d: d0, id: id0 };
+    }
+
+    const seedIdx = seed.j * gridW + seed.i;
+    dist[seedIdx] = 0;
+    heapPush(0, seedIdx);
+
+    const offsets = [
+      [-1, 0, 1], [1, 0, 1],
+      [0, -1, 1], [0, 1, 1],
+      [-1, -1, Math.SQRT2],
+      [1, -1, Math.SQRT2],
+      [-1, 1, Math.SQRT2],
+      [1, 1, Math.SQRT2]
+    ];
+
+    let iterations = 0;
+    while (heapDist.length) {
+      iterations++;
+      const { d: curDist, id } = heapPop();
+      if (curDist !== dist[id]) continue; // outdated
+      const i = id % gridW;
+      const j = Math.floor(id / gridW);
+
+      // pruning optional: none
+      for (let k = 0; k < offsets.length; k++) {
+        const di = offsets[k][0], dj = offsets[k][1];
+        const w = offsets[k][2] * step;
+        const ii = i + di, jj = j + dj;
+        if (ii < 0 || ii >= gridW || jj < 0 || jj >= gridH) continue;
+        const nid = jj * gridW + ii;
+        if (mask[nid] === 0) continue;
+        const nd = curDist + w;
+        if (nd < dist[nid]) {
+          dist[nid] = nd;
+          heapPush(nd, nid);
+        }
+      }
+    }
+
+    // convert to seconds, setting outside mask to NaN
+    baseTime = new Float32Array(gridW * gridH);
+    for (let idx = 0; idx < dist.length; idx++) {
+      if (mask[idx] === 0 || dist[idx] >= INF) baseTime[idx] = NaN;
+      else baseTime[idx] = dist[idx] * speedInv;
+    }
+  }
+
+  function drawContours() {
+    if (!baseTime) return;
+
+    const floor = Number(floorSel.value) || 0;
+    const vertPenalty = Math.max(0, Number(vertInput.value) || 0);
+    const thresholdsMin = safeParseThresholds(threshInput.value);
+    if (!thresholdsMin.length) {
+      setStatus('No isobar thresholds', true);
+      return;
+    }
+
+    const timeOffset = floor * vertPenalty; // seconds offset to the whole field
+    // compute thresholds in seconds; if any <= offset, treat as requiring recalibration
+    const thresholdsSec = thresholdsMin
+      .map((min) => min * 60)
+      .filter((sec) => sec > timeOffset);
+
+    if (!thresholdsSec.length) {
+      setStatus('All thresholds below the floor penalty; increase thresholds or decrease penalty.', true);
+      clearContours();
+      return;
+    }
+
+    clearContours();
+    setStatus('Contouring…');
+
+    // d3-contours expects a flat array in row-major (x varies fastest? actually d3 expects [size(x, y)] and values array length = x*y
+    const contourGen = d3.contours()
+      .size([gridW, gridH])
+      .thresholds(thresholdsSec);
+
+    const shiftedTime = new Float32Array(baseTime.length);
+    for (let i = 0; i < baseTime.length; i++) shiftedTime[i] = baseTime[i] + timeOffset;
+
+    const polys = contourGen(shiftedTime);
+
+    const lat0 = initLatLng[0];
+    // Build Leaflet layers
+    polys.forEach((poly, idx) => {
+      // poly.value is threshold in seconds
+      // d3 generates MultiPolygon: [ [ [x,y], ... ], ... ] in "grid coordinates"
+      if (poly.coordinates.length === 0) return;
+
+      const gj = {
+        type: 'Feature',
+        properties: { thresholdSec: poly.value, thresholdMin: poly.value / 60 },
+        geometry: {
+          type: 'MultiPolygon',
+          coordinates: poly.coordinates.map((polygon) =>
+            polygon.map((ring) =>
+              ring.map(([x, y]) => {
+                const cx = originX + (x + 0.5) * step;
+                const cy = originY + (y + 0.5) * step;
+                const [lon, lat] = unproject(cx, cy, lat0);
+                return [lon, lat];
+              })
+            )
+          )
+        }
+      };
+
+      // For readability: contour color from threshold.
+      const hue = (poly.value / (thresholdsSec[thresholdsSec.length - 1] + 1)) * 240;
+      const color = `hsl(${Math.max(0, Math.min(240, hue))}, 70%, 50%)`;
+
+      const layer = L.geoJSON(gj, {
+        style: { color, weight: 2, fill: false, opacity: 0.85 },
+        onEachFeature: (feature, lyr) => {
+          const tmin = feature.properties.thresholdMin.toFixed(2);
+          lyr.bindTooltip(`${tmin} min`, { sticky: true });
+        }
+      }).addTo(map);
+      contourLayers.push(layer);
+    });
+
+    setStatus('Ready');
+  }
+
+  function recompute() {
+    if (!mask || !buildingFeatures.length) return;
+    clearContours();
+    setStatus('Computing distances…');
+
+    try {
+      const ll = entranceMarker.getLatLng();
+      computeBaseTime(ll.lng, ll.lat);
+      drawContours();
+    } catch (err) {
+      setStatus(`Recompute error: ${err.message}`, true);
+    }
+  }
+
+  // UI recompute triggers
+  recomputeBtn.addEventListener('click', () => recompute());
+  [floorSel, speedInput, vertInput, threshInput].forEach((el) => {
+    el.addEventListener('change', () => {
+      // Changing speed changes baseTime scaling; we can just recompute (seed cell same).
+      recompute();
+    });
+  });
+
+  // Load footprint then precompute mask
+  (async function init() {
+    setStatus('Loading footprint…');
+    let gj;
+    try {
+      gj = await loadFootprint();
+    } catch (err) {
+      setStatus(`Failed: ${err.message}`, true);
+      return;
+    }
+
+    buildingFeatures = gj.features;
+    buildBuildingLayer(gj);
+    setStatus('Building mask…');
+    buildMaskAndGrid();
+
+    // initial compute at default entrance
+    recomputeBtn.disabled = false;
+    recompute();
+  })();
+})();
+</script>
+</body>
+</html>
