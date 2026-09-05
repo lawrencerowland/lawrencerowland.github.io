@@ -40,7 +40,12 @@ const elements = {
   'foray-count': { textContent: '' }
 };
 const script = fs.readFileSync('assets/forays.js', 'utf8');
-const run = () => vm.runInNewContext(script, { document: { getElementById: id => elements[id] } });
+const windowEvents = {};
+const window = {
+  addEventListener: (event, handler) => { windowEvents[event] = handler; },
+  requestAnimationFrame: handler => handler()
+};
+const run = () => vm.runInNewContext(script, { document: { getElementById: id => elements[id] }, window });
 run();
 assert.equal(elements['foray-filter'].hidden, false);
 assert.equal(elements['foray-count'].textContent, '14 of 14 projects shown');
@@ -59,6 +64,11 @@ assert.ok(cards.every(card => !card.hidden));
 elements['foray-topic'].value = 'schedule';
 run();
 assert.equal(elements['foray-topic'].value, 'all', 'reload restores the complete directory');
+elements['foray-topic'].value = 'category-theory';
+windowEvents.pageshow();
+assert.equal(elements['foray-topic'].value, 'all', 'history restoration cannot leave a stale selector');
+assert.ok(cards.every(card => !card.hidden));
+assert.equal(elements['foray-count'].textContent, '14 of 14 projects shown');
 vm.runInNewContext(script, { document: { getElementById: () => null } });
 
 if (process.argv[2]) {
