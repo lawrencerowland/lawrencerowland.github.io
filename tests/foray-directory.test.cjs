@@ -43,7 +43,7 @@ const script = fs.readFileSync('assets/forays.js', 'utf8');
 const windowEvents = {};
 const window = {
   addEventListener: (event, handler) => { windowEvents[event] = handler; },
-  requestAnimationFrame: handler => handler()
+  setTimeout: handler => handler()
 };
 const run = () => vm.runInNewContext(script, { document: { getElementById: id => elements[id] }, window });
 run();
@@ -81,6 +81,7 @@ if (process.argv[2]) {
   }
   assert.ok(html.includes('href="/gpt-links-page.html"'));
   assert.ok(html.includes('href="/all-project-apps.html"'));
-  assert.ok(html.includes('src="/assets/forays.js"'));
+  assert.match(html, /src="\/assets\/forays\.js\?v=\d+"/);
+  assert.ok(html.includes('id="foray-topic" autocomplete="off"'));
 }
 console.log('PASS: 14 unique cards, three groups, all topic filters, empty state, reset and optional rendered-page checks.');
