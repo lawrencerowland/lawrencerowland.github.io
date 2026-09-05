@@ -1,8 +1,8 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="logo" href="{{ '/' | relative_url }}">Home</a>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <ul class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav-links">&#9776;</button>
+    <ul class="nav-links" id="main-nav-links">
       <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
       <li><a href="https://lawrencerowland.github.io/Tag_Concurrence_Graph/">Concepts graph</a></li>
       <li><a href='https://lawrencerowland.github.io/Project-web-apps/'>Project apps</a></li>
@@ -32,6 +32,7 @@
     const links = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => {
       links.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', String(links.classList.contains('show')));
     });
   });
 </script>
