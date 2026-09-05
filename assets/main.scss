@@ -188,6 +188,7 @@ sup.footnote-ref:hover .footnote-popup {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   padding: 0.5rem 1rem;
 }
 .nav-links {
@@ -195,6 +196,9 @@ sup.footnote-ref:hover .footnote-popup {
   margin: 0;
   padding: 0;
   display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 .nav-links li {
   margin-left: 1rem;
@@ -208,8 +212,12 @@ sup.footnote-ref:hover .footnote-popup {
   border: none;
 }
 @media (max-width: 600px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
   .nav-links {
     display: none;
+    flex: 1 0 100%;
     flex-direction: column;
     width: 100%;
     background: #fff;
