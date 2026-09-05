@@ -26,4 +26,13 @@
   select.addEventListener('change', applyFilter);
   filter.hidden = false;
   applyFilter();
+
+  // Browsers can restore a select value after history navigation without firing change.
+  // Reset after that restoration so the control, visible cards and count agree.
+  window.addEventListener('pageshow', () => {
+    window.requestAnimationFrame(() => {
+      select.value = 'all';
+      applyFilter();
+    });
+  });
 })();
