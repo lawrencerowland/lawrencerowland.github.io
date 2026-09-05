@@ -22,7 +22,7 @@ wide: true
 
   <div class="foray-filter" id="foray-filter" hidden>
     <label for="foray-topic">Filter by topic</label>
-    <select id="foray-topic">
+    <select id="foray-topic" autocomplete="off">
       <option value="all">All topics</option>
       {% assign all_tags = site.data.side_projects | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
       {% for tag in all_tags %}
@@ -70,4 +70,4 @@ wide: true
   {% endfor %}
   <p class="foray-note">For individual tools from the two general app libraries, use the <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>.</p>
 </div>
-<script src="{{ '/assets/forays.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/forays.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
