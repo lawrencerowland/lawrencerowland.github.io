@@ -226,3 +226,33 @@ sup.footnote-ref:hover .footnote-popup {
   }
 }
 
+
+/* Foray directory: scoped additions preserve the rest of the site. */
+.foray-directory {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+.foray-directory [hidden] { display: none !important; }
+.foray-intro { border-bottom: 3px solid #703030; padding-bottom: 1.25rem; }
+.foray-note, .foray-origin { color: #555; font-size: 0.9rem; }
+.foray-sections { display: flex; flex-wrap: wrap; gap: 0.6rem 1.3rem; margin-top: 1rem; }
+.foray-filter { margin: 1.5rem 0; }
+.foray-filter label { display: block; font-weight: bold; margin-bottom: 0.4rem; }
+.foray-filter select { max-width: 100%; min-height: 2.75rem; padding: 0.5rem; font: inherit; background: #fff; color: #333; border: 1px solid #777; }
+#foray-count { display: inline-block; margin: 0.5rem 0 0.5rem 1rem; font-size: 0.9rem; }
+.foray-group { margin: 2rem 0; scroll-margin-top: 1rem; }
+.foray-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+.foray-card { display: flex; flex-direction: column; border-top: 3px solid #703030; border-radius: 0.25rem; }
+.foray-card h3 { font-size: 1.2rem; line-height: 1.35; margin: 0 0 0.8rem; }
+.foray-question { font-weight: bold; }
+.foray-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 1rem; list-style: none; padding: 0; }
+.foray-tags li { background: #f3eeee; padding: 0.15rem 0.5rem; border-radius: 0.2rem; font-size: 0.875rem; }
+.foray-action { margin-top: auto; margin-bottom: 0; padding-top: 0.5rem; font-weight: bold; }
+.foray-action a { display: inline-block; padding: 0.5rem 0; }
+.foray-related { margin: 0.65rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.foray-empty { padding: 1rem; background: #f5f5f5; }
+.foray-directory a:focus-visible, .foray-directory select:focus-visible { outline: 3px solid #703030; outline-offset: 3px; }
+@media (max-width: 38rem) {
+  .foray-grid { grid-template-columns: minmax(0, 1fr); }
+  #foray-count { display: block; margin-left: 0; }
+}

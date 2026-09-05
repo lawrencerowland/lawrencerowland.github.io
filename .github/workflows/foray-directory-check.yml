@@ -1,0 +1,43 @@
+name: Check foray directory
+
+on:
+  pull_request:
+    paths:
+      - '_data/side_projects.yml'
+      - '_includes/**'
+      - '_layouts/**'
+      - 'side-projects.md'
+      - 'index.md'
+      - 'assets/**'
+      - 'tests/foray-directory.test.cjs'
+      - '.github/workflows/foray-directory-check.yml'
+  push:
+    branches: [master]
+    paths:
+      - '_data/side_projects.yml'
+      - '_includes/**'
+      - '_layouts/**'
+      - 'side-projects.md'
+      - 'index.md'
+      - 'assets/**'
+      - 'tests/foray-directory.test.cjs'
+      - '.github/workflows/foray-directory-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check directory data and filtering
+        run: node tests/foray-directory.test.cjs
+      - name: Build the existing Jekyll site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Check the rendered directory
+        run: node tests/foray-directory.test.cjs _site/side-projects.html

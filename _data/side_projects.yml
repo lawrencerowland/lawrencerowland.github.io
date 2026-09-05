@@ -1,11 +1,116 @@
+- title: "Gimmer: processes to plans"
+  group: "featured"
+  question: "Can different processes produce the same plan?"
+  description: "Explore a mountain-refuge toy model, from Petri-net processes to WBS and schedule, including the two-process/same-plan comparison."
+  tags: ["processes","wbs","schedule"]
+  path: "https://lawrencerowland.github.io/gimmer-crag/apps/mountain-refuge-petri-wbs-demo/"
+  action: "Open experiment"
+  related: [{"title":"Process-to-plan explanation","path":"https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/process-to-plan-lab/"}]
+
+- title: "Programme Decision Sequences"
+  group: "featured"
+  question: "How should a programme act as uncertainty unfolds?"
+  description: "A two-tab modelling lab for sequential decisions, beliefs and four policy classes. Illustrative scenarios, not forecasts or optimal-policy claims."
+  tags: ["decisions","uncertainty","programmes"]
+  path: "https://lawrencerowland.github.io/Programme-decision-sequences/"
+  action: "Open experiment"
+
+- title: "Local to Global"
+  group: "featured"
+  question: "When do local project views fit together?"
+  description: "A many-essay workbench exploring local-to-global consistency, with the Tangled Triangle as a worked scenario."
+  tags: ["consistency","wbs","category-theory"]
+  path: "https://lawrencerowland.github.io/local-to-global/"
+  action: "Open workbench"
+
 - title: "Project Spines"
-  description: "Four-tab GitHub Pages lab for schedule structure: Hollman and Dilworth theory, finite shed construction, vacillation boundaries, and a project-controls briefing."
+  group: "featured"
+  question: "What can schedule structure reveal beyond dates?"
+  description: "Six tabs on schedule spines, antichain slices, finite shed construction, review loops, vacillation boundaries and project-controls interpretation."
   origin: "Codex consolidation of the Hollman project-controls prototypes"
-  tags: [schedule, project-controls, posets, antichains, github-pages, side-project]
+  tags: ["schedule","project-controls","posets","antichains","github-pages","side-project"]
   path: "https://lawrencerowland.github.io/project-spines/"
+  action: "Open experiment"
+  related: [{"title":"Earlier Hollman–Dilworth lab","path":"https://lawrencerowland.github.io/hollman-dilworth-project-controls/"}]
+
+- title: "Portfolio Wave reading map"
+  group: "featured"
+  question: "How do sources, themes and forays connect?"
+  description: "Explore the public source–foray–tag projection through the Portfolio Wave view of the concepts graph."
+  tags: ["knowledge-graphs","sources","forays"]
+  path: "https://lawrencerowland.github.io/Tag_Concurrence_Graph/pw_best.html"
+  action: "Open map"
+
+- title: "Functors for Projects"
+  group: "library"
+  question: "How might mathematical structures illuminate project work?"
+  description: "Browse experiments in functors, adjoints, sheaves, wiring diagrams and project examples."
+  tags: ["category-theory","models","project-management"]
+  path: "https://lawrencerowland.github.io/functors-for_projects/app-index.html"
+  action: "Browse collection"
+
+- title: "Gimmer collection"
+  group: "library"
+  question: "What other approaches can the mountain-refuge scenario test?"
+  description: "The wider collection of process, planning, change and ontology experiments, alongside the featured Gimmer demonstration."
+  tags: ["processes","wbs","planning"]
+  path: "https://lawrencerowland.github.io/gimmer-crag/app-index.html"
+  action: "Browse collection"
+
+- title: "Bricklaying a Rotunda"
+  group: "library"
+  question: "How can we explore changing project states?"
+  description: "A collection of experiments around project dynamics, lenses and trajectories."
+  tags: ["dynamics","models","category-theory"]
+  path: "https://lawrencerowland.github.io/bricklaying-a-rotunda/"
+  action: "Browse collection"
+
+- title: "Building a Wall"
+  group: "library"
+  question: "How do smaller parts and agreements compose?"
+  description: "A playground for compositional models, project wiring and contracts-as-algebras."
+  tags: ["composition","models","category-theory"]
+  path: "https://lawrencerowland.github.io/building_a_wall/"
+  action: "Browse collection"
+
+- title: "Solway Tunnel Ontology"
+  group: "library"
+  question: "How can a project ontology connect to a plan?"
+  description: "Ontology and WBS experiments using a tunnel scenario, with a separate knowledge-graph audit."
+  tags: ["ontology","wbs","knowledge-graphs"]
+  path: "https://lawrencerowland.github.io/Solway_tunnel_ontology/"
+  action: "Browse collection"
+  related: [{"title":"Open the kglab ontology audit","path":"https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/kglab-ontology-audit/"}]
+
+- title: "Project Web Apps"
+  group: "library"
+  question: "Which small tool helps explain a project problem?"
+  description: "The general collection of standalone project-management tools and interactive examples."
+  tags: ["project-management","tools"]
+  path: "https://lawrencerowland.github.io/Project-web-apps/"
+  action: "Browse collection"
+
+- title: "React Project Apps"
+  group: "library"
+  question: "Which interactive model makes a project question clearer?"
+  description: "The companion collection of richer project simulations and interactive models."
+  tags: ["project-management","models","tools"]
+  path: "https://lawrencerowland.github.io/React_proj-apps/"
+  action: "Browse collection"
+
+- title: "Tag Concurrence Graph"
+  group: "library"
+  question: "Which concepts occur together in a reading collection?"
+  description: "The broader concepts-graph explorer, including views beyond the featured Portfolio Wave map."
+  tags: ["knowledge-graphs","sources"]
+  path: "https://lawrencerowland.github.io/Tag_Concurrence_Graph/"
+  action: "Browse collection"
 
 - title: "CSV to Gantt"
-  description: "Side project created by ChatGPT's Operator using Deep Research and Codex"
+  group: "other"
+  question: "Can a simple table become a Gantt chart?"
+  description: "A side project created by ChatGPT's Operator using Deep Research and Codex."
   origin: "ChatGPT's Operator"
-  tags: [gantt, csv, side-project]
+  tags: ["gantt","csv","side-project"]
   path: "https://lawrencerowland.github.io/csv-to-gantt/"
+  action: "Open project"
