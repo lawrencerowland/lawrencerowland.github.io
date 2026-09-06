@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Derive feasible staged rail upgrades and their Pareto resource frontier. An interactive co-design experiment with executable paths and explicit constraints.">
+<title>Co-design the way there · Rail staged co-design</title>
+<style>:root{--ink:#153937;--muted:#5b6d66;--paper:#f6f5ed;--white:#fffef8;--line:#d7ddd1;--green:#147669;--soft:#e5ede3;--orange:#bf6a38;--red:#a34133;--gold:#e8b273;--shadow:0 9px 30px #193b2e08}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button,a,input,select,summary{touch-action:manipulation}a{color:var(--green);text-underline-offset:4px}button{cursor:pointer}button:disabled{cursor:default;opacity:.42}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:4px}button{border:1px solid var(--line);border-radius:7px;background:var(--white);color:var(--ink);padding:9px 14px;transition:background .15s}button:hover:not(:disabled){background:var(--soft)}.skip{position:absolute;left:16px;top:-80px;background:var(--white);padding:12px;z-index:99}.skip:focus{top:10px}.top{max-width:1360px;margin:auto;padding:22px 36px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.03em}.top a{text-decoration:none}.top span{letter-spacing:.12em}.top b{padding-left:12px}.hero{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:55px;padding:58px 30px 50px;align-items:center}.eyebrow{font-size:11px;line-height:1.5;letter-spacing:.15em;font-weight:750;margin:0 0 16px;color:var(--green)}h1{font-family:Georgia,"Times New Roman",serif;font-size:76px;line-height:1.03;font-weight:400;letter-spacing:-.055em;margin:0 0 24px}h1 em{font-weight:400;color:var(--green)}h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:34px;line-height:1.18;letter-spacing:-.025em;margin:0 0 14px}h3{font-size:18px;line-height:1.35;margin:0 0 12px;font-weight:650}.lead{font-size:20px;line-height:1.5;max-width:500px;margin:0 0 22px}.quiet,.small{font-size:13px;color:var(--muted)}.quiet{margin:0}.hero-diagram{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#eef2e9;transform:rotate(-1deg)}.hero-diagram svg{width:100%;display:block}.hero-diagram text{font-size:12px;letter-spacing:1.6px;fill:var(--ink);font-weight:650}.hero-diagram .svg-light{fill:#fffef8;font-size:11px}.tabs{display:flex;justify-content:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);gap:30px}.tabs button{border:0;border-bottom:3px solid transparent;border-radius:0;background:none;padding:19px 8px;font-size:14px;font-weight:600}.tabs button[aria-selected=true]{border-bottom-color:var(--green);color:var(--green)}main{max-width:1280px;margin:0 auto;padding:36px 30px 60px}.intro-row{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:22px}.intro-row p:last-child{max-width:360px;font-size:14px;color:var(--muted);margin:0 0 14px}.intro-row .eyebrow{margin-bottom:8px}.presets{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}.presets button{font-size:13px;text-align:left;line-height:1.35;padding:13px 14px;min-height:61px}.presets button.active{background:var(--ink);color:var(--white);border-color:var(--ink)}.presets .num{display:block;font-size:10px;letter-spacing:.12em;opacity:.7;margin-bottom:6px}.preset-note{min-height:26px;font-size:14px;color:var(--muted);margin:15px 0 26px}.workspace{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start}.controls{background:#edeFE5;border:1px solid var(--line);border-radius:12px;padding:23px}.controls .panel-top{align-items:baseline;gap:10px}.controls .panel-top h3{margin:0}.controls .panel-top span{font-size:12px}.controls label:not(.check){font-size:12px;line-height:1.4;display:block;font-weight:650;margin:18px 0 7px}.controls input[type=number],.controls select{width:100%;background:var(--white);border:1px solid #bdcbbc;padding:10px;border-radius:6px;font-size:14px;color:var(--ink);min-width:0}.controls output{float:right;display:none}.field-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field-pair label{min-height:34px}.controls .check{display:flex;align-items:start;gap:8px;font-size:13px;line-height:1.5;margin-top:24px;font-weight:650}.check input{accent-color:var(--green);margin:4px 0 0;width:17px;height:17px;flex-shrink:0}.primary{background:var(--green);border-color:var(--green);color:white;font-weight:650}.primary:hover:not(:disabled){background:#0d5f55}.controls .primary{width:100%;margin-top:17px}.text-button{background:transparent;border:0;text-decoration:underline;text-underline-offset:4px;font-size:13px}.controls .text-button{width:100%;margin-top:3px}.controls .small{line-height:1.5}.error{font-size:13px;color:var(--red);background:#f9e4db;padding:10px;border-radius:5px}.results{min-width:0;display:grid;gap:22px}.panel{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:28px;box-shadow:var(--shadow)}.verdict{border-top:4px solid var(--green)}.verdict.negative{border-top-color:var(--orange)}.verdict h2{font-size:30px;margin-bottom:12px}.verdict p{font-size:15px;margin-top:0}.verdict .eyebrow{margin-bottom:10px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--line);padding-top:20px;margin-top:20px}.metric b{font-size:31px;line-height:1.1;font-weight:500;display:block;font-variant-numeric:tabular-nums}.metric span{font-size:11px;color:var(--muted);display:block;margin-top:7px}.panel-top{display:flex;align-items:start;justify-content:space-between;gap:25px}.panel-top .eyebrow{margin-bottom:8px}.panel-top h3{margin-bottom:7px}.frontier-panel .small{margin-top:0}.chart{width:100%;min-width:0}.chart svg{width:100%;height:auto;display:block;overflow:visible}.chart text{font-family:inherit;fill:var(--muted);font-size:12px}.chart .axis-label{fill:var(--ink);font-size:11px;letter-spacing:.04em}.chart .point{cursor:pointer;outline:none}.chart .point:focus{stroke:var(--orange);stroke-width:5}.plan-list{display:grid;gap:7px}.plan-choice{display:flex;justify-content:space-between;gap:12px;align-items:center;text-align:left;padding:11px 13px;font-size:13px}.plan-choice.active{background:var(--soft);border-color:var(--green);box-shadow:inset 3px 0 var(--green)}.plan-choice b{font-weight:650}.plan-choice .figures{white-space:nowrap;font-variant-numeric:tabular-nums}.plan-choice.endpoint{border-style:dashed}.plan-choice .small{margin:0;font-size:11px;display:block}.path-panel{margin-top:25px}.badge{font-size:11px;border-radius:30px;padding:7px 12px;display:inline-block;background:var(--soft);white-space:nowrap}.badge.warning{background:#f5e4d5;color:#854321}.path-panel>p{font-size:14px;color:var(--muted);margin:0 0 24px}.replay{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:26px}.replay label{white-space:nowrap;font-size:13px;min-width:60px}.replay input{flex:1;min-width:60px;accent-color:var(--green)}.replay>button:not(.text-button){min-width:42px;font-size:18px;padding:4px 10px}.path-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(240px,1fr);gap:26px;align-items:stretch}.schedule{min-width:0}.schedule-row{display:grid;grid-template-columns:98px repeat(var(--slots),minmax(0,1fr));gap:5px;margin-bottom:7px;align-items:stretch}.schedule-label{font-size:12px;display:flex;align-items:center;line-height:1.2;color:var(--muted)}.schedule-cell{min-height:43px;border:1px solid #e2e6dd;border-radius:5px;background:#f3f4ec;text-align:center;font-size:11px;line-height:1.25;padding:5px 1px;display:flex;align-items:center;justify-content:center;overflow-wrap:anywhere}.schedule-cell.work{background:#e3eee8;border-color:#bdd3c6;font-weight:650}.schedule-cell.power{background:#f4e4d2;border-color:#e6c79f}.schedule-cell.current{outline:2px solid var(--green);outline-offset:0}.schedule-cell.done{opacity:.62}.schedule-row.headers .schedule-cell{background:none;border:0;min-height:26px;padding:3px;font-size:11px}.slot-card{background:#f0f2e9;border-radius:8px;padding:20px;font-size:13px}.slot-card h3{font-size:18px}.slot-card ul{padding-left:18px;margin:12px 0}.slot-card .state-bands{display:flex;gap:8px;margin:14px 0}.state-bands div{flex:1;text-align:center;background:var(--white);border:1px solid var(--line);padding:8px 2px;border-radius:5px}.state-bands b{font-size:25px;display:block;font-weight:500}.state-bands span{font-size:10px}.service-chart{margin-top:30px;max-width:100%}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:12px;line-height:1.5}th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 9px;vertical-align:top}th{font-size:11px;color:var(--muted);font-weight:650}details{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}summary{cursor:pointer;font-size:14px;font-weight:650;padding:5px 0}details p{font-size:14px}.comparison{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding:42px 10px}.comparison article{padding-left:19px;border-left:1px solid #becbbd}.step-number{font-family:Georgia,serif;color:var(--orange);font-size:28px}.comparison h3{margin:13px 0}.comparison p{font-size:14px;color:var(--muted);margin:0}.receipt{display:grid;grid-template-columns:1fr 235px;gap:35px;background:#e9eee3;border:1px solid var(--line);border-radius:10px;padding:26px}.receipt h3{margin-bottom:8px}.receipt p{font-size:13px;margin:6px 0}.receipt-actions{display:grid;gap:8px;align-content:start}.receipt-actions button{font-size:13px}.receipt label{font-size:12px;grid-column:1/-1}.receipt input{display:block;width:100%;padding:10px;margin-top:6px;border:1px solid var(--line)}.prose{max-width:930px;margin:12px auto;font-size:17px}.prose>h2{font-size:52px;max-width:750px}.prose .standfirst{font-size:22px;color:var(--muted);line-height:1.5}.prose h3{margin-top:35px;font-size:21px}.prose p{margin-bottom:20px}.method-flow{display:flex;align-items:center;gap:15px;margin:35px 0}.method-flow>div{flex:1;border:1px solid var(--line);border-radius:8px;background:var(--white);padding:20px}.method-flow b,.method-flow span:not(.arrow){display:block;font-size:13px}.method-flow b{margin-bottom:9px}.method-flow span:not(.arrow){color:var(--muted)}.equation{border-left:3px solid var(--green);background:var(--white);padding:25px;font:22px/1.5 Georgia,serif;margin:25px 0;overflow-wrap:anywhere}.source-card{display:flex;gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}.source-card h3{margin:0 0 14px}.source-card p{font-size:15px}.source-card a{font-size:14px}.source-number{font:30px Georgia,serif;color:var(--orange)}.source-card ul{padding-left:20px}.source-card li{margin:8px 0}footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;padding:28px 35px;font-size:10px;letter-spacing:.08em;color:var(--muted)}[hidden]{display:none!important}.rejection-list{display:grid;gap:10px;margin:20px 0}.rejection-list div{border-left:3px solid var(--orange);padding:10px 16px;background:#f5eadc}.rejection-list b{font-size:14px}.rejection-list p{font-size:13px;margin:4px 0}.warning-text{color:var(--red)}
+@media(max-width:1000px){.hero{gap:25px}h1{font-size:62px}.workspace{grid-template-columns:245px minmax(0,1fr);gap:16px}.controls{padding:18px}.panel{padding:22px}.path-grid{grid-template-columns:1fr}.slot-card{display:block}.metrics{gap:10px}.metric b{font-size:27px}}
+@media(max-width:720px){.top{padding:16px 20px}.top>span{display:none}.hero{grid-template-columns:1fr;padding:36px 22px 30px;gap:28px}.hero-diagram{max-width:500px;width:100%;justify-self:center}.hero-diagram svg{max-height:245px}h1{font-size:60px}.lead{font-size:18px}.tabs{gap:0;justify-content:space-around}.tabs button{font-size:12px;padding:15px 8px;max-width:33%;line-height:1.3}main{padding:26px 16px 40px}.intro-row{display:block}.intro-row p:last-child{max-width:none;font-size:13px}.presets{grid-template-columns:repeat(2,1fr);gap:7px}.presets button{min-height:60px;padding:11px}.workspace{grid-template-columns:1fr}.controls form{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}.controls .panel-top,.controls .small,.controls .check,.controls .primary,.controls .text-button,.controls .error{grid-column:1/-1}.controls form>label:not(.check){margin:10px 0 -3px;grid-column:1/-1}.controls form>input,.controls form>select,.field-pair{grid-column:1/-1}.controls .panel-top+.small{margin:0}.controls .check{margin-top:14px}.controls .small{margin:3px 0}.panel{padding:20px 17px}.verdict h2{font-size:29px}.panel-top{gap:13px;flex-wrap:wrap}.metrics{gap:12px}.metric b{font-size:27px}.metric span{font-size:10px}.plan-choice{font-size:12px;padding:10px;gap:8px}.plan-choice .figures{font-size:11px}.replay{gap:7px;flex-wrap:wrap}.replay label{min-width:48px}.replay .text-button{padding:6px 0}.schedule-row{grid-template-columns:68px repeat(var(--slots),minmax(0,1fr));gap:3px}.schedule-label{font-size:10px}.schedule-cell{font-size:9px;min-height:37px;letter-spacing:-.02em}.comparison{grid-template-columns:1fr;gap:23px;padding:30px 8px}.comparison article{padding-left:16px}.comparison .step-number{float:left;margin-right:14px}.comparison h3{margin:4px 0 12px}.receipt{grid-template-columns:1fr;gap:18px;padding:22px}.receipt-actions{grid-template-columns:1fr 1fr}.receipt-actions p{grid-column:1/-1}.prose>h2{font-size:40px}.prose{font-size:16px}.prose .standfirst{font-size:20px}.method-flow{flex-direction:column;align-items:stretch;gap:9px}.method-flow .arrow{text-align:center;transform:rotate(90deg)}.source-card{gap:14px}.source-card h3{font-size:20px}.source-card p{font-size:14px}footer{padding:22px 18px;flex-direction:column;gap:12px}.chart text{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.controls>details{margin:0;border:0;padding:0}.controls>details>summary{font-size:14px;padding:0 0 16px}.controls>details:not([open])>summary{padding:0}.projection-note{font-size:13px;background:#eaf0e5;border-left:3px solid var(--green);padding:14px;margin:17px 0 0;line-height:1.6}.schedule{overflow-x:auto}.schedule-row{min-width:310px}@media(min-width:721px){.controls>details>summary{font-size:12px;color:var(--muted)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to experiment</a>
+<header class="top"><a href="../index.html">← Co-design home</a><span>PORTFOLIO WAVE <b>180 / 182</b></span><a href="#sources" data-open="sources">Sources & lineage ↗</a></header>
+<section class="hero" aria-labelledby="title">
+ <div><p class="eyebrow">MONOTONE CO-DESIGN · AN EXECUTABLE FORAY</p><h1 id="title">Co-design<br>the <em>way there.</em></h1><p class="lead">An affordable finished railway can still have no acceptable route to completion. Make the stages part of the design.</p><p class="quiet">A fictional corridor. Three capacity bands. Exact finite calculations.</p></div>
+ <div class="hero-diagram" aria-label="Platform, signalling and power must jointly support the service provided, with access enabling their construction">
+  <svg viewBox="0 0 560 320" role="img"><title>Design the railway and its delivery path together</title><defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#dfe7e2" stroke-width=".6"/></pattern></defs><rect width="560" height="320" fill="url(#grid)"/><path d="M30 230H528M30 248H528" stroke="#234a48" stroke-width="3"/><path d="M40 230V248M68 230V248M96 230V248M124 230V248M152 230V248M180 230V248M208 230V248M236 230V248M264 230V248M292 230V248M320 230V248M348 230V248M376 230V248M404 230V248M432 230V248M460 230V248M488 230V248M516 230V248" stroke="#234a48" stroke-width="2"/><path d="M65 222V183H200V222M230 222V138M226 138H252V170H226M365 222V146L388 100L411 146V222M370 162H406M374 146H402M380 126H396M388 100V80M388 109L493 141" fill="none" stroke="#234a48" stroke-width="4"/><rect x="80" y="165" width="108" height="20" rx="3" fill="#d99966"/><circle cx="239" cy="149" r="5" fill="#268779"/><circle cx="239" cy="160" r="4" fill="#cad6cb"/><text x="62" y="52">PLATFORMS</text><text x="211" y="52">SIGNALLING</text><text x="377" y="52">POWER</text><path d="M129 65V135M269 65V122M410 65V97" stroke="#8e9d93" stroke-dasharray="3 5"/><rect x="55" y="272" width="450" height="31" rx="15" fill="#234a48"/><text x="280" y="292" text-anchor="middle" fill="white" class="svg-light">SERVICE MUST SURVIVE THE JOURNEY</text></svg>
+ </div>
+</section>
+<nav class="tabs" aria-label="Experiment sections"><button type="button" data-tab="explore" aria-selected="true">Explore the paths</button><button type="button" data-tab="method" aria-selected="false">The conceptual move</button><button type="button" data-tab="sources" aria-selected="false">Sources & earlier attempts</button></nav>
+<main id="main">
+<section id="explore" class="tabpanel">
+ <div class="intro-row"><div><p class="eyebrow">START WITH A COUNTEREXAMPLE</p><h2>Can this design be delivered?</h2></div><p>Choose a case, then change the constraints. Every retained option includes a construction path.</p></div>
+ <div id="presets" class="presets" aria-label="Worked experiments"></div>
+ <p id="preset-note" class="preset-note"></p>
+ <div class="workspace">
+ <aside class="controls"><details id="brief-disclosure" open><summary>Change the brief</summary><form id="settings" novalidate><div class="panel-top"><h3>The brief</h3><span>Final band <b>3</b></span></div><p class="small">Upgrade platforms, signalling and power from band 1 to band 3.</p>
+ <label for="horizon">Finish by slot <output id="horizon-out">8</output></label><input id="horizon" name="horizon" type="number" min="4" max="12" step="1" required>
+ <label for="serviceFloor">Minimum service during works</label><select id="serviceFloor" name="serviceFloor"><option value="0">0 · closures allowed</option><option value="1">1 · preserve baseline</option><option value="2">2 · above starting service</option><option value="3">3 · full service throughout</option></select>
+ <div class="field-pair"><div><label for="milestoneSlot">Review slot (0 = off)</label><input id="milestoneSlot" name="milestoneSlot" type="number" min="0" max="12" step="1" required></div><div><label for="milestoneService">Commissioned band by review</label><select id="milestoneService" name="milestoneService"><option value="1">Band 1</option><option value="2">Band 2</option><option value="3">Band 3</option></select></div></div>
+ <label for="crews">Concurrent crews</label><select id="crews" name="crews"><option value="1">1 crew</option><option value="2">2 crews</option><option value="3">3 crews</option></select>
+ <label for="accessCap">Access units per slot</label><select id="accessCap" name="accessCap"><option value="1">1 unit</option><option value="2">2 units</option><option value="3">3 units</option></select>
+ <label class="check" for="temporaryAvailable"><input type="checkbox" id="temporaryAvailable" name="temporaryAvailable"> Temporary grid bridge available</label><p class="small">A bridge keeps power available during a direct cutover. It must be installed and returned.</p>
+ <button class="primary" id="apply" type="submit">Calculate paths →</button><button class="text-button" id="reset" type="button">Reset the brief</button>
+ <p id="error" role="alert" class="error" hidden></p><p class="small">Settings travel in this page’s URL. No account or server record.</p>
+ </form></details></aside>
+ <div class="results"><section class="verdict panel" aria-labelledby="verdict-title"><div class="eyebrow" id="verdict-label">CALCULATED RESULT</div><h2 id="verdict-title">Calculating…</h2><p id="verdict-text"></p><div id="metrics" class="metrics"></div></section>
+ <section class="panel frontier-panel" aria-labelledby="frontier-heading"><div class="panel-top"><div><p class="eyebrow">THE RESOURCE ANTICHAIN</p><h3 id="frontier-heading">Different ways to meet the same brief</h3></div><span class="small">No weighted score</span></div><p class="small">Less cost, earlier completion, fewer access units: each retained point has a trade-off. Select one to inspect its path.</p><div id="frontier-chart" class="chart"></div><div id="plan-list" class="plan-list"></div><p id="frontier-note" class="small"></p><p id="projection-note" class="projection-note"></p></section>
+ </div></div>
+ <section class="panel path-panel" aria-labelledby="path-title"><div class="panel-top"><div><p class="eyebrow">FROM CHOICE TO CONSTRUCTION</p><h2 id="path-title">Walk the selected path</h2></div><span id="path-kind" class="badge"></span></div><p id="path-summary"></p>
+ <div id="path-body"><div class="replay"><button type="button" id="previous" aria-label="Previous slot">←</button><label for="slot">Slot <output id="slot-label">0</output></label><input type="range" id="slot" min="0" max="8" value="0" step="1"><button type="button" id="next" aria-label="Next slot">→</button><button type="button" class="text-button" id="replay-reset">Start again</button></div><div class="path-grid"><div id="schedule" class="schedule"></div><div id="slot-card" class="slot-card" aria-live="polite"></div></div><div id="service-chart" class="chart service-chart"></div><p class="small">Filled bars: service during work. Dark line: commissioned capacity at slot end. Dashed line: minimum operating service.</p><details><summary>Read the full construction trace</summary><div class="table-scroll"><table><thead><tr><th>Slot</th><th>Work</th><th>Service during work</th><th>Installed bands after work</th><th>Cost</th><th>Access</th></tr></thead><tbody id="trace"></tbody></table></div></details></div>
+ <div id="no-path" hidden></div></section>
+ <section class="comparison"><article><span class="step-number">01</span><h3>Keep the whole promise.</h3><p>A final capacity band hides what passengers receive while work is happening. The model carries the service curve as well as the endpoint.</p></article><article><span class="step-number">02</span><h3>Compose before reducing.</h3><p>Signalling readiness, grid continuity, crews and access restrict the set of admissible paths. Temporary works earn their place through this interface.</p></article><article><span class="step-number">03</span><h3>Retain the alternatives.</h3><p>Only then reduce resource tuples to their Pareto antichain. An empty frontier is a result about this finite catalogue and this brief.</p></article></section>
+ <section class="receipt" aria-labelledby="receipt-heading"><div><h3 id="receipt-heading">Experiment receipt</h3><p id="receipt-text" role="status" aria-live="polite"></p><p class="small">Reload this URL to reopen the brief. Path selection and replay are temporary. Export creates a local JSON file; no works or commitments are authorised.</p></div><div class="receipt-actions"><button type="button" id="copy">Copy experiment link</button><button type="button" id="export">Export calculation</button><p id="download-status" class="small" role="status"></p></div><label id="link-fallback" hidden>Copy this link<input id="link-text" readonly></label></section>
+</section>
+<section id="method" class="tabpanel prose" hidden><p class="eyebrow">END → WAY → CONSTRUCTION</p><h2>A path can be an implementation.</h2><p class="standfirst">The advance is to change what a design choice contains. The finished system alone is too small an object for the staged-delivery question.</p>
+<div class="method-flow"><div><b>Implementation set I</b><span>All legal finite action histories</span></div><span class="arrow">→</span><div><b>Functionality exec(i)</b><span>Operating-service curve + commissioned-capacity curve</span></div><span class="arrow">+</span><div><b>Resources eval(i)</b><span>Cost, finish slot, peak access</span></div></div>
+<h3>What the original foray asks</h3><p>Use monotone co-design to tackle rail project trade-offs without avoiding the difficult part: aligning platform, signalling and power expansion across staged delivery constraints. Explain the result at project-director level.</p>
+<h3>What is constructed here</h3><p>For each path, permanent capacity only increases. A separate service measure records what is available during each work slot. These are different quantities: installing a bigger asset does not by itself guarantee uninterrupted operation. This app queries a constant operating floor and one end-of-slot commissioning requirement, and solves again for every new brief.</p><p>The engine composes a finite action catalogue with signalling guards, power continuity and shared crew/access limits. It queries the resulting implementation space for the minimal resource tuples that meet the service and milestone requirements. It returns an actual trace for every retained tuple.</p>
+<div class="equation">h(f) = Min { eval(i) : i ∈ I, f ≤ exec(i) }</div><p>The order on service curves is pointwise. The order on resource tuples compares each coordinate separately. “Minimal” allows several incomparable answers; there need not be one least or best plan.</p>
+<h3>The counterexample concerns a missing interface</h3><p>Projecting a path onto final capacity erases continuity. Under that projection, the cheap direct grid method can dominate the temporary-bridge method. Once continuity is required, the cheap path can disappear and the enabling method becomes useful. Pareto reduction remains correct for the problem it was given. The endpoint-only problem omitted part of the promise.</p>
+<h3>What this does and does not establish</h3><p>This gives a constructive positive result for a bounded version of the foray: staged rail co-design can produce feasible paths and a resource antichain when the action catalogue, constraints and temporal interface are explicit. It also locates the extra modelling work: co-design does not invent engineering methods, permissions or stakeholder preferences from a final capacity target.</p><p>Capacity bands, costs, slot lengths, cutovers and guards are fictional. Access units are a declared scarce planning resource, not a railway rule. There is no uncertainty model, calibration, negotiation or claim of engineering safety. Stakeholder concerns are represented only by the specified hard service, milestone and access constraints; this does not solve equitable negotiation.</p>
+<h3>Inspect the declared catalogue</h3><div id="catalogue" class="table-scroll"></div><details><summary>Algorithm and evidence</summary><div id="algorithm-note"></div><p>All admissible finite choices are represented by the solver; the independent checker enumerates histories on smaller cases and compares feasible resource frontiers. Verification establishes the declared calculations, not usefulness to a human or a validated transport plan.</p><p><a href="../docs/rail-staged-codesign-method.md">Read the full model and verification note ↗</a></p></details>
+</section>
+<section id="sources" class="tabpanel prose" hidden><p class="eyebrow">SOURCE IDEAS, MODEL CHOICES, TESTED RESULTS</p><h2>Where the construction comes from.</h2><p class="standfirst">A new step in the rail co-design foray, with the earlier attempts left available for comparison.</p>
+<div class="source-card"><span class="source-number">01</span><div><h3>Design problems with implementation</h3><p>Gioele Zardini, <em>Co-Design of Complex Systems</em> (2023), §§3.1–3.5, printed pp40–48. Supplies the functionality / implementation / resource separation and composition by admissible implementation tuples. This app chooses finite stage paths as those implementations.</p><a href="https://www.research-collection.ethz.ch/items/d7c08dd5-bf96-4c1f-a744-5e751f0f44a5" target="_blank" rel="noopener">Thesis at ETH Zürich ↗</a></div></div>
+<div class="source-card"><span class="source-number">02</span><div><h3>Minimal resource antichains</h3><p>Andrea Censi, <em>A Mathematical Theory of Co-Design</em> (2015; revised 2016), with the MCDP manual’s catalogue examples and <em>Monotone Co-Design Problems; or, everything is the same</em>. Supplies the partial-order view of functionality and resource trade-offs. The JavaScript finite solver is independently written; it does not reproduce the general library or claim to implement its feedback solver.</p><a href="https://arxiv.org/abs/1512.08055" target="_blank" rel="noopener">Censi’s paper ↗</a> · <a href="https://co-design.science/papers/" target="_blank" rel="noopener">Author’s papers & talks ↗</a></div></div>
+<div class="source-card"><span class="source-number">03</span><div><h3>The existing rail experiments</h3><p>The earlier apps enumerate finished subsystem catalogues and compare resource trade-offs. The March local studio adds four preset staging patterns and mismatch penalties. This foray instead generates feasible action histories under explicit stage constraints, then derives their frontier.</p><ul><li><a href="rail-simulator.html">Earlier rail staging simulator</a></li><li><a href="incremental-upgrade.html">Incremental rail upgrade</a></li><li><a href="transit-tradeoffs.html">Rail transit co-design</a></li><li><a href="wildlife-crossing.html">Related wildlife-crossing co-design</a></li></ul></div></div>
+<div class="source-card"><span class="source-number">04</span><div><h3>Temporal co-design already has antecedents</h3><p>Corentin Briat’s 2026 <em>codesign-mcdp</em> library includes sequential and temporal extensions. Its current manual labels those extensions as work in preparation, not peer reviewed. Its carried-state implementation and regression example reinforce the need to preserve future resource consequences before projecting onto cost. This app uses its own finite solver.</p><a href="https://arxiv.org/abs/2607.18415" target="_blank" rel="noopener">Library paper ↗</a> · <a href="https://github.com/cbriat/codesign-mcdp/blob/97d6446abf48c3424cf52bace9c5d9c40bfda978/codesign/sequential.py#L423-L475" target="_blank" rel="noopener">Reviewed sequential implementation ↗</a></div></div>
+<h3>Contribution and boundary</h3><p>The contribution is an executable end–way test for this foray, not a claim that temporal co-design or constrained planning is a new field. Each resource point is supported by a trace. Each infeasibility claim is restricted to the declared finite catalogue, time horizon and brief.</p><p><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/project-co-design/apps/staged-paths.html" target="_blank" rel="noopener">Inspect the app source ↗</a> · <a href="../docs/rail-staged-codesign-method.md">Model, source use and verification</a></p>
+</section>
+</main>
+<footer><span>FORAY-CO-DESIGN-TRADEOFFS · R-014 · 6 SEPTEMBER 2026</span><a href="../index.html">Back to co-design home ↑</a></footer>
+<script>(function (root) {
+  'use strict';
+  const DEFAULTS = Object.freeze({horizon:8,serviceFloor:1,milestoneSlot:4,milestoneService:2,crews:2,accessCap:2,temporaryAvailable:true});
+  const ACTIONS = Object.freeze([
+    {id:'platform-up',name:'Commission next platform tier',short:'Platform',family:'platform',cost:3,access:1,crews:1,description:'Retain existing platform service; next platform tier needs the matching signalling tier already commissioned.'},
+    {id:'signal-up',name:'Commission next signalling tier',short:'Signalling',family:'signal',cost:4,access:1,crews:1,description:'Retain existing signalling service while commissioning the next tier.'},
+    {id:'grid-direct',name:'Direct grid cutover',short:'Direct grid',family:'grid',cost:3,access:2,crews:1,description:'Isolate grid service for this slot. An already active temporary bridge retains pre-cutover grid service.'},
+    {id:'grid-prepare',name:'Prepare protected grid cutover',short:'Prepare grid',family:'grid',cost:2,access:0,crews:1,description:'Prepare one tier of protected grid work without interrupting existing service.'},
+    {id:'grid-protected',name:'Protected grid cutover',short:'Protected grid',family:'grid',cost:4,access:1,crews:1,description:'Use the prepared arrangement to commission one grid tier while retaining pre-cutover service.'},
+    {id:'temporary-install',name:'Install temporary grid bridge',short:'Install bridge',family:'temporary',cost:4,access:1,crews:1,description:'Install a temporary supply arrangement, available from the next slot; it protects grid continuity.'},
+    {id:'temporary-return',name:'Return temporary grid bridge',short:'Return bridge',family:'temporary',cost:0,access:1,crews:1,description:'Return the temporary arrangement. It must be returned before the implementation is complete.'}
+  ].map(Object.freeze));
+  const BY_ID = Object.fromEntries(ACTIONS.map(a=>[a.id,a]));
+  const PRESETS = Object.freeze([
+    {id:'continuity',title:'Keep the railway operating',explanation:'The cheapest endpoint design interrupts service. Find all minimal staged implementations that retain one service band.',params:{...DEFAULTS}},
+    {id:'shutdown',title:'Allow an operating shutdown',explanation:'With no operating-service floor, cheap direct cutovers become admissible. This changes the requested functionality.',params:{...DEFAULTS,serviceFloor:0}},
+    {id:'restricted-access',title:'Only one access unit',explanation:'Direct cutovers require two simultaneous access units; protected work can fit one. The least-cost endpoint changes with the available interface.',params:{...DEFAULTS,accessCap:1,horizon:10,milestoneSlot:6}},
+    {id:'no-bridge',title:'Temporary bridge unavailable',explanation:'Protected grid work remains an alternative; excluding one enabling option changes the frontier without changing the final assets.',params:{...DEFAULTS,temporaryAvailable:false}},
+    {id:'early-service',title:'An earlier service promise',explanation:'Require two commissioned service bands by the end of slot 2. The faster protected path becomes necessary.',params:{...DEFAULTS,milestoneSlot:2}},
+    {id:'one-crew',title:'One shared work crew',explanation:'All module actions compete for the same crew. Independent subsystem plans no longer imply parallel delivery.',params:{...DEFAULTS,crews:1,horizon:12,milestoneSlot:6}},
+    {id:'no-path',title:'The deadline cannot be met',explanation:'One crew can finish the cheapest endpoint design in six slots. The continuity-preserving implementations need at least eight; none fits this six-slot horizon.',params:{...DEFAULTS,crews:1,horizon:6,milestoneSlot:4}}
+  ].map(x=>Object.freeze({...x,params:Object.freeze(x.params)})));
+
+  function normalize(input={}) {
+    if(input===null||typeof input!=='object'||Array.isArray(input)) throw new TypeError('Parameters must be an object.');
+    for(const k of Object.keys(input)) if(!Object.prototype.hasOwnProperty.call(DEFAULTS,k)) throw new Error('Unknown parameter: '+k);
+    const p={...DEFAULTS,...input};
+    for(const [k,lo,hi] of [['horizon',4,12],['serviceFloor',0,3],['milestoneSlot',0,12],['milestoneService',1,3],['crews',1,3],['accessCap',1,3]]) {
+      if(!Number.isInteger(p[k])||p[k]<lo||p[k]>hi) throw new RangeError(k+' must be an integer from '+lo+' to '+hi+'.');
+    }
+    if(p.milestoneSlot>p.horizon) throw new RangeError('Milestone slot must fit inside the horizon, or be 0 to turn it off.');
+    if(typeof p.temporaryAvailable!=='boolean') throw new TypeError('temporaryAvailable must be true or false.');
+    return p;
+  }
+  function initial(){return {p:0,s:0,g:0,prepared:false,temp:0};}
+  function stateKey(x){return [x.p,x.s,x.g,x.prepared?1:0,x.temp].join(',');}
+  function capacity(x){return Math.min(x.p,x.s,x.g)+1;}
+  function complete(x){return x.p===2&&x.s===2&&x.g===2&&!x.prepared&&x.temp!==1;}
+  function guard(a,x,p){
+    switch(a.id){
+      case 'platform-up':return x.p<2&&x.s>=x.p+1;
+      case 'signal-up':return x.s<2;
+      case 'grid-direct':return x.g<2&&!x.prepared;
+      case 'grid-prepare':return x.g<2&&!x.prepared;
+      case 'grid-protected':return x.g<2&&x.prepared;
+      case 'temporary-install':return p.temporaryAvailable&&x.temp===0&&x.g<2;
+      case 'temporary-return':return x.temp===1;
+      default:return false;
+    }
+  }
+  function step(x,ids,p){
+    const actions=ids.map(id=>BY_ID[id]);
+    if(actions.some(a=>!a)) return {error:'Unknown action.'};
+    if(!actions.length) return {error:'Empty slots are excluded from normalized implementations.'};
+    if(new Set(ids).size!==ids.length) return {error:'An action cannot appear twice in one slot.'};
+    if(actions.some(a=>!guard(a,x,p))) return {error:'An action lacks its start-of-slot prerequisite.'};
+    const grid=actions.filter(a=>a.family==='grid').length,temp=actions.filter(a=>a.family==='temporary').length;
+    if(grid>1||temp>1||(grid&&temp)) return {error:'Grid and temporary work need separate, exclusive work slots.'};
+    const crews=actions.length,access=actions.reduce((n,a)=>n+a.access,0),cost=actions.reduce((n,a)=>n+a.cost,0);
+    if(crews>p.crews) return {error:'Concurrent work exceeds available crews.'};
+    if(access>p.accessCap) return {error:'Concurrent work exceeds the access cap.'};
+    const gOperational=ids.includes('grid-direct')&&x.temp!==1?0:x.g+1;
+    const service=Math.min(x.p+1,x.s+1,gOperational);
+    const y={...x};
+    for(const id of ids){
+      switch(id){
+        case 'platform-up':y.p++;break;
+        case 'signal-up':y.s++;break;
+        case 'grid-direct':y.g++;break;
+        case 'grid-prepare':y.prepared=true;break;
+        case 'grid-protected':y.g++;y.prepared=false;break;
+        case 'temporary-install':y.temp=1;break;
+        case 'temporary-return':y.temp=2;break;
+      }
+    }
+    return {before:{...x},after:y,actions:ids.slice(),service,cost,access,crews};
+  }
+  function enabledBatches(x,p){
+    const enabled=ACTIONS.filter(a=>guard(a,x,p));
+    const batches=[];
+    for(let mask=1;mask<(1<<enabled.length);mask++){
+      const ids=enabled.filter((_,j)=>mask&(1<<j)).map(a=>a.id);
+      if(ids.length>p.crews) continue;
+      const z=step(x,ids,p);if(!z.error)batches.push(z);
+    }
+    return batches;
+  }
+  function dominates(a,b,keys){return keys.every(k=>a[k]<=b[k])&&keys.some(k=>a[k]<b[k]);}
+  function equalResources(a,b,keys){return keys.every(k=>a[k]===b[k]);}
+  function lexPath(path){return path.map(z=>z.actions.join('+')).join('|');}
+  function preferredTie(a,b){
+    // Tied labels have the same future interface and resource values. This affects only which witness is shown.
+    if(a.minService!==b.minService)return a.minService>b.minService;
+    if(a.accessTotal!==b.accessTotal)return a.accessTotal<b.accessTotal;
+    return lexPath(a.path)<lexPath(b.path);
+  }
+  function insertLabel(list,candidate,keys){
+    for(let i=0;i<list.length;i++){
+      const old=list[i];
+      if(dominates(old,candidate,keys))return false;
+      if(equalResources(old,candidate,keys)){
+        if(preferredTie(candidate,old)){list[i]=candidate;return true;}return false;
+      }
+    }
+    for(let i=list.length-1;i>=0;i--)if(dominates(candidate,list[i],keys))list.splice(i,1);
+    list.push(candidate);return true;
+  }
+  function methodOf(path){
+    const ids=path.flatMap(z=>z.actions);
+    const direct=ids.filter(x=>x==='grid-direct').length,protectedCount=ids.filter(x=>x==='grid-protected').length;
+    if(ids.includes('temporary-install'))return protectedCount?'Bridge + protected work':'Temporary bridge';
+    if(protectedCount===2)return 'Protected cutovers';
+    if(direct===2)return 'Direct cutovers';
+    return 'Mixed grid methods';
+  }
+  function finishPlan(label,p,prefix,index){
+    const path=label.path;
+    const atMilestone=p.milestoneSlot===0?3:capacity(path[Math.min(p.milestoneSlot,path.length)-1].after);
+    return {id:prefix+'-'+index,cost:label.cost,finish:path.length,peakAccess:label.peakAccess,accessTotal:label.accessTotal,minService:label.minService,milestoneService:atMilestone,path,final:{...label.state},resources:[label.cost,path.length,label.peakAccess],method:methodOf(path)};
+  }
+  function run(p,temporal){
+    let layer=new Map([[stateKey(initial()),[{state:initial(),cost:0,peakAccess:0,accessTotal:0,minService:3,path:[]}]]]);
+    const finished=[];
+    const stats={states:1,labelsExpanded:0,candidateExtensions:0,completedLabels:0,serviceRejected:0,milestoneRejected:0,horizonStranded:0};
+    const rejectSamples={service:null,milestone:null};
+    const batchCache=new Map();
+    for(let time=1;time<=p.horizon&&layer.size;time++){
+      const next=new Map();
+      for(const [key,labels] of layer){
+        let batches=batchCache.get(key);if(!batches){batches=enabledBatches(labels[0].state,p);batchCache.set(key,batches);}
+        for(const label of labels){
+          stats.labelsExpanded++;
+          for(const transition of batches){
+            stats.candidateExtensions++;
+            if(temporal&&transition.service<p.serviceFloor){
+              stats.serviceRejected++;if(!rejectSamples.service)rejectSamples.service={slot:time,actions:transition.actions,available:transition.service,required:p.serviceFloor};continue;
+            }
+            if(temporal&&p.milestoneSlot===time&&capacity(transition.after)<p.milestoneService){
+              stats.milestoneRejected++;if(!rejectSamples.milestone)rejectSamples.milestone={slot:time,available:capacity(transition.after),required:p.milestoneService};continue;
+            }
+            const path=label.path.concat({...transition,slot:time});
+            const cand={state:transition.after,cost:label.cost+transition.cost,peakAccess:Math.max(label.peakAccess,transition.access),accessTotal:label.accessTotal+transition.access,minService:Math.min(label.minService,transition.service),path};
+            if(complete(cand.state)){
+              // Final capability persists if completion precedes the milestone.
+              stats.completedLabels++;finished.push(cand);continue;
+            }
+            if(time===p.horizon){stats.horizonStranded++;continue;}
+            const nextKey=stateKey(cand.state);if(!next.has(nextKey))next.set(nextKey,[]);
+            insertLabel(next.get(nextKey),cand,['cost','peakAccess']);
+          }
+        }
+      }
+      stats.states+=next.size;layer=next;
+    }
+    const candidates=finished.map((x,i)=>finishPlan(x,p,temporal?'stage':'end',i+1));
+    const front=[];
+    for(const c of candidates)insertLabel(front,c,['cost','finish','peakAccess']);
+    front.sort((a,b)=>a.cost-b.cost||a.finish-b.finish||a.peakAccess-b.peakAccess||lexPath(a.path).localeCompare(lexPath(b.path)));
+    front.forEach((x,i)=>x.id=(temporal?'stage':'end')+'-'+(i+1));
+    return {front,candidates,stats,rejectSamples};
+  }
+  function replay(pathInput,input={}){
+    const p=normalize(input);
+    const src=Array.isArray(pathInput)?pathInput:pathInput&&pathInput.path;
+    if(!Array.isArray(src))throw new TypeError('Replay needs a path array or an object with a path array.');
+    const errors=[];let x=initial(),path=[],cost=0,peakAccess=0,accessTotal=0,minService=3;
+    for(let i=0;i<src.length;i++){
+      const ids=Array.isArray(src[i])?src[i]:src[i]&&src[i].actions;
+      if(!Array.isArray(ids)||ids.some(id=>typeof id!=='string')){errors.push({slot:i+1,code:'physical',message:'Each slot needs an action-ID array.'});break;}
+      if(complete(x)){errors.push({slot:i+1,code:'physical',message:'Work after the first complete implementation is not part of its normalized path.'});break;}
+      const z=step(x,ids,p);
+      if(z.error){errors.push({slot:i+1,code:'physical',message:z.error});break;}
+      const row={...z,slot:i+1};path.push(row);x=z.after;cost+=z.cost;peakAccess=Math.max(peakAccess,z.access);accessTotal+=z.access;minService=Math.min(minService,z.service);
+      if(z.service<p.serviceFloor)errors.push({slot:i+1,code:'service',message:'Assured operating service '+z.service+' is below the required floor '+p.serviceFloor+'.'});
+      if(p.milestoneSlot===i+1&&capacity(x)<p.milestoneService)errors.push({slot:i+1,code:'milestone',message:'Commissioned service '+capacity(x)+' misses the required '+p.milestoneService+' by the end of this slot.'});
+    }
+    if(src.length>p.horizon)errors.push({slot:src.length,code:'horizon',message:'Completion exceeds the horizon of '+p.horizon+' slots.'});
+    const done=complete(x);
+    if(!done)errors.push({slot:path.length,code:'incomplete',message:'Both tiers of every permanent module must be commissioned, prepared work cleared and temporary equipment returned.'});
+    const physicalValid=!errors.some(e=>e.code==='physical'||e.code==='horizon'||e.code==='incomplete');
+    const temporalValid=!errors.some(e=>e.code==='service'||e.code==='milestone');
+    let plan=null;if(path.length)plan=finishPlan({state:x,cost,peakAccess,accessTotal,minService,path},p,'replay',1);
+    return {valid:physicalValid&&temporalValid,physicalValid,temporalValid,complete:done,errors,plan};
+  }
+  function solve(input={},options={}){
+    const p=normalize(input),end=run(p,false),staged=run(p,true);
+    const endpointChecks=end.front.map(plan=>({id:plan.id,method:plan.method,cost:plan.cost,finish:plan.finish,check:replay(plan.path,p)}));
+    const rejected=endpointChecks.filter(x=>!x.check.temporalValid);
+    const endpointResourceVectorsWithStagedWitness=end.front.flatMap(e=>{
+      const s=staged.front.find(z=>equalResources(e,z,['cost','finish','peakAccess']));
+      return s?[{endpointId:e.id,stagedId:s.id,resources:e.resources.slice(),pathChanged:lexPath(e.path)!==lexPath(s.path)}]:[];
+    });
+    const witnessOnlyRearrangements=rejected.flatMap(e=>{
+      const equivalent=endpointResourceVectorsWithStagedWitness.find(z=>z.endpointId===e.id);
+      return equivalent?[equivalent]:[];
+    });
+    const endpointVectorsExcluded=end.front.filter(e=>!endpointResourceVectorsWithStagedWitness.some(z=>z.endpointId===e.id)).map(e=>({endpointId:e.id,resources:e.resources.slice()}));
+    const genuinelyLostStagedVectors=staged.front.filter(s=>!end.front.some(e=>equalResources(e,s,['cost','finish','peakAccess']))).map(s=>({stagedId:s.id,resources:s.resources.slice(),dominatedByEndpointIds:end.front.filter(e=>dominates(e,s,['cost','finish','peakAccess'])).map(e=>e.id)}));
+    const reasons=[];
+    if(p.serviceFloor>1)reasons.push({code:'initial-service',message:'The starting railway supplies only one service band. A higher floor must hold from the first work slot, so no implementation can satisfy it.'});
+    if(p.accessCap<2)reasons.push({code:'direct-access',message:'Direct grid cutovers require two simultaneous access units; the current cap excludes them.'});
+    if(!p.temporaryAvailable)reasons.push({code:'bridge-unavailable',message:'The temporary bridge is unavailable. Protected cutovers remain in the catalogue.'});
+    if(staged.stats.serviceRejected)reasons.push({code:'service',message:'Some candidate transitions interrupt required operating service.',count:staged.stats.serviceRejected,example:staged.rejectSamples.service});
+    if(staged.stats.milestoneRejected)reasons.push({code:'milestone',message:'Some partial implementations miss the intermediate commissioned-capacity promise.',count:staged.stats.milestoneRejected,example:staged.rejectSamples.milestone});
+    if(!staged.front.length)reasons.push({code:'no-completion',message:'Exact finite search found no complete implementation satisfying all stated constraints within the horizon. This is a result for this catalogue and these rules.'});
+    const statement=endpointVectorsExcluded.length?'Some endpoint resource vectors have no witness satisfying the temporal request. The full query requires different implementations.':witnessOnlyRearrangements.length?'Some displayed endpoint paths miss the temporal request, but a different ordering achieves the same resource vectors. The resource frontier is preserved; the witnesses need rearrangement.':'The endpoint resource vectors have temporally admissible witnesses too. No lost resource frontier is exhibited under these settings.';
+    const result={params:p,endpointFrontier:end.front,stagedFrontier:staged.front,counts:{endpoint:end.stats,staged:staged.stats},rejections:reasons,catalogue:ACTIONS.map(a=>({...a})),comparison:{endpointPlansRejected:rejected.length,endpointChecks,endpointResourceVectorsWithStagedWitness,witnessOnlyRearrangements,endpointVectorsExcluded,genuinelyLostStagedVectors,endpointCheapest:end.front.length?Math.min(...end.front.map(x=>x.cost)):null,stagedCheapest:staged.front.length?Math.min(...staged.front.map(x=>x.cost)):null,statement}};
+    if(options.includeAll){result.endpointCompletions=end.candidates;result.stagedCompletions=staged.candidates;}
+    return result;
+  }
+  const API={VERSION:'1.0.0',DEFAULTS,PRESETS,normalize,solve,replay,catalogue:ACTIONS.map(a=>({...a}))};
+  root.StageDesign=API;
+  if(typeof module!=='undefined'&&module.exports)module.exports=API;
+})(typeof globalThis!=='undefined'?globalThis:this);
+</script>
+<script>(function(){
+'use strict';
+const M=globalThis.StageDesign,$=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const keys=Object.keys(M.DEFAULTS); let result=null,selected=null,selectedKind='staged',slot=0,activePreset='',busy=false;
+const actionNames={'platform-up':'Platform ↑','signal-up':'Signals ↑','grid-direct':'Direct cutover','grid-prepare':'Prepare','grid-protected':'Protected cutover','temporary-install':'Install bridge','temporary-return':'Return bridge'};
+const shortNames={'platform-up':'↑','signal-up':'↑','grid-direct':'Direct','grid-prepare':'Prep','grid-protected':'Protect','temporary-install':'Install','temporary-return':'Return'};
+const deepEqual=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function setForm(p){keys.forEach(k=>{if(typeof p[k]==='boolean')$(k).checked=p[k];else $(k).value=p[k];});}
+function formParams(){const p={};keys.forEach(k=>{if(typeof M.DEFAULTS[k]==='boolean')p[k]=$(k).checked;else{const v=$(k).value.trim();if(!v)throw Error('Complete every number in the brief before calculating.');p[k]=Number(v);}});return M.normalize(p);}
+function urlFor(p){const u=new URL(location.href);u.search='';u.searchParams.set('v','1');keys.forEach(k=>u.searchParams.set(k,String(p[k])));return u;}
+function readURL(){const q=new URL(location.href).searchParams;if(!q.has('v'))return M.DEFAULTS;if(q.get('v')!=='1')throw Error('This link uses an unsupported version. The default brief is shown.');const p={};for(const k of keys){if(!q.has(k))throw Error('This experiment link is incomplete. The default brief is shown.');const v=q.get(k);if(typeof M.DEFAULTS[k]==='boolean'){if(v!=='true'&&v!=='false')throw Error('The bridge setting in the link is invalid. The default brief is shown.');p[k]=v==='true';}else{if(v.trim()==='')throw Error('The experiment link contains an empty number. The default brief is shown.');p[k]=Number(v);}}return M.normalize(p);}
+function showTab(name,update=true){if(!['explore','method','sources'].includes(name))name='explore';document.querySelectorAll('.tabpanel').forEach(p=>p.hidden=p.id!==name);document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===name)));if(name==='explore'&&result)requestAnimationFrame(()=>{renderFrontier();renderPath();});if(update){try{history.replaceState(null,'',location.pathname+location.search+(name==='explore'?'':'#'+name));}catch{}}}
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));document.querySelectorAll('[data-open]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showTab(a.dataset.open);$('main').scrollIntoView({block:'start'});}));
+function markPreset(p){const found=M.PRESETS.find(x=>keys.every(k=>x.params[k]===p[k]));activePreset=found?.id||'';document.querySelectorAll('[data-preset]').forEach(b=>{b.classList.toggle('active',b.dataset.preset===activePreset);b.setAttribute('aria-pressed',String(b.dataset.preset===activePreset));});$('preset-note').textContent=found?.explanation||'Your own brief. Compare the resulting paths with the worked cases.';}
+function applyParams(p,reason,write=true){if(busy)return;busy=true;$('apply').disabled=true;$('apply').textContent='Calculating…';$('error').hidden=true;setTimeout(()=>{try{const clean=M.normalize(p);const next=M.solve(clean);result=next;selected=next.stagedFrontier[0]||next.endpointFrontier[0]||null;selectedKind=next.stagedFrontier.length?'staged':'endpoint';slot=0;setForm(clean);markPreset(clean);let locationNote='This brief is encoded in the page URL.';if(write){try{history.pushState(null,'',urlFor(clean));}catch{locationNote='This browser did not update the URL. Copy the experiment link to retain the brief.';}}render();$('receipt-text').textContent=`${reason} ${next.stagedFrontier.length} staged resource ${next.stagedFrontier.length===1?'option':'options'} calculated. ${locationNote}`;$('download-status').textContent='';$('link-fallback').hidden=true;}catch(e){$('error').textContent=e.message+' The previous result is retained.';$('error').hidden=false;}finally{busy=false;$('apply').disabled=false;$('apply').textContent='Calculate paths →';}},15);}
+$('settings').addEventListener('submit',e=>{e.preventDefault();try{applyParams(formParams(),'Brief applied.');}catch(err){$('error').hidden=false;$('error').textContent=err.message+' The previous result is retained.';}});
+$('reset').addEventListener('click',()=>applyParams(M.DEFAULTS,'Default brief restored.'));
+$('presets').innerHTML=M.PRESETS.map((p,i)=>`<button type="button" data-preset="${esc(p.id)}" aria-pressed="false"><span class="num">EXPERIMENT ${String(i+1).padStart(2,'0')}</span>${esc(p.title)}</button>`).join('');
+$('presets').addEventListener('click',e=>{const b=e.target.closest('[data-preset]');if(b){const p=M.PRESETS.find(x=>x.id===b.dataset.preset);applyParams(p.params,p.title+'.');}});
+function vector(p){return `${p.cost} cost · ${p.finish} slots · ${p.peakAccess} access`;}
+function metric(v,label){return `<div class="metric"><b>${esc(v)}</b><span>${esc(label)}</span></div>`;}
+function render(){const s=result.stagedFrontier,e=result.endpointFrontier,rejected=result.comparison.endpointPlansRejected;const cheapest=s.length?Math.min(...s.map(p=>p.cost)):null;const endpointMin=e.length?Math.min(...e.map(p=>p.cost)):null;
+ document.querySelector('.verdict').classList.toggle('negative',!s.length);$('verdict-label').textContent=s.length?'FEASIBLE PATHS CONSTRUCTED':'NO PATH WITHIN THIS BRIEF';
+ if(!s.length){$('verdict-title').textContent=e.length?'The endpoint fits. The journey does not.':'The available work cannot fit this brief.';$('verdict-text').textContent=e.length?(result.params.crews===1&&result.params.serviceFloor>=1&&result.params.horizon<8?'Final assets alone need six one-crew actions. Preserving service needs at least eight: four platform/signalling actions, plus either four protected grid actions or two direct cutovers and bridge installation/return. The declared '+result.params.horizon+'-slot window cannot contain them.':'The model can reach the final assets under the crew and access limits, but no complete path also meets the service and review promises. Change a constraint or add a genuinely different method.'):'Even before testing continuity and the review promise, no complete implementation fits the horizon and available crew/access capacity. This is a finite catalogue result.';}
+ else if(rejected&&cheapest>endpointMin){$('verdict-title').textContent='Stage promises change the resource frontier.';$('verdict-text').textContent=`The cheapest endpoint path costs ${endpointMin}. The cheapest path that keeps the whole promise costs ${cheapest}. The extra work provides a capability the endpoint comparison leaves out.`;}
+ else if(rejected){$('verdict-title').textContent='Some endpoint paths break the stage promise.';$('verdict-text').textContent='The complete brief changes which paths remain admissible. Inspect the service curve and the commissioned-capacity review, then compare the retained alternatives.';}
+ else{$('verdict-title').textContent='The endpoint and stage requirements align here.';$('verdict-text').textContent='The displayed endpoint paths also meet this brief. The generated construction traces show how each resource option can be delivered under the declared rules.';}
+ $('metrics').innerHTML=metric(s.length,'minimal staged resource options')+metric(cheapest??'—','least cost that meets this brief')+metric(result.comparison.genuinelyLostStagedVectors.length,'useful options lost by endpoint pruning');
+ renderFrontier();renderPath();renderCatalogue();
+}
+function renderFrontier(){const s=result.stagedFrontier,e=result.endpointFrontier;const all=[...s,...e];if(!all.length){$('frontier-chart').innerHTML='';$('plan-list').innerHTML='';$('frontier-note').textContent='No complete paths under the current horizon, crew and access caps.';$('projection-note').textContent='';return;}
+ const W=Math.max(310,$('frontier-chart').clientWidth),H=255,L=47,R=25,T=24,B=54;let xmin=Math.min(...all.map(p=>p.cost))-1,xmax=Math.max(...all.map(p=>p.cost))+1,ymin=Math.min(...all.map(p=>p.finish))-1,ymax=Math.max(...all.map(p=>p.finish))+1;const x=n=>L+(n-xmin)/(xmax-xmin)*(W-L-R),y=n=>T+(n-ymin)/(ymax-ymin)*(H-T-B);
+ let svg=`<svg viewBox="0 0 ${W} ${H}" role="group" aria-label="Cost and completion slot frontier. Filled points meet the whole brief. Hollow points ignore stage promises. Point radius shows peak access units.">`;
+ for(let v=ymin;v<=ymax;v++){svg+=`<path d="M${L} ${y(v)}H${W-R}" stroke="#e2e6dc"/><text x="${L-16}" y="${y(v)+4}" text-anchor="end">${v}</text>`;}
+ for(let v=Math.ceil(xmin);v<=xmax;v++){if((xmax-xmin>12||W<450)&&v%2)continue;svg+=`<text x="${x(v)}" y="${H-B+21}" text-anchor="middle">${v}</text>`;}
+ svg+=`<text class="axis-label" x="${L}" y="12">FINISH SLOT · EARLIER ↑</text><text class="axis-label" x="${(W+L-R)/2}" y="${H-7}" text-anchor="middle">← LOWER COST UNITS</text>`;
+ for(const [kind,ps] of [['endpoint',e],['staged',s]])ps.forEach((p,i)=>{const active=selected?.id===p.id&&kind===selectedKind,r=5+p.peakAccess*2;svg+=`<circle class="point" data-plan="${esc(p.id)}" data-kind="${kind}" tabindex="0" role="button" aria-label="${kind==='staged'?'Staged':'Endpoint only'}: ${esc(p.method)}, ${esc(vector(p))}" cx="${x(p.cost)}" cy="${y(p.finish)}" r="${active?r+3:r}" fill="${kind==='staged'?'#147669':'#fffef8'}" stroke="${active?'#bf6a38':kind==='staged'?'#147669':'#81958b'}" stroke-width="${active?3:2}" ${kind==='endpoint'?'stroke-dasharray="3 2"':''}><title>${esc(p.method)} · ${esc(vector(p))}</title></circle>`;});
+ $('frontier-chart').innerHTML=svg+'</svg>';
+ $('plan-list').innerHTML=s.map((p,i)=>`<button class="plan-choice ${selectedKind==='staged'&&selected?.id===p.id?'active':''}" data-plan="${p.id}" data-kind="staged" aria-pressed="${selectedKind==='staged'&&selected?.id===p.id}"><span><b>${String.fromCharCode(65+i)} · ${esc(p.method)}</b><span class="small">Meets the complete brief</span></span><span class="figures">${esc(vector(p))}</span></button>`).join('')+e.map((p,i)=>{const c=M.replay(p.path,result.params);return `<button class="plan-choice endpoint ${selectedKind==='endpoint'&&selected?.id===p.id?'active':''}" data-plan="${p.id}" data-kind="endpoint" aria-pressed="${selectedKind==='endpoint'&&selected?.id===p.id}"><span><b>Endpoint ${i+1} · ${esc(p.method)}</b><span class="small">${c.valid?'Also meets this brief':'Inspect the failed stage promise'}</span></span><span class="figures">${esc(vector(p))}</span></button>`;}).join('');
+ $('frontier-note').textContent='Filled = full brief. Hollow = endpoint comparison with stage promises omitted. Point size = peak access. Each row retains one witness per resource tuple; other paths can share that tuple.';
+ const c=result.comparison,lost=c.genuinelyLostStagedVectors.length,reordered=c.witnessOnlyRearrangements.length; $('projection-note').textContent=(lost?`${lost} useful full-brief resource ${lost===1?'option is':'options are'} absent from the endpoint frontier. Filtering its winners after the fact cannot recover them.`:'No full-brief frontier resource option is lost by endpoint pruning in this case.')+(reordered?` ${reordered} failed endpoint ${reordered===1?'witness can':'witnesses can'} be rearranged to meet the brief at the same resource tuple. A failed displayed sequence alone does not rule out that tuple.`:'');
+}
+function selectPlan(id,kind){const list=kind==='staged'?result.stagedFrontier:result.endpointFrontier;const p=list.find(v=>v.id===id);if(p){const active=document.activeElement,host=active?.closest('#frontier-chart,#plan-list')?.id;selected=p;selectedKind=kind;slot=0;renderFrontier();renderPath();if(host)$(host).querySelector(`[data-plan="${id}"][data-kind="${kind}"]`)?.focus({preventScroll:true});}}
+for(const id of ['frontier-chart','plan-list']){$(id).addEventListener('click',e=>{const p=e.target.closest('[data-plan]');if(p)selectPlan(p.dataset.plan,p.dataset.kind);});$(id).addEventListener('keydown',e=>{if(e.target.matches('circle[data-plan]')&&['Enter',' '].includes(e.key)){e.preventDefault();selectPlan(e.target.dataset.plan,e.target.dataset.kind);}});}
+function currentState(){if(!selected)return null;return slot===0?selected.path[0].before:selected.path[slot-1].after;}
+function rejectionMarkup(errors){return `<div class="rejection-list">${errors.map(e=>`<div><b>${e.slot?'Slot '+e.slot+': ':''}${esc(e.code||'Constraint')}</b><p>${esc(e.message)}</p></div>`).join('')}</div>`;}
+function renderPath(){const p=selected;$('path-body').hidden=!p;$('no-path').hidden=!!p;if(!p){$('path-kind').textContent='Empty implementation set';$('path-summary').textContent='No complete path is available to replay.';$('no-path').innerHTML=rejectionMarkup(result.rejections)+`<p class="small">${result.counts.staged.states} state/time combinations explored. Rejection examples explain encountered constraints; their counts are search events, not counts of unique paths or a minimal conflict set.</p>`;return;}
+ const check=M.replay(p.path,result.params);$('path-kind').textContent=check.valid?'Meets this brief':'Endpoint comparison · fails brief';$('path-kind').classList.toggle('warning',!check.valid);$('path-title').textContent=selectedKind==='staged'?'Walk the selected path':'Test the endpoint path';$('path-summary').textContent=`${p.method}. ${vector(p)}. Total access use ${p.accessTotal}; minimum operating service band ${p.minService}.`;
+ const equivalent=result.comparison.witnessOnlyRearrangements.find(x=>x.endpointId===p.id);if(equivalent)$('path-summary').textContent+=' This displayed sequence fails, but reordering can meet the brief with the same resource tuple; select its staged counterpart above.';
+ $('slot').max=p.finish;$('slot').value=slot;$('slot-label').textContent=slot===0?'0 · before work':String(slot);$('previous').disabled=slot===0;$('next').disabled=slot===p.finish;
+ const rows=[['Platforms','platform-up'],['Signalling','signal-up'],['Grid works','grid'],['Temporary','temporary']];let html=`<div class="schedule-row headers" style="--slots:${p.finish}"><div class="schedule-label">Work slot →</div>${p.path.map(s=>`<div class="schedule-cell">${s.slot}</div>`).join('')}</div>`;
+ for(const [label,family]of rows){html+=`<div class="schedule-row" style="--slots:${p.finish}"><div class="schedule-label">${label}</div>${p.path.map(t=>{const acts=t.actions.filter(a=>a===family||a.startsWith(family+'-'));return `<button type="button" class="schedule-cell ${acts.length?'work':''} ${family==='grid'&&acts.length?'power':''} ${slot===t.slot?'current':''} ${slot>t.slot?'done':''}" data-slot="${t.slot}" aria-label="Slot ${t.slot}, ${label}: ${acts.length?acts.map(a=>actionNames[a]).join(', '):'no work'}">${acts.length?acts.map(a=>esc(shortNames[a])).join(' + '):'·'}</button>`;}).join('')}</div>`;}
+ $('schedule').innerHTML=html;
+ const st=currentState(),t=slot?p.path[slot-1]:null,cumulative=p.path.slice(0,slot).reduce((n,x)=>n+x.cost,0);let err=slot?check.errors.filter(e=>e.slot===slot):[];
+ $('slot-card').innerHTML=`<p class="eyebrow">${slot?'AFTER SLOT '+slot:'STARTING CONDITION'}</p><h3>${slot===p.finish?'Final assets commissioned':t?t.actions.map(a=>esc(actionNames[a])).join(' + '):'The existing railway'}</h3><div class="state-bands">${[['Platforms',st.p],['Signals',st.s],['Power',st.g]].map(([label,v])=>`<div><b>${v+1}</b><span>${label}</span></div>`).join('')}</div><p>Installed bands after work. Operating service ${t?'during this slot':'before work'}: <b>${t?t.service:1}</b>.</p><p>Bridge: <b>${st.temp===1?'active':st.temp===2?'returned':'not installed'}</b>. Protected grid preparation: ${st.prepared?'ready':'none'}.</p><p>Cost so far <b>${cumulative}</b>${t?`; crews ${t.crews}/${result.params.crews}, access ${t.access}/${result.params.accessCap}`:''}.</p>${err.length?rejectionMarkup(err):''}${slot===p.finish&&!check.valid?'<p class="warning-text">Final capacity is complete, but this path broke the stage promise.</p>':''}`;
+ renderService(check);
+ $('trace').innerHTML=p.path.map(t=>`<tr><td>${t.slot}</td><td>${t.actions.map(a=>esc(actionNames[a])).join(' + ')}</td><td>${t.service}${t.service<result.params.serviceFloor?' · below floor':''}</td><td>P${t.after.p+1} · S${t.after.s+1} · G${t.after.g+1}</td><td>${t.cost}</td><td>${t.access}</td></tr>`).join('');
+}
+function renderService(check){const p=selected,params=result.params,W=Math.max(310,$('service-chart').clientWidth),H=227,L=32,R=14,T=40,B=37,end=Math.max(p.finish,params.milestoneSlot);const x=n=>L+n/end*(W-L-R),y=n=>H-B-n/3*(H-T-B);let s=`<svg viewBox="0 0 ${W} ${H}" role="img"><title>Service during work and installed capacity after each slot, including the minimum floor and review requirement.</title>`;
+ for(let v=0;v<=3;v++)s+=`<path d="M${L} ${y(v)}H${W-R}" stroke="#dde4d8"/><text x="${L-17}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
+ s+=`<text x="${L}" y="14" class="axis-label">SERVICE BAND</text><path d="M${L} ${y(params.serviceFloor)}H${W-R}" stroke="#ba6d3d" stroke-dasharray="7 5" stroke-width="2"/>`;
+ const operating=[],commissioned=[];for(let i=0;i<end;i++){const t=p.path[i],st=t?.after||p.final;operating.push({slot:i+1,value:t?t.service:3});commissioned.push({slot:i+1,value:1+Math.min(st.p,st.s,st.g)});}
+ for(const t of operating){s+=`<rect x="${x(t.slot-1)+2}" y="${y(t.value)}" width="${Math.max(1,x(1)-x(0)-4)}" height="${y(0)-y(t.value)||2}" fill="${t.value<params.serviceFloor?'#d8a085':'#cadecf'}" opacity=".8"/><text x="${x(t.slot-.5)}" y="${H-B+21}" text-anchor="middle">${t.slot}</text>`;}
+ let d=`M${x(0)} ${y(1)}`;for(const t of commissioned)d+=`H${x(t.slot)}V${y(t.value)}`;s+=`<path d="${d}" fill="none" stroke="#153937" stroke-width="2.5"/>`;
+ if(params.milestoneSlot){const value=commissioned[params.milestoneSlot-1].value;s+=`<path d="M${x(params.milestoneSlot)} ${T-8}V${H-B+4}" stroke="#ba6d3d" stroke-dasharray="3 4"/><circle cx="${x(params.milestoneSlot)}" cy="${y(params.milestoneService)}" r="6" fill="${value>=params.milestoneService?'#147669':'#a34133'}"/><text x="${Math.min(x(params.milestoneSlot)+9,W-170)}" y="${T-10}">Review ≥ ${params.milestoneService} at ${params.milestoneSlot}</text>`;}
+ if(slot>0)s+=`<rect x="${x(slot-1)+1}" y="${T-1}" width="${x(1)-x(0)-2}" height="${H-T-B+2}" fill="none" stroke="#147669" stroke-width="2"/>`;
+ s+=`<text x="${W/2}" y="${H-4}" text-anchor="middle">WORK SLOT →</text></svg>`;$('service-chart').innerHTML=s;
+}
+$('schedule').addEventListener('click',e=>{const b=e.target.closest('[data-slot]');if(b){slot=Number(b.dataset.slot);renderPath();}});$('slot').addEventListener('input',()=>{slot=Number($('slot').value);renderPath();});$('previous').addEventListener('click',()=>{slot=Math.max(0,slot-1);renderPath();});$('next').addEventListener('click',()=>{slot=Math.min(selected.finish,slot+1);renderPath();});$('replay-reset').addEventListener('click',()=>{slot=0;renderPath();});
+function renderCatalogue(){$('catalogue').innerHTML='<table><thead><tr><th>One-slot action</th><th>Cost</th><th>Access</th><th>Declared meaning</th></tr></thead><tbody>'+result.catalogue.map(a=>`<tr><td>${esc(a.name)}</td><td>${a.cost}</td><td>${a.access}</td><td>${esc(a.description)}</td></tr>`).join('')+'</tbody></table>';$('algorithm-note').innerHTML=`<p>For this calculation, the staged search explored ${result.counts.staged.states} state/time combinations and ${result.counts.staged.candidateExtensions} candidate label extensions. These are search counts, not a count of all possible histories.</p><p>The solver retains full physical state (all three capacities, grid preparation, temporary-bridge phase) and time. It tests the requested temporal constraints before reducing cost/access labels at an identical state and time. Every new brief is solved again; the endpoint frontier is not used to seed the staged frontier.</p>`;}
+$('copy').addEventListener('click',async()=>{if(!result)return;const url=urlFor(result.params).href;try{await navigator.clipboard.writeText(url);$('download-status').textContent='Experiment link copied. It reopens the applied brief.';}catch{$('link-fallback').hidden=false;$('link-text').value=url;$('link-text').focus();$('link-text').select();$('download-status').textContent='Copy the selected link below to retain the applied brief.';}});
+$('export').addEventListener('click',()=>{if(!result)return;const output={schema:'rail-staged-codesign/v1',foray:'FORAY-CO-DESIGN-TRADEOFFS',model:'fictional-finite-rail-catalogue-v1',params:result.params,resourceOrder:['cost','finish','peakAccess'],stagedFrontier:result.stagedFrontier,endpointFrontier:result.endpointFrontier,counts:result.counts,selected:selected?{kind:selectedKind,plan:selected,validation:M.replay(selected.path,result.params)}:null,source:'https://lawrencerowland.github.io/project-co-design/apps/staged-paths.html',note:'Calculation and traces under declared fictional rules. No engineering validation or commitment.'};const blob=new Blob([JSON.stringify(output,null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='rail-staged-codesign-calculation.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);$('download-status').textContent='Download requested: rail-staged-codesign-calculation.json. It contains the applied brief, resource frontiers and construction traces.';});
+window.addEventListener('popstate',()=>{try{const p=readURL();applyParams(p,'Experiment reopened from URL.',false);showTab(location.hash.slice(1),false);}catch(e){$('error').textContent=e.message;$('error').hidden=false;}});
+window.addEventListener('hashchange',()=>showTab(location.hash.slice(1),false));
+if(matchMedia('(max-width:720px)').matches)$('brief-disclosure').open=false;
+let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(result){renderFrontier();renderPath();}},80);});
+let startupError='';try{const p=readURL();setForm(p);applyParams(p,'Experiment ready.',true);}catch(e){startupError=e.message;setForm(M.DEFAULTS);applyParams(M.DEFAULTS,'Invalid link recovered to the default brief.',true);setTimeout(()=>{$('error').textContent=startupError;$('error').hidden=false;},80);}showTab(location.hash.slice(1),false);
+globalThis.StageUI={getSnapshot:()=>({params:result?.params,staged:result?.stagedFrontier,endpoint:result?.endpointFrontier,selected:selected?.id,selectedKind,slot,busy})};
+})();
+</script>
+</body></html>

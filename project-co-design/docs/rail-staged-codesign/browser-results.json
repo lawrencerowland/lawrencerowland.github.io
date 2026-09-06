@@ -1,0 +1,180 @@
+{
+  "status": "PASS",
+  "base": "http://127.0.0.1:8785/apps/staged-paths.html",
+  "cases": [
+    {
+      "id": "continuity",
+      "params": {
+        "horizon": 8,
+        "serviceFloor": 1,
+        "milestoneSlot": 4,
+        "milestoneService": 2,
+        "crews": 2,
+        "accessCap": 2,
+        "temporaryAvailable": true
+      },
+      "vectors": [
+        [
+          24,
+          5,
+          2
+        ],
+        [
+          26,
+          4,
+          2
+        ],
+        [
+          26,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "shutdown",
+      "params": {
+        "horizon": 8,
+        "serviceFloor": 0,
+        "milestoneSlot": 4,
+        "milestoneService": 2,
+        "crews": 2,
+        "accessCap": 2,
+        "temporaryAvailable": true
+      },
+      "vectors": [
+        [
+          20,
+          5,
+          2
+        ],
+        [
+          23,
+          4,
+          2
+        ],
+        [
+          26,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "restricted-access",
+      "params": {
+        "horizon": 10,
+        "serviceFloor": 1,
+        "milestoneSlot": 6,
+        "milestoneService": 2,
+        "crews": 2,
+        "accessCap": 1,
+        "temporaryAvailable": true
+      },
+      "vectors": [
+        [
+          26,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "no-bridge",
+      "params": {
+        "horizon": 8,
+        "serviceFloor": 1,
+        "milestoneSlot": 4,
+        "milestoneService": 2,
+        "crews": 2,
+        "accessCap": 2,
+        "temporaryAvailable": false
+      },
+      "vectors": [
+        [
+          26,
+          4,
+          2
+        ],
+        [
+          26,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "early-service",
+      "params": {
+        "horizon": 8,
+        "serviceFloor": 1,
+        "milestoneSlot": 2,
+        "milestoneService": 2,
+        "crews": 2,
+        "accessCap": 2,
+        "temporaryAvailable": true
+      },
+      "vectors": [
+        [
+          26,
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "one-crew",
+      "params": {
+        "horizon": 12,
+        "serviceFloor": 1,
+        "milestoneSlot": 6,
+        "milestoneService": 2,
+        "crews": 1,
+        "accessCap": 2,
+        "temporaryAvailable": true
+      },
+      "vectors": [
+        [
+          24,
+          8,
+          2
+        ],
+        [
+          26,
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "no-path",
+      "params": {
+        "horizon": 6,
+        "serviceFloor": 1,
+        "milestoneSlot": 4,
+        "milestoneService": 2,
+        "crews": 1,
+        "accessCap": 2,
+        "temporaryAvailable": true
+      },
+      "vectors": []
+    }
+  ],
+  "checks": [
+    "presets",
+    "endpoint-vs-staged trace",
+    "keyboard point selection",
+    "slot replay",
+    "invalid input retains calculation",
+    "correction",
+    "URL reload",
+    "malformed-link recovery",
+    "JSON export and content",
+    "copy link",
+    "method/source/old-app return",
+    "mobile controls",
+    "360/390/768/1440 layouts",
+    "foray-home navigation"
+  ],
+  "errors": []
+}
