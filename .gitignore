@@ -7,3 +7,7 @@ _site
 .jekyll-metadata
 vendor
 _notebooks/.ipynb_checkpoints
+
+# Python co-design model generation
+__pycache__/
+*.py[cod]

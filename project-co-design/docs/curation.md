@@ -1,5 +1,7 @@
 # Three surviving essays, with the best explanations preserved
 
+**7 September 2026 addition:** the [temporary-power loop](../apps/rail-power-loop.html) is a new fourth essay, using the Python MCDP package to size a cyclic component system. It retains all three survivors and the retirement decisions below. [Model and source](rail-power-loop/MODEL.md).
+
 6 September2026. [Project Co-design](../index.html) · [Categorical-method audit](categorical-co-design.md)
 
 The active collection contains **staged paths**, **programme studio**, and **wildlife crossing**. The studio is repaired; wildlife is rebuilt. Three weaker rail apps are retired as standalone calculations. Their useful ideas remain in the surviving essays rather than depending on an executable predecessor.

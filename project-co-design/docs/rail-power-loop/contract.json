@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "rail-power-loop-1",
+  "title": "Can the temporary power cover its own overhead?",
+  "domain": {
+    "powerKW": [
+      0,
+      250,
+      500,
+      750,
+      1000,
+      1500,
+      2000
+    ],
+    "durationHours": [
+      2,
+      4,
+      6,
+      8,
+      12,
+      16,
+      24
+    ],
+    "conditions": [
+      "mild",
+      "hot"
+    ]
+  },
+  "default": {
+    "powerKW": 750,
+    "durationHours": 8,
+    "condition": "hot"
+  },
+  "catalogueCaps": {
+    "batteries": 32,
+    "converters": 12,
+    "coolers": 20
+  },
+  "batteries": [
+    {
+      "id": "standard",
+      "name": "Standard batteries",
+      "usableKWh": 1000,
+      "capitalGBP": 320000,
+      "landM2": 28,
+      "heatKW": 12
+    },
+    {
+      "id": "compact",
+      "name": "Compact batteries",
+      "usableKWh": 1400,
+      "capitalGBP": 600000,
+      "landM2": 16,
+      "heatKW": 20
+    }
+  ],
+  "converters": [
+    {
+      "id": "standard",
+      "name": "Standard converters",
+      "outputKW": 250,
+      "lossKW": 8,
+      "capitalGBP": 75000,
+      "landM2": 12
+    },
+    {
+      "id": "efficient",
+      "name": "Efficient converters",
+      "outputKW": 250,
+      "lossKW": 3,
+      "capitalGBP": 115000,
+      "landM2": 8
+    }
+  ],
+  "coolers": [
+    {
+      "id": "air",
+      "name": "Air cooling",
+      "removalKW": 40,
+      "drawKW": 12,
+      "capitalGBP": 30000,
+      "landM2": 12
+    },
+    {
+      "id": "liquid",
+      "name": "Liquid cooling",
+      "removalKW": 70,
+      "drawKW": 8,
+      "capitalGBP": 75000,
+      "landM2": 6
+    }
+  ],
+  "conditions": [
+    {
+      "id": "mild",
+      "name": "Mild conditions",
+      "batteryEnergyNumerator": 1,
+      "batteryEnergyDenominator": 1,
+      "batteryHeatNumerator": 1,
+      "batteryHeatDenominator": 1,
+      "coolerCapacityNumerator": 1,
+      "coolerCapacityDenominator": 1
+    },
+    {
+      "id": "hot",
+      "name": "Hot conditions",
+      "batteryEnergyNumerator": 4,
+      "batteryEnergyDenominator": 5,
+      "batteryHeatNumerator": 3,
+      "batteryHeatDenominator": 2,
+      "coolerCapacityNumerator": 4,
+      "coolerCapacityDenominator": 5
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "energy",
+      "label": "Battery energy",
+      "unit": "kWh",
+      "requirement": "H * (P + cooler draw + converter loss)",
+      "supply": "battery count * usable pack energy"
+    },
+    {
+      "id": "conversion",
+      "label": "Converter output",
+      "unit": "kW",
+      "requirement": "P + cooler draw",
+      "supply": "converter count * output rating"
+    },
+    {
+      "id": "cooling",
+      "label": "Heat removal",
+      "unit": "kW",
+      "requirement": "battery heat + converter loss",
+      "supply": "cooler count * removal rating"
+    }
+  ],
+  "traceColumns": [
+    "iteration",
+    "batteries",
+    "converters",
+    "coolers",
+    "heatKW",
+    "coolingKW",
+    "drawKW",
+    "lossKW",
+    "capitalGBP",
+    "landM2"
+  ],
+  "boundary": "Declared synthetic steady-load sizing model. No measured site data, transient load, electrical protection, charging, reliability, construction sequence or safety approval is modelled. Hot is a declared scenario, not an uncertainty distribution or universal worst case.",
+  "physicalAssumptions": {
+    "usableEnergy": "Net DC energy available after cell-internal losses; converter losses and cooling electricity are accounted separately.",
+    "batteryHeat": "Synthetic thermal design allowance per operating pack; not a claim that actual heat must increase whenever packs are added at a fixed load.",
+    "converterLoss": "Constant design allowance per operating unit, counted as both battery energy demand and heat to remove.",
+    "operation": "All selected units are operating throughout the declared constant-load outage. No charging is modelled."
+  }
+}

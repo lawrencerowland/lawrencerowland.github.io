@@ -1,0 +1,165 @@
+{
+  "cases": [
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "batteries",
+      "condition": "mild",
+      "directTop": "all-resource-top",
+      "family": "standard",
+      "orderChecks": 3,
+      "rating": 1000
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "batteries",
+      "condition": "mild",
+      "directTop": "all-resource-top",
+      "family": "compact",
+      "orderChecks": 3,
+      "rating": 1400
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "converters",
+      "condition": "mild",
+      "directTop": "all-resource-top",
+      "family": "standard",
+      "orderChecks": 3,
+      "rating": 250
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "converters",
+      "condition": "mild",
+      "directTop": "all-resource-top",
+      "family": "efficient",
+      "orderChecks": 3,
+      "rating": 250
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "coolers",
+      "condition": "mild",
+      "directTop": "all-resource-top",
+      "family": "air",
+      "orderChecks": 3,
+      "rating": 40
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "coolers",
+      "condition": "mild",
+      "directTop": "all-resource-top",
+      "family": "liquid",
+      "orderChecks": 3,
+      "rating": 70
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "batteries",
+      "condition": "hot",
+      "directTop": "all-resource-top",
+      "family": "standard",
+      "orderChecks": 3,
+      "rating": 800
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "batteries",
+      "condition": "hot",
+      "directTop": "all-resource-top",
+      "family": "compact",
+      "orderChecks": 3,
+      "rating": 1120
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "converters",
+      "condition": "hot",
+      "directTop": "all-resource-top",
+      "family": "standard",
+      "orderChecks": 3,
+      "rating": 250
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "converters",
+      "condition": "hot",
+      "directTop": "all-resource-top",
+      "family": "efficient",
+      "orderChecks": 3,
+      "rating": 250
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "coolers",
+      "condition": "hot",
+      "directTop": "all-resource-top",
+      "family": "air",
+      "orderChecks": 3,
+      "rating": 32
+    },
+    {
+      "boundaryCounts": [
+        0,
+        1,
+        2
+      ],
+      "component": "coolers",
+      "condition": "hot",
+      "directTop": "all-resource-top",
+      "family": "liquid",
+      "orderChecks": 3,
+      "rating": 56
+    }
+  ],
+  "directModuleCalls": 48,
+  "modelSha256": "aa38ec827fb07a0d221e99cacc602a81dc8e86cd70c897892cbe43bc7cac612a",
+  "moduleConfigurations": 12,
+  "scope": "Direct module top, zero and first unit-rating boundary only; outer supported domains unchanged.",
+  "status": "PASS"
+}

@@ -1,0 +1,290 @@
+{
+  "boundary": "Exact for the declared finite catalogue and supported briefs; no empirical railway or safety validation.",
+  "counts": {
+    "adjacent_monotonicity_pairs": 1344,
+    "architecture_results": 784,
+    "architectures_per_brief": 8,
+    "briefs": 98,
+    "candidate_count_triples_per_architecture": 9009,
+    "catalogue_feasible_results": 726,
+    "catalogue_unavailable_results": 58,
+    "compatible_available_count_triples": 1892418,
+    "first_pass_incomplete_results": 672,
+    "hot_witnesses_checked_in_mild": 392,
+    "integer_count_triples_examined": 7063056,
+    "interface_comparisons": 4704,
+    "recorded_trace_transitions": 3203,
+    "resource_ceiling_queries": 24076
+  },
+  "default": {
+    "architectures": [
+      {
+        "architecture": "standard-standard-air",
+        "available": true,
+        "first_pass_counts": [
+          8,
+          3,
+          6
+        ],
+        "first_pass_failed_interfaces": [
+          "energy",
+          "conversion"
+        ],
+        "least_counts": [
+          9,
+          4,
+          7
+        ],
+        "resources": [
+          3390000,
+          384
+        ]
+      },
+      {
+        "architecture": "standard-standard-liquid",
+        "available": true,
+        "first_pass_counts": [
+          8,
+          3,
+          3
+        ],
+        "first_pass_failed_interfaces": [
+          "conversion"
+        ],
+        "least_counts": [
+          9,
+          4,
+          4
+        ],
+        "resources": [
+          3480000,
+          324
+        ]
+      },
+      {
+        "architecture": "standard-efficient-air",
+        "available": true,
+        "first_pass_counts": [
+          8,
+          3,
+          5
+        ],
+        "first_pass_failed_interfaces": [
+          "energy",
+          "conversion"
+        ],
+        "least_counts": [
+          9,
+          4,
+          6
+        ],
+        "resources": [
+          3520000,
+          356
+        ]
+      },
+      {
+        "architecture": "standard-efficient-liquid",
+        "available": true,
+        "first_pass_counts": [
+          8,
+          3,
+          3
+        ],
+        "first_pass_failed_interfaces": [
+          "conversion"
+        ],
+        "least_counts": [
+          8,
+          4,
+          3
+        ],
+        "resources": [
+          3245000,
+          274
+        ]
+      },
+      {
+        "architecture": "compact-standard-air",
+        "available": true,
+        "first_pass_counts": [
+          6,
+          3,
+          7
+        ],
+        "first_pass_failed_interfaces": [
+          "energy",
+          "conversion"
+        ],
+        "least_counts": [
+          7,
+          4,
+          8
+        ],
+        "resources": [
+          4740000,
+          256
+        ]
+      },
+      {
+        "architecture": "compact-standard-liquid",
+        "available": true,
+        "first_pass_counts": [
+          6,
+          3,
+          4
+        ],
+        "first_pass_failed_interfaces": [
+          "conversion"
+        ],
+        "least_counts": [
+          6,
+          4,
+          4
+        ],
+        "resources": [
+          4200000,
+          168
+        ]
+      },
+      {
+        "architecture": "compact-efficient-air",
+        "available": true,
+        "first_pass_counts": [
+          6,
+          3,
+          6
+        ],
+        "first_pass_failed_interfaces": [
+          "conversion"
+        ],
+        "least_counts": [
+          6,
+          4,
+          6
+        ],
+        "resources": [
+          4240000,
+          200
+        ]
+      },
+      {
+        "architecture": "compact-efficient-liquid",
+        "available": true,
+        "first_pass_counts": [
+          6,
+          3,
+          4
+        ],
+        "first_pass_failed_interfaces": [
+          "conversion"
+        ],
+        "least_counts": [
+          6,
+          4,
+          4
+        ],
+        "resources": [
+          4360000,
+          152
+        ]
+      }
+    ],
+    "brief": "p750-h8-hot",
+    "frontier": [
+      "standard-efficient-liquid",
+      "compact-standard-liquid",
+      "compact-efficient-liquid"
+    ]
+  },
+  "empty_frontier_briefs": [
+    "p1500-h24-hot",
+    "p2000-h24-mild",
+    "p2000-h24-hot"
+  ],
+  "input_sha256": {
+    "atlas.json": "37c296f7d1574bedb17de710421ecf8426471005898d59698365610833899ea1",
+    "build_atlas.py": "f6b493e68201347909149b9ef08f3e734dfb5d17b5477c2db8ee59e96c149210",
+    "contract.json": "0f5db34271bb0c54ee21aae1ee2f634cc91a07f1197c7e89b6dd6742c9bded09",
+    "model.py": "aa38ec827fb07a0d221e99cacc602a81dc8e86cd70c897892cbe43bc7cac612a",
+    "oracle.py": "011183561e89ce25d18db9f7f690c8c055363c98c0be05620500ee8fb94c6794"
+  },
+  "scope": "Independent finite integer enumeration; no package or model imports",
+  "status": "PASS",
+  "unavailable_examples": [
+    {
+      "architecture": "compact-standard-air",
+      "brief": "p750-h24-hot",
+      "caps": [
+        32,
+        12,
+        20
+      ],
+      "least_counts": [
+        23,
+        5,
+        23
+      ]
+    },
+    {
+      "architecture": "compact-efficient-air",
+      "brief": "p750-h24-hot",
+      "caps": [
+        32,
+        12,
+        20
+      ],
+      "least_counts": [
+        23,
+        5,
+        23
+      ]
+    },
+    {
+      "architecture": "standard-standard-air",
+      "brief": "p1000-h24-hot",
+      "caps": [
+        32,
+        12,
+        20
+      ],
+      "least_counts": [
+        41,
+        6,
+        25
+      ]
+    },
+    {
+      "architecture": "standard-standard-liquid",
+      "brief": "p1000-h24-hot",
+      "caps": [
+        32,
+        12,
+        20
+      ],
+      "least_counts": [
+        35,
+        5,
+        12
+      ]
+    },
+    {
+      "architecture": "standard-efficient-air",
+      "brief": "p1000-h24-hot",
+      "caps": [
+        32,
+        12,
+        20
+      ],
+      "least_counts": [
+        39,
+        6,
+        23
+      ]
+    }
+  ],
+  "zero_demand": {
+    "briefs": 14,
+    "equal_resource_architecture_witnesses_per_brief": 8
+  }
+}
