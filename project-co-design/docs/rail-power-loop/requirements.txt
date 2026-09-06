@@ -1,0 +1,2 @@
+# Core package only; no optional plotting, stochastic or online dependencies.
+codesign-mcdp @ git+https://github.com/cbriat/codesign-mcdp.git@97d6446abf48c3424cf52bace9c5d9c40bfda978

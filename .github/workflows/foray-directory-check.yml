@@ -46,6 +46,17 @@ jobs:
         run: node project-co-design/tests/programme-studio.test.mjs
       - name: Check wildlife composition against independent flat enumeration
         run: node project-co-design/docs/wildlife-codesign/oracle.mjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the pinned co-design solver
+        run: python -m pip install --no-deps -r project-co-design/docs/rail-power-loop/requirements.txt
+      - name: Check finite and top module boundaries
+        run: python project-co-design/docs/rail-power-loop/module_boundary_tests.py
+      - name: Reproduce the package-computed temporary-power atlas
+        run: python project-co-design/docs/rail-power-loop/build_atlas.py --check
+      - name: Check the power-loop witnesses by independent enumeration
+        run: python project-co-design/docs/rail-power-loop/oracle.py
       - name: Build the existing Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:

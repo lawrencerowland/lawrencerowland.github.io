@@ -1,0 +1,31 @@
+{
+  "commit": "97d6446abf48c3424cf52bace9c5d9c40bfda978",
+  "license": "MIT",
+  "licenseFile": "LICENSE.upstream",
+  "name": "codesign-mcdp",
+  "repository": "https://github.com/cbriat/codesign-mcdp",
+  "sourceFileSha256": {
+    "codesign/__init__.py": "03b5163e50609573876e16393930145a7faa1189ad356e5d7ff4fd02eec83ce2",
+    "codesign/antichains.py": "35def562d1d8125ae1a525909f0c0513fca702058739d620d86addb5351b23aa",
+    "codesign/composition.py": "0992b863795a2ed6cdf62fb97f2bddba19c27df06587c508e31c6ee2e9d77c2e",
+    "codesign/diagram.py": "ef808dcaf41266a9a7346fc28eae7bf76a252050f762a8a149ac51584b04e3a5",
+    "codesign/dp.py": "16102dd64fe55499d9e3e35ff1a428ddb250afe9dde9fa68bd1a43357499019d",
+    "codesign/dynamic.py": "d9f6e519f81aa917dad72977c27e00058041074cc9e6af629eab91dae0a4ce79",
+    "codesign/mcdpl.py": "9351c732f1df7949e772d5391421de4bc8cf287351c59560afcd546f757b6def",
+    "codesign/module.py": "474d47c84f0586a59ebc69ed49d829479aeef7b2494a791ab8c64a97f360fdbf",
+    "codesign/online.py": "770abde9ce80828da01c74957ad78f1bc1f39db0855d1d1c37263b7c08400ec8",
+    "codesign/online_codesign.py": "b3164bde0e9c647c43d41b1b31e3d60f13a7a3ef5ba4afa57f0aacf094d90cc2",
+    "codesign/posets.py": "bea9b5013fc21b60b9172176ed6fad124d7de15abb1a1561e6c4d1b098ebd913",
+    "codesign/primitives.py": "706e8ea07a32f64532ad2a443ea9852a820761f7f2c635c2bba9dd40c782f8c8",
+    "codesign/sequential.py": "aa76ff9cba27eeb981728e9ecbc7364a4c20e6db13f886febbef38042ddadf58",
+    "codesign/solver.py": "d334f3cc780f3f8123e1906ba97e40b75516c6c76f904db647e204c9e21f8e0b",
+    "codesign/state.py": "0f61e5f15b6ae981e51b1927e6d208b794d910e51f7cf893288f4002b85080c9",
+    "codesign/sugar.py": "22d201a89cc3a7070aaf318119507f11532d317c7f34e37b6af82909cfcfe00c",
+    "codesign/system.py": "8ab754d27a2a9e0fd8a793b90e714a4b60ec18661e408b4c096f4d0201376b63",
+    "codesign/temporal.py": "23438cb9f02bbcb4b623fa9e6083d9cc8651d044c1f23b82196cc935211868a5",
+    "codesign/uncertainty.py": "1dccb3f465de46656834cb526d988ca94896a8b82ee80591abb1f3ba8e874749",
+    "codesign/vector_dp.py": "368987c3578ac6c33de80f0a2dd1615f6c609f18b7c211619714a76f102537c0",
+    "codesign/viz.py": "f053b85e5617e7256c3d27c42c74ff98daa51f5fee3051a7c2000ecbdc850312"
+  },
+  "version": "0.2.1"
+}
