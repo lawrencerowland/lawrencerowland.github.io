@@ -441,16 +441,16 @@
   <nav class="project-home" aria-label="Project"><a href="../index.html">← Project Co-design</a><span>Programme studio · March 2026 model</span></nav>
   <h1>Rail Upgrade Monotone Co‑Design Studio</h1>
   <div class="lede">
-    A fresh, documentation-led interactive scenario for a <b>rail transit capacity upgrade</b>: longer platforms, tighter signalling headways, and stronger traction power must be designed <i>together</i>, with staged delivery, contracts, approvals, and political risk treated as part of the co-design challenge rather than an afterthought.
+    Compare a <b>rail transit capacity upgrade</b> as a joined design: a service plan, compatible platform, signalling and power packages, and a supplied programme strategy. Explore how declared governance assumptions change its resource trade-offs.
   </div>
-  <p class="scope-note">Compare <b>four prescribed staging strategies</b>, package catalogues and illustrative governance assumptions. Costs, durations and risk indices are fictional. This studio compares supplied programme strategies; the separate staged-path experiment constructs legal action sequences under explicit service constraints.</p>
+  <p class="scope-note">Compare <b>four prescribed staging strategies</b>, package catalogues and illustrative governance assumptions. Costs, durations and risk indices are fictional incremental programme resources. Existing operating costs and risk are outside this model. This studio compares supplied programme strategies; the separate staged-path experiment constructs legal action sequences under explicit service constraints.</p>
   <div class="method-strip">
     <div class="method-step">1 · Define the task</div>
     <div class="method-step">2 · Decompose into sub-tasks</div>
     <div class="method-step">3 · Map to co-design diagram</div>
     <div class="method-step">4 · Populate catalogues / alternatives</div>
     <div class="method-step">5 · Solve for minimal-resource antichain</div>
-    <div class="method-step">6 · Inspect illustrative feedback iteration</div>
+    <div class="method-step">6 · Inspect the scalar feedback calculation</div>
   </div>
 </header>
 
@@ -514,18 +514,18 @@
           <div class="control">
             <label for="governanceFilter"><span>Governance filter</span><span class="badge" id="govFilterBadge">All</span></label>
             <select id="governanceFilter"></select>
-            <div class="hint">A coproduct-like lens over organisational alternatives.</div>
+            <div class="hint">Choose among declared organisational alternatives for new works. The no-project option needs no governance choice.</div>
           </div>
           <div class="control">
             <label for="strategyFilter"><span>Stage strategy filter</span><span class="badge" id="stratFilterBadge">All</span></label>
             <select id="strategyFilter"></select>
-            <div class="hint">How subsystem increments are sequenced through the programme.</div>
+            <div class="hint">Choose among four supplied patterns for new works. This filter does not exclude the existing railway.</div>
           </div>
         </div>
 
         <div class="control">
           <label><span>Loop treatment</span><span class="badge"><input id="feedback" aria-label="Enable illustrative feedback" type="checkbox" checked/> fixed-point enabled</span></label>
-          <div class="hint">When enabled, schedule and risk are solved by a monotone feedback iteration: more mismatch raises risk, which stretches approvals, which raises risk again, until the numerical stopping tolerance is reached.</div>
+          <div class="hint">When enabled, a declared affine equation links risk and approvals delay. Resources use its exact finite fixed point; the trace illustrates convergence from zero. These coefficients are hypothetical programme assumptions.</div>
         </div>
 
         <div class="control">
@@ -546,10 +546,10 @@
         </div>
 
         <details>
-          <summary>Why this is faithful to Monotone Co‑Design</summary>
+          <summary>What is actually composed here</summary>
           <div>
             <div class="callout">
-              The page mirrors the method in the documentation: <b>task → functional decomposition → co-design diagram → feedback loops → implementation via catalogues / alternatives → query minimal resources</b>. The solver returns an <b>antichain</b> of minimal resource bundles rather than a single scalar optimum, and the loop panel shows the least-fixed-point logic used when recursive constraints are present.
+              Each implementation retains a service plan and its package tuple. The code checks three typed <b>provided ≥ required</b> joins, then evaluates the compatible tuple under a programme alternative. The compatible subset of these finite catalogues is composed by enumeration. A query filters by throughput and resource ceilings, then returns the minimal resource antichain. This is a finite design problem with implementations, not a general MCDP library.
             </div>
           </div>
         </details>
@@ -569,11 +569,12 @@
         <div class="canvaswrap">
           <canvas id="alignmentCanvas" class="shortcanvas" width="900" height="250"></canvas>
         </div>
+        <p id="clockBreakdown" class="hint">No selected timeline.</p>
         <div class="legend">
           <span class="swatch"><span class="dot" style="background:var(--green)"></span>Platform readiness</span>
           <span class="swatch"><span class="dot" style="background:var(--blue)"></span>Signalling readiness</span>
           <span class="swatch"><span class="dot" style="background:var(--gold)"></span>Power readiness</span>
-          <span class="swatch"><span class="dot" style="background:var(--red)"></span>Usable upgrade fraction</span>
+          <span class="swatch"><span class="dot" style="background:var(--red)"></span>Coupled readiness fraction</span>
         </div>
       </div>
     </section>
@@ -584,7 +585,7 @@
       <div class="hd">
         <div>
           <div class="smallcaps">Director brief</div>
-          <h2>Minimal plans, not a fake single optimum</h2>
+          <h2>Compare the minimal alternatives</h2>
         </div>
         <span id="feasibilityPill" class="pill">Not solved</span>
       </div>
@@ -616,6 +617,18 @@
         </div>
       </div>
 
+
+        <details id="coupling-primer" style="margin-top:14px" open>
+          <summary>Start here: a request, a compatible design, and its trade-offs</summary>
+          <div class="grid2" style="margin-top:12px">
+            <div class="control"><b>Functionality is the promise.</b><p>Here it is passengers per hour in the peak direction. A design is a particular service plan and package tuple. Resources are what that implementation requires: capex, duration, programme risk and possessions. Green dashed diagram edges show provided capabilities; red solid edges show resource requirements.</p></div>
+            <div class="control"><b>One choice can require a co-move.</b><p>In this fictional catalogue, a longer planned train requires a larger platform envelope and may raise the minimum signalling and power capability. For example, a 10-car plan at 18 tph still requires 21-tph signalling. These are declared compatibility rules, not universal engineering or safety laws.</p></div>
+            <div class="control"><b>Monotone does not mean irreversible.</b><p>Holding the catalogues and assumptions fixed, asking for more throughput can only remove feasible implementations. It does not force the user to keep the highest target ever tried. A signed commitment or an irreversible construction step is an additional project rule and needs its own model. You can freely explore a lower request here.</p></div>
+            <div class="control"><b>Several minimal choices can be useful.</b><p>A cheaper plan may take longer or use more possessions. Pareto dominance means no worse in every resource and strictly better in at least one. The remaining alternatives form a discussion object: compare the extra resource needed for a gain, without forcing everyone’s objectives into one score. Balanced is only an illustrative initial highlight; a hypothetical risk ceiling is not stakeholder consent.</p></div>
+          </div>
+          <p class="hint">This primer preserves and corrects the useful explanation from the earlier rail-transit, incremental-upgrade and rail-simulator essays. For legal work sequences and service during construction, open <a href="staged-paths.html">the staged-path experiment</a>.</p>
+        </details>
+
       <div class="tabs">
         <button class="tabbtn active" data-tab="briefTab">Brief</button>
         <button class="tabbtn" data-tab="methodTab">Method</button>
@@ -630,7 +643,7 @@
             <div class="control">
               <div class="smallcaps">Executive reading</div>
               <div id="executiveText" class="muted" style="margin-top:8px">
-                This scenario treats the rail programme as a co-design problem in the exact sense of the documentation: the task is specified first, decomposed into sub-tasks, then reassembled as a formal dependency structure whose minimal resource consequences can be queried.
+                Select a retained implementation to inspect its functionality, compatible subsystem tuple and resource consequences.
               </div>
             </div>
 
@@ -638,9 +651,9 @@
               <div class="control">
                 <div class="smallcaps">Task decomposition</div>
                 <div class="tree" id="taskTree">
-                  <div class="tree-node root"><b>Increase corridor throughput</b><br/><span class="mini">deliver peak-direction capacity with safe operations</span></div>
+                  <div class="tree-node root"><b>Increase corridor throughput</b><br/><span class="mini">meet the declared capacity request</span></div>
                   <div class="tree-node level1"><b>Accommodate longer trains</b><br/><span class="mini">station and platform envelope</span></div>
-                  <div class="tree-node level1"><b>Dispatch more trains safely</b><br/><span class="mini">headway, interlocking, regulation</span></div>
+                  <div class="tree-node level1"><b>Provide the required train frequency</b><br/><span class="mini">headway, interlocking, regulation</span></div>
                   <div class="tree-node level1"><b>Feed extra traction power</b><br/><span class="mini">substations, feeders, resilience</span></div>
                   <div class="tree-node level1"><b>Keep the programme governable</b><br/><span class="mini">claims, approvals, stakeholder tolerance</span></div>
                 </div>
@@ -651,7 +664,7 @@
                 <div class="resource-algebra" style="margin-top:8px">
                   <div class="algbox">
                     <b>Capex</b><br/>
-                    <span class="mini">Subsystem packages contribute independently and are <b>summed</b>.</span>
+                    <span class="mini">Package costs are <b>summed</b>, then context, governance and declared premiums apply.</span>
                   </div>
                   <div class="algbox">
                     <b>Schedule</b><br/>
@@ -665,10 +678,15 @@
               </div>
             </div>
 
+            <div class="control" id="component-compatibility">
+              <div class="smallcaps">The selected implementation: actual component joins</div>
+              <p class="hint">The same three provided ≥ required checks select this tuple in the engine. This is an endpoint capability check; it does not certify intermediate operating service.</p>
+              <div id="compatibilityTable" style="overflow:auto">Select a plan to inspect its component joins.</div>
+            </div>
             <div class="control">
               <div class="smallcaps">What the highlighted plan is really saying</div>
               <div id="planInterpretation" class="muted" style="margin-top:8px">
-                Once solved, this panel explains the highlighted plan in programme language: what it buys, what it forces elsewhere, and where the political or regulatory fragility sits.
+                Once solved, this panel explains the highlighted plan in programme language: what it buys, what it forces elsewhere, and which declared assumptions drive its programme penalties.
               </div>
             </div>
           </div>
@@ -694,7 +712,7 @@
             <div class="control">
               <div class="smallcaps">Stage alignment diagnosis</div>
               <div id="alignmentDiagnosis" class="muted" style="margin-top:8px">
-                The chart at left shows subsystem readiness curves and the usable corridor capacity that the public can actually feel. A director’s problem is not merely to fund all subsystems, but to prevent one package from arriving politically years before the others.
+                Select a plan to inspect normalized subsystem readiness in its base construction pattern. The separate clock breakdown accounts for programme-level delay; neither display certifies operating service.
               </div>
             </div>
           </div>
@@ -704,7 +722,7 @@
       <div class="tab" id="methodTab">
         <div class="stack">
           <div class="callout">
-            <b>Method in six moves.</b> The documentation’s discipline is inductive and compositional: define the task, decompose it hierarchically, identify components as design problems, connect them by functionality/resource constraints, model alternatives via catalogues and coproduct-like choices, then query minimal resources. Loops are not banned; they are solved by monotone fixed-point logic.
+            <b>Method in six moves.</b> Define the task, identify the implementing components, join their provided and required capabilities, retain compatible alternatives, evaluate their resources, and query the minimal tuples. The feedback panel is a separate affine resource calculation; it is not a general solver for cyclic co-design diagrams.
           </div>
 
           <div class="grid2">
@@ -717,7 +735,7 @@
             <div class="control">
               <div class="smallcaps">2 · Functional decomposition</div>
               <div class="muted" style="margin-top:8px">
-                We decompose “increase corridor throughput” into longer trains, tighter headways, and stronger traction power, plus a governance sub-task. This respects the documentation’s distinction between <b>what the system must do</b> and <b>how it will eventually do it</b>.
+                The external function is throughput. A service plan specifies cars and frequency; the three package catalogues provide the capabilities required by that plan. A works implementation also includes a governance choice and a supplied staging pattern. The no-project implementation uses compatible baseline assets.
               </div>
             </div>
           </div>
@@ -726,13 +744,13 @@
             <div class="control">
               <div class="smallcaps">3 · From decomposition to co-design diagram</div>
               <div class="muted" style="margin-top:8px">
-                Each subsystem is modelled as a design problem with green functionality edges and red resource edges. The joins are co-design constraints: e.g. a larger train length forces non-decreasing signalling and power capability.
+                The actual joins are explicit: platform cars ≥ service-plan cars; signalling tph ≥ max(planned tph, the train-length requirement); power index ≥ the declared load requirement. The selected tuple’s checks are shown in the Brief. Diagram arrows illustrate these dependencies; they are not simulated operating signals.
               </div>
             </div>
             <div class="control">
               <div class="smallcaps">4 · Populate implementations</div>
               <div class="muted" style="margin-top:8px">
-                The subsystem options are finite <b>catalogues</b>. Different governance modes and sequencing strategies act like <b>alternatives</b> that can be chosen. This gives a discrete, exact, non-differentiable design space without pretending the problem is convex.
+                The implementation set is the compatible subset of the Cartesian product of the finite catalogues, with the service plan and programme alternatives retained. Flat enumeration computes these joins directly. The catalogue relation is discrete; readiness sampling and risk assumptions remain approximations of the chosen scenario.
               </div>
             </div>
           </div>
@@ -741,13 +759,13 @@
             <div class="control">
               <div class="smallcaps">5 · Solve by querying minimal resources</div>
               <div class="muted" style="margin-top:8px">
-                For each feasible service plan the solver returns the minimal resource bundles under the product order. In programme language: the result is the set of plans that are not jointly beaten on cost, time, risk, and possessions.
+                For the requested throughput, the solver retains all compatible implementations that meet the declared ceilings, then finds the minimal resource tuples across them. Raising only the throughput request removes implementations; it never changes a fixed implementation’s cost or risk.
               </div>
             </div>
             <div class="control">
               <div class="smallcaps">6 · Treat loops explicitly</div>
               <div class="muted" style="margin-top:8px">
-                Mismatch creates approvals risk, risk stretches schedule, and a longer schedule can provoke further risk. The studio resolves that circularity with a monotone iteration starting from the least element, i.e. a directorially legible analogue of Kleene ascent.
+                For a fixed implementation, the supplied affine map is r = B + 0.72q + 0.222P + 0.42αr. Every supplied α gives slope below one, so the exact solution is r = (B + 0.72q + 0.222P)/(1 − 0.42α). The trace illustrates iteration; the resource evaluation uses this exact result.
               </div>
             </div>
           </div>
@@ -755,7 +773,7 @@
           <details>
             <summary>Stylised modelling choices in this scenario</summary>
             <div class="muted">
-              Packages, durations, governance effects and penalties are illustrative. Capacity requirement maps are non-decreasing; resource bundles are Pareto-filtered. Sequencing is restricted to four supplied strategies. Readiness is linearly interpolated within work stages and mismatch is sampled at 120 intervals; it is not certified operating service. The feedback calculation is a synthetic scalar approximation, not a general MCDP loop solver.
+              Packages, durations, governance effects and penalties are illustrative. Capacity requirement maps are non-decreasing; resource bundles are Pareto-filtered. Sequencing is restricted to four supplied strategies. Readiness is linearly interpolated within work stages and mismatch is sampled at 120 intervals; it is not certified operating service. The feedback calculation is a synthetic scalar evaluator, not a general MCDP loop solver. Resource ceilings of zero are unconstrained; there are no hidden duration or risk cutoffs. The no-project option has zero incremental resources only when the baseline packages are compatible and meet the task.
             </div>
           </details>
         </div>
@@ -782,7 +800,7 @@
             <div class="control">
               <div class="smallcaps">Dominance reading</div>
               <div id="dominanceText" class="muted" style="margin-top:8px">
-                The green-outlined points form an antichain: no point is weakly better than another in all four resource dimensions at once. Everything “north-east-and-riskier” of those points is feasible but dominated.
+                The green-outlined points form an antichain: no distinct retained resource tuple dominates another across all four dimensions. Dominance also compares possessions, which this two-axis projection does not fully display. The table retains all four resource coordinates.
               </div>
               <div class="hr"></div>
               <div class="smallcaps" style="margin-top:12px">Feasibility split</div>
@@ -817,7 +835,7 @@
           <div class="grid2">
             <div class="control">
               <div class="smallcaps">Iteration trace</div>
-              <div class="hint" style="margin-top:6px">Monotone update: risk ↗ approvals delay ↗ schedule ↗ risk. The declared scalar map is iterated from zero to a tolerance of 0.05 risk units.</div>
+              <div class="hint" style="margin-top:6px">The trace shows risk ↗ approvals delay ↗ schedule ↗ risk from zero. The final row is the exact affine solution used by the resource query, not a tolerance-limited estimate.</div>
               <div class="canvaswrap" style="margin-top:10px">
                 <canvas id="loopCanvas" class="shortcanvas" width="960" height="250"></canvas>
               </div>
@@ -834,7 +852,7 @@
           </div>
 
           <div class="warnout">
-            This is a stylised finite approximation. In the theory, loops are handled by least fixed points over antichains; here the same programme idea is rendered in a director-friendly scalar loop over schedule and risk.
+            This is one declared scalar resource evaluator. A general MCDP feedback operator over design relations is a different construction and is not implemented here. With feedback off, the model uses the stated nonrecursive base, mismatch and possession terms.
           </div>
         </div>
       </div>
@@ -842,8 +860,8 @@
       <div class="tab" id="mcdplTab">
         <div class="stack">
           <div class="control">
-            <div class="smallcaps">Readable MCDPL mirror</div>
-            <div class="hint" style="margin-top:6px">This is not executed. It mirrors the constructs used in the documentation: <code>provides</code>, <code>requires</code>, <code>catalogue</code>, <code>choose</code>, composition, and query for minimal resources.</div>
+            <div class="smallcaps">Explanatory model notation</div>
+            <div class="hint" style="margin-top:6px">This sketch is not executed or validated MCDPL syntax. The actual finite JavaScript relation checks the component joins shown in the Brief and enumerates their compatible tuples. Inspect the model note for the implemented equations.</div>
             <pre id="mcdplView"></pre>
           </div>
           <div class="grid2">
@@ -853,9 +871,9 @@
                 <b>Functionality</b> = what a subsystem provides. <br/>
                 <b>Resources</b> = what it requires. <br/>
                 <b>Catalogue</b> = arbitrary discrete implementation relation. <br/>
-                <b>Choose</b> = alternatives / coproduct. <br/>
+                <b>Choose</b> = retain one explicit programme alternative. <br/>
                 <b>Antichain</b> = mutually non-dominating minimal plans. <br/>
-                <b>Loop</b> = recursive co-design constraint solved by least fixed point.
+                <b>Scalar feedback here</b> = an affine schedule/risk evaluator with an exact fixed point.
               </div>
             </div>
             <div class="control">
@@ -872,7 +890,7 @@
 </div>
 
 <div class="footer">
-  <a href="../index.html">Project Co-design home</a> · A self-contained March 2026 programme model, prepared for public inclusion with interaction and stage-timing corrections. Catalogue enumeration and synthetic feedback remain separate from the staged-path experiment. No real railway, personal or client data is included.
+  <a href="../index.html">Project Co-design home</a> · A self-contained March 2026 programme model, prepared for public inclusion with interaction and stage-timing corrections. Catalogue enumeration and synthetic feedback remain separate from the staged-path experiment. No real railway, personal or client data is included. <a href="../docs/programme-studio-model.md">Model and verification note</a>.
   <p>Method references: <a href="https://andreacensi.github.io/mcdp-manual/mcdp-manual.pdf">Censi’s co-design manual</a> · <a href="https://www.research-collection.ethz.ch/handle/20.500.11850/648075">Zardini, Co-Design of Complex Systems</a>. These explain the framework; they do not validate this scenario’s values.</p>
 </div>
 
@@ -934,80 +952,21 @@
     });
   });
 
-  const els = {
-    demand: document.getElementById("demand"),
-    demandOut: document.getElementById("demandOut"),
-    paxPerCar: document.getElementById("paxPerCar"),
-    paxOut: document.getElementById("paxOut"),
-    maxTph: document.getElementById("maxTph"),
-    maxTphOut: document.getElementById("maxTphOut"),
-    budgetCap: document.getElementById("budgetCap"),
-    budgetOut: document.getElementById("budgetOut"),
-    deadlineCap: document.getElementById("deadlineCap"),
-    deadlineOut: document.getElementById("deadlineOut"),
-    riskCap: document.getElementById("riskCap"),
-    riskOut: document.getElementById("riskOut"),
-    context: document.getElementById("context"),
-    contextBadge: document.getElementById("contextBadge"),
-    governanceFilter: document.getElementById("governanceFilter"),
-    govFilterBadge: document.getElementById("govFilterBadge"),
-    strategyFilter: document.getElementById("strategyFilter"),
-    stratFilterBadge: document.getElementById("stratFilterBadge"),
-    feedback: document.getElementById("feedback"),
-    decisionLens: document.getElementById("decisionLens"),
-    lensBadge: document.getElementById("lensBadge"),
-    solveBtn: document.getElementById("solveBtn"),
-    resetBtn: document.getElementById("resetBtn"),
-    feasibilityPill: document.getElementById("feasibilityPill"),
-    kpiFeasible: document.getElementById("kpiFeasible"),
-    kpiPareto: document.getElementById("kpiPareto"),
-    kpiPlan: document.getElementById("kpiPlan"),
-    kpiPlanSub: document.getElementById("kpiPlanSub"),
-    kpiBottleneck: document.getElementById("kpiBottleneck"),
-    kpiBottleneckSub: document.getElementById("kpiBottleneckSub"),
-    topline: document.getElementById("topline"),
-    executiveText: document.getElementById("executiveText"),
-    planInterpretation: document.getElementById("planInterpretation"),
-    dependencySvg: document.getElementById("dependencySvg"),
-    frontierCanvas: document.getElementById("frontierCanvas"),
-    feasibilityCanvas: document.getElementById("feasibilityCanvas"),
-    plansTable: document.getElementById("plansTable"),
-    tableCount: document.getElementById("tableCount"),
-    alignmentCanvas: document.getElementById("alignmentCanvas"),
-    alignmentDiagnosis: document.getElementById("alignmentDiagnosis"),
-    selTitle: document.getElementById("selTitle"),
-    selPill: document.getElementById("selPill"),
-    selNarrative: document.getElementById("selNarrative"),
-    loopCanvas: document.getElementById("loopCanvas"),
-    loopNarrative: document.getElementById("loopNarrative"),
-    iterTable: document.getElementById("iterTable"),
-    mcdplView: document.getElementById("mcdplView"),
-    dominanceText: document.getElementById("dominanceText"),
-  };
 
-  contexts.forEach(c=>{
-    const opt=document.createElement("option");
-    opt.value=c.id; opt.textContent=c.label;
-    els.context.appendChild(opt);
-  });
-  governances.forEach(g=>{
-    const opt=document.createElement("option");
-    opt.value=g.id; opt.textContent=g.label;
-    els.governanceFilter.appendChild(opt);
-  });
-  strategies.forEach(s=>{
-    const opt=document.createElement("option");
-    opt.value=s.id; opt.textContent=s.label;
-    els.strategyFilter.appendChild(opt);
-  });
-
-  const state = {
-    all: [],
-    pareto: [],
-    selectedId: null,
-    currentView: "dependency",
-  };
-
+  // BEGIN PURE STUDIO MODEL: a finite compatible implementation relation.
+  function normalizeModel(input={}){
+    const defaults={demand:30000,paxPerCar:110,maxTph:30,budgetCap:0,deadlineCap:0,riskCap:0,context:"mixed",feedback:true,governance:"all",strategy:"all",lens:"balanced"};
+    const p={...defaults,...input};
+    const cid=typeof p.context==="string"?p.context:p.context?.id;
+    p.context=contexts.find(c=>c.id===cid);
+    if(!p.context)throw Error("Choose a declared corridor context.");
+    for(const [k,lo,hi] of [["demand",18000,42000],["paxPerCar",80,150],["maxTph",21,32],["budgetCap",0,2500],["deadlineCap",0,120],["riskCap",0,180]]){
+      if(!Number.isFinite(p[k])||p[k]<lo||p[k]>hi)throw Error(k+" is outside the declared input range.");
+    }
+    if(typeof p.feedback!=="boolean")throw Error("Feedback must be on or off.");
+    if(!governances.some(g=>g.id===p.governance)||!strategies.some(g=>g.id===p.strategy))throw Error("Choose a declared programme alternative.");
+    return p;
+  }
   function minSignalForCars(cars){
     if (cars <= 8) return 18;
     if (cars <= 10) return 21;
@@ -1017,44 +976,6 @@
     const raw = (cars/8) * (tph/18) * ctx.traction;
     const knockOn = cars<=8 ? 1.0 : cars<=10 ? 1.18 : 1.42;
     return Math.max(raw, knockOn);
-  }
-
-  function getContext(){ return contexts.find(c=>c.id===els.context.value) || contexts[1]; }
-  function getGovList(){
-    if (els.governanceFilter.value === "all") return governances.filter(g=>g.id!=="all");
-    return [governances.find(g=>g.id===els.governanceFilter.value)];
-  }
-  function getStrategyList(){
-    if (els.strategyFilter.value === "all") return strategies.filter(s=>s.id!=="all");
-    return [strategies.find(s=>s.id===els.strategyFilter.value)];
-  }
-
-  function updateLabels(){
-    els.demandOut.textContent = Number(els.demand.value).toLocaleString();
-    els.paxOut.textContent = els.paxPerCar.value;
-    els.maxTphOut.textContent = els.maxTph.value;
-    els.budgetOut.textContent = Number(els.budgetCap.value).toLocaleString();
-    els.deadlineOut.textContent = Number(els.deadlineCap.value).toLocaleString();
-    els.riskOut.textContent = Number(els.riskCap.value).toLocaleString();
-    const ctx=getContext();
-    els.contextBadge.textContent = ctx.label;
-    els.govFilterBadge.textContent = els.governanceFilter.options[els.governanceFilter.selectedIndex].text;
-    els.stratFilterBadge.textContent = els.strategyFilter.options[els.strategyFilter.selectedIndex].text;
-    els.lensBadge.textContent = els.decisionLens.options[els.decisionLens.selectedIndex].text;
-  }
-
-  function readInputs(){
-    return {
-      demand: Number(els.demand.value),
-      paxPerCar: clamp(Number(els.paxPerCar.value), 80, 150),
-      maxTph: clamp(Number(els.maxTph.value), 21, 32),
-      budgetCap: Math.max(0, Number(els.budgetCap.value)),
-      deadlineCap: Math.max(0, Number(els.deadlineCap.value)),
-      riskCap: Math.max(0, Number(els.riskCap.value)),
-      context: getContext(),
-      feedback: els.feedback.checked,
-      lens: els.decisionLens.value
-    };
   }
 
   function pkgCapabilityAt(pkg, t, starts, subsystem){
@@ -1183,111 +1104,92 @@
     return {schedule:sched, tEnd, mismatchArea, deliveredArea, trace};
   }
 
-  function pickPlans(inputs){
-    const all = [];
-    const govs = getGovList();
-    const strats = getStrategyList();
-    let uid = 1;
 
+  // These exact typed joins select the compatible subset of the Cartesian product.
+  function compatibility(sp,p,s,w,context){
+    const effReqTph=Math.max(sp.tph,minSignalForCars(sp.cars));
+    const reqPower=requiredPowerIndex(sp.cars,effReqTph,context);
+    return [
+      {port:"Train length → platform envelope",unit:"cars",provided:p.cars,required:sp.cars,met:p.cars>=sp.cars},
+      {port:"Service plan → signalling capability",unit:"tph",provided:s.tph,required:effReqTph,met:s.tph>=effReqTph},
+      {port:"Train length + frequency → power",unit:"index",provided:w.index,required:reqPower,met:w.index>=reqPower}
+    ];
+  }
+  function feedbackResources(baseDuration,baseRisk,rework,possessions,alpha,enabled){
+    if([baseDuration,baseRisk,rework,possessions,alpha].some(x=>!Number.isFinite(x)||x<0))throw Error("The resource evaluator needs finite nonnegative inputs.");
+    const offset=rework+0.10*possessions;
+    if(!enabled)return {months:baseDuration+offset,risk:baseRisk+0.18*possessions+0.30*rework,approvalsDelay:0,loopTrace:[{k:0,months:baseDuration+offset,risk:baseRisk+0.18*possessions+0.30*rework}],converged:true};
+    const slope=0.42*alpha;
+    if(slope>=1)throw Error("This scalar feedback map has no supported finite contraction solution.");
+    const risk=(baseRisk+0.72*rework+0.222*possessions)/(1-slope);
+    const months=baseDuration+offset+alpha*risk;
+    if(!Number.isFinite(months)||!Number.isFinite(risk))throw Error("The scalar resource calculation is not finite.");
+    // Trace teaches convergence; the resource result above uses the exact affine solution.
+    const loopTrace=[];let r=0;
+    for(let k=0;k<20;k++){
+      const m=baseDuration+offset+alpha*r;
+      const next=baseRisk+0.42*(m-baseDuration)+0.18*possessions+0.30*rework;
+      loopTrace.push({k,months:m,risk:next});
+      if(Math.abs(next-r)<0.0001)break;
+      r=next;
+    }
+    loopTrace.push({k:loopTrace.length,months,risk,exact:true});
+    return {months,risk,approvalsDelay:alpha*risk,loopTrace,converged:true};
+  }
+  function baselineImplementation(inputs){
+    const sp={cars:8,tph:18},p=platformPkgs[0],s=signalPkgs[0],w=powerPkgs[0];
+    const joins=compatibility(sp,p,s,w,inputs.context);
+    if(sp.tph>inputs.maxTph||!joins.every(x=>x.met))return null;
+    return {id:"existing",kind:"existing",servicePlan:{...sp,pphpd:8*18*inputs.paxPerCar,effReqTph:joins[1].required,reqPower:joins[2].required},packages:{platform:p,signal:s,power:w},compatibility:joins,
+      governance:{id:"none",label:"No works programme"},strategy:{id:"none",type:"none",label:"Existing railway"},
+      timeline:{schedule:{platform:[0],signal:[0],power:[0]},tEnd:0,mismatchArea:0,deliveredArea:0,trace:[{t:0,pFrac:1,sFrac:1,wFrac:1,delivered:1}]},
+      overbuild:0,mismatch:0,res:{capex:0,months:0,risk:0,possessions:0},clock:{baseWorks:0,contextWorks:0,rework:0,possessionDelay:0,approvalsDelay:0,total:0},
+      loopTrace:[],feedbackEnabled:false,converged:true};
+  }
+  function evaluateImplementation(sp,p,s,w,gov,strat,inputs){
+    const joins=compatibility(sp,p,s,w,inputs.context);
+    if(!joins.every(x=>x.met))return null;
+    const effReqTph=joins[1].required,reqPower=joins[2].required;
+    const timeline=computeMismatchAndTimeline(p,s,w,sp.cars,effReqTph,reqPower,strat);
+    const overbuild=Math.max(0,p.cars/sp.cars-1)+Math.max(0,s.tph/effReqTph-1)+Math.max(0,w.index/reqPower-1);
+    const capex=(p.capex+s.capex+w.capex)*inputs.context.costMult*gov.costFactor+strat.costPremium+gov.transactionCost+overbuild*35;
+    const possessions=(p.possessions+s.possessions+w.possessions)*inputs.context.possessionMult*gov.possessionFactor*(strat.type==="fasttrack"?0.88:strat.type==="matched"?0.93:1);
+    const baseDuration=timeline.tEnd*inputs.context.durMult;
+    const baseRisk=p.risk+s.risk+w.risk+inputs.context.riskOffset+gov.riskOffset+strat.baseRisk+18*overbuild;
+    const rework=timeline.mismatchArea*gov.mismatchFactor*(strat.type==="matched"?0.55:strat.type==="fasttrack"?1:strat.type==="civilsFirst"?1.25:0.95);
+    const loop=feedbackResources(baseDuration,baseRisk,rework,possessions,gov.approvalAlpha,inputs.feedback);
+    return {id:[sp.cars,sp.tph,p.id,s.id,w.id,gov.id,strat.id].join("/"),kind:"works",servicePlan:{...sp,pphpd:sp.cars*sp.tph*inputs.paxPerCar,effReqTph,reqPower},packages:{platform:p,signal:s,power:w},compatibility:joins,governance:gov,strategy:strat,timeline,overbuild,mismatch:timeline.mismatchArea,
+      res:{capex,months:loop.months,risk:loop.risk,possessions},clock:{baseWorks:timeline.tEnd,contextWorks:baseDuration,rework,possessionDelay:possessions*0.1,approvalsDelay:loop.approvalsDelay,total:loop.months},loopTrace:loop.loopTrace,feedbackEnabled:inputs.feedback,converged:loop.converged};
+  }
+  function queryModel(input={}){
+    const inputs=normalizeModel(input),all=[];
+    const diagnostics={servicePlansMeetingTarget:0,compatibleImplementations:0,ceilingRejected:0,calculationFailures:[],baselineCompatible:false,baselineCapacity:0};
+    const govs=governances.filter(g=>g.id!=="all"&&(inputs.governance==="all"||g.id===inputs.governance));
+    const strats=strategies.filter(s=>s.id!=="all"&&(inputs.strategy==="all"||s.id===inputs.strategy));
+    const accept=plan=>{
+      diagnostics.compatibleImplementations++;
+      if((inputs.budgetCap>0&&plan.res.capex>inputs.budgetCap)||(inputs.deadlineCap>0&&plan.res.months>inputs.deadlineCap)||(inputs.riskCap>0&&plan.res.risk>inputs.riskCap)){diagnostics.ceilingRejected++;return;}
+      all.push(plan);
+    };
+    const baseline=baselineImplementation(inputs);
+    diagnostics.baselineCompatible=!!baseline;diagnostics.baselineCapacity=baseline?.servicePlan.pphpd||0;
+    if(baseline&&baseline.servicePlan.pphpd>=inputs.demand)accept(baseline);
     for(const sp of servicePlans){
-      if(sp.tph > inputs.maxTph) continue;
-      const pphpd = sp.cars * sp.tph * inputs.paxPerCar;
-      if(pphpd < inputs.demand) continue;
-
-      const effReqTph = Math.max(sp.tph, minSignalForCars(sp.cars));
-      const reqPower = requiredPowerIndex(sp.cars, effReqTph, inputs.context);
-
-      const eligibleP = platformPkgs.filter(p=>p.cars >= sp.cars);
-      const eligibleS = signalPkgs.filter(s=>s.tph >= effReqTph);
-      const eligibleW = powerPkgs.filter(w=>w.index >= reqPower);
-
-      for(const p of eligibleP){
-        for(const s of eligibleS){
-          for(const w of eligibleW){
-            for(const gov of govs){
-              for(const strat of strats){
-                const timeline = computeMismatchAndTimeline(p,s,w,sp.cars,effReqTph,reqPower,strat);
-
-                const overbuild = Math.max(0,(p.cars/sp.cars)-1) + Math.max(0,(s.tph/effReqTph)-1) + Math.max(0,(w.index/reqPower)-1);
-
-                const rawCapex = (p.capex + s.capex + w.capex) * inputs.context.costMult;
-                const capex = rawCapex * gov.costFactor + strat.costPremium + gov.transactionCost + overbuild*35;
-
-                const rawPoss = (p.possessions + s.possessions + w.possessions) * inputs.context.possessionMult;
-                const possessions = rawPoss * gov.possessionFactor * (strat.type==="fasttrack" ? 0.88 : strat.type==="matched" ? 0.93 : 1.0);
-
-                const baseDuration = timeline.tEnd * inputs.context.durMult;
-                const baseRisk = (p.risk + s.risk + w.risk) + inputs.context.riskOffset + gov.riskOffset + strat.baseRisk + 18*overbuild;
-
-                let months = baseDuration;
-                let risk = baseRisk;
-                const mismatch = timeline.mismatchArea;
-                const loopTrace = [];
-                let converged = false;
-
-                if(inputs.feedback){
-                  let r = 0;
-                  const tol = 0.05;
-                  const maxIter = 80;
-                  const reworkTerm = mismatch * gov.mismatchFactor * (strat.type==="matched" ? 0.55 : strat.type==="fasttrack" ? 1.00 : strat.type==="civilsFirst" ? 1.25 : 0.95);
-                  for(let k=0;k<maxIter;k++){
-                    const approvalsDelay = gov.approvalAlpha * r;
-                    const mNew = baseDuration + reworkTerm + approvalsDelay + possessions*0.10;
-                    const rNew = baseRisk + 0.42*Math.max(0,mNew-baseDuration) + 0.18*possessions + 0.30*reworkTerm;
-                    loopTrace.push({k, months:mNew, risk:rNew});
-                    if(!Number.isFinite(mNew) || !Number.isFinite(rNew) || mNew > 180 || rNew > 260){
-                      months = Infinity;
-                      risk = Infinity;
-                      break;
-                    }
-                    if(Math.abs(rNew-r) < tol){
-                      months = mNew;
-                      risk = rNew;
-                      converged = true;
-                      break;
-                    }
-                    r = rNew;
-                  }
-                  if(!converged && Number.isFinite(months) && loopTrace.length){
-                    const last = loopTrace[loopTrace.length-1];
-                    months = last.months;
-                    risk = last.risk;
-                  }
-                } else {
-                  const reworkTerm = mismatch * gov.mismatchFactor * (strat.type==="matched" ? 0.55 : strat.type==="fasttrack" ? 1.00 : strat.type==="civilsFirst" ? 1.25 : 0.95);
-                  months = baseDuration + reworkTerm + possessions*0.10;
-                  risk = baseRisk + 0.18*possessions + 0.30*reworkTerm;
-                  loopTrace.push({k:0, months, risk});
-                }
-
-                if(!Number.isFinite(months) || !Number.isFinite(risk)) continue;
-                if(inputs.budgetCap > 0 && capex > inputs.budgetCap) continue;
-                if(inputs.deadlineCap > 0 && months > inputs.deadlineCap) continue;
-                if(inputs.riskCap > 0 && risk > inputs.riskCap) continue;
-
-                const resources = {capex, months, risk, possessions};
-
-                all.push({
-                  id: uid++,
-                  servicePlan: {cars:sp.cars, tph:sp.tph, pphpd, effReqTph, reqPower},
-                  packages: {platform:p, signal:s, power:w},
-                  governance: gov,
-                  strategy: strat,
-                  timeline,
-                  overbuild,
-                  mismatch,
-                  res: resources,
-                  loopTrace, feedbackEnabled:inputs.feedback, converged,
-                });
-              }
-            }
-          }
+      // Demand filters fixed implementations; it never changes their resource evaluation.
+      if(sp.tph>inputs.maxTph||sp.cars*sp.tph*inputs.paxPerCar<inputs.demand)continue;
+      diagnostics.servicePlansMeetingTarget++;
+      const reqTph=Math.max(sp.tph,minSignalForCars(sp.cars)),reqPower=requiredPowerIndex(sp.cars,reqTph,inputs.context);
+      for(const p of platformPkgs.filter(x=>x.cars>=sp.cars))for(const s of signalPkgs.filter(x=>x.tph>=reqTph))for(const w of powerPkgs.filter(x=>x.index>=reqPower)){
+        // The all-baseline tuple is the no-project option; do not invent a programme around it.
+        if(p.id==="P0"&&s.id==="S0"&&w.id==="W0")continue;
+        for(const gov of govs)for(const strat of strats){
+          try{const plan=evaluateImplementation(sp,p,s,w,gov,strat,inputs);if(plan)accept(plan);}
+          catch(e){diagnostics.calculationFailures.push({implementation:[p.id,s.id,w.id,gov.id,strat.id].join("/"),message:e.message});}
         }
       }
     }
-    return all;
+    return {inputs,all,pareto:pareto(all),diagnostics,complete:diagnostics.calculationFailures.length===0};
   }
-
   function dominates(a,b){
     const le = a.capex <= b.capex && a.months <= b.months && a.risk <= b.risk && a.possessions <= b.possessions;
     const lt = a.capex < b.capex || a.months < b.months || a.risk < b.risk || a.possessions < b.possessions;
@@ -1311,7 +1213,7 @@
   function chooseHighlighted(plans, lens){
     if(!plans.length) return null;
     const priority={cheapest:"capex",fastest:"months",lowestRisk:"risk",leastDisruption:"possessions"}[lens];
-    if(priority){const fields=[priority,...["capex","months","risk","possessions"].filter(k=>k!==priority)];return plans.slice().sort((a,b)=>{for(const k of fields){const delta=a.res[k]-b.res[k];if(delta)return delta;}return a.id-b.id;})[0];}
+    if(priority){const fields=[priority,...["capex","months","risk","possessions"].filter(k=>k!==priority)];return plans.slice().sort((a,b)=>{for(const k of fields){const delta=a.res[k]-b.res[k];if(delta)return delta;}return String(a.id).localeCompare(String(b.id));})[0];}
     const xs = plans.map(p=>p.res.capex), ys=plans.map(p=>p.res.months), rs=plans.map(p=>p.res.risk), ps=plans.map(p=>p.res.possessions);
     const rng = arr => ({min:Math.min(...arr), max:Math.max(...arr)});
     const nx = rng(xs), ny=rng(ys), nr=rng(rs), np=rng(ps);
@@ -1328,6 +1230,116 @@
     }, null).plan;
   }
 
+
+  globalThis.ProgrammeStudioModel={version:"2.0.0",normalize:normalizeModel,query:queryModel,compatibility,evaluateImplementation,baselineImplementation,feedbackResources,
+    catalogues:{contexts,governances,strategies,platformPkgs,signalPkgs,powerPkgs,servicePlans}};
+  // END PURE STUDIO MODEL
+
+  const els = {
+    demand: document.getElementById("demand"),
+    demandOut: document.getElementById("demandOut"),
+    paxPerCar: document.getElementById("paxPerCar"),
+    paxOut: document.getElementById("paxOut"),
+    maxTph: document.getElementById("maxTph"),
+    maxTphOut: document.getElementById("maxTphOut"),
+    budgetCap: document.getElementById("budgetCap"),
+    budgetOut: document.getElementById("budgetOut"),
+    deadlineCap: document.getElementById("deadlineCap"),
+    deadlineOut: document.getElementById("deadlineOut"),
+    riskCap: document.getElementById("riskCap"),
+    riskOut: document.getElementById("riskOut"),
+    context: document.getElementById("context"),
+    contextBadge: document.getElementById("contextBadge"),
+    governanceFilter: document.getElementById("governanceFilter"),
+    govFilterBadge: document.getElementById("govFilterBadge"),
+    strategyFilter: document.getElementById("strategyFilter"),
+    stratFilterBadge: document.getElementById("stratFilterBadge"),
+    feedback: document.getElementById("feedback"),
+    decisionLens: document.getElementById("decisionLens"),
+    lensBadge: document.getElementById("lensBadge"),
+    solveBtn: document.getElementById("solveBtn"),
+    resetBtn: document.getElementById("resetBtn"),
+    feasibilityPill: document.getElementById("feasibilityPill"),
+    kpiFeasible: document.getElementById("kpiFeasible"),
+    kpiPareto: document.getElementById("kpiPareto"),
+    kpiPlan: document.getElementById("kpiPlan"),
+    kpiPlanSub: document.getElementById("kpiPlanSub"),
+    kpiBottleneck: document.getElementById("kpiBottleneck"),
+    kpiBottleneckSub: document.getElementById("kpiBottleneckSub"),
+    topline: document.getElementById("topline"),
+    executiveText: document.getElementById("executiveText"),
+    planInterpretation: document.getElementById("planInterpretation"),
+    dependencySvg: document.getElementById("dependencySvg"),
+    frontierCanvas: document.getElementById("frontierCanvas"),
+    feasibilityCanvas: document.getElementById("feasibilityCanvas"),
+    plansTable: document.getElementById("plansTable"),
+    tableCount: document.getElementById("tableCount"),
+    alignmentCanvas: document.getElementById("alignmentCanvas"),
+    alignmentDiagnosis: document.getElementById("alignmentDiagnosis"),
+    selTitle: document.getElementById("selTitle"),
+    selPill: document.getElementById("selPill"),
+    selNarrative: document.getElementById("selNarrative"),
+    loopCanvas: document.getElementById("loopCanvas"),
+    loopNarrative: document.getElementById("loopNarrative"),
+    iterTable: document.getElementById("iterTable"),
+    mcdplView: document.getElementById("mcdplView"),
+    dominanceText: document.getElementById("dominanceText"),
+  };
+
+  contexts.forEach(c=>{
+    const opt=document.createElement("option");
+    opt.value=c.id; opt.textContent=c.label;
+    els.context.appendChild(opt);
+  });
+  governances.forEach(g=>{
+    const opt=document.createElement("option");
+    opt.value=g.id; opt.textContent=g.label;
+    els.governanceFilter.appendChild(opt);
+  });
+  strategies.forEach(s=>{
+    const opt=document.createElement("option");
+    opt.value=s.id; opt.textContent=s.label;
+    els.strategyFilter.appendChild(opt);
+  });
+
+  const state = {
+    all: [],
+    pareto: [],
+    selectedId: null,
+    currentView: "dependency",
+    diagnostics:null,complete:true,
+  };
+
+  function getContext(){ return contexts.find(c=>c.id===els.context.value) || contexts[1]; }
+  function updateLabels(){
+    els.demandOut.textContent = Number(els.demand.value).toLocaleString();
+    els.paxOut.textContent = els.paxPerCar.value;
+    els.maxTphOut.textContent = els.maxTph.value;
+    els.budgetOut.textContent = Number(els.budgetCap.value).toLocaleString();
+    els.deadlineOut.textContent = Number(els.deadlineCap.value).toLocaleString();
+    els.riskOut.textContent = Number(els.riskCap.value).toLocaleString();
+    const ctx=getContext();
+    els.contextBadge.textContent = ctx.label;
+    els.govFilterBadge.textContent = els.governanceFilter.options[els.governanceFilter.selectedIndex].text;
+    els.stratFilterBadge.textContent = els.strategyFilter.options[els.strategyFilter.selectedIndex].text;
+    els.lensBadge.textContent = els.decisionLens.options[els.decisionLens.selectedIndex].text;
+  }
+
+  function readInputs(){
+    return {
+      demand: Number(els.demand.value),
+      paxPerCar: clamp(Number(els.paxPerCar.value), 80, 150),
+      maxTph: clamp(Number(els.maxTph.value), 21, 32),
+      budgetCap: Math.max(0, Number(els.budgetCap.value)),
+      deadlineCap: Math.max(0, Number(els.deadlineCap.value)),
+      riskCap: Math.max(0, Number(els.riskCap.value)),
+      context: getContext(),
+      feedback: els.feedback.checked,
+      lens: els.decisionLens.value,
+      governance:els.governanceFilter.value,strategy:els.strategyFilter.value
+    };
+  }
+
   function drawFrontier(all, mins, selectedId){
     const canvas = els.frontierCanvas;
     const ctx = canvas.getContext("2d");
@@ -1338,7 +1350,7 @@
     if(!all.length){
       ctx.fillStyle="rgba(238,242,251,.7)";
       ctx.font="14px system-ui";
-      ctx.fillText("No feasible plans for the current ceilings.", 26, 34);
+      ctx.fillText("No plan is available for this query.", 26, 34);
       ctx.restore(); return;
     }
 
@@ -1416,6 +1428,7 @@
       });
     });
 
+    if(all.some(p=>p.kind==="existing"))cats.unshift({short:"existing",feasible:1,paretoCount:mins.some(p=>p.kind==="existing")?1:0});
     if(!cats.length) return;
     const pad=36, plotW=W-pad*2, plotH=H-pad*2;
     const maxY=Math.max(...cats.map(c=>Math.max(c.feasible,c.paretoCount)),1);
@@ -1469,7 +1482,7 @@
     els.plansTable.querySelectorAll("tbody tr").forEach(tr=>{
       tr.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tr.click();}});
       tr.addEventListener("click", ()=>{
-        state.selectedId = Number(tr.dataset.id);
+        state.selectedId = tr.dataset.id;
         renderSelection();
       });
     });
@@ -1505,7 +1518,7 @@
     ctx.fillStyle="rgba(238,242,251,.82)";
     ctx.font="12px system-ui";
     ctx.fillText("Upgrade readiness (0–1)", 10, pad-16);
-    ctx.fillText("time", pad+plotW-26, pad+plotH+24);
+    ctx.fillText("Base works months", pad+plotW-124, pad+plotH+24);
 
     function pathFor(field, color){
       ctx.beginPath();
@@ -1608,7 +1621,7 @@
       els.iterTable.innerHTML = "";
       return;
     }
-    const rows = plan.loopTrace.map(r=>`<tr><td>${r.k}</td><td>${fmt(r.months,2)}</td><td>${fmt(r.risk,2)}</td></tr>`).join("");
+    const rows = plan.loopTrace.map(r=>`<tr><td>${r.exact?"Exact":r.k}</td><td>${fmt(r.months,2)}</td><td>${fmt(r.risk,2)}</td></tr>`).join("");
     els.iterTable.innerHTML = `<thead><tr><th>k</th><th>months</th><th>risk</th></tr></thead><tbody>${rows}</tbody>`;
   }
 
@@ -1692,6 +1705,15 @@
       return;
     }
 
+    if(selected.kind==="existing"){
+      els.kpiBottleneck.textContent="No new works";els.kpiBottleneckSub.textContent="Existing capabilities meet this task.";
+      els.kpiPlan.textContent="Existing railway";els.kpiPlanSub.textContent="Zero incremental programme resources.";
+      els.selTitle.textContent="The existing railway meets the target";els.selPill.textContent="No works programme";
+      els.selNarrative.innerHTML=`The declared baseline supplies <b>${selected.servicePlan.pphpd.toLocaleString()} pphpd</b> using 8-car trains at 18 tph. No construction or approval programme is needed to meet this request.`;
+      els.executiveText.textContent="The existing platform, signalling and power capabilities satisfy all three component joins. Programme-only governance and staging filters do not remove an already available implementation.";
+      els.planInterpretation.textContent="Zero means no incremental capex, delivery delay, programme risk or possessions. Existing operating cost and operating risk are outside this accounting. This is one baseline option, not a claim about every real railway.";
+      els.alignmentDiagnosis.textContent="The baseline is already available at time zero. There are no new work stages or induced delay to align.";return;
+    }
     const p = selected.packages.platform, s = selected.packages.signal, w = selected.packages.power;
     const bottlenecks = [
       {name:"platform", gap:p.cars / selected.servicePlan.cars - 1},
@@ -1719,7 +1741,7 @@
 
     const mismatchLevel = selected.mismatch < 6 ? "low" : selected.mismatch < 16 ? "moderate" : "high";
     els.planInterpretation.innerHTML =
-      `Directorially, this plan says: <b>buy a capacity envelope, not isolated assets</b>. The platform choice forces knock-on system strengthening; the selected governance mode determines how much that unavoidable coupling becomes claims and approvals friction. 
+      `Directorially, this plan says: <b>buy a capacity envelope, not isolated assets</b>. The platform choice forces knock-on system strengthening; the selected governance coefficients set the hypothetical claims and approvals penalty attached to that coupling.
       This plan carries a <b>${mismatchLevel}</b> stage-mismatch burden (<b>${fmt(selected.mismatch,1)}</b> capacity-month units), so the main management question is whether the organisation can keep subsystem release dates politically aligned.`;
 
     els.alignmentDiagnosis.innerHTML =
@@ -1728,25 +1750,22 @@
     const bottleneckText = dominant==="platform" ? "station works dominate the usable-service boundary" :
                            dominant==="signalling" ? "headway and regulation dominate the usable-service boundary" :
                            "power reinforcement dominates the usable-service boundary";
-    els.selNarrative.innerHTML += ` In this plan, <b>${bottleneckText}</b>.`;
+    els.selNarrative.innerHTML += ` Its smallest relative headroom is in the <b>${dominant}</b> package; this is a capability comparison, not a diagnosis of actual operating failure.`;
   }
 
   function buildLoopNarrative(selected){
+    if(selected?.kind==="existing"){els.loopNarrative.textContent="No new programme: no feedback equation is needed. Incremental duration and programme risk are zero.";return;}
     if(!selected || !selected.loopTrace || !selected.loopTrace.length){
       els.loopNarrative.textContent = "No loop trace available.";
       return;
     }
     if(!selected.feedbackEnabled){els.loopNarrative.textContent="Feedback is off. This single row shows the declared base schedule, mismatch and possession contributions without recursive approvals feedback.";return;}
-    const tr = selected.loopTrace;
-    const first = tr[0];
-    const last = tr[tr.length-1];
-    els.loopNarrative.innerHTML =
-      `Starting from the least assumption (zero endogenous risk), the iteration reaches the declared numerical stopping tolerance in <b>${tr.length}</b> step${tr.length===1?'':'s'}.
-       Base schedule pressure moves from <b>${fmt(first.months,1)}</b> to <b>${fmt(last.months,1)} months</b>, while the risk index settles at <b>${fmt(last.risk,1)}</b>.
-       In the theory, the point of this ascent is not to map every feasible point, but to isolate the minimal frontier consistent with the recursive constraints.`;
+    const exact=selected.loopTrace[selected.loopTrace.length-1];
+    els.loopNarrative.innerHTML=`The resource evaluation uses the <b>exact affine fixed point</b>: ${fmt(exact.months,2)} months and ${fmt(exact.risk,2)} risk units. The earlier rows illustrate iteration from zero; the last row is the algebraic result. No duration or risk cutoff is hidden in the calculation. This is a scalar scenario evaluator, not a general MCDP feedback solver.`;
   }
 
   function buildMcdpl(selected, inputs){
+    if(selected?.kind==="existing"){els.mcdplView.textContent="# Existing-railway implementation (explanatory notation, not executed)\nprovides: "+selected.servicePlan.pphpd+" pphpd\nrequires incremental: (capex=0, months=0, programme_risk=0, possessions=0)\n# Baseline component compatibility is checked; no programme alternative is selected.";return;}
     const ctx = inputs.context.label;
     const demand = inputs.demand.toLocaleString();
     const lines = [];
@@ -1797,7 +1816,7 @@
     lines.push("  )");
     lines.push("");
     lines.push("  # --- co-design constraints ---");
-    lines.push("  # longer platforms force non-decreasing signalling and power");
+    lines.push("  # planned train length and frequency determine subsystem capability requirements");
     lines.push("  required signal_tph ≽ max(tph_needed, tph_knockon_from_cars)");
     lines.push("  required power_index ≽ max(load_index(cars, signal_tph), power_knockon_from_cars)");
     lines.push("");
@@ -1829,9 +1848,19 @@
     els.mcdplView.textContent = lines.join("\n");
   }
 
+
+  function renderCompatibility(selected){
+    const box=document.getElementById("compatibilityTable"),clock=document.getElementById("clockBreakdown");
+    if(!selected){box.textContent="Select a plan to inspect the actual component joins.";clock.textContent="No selected timeline.";return;}
+    box.innerHTML='<table><thead><tr><th>Joined requirement</th><th>Required</th><th>Provided</th><th>Check</th></tr></thead><tbody>'+selected.compatibility.map(j=>`<tr><td>${j.port}</td><td>${fmt(j.required,2)} ${j.unit}</td><td>${fmt(j.provided,2)} ${j.unit}</td><td>${j.met?"Meets":"Fails"}</td></tr>`).join('')+'</tbody></table>';
+    const c=selected.clock;
+    clock.innerHTML=selected.kind==="existing"?"<b>No new works:</b> the baseline implementation is already available; every incremental programme resource is zero.":`<b>Two clocks.</b> The chart spans ${fmt(c.baseWorks,1)} base works months. Context scales those works to ${fmt(c.contextWorks,1)} months; declared mismatch adds ${fmt(c.rework,1)}, possessions ${fmt(c.possessionDelay,1)}, and approvals ${fmt(c.approvalsDelay,1)}. Total programme duration: <b>${fmt(c.total,1)} months</b>. These added delays are not allocated to individual stages.`;
+  }
+
   function renderSelection(){
     const selected = state.all.find(p=>p.id===state.selectedId) || null;
     const inputs = readInputs();
+    renderCompatibility(selected);
     drawAlignment(selected);
     drawLoop(selected);
     renderIterTable(selected);
@@ -1847,12 +1876,13 @@
     els.kpiPareto.textContent = state.pareto.length.toLocaleString();
 
     if(!state.all.length){
-      els.feasibilityPill.textContent = "Infeasible";
+      els.feasibilityPill.textContent = state.complete?"No feasible plan":"Calculation incomplete";
       els.feasibilityPill.style.borderColor = "rgba(255,123,114,.35)";
       els.feasibilityPill.style.background = "rgba(255,123,114,.08)";
       els.kpiPlan.textContent = "—";
       els.kpiBottleneck.textContent = "—";
-      els.topline.innerHTML = `No plan survives the current ceilings. Relax a budget, deadline, or risk bound; or lower the capacity task.`;
+      const d=state.diagnostics;
+      els.topline.textContent=!state.complete?"A resource calculation failed. This result is incomplete; it is not a proof of infeasibility.":d?.compatibleImplementations?`${d.compatibleImplementations} compatible implementations meet the capacity task, but every one exceeds a declared resource ceiling. Relax a stated ceiling to inspect them.`:"No compatible implementation in the supplied catalogue meets this capacity task and operational maximum. Lower the task, change the declared context, or extend the catalogue; relaxing resource ceilings alone cannot create an implementation.";
       els.dominanceText.textContent = "No feasible frontier to read.";
       state.selectedId=null;
       els.kpiPlanSub.textContent="No plan meets this request.";
@@ -1862,7 +1892,7 @@
       return;
     }
 
-    els.feasibilityPill.textContent = "Feasible";
+    els.feasibilityPill.textContent = state.complete?"Feasible":"Calculation incomplete";
     els.feasibilityPill.style.borderColor = "rgba(126,231,135,.35)";
     els.feasibilityPill.style.background = "rgba(126,231,135,.08)";
 
@@ -1876,6 +1906,8 @@
       `Computed <b>${state.all.length}</b> feasible candidates and a Pareto antichain of <b>${state.pareto.length}</b> plans.
        Cheapest minimal plan: <b>£${fmt(minCost.res.capex,0)}m</b>. Fastest: <b>${fmt(minMonths.res.months,1)} months</b>. Lowest risk: <b>${fmt(minRisk.res.risk,1)}</b>.`;
 
+    if(!state.complete)els.topline.innerHTML="<b>Calculation incomplete.</b> Some implementations could not be evaluated; the displayed minima cover only successful calculations. "+els.topline.innerHTML;
+    if(highlighted.kind==="existing")els.topline.innerHTML=`<b>The existing railway already meets this target.</b> Its ${highlighted.servicePlan.pphpd.toLocaleString()} pphpd capability needs no new works. The single minimal resource tuple is (0, 0, 0, 0), for incremental capex, duration, programme risk and possessions.`;
     els.kpiPlan.textContent = `${highlighted.servicePlan.cars}c/${highlighted.servicePlan.tph}tph`;
     els.kpiPlanSub.textContent = `${highlighted.governance.label} · ${highlighted.strategy.label}`;
 
@@ -1886,7 +1918,7 @@
   }
 
   function solve(){
-    const invalid=[els.paxPerCar,els.maxTph,els.budgetCap,els.deadlineCap,els.riskCap].find(el=>!el.checkValidity()||el.value.trim()==="");
+    const invalid=[els.demand,els.paxPerCar,els.maxTph,els.budgetCap,els.deadlineCap,els.riskCap].find(el=>!el.checkValidity()||el.value.trim()==="");
     if(invalid){
       state.all=[];state.pareto=[];state.selectedId=null;
       els.kpiFeasible.textContent="0";els.kpiPareto.textContent="0";els.kpiPlan.textContent="—";els.kpiBottleneck.textContent="—";
@@ -1895,8 +1927,8 @@
       els.feasibilityPill.textContent="Check input";els.topline.textContent="Enter a value within the limits shown by the highlighted input, then recompute.";return;
     }
     const inputs = readInputs();
-    state.all = pickPlans(inputs);
-    state.pareto = pareto(state.all);
+    const calculation=queryModel(inputs);
+    state.all=calculation.all;state.pareto=calculation.pareto;state.diagnostics=calculation.diagnostics;state.complete=calculation.complete;
     renderSummary(inputs);
   }
 
@@ -1914,7 +1946,8 @@
     els.decisionLens.value = "balanced";
     state.all = [];
     state.pareto = [];
-    state.selectedId = null;
+    state.selectedId = null;state.diagnostics=null;state.complete=true;
+    renderCompatibility(null);
     updateLabels();
     state.currentView="dependency";
     document.querySelectorAll(".togglebar .toggle").forEach(btn=>btn.classList.toggle("active",btn.dataset.view==="dependency"));

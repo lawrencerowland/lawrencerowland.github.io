@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "checkedAtUTC": "2026-09-06T22:34:58.679Z",
+  "modelSha256": "cd86bef7f805f756a771ab1ead7197e947208c734a4971e2b7a98cf23795398e",
+  "appSha256": "6a479e91a7870d5038afa967bf6ce576b1eb308ded387eabe822889403b9d9fe",
+  "checks": 28,
+  "passed": [
+    "standalone app embeds reviewed model byte-for-byte",
+    "default resource vectors and mixed implementation",
+    "visible default result agrees with witness",
+    "selection updates witness, resources and active option",
+    "selected method shows exact cost totals and staff cost",
+    "URL reload preserves alternative and method tab",
+    "q80 retains land-incomparable bridge configurations",
+    "q80 pair selection has smaller land but greater capital than single",
+    "ordinary land input restricts q80 to pair",
+    "capital boundary retains exact affordable choice",
+    "URL reload preserves numeric resource ceilings",
+    "one pound below boundary is infeasible",
+    "q120 replaces equal-width recipe with dominating mixed bundle",
+    "zero request is zero work",
+    "beyond catalogue is empty with accurate capacity bound",
+    "site availability excludes otherwise feasible bundles",
+    "zero ceiling differs from blank",
+    "blank ceiling removes restriction",
+    "blank target is rejected while valid result persists",
+    "negative ceiling is rejected",
+    "reset restores defaults and clears errors",
+    "export includes selected implementation, successful replay and all vectors",
+    "copy brief provides clipboard status or selected fallback",
+    "keyboard tab navigation opens method",
+    "invalid URL is reported with valid defaults",
+    "phone controls apply a substantive constrained query",
+    "desktop/tablet/phone views have no page overflow",
+    "no browser exceptions or external requests"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "tab": "explore",
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "width": 1440,
+      "tab": "method",
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "width": 1440,
+      "tab": "sources",
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "width": 768,
+      "tab": "explore",
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "width": 768,
+      "tab": "method",
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "width": 768,
+      "tab": "sources",
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "width": 375,
+      "tab": "explore",
+      "scroll": 375,
+      "client": 375
+    },
+    {
+      "width": 375,
+      "tab": "method",
+      "scroll": 375,
+      "client": 375
+    },
+    {
+      "width": 375,
+      "tab": "sources",
+      "scroll": 375,
+      "client": 375
+    },
+    {
+      "width": 320,
+      "tab": "explore",
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "width": 320,
+      "tab": "method",
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "width": 320,
+      "tab": "sources",
+      "scroll": 320,
+      "client": 320
+    }
+  ],
+  "screenshots": [
+    "desktop-default.png",
+    "desktop-method.png",
+    "phone-brief.png",
+    "phone-default.png"
+  ],
+  "browserErrors": [],
+  "externalRequests": []
+}

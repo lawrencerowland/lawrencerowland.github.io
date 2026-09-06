@@ -1,27 +1,17 @@
 # Project Co-design
 
-Interactive experiments in coupled project choices: the assets, the programme and the path that delivers them.
+[Open the foray](https://lawrencerowland.github.io/project-co-design/) · [Forays & Side Projects](https://lawrencerowland.github.io/side-projects.html)
 
-**[Open the foray site](https://lawrencerowland.github.io/project-co-design/)**
+Three interactive essays in coupled project choices, drawing on the co-design framework of Zardini and Censi. Each declares its own functionality, implementations, resource order and scope.
 
-The site brings Forays 180 and 182 together, with the related wildlife-crossing experiment from Foray 181. It offers three independent ways into the investigation:
-
-| Question | Experiment | Contribution |
+| Question | Essay | Construction |
 |---|---|---|
-| What else has to change? | [Incremental rail upgrade](apps/incremental-upgrade.html) | Visual couplings between platforms, signalling and power, with illustrative stage gates. |
-| Which trade-offs are worth making? | [Programme co-design studio](apps/programme-studio.html) | Package and governance alternatives, four supplied staging strategies, and illustrative schedule/risk feedback. |
-| Can we keep the whole promise? | [Staged path co-design](apps/staged-paths.html) | Exact finite generation of feasible delivery paths under service, milestone, crew and access constraints. |
+| Can we keep the whole promise? | [Staged paths](apps/staged-paths.html) | Generates admissible finite construction histories under service, milestone, crew and access constraints, retaining resource-incomparable witnesses. |
+| Which programme trade-offs are worth making? | [Programme studio](apps/programme-studio.html) | Composes compatible packages and evaluates four prescribed staging/governance alternatives, with explicit illustrative assumptions. |
+| What makes a wildlife crossing work? | [Wildlife crossing](apps/wildlife-crossing.html) | Composes bridge bundles with adequate fencing and monitoring, accounts for all declared resources and returns complete feasible witnesses. |
 
-These are learning routes, not a maturity ranking. Each app retains its own assumptions and implementation. The consolidation supplies a shared home and navigation; it does not merge the models or make their outputs interchangeable.
+The [coupling primer](apps/programme-studio.html#coupling-primer) preserves the most useful explanations from three retired rail demos. The [curation record](docs/curation.md) explains the defects, what survived and where, and historical source access. Old routes now explain their retirement; they do not run the defective calculations. Wildlife was rebuilt and retained.
 
-[Rail staging simulator](apps/rail-simulator.html) and [Transit trade-offs](apps/transit-tradeoffs.html) remain available as earlier experiments. [Wildlife-crossing co-design](apps/wildlife-crossing.html) provides a related application.
+[Categorical co-design audit and Python package status](docs/categorical-co-design.md) distinguishes the theory actually implemented from unsupported claims. [Staged-path method and checks](docs/rail-staged-codesign-method.md) document the independently verified finite path result. These models are experiments, not calibrated railway or ecological forecasts.
 
-The [staged-path method note](docs/rail-staged-codesign-method.md) documents its mathematical construction, primary sources, scope and independent verification. These are illustrative models, not calibrated railway plans.
-
-## Structure
-
-- `index.html` — responsive, accessible static landing page with inline styles and no runtime dependencies.
-- `apps/` — independent interactive HTML experiments.
-- `docs/` — method and reproducibility material.
-
-The site lives in `project-co-design/` on the `master` branch of [lawrencerowland/lawrencerowland.github.io](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design). GitHub Pages serves this directory without a build step. Each app is linked directly and retains its own model.
+The static collection lives in `project-co-design/` on the `master` branch of [lawrencerowland/lawrencerowland.github.io](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design). The existing Pages site publishes it. Apps retain their own model and can be inspected independently.
