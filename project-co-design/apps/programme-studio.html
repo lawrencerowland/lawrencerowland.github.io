@@ -1,0 +1,1979 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Programme Studio · Project Co-design</title>
+  <style>
+    :root{
+      --bg:#0a1020;
+      --bg2:#0c1430;
+      --panel:#101936;
+      --panel2:#0f1730;
+      --ink:#eef2fb;
+      --muted:#b9c4e3;
+      --subtle:#7f8db8;
+      --green:#7ee787;
+      --red:#ff7b72;
+      --gold:#f2cc60;
+      --blue:#9cdcfe;
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,255,255,.18);
+      --shadow:0 18px 50px rgba(0,0,0,.34);
+      --radius:16px;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      --sans:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:var(--sans);
+      background:
+        radial-gradient(1200px 700px at 10% -10%, rgba(126,231,135,.12), transparent 60%),
+        radial-gradient(900px 600px at 95% 10%, rgba(255,123,114,.10), transparent 58%),
+        radial-gradient(900px 600px at 40% 120%, rgba(156,220,254,.08), transparent 58%),
+        linear-gradient(180deg, #09101f, #0b1224 30%, #0a1020);
+      line-height:1.45;
+    }
+    a{color:var(--blue)}
+    header{
+      max-width:1400px;
+      margin:0 auto;
+      padding:28px 20px 10px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(24px, 3.2vw, 40px);
+      line-height:1.08;
+      letter-spacing:.2px;
+      font-weight:820;
+    }
+    .lede{
+      max-width:1100px;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .method-strip{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .method-step{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .layout{
+      max-width:1400px;
+      margin:0 auto;
+      padding:12px 20px 40px;
+      display:grid;
+      grid-template-columns:380px 1fr;
+      gap:14px;
+    }
+    @media (max-width:1100px){
+      .layout{grid-template-columns:1fr}
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(16,25,54,.95), rgba(15,23,48,.94));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .card .bd{padding:16px}
+    .card h2,.card h3{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.2px;
+      font-weight:770;
+    }
+    .smallcaps{
+      font-variant:all-small-caps;
+      letter-spacing:.7px;
+      color:var(--subtle);
+      font-size:12px;
+    }
+    .pill{
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:11.8px;
+      white-space:nowrap;
+    }
+    .stack{display:flex; flex-direction:column; gap:12px}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .grid3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px}
+    @media (max-width:860px){
+      .grid2,.grid3{grid-template-columns:1fr}
+    }
+    .control{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(0,0,0,.16);
+      padding:12px;
+    }
+    .control label{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+      margin-bottom:8px;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    .control small,.hint,.mini{
+      color:var(--subtle);
+      font-size:12px;
+    }
+    input[type="range"]{width:100%}
+    input[type="number"], select{
+      width:100%;
+      padding:9px 10px;
+      border-radius:11px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.28);
+      color:var(--ink);
+      outline:none;
+      font-size:13px;
+    }
+    input[type="number"]:focus,select:focus{border-color:rgba(156,220,254,.55)}
+    .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .btnbar{display:flex; gap:10px; flex-wrap:wrap}
+    button{
+      appearance:none;
+      border:none;
+      color:var(--ink);
+      background:linear-gradient(180deg, rgba(156,220,254,.12), rgba(0,0,0,.18));
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    button:hover{border-color:rgba(156,220,254,.45)}
+    button.primary{
+      background:linear-gradient(180deg, rgba(126,231,135,.18), rgba(0,0,0,.18));
+      border-color:rgba(126,231,135,.32);
+    }
+    button.danger{
+      background:linear-gradient(180deg, rgba(255,123,114,.14), rgba(0,0,0,.18));
+      border-color:rgba(255,123,114,.32);
+    }
+    .kpi-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:12px;
+    }
+    @media (max-width:960px){
+      .kpi-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:620px){
+      .kpi-grid{grid-template-columns:1fr}
+    }
+    .kpi{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px 14px 12px;
+      background:rgba(0,0,0,.16);
+      min-height:108px;
+    }
+    .kpi .value{
+      font-size:24px;
+      font-weight:820;
+      line-height:1.05;
+      margin-top:8px;
+    }
+    .kpi .sub{
+      color:var(--muted);
+      font-size:12.5px;
+      margin-top:6px;
+    }
+    .tabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      padding:0 16px 16px;
+      border-bottom:1px solid var(--line);
+    }
+    .tabbtn{
+      padding:9px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .tabbtn.active{
+      color:var(--ink);
+      border-color:rgba(126,231,135,.3);
+      background:rgba(126,231,135,.08);
+    }
+    .tab{
+      display:none;
+      padding:16px;
+    }
+    .tab.active{display:block}
+    .callout{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px dashed rgba(126,231,135,.35);
+      background:rgba(126,231,135,.08);
+      color:var(--muted);
+      font-size:12.8px;
+    }
+    .hr{height:1px;background:var(--line);margin:12px 0}
+    .warnout{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px dashed rgba(255,123,114,.35);
+      background:rgba(255,123,114,.08);
+      color:var(--muted);
+      font-size:12.8px;
+    }
+    .canvaswrap{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(0,0,0,.16);
+      overflow:hidden;
+    }
+    canvas,svg{display:block; width:100%}
+    canvas{height:340px}
+    .shortcanvas{height:250px}
+    .tinycanvas{height:200px}
+    .legend{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .swatch{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      white-space:nowrap;
+    }
+    .dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      display:inline-block;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:12.3px;
+    }
+    th,td{
+      padding:8px 6px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      vertical-align:top;
+    }
+    th{color:var(--muted); font-weight:760; font-size:12px}
+    tbody tr:hover{background:rgba(255,255,255,.03)}
+    .selected-row{background:rgba(156,220,254,.08)}
+    code,pre{font-family:var(--mono)}
+    pre{
+      margin:0;
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(0,0,0,.22);
+      color:var(--ink);
+      overflow:auto;
+      line-height:1.35;
+      font-size:12px;
+    }
+    .tree{
+      display:grid;
+      gap:10px;
+      padding-top:4px;
+    }
+    .tree-node{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 12px;
+      background:rgba(255,255,255,.03);
+      position:relative;
+    }
+    .tree-node.level1{margin-left:20px}
+    .tree-node.level2{margin-left:44px}
+    .tree-node::before{
+      content:"";
+      position:absolute;
+      left:-14px;
+      top:22px;
+      width:12px;
+      height:1px;
+      background:var(--line2);
+    }
+    .tree-node.root::before{display:none}
+    .tree-node::after{
+      content:"";
+      position:absolute;
+      left:-14px;
+      top:-12px;
+      width:1px;
+      height:34px;
+      background:var(--line2);
+    }
+    .tree-node.root::after{display:none}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.14);
+      color:var(--muted);
+      font-size:11.8px;
+    }
+    .resource-algebra{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:860px){
+      .resource-algebra{grid-template-columns:1fr}
+    }
+    .algbox{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(0,0,0,.14);
+      padding:12px;
+    }
+    .togglebar{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .togglebar .toggle{
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      padding:6px 10px;
+      cursor:pointer;
+      font-size:12px;
+      font-weight:700;
+    }
+    .togglebar .toggle.active{
+      background:rgba(156,220,254,.10);
+      color:var(--ink);
+      border-color:rgba(156,220,254,.35);
+    }
+    .muted{color:var(--muted)}
+    .subtle{color:var(--subtle)}
+    .split{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:12px;
+    }
+    @media (max-width:1000px){
+      .split{grid-template-columns:1fr}
+    }
+    .footer{
+      max-width:1400px;
+      margin:0 auto;
+      padding:0 20px 30px;
+      color:var(--subtle);
+      font-size:12px;
+    }
+    details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:rgba(0,0,0,.14);
+    }
+    summary{
+      cursor:pointer;
+      padding:10px 12px;
+      color:var(--muted);
+      font-weight:760;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details > div{padding:0 12px 12px}
+    .status-ok{color:var(--green)}
+    .status-bad{color:var(--red)}
+    .status-mid{color:var(--gold)}
+    .project-home{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;padding:11px 14px;margin-bottom:22px;border-radius:12px;background:#f2f0e7;color:#315b48;font-size:13px}
+    .project-home a{color:#194f37;font-weight:750;text-decoration:none}
+    .project-home a:hover{text-decoration:underline}
+    .scope-note{max-width:1060px;font-size:13px;color:var(--muted);margin:14px 0 0}
+    .layout>*,.grid2>*,.grid3>*,.split>*,.control{min-width:0}
+    #briefTab .split{grid-template-columns:1fr}
+    .diagram-scroll{overflow:auto}
+    #dependencySvg{min-width:800px;height:auto}
+    .card .hd{flex-wrap:wrap}
+    .pill{white-space:normal}
+    button:focus-visible,a:focus-visible,summary:focus-visible,tr:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    #plansTable tbody tr{cursor:pointer}
+    @media(max-width:600px){header{padding:18px 12px 8px}.layout{padding:10px 12px 28px}.card .bd,.tab{padding:12px}.resource-algebra{grid-template-columns:1fr}.project-home{font-size:12px}.method-step{white-space:normal}}
+  </style>
+</head>
+<body>
+<header>
+  <nav class="project-home" aria-label="Project"><a href="../index.html">← Project Co-design</a><span>Programme studio · March 2026 model</span></nav>
+  <h1>Rail Upgrade Monotone Co‑Design Studio</h1>
+  <div class="lede">
+    A fresh, documentation-led interactive scenario for a <b>rail transit capacity upgrade</b>: longer platforms, tighter signalling headways, and stronger traction power must be designed <i>together</i>, with staged delivery, contracts, approvals, and political risk treated as part of the co-design challenge rather than an afterthought.
+  </div>
+  <p class="scope-note">Compare <b>four prescribed staging strategies</b>, package catalogues and illustrative governance assumptions. Costs, durations and risk indices are fictional. This studio compares supplied programme strategies; the separate staged-path experiment constructs legal action sequences under explicit service constraints.</p>
+  <div class="method-strip">
+    <div class="method-step">1 · Define the task</div>
+    <div class="method-step">2 · Decompose into sub-tasks</div>
+    <div class="method-step">3 · Map to co-design diagram</div>
+    <div class="method-step">4 · Populate catalogues / alternatives</div>
+    <div class="method-step">5 · Solve for minimal-resource antichain</div>
+    <div class="method-step">6 · Inspect illustrative feedback iteration</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="stack">
+    <section class="card">
+      <div class="hd">
+        <div>
+          <div class="smallcaps">Scenario controls</div>
+          <h2>Task, ceilings, and programme stance</h2>
+        </div>
+        <span class="pill">director-facing inputs</span>
+      </div>
+      <div class="bd stack">
+        <div class="control">
+          <label for="demand"><span>Peak-direction capacity target</span><span class="badge"><span id="demandOut">30,000</span> pphpd</span></label>
+          <input id="demand" type="range" min="18000" max="42000" step="500" value="30000"/>
+          <div class="hint">This is the function to be delivered: corridor peak throughput. Internally the studio chooses train length and trains-per-hour to meet it.</div>
+        </div>
+
+        <div class="grid2">
+          <div class="control">
+            <label for="paxPerCar"><span>Passengers per car</span><span class="badge"><span id="paxOut">110</span> pax</span></label>
+            <input id="paxPerCar" type="number" min="80" max="150" step="1" value="110"/>
+            <div class="hint">Stylised operating assumption.</div>
+          </div>
+          <div class="control">
+            <label for="maxTph"><span>Operational max tph</span><span class="badge"><span id="maxTphOut">30</span> tph</span></label>
+            <input id="maxTph" type="number" min="21" max="32" step="1" value="30"/>
+            <div class="hint">Turnbacks, dwell discipline, and operating tolerance.</div>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="control">
+            <label for="budgetCap"><span>Budget ceiling</span><span class="badge">£<span id="budgetOut">0</span>m</span></label>
+            <input id="budgetCap" type="number" min="0" max="2500" step="25" value="0"/>
+            <div class="hint">0 = no hard ceiling.</div>
+          </div>
+          <div class="control">
+            <label for="deadlineCap"><span>Delivery deadline</span><span class="badge"><span id="deadlineOut">0</span> mo</span></label>
+            <input id="deadlineCap" type="number" min="0" max="120" step="3" value="0"/>
+            <div class="hint">0 = no hard deadline.</div>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="control">
+            <label for="riskCap"><span>Illustrative programme-risk ceiling</span><span class="badge"><span id="riskOut">0</span>/180</span></label>
+            <input id="riskCap" type="number" min="0" max="180" step="5" value="0"/>
+            <div class="hint">0 = unconstrained. A synthetic index, not a probability or an assessed safety/regulatory limit.</div>
+          </div>
+          <div class="control">
+            <label for="context"><span>Corridor context</span><span class="badge" id="contextBadge">Urban core</span></label>
+            <select id="context"></select>
+            <div class="hint">Affects duration, disruption, and grid complexity.</div>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="control">
+            <label for="governanceFilter"><span>Governance filter</span><span class="badge" id="govFilterBadge">All</span></label>
+            <select id="governanceFilter"></select>
+            <div class="hint">A coproduct-like lens over organisational alternatives.</div>
+          </div>
+          <div class="control">
+            <label for="strategyFilter"><span>Stage strategy filter</span><span class="badge" id="stratFilterBadge">All</span></label>
+            <select id="strategyFilter"></select>
+            <div class="hint">How subsystem increments are sequenced through the programme.</div>
+          </div>
+        </div>
+
+        <div class="control">
+          <label><span>Loop treatment</span><span class="badge"><input id="feedback" aria-label="Enable illustrative feedback" type="checkbox" checked/> fixed-point enabled</span></label>
+          <div class="hint">When enabled, schedule and risk are solved by a monotone feedback iteration: more mismatch raises risk, which stretches approvals, which raises risk again, until the numerical stopping tolerance is reached.</div>
+        </div>
+
+        <div class="control">
+          <label for="decisionLens"><span>Recommendation lens</span><span class="badge" id="lensBadge">Balanced</span></label>
+          <select id="decisionLens">
+            <option value="balanced">Balanced</option>
+            <option value="cheapest">Cheapest</option>
+            <option value="fastest">Fastest</option>
+            <option value="lowestRisk">Lowest risk</option>
+            <option value="leastDisruption">Least disruption</option>
+          </select>
+          <div class="hint">The full antichain remains visible. Balanced uses illustrative weights; the other lenses select the stated minimum.</div>
+        </div>
+
+        <div class="btnbar">
+          <button id="solveBtn" class="primary">Recompute frontier</button>
+          <button id="resetBtn" class="danger">Reset</button>
+        </div>
+
+        <details>
+          <summary>Why this is faithful to Monotone Co‑Design</summary>
+          <div>
+            <div class="callout">
+              The page mirrors the method in the documentation: <b>task → functional decomposition → co-design diagram → feedback loops → implementation via catalogues / alternatives → query minimal resources</b>. The solver returns an <b>antichain</b> of minimal resource bundles rather than a single scalar optimum, and the loop panel shows the least-fixed-point logic used when recursive constraints are present.
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="hd">
+        <div>
+          <div class="smallcaps">Selected plan</div>
+          <h2 id="selTitle">No plan selected</h2>
+        </div>
+        <span class="pill" id="selPill">waiting</span>
+      </div>
+      <div class="bd stack">
+        <div id="selNarrative" class="callout">Compute the frontier to generate a director’s briefing.</div>
+        <div class="canvaswrap">
+          <canvas id="alignmentCanvas" class="shortcanvas" width="900" height="250"></canvas>
+        </div>
+        <div class="legend">
+          <span class="swatch"><span class="dot" style="background:var(--green)"></span>Platform readiness</span>
+          <span class="swatch"><span class="dot" style="background:var(--blue)"></span>Signalling readiness</span>
+          <span class="swatch"><span class="dot" style="background:var(--gold)"></span>Power readiness</span>
+          <span class="swatch"><span class="dot" style="background:var(--red)"></span>Usable upgrade fraction</span>
+        </div>
+      </div>
+    </section>
+  </aside>
+
+  <main class="stack">
+    <section class="card">
+      <div class="hd">
+        <div>
+          <div class="smallcaps">Director brief</div>
+          <h2>Minimal plans, not a fake single optimum</h2>
+        </div>
+        <span id="feasibilityPill" class="pill">Not solved</span>
+      </div>
+      <div class="bd">
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="smallcaps">Feasible candidates</div>
+            <div class="value" id="kpiFeasible">0</div>
+            <div class="sub">All plans surviving the hard ceilings.</div>
+          </div>
+          <div class="kpi">
+            <div class="smallcaps">Pareto-minimal plans</div>
+            <div class="value" id="kpiPareto">0</div>
+            <div class="sub">The antichain under &lt;capex, months, risk, possessions&gt;.</div>
+          </div>
+          <div class="kpi">
+            <div class="smallcaps">Highlighted plan</div>
+            <div class="value" id="kpiPlan">—</div>
+            <div class="sub" id="kpiPlanSub">Selected using the current recommendation lens.</div>
+          </div>
+          <div class="kpi">
+            <div class="smallcaps">Least relative headroom</div>
+            <div class="value" id="kpiBottleneck">—</div>
+            <div class="sub" id="kpiBottleneckSub">Computed from the selected service plan.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px" id="topline" class="callout">
+          Set the task and press <b>Recompute frontier</b>. The model will choose train length, headway, subsystem packages, governance, and stage strategy, then filter for minimal resource bundles.
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tabbtn active" data-tab="briefTab">Brief</button>
+        <button class="tabbtn" data-tab="methodTab">Method</button>
+        <button class="tabbtn" data-tab="frontierTab">Frontier</button>
+        <button class="tabbtn" data-tab="loopTab">Loop</button>
+        <button class="tabbtn" data-tab="mcdplTab">Pseudo‑MCDPL</button>
+      </div>
+
+      <div class="tab active" id="briefTab">
+        <div class="split">
+          <div class="stack">
+            <div class="control">
+              <div class="smallcaps">Executive reading</div>
+              <div id="executiveText" class="muted" style="margin-top:8px">
+                This scenario treats the rail programme as a co-design problem in the exact sense of the documentation: the task is specified first, decomposed into sub-tasks, then reassembled as a formal dependency structure whose minimal resource consequences can be queried.
+              </div>
+            </div>
+
+            <div class="grid2">
+              <div class="control">
+                <div class="smallcaps">Task decomposition</div>
+                <div class="tree" id="taskTree">
+                  <div class="tree-node root"><b>Increase corridor throughput</b><br/><span class="mini">deliver peak-direction capacity with safe operations</span></div>
+                  <div class="tree-node level1"><b>Accommodate longer trains</b><br/><span class="mini">station and platform envelope</span></div>
+                  <div class="tree-node level1"><b>Dispatch more trains safely</b><br/><span class="mini">headway, interlocking, regulation</span></div>
+                  <div class="tree-node level1"><b>Feed extra traction power</b><br/><span class="mini">substations, feeders, resilience</span></div>
+                  <div class="tree-node level1"><b>Keep the programme governable</b><br/><span class="mini">claims, approvals, stakeholder tolerance</span></div>
+                </div>
+              </div>
+
+              <div class="control">
+                <div class="smallcaps">Programme algebra</div>
+                <div class="resource-algebra" style="margin-top:8px">
+                  <div class="algbox">
+                    <b>Capex</b><br/>
+                    <span class="mini">Subsystem packages contribute independently and are <b>summed</b>.</span>
+                  </div>
+                  <div class="algbox">
+                    <b>Schedule</b><br/>
+                    <span class="mini">Parallel work uses a <b>max</b>-like critical-path logic, then adds interface / approval delay.</span>
+                  </div>
+                  <div class="algbox">
+                    <b>Risk</b><br/>
+                    <span class="mini">Mismatch, possessions, and governance discipline are <b>merged</b>, then optionally fed back into schedule.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="control">
+              <div class="smallcaps">What the highlighted plan is really saying</div>
+              <div id="planInterpretation" class="muted" style="margin-top:8px">
+                Once solved, this panel explains the highlighted plan in programme language: what it buys, what it forces elsewhere, and where the political or regulatory fragility sits.
+              </div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="control">
+              <div class="row" style="justify-content:space-between">
+                <div>
+                  <div class="smallcaps">Data flow vs logical dependency</div>
+                  <div class="hint" style="margin-top:6px">Following the documentation, the co-design diagram is about <b>dependencies</b>, not operational signal flow.</div>
+                </div>
+                <div class="togglebar">
+                  <button class="toggle active" data-view="dependency">Logical dependency</button>
+                  <button class="toggle" data-view="operations">Operations flow</button>
+                </div>
+              </div>
+              <div class="hint" style="margin-top:8px">On a narrow screen, scroll the diagram sideways to read its labels.</div>
+              <div class="canvaswrap diagram-scroll" style="margin-top:10px">
+                <svg id="dependencySvg" viewBox="0 0 900 380" width="100%" height="300" aria-label="logical dependency diagram"></svg>
+              </div>
+            </div>
+
+            <div class="control">
+              <div class="smallcaps">Stage alignment diagnosis</div>
+              <div id="alignmentDiagnosis" class="muted" style="margin-top:8px">
+                The chart at left shows subsystem readiness curves and the usable corridor capacity that the public can actually feel. A director’s problem is not merely to fund all subsystems, but to prevent one package from arriving politically years before the others.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab" id="methodTab">
+        <div class="stack">
+          <div class="callout">
+            <b>Method in six moves.</b> The documentation’s discipline is inductive and compositional: define the task, decompose it hierarchically, identify components as design problems, connect them by functionality/resource constraints, model alternatives via catalogues and coproduct-like choices, then query minimal resources. Loops are not banned; they are solved by monotone fixed-point logic.
+          </div>
+
+          <div class="grid2">
+            <div class="control">
+              <div class="smallcaps">1 · Define the task</div>
+              <div class="muted" style="margin-top:8px">
+                The task here is not “buy some rail assets”. It is: <b>deliver corridor peak throughput under explicit ceilings on budget, time, and programme risk</b>. The page treats this as the top-level function and keeps implementation choices separate from it.
+              </div>
+            </div>
+            <div class="control">
+              <div class="smallcaps">2 · Functional decomposition</div>
+              <div class="muted" style="margin-top:8px">
+                We decompose “increase corridor throughput” into longer trains, tighter headways, and stronger traction power, plus a governance sub-task. This respects the documentation’s distinction between <b>what the system must do</b> and <b>how it will eventually do it</b>.
+              </div>
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div class="control">
+              <div class="smallcaps">3 · From decomposition to co-design diagram</div>
+              <div class="muted" style="margin-top:8px">
+                Each subsystem is modelled as a design problem with green functionality edges and red resource edges. The joins are co-design constraints: e.g. a larger train length forces non-decreasing signalling and power capability.
+              </div>
+            </div>
+            <div class="control">
+              <div class="smallcaps">4 · Populate implementations</div>
+              <div class="muted" style="margin-top:8px">
+                The subsystem options are finite <b>catalogues</b>. Different governance modes and sequencing strategies act like <b>alternatives</b> that can be chosen. This gives a discrete, exact, non-differentiable design space without pretending the problem is convex.
+              </div>
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div class="control">
+              <div class="smallcaps">5 · Solve by querying minimal resources</div>
+              <div class="muted" style="margin-top:8px">
+                For each feasible service plan the solver returns the minimal resource bundles under the product order. In programme language: the result is the set of plans that are not jointly beaten on cost, time, risk, and possessions.
+              </div>
+            </div>
+            <div class="control">
+              <div class="smallcaps">6 · Treat loops explicitly</div>
+              <div class="muted" style="margin-top:8px">
+                Mismatch creates approvals risk, risk stretches schedule, and a longer schedule can provoke further risk. The studio resolves that circularity with a monotone iteration starting from the least element, i.e. a directorially legible analogue of Kleene ascent.
+              </div>
+            </div>
+          </div>
+
+          <details>
+            <summary>Stylised modelling choices in this scenario</summary>
+            <div class="muted">
+              Packages, durations, governance effects and penalties are illustrative. Capacity requirement maps are non-decreasing; resource bundles are Pareto-filtered. Sequencing is restricted to four supplied strategies. Readiness is linearly interpolated within work stages and mismatch is sampled at 120 intervals; it is not certified operating service. The feedback calculation is a synthetic scalar approximation, not a general MCDP loop solver.
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="tab" id="frontierTab">
+        <div class="stack">
+          <div class="grid2">
+            <div class="control">
+              <div class="row" style="justify-content:space-between">
+                <div>
+                  <div class="smallcaps">Pareto frontier</div>
+                  <div class="hint" style="margin-top:6px">x = capex, y = schedule, bubble = risk, outline = Pareto-minimal. Click a row below to inspect a plan.</div>
+                </div>
+                <div class="legend">
+                  <span class="swatch"><span class="dot" style="background:rgba(242,204,96,.9)"></span>feasible plan</span>
+                  <span class="swatch"><span class="dot" style="background:var(--green)"></span>minimal plan</span>
+                </div>
+              </div>
+              <div class="canvaswrap" style="margin-top:10px">
+                <canvas id="frontierCanvas" width="960" height="360"></canvas>
+              </div>
+            </div>
+            <div class="control">
+              <div class="smallcaps">Dominance reading</div>
+              <div id="dominanceText" class="muted" style="margin-top:8px">
+                The green-outlined points form an antichain: no point is weakly better than another in all four resource dimensions at once. Everything “north-east-and-riskier” of those points is feasible but dominated.
+              </div>
+              <div class="hr"></div>
+              <div class="smallcaps" style="margin-top:12px">Feasibility split</div>
+              <div class="canvaswrap" style="margin-top:10px">
+                <canvas id="feasibilityCanvas" class="tinycanvas" width="960" height="200"></canvas>
+              </div>
+              <div class="hint" style="margin-top:8px">The bar chart decomposes feasible candidates by stage strategy and governance mode, showing where the antichain comes from institutionally.</div>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="row" style="justify-content:space-between">
+              <div>
+                <div class="smallcaps">Minimal plans table</div>
+                <div class="hint" style="margin-top:6px">The recommendation lens only highlights a row. The antichain itself remains the correct decision object.</div>
+              </div>
+              <span id="tableCount" class="badge">0 plans</span>
+            </div>
+            <div style="overflow:auto; margin-top:10px">
+              <table id="plansTable"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab" id="loopTab">
+        <div class="stack">
+          <div class="callout">
+            <b>Why this loop exists.</b> This model assumes that mismatched subsystem delivery increases an illustrative approvals burden, which lengthens the programme and feeds back into its risk index. Those relationships are declared scenario assumptions, not identified causal effects or empirical claims about railway failure.
+          </div>
+
+          <div class="grid2">
+            <div class="control">
+              <div class="smallcaps">Iteration trace</div>
+              <div class="hint" style="margin-top:6px">Monotone update: risk ↗ approvals delay ↗ schedule ↗ risk. The declared scalar map is iterated from zero to a tolerance of 0.05 risk units.</div>
+              <div class="canvaswrap" style="margin-top:10px">
+                <canvas id="loopCanvas" class="shortcanvas" width="960" height="250"></canvas>
+              </div>
+            </div>
+            <div class="control">
+              <div class="smallcaps">Loop read-out</div>
+              <div id="loopNarrative" class="muted" style="margin-top:8px">
+                Solve the frontier and select a plan to see its fixed-point trace.
+              </div>
+              <div style="overflow:auto; margin-top:12px">
+                <table id="iterTable"></table>
+              </div>
+            </div>
+          </div>
+
+          <div class="warnout">
+            This is a stylised finite approximation. In the theory, loops are handled by least fixed points over antichains; here the same programme idea is rendered in a director-friendly scalar loop over schedule and risk.
+          </div>
+        </div>
+      </div>
+
+      <div class="tab" id="mcdplTab">
+        <div class="stack">
+          <div class="control">
+            <div class="smallcaps">Readable MCDPL mirror</div>
+            <div class="hint" style="margin-top:6px">This is not executed. It mirrors the constructs used in the documentation: <code>provides</code>, <code>requires</code>, <code>catalogue</code>, <code>choose</code>, composition, and query for minimal resources.</div>
+            <pre id="mcdplView"></pre>
+          </div>
+          <div class="grid2">
+            <div class="control">
+              <div class="smallcaps">Glossary</div>
+              <div class="muted" style="margin-top:8px">
+                <b>Functionality</b> = what a subsystem provides. <br/>
+                <b>Resources</b> = what it requires. <br/>
+                <b>Catalogue</b> = arbitrary discrete implementation relation. <br/>
+                <b>Choose</b> = alternatives / coproduct. <br/>
+                <b>Antichain</b> = mutually non-dominating minimal plans. <br/>
+                <b>Loop</b> = recursive co-design constraint solved by least fixed point.
+              </div>
+            </div>
+            <div class="control">
+              <div class="smallcaps">Interpretive note</div>
+              <div class="muted" style="margin-top:8px">
+                The point of the exercise is not to make rail projects look like a single spreadsheet optimisation. It is to formalise the fact that every local improvement pushes on a wider dependency structure, and that management choices about packaging and pacing are themselves part of the design space.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="footer">
+  <a href="../index.html">Project Co-design home</a> · A self-contained March 2026 programme model, prepared for public inclusion with interaction and stage-timing corrections. Catalogue enumeration and synthetic feedback remain separate from the staged-path experiment. No real railway, personal or client data is included.
+  <p>Method references: <a href="https://andreacensi.github.io/mcdp-manual/mcdp-manual.pdf">Censi’s co-design manual</a> · <a href="https://www.research-collection.ethz.ch/handle/20.500.11850/648075">Zardini, Co-Design of Complex Systems</a>. These explain the framework; they do not validate this scenario’s values.</p>
+</div>
+
+<script>
+(function(){
+  const clamp = (x,a,b)=>Math.max(a,Math.min(b,x));
+  const fmt = (x,d=0)=>Number.isFinite(x)?x.toFixed(d):String(x);
+
+  const contexts = [
+    {id:"urban", label:"Urban core", costMult:1.18, durMult:1.20, riskOffset:10, traction:1.08, possessionMult:1.10, note:"Tight possessions, high stakeholder density, difficult utility interfaces."},
+    {id:"mixed", label:"Mixed corridor", costMult:1.00, durMult:1.00, riskOffset:0, traction:1.00, possessionMult:1.00, note:"Representative baseline."},
+    {id:"surface", label:"Surface-heavy", costMult:0.90, durMult:0.88, riskOffset:-5, traction:0.96, possessionMult:0.92, note:"Easier access, but still requires network integration."}
+  ];
+
+  const governances = [
+    {id:"all", label:"All governance modes"},
+    {id:"alliance", label:"Alliance / integrated delivery", costFactor:1.04, riskOffset:-8, approvalAlpha:0.055, mismatchFactor:0.72, transactionCost:35, possessionFactor:0.92, desc:"Higher overhead, lower interface drift."},
+    {id:"multiprime", label:"Multi-prime / fixed interfaces", costFactor:0.98, riskOffset:8, approvalAlpha:0.085, mismatchFactor:1.35, transactionCost:10, possessionFactor:1.00, desc:"Cheaper packages, more claims and interface churn."},
+    {id:"stagedgov", label:"Staged concession / political pacing", costFactor:1.01, riskOffset:2, approvalAlpha:0.070, mismatchFactor:1.00, transactionCost:22, possessionFactor:0.96, desc:"Moderate overhead, spreads political exposure."}
+  ];
+
+  const strategies = [
+    {id:"all", label:"All stage strategies"},
+    {id:"matched", label:"Matched stage release", type:"matched", baseRisk:6, costPremium:25, desc:"Synchronise subsystem increments by bands."},
+    {id:"fasttrack", label:"Fast-track overlap", type:"fasttrack", baseRisk:10, costPremium:50, desc:"Start everything at once; accept temporary mismatch."},
+    {id:"civilsFirst", label:"Civils first", type:"civilsFirst", baseRisk:16, costPremium:0, desc:"Station works first; systems follow."},
+    {id:"systemsFirst", label:"Systems first", type:"systemsFirst", baseRisk:12, costPremium:15, desc:"Signals and power first; civils later."}
+  ];
+
+  // Capabilities are stylised.
+  const platformPkgs = [
+    {id:"P0", label:"Keep 8-car platforms", cars:8, capex:0, dur:0, risk:4, possessions:0, stages:[{cap:8,durFrac:1}]},
+    {id:"P10s", label:"Selective 10-car extension", cars:10, capex:180, dur:14, risk:20, possessions:16, stages:[{cap:10,durFrac:1}]},
+    {id:"P10f", label:"Full 10-car platform programme", cars:10, capex:260, dur:18, risk:16, possessions:20, stages:[{cap:10,durFrac:1}]},
+    {id:"P12", label:"12-car corridor rebuild", cars:12, capex:520, dur:30, risk:35, possessions:42, stages:[{cap:10,durFrac:.42},{cap:12,durFrac:.58}]},
+    {id:"P12st", label:"10→12 staged platform programme", cars:12, capex:570, dur:34, risk:28, possessions:36, stages:[{cap:10,durFrac:.48},{cap:12,durFrac:.52}]}
+  ];
+
+  const signalPkgs = [
+    {id:"S0", label:"Baseline fixed-block", tph:18, capex:0, dur:0, risk:8, possessions:0, stages:[{cap:18,durFrac:1}]},
+    {id:"S21", label:"Reblock + junction tuning", tph:21, capex:120, dur:10, risk:14, possessions:10, stages:[{cap:21,durFrac:1}]},
+    {id:"S24", label:"ETCS / ATO overlay", tph:24, capex:260, dur:18, risk:22, possessions:18, stages:[{cap:24,durFrac:1}]},
+    {id:"S27", label:"High-density ETCS", tph:27, capex:430, dur:26, risk:30, possessions:24, stages:[{cap:24,durFrac:.48},{cap:27,durFrac:.52}]},
+    {id:"S30", label:"CBTC core + fleet interface", tph:30, capex:680, dur:34, risk:40, possessions:32, stages:[{cap:24,durFrac:.40},{cap:30,durFrac:.60}]}
+  ];
+
+  const powerPkgs = [
+    {id:"W0", label:"Baseline feeders / substations", index:1.00, capex:0, dur:0, risk:6, possessions:0, stages:[{cap:1.00,durFrac:1}]},
+    {id:"W1", label:"Targeted feeder reinforcement", index:1.22, capex:80, dur:8, risk:12, possessions:6, stages:[{cap:1.22,durFrac:1}]},
+    {id:"W2", label:"Substation uprate + rectifiers", index:1.55, capex:190, dur:14, risk:18, possessions:12, stages:[{cap:1.55,durFrac:1}]},
+    {id:"W3", label:"Substations + storage / regen", index:1.85, capex:360, dur:20, risk:24, possessions:16, stages:[{cap:1.55,durFrac:.45},{cap:1.85,durFrac:.55}]},
+    {id:"W4", label:"Major grid connection + redundancy", index:2.20, capex:620, dur:30, risk:34, possessions:24, stages:[{cap:1.55,durFrac:.42},{cap:2.20,durFrac:.58}]}
+  ];
+
+  const servicePlans = [];
+  [8,10,12].forEach(cars=>{
+    [18,21,24,27,30].forEach(tph=>{
+      servicePlans.push({cars,tph});
+    });
+  });
+
+  const els = {
+    demand: document.getElementById("demand"),
+    demandOut: document.getElementById("demandOut"),
+    paxPerCar: document.getElementById("paxPerCar"),
+    paxOut: document.getElementById("paxOut"),
+    maxTph: document.getElementById("maxTph"),
+    maxTphOut: document.getElementById("maxTphOut"),
+    budgetCap: document.getElementById("budgetCap"),
+    budgetOut: document.getElementById("budgetOut"),
+    deadlineCap: document.getElementById("deadlineCap"),
+    deadlineOut: document.getElementById("deadlineOut"),
+    riskCap: document.getElementById("riskCap"),
+    riskOut: document.getElementById("riskOut"),
+    context: document.getElementById("context"),
+    contextBadge: document.getElementById("contextBadge"),
+    governanceFilter: document.getElementById("governanceFilter"),
+    govFilterBadge: document.getElementById("govFilterBadge"),
+    strategyFilter: document.getElementById("strategyFilter"),
+    stratFilterBadge: document.getElementById("stratFilterBadge"),
+    feedback: document.getElementById("feedback"),
+    decisionLens: document.getElementById("decisionLens"),
+    lensBadge: document.getElementById("lensBadge"),
+    solveBtn: document.getElementById("solveBtn"),
+    resetBtn: document.getElementById("resetBtn"),
+    feasibilityPill: document.getElementById("feasibilityPill"),
+    kpiFeasible: document.getElementById("kpiFeasible"),
+    kpiPareto: document.getElementById("kpiPareto"),
+    kpiPlan: document.getElementById("kpiPlan"),
+    kpiPlanSub: document.getElementById("kpiPlanSub"),
+    kpiBottleneck: document.getElementById("kpiBottleneck"),
+    kpiBottleneckSub: document.getElementById("kpiBottleneckSub"),
+    topline: document.getElementById("topline"),
+    executiveText: document.getElementById("executiveText"),
+    planInterpretation: document.getElementById("planInterpretation"),
+    dependencySvg: document.getElementById("dependencySvg"),
+    frontierCanvas: document.getElementById("frontierCanvas"),
+    feasibilityCanvas: document.getElementById("feasibilityCanvas"),
+    plansTable: document.getElementById("plansTable"),
+    tableCount: document.getElementById("tableCount"),
+    alignmentCanvas: document.getElementById("alignmentCanvas"),
+    alignmentDiagnosis: document.getElementById("alignmentDiagnosis"),
+    selTitle: document.getElementById("selTitle"),
+    selPill: document.getElementById("selPill"),
+    selNarrative: document.getElementById("selNarrative"),
+    loopCanvas: document.getElementById("loopCanvas"),
+    loopNarrative: document.getElementById("loopNarrative"),
+    iterTable: document.getElementById("iterTable"),
+    mcdplView: document.getElementById("mcdplView"),
+    dominanceText: document.getElementById("dominanceText"),
+  };
+
+  contexts.forEach(c=>{
+    const opt=document.createElement("option");
+    opt.value=c.id; opt.textContent=c.label;
+    els.context.appendChild(opt);
+  });
+  governances.forEach(g=>{
+    const opt=document.createElement("option");
+    opt.value=g.id; opt.textContent=g.label;
+    els.governanceFilter.appendChild(opt);
+  });
+  strategies.forEach(s=>{
+    const opt=document.createElement("option");
+    opt.value=s.id; opt.textContent=s.label;
+    els.strategyFilter.appendChild(opt);
+  });
+
+  const state = {
+    all: [],
+    pareto: [],
+    selectedId: null,
+    currentView: "dependency",
+  };
+
+  function minSignalForCars(cars){
+    if (cars <= 8) return 18;
+    if (cars <= 10) return 21;
+    return 24;
+  }
+  function requiredPowerIndex(cars,tph,ctx){
+    const raw = (cars/8) * (tph/18) * ctx.traction;
+    const knockOn = cars<=8 ? 1.0 : cars<=10 ? 1.18 : 1.42;
+    return Math.max(raw, knockOn);
+  }
+
+  function getContext(){ return contexts.find(c=>c.id===els.context.value) || contexts[1]; }
+  function getGovList(){
+    if (els.governanceFilter.value === "all") return governances.filter(g=>g.id!=="all");
+    return [governances.find(g=>g.id===els.governanceFilter.value)];
+  }
+  function getStrategyList(){
+    if (els.strategyFilter.value === "all") return strategies.filter(s=>s.id!=="all");
+    return [strategies.find(s=>s.id===els.strategyFilter.value)];
+  }
+
+  function updateLabels(){
+    els.demandOut.textContent = Number(els.demand.value).toLocaleString();
+    els.paxOut.textContent = els.paxPerCar.value;
+    els.maxTphOut.textContent = els.maxTph.value;
+    els.budgetOut.textContent = Number(els.budgetCap.value).toLocaleString();
+    els.deadlineOut.textContent = Number(els.deadlineCap.value).toLocaleString();
+    els.riskOut.textContent = Number(els.riskCap.value).toLocaleString();
+    const ctx=getContext();
+    els.contextBadge.textContent = ctx.label;
+    els.govFilterBadge.textContent = els.governanceFilter.options[els.governanceFilter.selectedIndex].text;
+    els.stratFilterBadge.textContent = els.strategyFilter.options[els.strategyFilter.selectedIndex].text;
+    els.lensBadge.textContent = els.decisionLens.options[els.decisionLens.selectedIndex].text;
+  }
+
+  function readInputs(){
+    return {
+      demand: Number(els.demand.value),
+      paxPerCar: clamp(Number(els.paxPerCar.value), 80, 150),
+      maxTph: clamp(Number(els.maxTph.value), 21, 32),
+      budgetCap: Math.max(0, Number(els.budgetCap.value)),
+      deadlineCap: Math.max(0, Number(els.deadlineCap.value)),
+      riskCap: Math.max(0, Number(els.riskCap.value)),
+      context: getContext(),
+      feedback: els.feedback.checked,
+      lens: els.decisionLens.value
+    };
+  }
+
+  function pkgCapabilityAt(pkg, t, starts, subsystem){
+    // returns current capability at time t.
+    const base = subsystem==="platform" ? 8 : subsystem==="signal" ? 18 : 1.0;
+    if (pkg.dur===0) return pkg.stages[pkg.stages.length-1].cap;
+    let prevCap = base;
+    for (let i=0;i<pkg.stages.length;i++){
+      const st = pkg.stages[i];
+      const stageStart = starts[i];
+      const stageDur = st.durFrac * pkg.dur;
+      const stageEnd = stageStart + stageDur;
+      if (t <= stageStart) return prevCap;
+      if (t < stageEnd){
+        const a = (t-stageStart)/(stageDur || 1);
+        return prevCap + a*(st.cap - prevCap);
+      }
+      prevCap = st.cap;
+    }
+    return pkg.stages[pkg.stages.length-1].cap;
+  }
+
+  function buildStageSchedule(platform, signal, power, strategy){
+    // Start times for each stage of each subsystem.
+    // We store arrays with stage-starts aligned with pkg.stages.
+    const makeStarts = (pkg, start0)=> {
+      const arr=[];
+      let cur=start0;
+      pkg.stages.forEach(st=>{ arr.push(cur); cur += st.durFrac * pkg.dur; });
+      return arr;
+    };
+
+    if(strategy.type === "fasttrack"){
+      return {
+        platform: makeStarts(platform, 0),
+        signal: makeStarts(signal, 0),
+        power: makeStarts(power, 0)
+      };
+    }
+
+    if(strategy.type === "civilsFirst"){
+      const pStarts = makeStarts(platform, 0);
+      const pEnd = lastEnd(platform, pStarts);
+      const sStarts = makeStarts(signal, pEnd);
+      const sEnd = lastEnd(signal, sStarts);
+      const wStarts = makeStarts(power, sEnd);
+      return {platform:pStarts, signal:sStarts, power:wStarts};
+    }
+
+    if(strategy.type === "systemsFirst"){
+      const sStarts = makeStarts(signal, 0);
+      const wStarts = makeStarts(power, 0);
+      const sysEnd = Math.max(lastEnd(signal,sStarts), lastEnd(power,wStarts));
+      const pStarts = makeStarts(platform, sysEnd);
+      return {platform:pStarts, signal:sStarts, power:wStarts};
+    }
+
+    // matched: synchronize corresponding stage bands; packages may have 1 or 2 stages
+    const pArr=[], sArr=[], wArr=[];
+    const maxStages = Math.max(platform.stages.length, signal.stages.length, power.stages.length);
+    let cur=0;
+    for(let i=0;i<maxStages;i++){
+      const pDur = i<platform.stages.length ? platform.stages[i].durFrac*platform.dur : 0;
+      const sDur = i<signal.stages.length ? signal.stages[i].durFrac*signal.dur : 0;
+      const wDur = i<power.stages.length ? power.stages[i].durFrac*power.dur : 0;
+      if(i<platform.stages.length) pArr.push(cur);
+      if(i<signal.stages.length) sArr.push(cur);
+      if(i<power.stages.length) wArr.push(cur);
+      cur += Math.max(pDur,sDur,wDur);
+    }
+    return {platform:pArr, signal:sArr, power:wArr};
+  }
+
+  function lastEnd(pkg, starts){
+    if(pkg.stages.length===0) return 0;
+    const lastIndex = pkg.stages.length - 1;
+    return starts[lastIndex] + pkg.stages[lastIndex].durFrac * pkg.dur;
+  }
+
+  function capabilityFraction(subsystem, cap, required){
+    if(subsystem==="platform"){
+      const base=8;
+      if(required <= base) return 1;
+      return clamp((cap-base)/(required-base), 0, 1);
+    }
+    if(subsystem==="signal"){
+      const base=18;
+      if(required <= base) return 1;
+      return clamp((cap-base)/(required-base), 0, 1);
+    }
+    return 1;
+  }
+  function capabilityFractionPower(cap, required){
+    const base=1.0;
+    if(required <= base + 1e-9) return 1;
+    return clamp((cap-base)/(required-base), 0, 1);
+  }
+
+  function computeMismatchAndTimeline(platform, signal, power, reqCars, reqTph, reqPower, strategy){
+    const sched = buildStageSchedule(platform, signal, power, strategy);
+    const tEnd = Math.max(lastEnd(platform, sched.platform), lastEnd(signal, sched.signal), lastEnd(power, sched.power), 1);
+    const samples = 120;
+    let mismatchArea = 0;
+    let deliveredArea = 0;
+    const trace = [];
+    let lastT = 0;
+
+    for(let i=0;i<=samples;i++){
+      const t = tEnd * i / samples;
+      const pCap = pkgCapabilityAt(platform, t, sched.platform, "platform");
+      const sCap = pkgCapabilityAt(signal, t, sched.signal, "signal");
+      const wCap = pkgCapabilityAt(power, t, sched.power, "power");
+      const pFrac = capabilityFraction("platform", pCap, reqCars);
+      const sFrac = capabilityFraction("signal", sCap, reqTph);
+      const wFrac = capabilityFractionPower(wCap, reqPower);
+      const delivered = Math.min(pFrac, sFrac, wFrac);
+      const spread = Math.max(pFrac,sFrac,wFrac) - delivered;
+      if(i>0){
+        const dt = t - lastT;
+        mismatchArea += spread * dt;
+        deliveredArea += delivered * dt;
+      }
+      trace.push({t,pFrac,sFrac,wFrac,delivered});
+      lastT = t;
+    }
+    return {schedule:sched, tEnd, mismatchArea, deliveredArea, trace};
+  }
+
+  function pickPlans(inputs){
+    const all = [];
+    const govs = getGovList();
+    const strats = getStrategyList();
+    let uid = 1;
+
+    for(const sp of servicePlans){
+      if(sp.tph > inputs.maxTph) continue;
+      const pphpd = sp.cars * sp.tph * inputs.paxPerCar;
+      if(pphpd < inputs.demand) continue;
+
+      const effReqTph = Math.max(sp.tph, minSignalForCars(sp.cars));
+      const reqPower = requiredPowerIndex(sp.cars, effReqTph, inputs.context);
+
+      const eligibleP = platformPkgs.filter(p=>p.cars >= sp.cars);
+      const eligibleS = signalPkgs.filter(s=>s.tph >= effReqTph);
+      const eligibleW = powerPkgs.filter(w=>w.index >= reqPower);
+
+      for(const p of eligibleP){
+        for(const s of eligibleS){
+          for(const w of eligibleW){
+            for(const gov of govs){
+              for(const strat of strats){
+                const timeline = computeMismatchAndTimeline(p,s,w,sp.cars,effReqTph,reqPower,strat);
+
+                const overbuild = Math.max(0,(p.cars/sp.cars)-1) + Math.max(0,(s.tph/effReqTph)-1) + Math.max(0,(w.index/reqPower)-1);
+
+                const rawCapex = (p.capex + s.capex + w.capex) * inputs.context.costMult;
+                const capex = rawCapex * gov.costFactor + strat.costPremium + gov.transactionCost + overbuild*35;
+
+                const rawPoss = (p.possessions + s.possessions + w.possessions) * inputs.context.possessionMult;
+                const possessions = rawPoss * gov.possessionFactor * (strat.type==="fasttrack" ? 0.88 : strat.type==="matched" ? 0.93 : 1.0);
+
+                const baseDuration = timeline.tEnd * inputs.context.durMult;
+                const baseRisk = (p.risk + s.risk + w.risk) + inputs.context.riskOffset + gov.riskOffset + strat.baseRisk + 18*overbuild;
+
+                let months = baseDuration;
+                let risk = baseRisk;
+                const mismatch = timeline.mismatchArea;
+                const loopTrace = [];
+                let converged = false;
+
+                if(inputs.feedback){
+                  let r = 0;
+                  const tol = 0.05;
+                  const maxIter = 80;
+                  const reworkTerm = mismatch * gov.mismatchFactor * (strat.type==="matched" ? 0.55 : strat.type==="fasttrack" ? 1.00 : strat.type==="civilsFirst" ? 1.25 : 0.95);
+                  for(let k=0;k<maxIter;k++){
+                    const approvalsDelay = gov.approvalAlpha * r;
+                    const mNew = baseDuration + reworkTerm + approvalsDelay + possessions*0.10;
+                    const rNew = baseRisk + 0.42*Math.max(0,mNew-baseDuration) + 0.18*possessions + 0.30*reworkTerm;
+                    loopTrace.push({k, months:mNew, risk:rNew});
+                    if(!Number.isFinite(mNew) || !Number.isFinite(rNew) || mNew > 180 || rNew > 260){
+                      months = Infinity;
+                      risk = Infinity;
+                      break;
+                    }
+                    if(Math.abs(rNew-r) < tol){
+                      months = mNew;
+                      risk = rNew;
+                      converged = true;
+                      break;
+                    }
+                    r = rNew;
+                  }
+                  if(!converged && Number.isFinite(months) && loopTrace.length){
+                    const last = loopTrace[loopTrace.length-1];
+                    months = last.months;
+                    risk = last.risk;
+                  }
+                } else {
+                  const reworkTerm = mismatch * gov.mismatchFactor * (strat.type==="matched" ? 0.55 : strat.type==="fasttrack" ? 1.00 : strat.type==="civilsFirst" ? 1.25 : 0.95);
+                  months = baseDuration + reworkTerm + possessions*0.10;
+                  risk = baseRisk + 0.18*possessions + 0.30*reworkTerm;
+                  loopTrace.push({k:0, months, risk});
+                }
+
+                if(!Number.isFinite(months) || !Number.isFinite(risk)) continue;
+                if(inputs.budgetCap > 0 && capex > inputs.budgetCap) continue;
+                if(inputs.deadlineCap > 0 && months > inputs.deadlineCap) continue;
+                if(inputs.riskCap > 0 && risk > inputs.riskCap) continue;
+
+                const resources = {capex, months, risk, possessions};
+
+                all.push({
+                  id: uid++,
+                  servicePlan: {cars:sp.cars, tph:sp.tph, pphpd, effReqTph, reqPower},
+                  packages: {platform:p, signal:s, power:w},
+                  governance: gov,
+                  strategy: strat,
+                  timeline,
+                  overbuild,
+                  mismatch,
+                  res: resources,
+                  loopTrace, feedbackEnabled:inputs.feedback, converged,
+                });
+              }
+            }
+          }
+        }
+      }
+    }
+    return all;
+  }
+
+  function dominates(a,b){
+    const le = a.capex <= b.capex && a.months <= b.months && a.risk <= b.risk && a.possessions <= b.possessions;
+    const lt = a.capex < b.capex || a.months < b.months || a.risk < b.risk || a.possessions < b.possessions;
+    return le && lt;
+  }
+
+  function pareto(plans){
+    const mins=[];
+    for(const p of plans){
+      let discard=false;
+      for(let i=mins.length-1;i>=0;i--){
+        if(dominates(mins[i].res, p.res)){ discard=true; break; }
+        if(dominates(p.res, mins[i].res)) mins.splice(i,1);
+      }
+      if(!discard) mins.push(p);
+    }
+    mins.sort((a,b)=>(a.res.capex-b.res.capex)||(a.res.months-b.res.months)||(a.res.risk-b.res.risk)||(a.res.possessions-b.res.possessions));
+    return mins;
+  }
+
+  function chooseHighlighted(plans, lens){
+    if(!plans.length) return null;
+    const priority={cheapest:"capex",fastest:"months",lowestRisk:"risk",leastDisruption:"possessions"}[lens];
+    if(priority){const fields=[priority,...["capex","months","risk","possessions"].filter(k=>k!==priority)];return plans.slice().sort((a,b)=>{for(const k of fields){const delta=a.res[k]-b.res[k];if(delta)return delta;}return a.id-b.id;})[0];}
+    const xs = plans.map(p=>p.res.capex), ys=plans.map(p=>p.res.months), rs=plans.map(p=>p.res.risk), ps=plans.map(p=>p.res.possessions);
+    const rng = arr => ({min:Math.min(...arr), max:Math.max(...arr)});
+    const nx = rng(xs), ny=rng(ys), nr=rng(rs), np=rng(ps);
+    const norm = (v,r)=>(v-r.min)/((r.max-r.min)||1);
+    let weights;
+    if(lens==="cheapest") weights = {capex:.55, months:.20, risk:.15, possessions:.10};
+    else if(lens==="fastest") weights = {capex:.15, months:.55, risk:.20, possessions:.10};
+    else if(lens==="lowestRisk") weights = {capex:.10, months:.20, risk:.55, possessions:.15};
+    else if(lens==="leastDisruption") weights = {capex:.15, months:.20, risk:.15, possessions:.50};
+    else weights = {capex:.30, months:.28, risk:.26, possessions:.16};
+    return plans.reduce((best,p)=>{
+      const score = weights.capex*norm(p.res.capex,nx) + weights.months*norm(p.res.months,ny) + weights.risk*norm(p.res.risk,nr) + weights.possessions*norm(p.res.possessions,np);
+      return !best || score < best.score ? {plan:p, score} : best;
+    }, null).plan;
+  }
+
+  function drawFrontier(all, mins, selectedId){
+    const canvas = els.frontierCanvas;
+    const ctx = canvas.getContext("2d");
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+    ctx.save();
+
+    if(!all.length){
+      ctx.fillStyle="rgba(238,242,251,.7)";
+      ctx.font="14px system-ui";
+      ctx.fillText("No feasible plans for the current ceilings.", 26, 34);
+      ctx.restore(); return;
+    }
+
+    const pad = 54, plotW=W-pad*2, plotH=H-pad*2;
+    const xs = all.map(p=>p.res.capex), ys=all.map(p=>p.res.months), rs=all.map(p=>p.res.risk);
+    const xMin=Math.min(...xs), xMax=Math.max(...xs), yMin=Math.min(...ys), yMax=Math.max(...ys), rMin=Math.min(...rs), rMax=Math.max(...rs);
+    const x=v=>pad + (v-xMin)/((xMax-xMin)||1)*plotW;
+    const y=v=>pad + plotH - (v-yMin)/((yMax-yMin)||1)*plotH;
+    const r=v=>4 + 11*(v-rMin)/((rMax-rMin)||1);
+
+    ctx.strokeStyle="rgba(255,255,255,.10)";
+    for(let i=0;i<=4;i++){
+      const gx=pad + plotW*i/4;
+      const gy=pad + plotH*i/4;
+      ctx.beginPath(); ctx.moveTo(gx,pad); ctx.lineTo(gx,pad+plotH); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(pad,gy); ctx.lineTo(pad+plotW,gy); ctx.stroke();
+    }
+    ctx.strokeStyle="rgba(255,255,255,.28)";
+    ctx.lineWidth=1.4;
+    ctx.beginPath();
+    ctx.moveTo(pad,pad);
+    ctx.lineTo(pad,pad+plotH);
+    ctx.lineTo(pad+plotW,pad+plotH);
+    ctx.stroke();
+
+    ctx.fillStyle="rgba(238,242,251,.85)";
+    ctx.font="12px system-ui";
+    ctx.fillText("Schedule (months)", 10, pad-16);
+    ctx.fillText("Capex (£m)", pad+plotW-72, pad+plotH+28);
+
+    for(const p of all){
+      const px=x(p.res.capex), py=y(p.res.months), rr=r(p.res.risk);
+      ctx.beginPath();
+      ctx.fillStyle="rgba(242,204,96,.18)";
+      ctx.arc(px,py,rr,0,Math.PI*2);
+      ctx.fill();
+      ctx.strokeStyle="rgba(242,204,96,.38)";
+      ctx.stroke();
+    }
+    for(const p of mins){
+      const px=x(p.res.capex), py=y(p.res.months), rr=r(p.res.risk);
+      ctx.beginPath();
+      ctx.fillStyle="rgba(126,231,135,.16)";
+      ctx.arc(px,py,rr,0,Math.PI*2);
+      ctx.fill();
+      ctx.strokeStyle="rgba(126,231,135,.85)";
+      ctx.lineWidth=1.5;
+      ctx.stroke();
+    }
+    const sel = all.find(p=>p.id===selectedId);
+    if(sel){
+      const px=x(sel.res.capex), py=y(sel.res.months);
+      ctx.beginPath();
+      ctx.strokeStyle="rgba(156,220,254,.95)";
+      ctx.lineWidth=2.6;
+      ctx.arc(px,py,18,0,Math.PI*2);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function drawFeasibilityBars(all, mins){
+    const canvas = els.feasibilityCanvas;
+    const ctx = canvas.getContext("2d");
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+
+    const cats = [];
+    strategies.filter(s=>s.id!=="all").forEach(s=>{
+      governances.filter(g=>g.id!=="all").forEach(g=>{
+        const key = `${s.id}__${g.id}`;
+        const feasible = all.filter(p=>p.strategy.id===s.id && p.governance.id===g.id).length;
+        const paretoCount = mins.filter(p=>p.strategy.id===s.id && p.governance.id===g.id).length;
+        cats.push({key, label:`${s.label}\n${g.label}`, feasible, paretoCount, short:`${s.id}/${g.id}`});
+      });
+    });
+
+    if(!cats.length) return;
+    const pad=36, plotW=W-pad*2, plotH=H-pad*2;
+    const maxY=Math.max(...cats.map(c=>Math.max(c.feasible,c.paretoCount)),1);
+    const barW=plotW/cats.length*0.34;
+    ctx.strokeStyle="rgba(255,255,255,.12)";
+    for(let i=0;i<=4;i++){
+      const gy=pad + plotH*i/4;
+      ctx.beginPath(); ctx.moveTo(pad,gy); ctx.lineTo(pad+plotW,gy); ctx.stroke();
+    }
+    ctx.fillStyle="rgba(238,242,251,.85)";
+    ctx.font="11px system-ui";
+    cats.forEach((c,i)=>{
+      const cx = pad + plotW*(i+.5)/cats.length;
+      const h1 = plotH*(c.feasible/maxY);
+      const h2 = plotH*(c.paretoCount/maxY);
+      ctx.fillStyle="rgba(242,204,96,.25)";
+      ctx.fillRect(cx-barW-3, pad+plotH-h1, barW, h1);
+      ctx.fillStyle="rgba(126,231,135,.35)";
+      ctx.fillRect(cx+3, pad+plotH-h2, barW, h2);
+      ctx.fillStyle="rgba(185,196,227,.78)";
+      ctx.save();
+      ctx.translate(cx, pad+plotH+12);
+      ctx.rotate(-0.36);
+      ctx.fillText(c.short, 0, 0);
+      ctx.restore();
+    });
+    ctx.fillStyle="rgba(185,196,227,.78)";
+    ctx.fillText("feasible / Pareto by strategy-governance bucket", 10, 14);
+  }
+
+  function buildTable(mins){
+    let html = "<thead><tr><th>service plan</th><th>platform</th><th>signalling</th><th>power</th><th>governance</th><th>strategy</th><th>£m</th><th>mo</th><th>risk</th><th>poss.</th></tr></thead><tbody>";
+    mins.forEach(p=>{
+      const sel = state.selectedId===p.id ? ' class="selected-row" aria-selected="true"' : ' aria-selected="false"';
+      html += `<tr data-id="${p.id}" tabindex="0"${sel}>
+        <td><b>${p.servicePlan.cars}</b> cars @ <b>${p.servicePlan.tph}</b> tph<br/><span class="mini">${Math.round(p.servicePlan.pphpd).toLocaleString()} pphpd</span></td>
+        <td>${p.packages.platform.label}</td>
+        <td>${p.packages.signal.label}</td>
+        <td>${p.packages.power.label}</td>
+        <td>${p.governance.label}</td>
+        <td>${p.strategy.label}</td>
+        <td>${fmt(p.res.capex,1)}</td>
+        <td>${fmt(p.res.months,1)}</td>
+        <td>${fmt(p.res.risk,1)}</td>
+        <td>${fmt(p.res.possessions,0)}</td>
+      </tr>`;
+    });
+    html += "</tbody>";
+    els.plansTable.innerHTML = html;
+    els.tableCount.textContent = `${mins.length} plan${mins.length===1?'':'s'}`;
+    els.plansTable.querySelectorAll("tbody tr").forEach(tr=>{
+      tr.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tr.click();}});
+      tr.addEventListener("click", ()=>{
+        state.selectedId = Number(tr.dataset.id);
+        renderSelection();
+      });
+    });
+  }
+
+  function drawAlignment(plan){
+    const canvas = els.alignmentCanvas;
+    const ctx = canvas.getContext("2d");
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+    ctx.save();
+
+    if(!plan){
+      ctx.fillStyle="rgba(238,242,251,.7)";
+      ctx.font="13px system-ui";
+      ctx.fillText("Select a plan to view staged alignment.", 24, 36);
+      ctx.restore(); return;
+    }
+
+    const pad=42, plotW=W-pad*2, plotH=H-pad*2;
+    const trace = plan.timeline.trace;
+    const tMax = trace[trace.length-1].t || 1;
+    const x=t=>pad + (t/tMax)*plotW;
+    const y=v=>pad + plotH - v*plotH;
+
+    ctx.strokeStyle="rgba(255,255,255,.10)";
+    for(let i=0;i<=4;i++){
+      const gy = pad + plotH*i/4;
+      ctx.beginPath(); ctx.moveTo(pad,gy); ctx.lineTo(pad+plotW,gy); ctx.stroke();
+    }
+    ctx.strokeStyle="rgba(255,255,255,.28)";
+    ctx.beginPath(); ctx.moveTo(pad,pad); ctx.lineTo(pad,pad+plotH); ctx.lineTo(pad+plotW,pad+plotH); ctx.stroke();
+    ctx.fillStyle="rgba(238,242,251,.82)";
+    ctx.font="12px system-ui";
+    ctx.fillText("Upgrade readiness (0–1)", 10, pad-16);
+    ctx.fillText("time", pad+plotW-26, pad+plotH+24);
+
+    function pathFor(field, color){
+      ctx.beginPath();
+      trace.forEach((row,i)=>{
+        const val = row[field];
+        if(i===0) ctx.moveTo(x(row.t), y(val));
+        else ctx.lineTo(x(row.t), y(val));
+      });
+      ctx.strokeStyle=color;
+      ctx.lineWidth=2.6;
+      ctx.stroke();
+    }
+    pathFor("pFrac", "#7ee787");
+    pathFor("sFrac", "#9cdcfe");
+    pathFor("wFrac", "#f2cc60");
+    pathFor("delivered", "#ff7b72");
+
+    // shade mismatch
+    ctx.fillStyle="rgba(255,123,114,.08)";
+    trace.forEach((row,i)=>{
+      if(i===0) return;
+      const prev = trace[i-1];
+      const hiPrev = Math.max(prev.pFrac, prev.sFrac, prev.wFrac);
+      const hi = Math.max(row.pFrac, row.sFrac, row.wFrac);
+      const loPrev = prev.delivered;
+      const lo = row.delivered;
+      ctx.beginPath();
+      ctx.moveTo(x(prev.t), y(hiPrev));
+      ctx.lineTo(x(row.t), y(hi));
+      ctx.lineTo(x(row.t), y(lo));
+      ctx.lineTo(x(prev.t), y(loPrev));
+      ctx.closePath();
+      ctx.fill();
+    });
+
+    ctx.restore();
+  }
+
+  function drawLoop(plan){
+    const canvas = els.loopCanvas;
+    const ctx = canvas.getContext("2d");
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+    ctx.save();
+
+    if(!plan || !plan.loopTrace || !plan.loopTrace.length){
+      ctx.fillStyle="rgba(238,242,251,.7)";
+      ctx.font="13px system-ui";
+      ctx.fillText("No loop trace available.", 24, 36);
+      ctx.restore(); return;
+    }
+
+    const tr = plan.loopTrace;
+    const pad=42, plotW=W-pad*2, plotH=H-pad*2;
+    const xs = tr.map(r=>typeof r.k==="number"?r.k:0), ys1 = tr.map(r=>r.months), ys2 = tr.map(r=>r.risk);
+    const maxX=Math.max(...xs,1), maxY=Math.max(...ys1,...ys2,1);
+
+    const x=v=>pad + (v/maxX)*plotW;
+    const y=v=>pad + plotH - (v/maxY)*plotH;
+
+    ctx.strokeStyle="rgba(255,255,255,.10)";
+    for(let i=0;i<=4;i++){
+      const gy = pad + plotH*i/4;
+      ctx.beginPath(); ctx.moveTo(pad,gy); ctx.lineTo(pad+plotW,gy); ctx.stroke();
+    }
+    ctx.strokeStyle="rgba(255,255,255,.28)";
+    ctx.beginPath(); ctx.moveTo(pad,pad); ctx.lineTo(pad,pad+plotH); ctx.lineTo(pad+plotW,pad+plotH); ctx.stroke();
+    ctx.fillStyle="rgba(238,242,251,.82)";
+    ctx.font="12px system-ui";
+    ctx.fillText("iteration k", pad+plotW-56, pad+plotH+22);
+
+    function drawSeries(values,color){
+      ctx.beginPath();
+      values.forEach((v,i)=>{
+        const px = x(xs[i]), py = y(v);
+        if(i===0) ctx.moveTo(px,py);
+        else ctx.lineTo(px,py);
+      });
+      ctx.strokeStyle=color;
+      ctx.lineWidth=2.5;
+      ctx.stroke();
+      values.forEach((v,i)=>{
+        ctx.beginPath();
+        ctx.fillStyle=color;
+        ctx.arc(x(xs[i]), y(v), 3.8, 0, Math.PI*2);
+        ctx.fill();
+      });
+    }
+    drawSeries(ys1, "#9cdcfe");
+    drawSeries(ys2, "#ff7b72");
+
+    ctx.fillStyle="rgba(185,196,227,.8)";
+    ctx.fillText("months", 10, pad+8);
+    ctx.fillText("risk", 10, pad+24);
+    ctx.restore();
+  }
+
+  function renderIterTable(plan){
+    if(!plan || !plan.loopTrace || !plan.loopTrace.length){
+      els.iterTable.innerHTML = "";
+      return;
+    }
+    const rows = plan.loopTrace.map(r=>`<tr><td>${r.k}</td><td>${fmt(r.months,2)}</td><td>${fmt(r.risk,2)}</td></tr>`).join("");
+    els.iterTable.innerHTML = `<thead><tr><th>k</th><th>months</th><th>risk</th></tr></thead><tbody>${rows}</tbody>`;
+  }
+
+  function renderDependencySvg(view){
+    const svg = els.dependencySvg;
+    const dep = view === "dependency";
+    svg.innerHTML = "";
+
+    const NS="http://www.w3.org/2000/svg";
+    function el(tag, attrs, parent){
+      const n=document.createElementNS(NS, tag);
+      Object.entries(attrs||{}).forEach(([k,v])=>n.setAttribute(k,v));
+      (parent||svg).appendChild(n);
+      return n;
+    }
+    function text(x,y,str,size=12,color="#eef2fb",weight="600", anchor="middle"){
+      const t=el("text",{x,y,fill:color,"font-size":size,"font-family":"system-ui, sans-serif","font-weight":weight,"text-anchor":anchor});
+      t.textContent=str;
+      return t;
+    }
+    function box(x,y,w,h,title,sub,stroke){
+      el("rect",{x,y,width:w,height:h,rx:14,fill:"rgba(255,255,255,.03)",stroke});
+      text(x+w/2,y+24,title,15,"#eef2fb","800");
+      if(sub){
+        sub.forEach((s,i)=> text(x+w/2,y+46+i*16,s,11,"#b9c4e3","500"));
+      }
+    }
+    function arrow(x1,y1,x2,y2,color,dashed,label){
+      el("line",{x1,y1,x2,y2,stroke:color,"stroke-width":3,"stroke-dasharray":dashed?"7 7":"", "marker-end": `url(#${color==='var(--green)'?'arrowG':'arrowR'})`});
+      if(label) text((x1+x2)/2, (y1+y2)/2 - 8, label, 11, color==="var(--green)"?"#7ee787":"#ff7b72", "700");
+    }
+
+    const defs = el("defs",{});
+    const mG = el("marker",{id:"arrowG",viewBox:"0 0 10 10",refX:"9",refY:"5",markerWidth:"7",markerHeight:"7",orient:"auto-start-reverse"},defs);
+    el("path",{d:"M 0 0 L 10 5 L 0 10 z",fill:"#7ee787"},mG);
+    const mR = el("marker",{id:"arrowR",viewBox:"0 0 10 10",refX:"9",refY:"5",markerWidth:"7",markerHeight:"7",orient:"auto-start-reverse"},defs);
+    el("path",{d:"M 0 0 L 10 5 L 0 10 z",fill:"#ff7b72"},mR);
+
+    if(dep){
+      box(30,70,180,110,"Task planner",["throughput target","→ cars × tph"],"rgba(126,231,135,.35)");
+      box(280,30,180,110,"Platform",["provides train length","requires £, months, possessions"],"rgba(126,231,135,.35)");
+      box(280,200,180,110,"Signalling",["provides modelled tph","requires £, months, approvals"],"rgba(126,231,135,.35)");
+      box(540,115,180,110,"Power",["provides power envelope","requires £, months, access"],"rgba(126,231,135,.35)");
+      box(720,30,150,110,"Governance",["interface discipline","claims / approvals"],"rgba(255,123,114,.35)");
+
+      el("line",{x1:210,y1:120,x2:280,y2:82,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
+      text(250,90,"cars",11,"#7ee787","700");
+      el("line",{x1:210,y1:128,x2:280,y2:250,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
+      text(238,214,"tph",11,"#7ee787","700");
+      el("line",{x1:210,y1:132,x2:540,y2:170,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
+      text(390,177,"cars × tph → power",11,"#7ee787","700");
+      el("line",{x1:460,y1:82,x2:540,y2:155,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
+      text(550,78,"longer train → systems",11,"#7ee787","700");
+      el("line",{x1:720,y1:165,x2:790,y2:140,stroke:"#ff7b72","stroke-width":3,"marker-end":"url(#arrowR)"});
+      text(805,182,"approvals",11,"#ff7b72","700");
+
+      el("line",{x1:795,y1:140,x2:795,y2:220,stroke:"#ff7b72","stroke-width":3,"marker-end":"url(#arrowR)"});
+      el("line",{x1:795,y1:220,x2:460,y2:255,stroke:"#ff7b72","stroke-width":3,"marker-end":"url(#arrowR)"});
+      text(620,275,"programme loop",11,"#ff7b72","700");
+      text(24,26,"Logical dependency view: what each subsystem needs in order for the corridor function to be credible.",12,"#b9c4e3","600","start");
+    } else {
+      box(50,110,150,90,"Passengers",["platform dwell","boarding"],"rgba(156,220,254,.35)");
+      box(270,110,150,90,"Trains",["dispatch","movement authority"],"rgba(156,220,254,.35)");
+      box(490,110,150,90,"Signals",["route set","headway"],"rgba(156,220,254,.35)");
+      box(710,110,150,90,"Power feed",["traction current","recovery"],"rgba(156,220,254,.35)");
+      el("line",{x1:200,y1:155,x2:270,y2:155,stroke:"#9cdcfe","stroke-width":3,"marker-end":"url(#arrowG)"});
+      el("line",{x1:420,y1:155,x2:490,y2:155,stroke:"#9cdcfe","stroke-width":3,"marker-end":"url(#arrowG)"});
+      el("line",{x1:640,y1:155,x2:710,y2:155,stroke:"#9cdcfe","stroke-width":3,"marker-end":"url(#arrowG)"});
+      text(24,26,"Operations flow view: how the railway runs. Useful operationally, but not yet a formal co-design map.",12,"#b9c4e3","600","start");
+    }
+  }
+
+  function buildNarratives(selected, inputs){
+    if(!selected){
+      els.executiveText.textContent = "No feasible plan has been selected.";
+      els.planInterpretation.textContent = "Relax a ceiling or adjust the task.";
+      els.alignmentDiagnosis.textContent = "No selected plan.";
+      els.selTitle.textContent = "No plan selected";
+      els.selPill.textContent = "waiting";
+      els.selNarrative.innerHTML = "Compute the frontier to generate a director’s briefing.";
+      return;
+    }
+
+    const p = selected.packages.platform, s = selected.packages.signal, w = selected.packages.power;
+    const bottlenecks = [
+      {name:"platform", gap:p.cars / selected.servicePlan.cars - 1},
+      {name:"signalling", gap:s.tph / selected.servicePlan.effReqTph - 1},
+      {name:"power", gap:w.index / selected.servicePlan.reqPower - 1}
+    ];
+    const dominant = bottlenecks.sort((a,b)=>a.gap-b.gap)[0].name;
+    els.kpiBottleneck.textContent = dominant;
+    els.kpiBottleneckSub.textContent = dominant==="platform" ? "Train length is the tightest delivered function." :
+                                       dominant==="signalling" ? "Relative signalling headroom is tightest in this model." :
+                                       "Traction power envelope is tightest.";
+
+    els.kpiPlan.textContent = `${selected.servicePlan.cars}c/${selected.servicePlan.tph}tph`;
+    els.kpiPlanSub.textContent = `${selected.governance.label} · ${selected.strategy.label}`;
+    els.selTitle.textContent = `${selected.servicePlan.cars}-car / ${selected.servicePlan.tph} tph`;
+    els.selPill.textContent = `${selected.governance.label} · ${selected.strategy.label}`;
+    els.selNarrative.innerHTML = `<b>${selected.governance.label}</b> with <b>${selected.strategy.label}</b>:
+      ${selected.packages.platform.label}, ${selected.packages.signal.label}, and ${selected.packages.power.label}.
+      The programme delivers about <b>${Math.round(selected.servicePlan.pphpd).toLocaleString()} pphpd</b>
+      at <b>£${fmt(selected.res.capex,0)}m</b>, <b>${fmt(selected.res.months,1)} months</b>, and a stylised risk index of <b>${fmt(selected.res.risk,1)}</b>.`;
+
+    els.executiveText.innerHTML =
+      `This selected plan is one reading of the antichain. The <b>${els.decisionLens.options[els.decisionLens.selectedIndex].text}</b> lens chooses the initial highlight; selecting a table row overrides it.
+      It meets the task by combining a <b>${selected.servicePlan.cars}-car service plan</b> with <b>${selected.servicePlan.tph} tph</b>, while the co-design rules force signalling up to <b>${selected.servicePlan.effReqTph} tph</b> and power to a relative capacity index of <b>${fmt(selected.servicePlan.reqPower,2)}</b>.`;
+
+    const mismatchLevel = selected.mismatch < 6 ? "low" : selected.mismatch < 16 ? "moderate" : "high";
+    els.planInterpretation.innerHTML =
+      `Directorially, this plan says: <b>buy a capacity envelope, not isolated assets</b>. The platform choice forces knock-on system strengthening; the selected governance mode determines how much that unavoidable coupling becomes claims and approvals friction. 
+      This plan carries a <b>${mismatchLevel}</b> stage-mismatch burden (<b>${fmt(selected.mismatch,1)}</b> capacity-month units), so the main management question is whether the organisation can keep subsystem release dates politically aligned.`;
+
+    els.alignmentDiagnosis.innerHTML =
+      `The selected strategy <b>${selected.strategy.label}</b> produces a mismatch burden of <b>${fmt(selected.mismatch,1)}</b>. When the green, blue, and gold curves separate, the red curve follows the <b>minimum</b> of their normalized upgrade readiness. It illustrates coupled progress; it is not a measured or certified operating-capacity curve.`;
+
+    const bottleneckText = dominant==="platform" ? "station works dominate the usable-service boundary" :
+                           dominant==="signalling" ? "headway and regulation dominate the usable-service boundary" :
+                           "power reinforcement dominates the usable-service boundary";
+    els.selNarrative.innerHTML += ` In this plan, <b>${bottleneckText}</b>.`;
+  }
+
+  function buildLoopNarrative(selected){
+    if(!selected || !selected.loopTrace || !selected.loopTrace.length){
+      els.loopNarrative.textContent = "No loop trace available.";
+      return;
+    }
+    if(!selected.feedbackEnabled){els.loopNarrative.textContent="Feedback is off. This single row shows the declared base schedule, mismatch and possession contributions without recursive approvals feedback.";return;}
+    const tr = selected.loopTrace;
+    const first = tr[0];
+    const last = tr[tr.length-1];
+    els.loopNarrative.innerHTML =
+      `Starting from the least assumption (zero endogenous risk), the iteration reaches the declared numerical stopping tolerance in <b>${tr.length}</b> step${tr.length===1?'':'s'}.
+       Base schedule pressure moves from <b>${fmt(first.months,1)}</b> to <b>${fmt(last.months,1)} months</b>, while the risk index settles at <b>${fmt(last.risk,1)}</b>.
+       In the theory, the point of this ascent is not to map every feasible point, but to isolate the minimal frontier consistent with the recursive constraints.`;
+  }
+
+  function buildMcdpl(selected, inputs){
+    const ctx = inputs.context.label;
+    const demand = inputs.demand.toLocaleString();
+    const lines = [];
+    lines.push("mcdp {");
+    lines.push("  # Rail corridor capacity upgrade, rendered as an MCDP-like model");
+    lines.push("");
+    lines.push("  # --- task ---");
+    lines.push(`  provides demand_pphpd [Nat]`);
+    lines.push(`  provided demand_pphpd ≼ ${demand}`);
+    lines.push("");
+    lines.push("  # --- internal service plan (enumerated in JS here) ---");
+    lines.push("  # choose cars ∈ {8,10,12}, tph ∈ {18,21,24,27,30}");
+    lines.push(`  pax_per_car = ${inputs.paxPerCar}`);
+    lines.push("  # cars * tph * pax_per_car ≥ demand_pphpd");
+    lines.push("");
+    lines.push("  # --- alternatives / catalogues ---");
+    lines.push("  platform = choose(");
+    lines.push("    keep8: `Platform_8,");
+    lines.push("    selective10: `Platform_10_Selective,");
+    lines.push("    full10: `Platform_10_Full,");
+    lines.push("    full12: `Platform_12");
+    lines.push("  )");
+    lines.push("  signalling = choose(");
+    lines.push("    fixed: `Signal_18,");
+    lines.push("    reblock: `Signal_21,");
+    lines.push("    etcs: `Signal_24,");
+    lines.push("    hdetcs: `Signal_27,");
+    lines.push("    cbtc: `Signal_30");
+    lines.push("  )");
+    lines.push("  power = choose(");
+    lines.push("    base: `Power_1_00,");
+    lines.push("    feeders: `Power_1_22,");
+    lines.push("    substations: `Power_1_55,");
+    lines.push("    storage: `Power_1_85,");
+    lines.push("    grid: `Power_2_20");
+    lines.push("  )");
+    lines.push("");
+    lines.push("  governance = choose(");
+    lines.push("    alliance: `Gov_Alliance,");
+    lines.push("    multiprime: `Gov_MultiPrime,");
+    lines.push("    stagedgov: `Gov_Staged");
+    lines.push("  )");
+    lines.push("  strategy = choose(");
+    lines.push("    matched: `MatchedRelease,");
+    lines.push("    fasttrack: `FastTrack,");
+    lines.push("    civilsFirst: `CivilsFirst,");
+    lines.push("    systemsFirst: `SystemsFirst");
+    lines.push("  )");
+    lines.push("");
+    lines.push("  # --- co-design constraints ---");
+    lines.push("  # longer platforms force non-decreasing signalling and power");
+    lines.push("  required signal_tph ≽ max(tph_needed, tph_knockon_from_cars)");
+    lines.push("  required power_index ≽ max(load_index(cars, signal_tph), power_knockon_from_cars)");
+    lines.push("");
+    lines.push("  # --- resources ---");
+    lines.push("  requires capex [GBP_M]");
+    lines.push("  requires months [month]");
+    lines.push("  requires risk [index]");
+    lines.push("  requires possessions [weekend]");
+    lines.push("  required capex ≽ ∑ capex required by *");
+    lines.push("  required possessions ≽ ∑ possessions required by *");
+    lines.push("  required months ≽ programme_schedule(platform, signalling, power, governance, strategy)");
+    lines.push("  required risk ≽ programme_risk(platform, signalling, power, governance, strategy)");
+    lines.push("");
+    lines.push("  # Optional loop:");
+    lines.push("  # months = base_months + approvals_delay(risk)");
+    lines.push("  # risk   = base_risk + schedule_penalty(months)");
+    if(selected){
+      lines.push("");
+      lines.push("  # highlighted plan under current lens:");
+      lines.push(`  # service = ${selected.servicePlan.cars} cars @ ${selected.servicePlan.tph} tph`);
+      lines.push(`  # platform = ${selected.packages.platform.id}`);
+      lines.push(`  # signalling = ${selected.packages.signal.id}`);
+      lines.push(`  # power = ${selected.packages.power.id}`);
+      lines.push(`  # governance = ${selected.governance.id}`);
+      lines.push(`  # strategy = ${selected.strategy.id}`);
+      lines.push(`  # context = ${ctx}`);
+    }
+    lines.push("}");
+    els.mcdplView.textContent = lines.join("\n");
+  }
+
+  function renderSelection(){
+    const selected = state.all.find(p=>p.id===state.selectedId) || null;
+    const inputs = readInputs();
+    drawAlignment(selected);
+    drawLoop(selected);
+    renderIterTable(selected);
+    buildNarratives(selected, inputs);
+    buildLoopNarrative(selected);
+    buildMcdpl(selected, inputs);
+    drawFrontier(state.all, state.pareto, state.selectedId);
+    buildTable(state.pareto);
+  }
+
+  function renderSummary(inputs){
+    els.kpiFeasible.textContent = state.all.length.toLocaleString();
+    els.kpiPareto.textContent = state.pareto.length.toLocaleString();
+
+    if(!state.all.length){
+      els.feasibilityPill.textContent = "Infeasible";
+      els.feasibilityPill.style.borderColor = "rgba(255,123,114,.35)";
+      els.feasibilityPill.style.background = "rgba(255,123,114,.08)";
+      els.kpiPlan.textContent = "—";
+      els.kpiBottleneck.textContent = "—";
+      els.topline.innerHTML = `No plan survives the current ceilings. Relax a budget, deadline, or risk bound; or lower the capacity task.`;
+      els.dominanceText.textContent = "No feasible frontier to read.";
+      state.selectedId=null;
+      els.kpiPlanSub.textContent="No plan meets this request.";
+      els.kpiBottleneckSub.textContent="No selected plan.";
+      drawFeasibilityBars([],[]);
+      renderSelection();
+      return;
+    }
+
+    els.feasibilityPill.textContent = "Feasible";
+    els.feasibilityPill.style.borderColor = "rgba(126,231,135,.35)";
+    els.feasibilityPill.style.background = "rgba(126,231,135,.08)";
+
+    const highlighted = chooseHighlighted(state.pareto, inputs.lens);
+    state.selectedId = highlighted ? highlighted.id : state.pareto[0].id;
+
+    const minCost = state.pareto.reduce((a,b)=>a.res.capex < b.res.capex ? a : b);
+    const minMonths = state.pareto.reduce((a,b)=>a.res.months < b.res.months ? a : b);
+    const minRisk = state.pareto.reduce((a,b)=>a.res.risk < b.res.risk ? a : b);
+    els.topline.innerHTML =
+      `Computed <b>${state.all.length}</b> feasible candidates and a Pareto antichain of <b>${state.pareto.length}</b> plans.
+       Cheapest minimal plan: <b>£${fmt(minCost.res.capex,0)}m</b>. Fastest: <b>${fmt(minMonths.res.months,1)} months</b>. Lowest risk: <b>${fmt(minRisk.res.risk,1)}</b>.`;
+
+    els.kpiPlan.textContent = `${highlighted.servicePlan.cars}c/${highlighted.servicePlan.tph}tph`;
+    els.kpiPlanSub.textContent = `${highlighted.governance.label} · ${highlighted.strategy.label}`;
+
+    drawFrontier(state.all, state.pareto, state.selectedId);
+    drawFeasibilityBars(state.all, state.pareto);
+    buildTable(state.pareto);
+    renderSelection();
+  }
+
+  function solve(){
+    const invalid=[els.paxPerCar,els.maxTph,els.budgetCap,els.deadlineCap,els.riskCap].find(el=>!el.checkValidity()||el.value.trim()==="");
+    if(invalid){
+      state.all=[];state.pareto=[];state.selectedId=null;
+      els.kpiFeasible.textContent="0";els.kpiPareto.textContent="0";els.kpiPlan.textContent="—";els.kpiBottleneck.textContent="—";
+      els.kpiPlanSub.textContent="Check the requested inputs.";els.kpiBottleneckSub.textContent="No selected plan.";
+      drawFeasibilityBars([],[]);renderSelection();invalid.reportValidity();
+      els.feasibilityPill.textContent="Check input";els.topline.textContent="Enter a value within the limits shown by the highlighted input, then recompute.";return;
+    }
+    const inputs = readInputs();
+    state.all = pickPlans(inputs);
+    state.pareto = pareto(state.all);
+    renderSummary(inputs);
+  }
+
+  function reset(){
+    els.demand.value = 30000;
+    els.paxPerCar.value = 110;
+    els.maxTph.value = 30;
+    els.budgetCap.value = 0;
+    els.deadlineCap.value = 0;
+    els.riskCap.value = 0;
+    els.context.value = "mixed";
+    els.governanceFilter.value = "all";
+    els.strategyFilter.value = "all";
+    els.feedback.checked = true;
+    els.decisionLens.value = "balanced";
+    state.all = [];
+    state.pareto = [];
+    state.selectedId = null;
+    updateLabels();
+    state.currentView="dependency";
+    document.querySelectorAll(".togglebar .toggle").forEach(btn=>btn.classList.toggle("active",btn.dataset.view==="dependency"));
+    renderDependencySvg("dependency");
+    drawFrontier([],[],null);
+    drawFeasibilityBars([],[]);
+    drawAlignment(null);
+    drawLoop(null);
+    els.plansTable.innerHTML = "";
+    els.iterTable.innerHTML = "";
+    els.kpiFeasible.textContent = "0";
+    els.kpiPareto.textContent = "0";
+    els.kpiPlan.textContent = "—";
+    els.kpiPlanSub.textContent = "Selected using the current recommendation lens.";
+    els.kpiBottleneck.textContent = "—";
+    els.kpiBottleneckSub.textContent = "Computed from the selected service plan.";
+    els.tableCount.textContent = "0 plans";
+    els.feasibilityPill.textContent = "Not solved";
+    els.feasibilityPill.style.borderColor = "rgba(255,255,255,.10)";
+    els.feasibilityPill.style.background = "rgba(255,255,255,.04)";
+    els.topline.innerHTML = `Set the task and press <b>Recompute frontier</b>. The model will choose train length, headway, subsystem packages, governance, and stage strategy, then filter for minimal resource bundles.`;
+    buildNarratives(null, readInputs());
+    buildLoopNarrative(null);
+    buildMcdpl(null, readInputs());
+  }
+
+  document.querySelectorAll(".tabbtn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll(".tabbtn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      const target = btn.dataset.tab;
+      document.querySelectorAll(".tab").forEach(tab=>tab.classList.remove("active"));
+      document.getElementById(target).classList.add("active");
+    });
+  });
+
+  document.querySelectorAll(".togglebar .toggle").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll(".togglebar .toggle").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      state.currentView = btn.dataset.view;
+      renderDependencySvg(state.currentView);
+    });
+  });
+
+  [
+    els.demand, els.paxPerCar, els.maxTph, els.budgetCap, els.deadlineCap, els.riskCap,
+    els.context, els.governanceFilter, els.strategyFilter, els.feedback, els.decisionLens
+  ].forEach(el=>{
+    el.addEventListener("input", updateLabels);
+    el.addEventListener("change", ()=>{updateLabels();solve();});
+  });
+
+  els.solveBtn.addEventListener("click", solve);
+  els.resetBtn.addEventListener("click", reset);
+
+  reset();
+  solve();
+})();
+</script>
+</body>
+</html>

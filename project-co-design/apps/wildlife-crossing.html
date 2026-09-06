@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wildlife Crossing Co-Design Timeline</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #1c1c24;
+      --muted: #5f6474;
+      --accent: #1f7a6d;
+      --accent-dark: #13584f;
+      --border: #e1e3ea;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: linear-gradient(120deg, #11363d, #1f7a6d);
+      color: #fff;
+      padding: 32px 10vw 24px;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+    header p {
+      margin: 0;
+      max-width: 760px;
+      opacity: 0.9;
+    }
+    main {
+      padding: 24px 10vw 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .explainer-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    button {
+      border: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: var(--accent-dark);
+    }
+    .slider-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat span {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: #e8f4f2;
+      color: var(--accent-dark);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 12px;
+      align-items: start;
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+    }
+    .timeline-item h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 18, 26, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+    .modal.hidden {
+      display: none;
+    }
+    .modal-card {
+      background: #fff;
+      color: var(--text);
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      padding: 24px;
+      position: relative;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .modal-card h3 {
+      margin-top: 0;
+      padding-right: 70px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #e8eaf1;
+      color: #1c1c24;
+      font-weight: 700;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    @media (max-width: 600px) {
+      header, main {
+        padding-left: 6vw;
+        padding-right: 6vw;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<style>.codesign-home-nav{box-sizing:border-box;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:14px 22px;background:#f7f7ed;border-bottom:1px solid #ccd6c7;color:#214640;font:13px/1.5 system-ui,sans-serif}.codesign-home-nav a{color:#146e62;text-decoration:underline;text-underline-offset:3px;font:inherit}.codesign-home-nav a:focus-visible{outline:3px solid #be713d;outline-offset:4px}.codesign-home-nav span{color:#4a655c;font:inherit}</style></head>
+<body><nav class="codesign-home-nav" aria-label="Co-design site"><a href="../index.html">← Co-design home</a><span>Related application · illustrative crossing, fencing and monitoring requirements</span><a href="staged-paths.html">Find a deliverable path →</a></nav>
+  <header>
+    <h1>Wildlife Overpass Co-Design Timeline</h1>
+    <p>
+      Model a UK motorway wildlife-crossing programme (roe deer focus) and see how capacity targets
+      trigger non-decreasing requirements for bridges, fencing, and monitoring.
+    </p>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Explainers</h2>
+      <p class="muted">Click any button for the project context, director view, and full prompt summary.</p>
+      <div class="explainer-buttons" id="explainer-buttons"></div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Target safe crossings/day</h2>
+        <div class="slider-wrap">
+          <input type="range" id="capacity" min="20" max="200" value="75" step="5" />
+          <div class="pill" id="capacity-label">75 crossings/day</div>
+          <p class="muted">Higher targets require longer fencing and more monitoring to keep the system safe.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Recommended configuration</h2>
+        <div class="stat">
+          <span id="overpass-count">1 overpass</span>
+          <div class="muted" id="overpass-detail">50m wildlife bridge (≈75 crossings/day)</div>
+        </div>
+        <div class="stat">
+          <span id="fence-length">5.5 km fence (both sides)</span>
+          <div class="muted">Continuous fencing to intercept movements and guide animals to crossings.</div>
+        </div>
+        <div class="stat">
+          <span id="monitoring">5 cameras · 1 FTE</span>
+          <div class="muted">Monitoring scales with bridge count and fence length.</div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Resource snapshot</h2>
+        <div class="stat">
+          <span id="capex">£6.3m capex</span>
+          <div class="muted">Bridge + fencing planning cost (illustrative).</div>
+        </div>
+        <div class="stat">
+          <span id="land">1.0 ha land take</span>
+          <div class="muted">Land requirement rises with wider or additional bridges.</div>
+        </div>
+        <div class="stat">
+          <span id="om">£66k annual O&amp;M</span>
+          <div class="muted">Includes bridge upkeep, fencing maintenance, and monitoring.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Director timeline: increasing capacity</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="close-btn" id="close-modal" type="button">Close</button>
+      <h3 id="modal-title"></h3>
+      <div id="modal-body" class="muted"></div>
+    </div>
+  </div>
+
+  <script>
+    const explainers = [
+      {
+        key: "what",
+        label: "What is this?",
+        title: "What is this?",
+        body: `
+          <p>This is a monotone co-design explorer for a UK motorway wildlife-crossing scheme. You set a
+          daily safe-crossing target and the model scales three linked subsystems: wildlife overpasses,
+          fencing, and monitoring. Each subsystem is monotone: capacity can only increase if resources
+          do not decrease.</p>
+        `
+      },
+      {
+        key: "director",
+        label: "How does this help a project director?",
+        title: "How does this help a project director?",
+        body: `
+          <ul>
+            <li>Shows the resource impacts (capex, land, staff, O&amp;M) of higher crossing targets.</li>
+            <li>Highlights staging options: when to add another overpass vs. extend fencing.</li>
+            <li>Makes monitoring obligations explicit, aligning with DMRB LA 108 expectations.</li>
+            <li>Provides a defensible rationale for why fencing and monitoring must scale with capacity.</li>
+          </ul>
+        `
+      },
+      {
+        key: "example",
+        label: "What is the project example here?",
+        title: "What is the project example here?",
+        body: `
+          <p>The example is centred on the M25 Junction 10 (Wisley) “Cockcrow” green bridge in the UK,
+          used as a reference for deck length and ecological context. The focal species is roe deer,
+          representing large-mammal crossings common to UK strategic road projects.</p>
+        `
+      },
+      {
+        key: "prompt",
+        label: "What was the original prompt?",
+        title: "What was the original prompt?",
+        body: `
+          <blockquote>
+            “Your task is to model an animal crossing design for a UK motorway – you choose a suitable
+            animal and motorway example – Task the agent with modelling wildlife overpasses, fencing and
+            animal monitoring systems for a motorway project. Functionality includes safe crossings per
+            day; resources include construction cost, land, monitoring staff and maintenance. Gather case
+            studies from transport authorities, treat each subsystem as a design problem with monotone
+            resource relations, and compute minimal sets for different target crossing capacities. Deliver
+            an interactive timeline showing how increasing crossing capacity triggers longer fences and
+            more monitoring.”
+          </blockquote>
+        `
+      },
+      {
+        key: "full",
+        label: "Full explanation",
+        title: "Full explanation",
+        body: `
+          <p><strong>Subsystems (monotone):</strong> Overpasses, fencing, and monitoring all scale upward
+          with target crossings/day. Wider or additional bridges increase capacity, but also cost, land,
+          and maintenance. Longer fences and more monitoring devices increase resource needs while
+          improving safety and compliance.</p>
+          <p><strong>Resources tracked:</strong> capital cost, land take, monitoring staff, and annual O&amp;M.</p>
+          <p><strong>Case-study anchors:</strong> National Highways’ green bridges (A556, A21, A30, A417, M25 J10),
+          Parks Canada’s Banff program (fencing + crossings), and Transport Scotland/NatureScot guidance
+          for monitoring and mitigation.</p>
+          <p><strong>Director takeaway:</strong> increasing throughput forces longer fencing and more monitoring.
+          The timeline below visualises those step changes so delivery can be staged without safety gaps.</p>
+        `
+      }
+    ];
+
+    const widthCapacity = {
+      30: 45,
+      50: 75,
+      70: 105
+    };
+    const widthCosts = {
+      30: { capex: 4225, land: 0.6, om: 44.9 },
+      50: { capex: 6255, land: 1.0, om: 65.5 },
+      70: { capex: 8306, land: 1.5, om: 86.6 }
+    };
+
+    const capacityInput = document.getElementById("capacity");
+    const capacityLabel = document.getElementById("capacity-label");
+    const overpassCount = document.getElementById("overpass-count");
+    const overpassDetail = document.getElementById("overpass-detail");
+    const fenceLength = document.getElementById("fence-length");
+    const monitoring = document.getElementById("monitoring");
+    const capex = document.getElementById("capex");
+    const land = document.getElementById("land");
+    const om = document.getElementById("om");
+    const timeline = document.getElementById("timeline");
+
+    function selectOverpasses(q) {
+      if (q <= widthCapacity[30]) return [30];
+      if (q <= 75) return [50];
+      if (q <= 105) return [70];
+      if (q <= 150) return [50, 50];
+      if (q <= 210) return [70, 70];
+      return [70, 70, 70];
+    }
+
+    function formatNumber(value, decimals = 1) {
+      return Number.parseFloat(value).toFixed(decimals);
+    }
+
+    function updateValues(q) {
+      const overpasses = selectOverpasses(q);
+      const achieved = overpasses.reduce((sum, width) => sum + widthCapacity[width], 0);
+      const totalCapex = overpasses.reduce((sum, width) => sum + widthCosts[width].capex, 0);
+      const totalLand = overpasses.reduce((sum, width) => sum + widthCosts[width].land, 0);
+      const totalOm = overpasses.reduce((sum, width) => sum + widthCosts[width].om, 0);
+      const fenceKm = 4 + 0.02 * q;
+      const cameras = overpasses.length * 2 + Math.ceil(fenceKm / 2);
+      const staff = Math.max(1, Math.ceil(cameras / 30));
+
+      capacityLabel.textContent = `${q} crossings/day`;
+      overpassCount.textContent = `${overpasses.length} overpass${overpasses.length > 1 ? "es" : ""}`;
+      overpassDetail.textContent = `${overpasses.join(" + ")}m wildlife bridge(s) (≈${achieved} crossings/day)`;
+      fenceLength.textContent = `${formatNumber(fenceKm, 1)} km fence (both sides)`;
+      monitoring.textContent = `${cameras} cameras · ${staff} FTE`;
+      capex.textContent = `£${formatNumber(totalCapex / 1000, 2)}m capex`;
+      land.textContent = `${formatNumber(totalLand, 1)} ha land take`;
+      om.textContent = `£${formatNumber(totalOm, 1)}k annual O&M`;
+    }
+
+    function renderTimeline() {
+      const steps = [50, 75, 100, 150, 200];
+      timeline.innerHTML = "";
+      steps.forEach((step) => {
+        const overpasses = selectOverpasses(step);
+        const fenceKm = 4 + 0.02 * step;
+        const cameras = overpasses.length * 2 + Math.ceil(fenceKm / 2);
+        const staff = Math.max(1, Math.ceil(cameras / 30));
+        const item = document.createElement("div");
+        item.className = "timeline-item";
+        item.innerHTML = `
+          <div class="pill">Q ≥ ${step}</div>
+          <div>
+            <h4>${overpasses.join(" + ")}m bridges</h4>
+            <p class="muted">Fence length: ${formatNumber(fenceKm, 1)} km · Monitoring: ${cameras} cameras / ${staff} FTE</p>
+          </div>
+        `;
+        timeline.appendChild(item);
+      });
+    }
+
+    function setupExplainers() {
+      const container = document.getElementById("explainer-buttons");
+      explainers.forEach((item) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = item.label;
+        button.addEventListener("click", () => openModal(item));
+        container.appendChild(button);
+      });
+    }
+
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalBody = document.getElementById("modal-body");
+    const closeModalButton = document.getElementById("close-modal");
+
+    function openModal(item) {
+      modalTitle.textContent = item.title;
+      modalBody.innerHTML = item.body;
+      modal.classList.remove("hidden");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    closeModalButton.addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    capacityInput.addEventListener("input", (event) => {
+      updateValues(Number(event.target.value));
+    });
+
+    setupExplainers();
+    renderTimeline();
+    updateValues(Number(capacityInput.value));
+  </script>
+</body>
+</html>

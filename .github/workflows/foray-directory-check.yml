@@ -3,6 +3,8 @@ name: Check foray directory
 on:
   pull_request:
     paths:
+      - 'project-co-design/**'
+      - 'tests/co-design-site.test.cjs'
       - '_data/side_projects.yml'
       - '_includes/**'
       - '_layouts/**'
@@ -14,6 +16,8 @@ on:
   push:
     branches: [master]
     paths:
+      - 'project-co-design/**'
+      - 'tests/co-design-site.test.cjs'
       - '_data/side_projects.yml'
       - '_includes/**'
       - '_layouts/**'
@@ -34,6 +38,10 @@ jobs:
       - uses: actions/checkout@v5
       - name: Check directory data and filtering
         run: node tests/foray-directory.test.cjs
+      - name: Check co-design routes and preserved model
+        run: node tests/co-design-site.test.cjs
+      - name: Check finite staged co-design model
+        run: node project-co-design/docs/rail-staged-codesign/verify.mjs
       - name: Build the existing Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:

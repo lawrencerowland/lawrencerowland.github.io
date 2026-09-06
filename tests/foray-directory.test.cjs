@@ -5,7 +5,8 @@ const { execFileSync } = require('node:child_process');
 
 const projects = JSON.parse(execFileSync('ruby', ['-ryaml', '-rjson', '-e',
   'puts JSON.generate(YAML.load_file("_data/side_projects.yml"))'], { encoding: 'utf8' }));
-assert.equal(projects.length, 14);
+assert.equal(projects.length, 15);
+assert.equal(projects.find(p => p.title === "Project Co-design").path, "https://lawrencerowland.github.io/project-co-design/");
 assert.equal(new Set(projects.map(project => project.path)).size, projects.length);
 for (const project of projects) {
   for (const field of ['title', 'question', 'description', 'path', 'action']) {
@@ -48,7 +49,7 @@ const window = {
 const run = () => vm.runInNewContext(script, { document: { getElementById: id => elements[id] }, window });
 run();
 assert.equal(elements['foray-filter'].hidden, false);
-assert.equal(elements['foray-count'].textContent, '14 of 14 projects shown');
+assert.equal(elements['foray-count'].textContent, `${projects.length} of ${projects.length} projects shown`);
 for (const topic of new Set(projects.flatMap(p => p.tags))) {
   elements['foray-topic'].value = topic;
   listeners.change();
@@ -68,12 +69,12 @@ elements['foray-topic'].value = 'category-theory';
 windowEvents.pageshow();
 assert.equal(elements['foray-topic'].value, 'all', 'history restoration cannot leave a stale selector');
 assert.ok(cards.every(card => !card.hidden));
-assert.equal(elements['foray-count'].textContent, '14 of 14 projects shown');
+assert.equal(elements['foray-count'].textContent, `${projects.length} of ${projects.length} projects shown`);
 vm.runInNewContext(script, { document: { getElementById: () => null } });
 
 if (process.argv[2]) {
   const html = fs.readFileSync(process.argv[2], 'utf8');
-  assert.equal((html.match(/class="example-card foray-card"/g) || []).length, 14);
+  assert.equal((html.match(/class="example-card foray-card"/g) || []).length, projects.length);
   assert.equal((html.match(/class="foray-group"/g) || []).length, 3);
   assert.ok(!html.includes('{%') && !html.includes('{{'), 'Liquid rendered completely');
   for (const project of projects) {
@@ -84,4 +85,4 @@ if (process.argv[2]) {
   assert.match(html, /src="\/assets\/forays\.js\?v=\d+"/);
   assert.ok(html.includes('id="foray-topic" autocomplete="off"'));
 }
-console.log('PASS: 14 unique cards, three groups, all topic filters, empty state, reset and optional rendered-page checks.');
+console.log(`PASS: ${projects.length} unique cards, three groups, all topic filters, empty state, reset and optional rendered-page checks.`);

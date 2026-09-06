@@ -9,6 +9,8 @@ tags: [KnowledgeManagement]
 
 ## Pages
 
+[Project Co-design]({{ '/project-co-design/' | relative_url }})
+
 <ul>
 {% for page in site.pages %}
   {% if page.title and page.url != '/sitemap.html' %}
