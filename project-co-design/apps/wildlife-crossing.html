@@ -1,442 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wildlife Crossing Co-Design Timeline</title>
-  <style>
-    :root {
-      color-scheme: light;
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
-      --bg: #f7f7fb;
-      --card: #ffffff;
-      --text: #1c1c24;
-      --muted: #5f6474;
-      --accent: #1f7a6d;
-      --accent-dark: #13584f;
-      --border: #e1e3ea;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-    }
-    header {
-      background: linear-gradient(120deg, #11363d, #1f7a6d);
-      color: #fff;
-      padding: 32px 10vw 24px;
-    }
-    header h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-    }
-    header p {
-      margin: 0;
-      max-width: 760px;
-      opacity: 0.9;
-    }
-    main {
-      padding: 24px 10vw 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px 18px;
-      box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
-    }
-    .card h2 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .explainer-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    button {
-      border: none;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    button:hover {
-      background: var(--accent-dark);
-    }
-    .slider-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    input[type="range"] {
-      width: 100%;
-    }
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .stat span {
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      background: #e8f4f2;
-      color: var(--accent-dark);
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    .timeline {
-      display: grid;
-      gap: 12px;
-    }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 12px;
-      align-items: start;
-      border-left: 3px solid var(--accent);
-      padding-left: 12px;
-    }
-    .timeline-item h4 {
-      margin: 0;
-      font-size: 1rem;
-    }
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(13, 18, 26, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      z-index: 1000;
-    }
-    .modal.hidden {
-      display: none;
-    }
-    .modal-card {
-      background: #fff;
-      color: var(--text);
-      border-radius: 16px;
-      max-width: 800px;
-      width: 100%;
-      padding: 24px;
-      position: relative;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .modal-card h3 {
-      margin-top: 0;
-      padding-right: 70px;
-    }
-    .close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: #e8eaf1;
-      color: #1c1c24;
-      font-weight: 700;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    @media (max-width: 600px) {
-      header, main {
-        padding-left: 6vw;
-        padding-right: 6vw;
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f5ed"><meta name="description" content="Compose bridges, guide fencing and monitoring into a complete wildlife-crossing design. Explore an exact finite resource frontier with inspectable implementation witnesses."><title>A whole crossing · Wildlife co-design</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23197364'/%3E%3Cpath d='M9 24V8m14 16V8M9 16h14' stroke='%23f6f5ed' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#f6f5ed;--white:#fffef8;--ink:#163c35;--muted:#5b6d63;--green:#197364;--pale:#e7edde;--line:#d5ddcc;--orange:#a75e32;--brown:#74543c;--gold:#e4b56d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--green);text-underline-offset:4px}button,input,select{font:inherit}button{cursor:pointer}button,a,input,select,summary{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:4px}button{border:1px solid var(--line);border-radius:6px;color:var(--ink);background:var(--white);padding:9px 13px}button:hover{background:#e4ecdc}button:disabled{opacity:.5;cursor:default}.skip{position:absolute;top:-80px;left:20px;background:var(--white);padding:12px;z-index:20}.skip:focus{top:12px}.wrap{width:min(1220px,calc(100% - 64px));margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:73px;border-bottom:1px solid var(--line);font-size:12px}.top a{text-decoration:none;padding:12px 0}.top span{letter-spacing:.13em;font-size:10px}.intro{padding:36px 0 29px;display:flex;align-items:end;justify-content:space-between;gap:50px}.eyebrow{font-size:10px;letter-spacing:.15em;font-weight:750;color:var(--green);line-height:1.5;margin:0 0 12px;text-transform:uppercase}h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.035em;line-height:1.13}h1{font-size:54px;margin:0}h1 em{color:var(--green);font-weight:400}h2{font-size:35px;margin:0 0 13px}h3{font-size:18px;line-height:1.35;margin:0 0 10px;font-weight:650}.intro>p{font-size:15px;max-width:415px;color:var(--muted);margin:0 0 4px}.tabs{display:flex;gap:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:28px}.tabs button{border:0;border-bottom:3px solid transparent;border-radius:0;padding:15px 2px;background:none;font-size:13px}.tabs button[aria-selected=true]{border-bottom-color:var(--green);font-weight:700;color:var(--green)}main{padding-bottom:45px}.workspace{display:grid;grid-template-columns:246px minmax(0,1fr);gap:26px;align-items:start}.brief{background:#e9eddf;border:1px solid var(--line);border-radius:10px;padding:21px;position:sticky;top:18px}.brief>summary{font-weight:650;cursor:pointer}.brief>summary .small{font-size:11px;font-weight:400;display:block;margin-top:5px}.brief label{display:block;font-size:12px;font-weight:650;line-height:1.4;margin:20px 0 7px}.brief input:not([type=range]),.brief select{width:100%;min-width:0;border:1px solid #b8c9b7;border-radius:5px;padding:9px 10px;color:var(--ink);background:var(--white);font-size:14px}.brief input[type=range]{width:100%;height:25px;accent-color:var(--green);margin:5px 0 0}.unit{font-size:11px;color:var(--muted);margin:5px 0 0}.brief .primary{width:100%;margin-top:21px}.primary{background:var(--green);color:white;border-color:var(--green);font-weight:650}.primary:hover{background:#105d52}.clear{background:none;border:0;text-decoration:underline;text-underline-offset:3px;font-size:12px;padding:8px 0}.small{font-size:12px;color:var(--muted)}.brief .small{line-height:1.5;margin-bottom:0}.presets{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 18px}.presets button{font-size:11px;line-height:1.3;padding:9px 11px}.presets button.active{background:var(--ink);color:var(--white);border-color:var(--ink)}.right{min-width:0}.result{background:var(--white);border:1px solid var(--line);border-radius:11px;overflow:hidden}.result-head{padding:25px 28px 14px}.result-head .eyebrow{margin-bottom:8px}.result-head h2{font-size:31px}.result-head p{font-size:14px;color:var(--muted);margin:0}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:18px 0 0;padding-top:18px;border-top:1px solid var(--line)}.metric strong{font-weight:500;font-size:28px;line-height:1.2;display:block;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.metric span{display:block;font-size:10px;color:var(--muted);margin-top:5px}.scene{background:#e8eddd;margin:9px 13px 0;border-radius:8px;overflow:hidden}.scene svg{display:block;width:100%;height:auto}.scene text{font-family:inherit;fill:var(--ink)}.scene-caption{font-size:12px;text-align:center;padding:10px 15px 14px;margin:0;color:var(--muted)}.scene-caption strong{color:var(--ink);font-weight:600}.support{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:20px 28px 25px}.support>div{border-left:2px solid #b2c4a8;padding-left:12px}.support b{font-size:13px;font-weight:650;display:block}.support span{font-size:11px;color:var(--muted);line-height:1.5;display:block;margin-top:4px}.frontier{margin-top:28px}.section-head{display:flex;justify-content:space-between;align-items:start;gap:25px;margin-bottom:17px}.section-head h2{font-size:29px;margin-bottom:7px}.section-head p{font-size:13px;color:var(--muted);margin:0;max-width:520px}.count{background:#e4ebdd;border-radius:30px;padding:7px 12px;white-space:nowrap;font-size:11px}.options{display:grid;gap:8px}.option{padding:14px 16px;text-align:left;display:grid;grid-template-columns:minmax(200px,1.6fr) repeat(3,.7fr);align-items:center;gap:17px;min-width:0}.option[aria-pressed=true]{border-color:var(--green);background:#eaf0e2;box-shadow:inset 3px 0 var(--green)}.option b{font-size:13px;line-height:1.4;font-weight:650;display:block}.option small{font-size:10px;line-height:1.5;color:var(--muted);display:block;margin-top:4px}.option .value{font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}.option .value span{font-size:9px;display:block;color:var(--muted);margin-top:2px}.note{border-left:3px solid var(--orange);padding:12px 15px;margin:18px 0;background:#f2eadc;font-size:13px;line-height:1.6}.receipt{margin-top:25px;border-top:1px solid var(--line);padding-top:19px;display:flex;justify-content:space-between;align-items:center;gap:20px}.receipt p{font-size:12px;color:var(--muted);margin:0;max-width:350px}.receipt-buttons{display:flex;gap:8px;flex-wrap:wrap}.receipt button{font-size:12px}.status{font-size:12px;color:var(--muted);margin-top:10px;min-height:20px}.error{font-size:12px;color:#852e20;background:#f7e3d9;padding:12px;border-radius:5px;margin:15px 0 0}.empty{padding:35px 30px;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:10px}.empty p{font-size:15px;color:var(--muted)}.empty h2{font-size:32px}.empty .small{font-size:12px}.method{max-width:920px;margin:42px auto 0}.method .standfirst{font-size:20px;color:var(--muted);margin:0 0 25px;max-width:800px}.method h2{font-size:46px;max-width:760px}.method h3{margin-top:30px}.method p,.method li{font-size:15px}.method ul{padding-left:20px}.composition{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0}.composition>div{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:20px}.composition span{font-size:10px;letter-spacing:.12em;color:var(--green);font-weight:750}.composition h3{margin:9px 0 13px}.composition p{font-size:12px;line-height:1.6;margin:7px 0}.equation{font:21px/1.7 Georgia,serif;padding:23px 25px;background:var(--white);border-left:3px solid var(--green);overflow-wrap:anywhere}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:11px;color:var(--muted);font-weight:650}.ok{color:var(--green);font-weight:650}.method details{margin-top:22px;border-top:1px solid var(--line);padding-top:15px}.method summary{cursor:pointer;font-weight:650;font-size:14px;padding:6px 0}.method .source{display:grid;grid-template-columns:40px 1fr;gap:17px;border-top:1px solid var(--line);padding:27px 0}.source>span{font:27px Georgia,serif;color:var(--orange)}.source h3{margin-top:0}.source p{margin-bottom:12px}.source a{font-size:13px}.footer{border-top:1px solid var(--line);font-size:10px;display:flex;justify-content:space-between;gap:20px;padding:24px 0 31px;color:var(--muted)}.link-copy{width:100%;padding:10px;border:1px solid var(--line);font-size:12px;background:var(--white);margin-top:9px}[hidden]{display:none!important}
+@media(max-width:1000px){.wrap{width:calc(100% - 42px)}.intro{gap:25px}h1{font-size:46px}.intro>p{max-width:355px;font-size:14px}.workspace{grid-template-columns:220px minmax(0,1fr);gap:18px}.brief{padding:17px}.result-head{padding:22px 22px 14px}.metric strong{font-size:24px}.support{padding:17px 22px 22px;gap:10px}.option{grid-template-columns:repeat(3,1fr);gap:10px}.option .identity{grid-column:1/-1}.receipt{display:block}.receipt-buttons{margin-top:12px}}
+@media(max-width:720px){.wrap{width:calc(100% - 36px)}.top{min-height:60px;font-size:11px}.top span{font-size:9px;max-width:125px;text-align:right}.intro{display:block;padding:26px 0 23px}h1{font-size:44px}.intro>p{max-width:540px;margin-top:17px;font-size:14px}.tabs{gap:23px;margin-bottom:20px}.tabs button{font-size:12px;padding:12px 0}.workspace{grid-template-columns:1fr;gap:18px}.brief{position:static;padding:16px 19px}.brief>summary .small{display:inline;margin-left:10px}.brief label{margin-top:16px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 15px}.target-field{grid-column:1/-1}.target-number{max-width:130px}.brief .primary{margin-top:17px}.presets{gap:6px;margin-bottom:14px}.presets button{padding:9px;font-size:10px}.result-head{padding:21px 20px 13px}.result-head h2{font-size:29px}.metrics{gap:10px}.metric strong{font-size:24px}.metric span{font-size:9px}.scene{margin:8px 8px 0}.scene-caption{font-size:11px;line-height:1.5;padding:10px 13px 13px}.support{grid-template-columns:1fr;padding:17px 20px 21px;gap:13px}.support>div{padding-left:11px}.support span{margin-top:2px}.section-head{gap:10px}.section-head h2{font-size:28px}.count{font-size:10px;padding:7px 10px}.option{padding:13px 14px;gap:9px}.option .value{font-size:14px}.option small{font-size:10px}.note{font-size:12px}.method{margin-top:28px}.method h2{font-size:36px}.method .standfirst{font-size:18px}.composition{grid-template-columns:1fr;gap:10px}.composition>div{padding:18px}.composition h3{margin:6px 0 8px}.composition p{margin:3px 0}.method .source{grid-template-columns:27px 1fr;gap:12px}.equation{font-size:18px;padding:19px}.footer{font-size:9px;gap:14px}.footer span{max-width:215px}}
+@media(max-width:350px){.wrap{width:calc(100% - 28px)}h1{font-size:39px}.top span{max-width:108px}.brief>summary .small{display:block;margin:5px 0 0}.fields{grid-template-columns:1fr}.metric strong{font-size:22px}.result-head{padding-inline:16px}.section-head{display:block}.count{display:inline-block;margin-top:10px}.option .value{font-size:12px}.option .value span{font-size:9px}.tabs{gap:19px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<a class="skip" href="#main">Skip to the experiment</a>
+<header class="top wrap"><a href="../index.html">← Project Co-design</a><span>FORAY 181 · WILDLIFE CROSSINGS</span></header>
+<div class="intro wrap"><div><p class="eyebrow">Bridges · guiding fences · observation</p><h1>Make room for<br><em>a whole crossing.</em></h1></div><p>Choose the bridge and its support together. Explore a fictional roe-deer crossing network, with explicit requirements and resource trade-offs you can inspect.</p></div>
+<div class="tabs wrap" role="tablist" aria-label="Experiment views"><button type="button" role="tab" id="tab-explore" aria-controls="explore" aria-selected="true" data-tab="explore">Explore the choices</button><button type="button" role="tab" id="tab-method" aria-controls="method" aria-selected="false" tabindex="-1" data-tab="method">How it works</button><button type="button" role="tab" id="tab-sources" aria-controls="sources" aria-selected="false" tabindex="-1" data-tab="sources">Sources</button></div>
+<main class="wrap" id="main">
+<section id="explore" role="tabpanel" aria-labelledby="tab-explore">
+<div class="workspace">
+<details class="brief" id="brief" open><summary>Your brief <span class="small" id="brief-summary">110 model crossings/day</span></summary><form id="request-form" novalidate><div class="fields"><div class="target-field"><label for="target">Planning target · model crossings/day</label><input class="target-number" id="target" type="number" min="0" max="330" step="1" value="110" inputmode="numeric"><input id="target-range" type="range" min="0" max="330" step="1" value="110" aria-label="Planning target slider"></div><div><label for="sites">Available crossing sites</label><select id="sites"><option value="0">No sites</option><option value="1">One site</option><option value="2">Two sites</option><option value="3" selected>Three sites</option></select></div><div><label for="capital">Capital ceiling · £ million</label><input id="capital" type="number" min="0" max="1000" step="0.001" placeholder="No ceiling" inputmode="decimal"></div><div><label for="land">Land ceiling · hectares</label><input id="land" type="number" min="0" max="100" step="0.001" placeholder="No ceiling" inputmode="decimal"></div></div><button class="primary" type="submit" id="apply">Compare the choices</button><button class="clear" type="button" id="reset">Reset the brief</button><p class="error" id="error" role="alert" hidden></p><p class="small">Capacities and costs are declared model assumptions. The target is a design requirement, not a prediction of animal use.</p></form></details>
+<div class="right"><div class="presets" aria-label="Example questions"><button data-preset="mixed" class="active">110 · a mixed pair</button><button data-preset="land">80 · cost or land?</button><button data-preset="recipe">120 · test the old recipe</button><button data-preset="zero">0 · no intervention</button><button data-preset="impossible">330 · beyond the catalogue</button></div>
+<div id="result-area" aria-live="polite"></div>
+<section class="frontier" id="frontier-section" aria-labelledby="frontier-title"><div class="section-head"><div><h2 id="frontier-title">Different commitments.<br>The same brief.</h2><p>Each choice meets the brief. Using less of one resource can mean accepting more of another.</p></div><span class="count" id="frontier-count"></span></div><div class="options" id="options"></div><p class="note" id="lesson"></p></section>
+<div class="receipt"><p id="receipt-text">Every choice retains its bridge, fence and monitoring implementation.</p><div class="receipt-buttons"><button id="export" type="button">Save comparison ↓</button><button id="copy" type="button">Copy this brief ↗</button></div></div><p class="status" id="download-status" role="status"></p><input class="link-copy" id="link-copy" readonly aria-label="Link to this comparison" hidden>
+</div></div></section>
+<section id="method" class="method" role="tabpanel" aria-labelledby="tab-method" hidden><p class="eyebrow">An actual finite co-design construction</p><h2>Compose the obligations.<br>Then compare the resources.</h2><p class="standfirst">A bridge choice is only a partial implementation. It brings fence and observation requirements that other components must satisfy.</p>
+<div class="composition"><div><span>BRIDGE DESIGN PROBLEM</span><h3>Provide crossings.</h3><p>Choose an unordered bundle of 30, 50 and 70 m bridges, up to three in total.</p><p>Each bridge requires 2 km of guide fencing and 2 observation points.</p></div><div><span>FENCE DESIGN PROBLEM</span><h3>Provide guide coverage.</h3><p>Choose standard or durable mesh in 2, 4 or 6 km packages.</p><p>Every 2 km adds one observation point to the monitoring obligation.</p></div><div><span>MONITORING DESIGN PROBLEM</span><h3>Provide observation capacity.</h3><p>Choose field or assisted review with 3, 6 or 9 observation points.</p><p>Equipment and staffing both contribute to annual expense.</p></div></div>
+<p>The wires are typed: guide kilometres match guide kilometres; observation points match observation points. An incompatible combination never reaches the resource comparison.</p>
+<div class="equation">I = {(b, f, m) : guide need(b) ≤ guide supplied(f),<br>observation need(b) + observation need(f) ≤ points supplied(m)}</div>
+<p><strong>Functionality</strong> is the bridge bundle's provided model crossing capacity. <strong>Implementations</strong> are the complete compatible tuples above. <strong>Resources</strong> are the sums of component capital cost, land and annual expense. For a requested capacity q, retain the minimal resource vectors among implementations providing at least q and fitting the specified sites and ceilings.</p>
+<h3 id="witness-title">The selected implementation</h3><div class="table-wrap" id="wire-table"></div><div class="table-wrap" id="resource-table"></div><p class="small" id="staff-note"></p>
+<h3>Two groupings. The same complete designs.</h3><p>First join bridges to compatible fencing, carrying their combined observation obligation forward. Or join fencing to monitoring first, exposing guide kilometres and the remaining observation capacity to the bridges. Both evaluations return the same complete implementation triples and the same resource sums. This is composition by compatible interfaces, not a collection of independently optimised recommendations.</p><p id="algebra-counts"></p><p>There is no intermediate Pareto pruning. A component that looks expensive in isolation can have a different downstream obligation. Equal final resource vectors retain all their implementation witnesses. Each new query is filtered before minimisation.</p>
+<h3>Zero work is an option. Requirements have an order.</h3><p>Each catalogue includes a zero option. At target zero, the no-work tuple needs no resources; extra equipment is allowed by the interfaces but is dominated. A higher target restricts the set of acceptable implementations. Its Pareto points need not be a subset of the earlier Pareto points.</p>
+<details><summary>Inspect the complete declared catalogue and units</summary><div id="catalogue-tables"></div><p>Capital is calculated in whole pounds, land in square metres and annual expense in pounds/year. Overview figures are rounded; the tables and downloaded comparisons preserve whole-pound amounts. Staffing costs £55,000 per FTE/year in this fictional catalogue. Monitoring uses existing fence mounts and adds no land. Annual expense includes bridge and fence upkeep, monitoring equipment and staff. No discount rate or scalar preference score is used.</p><p>The site count is an availability constraint on implementations, not a fourth optimised resource. Blank ceilings mean unrestricted; zero is a strict zero ceiling. The supported target domain is 0–330, with at most three sites and maximum available capacity 315.</p></details>
+<details><summary>What is new, and what this does not establish</summary><p>The earlier wildlife app selected from a short list of recipes. This version composes mixed bridge bundles with independent fence and monitoring choices, accounts for every displayed cost and returns the resource antichain. At targets 110 and 120, a 30 + 50 m pair dominates a 50 + 50 m pair with the same support. At 80, one 70 m bridge trades lower capital and annual expense against the smaller land requirement of two 30 m bridges.</p><p>This is a configuration problem. It does not schedule construction, establish ecological safety, or predict observed crossing rates. The coefficients are declared synthetic assumptions. An independent flattened enumeration checks the composed solver, query restrictions, witnesses and resource comparisons.</p><p><a href="../docs/wildlife-codesign/MODEL.md">Read the model, source use and verification note</a> · <a href="../docs/wildlife-codesign/REVIEW.md">Independent verification</a></p></details>
+</section>
+<section id="sources" class="method" role="tabpanel" aria-labelledby="tab-sources" hidden><p class="eyebrow">Source ideas · declared choices · checked result</p><h2>A real method.<br>An illustrative landscape.</h2><p class="standfirst">The mathematical construction and the ecological setting have different evidence. The numerical catalogue is intentionally explicit about that boundary.</p>
+<div class="source"><span>01</span><div><h3>Design problems with implementation</h3><p>Gioele Zardini's <em>Co-Design of Complex Systems</em>, §§3.1–3.5, supplies the separation of functionality, implementation and resources. Here, compatible bridge–fence–monitor tuples are the implementations. Their component resource sums and provided capacity define a finite design problem.</p><a href="https://www.research-collection.ethz.ch/items/d7c08dd5-bf96-4c1f-a744-5e751f0f44a5" target="_blank" rel="noopener">Thesis at ETH Zürich ↗</a></div></div>
+<div class="source"><span>02</span><div><h3>Minimal resources as an antichain</h3><p>Andrea Censi's <em>A Mathematical Theory of Co-Design</em> supplies the partial-order treatment of functionality and resources. This finite solver retains incomparable resource choices; it does not equate mathematical monotonicity with a ban on reconsidering a lower target.</p><a href="https://arxiv.org/abs/1512.08055" target="_blank" rel="noopener">Censi's paper ↗</a></div></div>
+<div class="source"><span>03</span><div><h3>Ecological design and monitoring</h3><p>DMRB LA 108 provides a biodiversity assessment framework and identifies what a monitoring proposal should cover. It supports treating ecological design and monitoring as connected obligations. It does not supply this app's crossing capacities, fence ratios, costs or staffing coefficients.</p><a href="https://www.standardsforhighways.co.uk/tses/attachments/af0517ba-14d2-4a52-aa6d-1b21ba05b465?inline=true" target="_blank" rel="noopener">Official biodiversity guidance ↗</a></div></div>
+<div class="source"><span>04</span><div><h3>A crossing is part of a landscape</h3><p>National Highways describes the Cockcrow green bridge alongside mammal-guiding hedgerows, habitat measures and long-term management and monitoring. This motivates the connected-system question. The scene and all numerical options in this app are independently invented; they do not estimate the Cockcrow scheme.</p><a href="https://nationalhighways.co.uk/roads-and-travel/road-projects/m25-junction-10-project-profile/m25-junction-10-and-the-environment/" target="_blank" rel="noopener">M25 Junction 10 and the environment ↗</a></div></div>
+<h3>What the computation establishes</h3><p id="verification-summary">The independent check compares 14,262 queries and reconstructs all 239 compatible implementation witnesses. Both component groupings match the separately enumerated set. The recorded checks also cover resource boundaries, request monotonicity and implementation replay.</p><p>The visual scene is an invented layout. Model capacity is a stipulated capability, not observed roe-deer behaviour. These figures are not a project estimate, monitoring plan or safety approval.</p><p><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design/docs/wildlife-codesign" target="_blank" rel="noopener">Model and verification source ↗</a></p>
+</section>
+</main><footer class="footer wrap"><span>PROJECT CO-DESIGN · FORAY 181<br>Implementation choices remain visible.</span><a href="../index.html">Back to the co-design collection ↑</a></footer>
+<script id="wildlife-model">(function(root){
+  'use strict';
+  const VERSION='wildlife-dpi-1';
+  const DEFAULTS={target:110,maxSites:3,capitalLimit:null,landLimit:null};
+  const RESOURCE_KEYS=['capital','land','annual'];
+  const zero=()=>({capital:0,land:0,annual:0});
+  const plus=(a,b)=>Object.fromEntries(RESOURCE_KEYS.map(k=>[k,a[k]+b[k]]));
+  const baseBridges=[
+    {width:30,capacity:45,resources:{capital:4225000,land:6000,annual:44900}},
+    {width:50,capacity:75,resources:{capital:6255000,land:10000,annual:65500}},
+    {width:70,capacity:105,resources:{capital:8306000,land:15000,annual:86600}}
+  ];
+  const bridges=[];
+  function bundles(widths,start){
+    const parts=widths.map(w=>baseBridges.find(b=>b.width===w));
+    bridges.push({id:'b-'+(widths.join('-')||'none'),widths:widths.slice(),count:widths.length,capacity:parts.reduce((n,b)=>n+b.capacity,0),fenceNeedKm:2*widths.length,observationNeed:2*widths.length,resources:parts.reduce((r,b)=>plus(r,b.resources),zero())});
+    if(widths.length<3)for(let j=start;j<baseBridges.length;j++)bundles([...widths,baseBridges[j].width],j);
+  }
+  bundles([],0);
+  const fences=[{id:'f-none',kind:'none',name:'No fencing',km:0,observationNeed:0,resources:zero()}];
+  for(const km of [2,4,6])for(const kind of ['standard','durable'])fences.push({id:`f-${kind}-${km}`,kind,name:kind==='standard'?'Standard mesh':'Durable mesh',km,observationNeed:km/2,resources:{capital:km*(kind==='standard'?100000:160000),land:km*500,annual:km*(kind==='standard'?2000:1000)}});
+  const monitoring=[{id:'m-none',kind:'none',name:'No monitoring',points:0,staffMilli:0,annualEquipment:0,annualStaff:0,resources:zero()}];
+  for(const points of [3,6,9])for(const kind of ['field','assisted']){
+    const staffMilli=points*(kind==='field'?100:40),annualStaff=55*staffMilli;
+    const annualEquipment=kind==='field'?800*points:2000+1400*points;
+    monitoring.push({id:`m-${kind}-${points}`,kind,name:kind==='field'?'Field review':'Assisted review',points,staffMilli,annualEquipment,annualStaff,resources:{capital:kind==='field'?50000+30000*points:120000+45000*points,land:0,annual:annualEquipment+annualStaff}});
+  }
+  const CATALOGUES={baseBridges,bridges,fences,monitoring};
+  function freeze(x){if(x&&typeof x==='object'){Object.values(x).forEach(freeze);Object.freeze(x);}return x;}
+  freeze(CATALOGUES);freeze(DEFAULTS);freeze(RESOURCE_KEYS);
+  function normalize(input={}){
+    if(!input||typeof input!=='object'||Array.isArray(input))throw new TypeError('A request must be an object.');
+    for(const key of Object.keys(input))if(!Object.prototype.hasOwnProperty.call(DEFAULTS,key))throw new Error('Unknown request field: '+key);
+    const p={...DEFAULTS,...input};
+    if(!Number.isInteger(p.target)||p.target<0||p.target>330)throw new RangeError('Target must be a whole number from 0 to 330.');
+    if(!Number.isInteger(p.maxSites)||p.maxSites<0||p.maxSites>3)throw new RangeError('Available sites must be a whole number from 0 to 3.');
+    for(const [key,max] of [['capitalLimit',1000000000],['landLimit',1000000]])if(p[key]!==null&&(!Number.isInteger(p[key])||p[key]<0||p[key]>max))throw new RangeError(key+' must be null or a non-negative whole number in base units.');
+    return p;
+  }
+  function witness(b,f,m){
+    return {id:[b.id,f.id,m.id].join('|'),parts:{bridge:b.id,fence:f.id,monitoring:m.id},widths:b.widths.slice(),sites:b.count,exec:{capacity:b.capacity},interfaces:{fenceRequired:b.fenceNeedKm,fenceProvided:f.km,observationRequired:b.observationNeed+f.observationNeed,observationProvided:m.points},resources:plus(plus(b.resources,f.resources),m.resources),staffMilli:m.staffMilli};
+  }
+  function compose(grouping='bridge-fence'){
+    const implementations=[];let compatiblePairs=0;
+    if(grouping==='bridge-fence'){
+      // Preserve each implementation and its remaining observation obligation.
+      for(const b of bridges)for(const f of fences)if(b.fenceNeedKm<=f.km){
+        compatiblePairs++;const need=b.observationNeed+f.observationNeed;
+        for(const m of monitoring)if(need<=m.points)implementations.push(witness(b,f,m));
       }
-      .timeline-item {
-        grid-template-columns: 1fr;
+    }else if(grouping==='fence-monitor'){
+      // The composite supplier provides guide-km plus residual observation points.
+      for(const f of fences)for(const m of monitoring)if(f.observationNeed<=m.points){
+        compatiblePairs++;const residual=m.points-f.observationNeed;
+        for(const b of bridges)if(b.fenceNeedKm<=f.km&&b.observationNeed<=residual)implementations.push(witness(b,f,m));
       }
+    }else throw new Error('Unknown grouping.');
+    implementations.sort((a,b)=>a.id.localeCompare(b.id));
+    return {grouping,compatiblePairs,implementations};
+  }
+  function dominates(a,b){return RESOURCE_KEYS.every(k=>a[k]<=b[k])&&RESOURCE_KEYS.some(k=>a[k]<b[k]);}
+  function antichain(implementations){
+    const retained=[];
+    for(const candidate of implementations){
+      if(retained.some(x=>dominates(x.resources,candidate.resources)))continue;
+      for(let j=retained.length-1;j>=0;j--)if(dominates(candidate.resources,retained[j].resources))retained.splice(j,1);
+      retained.push(candidate);
     }
-  </style>
-<style>.codesign-home-nav{box-sizing:border-box;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:14px 22px;background:#f7f7ed;border-bottom:1px solid #ccd6c7;color:#214640;font:13px/1.5 system-ui,sans-serif}.codesign-home-nav a{color:#146e62;text-decoration:underline;text-underline-offset:3px;font:inherit}.codesign-home-nav a:focus-visible{outline:3px solid #be713d;outline-offset:4px}.codesign-home-nav span{color:#4a655c;font:inherit}</style></head>
-<body><nav class="codesign-home-nav" aria-label="Co-design site"><a href="../index.html">← Co-design home</a><span>Related application · illustrative crossing, fencing and monitoring requirements</span><a href="staged-paths.html">Find a deliverable path →</a></nav>
-  <header>
-    <h1>Wildlife Overpass Co-Design Timeline</h1>
-    <p>
-      Model a UK motorway wildlife-crossing programme (roe deer focus) and see how capacity targets
-      trigger non-decreasing requirements for bridges, fencing, and monitoring.
-    </p>
-  </header>
-  <main>
-    <section class="card">
-      <h2>Explainers</h2>
-      <p class="muted">Click any button for the project context, director view, and full prompt summary.</p>
-      <div class="explainer-buttons" id="explainer-buttons"></div>
-    </section>
-
-    <section class="grid">
-      <div class="card">
-        <h2>Target safe crossings/day</h2>
-        <div class="slider-wrap">
-          <input type="range" id="capacity" min="20" max="200" value="75" step="5" />
-          <div class="pill" id="capacity-label">75 crossings/day</div>
-          <p class="muted">Higher targets require longer fencing and more monitoring to keep the system safe.</p>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Recommended configuration</h2>
-        <div class="stat">
-          <span id="overpass-count">1 overpass</span>
-          <div class="muted" id="overpass-detail">50m wildlife bridge (≈75 crossings/day)</div>
-        </div>
-        <div class="stat">
-          <span id="fence-length">5.5 km fence (both sides)</span>
-          <div class="muted">Continuous fencing to intercept movements and guide animals to crossings.</div>
-        </div>
-        <div class="stat">
-          <span id="monitoring">5 cameras · 1 FTE</span>
-          <div class="muted">Monitoring scales with bridge count and fence length.</div>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Resource snapshot</h2>
-        <div class="stat">
-          <span id="capex">£6.3m capex</span>
-          <div class="muted">Bridge + fencing planning cost (illustrative).</div>
-        </div>
-        <div class="stat">
-          <span id="land">1.0 ha land take</span>
-          <div class="muted">Land requirement rises with wider or additional bridges.</div>
-        </div>
-        <div class="stat">
-          <span id="om">£66k annual O&amp;M</span>
-          <div class="muted">Includes bridge upkeep, fencing maintenance, and monitoring.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Director timeline: increasing capacity</h2>
-      <div class="timeline" id="timeline"></div>
-    </section>
-  </main>
-
-  <div class="modal hidden" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-card">
-      <button class="close-btn" id="close-modal" type="button">Close</button>
-      <h3 id="modal-title"></h3>
-      <div id="modal-body" class="muted"></div>
-    </div>
-  </div>
-
-  <script>
-    const explainers = [
-      {
-        key: "what",
-        label: "What is this?",
-        title: "What is this?",
-        body: `
-          <p>This is a monotone co-design explorer for a UK motorway wildlife-crossing scheme. You set a
-          daily safe-crossing target and the model scales three linked subsystems: wildlife overpasses,
-          fencing, and monitoring. Each subsystem is monotone: capacity can only increase if resources
-          do not decrease.</p>
-        `
-      },
-      {
-        key: "director",
-        label: "How does this help a project director?",
-        title: "How does this help a project director?",
-        body: `
-          <ul>
-            <li>Shows the resource impacts (capex, land, staff, O&amp;M) of higher crossing targets.</li>
-            <li>Highlights staging options: when to add another overpass vs. extend fencing.</li>
-            <li>Makes monitoring obligations explicit, aligning with DMRB LA 108 expectations.</li>
-            <li>Provides a defensible rationale for why fencing and monitoring must scale with capacity.</li>
-          </ul>
-        `
-      },
-      {
-        key: "example",
-        label: "What is the project example here?",
-        title: "What is the project example here?",
-        body: `
-          <p>The example is centred on the M25 Junction 10 (Wisley) “Cockcrow” green bridge in the UK,
-          used as a reference for deck length and ecological context. The focal species is roe deer,
-          representing large-mammal crossings common to UK strategic road projects.</p>
-        `
-      },
-      {
-        key: "prompt",
-        label: "What was the original prompt?",
-        title: "What was the original prompt?",
-        body: `
-          <blockquote>
-            “Your task is to model an animal crossing design for a UK motorway – you choose a suitable
-            animal and motorway example – Task the agent with modelling wildlife overpasses, fencing and
-            animal monitoring systems for a motorway project. Functionality includes safe crossings per
-            day; resources include construction cost, land, monitoring staff and maintenance. Gather case
-            studies from transport authorities, treat each subsystem as a design problem with monotone
-            resource relations, and compute minimal sets for different target crossing capacities. Deliver
-            an interactive timeline showing how increasing crossing capacity triggers longer fences and
-            more monitoring.”
-          </blockquote>
-        `
-      },
-      {
-        key: "full",
-        label: "Full explanation",
-        title: "Full explanation",
-        body: `
-          <p><strong>Subsystems (monotone):</strong> Overpasses, fencing, and monitoring all scale upward
-          with target crossings/day. Wider or additional bridges increase capacity, but also cost, land,
-          and maintenance. Longer fences and more monitoring devices increase resource needs while
-          improving safety and compliance.</p>
-          <p><strong>Resources tracked:</strong> capital cost, land take, monitoring staff, and annual O&amp;M.</p>
-          <p><strong>Case-study anchors:</strong> National Highways’ green bridges (A556, A21, A30, A417, M25 J10),
-          Parks Canada’s Banff program (fencing + crossings), and Transport Scotland/NatureScot guidance
-          for monitoring and mitigation.</p>
-          <p><strong>Director takeaway:</strong> increasing throughput forces longer fencing and more monitoring.
-          The timeline below visualises those step changes so delivery can be staged without safety gaps.</p>
-        `
-      }
-    ];
-
-    const widthCapacity = {
-      30: 45,
-      50: 75,
-      70: 105
-    };
-    const widthCosts = {
-      30: { capex: 4225, land: 0.6, om: 44.9 },
-      50: { capex: 6255, land: 1.0, om: 65.5 },
-      70: { capex: 8306, land: 1.5, om: 86.6 }
-    };
-
-    const capacityInput = document.getElementById("capacity");
-    const capacityLabel = document.getElementById("capacity-label");
-    const overpassCount = document.getElementById("overpass-count");
-    const overpassDetail = document.getElementById("overpass-detail");
-    const fenceLength = document.getElementById("fence-length");
-    const monitoring = document.getElementById("monitoring");
-    const capex = document.getElementById("capex");
-    const land = document.getElementById("land");
-    const om = document.getElementById("om");
-    const timeline = document.getElementById("timeline");
-
-    function selectOverpasses(q) {
-      if (q <= widthCapacity[30]) return [30];
-      if (q <= 75) return [50];
-      if (q <= 105) return [70];
-      if (q <= 150) return [50, 50];
-      if (q <= 210) return [70, 70];
-      return [70, 70, 70];
-    }
-
-    function formatNumber(value, decimals = 1) {
-      return Number.parseFloat(value).toFixed(decimals);
-    }
-
-    function updateValues(q) {
-      const overpasses = selectOverpasses(q);
-      const achieved = overpasses.reduce((sum, width) => sum + widthCapacity[width], 0);
-      const totalCapex = overpasses.reduce((sum, width) => sum + widthCosts[width].capex, 0);
-      const totalLand = overpasses.reduce((sum, width) => sum + widthCosts[width].land, 0);
-      const totalOm = overpasses.reduce((sum, width) => sum + widthCosts[width].om, 0);
-      const fenceKm = 4 + 0.02 * q;
-      const cameras = overpasses.length * 2 + Math.ceil(fenceKm / 2);
-      const staff = Math.max(1, Math.ceil(cameras / 30));
-
-      capacityLabel.textContent = `${q} crossings/day`;
-      overpassCount.textContent = `${overpasses.length} overpass${overpasses.length > 1 ? "es" : ""}`;
-      overpassDetail.textContent = `${overpasses.join(" + ")}m wildlife bridge(s) (≈${achieved} crossings/day)`;
-      fenceLength.textContent = `${formatNumber(fenceKm, 1)} km fence (both sides)`;
-      monitoring.textContent = `${cameras} cameras · ${staff} FTE`;
-      capex.textContent = `£${formatNumber(totalCapex / 1000, 2)}m capex`;
-      land.textContent = `${formatNumber(totalLand, 1)} ha land take`;
-      om.textContent = `£${formatNumber(totalOm, 1)}k annual O&M`;
-    }
-
-    function renderTimeline() {
-      const steps = [50, 75, 100, 150, 200];
-      timeline.innerHTML = "";
-      steps.forEach((step) => {
-        const overpasses = selectOverpasses(step);
-        const fenceKm = 4 + 0.02 * step;
-        const cameras = overpasses.length * 2 + Math.ceil(fenceKm / 2);
-        const staff = Math.max(1, Math.ceil(cameras / 30));
-        const item = document.createElement("div");
-        item.className = "timeline-item";
-        item.innerHTML = `
-          <div class="pill">Q ≥ ${step}</div>
-          <div>
-            <h4>${overpasses.join(" + ")}m bridges</h4>
-            <p class="muted">Fence length: ${formatNumber(fenceKm, 1)} km · Monitoring: ${cameras} cameras / ${staff} FTE</p>
-          </div>
-        `;
-        timeline.appendChild(item);
-      });
-    }
-
-    function setupExplainers() {
-      const container = document.getElementById("explainer-buttons");
-      explainers.forEach((item) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.textContent = item.label;
-        button.addEventListener("click", () => openModal(item));
-        container.appendChild(button);
-      });
-    }
-
-    const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modal-title");
-    const modalBody = document.getElementById("modal-body");
-    const closeModalButton = document.getElementById("close-modal");
-
-    function openModal(item) {
-      modalTitle.textContent = item.title;
-      modalBody.innerHTML = item.body;
-      modal.classList.remove("hidden");
-      modal.setAttribute("aria-hidden", "false");
-    }
-
-    function closeModal() {
-      modal.classList.add("hidden");
-      modal.setAttribute("aria-hidden", "true");
-    }
-
-    closeModalButton.addEventListener("click", closeModal);
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
+    const groups=new Map();
+    for(const w of retained){const key=RESOURCE_KEYS.map(k=>w.resources[k]).join('-');if(!groups.has(key))groups.set(key,{id:'r-'+key,resources:{...w.resources},implementations:[]});groups.get(key).implementations.push(w);}
+    return [...groups.values()].sort((a,b)=>a.resources.capital-b.resources.capital||a.resources.land-b.resources.land||a.resources.annual-b.resources.annual);
+  }
+  function requestFailures(w,p){
+    const reasons=[];
+    if(w.sites>p.maxSites)reasons.push('sites');
+    if(w.exec.capacity<p.target)reasons.push('capacity');
+    if(p.capitalLimit!==null&&w.resources.capital>p.capitalLimit)reasons.push('capital');
+    if(p.landLimit!==null&&w.resources.land>p.landLimit)reasons.push('land');
+    return reasons;
+  }
+  function solve(input={}){
+    const params=normalize(input),composition=compose(),rejected={sites:0,capacity:0,capital:0,land:0};
+    let beforeCaps=0;
+    const feasible=composition.implementations.filter(w=>{
+      if(w.sites<=params.maxSites&&w.exec.capacity>=params.target)beforeCaps++;
+      const errors=requestFailures(w,params);errors.forEach(k=>rejected[k]++);return errors.length===0;
     });
-
-    capacityInput.addEventListener("input", (event) => {
-      updateValues(Number(event.target.value));
-    });
-
-    setupExplainers();
-    renderTimeline();
-    updateValues(Number(capacityInput.value));
-  </script>
-</body>
-</html>
+    const frontier=antichain(feasible);
+    return {version:VERSION,params,frontier,feasible,counts:{bridgeOptions:bridges.length,fenceOptions:fences.length,monitoringOptions:monitoring.length,fullProduct:bridges.length*fences.length*monitoring.length,compatibleBridgeFencePairs:composition.compatiblePairs,compatibleImplementations:composition.implementations.length,feasibleBeforeResourceCaps:beforeCaps,feasibleImplementations:feasible.length,frontierVectors:frontier.length,frontierWitnesses:frontier.reduce((n,g)=>n+g.implementations.length,0)},rejected,maxCapacityAtAvailableSites:params.maxSites*105};
+  }
+  function replay(id,input={}){
+    const params=normalize(input),parts=typeof id==='string'?id.split('|'):[];
+    const b=bridges.find(x=>x.id===parts[0]),f=fences.find(x=>x.id===parts[1]),m=monitoring.find(x=>x.id===parts[2]);
+    if(parts.length!==3||!b||!f||!m)return {valid:false,errors:['Unknown implementation identifier.']};
+    const w=witness(b,f,m),errors=[];
+    if(b.fenceNeedKm>f.km)errors.push('Guide-fence interface is not satisfied.');
+    if(b.observationNeed+f.observationNeed>m.points)errors.push('Observation-point interface is not satisfied.');
+    errors.push(...requestFailures(w,params));
+    return {valid:errors.length===0,errors,implementation:w};
+  }
+  const api=Object.freeze({VERSION,DEFAULTS,RESOURCE_KEYS,CATALOGUES,normalize,compose,solve,replay});
+  if(typeof module==='object'&&module.exports)module.exports=api;
+  if(root)root.WildlifeCoDesign=api;
+})(typeof globalThis==='object'?globalThis:this);
+</script>
+<script id="wildlife-ui">(function(){
+'use strict';
+const K=WildlifeCoDesign,$=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const presets={mixed:{...K.DEFAULTS},land:{...K.DEFAULTS,target:80},recipe:{...K.DEFAULTS,target:120},zero:{...K.DEFAULTS,target:0},impossible:{...K.DEFAULTS,target:330}};
+let solved,selected=null,tab='explore';
+const money=n=>n===0?'£0':'£'+(n/1e6).toFixed(2)+'m',annual=n=>n===0?'£0':'£'+(n/1000).toFixed(1)+'k',area=n=>(n/10000).toFixed(2)+' ha';
+const preciseMoney=n=>'£'+n.toLocaleString('en-GB');
+const part=(family,id)=>K.CATALOGUES[family].find(x=>x.id===id);
+function chosen(){return solved?.frontier.find(g=>g.id===selected)?.implementations[0]||null;}
+function widthLabel(w){return w.widths.length?w.widths.join(' + ')+' m':'No new installation';}
+function controls(p){$('target').value=p.target;$('target-range').value=p.target;$('sites').value=p.maxSites;$('capital').value=p.capitalLimit===null?'':p.capitalLimit/1e6;$('land').value=p.landLimit===null?'':p.landLimit/10000;}
+function decimalCap(value,multiplier,max,label){if(value.trim()==='')return null;const n=Number(value),scaled=n*multiplier;if(!Number.isFinite(n)||n<0||scaled>max||Math.abs(scaled-Math.round(scaled))>1e-6)throw Error(label+' must be a non-negative amount in the shown units.');return Math.round(scaled);}
+function read(){if($('target').value.trim()==='')throw Error('Enter a planning target.');return K.normalize({target:Number($('target').value),maxSites:Number($('sites').value),capitalLimit:decimalCap($('capital').value,1e6,1e9,'Capital ceiling'),landLimit:decimalCap($('land').value,1e4,1e6,'Land ceiling')});}
+function error(message){$('error').textContent=message;$('error').hidden=!message;if(message)$('brief').open=true;}
+function url(){const u=new URL(location.href);u.search='';u.searchParams.set('v','1');u.searchParams.set('q',solved.params.target);u.searchParams.set('sites',solved.params.maxSites);if(solved.params.capitalLimit!==null)u.searchParams.set('capital',solved.params.capitalLimit);if(solved.params.landLimit!==null)u.searchParams.set('land',solved.params.landLimit);if(selected)u.searchParams.set('pick',selected);u.hash=tab==='explore'?'':tab;return u;}
+function updateURL(){try{history.replaceState(null,'',url());}catch(_){} }
+function apply(p,pick){solved=K.solve(p);selected=solved.frontier.some(g=>g.id===pick)?pick:solved.frontier[0]?.id||null;controls(solved.params);error('');$('download-status').textContent='';$('link-copy').hidden=true;render();updateURL();}
+function scene(w){
+ const widths=w.widths,xs=widths.length===1?[390]:widths.length===2?[275,505]:[230,390,550];
+ const trees=[[44,50,28],[113,42,21],[171,65,31],[225,36,20],[303,62,32],[385,40,25],[463,53,30],[548,46,23],[626,70,31],[712,41,33],[72,300,31],[150,318,27],[225,295,21],[322,326,29],[405,304,26],[481,325,31],[570,294,22],[649,323,29],[735,294,24]];
+ const treeMarkup=trees.map(([x,y,r],i)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${i%3===0?'#8ca779':i%3===1?'#b5c59c':'#9cb58b'}" opacity=".67"/><circle cx="${x-7}" cy="${y-7}" r="${r*.65}" fill="#c1cfa9" opacity=".54"/>`).join('');
+ const decks=widths.map((width,i)=>{const x=xs[i],v=width*.67+18;return `<path d="M${x-v/2} 111Q${x-v*.65} 195 ${x-v/2} 270L${x+v/2} 270Q${x+v*.65} 195 ${x+v/2} 111Z" fill="#89aa75" stroke="#527b58" stroke-width="3"/><path d="M${x} 114v155" stroke="#c4d49f" stroke-width="9" stroke-dasharray="1 8" opacity=".8"/><rect x="${x-27}" y="176" width="54" height="25" rx="13" fill="#fffef8"/><text x="${x}" y="193" text-anchor="middle" style="font-size:12px;font-weight:700">${width} m</text>`;}).join('');
+ const m=part('monitoring',w.parts.monitoring);const cameras=Array.from({length:m.points},(_,i)=>{const x=120+i*(540/Math.max(1,m.points-1));const y=i%2?244:131;return `<circle cx="${x}" cy="${y}" r="6" fill="#fffef8" stroke="#315f55" stroke-width="2"/><circle cx="${x}" cy="${y}" r="2" fill="#315f55"/>`;}).join('');
+ const fence=w.sites?`<path d="M30 131H750M30 244H750" stroke="#9a8154" stroke-width="2" stroke-dasharray="5 4"/>`:'';
+ const deer=(x,y,flip)=>`<g transform="translate(${x} ${y}) scale(${flip} 1)" fill="#77543a"><ellipse cx="0" cy="0" rx="16" ry="8"/><path d="M10-2l5-17 6-2 1 17-8 9zM-10 4l-2 17h4l4-17M7 4l4 17h4L12 2M-15-3l-7-6 1 7z"/><ellipse cx="21" cy="-21" rx="7" ry="4"/><path d="m16-24-3-8 6 6m3-3 2-7 2 8" fill="none" stroke="#77543a" stroke-width="2"/></g>`;
+ return `<svg viewBox="0 0 780 360" role="img" aria-labelledby="scene-title scene-desc"><title id="scene-title">${esc(widthLabel(w))} crossing configuration</title><desc id="scene-desc">Illustrative landscape with ${w.sites} bridge sites, ${w.interfaces.fenceProvided} kilometres of guide fencing and ${m.points} observation points. The picture is not a scaled engineering design.</desc><rect width="780" height="360" fill="#e0e8cd"/>${treeMarkup}<path d="M0 148C220 153 450 147 780 155L780 229C450 223 220 229 0 224Z" fill="#666f66"/><path d="M0 185C220 190 450 184 780 192" fill="none" stroke="#eff0df" stroke-width="2" stroke-dasharray="15 13"/><path d="M0 157C220 162 450 156 780 164M0 215C220 220 450 214 780 220" fill="none" stroke="#a5ad98" stroke-width="2"/>${fence}${decks}${cameras}${deer(123,95,1)}${deer(656,278,-1)}<text x="25" y="341" style="font-size:10px;letter-spacing:1.2px">AN INVENTED LANDSCAPE · A CHECKABLE CONFIGURATION</text></svg>`;
+}
+function renderSelected(){const w=chosen();if(!w){const p=solved.params;const text=p.target>solved.maxCapacityAtAvailableSites?`The available ${p.maxSites} ${p.maxSites===1?'site provides':'sites provide'} at most ${solved.maxCapacityAtAvailableSites} model crossings/day. The target is ${p.target}.`:`${solved.counts.feasibleBeforeResourceCaps} complete implementations meet the capacity target and site availability. None also fits the capital and land ceilings.`;$('result-area').innerHTML=`<div class="empty"><p class="eyebrow">No implementation meets this brief</p><h2>A limit has been reached.</h2><p>${text}</p><p class="small">This is infeasibility within the declared catalogue. Change the target, available sites or resource ceilings to explore another brief.</p></div>`;$('wire-table').innerHTML='<p>No selected implementation. The current request has no feasible choice.</p>';$('resource-table').innerHTML='';$('staff-note').textContent='';return;}
+ const b=part('bridges',w.parts.bridge),f=part('fences',w.parts.fence),m=part('monitoring',w.parts.monitoring);const title=w.sites===0?'No intervention is needed.':w.sites===1?'One bridge, with its support.':new Set(w.widths).size>1?'A mixed bundle meets the brief.':w.sites===2?'Two bridges meet the brief.':'Three bridges meet the brief.';
+ $('result-area').innerHTML=`<section class="result" aria-labelledby="result-title"><div class="result-head"><p class="eyebrow">${w.sites?'A complete compatible implementation':'The zero-work implementation'}</p><h2 id="result-title">${title}</h2><p>Provides <strong>${w.exec.capacity}</strong> model crossings/day against <strong>${solved.params.target}</strong> requested. ${w.sites?'Both support interfaces are satisfied.':'Every component and resource is zero.'}</p><div class="metrics"><div class="metric"><strong>${money(w.resources.capital)}</strong><span>CAPITAL</span></div><div class="metric"><strong>${area(w.resources.land)}</strong><span>LAND</span></div><div class="metric"><strong>${annual(w.resources.annual)}</strong><span>ANNUAL EXPENSE</span></div></div></div><div class="scene">${scene(w)}</div><p class="scene-caption"><strong>${esc(widthLabel(w))}</strong> · ${f.km} km guide fencing · ${m.points} observation points</p><div class="support"><div><b>${esc(widthLabel(w))}</b><span>${w.exec.capacity} capacity · ${w.sites} ${w.sites===1?'site':'sites'}</span></div><div><b>${esc(f.name)}</b><span>${f.km} km supplied for ${b.fenceNeedKm} km required</span></div><div><b>${esc(m.name)}</b><span>${m.points} points for ${w.interfaces.observationRequired} required · ${(m.staffMilli/1000).toFixed(2)} FTE</span></div></div></section>`;
+ $('wire-table').innerHTML=`<table><thead><tr><th>Typed interface</th><th>Required</th><th>Provided</th><th>Check</th></tr></thead><tbody><tr><td>Guide fencing</td><td>${b.fenceNeedKm} km</td><td>${f.km} km</td><td class="ok">Satisfied</td></tr><tr><td>Observation capacity</td><td>${b.observationNeed} bridge + ${f.observationNeed} fence = ${w.interfaces.observationRequired} points</td><td>${m.points} points</td><td class="ok">Satisfied</td></tr><tr><td>Crossing capacity</td><td>${solved.params.target} model/day</td><td>${w.exec.capacity} model/day</td><td class="ok">Satisfied</td></tr></tbody></table>`;
+ $('resource-table').innerHTML=`<table><thead><tr><th>Component</th><th>Capital</th><th>Land</th><th>Annual expense</th></tr></thead><tbody>${[[widthLabel(w),b.resources],[f.name,f.resources],[m.name,m.resources],['Complete implementation',w.resources]].map(([n,r])=>`<tr><td>${esc(n)}</td><td>${preciseMoney(r.capital)}</td><td>${area(r.land)}</td><td>${preciseMoney(r.annual)}</td></tr>`).join('')}</tbody></table>`;
+ $('staff-note').textContent=`Monitoring's annual expense includes ${annual(m.annualEquipment)} for equipment and ${annual(m.annualStaff)} for ${(m.staffMilli/1000).toFixed(2)} FTE. Bridge and fence upkeep are separate component costs.`;
+}
+function render(){
+ $('brief-summary').textContent=solved.params.target+' model crossings/day';
+ document.querySelectorAll('[data-preset]').forEach(b=>b.classList.toggle('active',JSON.stringify(presets[b.dataset.preset])===JSON.stringify(solved.params)));
+ renderSelected();$('frontier-section').hidden=!solved.frontier.length;$('frontier-count').textContent=solved.frontier.length+' '+(solved.frontier.length===1?'resource choice':'resource choices');
+ $('options').innerHTML=solved.frontier.map((g,i)=>{const w=g.implementations[0],f=part('fences',w.parts.fence),m=part('monitoring',w.parts.monitoring);return `<button type="button" class="option" data-choice="${esc(g.id)}" aria-pressed="${g.id===selected}"><span class="identity"><b>${esc(widthLabel(w))}</b><small>${esc(f.name)} · ${esc(m.name)}${g.implementations.length>1?' · '+g.implementations.length+' equivalent witnesses':''}</small></span><span class="value">${money(g.resources.capital)}<span>CAPITAL</span></span><span class="value">${area(g.resources.land)}<span>LAND</span></span><span class="value">${annual(g.resources.annual)}<span>PER YEAR</span></span></button>`;}).join('');
+ $('options').querySelectorAll('[data-choice]').forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.choice;render();updateURL();$('options').querySelector(`[data-choice="${selected}"]`)?.focus({preventScroll:true});}));
+ const p=solved.params;$('lesson').textContent=p.target===0?'The zero-work tuple dominates unnecessary equipment. Zero is a real request, not a missing input.':p.target>105&&p.target<=120?'The mixed 30 + 50 m bundle provides 120 model crossings/day. With the same support, it uses £2.03m less capital, 0.40 ha less land and £20.6k less annual upkeep than a 50 + 50 m pair.':p.target>75&&p.target<=90?'One 70 m bridge and two 30 m bridges answer the same capacity request differently. The pair saves land; the single crossing can save capital and annual expense.':'The frontier keeps choices that cannot be improved in every resource at once. A lower capital cost alone is not a reason to discard an alternative.';
+ $('receipt-text').textContent=`${solved.counts.feasibleImplementations} compatible implementations meet this brief. ${solved.counts.frontierWitnesses} ${solved.counts.frontierWitnesses===1?'witness remains':'witnesses remain'} on the resource frontier.`;
+ $('export').disabled=false;$('algebra-counts').textContent=`The declared catalogue has ${solved.counts.bridgeOptions} bridge bundles, ${solved.counts.fenceOptions} fence options and ${solved.counts.monitoringOptions} monitoring options: ${solved.counts.fullProduct} possible triples, of which ${solved.counts.compatibleImplementations} satisfy the interfaces. Both groupings retain these same ${solved.counts.compatibleImplementations} witnessed implementations.`;
+}
+function catalogue(){const rows=(heads,items)=>`<div class="table-wrap"><table><thead><tr>${heads.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${items.map(r=>`<tr>${r.map(v=>`<td>${esc(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;$('catalogue-tables').innerHTML='<h3>Bridge components</h3>'+rows(['Width','Capacity','Capital','Land','Upkeep/year'],K.CATALOGUES.baseBridges.map(b=>[b.width+' m',b.capacity,preciseMoney(b.resources.capital),area(b.resources.land),preciseMoney(b.resources.annual)]))+'<h3>Fence packages</h3>'+rows(['Choice','Guide km','Capital','Land','Upkeep/year'],K.CATALOGUES.fences.map(f=>[f.name,f.km,preciseMoney(f.resources.capital),area(f.resources.land),preciseMoney(f.resources.annual)]))+'<h3>Monitoring packages</h3>'+rows(['Choice','Points','Capital','Staff FTE','Expense/year'],K.CATALOGUES.monitoring.map(m=>[m.name,m.points,preciseMoney(m.resources.capital),(m.staffMilli/1000).toFixed(2),preciseMoney(m.resources.annual)]));}
+function showTab(name,focus=false){tab=['explore','method','sources'].includes(name)?name:'explore';document.querySelectorAll('[data-tab]').forEach(b=>{const active=b.dataset.tab===tab;b.setAttribute('aria-selected',active);b.tabIndex=active?0:-1;$(b.dataset.tab).hidden=!active;if(active&&focus)b.focus();});updateURL();}
+document.querySelectorAll('[data-tab]').forEach((b,i)=>{b.addEventListener('click',()=>showTab(b.dataset.tab));b.addEventListener('keydown',e=>{const keys=['ArrowLeft','ArrowRight','Home','End'];if(!keys.includes(e.key))return;e.preventDefault();const all=[...document.querySelectorAll('[data-tab]')],j=e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3;showTab(all[j].dataset.tab,true);});});
+$('target').addEventListener('input',()=>{$('target-range').value=$('target').value;});$('target-range').addEventListener('input',()=>{$('target').value=$('target-range').value;});
+$('request-form').addEventListener('submit',e=>{e.preventDefault();try{apply(read());}catch(e){error(e.message+' The last valid comparison remains below.');}});
+$('reset').addEventListener('click',()=>apply(K.DEFAULTS));document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>apply(presets[b.dataset.preset])));
+$('export').addEventListener('click',()=>{const w=chosen(),receipt={model:K.VERSION,request:solved.params,selectedImplementation:w,replay:w?K.replay(w.id,solved.params):null,frontier:solved.frontier,counts:solved.counts,units:{capital:'GBP',land:'square metres',annual:'GBP/year',staffMilli:'thousandths of an FTE'},boundary:'Declared synthetic capacity and resource model; not observed ecological use or a safety approval.'};const blob=new Blob([JSON.stringify(receipt,null,2)],{type:'application/json'}),href=URL.createObjectURL(blob),a=document.createElement('a');a.href=href;a.download='wildlife-codesign-comparison.json';a.click();setTimeout(()=>URL.revokeObjectURL(href),1000);$('download-status').textContent='Comparison download requested, including implementation and interface checks.';});
+$('copy').addEventListener('click',async()=>{const link=url().href;try{await navigator.clipboard.writeText(link);$('download-status').textContent='Link copied.';}catch(_){$('link-copy').hidden=false;$('link-copy').value=link;$('link-copy').focus();$('link-copy').select();$('download-status').textContent='Copy the link shown below.';}});
+catalogue();
+let initial={...K.DEFAULTS},pick=null,initialError='';try{const s=new URL(location.href).searchParams;const allowed=['v','q','sites','capital','land','pick'];for(const [k]of s)if(!allowed.includes(k))throw Error('Unknown link setting.');if(s.has('v')&&s.get('v')!=='1')throw Error('Unsupported link version.');for(const [query,key]of [['q','target'],['sites','maxSites'],['capital','capitalLimit'],['land','landLimit']])if(s.has(query)){if(s.get(query).trim()==='')throw Error('A link setting is empty.');initial[key]=Number(s.get(query));}initial=K.normalize(initial);pick=s.get('pick');}catch(e){initial={...K.DEFAULTS};initialError='This link contains an invalid brief. The default comparison is shown. '+e.message;}
+tab=['method','sources'].includes(location.hash.slice(1))?location.hash.slice(1):'explore';apply(initial,pick);showTab(tab);if(initialError)error(initialError);if(matchMedia('(max-width:720px)').matches&&!initialError)$('brief').open=false;
+window.WildlifeUI={getSnapshot:()=>({params:{...solved.params},selected,implementation:chosen(),frontier:solved.frontier,counts:solved.counts,tab}),showTab};
+})();
+</script>
+</body></html>

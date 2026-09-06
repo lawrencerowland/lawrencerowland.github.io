@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "checkedAtUTC": "2026-09-06T22:31:56.806Z",
+  "modelVersion": "wildlife-dpi-1",
+  "modelSha256": "cd86bef7f805f756a771ab1ead7197e947208c734a4971e2b7a98cf23795398e",
+  "independence": "Oracle reconstructs the declared contract without importing production catalogues, join, witness, query or Pareto helpers. Production calls are only compared against independent results.",
+  "scope": "All331 supported integer targets ×4 site bounds ×8 cap profiles, plus every distinct capital/land boundary and one unit below at five demands, and paired cap boundaries at all239 complete witnesses. This is not every combination of arbitrary cap values.",
+  "catalogues": {
+    "bridges": 20,
+    "fences": 7,
+    "monitoring": 7,
+    "cartesianTriples": 980,
+    "compatibleWitnesses": 239,
+    "bridgeFencePairs": 69,
+    "fenceMonitoringPairs": 43
+  },
+  "checks": {
+    "queries": 14262,
+    "witnessReplays": 239,
+    "monotonicity": 11644,
+    "capBoundaryQueries": 3666,
+    "compositionComparisons": 2
+  },
+  "examples": {
+    "default": [
+      {
+        "resources": {
+          "capital": 11110000,
+          "land": 18000,
+          "annual": 156200
+        },
+        "witnesses": [
+          "b-30-50|f-standard-4|m-field-6"
+        ]
+      },
+      {
+        "resources": {
+          "capital": 11270000,
+          "land": 18000,
+          "annual": 142000
+        },
+        "witnesses": [
+          "b-30-50|f-standard-4|m-assisted-6"
+        ]
+      },
+      {
+        "resources": {
+          "capital": 11510000,
+          "land": 18000,
+          "annual": 138000
+        },
+        "witnesses": [
+          "b-30-50|f-durable-4|m-assisted-6"
+        ]
+      }
+    ],
+    "q80Vectors": 6,
+    "q80BridgeChoices": [
+      "70",
+      "30,30"
+    ],
+    "q120Dominance": {
+      "retained": {
+        "id": "b-30-50|f-standard-4|m-field-6",
+        "parts": {
+          "bridge": "b-30-50",
+          "fence": "f-standard-4",
+          "monitoring": "m-field-6"
+        },
+        "widths": [
+          30,
+          50
+        ],
+        "sites": 2,
+        "exec": {
+          "capacity": 120
+        },
+        "interfaces": {
+          "fenceRequired": 4,
+          "fenceProvided": 4,
+          "observationRequired": 6,
+          "observationProvided": 6
+        },
+        "resources": {
+          "capital": 11110000,
+          "land": 18000,
+          "annual": 156200
+        },
+        "staffMilli": 600
+      },
+      "dominated": {
+        "id": "b-50-50|f-standard-4|m-field-6",
+        "parts": {
+          "bridge": "b-50-50",
+          "fence": "f-standard-4",
+          "monitoring": "m-field-6"
+        },
+        "widths": [
+          50,
+          50
+        ],
+        "sites": 2,
+        "exec": {
+          "capacity": 150
+        },
+        "interfaces": {
+          "fenceRequired": 4,
+          "fenceProvided": 4,
+          "observationRequired": 6,
+          "observationProvided": 6
+        },
+        "resources": {
+          "capital": 13140000,
+          "land": 22000,
+          "annual": 176800
+        },
+        "staffMilli": 600
+      }
+    },
+    "beyondCatalogue": 316,
+    "zero": {
+      "id": "r-0-0-0",
+      "resources": {
+        "capital": 0,
+        "land": 0,
+        "annual": 0
+      },
+      "implementations": [
+        {
+          "id": "b-none|f-none|m-none",
+          "parts": {
+            "bridge": "b-none",
+            "fence": "f-none",
+            "monitoring": "m-none"
+          },
+          "widths": [],
+          "sites": 0,
+          "exec": {
+            "capacity": 0
+          },
+          "interfaces": {
+            "fenceRequired": 0,
+            "fenceProvided": 0,
+            "observationRequired": 0,
+            "observationProvided": 0
+          },
+          "resources": {
+            "capital": 0,
+            "land": 0,
+            "annual": 0
+          },
+          "staffMilli": 0
+        }
+      ]
+    }
+  },
+  "elapsedMs": 2446
+}

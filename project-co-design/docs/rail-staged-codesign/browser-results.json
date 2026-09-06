@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "base": "http://127.0.0.1:8785/apps/staged-paths.html",
+  "base": "http://127.0.0.1:8786/apps/staged-paths.html",
   "cases": [
     {
       "id": "continuity",
@@ -171,10 +171,12 @@
     "malformed-link recovery",
     "JSON export and content",
     "copy link",
-    "method/source/old-app return",
+    "method/source/companion-app return",
     "mobile controls",
     "360/390/768/1440 layouts",
     "foray-home navigation"
   ],
-  "errors": []
+  "errors": [],
+  "phase": "Local pre-publication verification after curation",
+  "applicationSHA256": "311e01472bfc0e2348870e8c1a30066c7471493b919972ca370379860866442f"
 }
