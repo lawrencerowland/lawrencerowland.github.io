@@ -1,10 +1,10 @@
 - title: "Project Co-design"
   group: "featured"
   question: "Can a feasible finished system be delivered through acceptable stages?"
-  description: "Four connected essays: staged rail delivery, temporary-power feedback, programme alternatives and composed wildlife crossings."
+  description: "Four connected experiments: staged rail delivery, temporary-power feedback, programme alternatives and composed wildlife crossings."
   tags: ["co-design","trade-offs","staging","category-theory"]
   path: "https://lawrencerowland.github.io/project-co-design/"
-  action: "Open foray"
+  action: "Open project"
 
 - title: "Gimmer: processes to plans"
   group: "featured"
@@ -26,7 +26,7 @@
 - title: "Local to Global"
   group: "featured"
   question: "When do local project views fit together?"
-  description: "A many-essay workbench exploring local-to-global consistency, with the Tangled Triangle as a worked scenario."
+  description: "A collection of experiments exploring local-to-global consistency, with the Tangled Triangle as a worked scenario."
   tags: ["consistency","wbs","category-theory"]
   path: "https://lawrencerowland.github.io/local-to-global/"
   action: "Open workbench"
@@ -43,9 +43,9 @@
 
 - title: "Portfolio Wave reading map"
   group: "featured"
-  question: "How do sources, themes and forays connect?"
-  description: "Explore the public source–foray–tag projection through the Portfolio Wave view of the concepts graph."
-  tags: ["knowledge-graphs","sources","forays"]
+  question: "How do sources, themes and projects connect?"
+  description: "Explore the public source–project–topic projection through the Portfolio Wave view of the concepts graph."
+  tags: ["knowledge-graphs","sources","projects"]
   path: "https://lawrencerowland.github.io/Tag_Concurrence_Graph/pw_best.html"
   action: "Open map"
 

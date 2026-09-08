@@ -1,19 +1,19 @@
 ---
 layout: default
-title: Forays & Side Projects
+title: Side projects
 description: Experiments, models and playgrounds for exploring project and programme questions.
 schema_type: CollectionPage
-tags: [SideProjects, Examples, Forays]
+tags: [SideProjects, Examples]
 wide: true
 ---
 
 <div class="foray-directory" id="foray-directory">
   <header class="foray-intro">
-    <h1>Forays &amp; Side Projects</h1>
+    <h1>Side projects</h1>
     <p>Small experiments in project and programme thinking. Start with a question, try a model, or browse a collection.</p>
     <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
     <nav class="foray-sections" aria-label="On this page">
-      <a href="#featured-forays">Featured forays</a>
+      <a href="#featured-forays">Featured projects</a>
       <a href="#playgrounds">Playgrounds &amp; libraries</a>
       <a href="#other-projects">Other side projects</a>
       <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>
@@ -35,7 +35,7 @@ wide: true
   {% assign groups = 'featured,library,other' | split: ',' %}
   {% for group in groups %}
     {% case group %}
-      {% when 'featured' %}{% assign section_id = 'featured-forays' %}{% assign section_title = 'Featured forays' %}
+      {% when 'featured' %}{% assign section_id = 'featured-forays' %}{% assign section_title = 'Featured projects' %}
       {% when 'library' %}{% assign section_id = 'playgrounds' %}{% assign section_title = 'Playgrounds & libraries' %}
       {% when 'other' %}{% assign section_id = 'other-projects' %}{% assign section_title = 'Other side projects' %}
     {% endcase %}
