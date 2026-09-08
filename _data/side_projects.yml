@@ -1,3 +1,27 @@
+- title: "Gimmer: processes to plans"
+  group: "gimmer"
+  question: "How can Petri-net processes become a WBS and schedule?"
+  description: "Lawrence’s main Petri → SMC → WBS collection: related models, generators and explanations, including earlier experiments."
+  tags: ["processes","wbs","schedule"]
+  path: "https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html"
+  action: "Browse main collection"
+
+- title: "Gimmer: higher-autonomy experiments"
+  group: "gimmer"
+  question: "How far can repeated agent-led experiments advance the same aim?"
+  description: "A parallel Petri → SMC → WBS investigation. Agents choose bounded next steps and repeat build, test and review loops as compute permits."
+  tags: ["processes","wbs","higher-autonomy"]
+  path: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/"
+  action: "Browse higher-autonomy experiments"
+
+- title: "Gimmer: broader collection"
+  group: "gimmer"
+  question: "What other project questions can the Gimmer scenario explore?"
+  description: "Observation, binding, procurement, ontology and change experiments outside the Petri → SMC → WBS collection and higher-autonomy work."
+  tags: ["observation","procurement","ontology","change"]
+  path: "https://lawrencerowland.github.io/gimmer-crag/app-index.html"
+  action: "Browse broader collection"
+
 - title: "Project Co-design"
   group: "featured"
   question: "Can a feasible finished system be delivered through acceptable stages?"
@@ -6,14 +30,6 @@
   path: "https://lawrencerowland.github.io/project-co-design/"
   action: "Open project"
 
-- title: "Gimmer: processes to plans"
-  group: "featured"
-  question: "Can different processes produce the same plan?"
-  description: "Explore a mountain-refuge toy model, from Petri-net processes to WBS and schedule, including the two-process/same-plan comparison."
-  tags: ["processes","wbs","schedule"]
-  path: "https://lawrencerowland.github.io/gimmer-crag/apps/mountain-refuge-petri-wbs-demo/"
-  action: "Open experiment"
-  related: [{"title":"Process-to-plan explanation","path":"https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/process-to-plan-lab/"}]
 
 - title: "Programme Decision Sequences"
   group: "featured"
@@ -57,13 +73,6 @@
   path: "https://lawrencerowland.github.io/functors-for_projects/app-index.html"
   action: "Browse collection"
 
-- title: "Gimmer collection"
-  group: "library"
-  question: "What other approaches can the mountain-refuge scenario test?"
-  description: "The wider collection of process, planning, change and ontology experiments, alongside the featured Gimmer demonstration."
-  tags: ["processes","wbs","planning"]
-  path: "https://lawrencerowland.github.io/gimmer-crag/app-index.html"
-  action: "Browse collection"
 
 - title: "Bricklaying a Rotunda"
   group: "library"

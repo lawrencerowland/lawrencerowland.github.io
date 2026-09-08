@@ -264,3 +264,7 @@ sup.footnote-ref:hover .footnote-popup {
   .foray-grid { grid-template-columns: minmax(0, 1fr); }
   #foray-count { display: block; margin-left: 0; }
 }
+
+// Keep the three Gimmer collections together in the requested reading order.
+#gimmer-projects .foray-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { #gimmer-projects .foray-grid { grid-template-columns: minmax(0, 1fr); } }

@@ -13,6 +13,7 @@ wide: true
     <p>Small experiments in project and programme thinking. Start with a question, try a model, or browse a collection.</p>
     <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
     <nav class="foray-sections" aria-label="On this page">
+      <a href="#gimmer-projects">Gimmer projects</a>
       <a href="#featured-forays">Featured projects</a>
       <a href="#playgrounds">Playgrounds &amp; libraries</a>
       <a href="#other-projects">Other side projects</a>
@@ -32,9 +33,10 @@ wide: true
     <p id="foray-count" role="status" aria-live="polite"></p>
   </div>
 
-  {% assign groups = 'featured,library,other' | split: ',' %}
+  {% assign groups = 'gimmer,featured,library,other' | split: ',' %}
   {% for group in groups %}
     {% case group %}
+      {% when 'gimmer' %}{% assign section_id = 'gimmer-projects' %}{% assign section_title = 'Gimmer projects' %}
       {% when 'featured' %}{% assign section_id = 'featured-forays' %}{% assign section_title = 'Featured projects' %}
       {% when 'library' %}{% assign section_id = 'playgrounds' %}{% assign section_title = 'Playgrounds & libraries' %}
       {% when 'other' %}{% assign section_id = 'other-projects' %}{% assign section_title = 'Other side projects' %}
