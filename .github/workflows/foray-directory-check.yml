@@ -3,6 +3,8 @@ name: Check foray directory
 on:
   pull_request:
     paths:
+      - 'gimmer-comparison/**'
+      - 'tests/gimmer-comparison.test.cjs'
       - 'project-co-design/**'
       - 'tests/co-design-site.test.cjs'
       - '_data/side_projects.yml'
@@ -16,6 +18,8 @@ on:
   push:
     branches: [master]
     paths:
+      - 'gimmer-comparison/**'
+      - 'tests/gimmer-comparison.test.cjs'
       - 'project-co-design/**'
       - 'tests/co-design-site.test.cjs'
       - '_data/side_projects.yml'
@@ -36,6 +40,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+      - name: Check nine Gimmer models and comparison contracts
+        run: node tests/gimmer-comparison.test.cjs
       - name: Check directory data and filtering
         run: node tests/foray-directory.test.cjs
       - name: Check co-design routes and preserved model
@@ -64,3 +70,5 @@ jobs:
           destination: ./_site
       - name: Check the rendered directory
         run: node tests/foray-directory.test.cjs _site/side-projects.html
+      - name: Check the rendered Gimmer comparison
+        run: node tests/gimmer-comparison.test.cjs _site

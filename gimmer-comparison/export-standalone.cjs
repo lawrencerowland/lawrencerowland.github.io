@@ -1,0 +1,12 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),destination=process.argv[2];
+if(!destination)throw Error('Supply the destination HTML path');
+const css=fs.readFileSync(path.join(root,'assets/gimmer-comparison.css'),'utf8');
+const models=fs.readFileSync(path.join(__dirname,'models.js'),'utf8');
+const app=fs.readFileSync(path.join(__dirname,'app.js'),'utf8').replaceAll('method.html','https://lawrencerowland.github.io/gimmer-comparison/method.html');
+let html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
+html=html.replace('<link rel="stylesheet" href="../assets/gimmer-comparison.css">','<style>'+css+'</style>');
+html=html.replace('<script src="models.js" defer></script><script src="app.js" defer></script>','');
+html=html.replaceAll('../side-projects.html','https://lawrencerowland.github.io/side-projects.html').replaceAll('href="method.html"','href="https://lawrencerowland.github.io/gimmer-comparison/method.html"');
+html=html.replace('</body>',`<!-- Generated snapshot. Canonical source: https://lawrencerowland.github.io/gimmer-comparison/ -->\n<script>${models}</script>\n<script>${app}</script>\n</body>`);
+fs.writeFileSync(destination,html);console.log('Generated standalone comparison:',destination);

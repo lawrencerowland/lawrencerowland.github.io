@@ -268,3 +268,8 @@ sup.footnote-ref:hover .footnote-popup {
 // Keep the three Gimmer collections together in the requested reading order.
 #gimmer-projects .foray-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 760px) { #gimmer-projects .foray-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Gimmer comparison introduction; preserves the three collection cards. */
+.foray-comparison-intro { background: #e3eadb; color: #203d36; border-left: 4px solid #315e49; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0 1.6rem; }
+.foray-comparison-intro p { margin: .35rem 0; }
+.foray-comparison-intro a { color: #315e49; text-underline-offset: 4px; }

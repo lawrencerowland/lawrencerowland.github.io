@@ -9,6 +9,8 @@ tags: [KnowledgeManagement]
 
 ## Pages
 
+[One refuge, nine ways to reason]({{ '/gimmer-comparison/' | relative_url }})
+
 [Project Co-design]({{ '/project-co-design/' | relative_url }})
 
 <ul>
