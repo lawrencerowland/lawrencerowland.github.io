@@ -43,6 +43,13 @@ wide: true
     {% endcase %}
     <section class="foray-group" id="{{ section_id }}" aria-labelledby="{{ section_id }}-heading">
       <h2 id="{{ section_id }}-heading">{{ section_title | escape }}</h2>
+      {% if group == 'gimmer' %}
+      <aside class="foray-comparison-intro" aria-label="Start with the Gimmer comparison">
+        <p><strong>Start here — one refuge, nine perspectives</strong></p>
+        <p>Change a shared brief and compare what nine working models reveal about plans, states, agreement, design and decisions.</p>
+        <p><a href="{{ '/gimmer-comparison/' | relative_url }}">Explore the Gimmer comparison →</a></p>
+      </aside>
+      {% endif %}
       <div class="foray-grid">
       {% for project in site.data.side_projects %}
         {% if project.group == group %}
