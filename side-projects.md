@@ -13,13 +13,29 @@ wide: true
     <p>Small experiments in project and programme thinking. Start with a question, try a model, or browse a collection.</p>
     <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
     <nav class="foray-sections" aria-label="On this page">
-      <a href="#gimmer-projects">Gimmer projects</a>
+      <a href="#compare-approaches">Compare approaches</a>
+      <a href="#gimmer-projects">Gimmer suites</a>
       <a href="#featured-forays">Featured projects</a>
       <a href="#playgrounds">Playgrounds &amp; libraries</a>
       <a href="#other-projects">Other side projects</a>
       <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>
     </nav>
   </header>
+
+  <section class="foray-comparison" id="compare-approaches" aria-labelledby="compare-approaches-heading">
+    <h2 id="compare-approaches-heading">Compare approaches across the portfolio</h2>
+    <p class="foray-comparison-lead">One shared challenge. Nine ways to reason.</p>
+    <p>Nine approaches from across these side projects, applied to the same fictional mountain-refuge brief. Gimmer supplies the shared test case; the comparison spans processes, dynamics, agreement, co-design, semantics and decisions.</p>
+    <div class="foray-comparison-actions">
+      <a class="foray-comparison-link" href="{{ '/gimmer-comparison/' | relative_url }}">Open the comparison <span aria-hidden="true">→</span></a>
+      <a href="#browse-projects">Browse individual projects <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <div class="foray-browse-intro" id="browse-projects">
+    <p class="foray-eyebrow">Individual projects &amp; collections</p>
+    <p>Go deeper into a particular investigation or browse its working experiments.</p>
+  </div>
 
   <div class="foray-filter" id="foray-filter" hidden>
     <label for="foray-topic">Filter by topic</label>
@@ -36,7 +52,7 @@ wide: true
   {% assign groups = 'gimmer,featured,library,other' | split: ',' %}
   {% for group in groups %}
     {% case group %}
-      {% when 'gimmer' %}{% assign section_id = 'gimmer-projects' %}{% assign section_title = 'Gimmer projects' %}
+      {% when 'gimmer' %}{% assign section_id = 'gimmer-projects' %}{% assign section_title = 'Gimmer experiment suites' %}
       {% when 'featured' %}{% assign section_id = 'featured-forays' %}{% assign section_title = 'Featured projects' %}
       {% when 'library' %}{% assign section_id = 'playgrounds' %}{% assign section_title = 'Playgrounds & libraries' %}
       {% when 'other' %}{% assign section_id = 'other-projects' %}{% assign section_title = 'Other side projects' %}
@@ -44,11 +60,7 @@ wide: true
     <section class="foray-group" id="{{ section_id }}" aria-labelledby="{{ section_id }}-heading">
       <h2 id="{{ section_id }}-heading">{{ section_title | escape }}</h2>
       {% if group == 'gimmer' %}
-      <aside class="foray-comparison-intro" aria-label="Start with the Gimmer comparison">
-        <p><strong>Start here — one refuge, nine perspectives</strong></p>
-        <p>Change a shared brief and compare what nine working models reveal about plans, states, agreement, design and decisions.</p>
-        <p><a href="{{ '/gimmer-comparison/' | relative_url }}">Explore the Gimmer comparison →</a></p>
-      </aside>
+      <p class="foray-group-description">Three collections exploring Gimmer itself, each with its own scope and apps.</p>
       {% endif %}
       <div class="foray-grid">
       {% for project in site.data.side_projects %}
@@ -80,3 +92,4 @@ wide: true
   <p class="foray-note">For individual tools from the two general app libraries, use the <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>.</p>
 </div>
 <script src="{{ '/assets/forays.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+
