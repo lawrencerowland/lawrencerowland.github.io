@@ -269,7 +269,25 @@ sup.footnote-ref:hover .footnote-popup {
 #gimmer-projects .foray-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 760px) { #gimmer-projects .foray-grid { grid-template-columns: minmax(0, 1fr); } }
 
-/* Gimmer comparison introduction; preserves the three collection cards. */
-.foray-comparison-intro { background: #e3eadb; color: #203d36; border-left: 4px solid #315e49; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0 1.6rem; }
-.foray-comparison-intro p { margin: .35rem 0; }
-.foray-comparison-intro a { color: #315e49; text-underline-offset: 4px; }
+/* The comparison spans the portfolio; project suites begin below it. */
+.foray-comparison {
+  margin: 1.75rem 0 2.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: #e3eadb;
+  color: #203d36;
+  border: 1px solid #c8d3bd;
+  border-left: 5px solid #315e49;
+  border-radius: 8px;
+  scroll-margin-top: 1rem;
+}
+.foray-comparison h2 { margin: .4rem 0 .65rem; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; color: inherit; }
+.foray-comparison p { max-width: 74ch; }
+.foray-directory .foray-eyebrow { margin: 0; font-size: .8rem; font-weight: bold; letter-spacing: .09em; text-transform: uppercase; }
+.foray-comparison .foray-comparison-lead { font-size: 1.15rem; margin: 0 0 .65rem; }
+.foray-comparison-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; margin-top: 1.2rem; }
+.foray-comparison-actions a { color: #203d36; text-underline-offset: 4px; }
+.foray-comparison-actions .foray-comparison-link { display: inline-block; padding: .75rem 1rem; background: #26483d; color: #fff; border-radius: 4px; font-weight: bold; text-decoration: none; }
+.foray-comparison-actions .foray-comparison-link:hover { background: #19362c; }
+.foray-browse-intro { border-top: 2px solid #ddd; padding-top: 1.5rem; scroll-margin-top: 1rem; }
+.foray-browse-intro p:last-child { margin: .5rem 0 0; color: #555; }
+.foray-group-description { max-width: 65ch; margin: -.4rem 0 1.25rem; color: #555; }
