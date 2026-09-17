@@ -43,6 +43,8 @@ wide: true
 
 # All Project Apps
 
+Browse the general collections and selected apps now maintained in their specialist homes. Tangled Triangle separates early AI interpretation of interfaces and system architecture from the later local-to-global experiments.
+
 <div id="filter-container" class="filter"></div>
 
 <div id="heatmap-container" class="heatmap"></div>
@@ -277,7 +279,9 @@ function createCards(data) {
 
     const title = document.createElement('h2');
     const link = document.createElement('a');
-    if (item.repo === 'Project-web-apps') {
+    if (item.url) {
+      link.href = item.url;
+    } else if (item.repo === 'Project-web-apps') {
       link.href = '/Project-web-apps/web_apps/' + item.name + '.html';
     } else {
       link.href = '/React_proj-apps/apps/' + item.name + '/index.html';
@@ -286,6 +290,7 @@ function createCards(data) {
     title.appendChild(link);
     card.appendChild(title);
 
+    if (!item.url || item.image) {
     const img = document.createElement('img');
     let imgName = item.image || item.pic || item.img || item['#'] || item.name;
     if (/^https?:/.test(imgName)) {
@@ -305,6 +310,12 @@ function createCards(data) {
       }
     };
     card.appendChild(img);
+    }
+    if (item.home) {
+      const home = document.createElement("p");
+      home.textContent = "Home: " + item.home;
+      card.appendChild(home);
+    }
 
     const desc = document.createElement('p');
     desc.textContent = item.description;
@@ -393,11 +404,13 @@ function highlightFromQuery(){
 function loadData() {
   Promise.all([
     fetch('/Project-web-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
-    fetch('/React_proj-apps/app-index.csv?t=' + Date.now()).then(r => r.text())
-  ]).then(([c1, c2]) => {
+    fetch('/React_proj-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
+    fetch('/assets/data/specialist-apps.json').then(r => { if (!r.ok) throw new Error('Specialist catalogue unavailable'); return r.json(); })
+  ]).then(([c1, c2, specialists]) => {
     const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
     const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
-    const data = d1.concat(d2);
+    const movedNames = new Set(specialists.map(item => item.repo + ":" + item.name));
+    const data = d1.concat(d2).filter(item => item.name && !movedNames.has(item.repo + ":" + item.name)).concat(specialists);
     const allTags = Array.from(new Set(data.flatMap(d => {
       const tagField = d.tags || d.tag || d.keywords || d.categories || '';
       return tagField.split(/[,;]/).map(t => t.trim()).filter(Boolean);

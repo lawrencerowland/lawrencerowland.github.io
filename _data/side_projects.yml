@@ -34,18 +34,20 @@
 - title: "Programme Decision Sequences"
   group: "featured"
   question: "How should a programme act as uncertainty unfolds?"
-  description: "A two-tab modelling lab for sequential decisions, beliefs and four policy classes. Illustrative scenarios, not forecasts or optimal-policy claims."
+  description: "Models, worksheets, worked paths and IT decision games for acting under uncertainty. The experiments catalogue distinguishes live simulations, tutorials and historical reports."
   tags: ["decisions","uncertainty","programmes"]
   path: "https://lawrencerowland.github.io/Programme-decision-sequences/"
   action: "Open experiment"
+  related: [{"title":"Decision experiments and teaching apps","path":"https://lawrencerowland.github.io/Programme-decision-sequences/experiments.html"}]
 
 - title: "Local to Global"
   group: "featured"
   question: "When do local project views fit together?"
-  description: "A collection of experiments exploring local-to-global consistency, with the Tangled Triangle as a worked scenario."
+  description: "Two lines of enquiry: early Tangled Triangle sketches ask how AI interprets interfaces, topology and system architecture; later experiments test local-to-global consistency."
   tags: ["consistency","wbs","category-theory"]
   path: "https://lawrencerowland.github.io/local-to-global/"
   action: "Open workbench"
+  related: [{"title":"Tangled Triangle: AI interpretation","path":"https://lawrencerowland.github.io/local-to-global/tangled-triangle/"}]
 
 - title: "Project Spines"
   group: "featured"
@@ -68,7 +70,7 @@
 - title: "Functors for Projects"
   group: "library"
   question: "How might mathematical structures illuminate project work?"
-  description: "Browse experiments in functors, adjoints, sheaves, wiring diagrams and project examples."
+  description: "Browse experiments in functors, adjoints, sheaves, wiring diagrams and finite colimits, including the grounded-theory coding illustration."
   tags: ["category-theory","models","project-management"]
   path: "https://lawrencerowland.github.io/functors-for_projects/app-index.html"
   action: "Browse collection"
@@ -117,8 +119,8 @@
 
 - title: "Tag Concurrence Graph"
   group: "library"
-  question: "Which concepts occur together in a reading collection?"
-  description: "The broader concepts-graph explorer, including views beyond the featured Portfolio Wave map."
+  question: "Which concepts occur together in reading and app collections?"
+  description: "Concepts-graph views for reading collections and a dated React app-catalogue tag map, with explicit source and refresh information."
   tags: ["knowledge-graphs","sources"]
   path: "https://lawrencerowland.github.io/Tag_Concurrence_Graph/"
   action: "Browse collection"

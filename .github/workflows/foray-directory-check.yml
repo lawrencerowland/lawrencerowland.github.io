@@ -14,6 +14,9 @@ on:
       - 'index.md'
       - 'assets/**'
       - 'tests/foray-directory.test.cjs'
+      - 'all-project-apps.md'
+      - 'tests/app-migration.test.cjs'
+      - 'tests/fixtures/app-migration/**'
       - '.github/workflows/foray-directory-check.yml'
   push:
     branches: [master]
@@ -29,6 +32,9 @@ on:
       - 'index.md'
       - 'assets/**'
       - 'tests/foray-directory.test.cjs'
+      - 'all-project-apps.md'
+      - 'tests/app-migration.test.cjs'
+      - 'tests/fixtures/app-migration/**'
       - '.github/workflows/foray-directory-check.yml'
 
 permissions:
@@ -44,6 +50,8 @@ jobs:
         run: node tests/gimmer-comparison.test.cjs
       - name: Check directory data and filtering
         run: node tests/foray-directory.test.cjs
+      - name: Check app migration loading and specialist routes
+        run: node tests/app-migration.test.cjs
       - name: Check co-design routes and preserved model
         run: node tests/co-design-site.test.cjs
       - name: Check finite staged co-design model
@@ -70,5 +78,7 @@ jobs:
           destination: ./_site
       - name: Check the rendered directory
         run: node tests/foray-directory.test.cjs _site/side-projects.html
+      - name: Check the rendered app migration catalogue
+        run: node tests/app-migration.test.cjs _site/all-project-apps.html
       - name: Check the rendered Gimmer comparison
         run: node tests/gimmer-comparison.test.cjs _site

@@ -1,0 +1,16 @@
+{
+  "Project-web-apps": {
+    "source_commit": "a83541f",
+    "before_rows": 76,
+    "after_rows": 65,
+    "moved_rows": 11,
+    "moved_names": 11
+  },
+  "React_proj-apps": {
+    "source_commit": "12957f3",
+    "before_rows": 19,
+    "after_rows": 16,
+    "moved_rows": 3,
+    "moved_names": 3
+  }
+}
