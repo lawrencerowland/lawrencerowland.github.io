@@ -235,64 +235,67 @@ sup.footnote-ref:hover .footnote-popup {
 }
 
 
-/* Foray directory: scoped additions preserve the rest of the site. */
-.foray-directory {
-  max-width: 72rem;
-  margin: 0 auto;
-}
+/* Image-led foray tiles. Scoped to this directory. */
+.foray-directory { max-width: 78rem; margin: 0 auto; font-family: 'Inter', Arial, sans-serif; }
 .foray-directory [hidden] { display: none !important; }
-.foray-intro { border-bottom: 3px solid #703030; padding-bottom: 1.25rem; }
-.foray-note, .foray-origin { color: #555; font-size: 0.9rem; }
-.foray-sections { display: flex; flex-wrap: wrap; gap: 0.6rem 1.3rem; margin-top: 1rem; }
-.foray-filter { margin: 1.5rem 0; }
-.foray-filter label { display: block; font-weight: bold; margin-bottom: 0.4rem; }
-.foray-filter select { max-width: 100%; min-height: 2.75rem; padding: 0.5rem; font: inherit; background: #fff; color: #333; border: 1px solid #777; }
-#foray-count { display: inline-block; margin: 0.5rem 0 0.5rem 1rem; font-size: 0.9rem; }
-.foray-group { margin: 2rem 0; scroll-margin-top: 1rem; }
-.foray-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
-.foray-card { display: flex; flex-direction: column; border-top: 3px solid #703030; border-radius: 0.25rem; }
-.foray-card h3 { font-size: 1.2rem; line-height: 1.35; margin: 0 0 0.8rem; }
-.foray-question { font-weight: bold; }
-.foray-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 1rem; list-style: none; padding: 0; }
-.foray-tags li { background: #f3eeee; padding: 0.15rem 0.5rem; border-radius: 0.2rem; font-size: 0.875rem; }
-.foray-action { margin-top: auto; margin-bottom: 0; padding-top: 0.5rem; font-weight: bold; }
-.foray-action a { display: inline-block; padding: 0.5rem 0; }
-.foray-related { margin: 0.65rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.foray-intro { display: flex; justify-content: space-between; align-items: end; gap: 1rem 2rem; padding-bottom: 1rem; border-bottom: 1px solid #dfdfd7; }
+.foray-intro h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin: 0 0 .5rem; }
+.foray-intro p { margin: 0; color: #52615a; }
+.foray-sections { display: flex; flex-direction: column; align-items: end; gap: .35rem; font-size: .85rem; }
+.foray-sections a { padding: .2rem 0; text-underline-offset: 3px; }
+.foray-filter { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; margin: 1rem 0 1.5rem; font-size: .85rem; }
+.foray-filter label { font-weight: 600; }
+.foray-filter select { max-width: 100%; min-height: 2.75rem; padding: .45rem 2rem .45rem .75rem; font: inherit; background: #fff; color: #333; border: 1px solid #b5bfb6; border-radius: 6px; }
+#foray-count { margin: 0 0 0 auto; color: #59625b; }
+.foray-group { margin: 1.5rem 0 2.5rem; scroll-margin-top: 1rem; }
+.foray-group h2 { font-size: 1.2rem; line-height: 1.35; margin: 0 0 1rem; color: #334a3d; }
+.foray-group-description { margin: -.55rem 0 1rem; color: #667268; font-size: .85rem; }
+.foray-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; align-items: start; }
+.foray-card { display: flex; flex-direction: column; align-self: stretch; padding: 0; overflow: hidden; border: 1px solid #d6ddd2; border-radius: 15px; background: #fff; box-shadow: 0 3px 12px #19362c08; transition: border-color .15s, box-shadow .15s; }
+.foray-card:hover { border-color: #829e88; box-shadow: 0 7px 22px #19362c12; }
+.foray-tile-link { display: flex; flex: 1; flex-direction: column; color: #20382b; text-decoration: none; }
+.foray-tile-link:visited { color: #20382b; }
+.foray-tile-link:hover { color: #1b573d; text-decoration: none; }
+.foray-scenario-image { display: block; background: #f3f0e6; border-bottom: 1px solid #e4e6da; }
+.foray-scenario-image img { display: block; width: 100%; height: 235px; object-fit: contain; }
+.foray-tile-body { display: flex; flex: 1; flex-direction: column; padding: 1.15rem 1.25rem 1rem; }
+.foray-card h3 { font-size: 1.15rem; line-height: 1.3; letter-spacing: -.015em; margin: 0 0 .55rem; }
+.foray-scenario-caption { font-size: .9rem; line-height: 1.5; color: #56695d; margin: 0 0 1rem; }
+.foray-action { display: flex; justify-content: space-between; gap: .6rem; margin-top: auto; font-size: .8rem; line-height: 1.4; font-weight: 650; color: #215b3f; }
+.foray-action span { font-size: 1.1rem; }
+.foray-details { border-top: 1px solid #e6e9e2; background: #fafbf7; font-size: .85rem; }
+.foray-details summary { cursor: pointer; padding: .7rem 1.25rem; min-height: 44px; color: #536656; }
+.foray-details[open] summary { color: #20382b; font-weight: 600; }
+.foray-detail-body { padding: .25rem 1.25rem 1rem; line-height: 1.6; }
+.foray-detail-body p { margin: 0 0 .75rem; }
+.foray-question { font-weight: 650; color: #294e39; }
+.foray-note, .foray-origin { color: #626c64; font-size: .85rem; }
+.foray-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin: .75rem 0 0; list-style: none; padding: 0; }
+.foray-tags li { background: #edf1e8; padding: .15rem .45rem; border-radius: 4px; font-size: .75rem; }
+.foray-related { margin: .8rem 0 0; padding-left: 1.2rem; }
+.foray-related a { display: inline-block; padding: .3rem 0; }
 .foray-empty { padding: 1rem; background: #f5f5f5; }
-.foray-directory a:focus-visible, .foray-directory select:focus-visible { outline: 3px solid #703030; outline-offset: 3px; }
-@media (max-width: 38rem) {
-  .foray-grid { grid-template-columns: minmax(0, 1fr); }
-  #foray-count { display: block; margin-left: 0; }
-}
-
-// Keep the three Gimmer collections together in the requested reading order.
-#gimmer-projects .foray-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (max-width: 760px) { #gimmer-projects .foray-grid { grid-template-columns: minmax(0, 1fr); } }
-
-/* The comparison spans the portfolio; project suites begin below it. */
-.foray-comparison {
-  margin: 1.75rem 0 2.5rem;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  background: #e3eadb;
-  color: #203d36;
-  border: 1px solid #c8d3bd;
-  border-left: 5px solid #315e49;
-  border-radius: 8px;
-  scroll-margin-top: 1rem;
-}
-.foray-comparison h2 { margin: .4rem 0 .65rem; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; color: inherit; }
-.foray-comparison p { max-width: 74ch; }
-.foray-directory .foray-eyebrow { margin: 0; font-size: .8rem; font-weight: bold; letter-spacing: .09em; text-transform: uppercase; }
-.foray-comparison .foray-comparison-lead { font-size: 1.15rem; margin: 0 0 .65rem; }
+.foray-other-links { margin: 1.25rem 0 0; font-size: .9rem; }
+.foray-directory a:focus-visible, .foray-directory select:focus-visible, .foray-directory summary:focus-visible { outline: 3px solid #703030; outline-offset: 3px; }
+.foray-tile-link:focus-visible { outline-offset: -4px !important; border-radius: 14px 14px 0 0; }
+/* The portfolio comparison remains available after the individual projects. */
+.foray-comparison { margin: 2rem 0; padding: clamp(1.25rem, 3vw, 2rem); background: #e8eee1; color: #203d36; border: 1px solid #c8d3bd; border-radius: 12px; scroll-margin-top: 1rem; }
+.foray-comparison h2 { margin: 0 0 .65rem; font-size: 1.5rem; line-height: 1.2; color: inherit; }
+.foray-comparison p { max-width: 74ch; font-size: .95rem; }
+.foray-comparison .foray-comparison-lead { font-size: 1.1rem; margin: 0 0 .65rem; }
 .foray-comparison-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; margin-top: 1.2rem; }
 .foray-comparison-actions a { color: #203d36; text-underline-offset: 4px; }
-.foray-comparison-actions .foray-comparison-link { display: inline-block; padding: .75rem 1rem; background: #26483d; color: #fff; border-radius: 4px; font-weight: bold; text-decoration: none; }
+.foray-comparison-actions .foray-comparison-link { display: inline-block; padding: .75rem 1rem; background: #26483d; color: #fff; border-radius: 6px; font-weight: bold; text-decoration: none; }
 .foray-comparison-actions .foray-comparison-link:hover { background: #19362c; }
-.foray-browse-intro { border-top: 2px solid #ddd; padding-top: 1.5rem; scroll-margin-top: 1rem; }
-.foray-browse-intro p:last-child { margin: .5rem 0 0; color: #555; }
-.foray-group-description { max-width: 65ch; margin: -.4rem 0 1.25rem; color: #555; }
-
-/* Each foray starts with a recognisable situation. */
-.foray-scenario-image {display:block;width:100%;margin-bottom:1rem;background:#f3f0e6;border-radius:10px;overflow:hidden}
-.foray-scenario-image img {display:block;width:100%;height:220px;object-fit:contain}
-.foray-scenario-caption {font-weight:650;color:#24594c;line-height:1.45}
+@media (max-width: 850px) {
+  .foray-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .foray-intro { align-items: start; flex-direction: column; }
+  .foray-sections { flex-direction: row; align-items: start; flex-wrap: wrap; gap: .5rem 1.5rem; }
+}
+@media (max-width: 560px) {
+  .foray-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .foray-scenario-image img { height: 210px; }
+  #foray-count { width: 100%; margin-left: 0; }
+  .foray-group { margin: 1.5rem 0 2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .foray-card { transition: none; } }
