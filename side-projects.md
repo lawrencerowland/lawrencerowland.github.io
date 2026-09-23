@@ -8,34 +8,13 @@ wide: true
 ---
 
 <div class="foray-directory" id="foray-directory">
-  <header class="foray-intro">
-    <h1>Side projects</h1>
-    <p>Small experiments in project and programme thinking. Start with a question, try a model, or browse a collection.</p>
-    <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
-    <nav class="foray-sections" aria-label="On this page">
-      <a href="#compare-approaches">Compare approaches</a>
-      <a href="#gimmer-projects">Gimmer suites</a>
-      <a href="#featured-forays">Featured projects</a>
-      <a href="#playgrounds">Playgrounds &amp; libraries</a>
-      <a href="#other-projects">Other side projects</a>
-      <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>
+  <header class="foray-intro" id="browse-projects">
+    <div><h1>Side projects</h1><p>Pick a project. Follow a question. Try an experiment.</p></div>
+    <nav class="foray-sections" aria-label="More ways to explore">
+      <a href="#compare-approaches">Compare nine approaches <span aria-hidden="true">↗</span></a>
+      <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
-
-  <section class="foray-comparison" id="compare-approaches" aria-labelledby="compare-approaches-heading">
-    <h2 id="compare-approaches-heading">Compare approaches across the portfolio</h2>
-    <p class="foray-comparison-lead">One shared challenge. Nine ways to reason.</p>
-    <p>Nine approaches from across these side projects, applied to the same fictional mountain-refuge brief. Gimmer supplies the shared test case; the comparison spans processes, dynamics, agreement, co-design, semantics and decisions.</p>
-    <div class="foray-comparison-actions">
-      <a class="foray-comparison-link" href="{{ '/gimmer-comparison/' | relative_url }}">Open the comparison <span aria-hidden="true">→</span></a>
-      <a href="#browse-projects">Browse individual projects <span aria-hidden="true">↓</span></a>
-    </div>
-  </section>
-
-  <div class="foray-browse-intro" id="browse-projects">
-    <p class="foray-eyebrow">Individual projects &amp; collections</p>
-    <p>Go deeper into a particular investigation or browse its working experiments.</p>
-  </div>
 
   <div class="foray-filter" id="foray-filter" hidden>
     <label for="foray-topic">Filter by topic</label>
@@ -66,21 +45,30 @@ wide: true
       {% for project in site.data.side_projects %}
         {% if project.group == group %}
         <article class="example-card foray-card" data-tags="{{ project.tags | join: ',' | escape }}">
-          <a class="foray-scenario-image" href="{{ project.path | escape }}" tabindex="-1" aria-hidden="true"><img src="{{ project.image | escape }}" alt="" width="640" height="400" loading="lazy" decoding="async"></a>
-          <h3>{{ project.title | escape }}</h3>
-          <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
-          <p class="foray-question">{{ project.question | escape }}</p>
-          <p>{{ project.description | escape }}</p>
-          {% if project.origin %}<p class="foray-origin">Origin: {{ project.origin | escape }}</p>{% endif %}
-          <ul class="foray-tags" aria-label="Topics">
-            {% for tag in project.tags %}<li>{{ tag | replace: '-', ' ' | escape }}</li>{% endfor %}
-          </ul>
-          <p class="foray-action"><a href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">{{ project.action | escape }} <span aria-hidden="true">→</span></a></p>
-          {% if project.related %}
-          <ul class="foray-related">
-            {% for link in project.related %}<li><a href="{{ link.path | escape }}">{{ link.title | escape }}</a></li>{% endfor %}
-          </ul>
-          {% endif %}
+          <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">
+            <span class="foray-scenario-image"><img src="{{ project.image | escape }}" alt="" width="640" height="400" {% if group == 'gimmer' %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async"></span>
+            <div class="foray-tile-body">
+              <h3>{{ project.title | escape }}</h3>
+              <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
+              <span class="foray-action">{{ project.action | escape }} <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <details class="foray-details">
+            <summary>About this project</summary>
+            <div class="foray-detail-body">
+              <p class="foray-question">{{ project.question | escape }}</p>
+              <p>{{ project.description | escape }}</p>
+              {% if project.origin %}<p class="foray-origin">Origin: {{ project.origin | escape }}</p>{% endif %}
+              <ul class="foray-tags" aria-label="Topics">
+                {% for tag in project.tags %}<li>{{ tag | replace: '-', ' ' | escape }}</li>{% endfor %}
+              </ul>
+              {% if project.related %}
+              <ul class="foray-related">
+                {% for link in project.related %}<li><a href="{{ link.path | escape }}">{{ link.title | escape }}</a></li>{% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </details>
         </article>
         {% endif %}
       {% endfor %}
@@ -91,6 +79,17 @@ wide: true
       {% endif %}
     </section>
   {% endfor %}
+  <section class="foray-comparison" id="compare-approaches" aria-labelledby="compare-approaches-heading">
+    <h2 id="compare-approaches-heading">Compare approaches across the portfolio</h2>
+    <p class="foray-comparison-lead">One shared challenge. Nine ways to reason.</p>
+    <p>Nine approaches from across these side projects, applied to the same fictional mountain-refuge brief. Gimmer supplies the shared test case; the comparison spans processes, dynamics, agreement, co-design, semantics and decisions.</p>
+    <div class="foray-comparison-actions">
+      <a class="foray-comparison-link" href="{{ '/gimmer-comparison/' | relative_url }}">Open the comparison <span aria-hidden="true">→</span></a>
+      <a href="#browse-projects">Browse individual projects <span aria-hidden="true">↑</span></a>
+    </div>
+  </section>
+
+  <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
   <p class="foray-note">For individual tools from the two general app libraries, use the <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>.</p>
 </div>
 <script src="{{ '/assets/forays.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
