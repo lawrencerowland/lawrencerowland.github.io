@@ -9,10 +9,10 @@ wide: true
 
 <div class="foray-directory" id="foray-directory">
   <header class="foray-intro" id="browse-projects">
-    <div><h1>Side projects</h1><p>Pick a project. Follow a question. Try an experiment.</p></div>
+    <div><h1>Side projects</h1><p>Experiments in project thinking.</p></div>
     <nav class="foray-sections" aria-label="More ways to explore">
-      <a href="#compare-approaches">Compare nine approaches <span aria-hidden="true">↗</span></a>
-      <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue <span aria-hidden="true">↗</span></a>
+      <a href="#compare-approaches">Compare approaches <span aria-hidden="true">↗</span></a>
+      <a href="{{ '/all-project-apps.html' | relative_url }}">All project apps <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
