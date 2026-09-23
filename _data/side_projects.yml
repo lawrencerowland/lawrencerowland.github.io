@@ -86,11 +86,12 @@
 
 - title: "Building a Wall"
   group: "library"
-  question: "How do smaller parts and agreements compose?"
-  description: "A playground for compositional models, project wiring and contracts-as-algebras."
-  tags: ["composition","models","category-theory"]
+  question: "Can explicit interfaces turn project work into reusable blocks?"
+  description: "Project wiring diagrams, beginning with a construction essay on readiness, reusable modules and computed checks, alongside eight earlier explorations."
+  tags: ["wiring-diagrams","composition","readiness","category-theory"]
   path: "https://lawrencerowland.github.io/building_a_wall/"
   action: "Browse collection"
+  related: [{"title":"Build a house. Keep the interfaces honest.","path":"https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/"}]
 
 - title: "Solway Tunnel Ontology"
   group: "library"
