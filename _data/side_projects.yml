@@ -1,4 +1,7 @@
 - title: "Gimmer: processes to plans"
+  image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
+  image_alt: "Illustrated timber refuge on a cliff, beside process and plan sketches"
+  scenario: "Build a small refuge halfway up a cliff."
   group: "gimmer"
   question: "How can Petri-net processes become a WBS and schedule?"
   description: "Lawrence’s main Petri → SMC → WBS collection: related models, generators and explanations, including earlier experiments."
@@ -7,6 +10,9 @@
   action: "Browse main collection"
 
 - title: "Gimmer: higher-autonomy experiments"
+  image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
+  image_alt: "Cliffside timber refuge with process-to-plan sketches"
+  scenario: "The same refuge, with the awkward handovers left in."
   group: "gimmer"
   question: "How far can repeated agent-led experiments advance the same aim?"
   description: "A parallel Petri → SMC → WBS investigation. Agents choose bounded next steps and repeat build, test and review loops as compute permits."
@@ -15,6 +21,9 @@
   action: "Browse higher-autonomy experiments"
 
 - title: "Gimmer: broader collection"
+  image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
+  image_alt: "Cliffside refuge used as the shared Gimmer test case"
+  scenario: "Deliver the refuge\u2014and keep its different accounts connected."
   group: "gimmer"
   question: "What other project questions can the Gimmer scenario explore?"
   description: "Observation, binding, procurement, ontology and change experiments outside the Petri → SMC → WBS collection and higher-autonomy work."
@@ -23,6 +32,9 @@
   action: "Browse broader collection"
 
 - title: "Project Co-design"
+  image: "https://lawrencerowland.github.io/images/scenarios/railway.svg"
+  image_alt: "Train passing signalling and works during a staged railway upgrade"
+  scenario: "Upgrade a railway while keeping a service running."
   group: "featured"
   question: "Can a feasible finished system be delivered through acceptable stages?"
   description: "Four connected experiments: staged rail delivery, temporary-power feedback, programme alternatives and composed wildlife crossings."
@@ -32,6 +44,9 @@
 
 
 - title: "Programme Decision Sequences"
+  image: "https://lawrencerowland.github.io/Programme-decision-sequences/assets/unwinding-uncertainty.png"
+  image_alt: "Existing emblem of successive decision steps descending through uncertainty"
+  scenario: "Choose now; learn more before the next decision."
   group: "featured"
   question: "How should a programme act as uncertainty unfolds?"
   description: "Models, worksheets, worked paths and IT decision games for acting under uncertainty. The experiments catalogue distinguishes live simulations, tutorials and historical reports."
@@ -41,6 +56,9 @@
   related: [{"title":"Decision experiments and teaching apps","path":"https://lawrencerowland.github.io/Programme-decision-sequences/experiments.html"}]
 
 - title: "Local to Global"
+  image: "https://lawrencerowland.github.io/images/scenarios/triangle.svg"
+  image_alt: "Schematic triangular control-centre site crossed by road, railway and canal"
+  scenario: "Fit a control centre onto the Tangled Triangle."
   group: "featured"
   question: "When do local project views fit together?"
   description: "Two lines of enquiry: early Tangled Triangle sketches ask how AI interprets interfaces, topology and system architecture; later experiments test local-to-global consistency."
@@ -50,6 +68,9 @@
   related: [{"title":"Tangled Triangle: AI interpretation","path":"https://lawrencerowland.github.io/local-to-global/tangled-triangle/"}]
 
 - title: "Project Spines"
+  image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
+  image_alt: "Illustrated mountain refuge used to motivate the finite shed example"
+  scenario: "Build a mountain-refuge shed, one dependency at a time."
   group: "featured"
   question: "What can schedule structure reveal beyond dates?"
   description: "Six tabs on schedule spines, antichain slices, finite shed construction, review loops, vacillation boundaries and project-controls interpretation."
@@ -60,6 +81,9 @@
   related: [{"title":"Earlier Hollman–Dilworth lab","path":"https://lawrencerowland.github.io/hollman-dilworth-project-controls/"}]
 
 - title: "Portfolio Wave reading map"
+  image: "https://lawrencerowland.github.io/images/scenarios/reading.svg"
+  image_alt: "Sources linked through themes to experiments"
+  scenario: "Follow a reading idea into a project experiment."
   group: "featured"
   question: "How do sources, themes and projects connect?"
   description: "Explore the public source–project–topic projection through the Portfolio Wave view of the concepts graph."
@@ -68,6 +92,9 @@
   action: "Open map"
 
 - title: "Functors for Projects"
+  image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
+  image_alt: "Two different model views on a project workbench"
+  scenario: "Describe one project in more than one useful way."
   group: "library"
   question: "How might mathematical structures illuminate project work?"
   description: "Browse experiments in functors, adjoints, sheaves, wiring diagrams and finite colimits, including the grounded-theory coding illustration."
@@ -77,6 +104,9 @@
 
 
 - title: "Bricklaying a Rotunda"
+  image: "https://lawrencerowland.github.io/bricklaying-a-rotunda/dynamic%20project%20states%20project.png"
+  image_alt: "Existing rotunda emblem: partially built circular brick wall and alternative trajectories"
+  scenario: "Build a circular brick wall, course by course."
   group: "library"
   question: "How can we explore changing project states?"
   description: "A collection of experiments around project dynamics, lenses and trajectories."
@@ -85,6 +115,9 @@
   action: "Browse collection"
 
 - title: "Building a Wall"
+  image: "https://lawrencerowland.github.io/images/scenarios/wall.svg"
+  image_alt: "Brick wall, pitched roof and scaffold showing connected construction packages"
+  scenario: "Build a wall that is ready to receive a roof."
   group: "library"
   question: "How do smaller parts and agreements compose?"
   description: "A playground for compositional models, project wiring and contracts-as-algebras."
@@ -93,6 +126,9 @@
   action: "Browse collection"
 
 - title: "Solway Tunnel Ontology"
+  image: "https://lawrencerowland.github.io/images/scenarios/tunnel.svg"
+  image_alt: "Illustrative tunnel section connecting two shores beneath the Solway"
+  scenario: "Imagine delivering a tunnel beneath the Solway."
   group: "library"
   question: "How can a project ontology connect to a plan?"
   description: "Ontology and WBS experiments using a tunnel scenario, with a separate knowledge-graph audit."
@@ -102,6 +138,9 @@
   related: [{"title":"Open the kglab ontology audit","path":"https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/kglab-ontology-audit/"}]
 
 - title: "Project Web Apps"
+  image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
+  image_alt: "A workbench comparing task dependencies and connected resources"
+  scenario: "Try a small project before relying on a big model."
   group: "library"
   question: "Which small tool helps explain a project problem?"
   description: "The general collection of standalone project-management tools and interactive examples."
@@ -110,6 +149,9 @@
   action: "Browse collection"
 
 - title: "React Project Apps"
+  image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
+  image_alt: "Two project-model views, representing dependencies and resource choices"
+  scenario: "Deliver a software product with competing demands."
   group: "library"
   question: "Which interactive model makes a project question clearer?"
   description: "The companion collection of richer project simulations and interactive models."
@@ -118,6 +160,9 @@
   action: "Browse collection"
 
 - title: "Tag Concurrence Graph"
+  image: "https://lawrencerowland.github.io/images/scenarios/reading.svg"
+  image_alt: "Reading sources linked by shared themes"
+  scenario: "Find connections in a shelf of tagged reading."
   group: "library"
   question: "Which concepts occur together in reading and app collections?"
   description: "Concepts-graph views for reading collections and a dated React app-catalogue tag map, with explicit source and refresh information."
@@ -126,6 +171,9 @@
   action: "Browse collection"
 
 - title: "CSV to Gantt"
+  image: "https://lawrencerowland.github.io/images/scenarios/gantt.svg"
+  image_alt: "A task table transformed into a dated bar chart"
+  scenario: "Turn a small task table into a visible timeline."
   group: "other"
   question: "Can a simple table become a Gantt chart?"
   description: "A side project created by ChatGPT's Operator using Deep Research and Codex."
