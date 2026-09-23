@@ -66,7 +66,9 @@ wide: true
       {% for project in site.data.side_projects %}
         {% if project.group == group %}
         <article class="example-card foray-card" data-tags="{{ project.tags | join: ',' | escape }}">
+          <a class="foray-scenario-image" href="{{ project.path | escape }}" tabindex="-1" aria-hidden="true"><img src="{{ project.image | escape }}" alt="" width="640" height="400" loading="lazy" decoding="async"></a>
           <h3>{{ project.title | escape }}</h3>
+          <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
           <p class="foray-question">{{ project.question | escape }}</p>
           <p>{{ project.description | escape }}</p>
           {% if project.origin %}<p class="foray-origin">Origin: {{ project.origin | escape }}</p>{% endif %}
