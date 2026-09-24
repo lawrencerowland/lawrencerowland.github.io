@@ -31,6 +31,17 @@
   path: "https://lawrencerowland.github.io/gimmer-crag/app-index.html"
   action: "Browse broader collection"
 
+- title: "Integrated risks & tasks"
+  image: "https://lawrencerowland.github.io/integrated_risks_tasks/assets/emblem.svg"
+  image_alt: "A cow and a concrete wagon need the same narrow lane to a construction site"
+  scenario: "Pour the foundations before the cows take the lane."
+  group: "featured"
+  question: "Can tasks and threats be understood through one process model?"
+  description: "Cows, concrete and shared access: compare original sketches, corrected wiring, process sets and alternative executions of a small resource model."
+  tags: ["processes","risk","composition","category-theory"]
+  path: "https://lawrencerowland.github.io/integrated_risks_tasks/"
+  action: "Explore the farm track"
+
 - title: "Project Co-design"
   image: "https://lawrencerowland.github.io/images/scenarios/railway.svg"
   image_alt: "Train passing signalling and works during a staged railway upgrade"
