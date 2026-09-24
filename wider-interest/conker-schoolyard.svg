@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-labelledby="title desc">
+<title id="title">An illustrated conker autumn</title><desc id="desc">Three children in grey and royal-blue school knitwear, white collars and grey shorts or skirt, with black shoes. Two play conkers in a leaf-strewn schoolyard while another collects. An imagined scene, not a photograph of Buckland.</desc>
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#eadcba"/><stop offset="1" stop-color="#f8f1dc"/></linearGradient>
+ <radialGradient id="chestnut" cx=".28" cy=".23" r=".8"><stop stop-color="#f7d29d"/><stop offset=".14" stop-color="#bb783b"/><stop offset=".46" stop-color="#8c421e"/><stop offset="1" stop-color="#3e2318"/></radialGradient>
+ <pattern id="brick" width="30" height="14" patternUnits="userSpaceOnUse"><path d="M0 0H30M0 14H30M15 0V7M0 7H30M4 7V14" fill="none" stroke="#b68060" stroke-width="1" opacity=".6"/></pattern>
+ <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="2" r=".55" fill="#fff3cf"/><circle cx="4" cy="5" r=".5" fill="#523b25"/></pattern>
+ <clipPath id="frame"><path d="M13 265A267 250 0 0 1 547 265V535H13Z"/></clipPath>
+ <g id="leaf"><path d="M0 0C-18-20-8-32 2-35C12-28 18-12 0 0Z" fill="currentColor"/><path d="M0 3L2-28M1-10L9-17M1-18L-5-23" stroke="#6f573b" opacity=".6" fill="none"/></g>
+ <g id="nut"><path d="M-23-10C-22-33 14-35 27-13C44 17 12 34-10 24C-27 18-33 6-23-10Z" fill="url(#chestnut)"/><ellipse cx="17" cy="13" rx="11" ry="8" fill="#d1b986" transform="rotate(-35 17 13)"/><path d="M-17-13Q-12-22-2-21" stroke="#ffe6b8" stroke-width="3" opacity=".7" fill="none" stroke-linecap="round"/></g>
+</defs>
+<g clip-path="url(#frame)">
+ <path d="M0 0H560V560H0Z" fill="url(#sky)"/>
+ <circle cx="403" cy="123" r="42" fill="#faf1d6"/>
+ <path d="M-10 324Q165 286 309 306T586 315V560H0Z" fill="#b9bb98"/>
+ <!-- A deliberately schematic village school, not a surveyed building. -->
+ <path d="M147 238L329 151L525 236Z" fill="#52625e"/>
+ <path d="M165 235H517V358H165Z" fill="#bc8262"/>
+ <path d="M165 235H517V358H165Z" fill="url(#brick)"/>
+ <path d="M147 238L329 151L525 236" stroke="#394b44" stroke-width="7" fill="none"/>
+ <path d="M361 174V136H379V182" fill="#a97357"/>
+ <path d="M163 235H520" stroke="#e7d5b0" stroke-width="5"/>
+ <g fill="#5c7474" stroke="#eadbbc" stroke-width="5"><path d="M188 262H232V322H188Z"/><path d="M259 262H303V322H259Z"/><path d="M397 262H441V322H397Z"/><path d="M468 262H506V322H468Z"/></g>
+ <g stroke="#dfd1b2" stroke-width="3"><path d="M210 262V322M188 290H232M281 262V322M259 290H303M419 262V322M397 290H441M487 262V322M468 290H506"/></g>
+ <path d="M332 278Q351 256 370 278V359H332Z" fill="#3d5149"/><circle cx="341" cy="320" r="2" fill="#d7b25e"/>
+ <path d="M0 364Q140 341 316 359T560 357V560H0Z" fill="#9d9d88"/>
+ <path d="M0 408Q190 370 402 405T580 397" fill="none" stroke="#b5b49b" stroke-width="30"/>
+ <path d="M78 560L330 365M560 516L422 361" stroke="#d4d0b5" stroke-width="2" opacity=".6"/>
+ <g fill="none" stroke="#685b40" stroke-linecap="round"><path d="M80 369Q99 255 91 126" stroke-width="31"/><path d="M91 222Q27 177 3 93M94 178Q157 131 168 55M87 136Q47 78 74 29" stroke-width="14"/></g>
+ <g fill="#c19944"><ellipse cx="63" cy="52" rx="101" ry="70"/><ellipse cx="156" cy="88" rx="85" ry="62"/><ellipse cx="11" cy="151" rx="81" ry="70"/><ellipse cx="99" cy="145" rx="68" ry="57"/></g>
+ <g fill="#b87235"><ellipse cx="34" cy="79" rx="58" ry="43"/><ellipse cx="171" cy="116" rx="61" ry="32"/><ellipse cx="55" cy="195" rx="57" ry="30"/></g>
+ <g color="#e0bc62"><use href="#leaf" x="40" y="83" transform="rotate(-25 40 83)"/><use href="#leaf" x="95" y="116" transform="rotate(65 95 116)"/><use href="#leaf" x="154" y="68" transform="rotate(20 154 68)"/><use href="#leaf" x="39" y="167" transform="rotate(-45 39 167)"/><use href="#leaf" x="145" y="181" transform="rotate(70 145 181)"/></g>
+ <g color="#9f5b31"><use href="#leaf" x="185" y="211" transform="rotate(37 185 211) scale(.9)"/><use href="#leaf" x="112" y="318" transform="rotate(-35 112 318)"/><use href="#leaf" x="459" y="472" transform="rotate(55 459 472)"/></g>
+ <!-- The holder: royal-blue cardigan, white blouse, grey skirt. -->
+ <ellipse cx="404" cy="466" rx="47" ry="8" fill="#606958" opacity=".3"/>
+ <path d="M396 406L393 447M417 407L427 446" stroke="#bd8b64" stroke-width="12"/>
+ <path d="M393 431L390 452M424 431L429 452" stroke="#e6ddc5" stroke-width="13"/>
+ <path d="M382 450Q395 446 399 457L374 461Q369 453 382 450M425 449Q441 450 444 458L423 459Z" fill="#303b36"/>
+ <path d="M385 360H423L438 414Q410 423 377 415Z" fill="#626b6d"/>
+ <path d="M388 374L385 411M405 374V417M417 374L426 412" stroke="#465155" stroke-width="2"/>
+ <path d="M386 311Q404 301 420 315L425 369L382 369Z" fill="#356083"/>
+ <path d="M393 308L404 332L414 307" fill="#f5ecd7"/>
+ <path d="M402 330L403 367" stroke="#233f59" stroke-width="2"/>
+ <g fill="#c2b284"><circle cx="405" cy="338" r="1.4"/><circle cx="405" cy="348" r="1.4"/><circle cx="405" cy="358" r="1.4"/></g>
+ <path d="M385 320L365 331L339 326" stroke="#356083" stroke-width="17" fill="none" stroke-linecap="round"/>
+ <path d="M339 326L330 324" stroke="#bd8b64" stroke-width="10" stroke-linecap="round"/>
+ <path d="M419 322L435 348L429 364" stroke="#356083" stroke-width="16" fill="none" stroke-linecap="round"/>
+ <circle cx="428" cy="367" r="6" fill="#bd8b64"/>
+ <path d="M387 279Q386 254 405 254Q429 257 425 284L429 310L386 307Z" fill="#58432b"/>
+ <ellipse cx="405" cy="282" rx="17" ry="23" fill="#c08e68"/>
+ <path d="M388 280Q390 253 410 259L424 275Q405 274 399 264Q395 277 388 280Z" fill="#58432b"/>
+ <path d="M405 299V309" stroke="#bd8b64" stroke-width="9"/>
+ <path d="M399 283h1M413 283h1" stroke="#343c30" stroke-width="2.4" stroke-linecap="round"/><path d="M400 293Q405 296 409 291" stroke="#855235" fill="none"/>
+ <!-- The striker: grey V-neck, blue tie, shorts and knee socks. -->
+ <ellipse cx="256" cy="467" rx="43" ry="8" fill="#606958" opacity=".3"/>
+ <path d="M240 404L234 445M269 402L278 444" stroke="#dbad80" stroke-width="13"/>
+ <path d="M236 432L233 454M276 431L280 452" stroke="#7c8280" stroke-width="14"/>
+ <path d="M233 449Q218 448 214 459L239 460L240 451M276 449Q294 447 300 459L278 460Z" fill="#303b36"/>
+ <path d="M234 370L278 367L280 409L262 411L253 391L249 412L230 410Z" fill="#596364"/>
+ <path d="M239 309Q256 300 270 312L279 374L232 374Z" fill="#7b8380"/>
+ <path d="M242 307L256 334L267 309" fill="#f6edd8"/><path d="M253 310L258 312L258 318L262 331L256 340L251 332L254 318Z" fill="#426582"/>
+ <path d="M244 315L229 339L257 351" fill="none" stroke="#7b8380" stroke-width="18" stroke-linecap="round"/>
+ <path d="M271 319L286 302L295 315" fill="none" stroke="#7b8380" stroke-width="17" stroke-linecap="round"/>
+ <path d="M296 315L300 321" stroke="#dbad80" stroke-width="10" stroke-linecap="round"/>
+ <path d="M257 351L266 350" stroke="#dbad80" stroke-width="10" stroke-linecap="round"/>
+ <path d="M253 293L254 308" stroke="#dbad80" stroke-width="10"/>
+ <ellipse cx="253" cy="283" rx="19" ry="23" fill="#dfb284"/>
+ <path d="M233 286Q226 264 244 257Q266 250 274 272L262 270L263 260L253 273L240 273L237 289Z" fill="#755339"/>
+ <path d="M250 284h1M263 282h1" stroke="#343c30" stroke-width="2.5" stroke-linecap="round"/><path d="M253 294Q259 297 263 291" fill="none" stroke="#9c6442"/>
+ <!-- Strings and small playing conkers, genuinely attached to hands. -->
+ <path d="M330 325L329 397M299 322Q305 347 308 373" fill="none" stroke="#e4d4af" stroke-width="2"/>
+ <use href="#nut" transform="translate(329 402) scale(.28)"/><use href="#nut" transform="translate(307 378) scale(.27)"/>
+ <path d="M281 364Q287 386 314 392" fill="none" stroke="#f5e7bf" stroke-width="2" stroke-dasharray="4 5"/>
+ <!-- A third child searching the ground, a pocketful rather than a spectator stand. -->
+ <ellipse cx="147" cy="438" rx="49" ry="8" fill="#606958" opacity=".3"/>
+ <path d="M118 404Q130 397 143 411L167 411L161 432L146 427L135 422L118 423Z" fill="#5e6769"/>
+ <path d="M112 369L139 367L154 407L119 408Z" fill="#3f6785"/>
+ <path d="M131 372L150 393L173 416" stroke="#3f6785" stroke-width="15" fill="none" stroke-linecap="round"/>
+ <path d="M173 416L181 421" stroke="#bb8763" stroke-width="9" stroke-linecap="round"/>
+ <path d="M122 405L104 423L117 433" fill="none" stroke="#657174" stroke-width="14" stroke-linecap="round"/>
+ <path d="M110 429L126 435Q130 442 110 441L103 435" fill="#303b36"/>
+ <path d="M155 428L169 429L174 437L153 438Z" fill="#303b36"/>
+ <path d="M126 361L132 371" stroke="#bb8763" stroke-width="9"/>
+ <ellipse cx="123" cy="350" rx="18" ry="21" fill="#bb8763" transform="rotate(-18 123 350)"/>
+ <path d="M106 355Q98 334 114 326Q134 321 143 341L127 334L110 344Z" fill="#443a29"/>
+ <path d="M128 351h2" stroke="#293a35" stroke-width="2"/><path d="M136 361l-5 2" stroke="#865837"/>
+ <use href="#nut" transform="translate(184 425) scale(.17)"/><use href="#nut" transform="translate(204 440) scale(.15)"/>
+ <g color="#b7853b"><use href="#leaf" x="57" y="442" transform="rotate(-60 57 442)"/><use href="#leaf" x="307" y="480" transform="rotate(85 307 480)"/><use href="#leaf" x="472" y="431" transform="rotate(100 472 431)"/><use href="#leaf" x="356" y="528" transform="rotate(-20 356 528)"/></g>
+ <g color="#8c5535"><use href="#leaf" x="499" y="514" transform="rotate(-60 499 514)"/><use href="#leaf" x="208" y="501" transform="rotate(30 208 501)"/></g>
+ <!-- Foreground treasure: conker and open husk. -->
+ <ellipse cx="88" cy="498" rx="60" ry="12" fill="#6c694e" opacity=".3"/>
+ <path d="M49 477L41 465L50 467L48 451L59 460L62 448L70 460L82 451L84 465L98 463L95 475L107 482L92 489L82 505L58 499Z" fill="#7f8b4d"/>
+ <path d="M49 477Q64 467 88 476L85 494Q68 505 53 491Z" fill="#d9cd9e"/>
+ <use href="#nut" transform="translate(106 482) scale(.85)"/>
+ <path d="M0 0H560V560H0Z" fill="url(#grain)" opacity=".11"/>
+</g>
+<path d="M13 265A267 250 0 0 1 547 265V535H13Z" stroke="#9e987c" stroke-width="1" fill="none"/>
+<path d="M360 65q14-12 27 0q14-12 25 1" stroke="#78806c" stroke-width="2" fill="none"/>
+</svg>
