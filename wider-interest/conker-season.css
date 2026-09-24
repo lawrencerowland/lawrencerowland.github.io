@@ -3,3 +3,6 @@
 
 /* Preserve the illustration's natural proportions at every screen width. */
 .hero-art img{height:auto}
+
+/* Keep the game within easy reach when the navigation is compact. */
+@media(max-width:620px){.masthead nav a:last-child{display:none}.masthead nav a:nth-child(3){display:inline}}
