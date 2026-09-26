@@ -5,9 +5,10 @@ const { execFileSync } = require('node:child_process');
 
 const projects = JSON.parse(execFileSync('ruby', ['-ryaml', '-rjson', '-e',
   'puts JSON.generate(YAML.load_file("_data/side_projects.yml"))'], { encoding: 'utf8' }));
-assert.equal(projects.length, 17);
+assert.equal(projects.length, 18);
 assert.equal(projects.find(p => p.title === "Project Co-design").path, "https://lawrencerowland.github.io/project-co-design/");
 assert.equal(new Set(projects.map(project => project.path)).size, projects.length);
+assert.equal(projects.find(p => p.title === "Shared waters: open systems").path, "https://lawrencerowland.github.io/shared-dynamics/");
 for (const project of projects) {
   for (const field of ['title', 'question', 'description', 'path', 'action']) {
     assert.ok(project[field], `${project.title}: missing ${field}`);

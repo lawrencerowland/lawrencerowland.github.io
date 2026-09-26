@@ -31,6 +31,17 @@
   path: "https://lawrencerowland.github.io/gimmer-crag/app-index.html"
   action: "Browse broader collection"
 
+- title: "Shared waters: open systems"
+  image: "https://lawrencerowland.github.io/shared-dynamics/assets/emblem.svg"
+  image_alt: "Three distinct systems share an interface above a small floating barge"
+  scenario: "Connect an offshore depot, a power barge and their organisations."
+  group: "featured"
+  question: "What do open-system methods help us understand about useful project chunks?"
+  description: "Three corrected first attempts from the original GraphML sketches: boundary composition, organisational comparison, and explicit shared observations and capacity."
+  tags: ["open-systems","composition","dynamics","category-theory"]
+  path: "https://lawrencerowland.github.io/shared-dynamics/"
+  action: "Explore Shared waters"
+
 - title: "Integrated risks & tasks"
   image: "https://lawrencerowland.github.io/integrated_risks_tasks/assets/emblem.svg"
   image_alt: "A cow and a concrete wagon need the same narrow lane to a construction site"
