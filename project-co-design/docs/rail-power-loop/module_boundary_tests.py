@@ -9,7 +9,7 @@ import model
 def check():
     cases=[]
     for condition in model.CONTRACT['domain']['conditions']:
-        for kind, klass, port, rating in [('batteries',model.Battery,'energy','usableKWh'),('converters',model.Converter,'output','outputKW'),('coolers',model.Cooler,'heat','removalKW')]:
+        for kind, klass, port, rating in [('batteries',model.Battery,'energy','usableWh'),('converters',model.Converter,'output','outputW'),('coolers',model.Cooler,'heat','removalW')]:
             for family in model.CONTRACT[kind]:
                 architecture={'battery':family['id'] if kind=='batteries' else 'standard',
                               'converter':family['id'] if kind=='converters' else 'standard',

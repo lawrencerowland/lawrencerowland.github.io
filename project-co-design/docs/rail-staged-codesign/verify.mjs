@@ -1,9 +1,18 @@
 import {createRequire} from 'node:module';
-import {writeFileSync} from 'node:fs';
+import {writeFileSync,readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {enumerate,replay,DEFAULTS,initial,tick} from './oracle.mjs';
 const require=createRequire(import.meta.url);
-const E=require(process.argv[2] || './model.cjs');
+const enginePath=require.resolve(process.argv[2] || './model.cjs');
+const engineSource=readFileSync(enginePath,'utf8');
+const E=require(enginePath);
+const engineSHA256=createHash('sha256').update(engineSource).digest('hex');
+if(!process.argv[2]){
+ const app=readFileSync(new URL('../../apps/staged-paths.html',import.meta.url),'utf8');
+ assert.equal(app.split('<script>')[1].split('</script>')[0].trim(),engineSource.trim(),'Published embedded engine must match the checked model');
+}
+
 const SHORT={'platform-up':'P','signal-up':'S','grid-direct':'GD','grid-prepare':'GP','grid-protected':'GC','temporary-install':'TI','temporary-return':'TR'};
 const history=p=>p.path.map(s=>s.actions.map(a=>SHORT[typeof a==='string'?a:a.id]));
 const key=r=>r.join(',');
@@ -60,12 +69,12 @@ for(const p of [{horizon:6},{horizon:8,crews:1},{horizon:8,accessCap:1},{horizon
  }
 }
 // Explicit action semantic witnesses, independent of normal frontier examples.
-assert.equal(tick(initial(),['S','P'],DEFAULTS,1),null,'Simultaneous signal cannot enable platform');
-assert.equal(tick(initial(),['TI','GD'],DEFAULTS,1),null,'Same slot install cannot power direct upgrade');
+assert.equal(tick(initial(),['S','P'],DEFAULTS,1),null,'Simultaneous guide fencing cannot enable passage');
+assert.equal(tick(initial(),['TI','GD'],DEFAULTS,1),null,'Same-slot mobilisation cannot cover a direct monitoring cutover');
 assert.equal(tick(initial(),['GP','GC'],DEFAULTS,1),null,'Preparation cannot support same-slot cutover');
-assert.equal(tick(initial(),['GD'],DEFAULTS,1),null,'Unprotected direct upgrade violates service');
+assert.equal(tick(initial(),['GD'],DEFAULTS,1),null,'Unprotected direct monitoring cutover violates readiness');
 const malformed=[{horizon:3},{horizon:13},{serviceFloor:-1},{serviceFloor:4},{milestoneSlot:9,horizon:8},{crews:0},{accessCap:0},{temporaryAvailable:'yes'},{horizon:5.5},{unknown:1}];
 for(const p of malformed)assert.throws(()=>E.normalize(p),`Must reject ${JSON.stringify(p)}`);
-const report={status:'PASS',configurations:checked,independentPrefixes:prefixes,completedHistories:terminalHistories,returnedPlansReplayed:replayed,stageAnnotationsChecked:stageAnnotations,relaxationHistoryChecks:relaxationHistories,baselineFrontier:keys(baseline.stagedFrontier),endpointFrontier:keys(baseline.endpointFrontier),endpointWinnersSurvivingTemporalCheck:keys(filtered),temporaryWitness:temporary,rows};
+const report={status:'PASS',edition:'wildlife-readiness',verifiedAt:new Date().toISOString(),engineSHA256,embeddedEngineMatches:!process.argv[2],readinessBoundary:'Management readiness is the minimum required module band, not measured animal passage or ecological benefit.',configurations:checked,independentPrefixes:prefixes,completedHistories:terminalHistories,returnedPlansReplayed:replayed,stageAnnotationsChecked:stageAnnotations,relaxationHistoryChecks:relaxationHistories,baselineFrontier:keys(baseline.stagedFrontier),endpointFrontier:keys(baseline.endpointFrontier),endpointWinnersSurvivingTemporalCheck:keys(filtered),temporaryWitness:temporary,rows};
 writeFileSync(process.argv[3] || new URL('./results.json',import.meta.url),JSON.stringify(report,null,2));
 console.log(JSON.stringify({...report,rows:undefined,temporaryWitness:undefined},null,2));

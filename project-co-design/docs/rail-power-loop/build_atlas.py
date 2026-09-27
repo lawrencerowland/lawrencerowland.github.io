@@ -1,4 +1,4 @@
-"""Generate or deterministically verify package-produced rail power data."""
+"""Generate or deterministically verify package-produced wildlife monitoring power data."""
 from pathlib import Path
 import argparse
 import hashlib
@@ -34,7 +34,7 @@ def build():
     c = model.CONTRACT
     queries = model.build_queries()
     records = [r for q in queries for r in q['results']]
-    result = {key: c[key] for key in ('schemaVersion','title','domain','default','catalogueCaps','conditions','interfaces','traceColumns','boundary','physicalAssumptions')}
+    result = {key: c[key] for key in ('schemaVersion','title','domain','default','catalogueCaps','conditions','interfaces','traceColumns','boundary','physicalAssumptions','unitContract','scenarioMapping')}
     result.update(catalogues={key:c[key] for key in ('batteries','converters','coolers')}, provenance=provenance,
                   architectures=model.architectures(), queries=queries,
                   summary={'queries':len(queries),'architectures':len(model.architectures()),'calculations':len(records),

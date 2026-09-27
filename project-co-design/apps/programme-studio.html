@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Programme Studio · Project Co-design</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/wildlife-emblem.svg"><title>Programme Studio · Project Co-design</title>
   <style>
     :root{
       --bg:#0a1020;
@@ -438,12 +438,13 @@
 </head>
 <body>
 <header>
-  <nav class="project-home" aria-label="Project"><a href="../index.html">← Project Co-design</a><span>Programme studio · March 2026 model</span></nav>
-  <h1>Rail Upgrade Monotone Co‑Design Studio</h1>
+  <nav class="project-home" aria-label="Project"><a href="../index.html">← Project Co-design</a><span>Programme studio · September 2026 model</span></nav>
+  <h1>Wildlife Crossing Programme Studio</h1>
   <div class="lede">
-    Compare a <b>rail transit capacity upgrade</b> as a joined design: a service plan, compatible platform, signalling and power packages, and a supplied programme strategy. Explore how declared governance assumptions change its resource trade-offs.
+    Compare a <b>wildlife crossing programme</b> as a joined design: a habitat plan, compatible crossing, guide-fencing and monitoring packages, and a supplied programme strategy. Explore how declared governance assumptions change its resource trade-offs.
   </div>
-  <p class="scope-note">Compare <b>four prescribed staging strategies</b>, package catalogues and illustrative governance assumptions. Costs, durations and risk indices are fictional incremental programme resources. Existing operating costs and risk are outside this model. This studio compares supplied programme strategies; the separate staged-path experiment constructs legal action sequences under explicit service constraints.</p>
+  <p class="scope-note"><b>Fictional data boundary.</b> Width × connected catchment × a scenario coefficient is an invented monotone capability proxy, expressed as model crossings/day. More fencing does not establish more observed animal use. Compare <b>four prescribed staging strategies</b>, package catalogues and illustrative governance assumptions. Costs, durations and risk indices are fictional incremental programme resources. Existing operating costs and risk are outside this model. This studio compares supplied programme strategies; the separate staged-path experiment constructs legal action sequences under explicit readiness constraints.</p>
+  <p class="scope-note"><b>Source → concept → construction → limit.</b> The co-design references below motivate compatible implementations and minimal resource antichains. This page constructs a finite wildlife-crossing programme from invented packages, delivery arrangements and four supplied schedules. It tests those declared rules; it does not validate species behaviour, ecological effectiveness, engineering suitability or consent. The other essays share the scenario, with separate numerical models.</p>
   <div class="method-strip">
     <div class="method-step">1 · Define the task</div>
     <div class="method-step">2 · Decompose into sub-tasks</div>
@@ -466,28 +467,28 @@
       </div>
       <div class="bd stack">
         <div class="control">
-          <label for="demand"><span>Peak-direction capacity target</span><span class="badge"><span id="demandOut">30,000</span> pphpd</span></label>
-          <input id="demand" type="range" min="18000" max="42000" step="500" value="30000"/>
-          <div class="hint">This is the function to be delivered: corridor peak throughput. Internally the studio chooses train length and trains-per-hour to meet it.</div>
+          <label for="demand"><span>Model crossing capability target</span><span class="badge"><span id="demandOut">300</span> model crossings/day</span></label>
+          <input id="demand" type="range" min="40" max="480" step="10" value="300"/>
+          <div class="hint">The requested function is a fictional capability in model crossings/day. It is not a forecast or observation of animal use. The studio chooses crossing width and connected catchment.</div>
         </div>
 
         <div class="grid2">
           <div class="control">
-            <label for="paxPerCar"><span>Passengers per car</span><span class="badge"><span id="paxOut">110</span> pax</span></label>
-            <input id="paxPerCar" type="number" min="80" max="150" step="1" value="110"/>
-            <div class="hint">Stylised operating assumption.</div>
+            <label for="scenarioFactor"><span>Scenario coefficient</span><span class="badge"><span id="factorOut">2</span> per m·km</span></label>
+            <input id="scenarioFactor" type="number" min="1" max="3" step="0.1" value="2"/>
+            <div class="hint">Model crossings/day per metre of width per connected kilometre; a toy scaling coefficient, not an ecological response law.</div>
           </div>
           <div class="control">
-            <label for="maxTph"><span>Operational max tph</span><span class="badge"><span id="maxTphOut">30</span> tph</span></label>
-            <input id="maxTph" type="number" min="21" max="32" step="1" value="30"/>
-            <div class="hint">Turnbacks, dwell discipline, and operating tolerance.</div>
+            <label for="maxCatchment"><span>Available catchment</span><span class="badge"><span id="maxCatchmentOut">6</span> km</span></label>
+            <input id="maxCatchment" type="number" min="2" max="6" step="1" value="6"/>
+            <div class="hint">Habitat reach available to the plan. Guide fencing can be longer because it includes returns and escape approaches.</div>
           </div>
         </div>
 
         <div class="grid2">
           <div class="control">
             <label for="budgetCap"><span>Budget ceiling</span><span class="badge">£<span id="budgetOut">0</span>m</span></label>
-            <input id="budgetCap" type="number" min="0" max="2500" step="25" value="0"/>
+            <input id="budgetCap" type="number" min="0" max="25" step="0.25" value="0"/>
             <div class="hint">0 = no hard ceiling.</div>
           </div>
           <div class="control">
@@ -504,9 +505,9 @@
             <div class="hint">0 = unconstrained. A synthetic index, not a probability or an assessed safety/regulatory limit.</div>
           </div>
           <div class="control">
-            <label for="context"><span>Corridor context</span><span class="badge" id="contextBadge">Urban core</span></label>
+            <label for="context"><span>Landscape context</span><span class="badge" id="contextBadge">Woodland approaches</span></label>
             <select id="context"></select>
-            <div class="hint">Affects duration, disruption, and grid complexity.</div>
+            <div class="hint">Changes works duration, access burden and required monitoring coverage.</div>
           </div>
         </div>
 
@@ -519,7 +520,7 @@
           <div class="control">
             <label for="strategyFilter"><span>Stage strategy filter</span><span class="badge" id="stratFilterBadge">All</span></label>
             <select id="strategyFilter"></select>
-            <div class="hint">Choose among four supplied patterns for new works. This filter does not exclude the existing railway.</div>
+            <div class="hint">Choose among four supplied patterns for new works. This filter does not exclude the existing crossing.</div>
           </div>
         </div>
 
@@ -549,7 +550,7 @@
           <summary>What is actually composed here</summary>
           <div>
             <div class="callout">
-              Each implementation retains a service plan and its package tuple. The code checks three typed <b>provided ≥ required</b> joins, then evaluates the compatible tuple under a programme alternative. The compatible subset of these finite catalogues is composed by enumeration. A query filters by throughput and resource ceilings, then returns the minimal resource antichain. This is a finite design problem with implementations, not a general MCDP library.
+              Each implementation retains a habitat plan and its package tuple. The code checks three typed <b>provided ≥ required</b> joins, then evaluates the compatible tuple under a programme alternative. The compatible subset of these finite catalogues is composed by enumeration. A query filters by model crossing capability and resource ceilings, then returns the minimal resource antichain. This is a finite design problem with implementations, not a general MCDP library.
             </div>
           </div>
         </details>
@@ -571,9 +572,9 @@
         </div>
         <p id="clockBreakdown" class="hint">No selected timeline.</p>
         <div class="legend">
-          <span class="swatch"><span class="dot" style="background:var(--green)"></span>Platform readiness</span>
-          <span class="swatch"><span class="dot" style="background:var(--blue)"></span>Signalling readiness</span>
-          <span class="swatch"><span class="dot" style="background:var(--gold)"></span>Power readiness</span>
+          <span class="swatch"><span class="dot" style="background:var(--green)"></span>Crossing readiness</span>
+          <span class="swatch"><span class="dot" style="background:var(--blue)"></span>Fencing readiness</span>
+          <span class="swatch"><span class="dot" style="background:var(--gold)"></span>Monitoring readiness</span>
           <span class="swatch"><span class="dot" style="background:var(--red)"></span>Coupled readiness fraction</span>
         </div>
       </div>
@@ -599,7 +600,7 @@
           <div class="kpi">
             <div class="smallcaps">Pareto-minimal plans</div>
             <div class="value" id="kpiPareto">0</div>
-            <div class="sub">The antichain under &lt;capex, months, risk, possessions&gt;.</div>
+            <div class="sub">The antichain under &lt;capex, months, risk, access days&gt;.</div>
           </div>
           <div class="kpi">
             <div class="smallcaps">Highlighted plan</div>
@@ -609,11 +610,11 @@
           <div class="kpi">
             <div class="smallcaps">Least relative headroom</div>
             <div class="value" id="kpiBottleneck">—</div>
-            <div class="sub" id="kpiBottleneckSub">Computed from the selected service plan.</div>
+            <div class="sub" id="kpiBottleneckSub">Computed from the selected habitat plan.</div>
           </div>
         </div>
         <div style="margin-top:12px" id="topline" class="callout">
-          Set the task and press <b>Recompute frontier</b>. The model will choose train length, headway, subsystem packages, governance, and stage strategy, then filter for minimal resource bundles.
+          Set the task and press <b>Recompute frontier</b>. The model will choose crossing width, connected catchment, compatible packages, governance, and stage strategy, then filter for minimal resource bundles.
         </div>
       </div>
 
@@ -621,12 +622,12 @@
         <details id="coupling-primer" style="margin-top:14px" open>
           <summary>Start here: a request, a compatible design, and its trade-offs</summary>
           <div class="grid2" style="margin-top:12px">
-            <div class="control"><b>Functionality is the promise.</b><p>Here it is passengers per hour in the peak direction. A design is a particular service plan and package tuple. Resources are what that implementation requires: capex, duration, programme risk and possessions. Green dashed diagram edges show provided capabilities; red solid edges show resource requirements.</p></div>
-            <div class="control"><b>One choice can require a co-move.</b><p>In this fictional catalogue, a longer planned train requires a larger platform envelope and may raise the minimum signalling and power capability. For example, a 10-car plan at 18 tph still requires 21-tph signalling. These are declared compatibility rules, not universal engineering or safety laws.</p></div>
-            <div class="control"><b>Monotone does not mean irreversible.</b><p>Holding the catalogues and assumptions fixed, asking for more throughput can only remove feasible implementations. It does not force the user to keep the highest target ever tried. A signed commitment or an irreversible construction step is an additional project rule and needs its own model. You can freely explore a lower request here.</p></div>
-            <div class="control"><b>Several minimal choices can be useful.</b><p>A cheaper plan may take longer or use more possessions. Pareto dominance means no worse in every resource and strictly better in at least one. The remaining alternatives form a discussion object: compare the extra resource needed for a gain, without forcing everyone’s objectives into one score. Balanced is only an illustrative initial highlight; a hypothetical risk ceiling is not stakeholder consent.</p></div>
+            <div class="control"><b>Functionality is the promise.</b><p>Here it is model crossings/day: width × connected catchment × a declared scenario coefficient. This fictional capability is not measured animal passage. A design is a particular habitat plan and package tuple. Resources are what that implementation requires: capex, duration, programme risk and access days. Green dashed diagram edges show provided capabilities; red solid edges show resource requirements. Each component provides an envelope and also requires a resource bundle; the selected implementation keeps both sides together.</p></div>
+            <div class="control"><b>One choice can require a co-move.</b><p>In this fictional catalogue, a wider crossing requires more connected guide fencing and survey coverage. A 30 m plan drawing on 2 km of catchment still requires 3 km of fencing, and nine monitoring stations in the mixed landscape. These are declared package rules, not universal engineering or ecological laws.</p></div>
+            <div class="control"><b>Monotone does not mean irreversible.</b><p>Holding the catalogues and assumptions fixed, asking for more model crossing capability can only remove feasible implementations. It does not force the user to keep the highest target ever tried. A signed commitment or an irreversible construction step is an additional project rule and needs its own model. You can freely explore a lower request here.</p></div>
+            <div class="control"><b>Several minimal choices can be useful.</b><p>A cheaper plan may take longer or use more access days. Here access-day equivalents aggregate disruptive work windows after declared multipliers; they are not a dated road-closure plan. Pareto dominance means no worse in every resource and strictly better in at least one. The remaining alternatives form a discussion object: compare the extra resource needed for a gain, without forcing everyone’s objectives into one score. Balanced is only an illustrative initial highlight; a hypothetical risk ceiling is not stakeholder consent.</p></div>
           </div>
-          <p class="hint">This primer preserves and corrects the useful explanation from the earlier rail-transit, incremental-upgrade and rail-simulator essays. For legal work sequences and service during construction, open <a href="staged-paths.html">the staged-path experiment</a>.</p>
+          <p class="hint">The other essays share this wildlife-crossing scenario, but their catalogues and numerical scales are separate teaching models. For generated legal work sequences and construction-period readiness constraints, open <a href="staged-paths.html">the staged-path experiment</a>.</p>
         </details>
 
       <div class="tabs">
@@ -651,10 +652,10 @@
               <div class="control">
                 <div class="smallcaps">Task decomposition</div>
                 <div class="tree" id="taskTree">
-                  <div class="tree-node root"><b>Increase corridor throughput</b><br/><span class="mini">meet the declared capacity request</span></div>
-                  <div class="tree-node level1"><b>Accommodate longer trains</b><br/><span class="mini">station and platform envelope</span></div>
-                  <div class="tree-node level1"><b>Provide the required train frequency</b><br/><span class="mini">headway, interlocking, regulation</span></div>
-                  <div class="tree-node level1"><b>Feed extra traction power</b><br/><span class="mini">substations, feeders, resilience</span></div>
+                  <div class="tree-node root"><b>Provide model crossing capability</b><br/><span class="mini">meet the declared capacity request</span></div>
+                  <div class="tree-node level1"><b>Provide a suitable crossing width</b><br/><span class="mini">vegetated structure envelope</span></div>
+                  <div class="tree-node level1"><b>Connect the required approaches</b><br/><span class="mini">guide fencing, ramps and access gates</span></div>
+                  <div class="tree-node level1"><b>Observe the installed envelope</b><br/><span class="mini">camera stations and survey commissioning</span></div>
                   <div class="tree-node level1"><b>Keep the programme governable</b><br/><span class="mini">claims, approvals, stakeholder tolerance</span></div>
                 </div>
               </div>
@@ -672,7 +673,7 @@
                   </div>
                   <div class="algbox">
                     <b>Risk</b><br/>
-                    <span class="mini">Mismatch, possessions, and governance discipline are <b>merged</b>, then optionally fed back into schedule.</span>
+                    <span class="mini">Mismatch, access days, and governance discipline are <b>merged</b>, then optionally fed back into schedule.</span>
                   </div>
                 </div>
               </div>
@@ -680,7 +681,7 @@
 
             <div class="control" id="component-compatibility">
               <div class="smallcaps">The selected implementation: actual component joins</div>
-              <p class="hint">The same three provided ≥ required checks select this tuple in the engine. This is an endpoint capability check; it does not certify intermediate operating service.</p>
+              <p class="hint">The same three provided ≥ required checks select this tuple in the engine and appear in the dependency diagram. Package quantities are available envelopes: the plan commissions its required extent and monitoring covers that extent, not unused spare capability. Guide fencing may exceed connected catchment to include returns and escape approaches. These endpoint checks do not certify animal passage during works.</p>
               <div id="compatibilityTable" style="overflow:auto">Select a plan to inspect its component joins.</div>
             </div>
             <div class="control">
@@ -696,7 +697,7 @@
               <div class="row" style="justify-content:space-between">
                 <div>
                   <div class="smallcaps">Data flow vs logical dependency</div>
-                  <div class="hint" style="margin-top:6px">Following the documentation, the co-design diagram is about <b>dependencies</b>, not operational signal flow.</div>
+                  <div class="hint" style="margin-top:6px">The dependency view displays the selected tuple’s actual <b>provided ≥ required checks</b>. The movement view is a separate conceptual sketch.</div>
                 </div>
                 <div class="togglebar">
                   <button class="toggle active" data-view="dependency">Logical dependency</button>
@@ -705,14 +706,14 @@
               </div>
               <div class="hint" style="margin-top:8px">On a narrow screen, scroll the diagram sideways to read its labels.</div>
               <div class="canvaswrap diagram-scroll" style="margin-top:10px">
-                <svg id="dependencySvg" viewBox="0 0 900 380" width="100%" height="300" aria-label="logical dependency diagram"></svg>
+                <svg id="dependencySvg" viewBox="0 0 900 460" width="100%" height="300" aria-label="logical dependency diagram"></svg>
               </div>
             </div>
 
             <div class="control">
               <div class="smallcaps">Stage alignment diagnosis</div>
               <div id="alignmentDiagnosis" class="muted" style="margin-top:8px">
-                Select a plan to inspect normalized subsystem readiness in its base construction pattern. The separate clock breakdown accounts for programme-level delay; neither display certifies operating service.
+                Select a plan to inspect normalized subsystem readiness in its base construction pattern. The separate clock breakdown accounts for programme-level delay; neither display certifies animal passage during works.
               </div>
             </div>
           </div>
@@ -729,13 +730,13 @@
             <div class="control">
               <div class="smallcaps">1 · Define the task</div>
               <div class="muted" style="margin-top:8px">
-                The task here is not “buy some rail assets”. It is: <b>deliver corridor peak throughput under explicit ceilings on budget, time, and programme risk</b>. The page treats this as the top-level function and keeps implementation choices separate from it.
+                The task is: <b>deliver corridor model crossing capability under explicit ceilings on budget, time, and programme risk</b>. The page treats this as the top-level function and keeps implementation choices separate from it.
               </div>
             </div>
             <div class="control">
               <div class="smallcaps">2 · Functional decomposition</div>
               <div class="muted" style="margin-top:8px">
-                The external function is throughput. A service plan specifies cars and frequency; the three package catalogues provide the capabilities required by that plan. A works implementation also includes a governance choice and a supplied staging pattern. The no-project implementation uses compatible baseline assets.
+                The external function is model crossing capability. A habitat plan specifies width and connected catchment; the three package catalogues provide the capabilities required by that plan. A works implementation also includes a governance choice and a supplied staging pattern. The no-project implementation uses compatible baseline assets.
               </div>
             </div>
           </div>
@@ -744,13 +745,13 @@
             <div class="control">
               <div class="smallcaps">3 · From decomposition to co-design diagram</div>
               <div class="muted" style="margin-top:8px">
-                The actual joins are explicit: platform cars ≥ service-plan cars; signalling tph ≥ max(planned tph, the train-length requirement); power index ≥ the declared load requirement. The selected tuple’s checks are shown in the Brief. Diagram arrows illustrate these dependencies; they are not simulated operating signals.
+                The actual joins are explicit: crossing width ≥ planned width; guide-fence length ≥ max(planned catchment, the width-induced minimum); camera stations ≥ the rounded-up survey coverage requirement. The selected tuple’s checks are shown in the Brief. Diagram arrows illustrate these dependencies; they do not simulate animal behaviour.
               </div>
             </div>
             <div class="control">
               <div class="smallcaps">4 · Populate implementations</div>
               <div class="muted" style="margin-top:8px">
-                The implementation set is the compatible subset of the Cartesian product of the finite catalogues, with the service plan and programme alternatives retained. Flat enumeration computes these joins directly. The catalogue relation is discrete; readiness sampling and risk assumptions remain approximations of the chosen scenario.
+                The implementation set is the compatible subset of the Cartesian product of the finite catalogues, with the habitat plan and programme alternatives retained. Flat enumeration computes these joins directly. The catalogue relation is discrete; readiness sampling and risk assumptions remain approximations of the chosen scenario.
               </div>
             </div>
           </div>
@@ -759,7 +760,7 @@
             <div class="control">
               <div class="smallcaps">5 · Solve by querying minimal resources</div>
               <div class="muted" style="margin-top:8px">
-                For the requested throughput, the solver retains all compatible implementations that meet the declared ceilings, then finds the minimal resource tuples across them. Raising only the throughput request removes implementations; it never changes a fixed implementation’s cost or risk.
+                For the requested model crossing capability, the solver retains all compatible implementations that meet the declared ceilings, then finds the minimal resource tuples across them. Raising only the model crossing capability request removes implementations; it never changes a fixed implementation’s cost or risk.
               </div>
             </div>
             <div class="control">
@@ -773,7 +774,7 @@
           <details>
             <summary>Stylised modelling choices in this scenario</summary>
             <div class="muted">
-              Packages, durations, governance effects and penalties are illustrative. Capacity requirement maps are non-decreasing; resource bundles are Pareto-filtered. Sequencing is restricted to four supplied strategies. Readiness is linearly interpolated within work stages and mismatch is sampled at 120 intervals; it is not certified operating service. The feedback calculation is a synthetic scalar evaluator, not a general MCDP loop solver. Resource ceilings of zero are unconstrained; there are no hidden duration or risk cutoffs. The no-project option has zero incremental resources only when the baseline packages are compatible and meet the task.
+              Packages, durations, governance effects and penalties are illustrative. Capacity requirement maps are non-decreasing; resource bundles are Pareto-filtered. Sequencing is restricted to four supplied strategies. Readiness is linearly interpolated within work stages and mismatch is sampled at 120 intervals; it is not certified animal passage during works. The feedback calculation is a synthetic scalar evaluator, not a general MCDP loop solver. Resource ceilings of zero are unconstrained; there are no hidden duration or risk cutoffs. The no-project option has zero incremental resources only when the baseline packages are compatible and meet the task.
             </div>
           </details>
         </div>
@@ -800,7 +801,7 @@
             <div class="control">
               <div class="smallcaps">Dominance reading</div>
               <div id="dominanceText" class="muted" style="margin-top:8px">
-                The green-outlined points form an antichain: no distinct retained resource tuple dominates another across all four dimensions. Dominance also compares possessions, which this two-axis projection does not fully display. The table retains all four resource coordinates.
+                The green-outlined points form an antichain: no distinct retained resource tuple dominates another across all four dimensions. Dominance also compares access days, which this two-axis projection does not fully display. The table retains all four resource coordinates.
               </div>
               <div class="hr"></div>
               <div class="smallcaps" style="margin-top:12px">Feasibility split</div>
@@ -829,7 +830,7 @@
       <div class="tab" id="loopTab">
         <div class="stack">
           <div class="callout">
-            <b>Why this loop exists.</b> This model assumes that mismatched subsystem delivery increases an illustrative approvals burden, which lengthens the programme and feeds back into its risk index. Those relationships are declared scenario assumptions, not identified causal effects or empirical claims about railway failure.
+            <b>Why this loop exists.</b> This model assumes that mismatched subsystem delivery increases an illustrative approvals burden, which lengthens the programme and feeds back into its risk index. Those relationships are declared scenario assumptions, not identified causal effects or empirical claims about ecological outcomes.
           </div>
 
           <div class="grid2">
@@ -851,8 +852,10 @@
             </div>
           </div>
 
+          <div class="control"><b>A finite counterexample to an automatic cutoff.</b> With T₀ = 400 months, B = 600 risk units, q = 200 months, A = 100 access-day equivalents and α = 0.085, the equations give T = 677.54 months and r = 794.57. These intentionally extreme test inputs are not a catalogue programme or recommendation. They show why finite values must not be silently rejected by an undisclosed 180-month or 260-risk cutoff. Declared user ceilings still apply.</div>
+
           <div class="warnout">
-            This is one declared scalar resource evaluator. A general MCDP feedback operator over design relations is a different construction and is not implemented here. With feedback off, the model uses the stated nonrecursive base, mismatch and possession terms.
+            This is one declared scalar resource evaluator. A general MCDP feedback operator over design relations is a different construction and is not implemented here. With feedback off, the model uses the stated nonrecursive base, mismatch and access-day terms.
           </div>
         </div>
       </div>
@@ -879,7 +882,7 @@
             <div class="control">
               <div class="smallcaps">Interpretive note</div>
               <div class="muted" style="margin-top:8px">
-                The point of the exercise is not to make rail projects look like a single spreadsheet optimisation. It is to formalise the fact that every local improvement pushes on a wider dependency structure, and that management choices about packaging and pacing are themselves part of the design space.
+                The point of the exercise is not to make wildlife crossing projects look like a single spreadsheet optimisation. It is to formalise the fact that every local improvement pushes on a wider dependency structure, and that management choices about packaging and pacing are themselves part of the design space.
               </div>
             </div>
           </div>
@@ -890,7 +893,7 @@
 </div>
 
 <div class="footer">
-  <a href="../index.html">Project Co-design home</a> · A self-contained March 2026 programme model, prepared for public inclusion with interaction and stage-timing corrections. Catalogue enumeration and synthetic feedback remain separate from the staged-path experiment. No real railway, personal or client data is included. <a href="../docs/programme-studio-model.md">Model and verification note</a>.
+  <a href="../index.html">Project Co-design home</a> · A self-contained September 2026 programme model, prepared for public inclusion with interaction and stage-timing corrections. Catalogue enumeration and synthetic feedback remain separate from the staged-path experiment. No field counts, site engineering, personal or client data is included. <a href="../docs/programme-studio-model.md">Model and verification note</a>.
   <p>Method references: <a href="https://andreacensi.github.io/mcdp-manual/mcdp-manual.pdf">Censi’s co-design manual</a> · <a href="https://www.research-collection.ethz.ch/handle/20.500.11850/648075">Zardini, Co-Design of Complex Systems</a>. These explain the framework; they do not validate this scenario’s values.</p>
 </div>
 
@@ -900,87 +903,83 @@
   const fmt = (x,d=0)=>Number.isFinite(x)?x.toFixed(d):String(x);
 
   const contexts = [
-    {id:"urban", label:"Urban core", costMult:1.18, durMult:1.20, riskOffset:10, traction:1.08, possessionMult:1.10, note:"Tight possessions, high stakeholder density, difficult utility interfaces."},
-    {id:"mixed", label:"Mixed corridor", costMult:1.00, durMult:1.00, riskOffset:0, traction:1.00, possessionMult:1.00, note:"Representative baseline."},
-    {id:"surface", label:"Surface-heavy", costMult:0.90, durMult:0.88, riskOffset:-5, traction:0.96, possessionMult:0.92, note:"Easier access, but still requires network integration."}
+    {id:"woodland", label:"Woodland approaches", costMult:1.18, durMult:1.20, riskOffset:10, surveyLoad:1.08, accessMult:1.10, note:"Canopy and uneven approaches require additional survey coverage; access and vegetation establishment are slower."},
+    {id:"mixed", label:"Mixed landscape", costMult:1.00, durMult:1.00, riskOffset:0, surveyLoad:1.00, accessMult:1.00, note:"Declared reference landscape; no ecological calibration is implied."},
+    {id:"open", label:"Open farmland", costMult:0.90, durMult:0.88, riskOffset:-5, surveyLoad:0.96, accessMult:0.92, note:"Easier construction access and camera sightlines, with landowner boundaries still to resolve."}
   ];
 
   const governances = [
-    {id:"all", label:"All governance modes"},
-    {id:"alliance", label:"Alliance / integrated delivery", costFactor:1.04, riskOffset:-8, approvalAlpha:0.055, mismatchFactor:0.72, transactionCost:35, possessionFactor:0.92, desc:"Higher overhead, lower interface drift."},
-    {id:"multiprime", label:"Multi-prime / fixed interfaces", costFactor:0.98, riskOffset:8, approvalAlpha:0.085, mismatchFactor:1.35, transactionCost:10, possessionFactor:1.00, desc:"Cheaper packages, more claims and interface churn."},
-    {id:"stagedgov", label:"Staged concession / political pacing", costFactor:1.01, riskOffset:2, approvalAlpha:0.070, mismatchFactor:1.00, transactionCost:22, possessionFactor:0.96, desc:"Moderate overhead, spreads political exposure."}
+    {id:"all", label:"All delivery arrangements"},
+    {id:"alliance", label:"Joint road–ecology team", costFactor:1.04, riskOffset:-8, approvalAlpha:0.055, mismatchFactor:0.72, transactionCost:0.35, accessFactor:0.92, desc:"A shared delivery team carries more overhead and an assumed lower interface penalty."},
+    {id:"multiprime", label:"Separate works contracts", costFactor:0.98, riskOffset:8, approvalAlpha:0.085, mismatchFactor:1.35, transactionCost:0.10, accessFactor:1.00, desc:"Separate structure, fencing and monitoring contracts have lower overhead and an assumed higher coordination penalty."},
+    {id:"stagedgov", label:"Landowner delivery compact", costFactor:1.01, riskOffset:2, approvalAlpha:0.070, mismatchFactor:1.00, transactionCost:0.22, accessFactor:0.96, desc:"Phased land-access agreements; the cost and approvals effects are declared assumptions."}
   ];
 
   const strategies = [
     {id:"all", label:"All stage strategies"},
-    {id:"matched", label:"Matched stage release", type:"matched", baseRisk:6, costPremium:25, desc:"Synchronise subsystem increments by bands."},
-    {id:"fasttrack", label:"Fast-track overlap", type:"fasttrack", baseRisk:10, costPremium:50, desc:"Start everything at once; accept temporary mismatch."},
-    {id:"civilsFirst", label:"Civils first", type:"civilsFirst", baseRisk:16, costPremium:0, desc:"Station works first; systems follow."},
-    {id:"systemsFirst", label:"Systems first", type:"systemsFirst", baseRisk:12, costPremium:15, desc:"Signals and power first; civils later."}
+    {id:"matched", label:"Matched stage release", type:"matched", baseRisk:6, costPremium:0.25, desc:"Align corresponding structure, fence and monitoring stage bands."},
+    {id:"fasttrack", label:"Parallel starts", type:"fasttrack", baseRisk:10, costPremium:0.50, desc:"Start all three workstreams together; accept temporary readiness mismatch."},
+    {id:"civilsFirst", label:"Crossing first", type:"civilsFirst", baseRisk:16, costPremium:0, desc:"Complete the crossing, then guide fencing, then monitoring."},
+    {id:"systemsFirst", label:"Approaches first", type:"systemsFirst", baseRisk:12, costPremium:0.15, desc:"Complete fencing and monitoring before the crossing works."}
   ];
 
-  // Capabilities are stylised.
-  const platformPkgs = [
-    {id:"P0", label:"Keep 8-car platforms", cars:8, capex:0, dur:0, risk:4, possessions:0, stages:[{cap:8,durFrac:1}]},
-    {id:"P10s", label:"Selective 10-car extension", cars:10, capex:180, dur:14, risk:20, possessions:16, stages:[{cap:10,durFrac:1}]},
-    {id:"P10f", label:"Full 10-car platform programme", cars:10, capex:260, dur:18, risk:16, possessions:20, stages:[{cap:10,durFrac:1}]},
-    {id:"P12", label:"12-car corridor rebuild", cars:12, capex:520, dur:30, risk:35, possessions:42, stages:[{cap:10,durFrac:.42},{cap:12,durFrac:.58}]},
-    {id:"P12st", label:"10→12 staged platform programme", cars:12, capex:570, dur:34, risk:28, possessions:36, stages:[{cap:10,durFrac:.48},{cap:12,durFrac:.52}]}
+  // Entirely fictional project packages. Capability is an envelope, not measured animal use.
+  const crossingPkgs = [
+    {id:"C0", label:"Retain existing 20 m crossing", width:20, capex:0, dur:0, risk:4, accessDays:0, stages:[{cap:20,durFrac:1}]},
+    {id:"C30s", label:"Selective widening to 30 m", width:30, capex:1.8, dur:8, risk:20, accessDays:16, stages:[{cap:30,durFrac:1}]},
+    {id:"C30f", label:"Rebuild 30 m vegetated deck", width:30, capex:2.6, dur:12, risk:16, accessDays:20, stages:[{cap:30,durFrac:1}]},
+    {id:"C40", label:"40 m landscape bridge", width:40, capex:5.2, dur:20, risk:35, accessDays:42, stages:[{cap:30,durFrac:.42},{cap:40,durFrac:.58}]},
+    {id:"C40st", label:"30→40 m staged widening", width:40, capex:5.7, dur:24, risk:28, accessDays:36, stages:[{cap:30,durFrac:.48},{cap:40,durFrac:.52}]}
   ];
 
-  const signalPkgs = [
-    {id:"S0", label:"Baseline fixed-block", tph:18, capex:0, dur:0, risk:8, possessions:0, stages:[{cap:18,durFrac:1}]},
-    {id:"S21", label:"Reblock + junction tuning", tph:21, capex:120, dur:10, risk:14, possessions:10, stages:[{cap:21,durFrac:1}]},
-    {id:"S24", label:"ETCS / ATO overlay", tph:24, capex:260, dur:18, risk:22, possessions:18, stages:[{cap:24,durFrac:1}]},
-    {id:"S27", label:"High-density ETCS", tph:27, capex:430, dur:26, risk:30, possessions:24, stages:[{cap:24,durFrac:.48},{cap:27,durFrac:.52}]},
-    {id:"S30", label:"CBTC core + fleet interface", tph:30, capex:680, dur:34, risk:40, possessions:32, stages:[{cap:24,durFrac:.40},{cap:30,durFrac:.60}]}
+  const fencePkgs = [
+    {id:"F0", label:"Retain 2 km guided approaches", catchment:2, capex:0, dur:0, risk:8, accessDays:0, stages:[{cap:2,durFrac:1}]},
+    {id:"F3", label:"3 km fence and escape ramps", catchment:3, capex:0.30, dur:3, risk:14, accessDays:10, stages:[{cap:3,durFrac:1}]},
+    {id:"F4", label:"4 km linked habitat approaches", catchment:4, capex:0.55, dur:5, risk:22, accessDays:18, stages:[{cap:4,durFrac:1}]},
+    {id:"F5", label:"5 km fencing with access gates", catchment:5, capex:0.85, dur:8, risk:30, accessDays:24, stages:[{cap:4,durFrac:.48},{cap:5,durFrac:.52}]},
+    {id:"F6", label:"6 km connected approach network", catchment:6, capex:1.20, dur:10, risk:40, accessDays:32, stages:[{cap:4,durFrac:.40},{cap:6,durFrac:.60}]}
   ];
 
-  const powerPkgs = [
-    {id:"W0", label:"Baseline feeders / substations", index:1.00, capex:0, dur:0, risk:6, possessions:0, stages:[{cap:1.00,durFrac:1}]},
-    {id:"W1", label:"Targeted feeder reinforcement", index:1.22, capex:80, dur:8, risk:12, possessions:6, stages:[{cap:1.22,durFrac:1}]},
-    {id:"W2", label:"Substation uprate + rectifiers", index:1.55, capex:190, dur:14, risk:18, possessions:12, stages:[{cap:1.55,durFrac:1}]},
-    {id:"W3", label:"Substations + storage / regen", index:1.85, capex:360, dur:20, risk:24, possessions:16, stages:[{cap:1.55,durFrac:.45},{cap:1.85,durFrac:.55}]},
-    {id:"W4", label:"Major grid connection + redundancy", index:2.20, capex:620, dur:30, risk:34, possessions:24, stages:[{cap:1.55,durFrac:.42},{cap:2.20,durFrac:.58}]}
+  const monitoringPkgs = [
+    {id:"M0", label:"Retain four camera stations", stations:4, capex:0, dur:0, risk:6, accessDays:0, stages:[{cap:4,durFrac:1}]},
+    {id:"M8", label:"Eight camera stations and survey setup", stations:8, capex:0.08, dur:2, risk:12, accessDays:6, stages:[{cap:8,durFrac:1}]},
+    {id:"M12", label:"Twelve stations with data link", stations:12, capex:0.19, dur:4, risk:18, accessDays:12, stages:[{cap:12,durFrac:1}]},
+    {id:"M18", label:"Eighteen stations and field calibration", stations:18, capex:0.36, dur:6, risk:24, accessDays:16, stages:[{cap:12,durFrac:.45},{cap:18,durFrac:.55}]},
+    {id:"M28", label:"Twenty-eight stations and redundant coverage", stations:28, capex:0.62, dur:9, risk:34, accessDays:24, stages:[{cap:12,durFrac:.42},{cap:28,durFrac:.58}]}
   ];
 
-  const servicePlans = [];
-  [8,10,12].forEach(cars=>{
-    [18,21,24,27,30].forEach(tph=>{
-      servicePlans.push({cars,tph});
+  const habitatPlans = [];
+  [20,30,40].forEach(width=>{
+    [2,3,4,5,6].forEach(catchment=>{
+      habitatPlans.push({width,catchment});
     });
   });
 
-
   // BEGIN PURE STUDIO MODEL: a finite compatible implementation relation.
   function normalizeModel(input={}){
-    const defaults={demand:30000,paxPerCar:110,maxTph:30,budgetCap:0,deadlineCap:0,riskCap:0,context:"mixed",feedback:true,governance:"all",strategy:"all",lens:"balanced"};
+    const defaults={demand:300,scenarioFactor:2,maxCatchment:6,budgetCap:0,deadlineCap:0,riskCap:0,context:"mixed",feedback:true,governance:"all",strategy:"all",lens:"balanced"};
     const p={...defaults,...input};
     const cid=typeof p.context==="string"?p.context:p.context?.id;
     p.context=contexts.find(c=>c.id===cid);
-    if(!p.context)throw Error("Choose a declared corridor context.");
-    for(const [k,lo,hi] of [["demand",18000,42000],["paxPerCar",80,150],["maxTph",21,32],["budgetCap",0,2500],["deadlineCap",0,120],["riskCap",0,180]]){
+    if(!p.context)throw Error("Choose a declared landscape context.");
+    for(const [k,lo,hi] of [["demand",40,480],["scenarioFactor",1,3],["maxCatchment",2,6],["budgetCap",0,25],["deadlineCap",0,120],["riskCap",0,180]]){
       if(!Number.isFinite(p[k])||p[k]<lo||p[k]>hi)throw Error(k+" is outside the declared input range.");
     }
     if(typeof p.feedback!=="boolean")throw Error("Feedback must be on or off.");
     if(!governances.some(g=>g.id===p.governance)||!strategies.some(g=>g.id===p.strategy))throw Error("Choose a declared programme alternative.");
     return p;
   }
-  function minSignalForCars(cars){
-    if (cars <= 8) return 18;
-    if (cars <= 10) return 21;
-    return 24;
+  function minFenceForWidth(width){
+    return width<=20 ? 2 : width<=30 ? 3 : 4;
   }
-  function requiredPowerIndex(cars,tph,ctx){
-    const raw = (cars/8) * (tph/18) * ctx.traction;
-    const knockOn = cars<=8 ? 1.0 : cars<=10 ? 1.18 : 1.42;
-    return Math.max(raw, knockOn);
+  function requiredStations(width,fenceKm,ctx){
+    // Installed stations must cover the full required envelope, rounded up to whole stations.
+    return Math.max(Math.ceil((width/20)*(fenceKm/2)*4*ctx.surveyLoad),width<=20?4:width<=30?6:8);
   }
 
   function pkgCapabilityAt(pkg, t, starts, subsystem){
     // returns current capability at time t.
-    const base = subsystem==="platform" ? 8 : subsystem==="signal" ? 18 : 1.0;
+    const base = subsystem==="crossing" ? 20 : subsystem==="fence" ? 2 : 4;
     if (pkg.dur===0) return pkg.stages[pkg.stages.length-1].cap;
     let prevCap = base;
     for (let i=0;i<pkg.stages.length;i++){
@@ -998,7 +997,7 @@
     return pkg.stages[pkg.stages.length-1].cap;
   }
 
-  function buildStageSchedule(platform, signal, power, strategy){
+  function buildStageSchedule(crossing, fence, monitoring, strategy){
     // Start times for each stage of each subsystem.
     // We store arrays with stage-starts aligned with pkg.stages.
     const makeStarts = (pkg, start0)=> {
@@ -1010,43 +1009,43 @@
 
     if(strategy.type === "fasttrack"){
       return {
-        platform: makeStarts(platform, 0),
-        signal: makeStarts(signal, 0),
-        power: makeStarts(power, 0)
+        crossing: makeStarts(crossing, 0),
+        fence: makeStarts(fence, 0),
+        monitoring: makeStarts(monitoring, 0)
       };
     }
 
     if(strategy.type === "civilsFirst"){
-      const pStarts = makeStarts(platform, 0);
-      const pEnd = lastEnd(platform, pStarts);
-      const sStarts = makeStarts(signal, pEnd);
-      const sEnd = lastEnd(signal, sStarts);
-      const wStarts = makeStarts(power, sEnd);
-      return {platform:pStarts, signal:sStarts, power:wStarts};
+      const pStarts = makeStarts(crossing, 0);
+      const pEnd = lastEnd(crossing, pStarts);
+      const sStarts = makeStarts(fence, pEnd);
+      const sEnd = lastEnd(fence, sStarts);
+      const wStarts = makeStarts(monitoring, sEnd);
+      return {crossing:pStarts, fence:sStarts, monitoring:wStarts};
     }
 
     if(strategy.type === "systemsFirst"){
-      const sStarts = makeStarts(signal, 0);
-      const wStarts = makeStarts(power, 0);
-      const sysEnd = Math.max(lastEnd(signal,sStarts), lastEnd(power,wStarts));
-      const pStarts = makeStarts(platform, sysEnd);
-      return {platform:pStarts, signal:sStarts, power:wStarts};
+      const sStarts = makeStarts(fence, 0);
+      const wStarts = makeStarts(monitoring, 0);
+      const sysEnd = Math.max(lastEnd(fence,sStarts), lastEnd(monitoring,wStarts));
+      const pStarts = makeStarts(crossing, sysEnd);
+      return {crossing:pStarts, fence:sStarts, monitoring:wStarts};
     }
 
     // matched: synchronize corresponding stage bands; packages may have 1 or 2 stages
     const pArr=[], sArr=[], wArr=[];
-    const maxStages = Math.max(platform.stages.length, signal.stages.length, power.stages.length);
+    const maxStages = Math.max(crossing.stages.length, fence.stages.length, monitoring.stages.length);
     let cur=0;
     for(let i=0;i<maxStages;i++){
-      const pDur = i<platform.stages.length ? platform.stages[i].durFrac*platform.dur : 0;
-      const sDur = i<signal.stages.length ? signal.stages[i].durFrac*signal.dur : 0;
-      const wDur = i<power.stages.length ? power.stages[i].durFrac*power.dur : 0;
-      if(i<platform.stages.length) pArr.push(cur);
-      if(i<signal.stages.length) sArr.push(cur);
-      if(i<power.stages.length) wArr.push(cur);
+      const pDur = i<crossing.stages.length ? crossing.stages[i].durFrac*crossing.dur : 0;
+      const sDur = i<fence.stages.length ? fence.stages[i].durFrac*fence.dur : 0;
+      const wDur = i<monitoring.stages.length ? monitoring.stages[i].durFrac*monitoring.dur : 0;
+      if(i<crossing.stages.length) pArr.push(cur);
+      if(i<fence.stages.length) sArr.push(cur);
+      if(i<monitoring.stages.length) wArr.push(cur);
       cur += Math.max(pDur,sDur,wDur);
     }
-    return {platform:pArr, signal:sArr, power:wArr};
+    return {crossing:pArr, fence:sArr, monitoring:wArr};
   }
 
   function lastEnd(pkg, starts){
@@ -1056,27 +1055,27 @@
   }
 
   function capabilityFraction(subsystem, cap, required){
-    if(subsystem==="platform"){
-      const base=8;
+    if(subsystem==="crossing"){
+      const base=20;
       if(required <= base) return 1;
       return clamp((cap-base)/(required-base), 0, 1);
     }
-    if(subsystem==="signal"){
-      const base=18;
+    if(subsystem==="fence"){
+      const base=2;
       if(required <= base) return 1;
       return clamp((cap-base)/(required-base), 0, 1);
     }
     return 1;
   }
-  function capabilityFractionPower(cap, required){
-    const base=1.0;
+  function capabilityFractionMonitoring(cap, required){
+    const base=4;
     if(required <= base + 1e-9) return 1;
     return clamp((cap-base)/(required-base), 0, 1);
   }
 
-  function computeMismatchAndTimeline(platform, signal, power, reqCars, reqTph, reqPower, strategy){
-    const sched = buildStageSchedule(platform, signal, power, strategy);
-    const tEnd = Math.max(lastEnd(platform, sched.platform), lastEnd(signal, sched.signal), lastEnd(power, sched.power), 1);
+  function computeMismatchAndTimeline(crossing, fence, monitoring, reqWidth, reqFence, reqStations, strategy){
+    const sched = buildStageSchedule(crossing, fence, monitoring, strategy);
+    const tEnd = Math.max(lastEnd(crossing, sched.crossing), lastEnd(fence, sched.fence), lastEnd(monitoring, sched.monitoring), 1);
     const samples = 120;
     let mismatchArea = 0;
     let deliveredArea = 0;
@@ -1085,12 +1084,12 @@
 
     for(let i=0;i<=samples;i++){
       const t = tEnd * i / samples;
-      const pCap = pkgCapabilityAt(platform, t, sched.platform, "platform");
-      const sCap = pkgCapabilityAt(signal, t, sched.signal, "signal");
-      const wCap = pkgCapabilityAt(power, t, sched.power, "power");
-      const pFrac = capabilityFraction("platform", pCap, reqCars);
-      const sFrac = capabilityFraction("signal", sCap, reqTph);
-      const wFrac = capabilityFractionPower(wCap, reqPower);
+      const pCap = pkgCapabilityAt(crossing, t, sched.crossing, "crossing");
+      const sCap = pkgCapabilityAt(fence, t, sched.fence, "fence");
+      const wCap = pkgCapabilityAt(monitoring, t, sched.monitoring, "monitoring");
+      const pFrac = capabilityFraction("crossing", pCap, reqWidth);
+      const sFrac = capabilityFraction("fence", sCap, reqFence);
+      const wFrac = capabilityFractionMonitoring(wCap, reqStations);
       const delivered = Math.min(pFrac, sFrac, wFrac);
       const spread = Math.max(pFrac,sFrac,wFrac) - delivered;
       if(i>0){
@@ -1107,28 +1106,28 @@
 
   // These exact typed joins select the compatible subset of the Cartesian product.
   function compatibility(sp,p,s,w,context){
-    const effReqTph=Math.max(sp.tph,minSignalForCars(sp.cars));
-    const reqPower=requiredPowerIndex(sp.cars,effReqTph,context);
+    const reqFence=Math.max(sp.catchment,minFenceForWidth(sp.width));
+    const reqStations=requiredStations(sp.width,reqFence,context);
     return [
-      {port:"Train length → platform envelope",unit:"cars",provided:p.cars,required:sp.cars,met:p.cars>=sp.cars},
-      {port:"Service plan → signalling capability",unit:"tph",provided:s.tph,required:effReqTph,met:s.tph>=effReqTph},
-      {port:"Train length + frequency → power",unit:"index",provided:w.index,required:reqPower,met:w.index>=reqPower}
+      {port:"Planned width → crossing envelope",unit:"m",provided:p.width,required:sp.width,met:p.width>=sp.width},
+      {port:"Catchment + width → guide fencing",unit:"km",provided:s.catchment,required:reqFence,met:s.catchment>=reqFence},
+      {port:"Width + required fencing → monitoring",unit:"stations",provided:w.stations,required:reqStations,met:w.stations>=reqStations}
     ];
   }
-  function feedbackResources(baseDuration,baseRisk,rework,possessions,alpha,enabled){
-    if([baseDuration,baseRisk,rework,possessions,alpha].some(x=>!Number.isFinite(x)||x<0))throw Error("The resource evaluator needs finite nonnegative inputs.");
-    const offset=rework+0.10*possessions;
-    if(!enabled)return {months:baseDuration+offset,risk:baseRisk+0.18*possessions+0.30*rework,approvalsDelay:0,loopTrace:[{k:0,months:baseDuration+offset,risk:baseRisk+0.18*possessions+0.30*rework}],converged:true};
+  function feedbackResources(baseDuration,baseRisk,rework,accessDays,alpha,enabled){
+    if([baseDuration,baseRisk,rework,accessDays,alpha].some(x=>!Number.isFinite(x)||x<0))throw Error("The resource evaluator needs finite nonnegative inputs.");
+    const offset=rework+0.10*accessDays;
+    if(!enabled)return {months:baseDuration+offset,risk:baseRisk+0.18*accessDays+0.30*rework,approvalsDelay:0,loopTrace:[{k:0,months:baseDuration+offset,risk:baseRisk+0.18*accessDays+0.30*rework}],converged:true};
     const slope=0.42*alpha;
     if(slope>=1)throw Error("This scalar feedback map has no supported finite contraction solution.");
-    const risk=(baseRisk+0.72*rework+0.222*possessions)/(1-slope);
+    const risk=(baseRisk+0.72*rework+0.222*accessDays)/(1-slope);
     const months=baseDuration+offset+alpha*risk;
     if(!Number.isFinite(months)||!Number.isFinite(risk))throw Error("The scalar resource calculation is not finite.");
     // Trace teaches convergence; the resource result above uses the exact affine solution.
     const loopTrace=[];let r=0;
     for(let k=0;k<20;k++){
       const m=baseDuration+offset+alpha*r;
-      const next=baseRisk+0.42*(m-baseDuration)+0.18*possessions+0.30*rework;
+      const next=baseRisk+0.42*(m-baseDuration)+0.18*accessDays+0.30*rework;
       loopTrace.push({k,months:m,risk:next});
       if(Math.abs(next-r)<0.0001)break;
       r=next;
@@ -1137,33 +1136,34 @@
     return {months,risk,approvalsDelay:alpha*risk,loopTrace,converged:true};
   }
   function baselineImplementation(inputs){
-    const sp={cars:8,tph:18},p=platformPkgs[0],s=signalPkgs[0],w=powerPkgs[0];
+    const sp={width:20,catchment:2},p=crossingPkgs[0],s=fencePkgs[0],w=monitoringPkgs[0];
     const joins=compatibility(sp,p,s,w,inputs.context);
-    if(sp.tph>inputs.maxTph||!joins.every(x=>x.met))return null;
-    return {id:"existing",kind:"existing",servicePlan:{...sp,pphpd:8*18*inputs.paxPerCar,effReqTph:joins[1].required,reqPower:joins[2].required},packages:{platform:p,signal:s,power:w},compatibility:joins,
-      governance:{id:"none",label:"No works programme"},strategy:{id:"none",type:"none",label:"Existing railway"},
-      timeline:{schedule:{platform:[0],signal:[0],power:[0]},tEnd:0,mismatchArea:0,deliveredArea:0,trace:[{t:0,pFrac:1,sFrac:1,wFrac:1,delivered:1}]},
-      overbuild:0,mismatch:0,res:{capex:0,months:0,risk:0,possessions:0},clock:{baseWorks:0,contextWorks:0,rework:0,possessionDelay:0,approvalsDelay:0,total:0},
+    if(sp.catchment>inputs.maxCatchment||!joins.every(x=>x.met))return null;
+    return {id:"existing",kind:"existing",habitatPlan:{...sp,modelCrossings:20*2*inputs.scenarioFactor,reqFence:joins[1].required,reqStations:joins[2].required},packages:{crossing:p,fence:s,monitoring:w},compatibility:joins,
+      governance:{id:"none",label:"No works programme"},strategy:{id:"none",type:"none",label:"Existing crossing"},
+      timeline:{schedule:{crossing:[0],fence:[0],monitoring:[0]},tEnd:0,mismatchArea:0,deliveredArea:0,trace:[{t:0,pFrac:1,sFrac:1,wFrac:1,delivered:1}]},
+      overbuild:0,mismatch:0,res:{capex:0,months:0,risk:0,accessDays:0},clock:{baseWorks:0,contextWorks:0,rework:0,accessDelay:0,approvalsDelay:0,total:0},
       loopTrace:[],feedbackEnabled:false,converged:true};
   }
   function evaluateImplementation(sp,p,s,w,gov,strat,inputs){
     const joins=compatibility(sp,p,s,w,inputs.context);
     if(!joins.every(x=>x.met))return null;
-    const effReqTph=joins[1].required,reqPower=joins[2].required;
-    const timeline=computeMismatchAndTimeline(p,s,w,sp.cars,effReqTph,reqPower,strat);
-    const overbuild=Math.max(0,p.cars/sp.cars-1)+Math.max(0,s.tph/effReqTph-1)+Math.max(0,w.index/reqPower-1);
-    const capex=(p.capex+s.capex+w.capex)*inputs.context.costMult*gov.costFactor+strat.costPremium+gov.transactionCost+overbuild*35;
-    const possessions=(p.possessions+s.possessions+w.possessions)*inputs.context.possessionMult*gov.possessionFactor*(strat.type==="fasttrack"?0.88:strat.type==="matched"?0.93:1);
+    const reqFence=joins[1].required,reqStations=joins[2].required;
+    const timeline=computeMismatchAndTimeline(p,s,w,sp.width,reqFence,reqStations,strat);
+    const overbuild=Math.max(0,p.width/sp.width-1)+Math.max(0,s.catchment/reqFence-1)+Math.max(0,w.stations/reqStations-1);
+    const capex=(p.capex+s.capex+w.capex)*inputs.context.costMult*gov.costFactor+strat.costPremium+gov.transactionCost+overbuild*0.35;
+    const accessDays=(p.accessDays+s.accessDays+w.accessDays)*inputs.context.accessMult*gov.accessFactor*(strat.type==="fasttrack"?0.88:strat.type==="matched"?0.93:1);
+    if(!Number.isFinite(capex)||capex<0||!Number.isFinite(accessDays)||accessDays<0)throw Error("Programme resources must be finite and nonnegative.");
     const baseDuration=timeline.tEnd*inputs.context.durMult;
     const baseRisk=p.risk+s.risk+w.risk+inputs.context.riskOffset+gov.riskOffset+strat.baseRisk+18*overbuild;
     const rework=timeline.mismatchArea*gov.mismatchFactor*(strat.type==="matched"?0.55:strat.type==="fasttrack"?1:strat.type==="civilsFirst"?1.25:0.95);
-    const loop=feedbackResources(baseDuration,baseRisk,rework,possessions,gov.approvalAlpha,inputs.feedback);
-    return {id:[sp.cars,sp.tph,p.id,s.id,w.id,gov.id,strat.id].join("/"),kind:"works",servicePlan:{...sp,pphpd:sp.cars*sp.tph*inputs.paxPerCar,effReqTph,reqPower},packages:{platform:p,signal:s,power:w},compatibility:joins,governance:gov,strategy:strat,timeline,overbuild,mismatch:timeline.mismatchArea,
-      res:{capex,months:loop.months,risk:loop.risk,possessions},clock:{baseWorks:timeline.tEnd,contextWorks:baseDuration,rework,possessionDelay:possessions*0.1,approvalsDelay:loop.approvalsDelay,total:loop.months},loopTrace:loop.loopTrace,feedbackEnabled:inputs.feedback,converged:loop.converged};
+    const loop=feedbackResources(baseDuration,baseRisk,rework,accessDays,gov.approvalAlpha,inputs.feedback);
+    return {id:[sp.width,sp.catchment,p.id,s.id,w.id,gov.id,strat.id].join("/"),kind:"works",habitatPlan:{...sp,modelCrossings:sp.width*sp.catchment*inputs.scenarioFactor,reqFence,reqStations},packages:{crossing:p,fence:s,monitoring:w},compatibility:joins,governance:gov,strategy:strat,timeline,overbuild,mismatch:timeline.mismatchArea,
+      res:{capex,months:loop.months,risk:loop.risk,accessDays},clock:{baseWorks:timeline.tEnd,contextWorks:baseDuration,rework,accessDelay:accessDays*0.1,approvalsDelay:loop.approvalsDelay,total:loop.months},loopTrace:loop.loopTrace,feedbackEnabled:inputs.feedback,converged:loop.converged};
   }
   function queryModel(input={}){
     const inputs=normalizeModel(input),all=[];
-    const diagnostics={servicePlansMeetingTarget:0,compatibleImplementations:0,ceilingRejected:0,calculationFailures:[],baselineCompatible:false,baselineCapacity:0};
+    const diagnostics={habitatPlansMeetingTarget:0,compatibleImplementations:0,ceilingRejected:0,calculationFailures:[],baselineCompatible:false,baselineCapacity:0};
     const govs=governances.filter(g=>g.id!=="all"&&(inputs.governance==="all"||g.id===inputs.governance));
     const strats=strategies.filter(s=>s.id!=="all"&&(inputs.strategy==="all"||s.id===inputs.strategy));
     const accept=plan=>{
@@ -1172,16 +1172,16 @@
       all.push(plan);
     };
     const baseline=baselineImplementation(inputs);
-    diagnostics.baselineCompatible=!!baseline;diagnostics.baselineCapacity=baseline?.servicePlan.pphpd||0;
-    if(baseline&&baseline.servicePlan.pphpd>=inputs.demand)accept(baseline);
-    for(const sp of servicePlans){
+    diagnostics.baselineCompatible=!!baseline;diagnostics.baselineCapacity=baseline?.habitatPlan.modelCrossings||0;
+    if(baseline&&baseline.habitatPlan.modelCrossings>=inputs.demand)accept(baseline);
+    for(const sp of habitatPlans){
       // Demand filters fixed implementations; it never changes their resource evaluation.
-      if(sp.tph>inputs.maxTph||sp.cars*sp.tph*inputs.paxPerCar<inputs.demand)continue;
-      diagnostics.servicePlansMeetingTarget++;
-      const reqTph=Math.max(sp.tph,minSignalForCars(sp.cars)),reqPower=requiredPowerIndex(sp.cars,reqTph,inputs.context);
-      for(const p of platformPkgs.filter(x=>x.cars>=sp.cars))for(const s of signalPkgs.filter(x=>x.tph>=reqTph))for(const w of powerPkgs.filter(x=>x.index>=reqPower)){
+      if(sp.catchment>inputs.maxCatchment||sp.width*sp.catchment*inputs.scenarioFactor<inputs.demand)continue;
+      diagnostics.habitatPlansMeetingTarget++;
+      const reqFence=Math.max(sp.catchment,minFenceForWidth(sp.width)),reqStations=requiredStations(sp.width,reqFence,inputs.context);
+      for(const p of crossingPkgs.filter(x=>x.width>=sp.width))for(const s of fencePkgs.filter(x=>x.catchment>=reqFence))for(const w of monitoringPkgs.filter(x=>x.stations>=reqStations)){
         // The all-baseline tuple is the no-project option; do not invent a programme around it.
-        if(p.id==="P0"&&s.id==="S0"&&w.id==="W0")continue;
+        if(p.id==="C0"&&s.id==="F0"&&w.id==="M0")continue;
         for(const gov of govs)for(const strat of strats){
           try{const plan=evaluateImplementation(sp,p,s,w,gov,strat,inputs);if(plan)accept(plan);}
           catch(e){diagnostics.calculationFailures.push({implementation:[p.id,s.id,w.id,gov.id,strat.id].join("/"),message:e.message});}
@@ -1191,8 +1191,8 @@
     return {inputs,all,pareto:pareto(all),diagnostics,complete:diagnostics.calculationFailures.length===0};
   }
   function dominates(a,b){
-    const le = a.capex <= b.capex && a.months <= b.months && a.risk <= b.risk && a.possessions <= b.possessions;
-    const lt = a.capex < b.capex || a.months < b.months || a.risk < b.risk || a.possessions < b.possessions;
+    const le = a.capex <= b.capex && a.months <= b.months && a.risk <= b.risk && a.accessDays <= b.accessDays;
+    const lt = a.capex < b.capex || a.months < b.months || a.risk < b.risk || a.accessDays < b.accessDays;
     return le && lt;
   }
 
@@ -1206,42 +1206,42 @@
       }
       if(!discard) mins.push(p);
     }
-    mins.sort((a,b)=>(a.res.capex-b.res.capex)||(a.res.months-b.res.months)||(a.res.risk-b.res.risk)||(a.res.possessions-b.res.possessions));
+    mins.sort((a,b)=>(a.res.capex-b.res.capex)||(a.res.months-b.res.months)||(a.res.risk-b.res.risk)||(a.res.accessDays-b.res.accessDays));
     return mins;
   }
 
   function chooseHighlighted(plans, lens){
     if(!plans.length) return null;
-    const priority={cheapest:"capex",fastest:"months",lowestRisk:"risk",leastDisruption:"possessions"}[lens];
-    if(priority){const fields=[priority,...["capex","months","risk","possessions"].filter(k=>k!==priority)];return plans.slice().sort((a,b)=>{for(const k of fields){const delta=a.res[k]-b.res[k];if(delta)return delta;}return String(a.id).localeCompare(String(b.id));})[0];}
-    const xs = plans.map(p=>p.res.capex), ys=plans.map(p=>p.res.months), rs=plans.map(p=>p.res.risk), ps=plans.map(p=>p.res.possessions);
+    const priority={cheapest:"capex",fastest:"months",lowestRisk:"risk",leastDisruption:"accessDays"}[lens];
+    if(priority){const fields=[priority,...["capex","months","risk","accessDays"].filter(k=>k!==priority)];return plans.slice().sort((a,b)=>{for(const k of fields){const delta=a.res[k]-b.res[k];if(delta)return delta;}return String(a.id).localeCompare(String(b.id));})[0];}
+    const xs = plans.map(p=>p.res.capex), ys=plans.map(p=>p.res.months), rs=plans.map(p=>p.res.risk), ps=plans.map(p=>p.res.accessDays);
     const rng = arr => ({min:Math.min(...arr), max:Math.max(...arr)});
     const nx = rng(xs), ny=rng(ys), nr=rng(rs), np=rng(ps);
     const norm = (v,r)=>(v-r.min)/((r.max-r.min)||1);
     let weights;
-    if(lens==="cheapest") weights = {capex:.55, months:.20, risk:.15, possessions:.10};
-    else if(lens==="fastest") weights = {capex:.15, months:.55, risk:.20, possessions:.10};
-    else if(lens==="lowestRisk") weights = {capex:.10, months:.20, risk:.55, possessions:.15};
-    else if(lens==="leastDisruption") weights = {capex:.15, months:.20, risk:.15, possessions:.50};
-    else weights = {capex:.30, months:.28, risk:.26, possessions:.16};
+    if(lens==="cheapest") weights = {capex:.55, months:.20, risk:.15, accessDays:.10};
+    else if(lens==="fastest") weights = {capex:.15, months:.55, risk:.20, accessDays:.10};
+    else if(lens==="lowestRisk") weights = {capex:.10, months:.20, risk:.55, accessDays:.15};
+    else if(lens==="leastDisruption") weights = {capex:.15, months:.20, risk:.15, accessDays:.50};
+    else weights = {capex:.30, months:.28, risk:.26, accessDays:.16};
     return plans.reduce((best,p)=>{
-      const score = weights.capex*norm(p.res.capex,nx) + weights.months*norm(p.res.months,ny) + weights.risk*norm(p.res.risk,nr) + weights.possessions*norm(p.res.possessions,np);
+      const score = weights.capex*norm(p.res.capex,nx) + weights.months*norm(p.res.months,ny) + weights.risk*norm(p.res.risk,nr) + weights.accessDays*norm(p.res.accessDays,np);
       return !best || score < best.score ? {plan:p, score} : best;
     }, null).plan;
   }
 
 
-  globalThis.ProgrammeStudioModel={version:"2.0.0",normalize:normalizeModel,query:queryModel,compatibility,evaluateImplementation,baselineImplementation,feedbackResources,
-    catalogues:{contexts,governances,strategies,platformPkgs,signalPkgs,powerPkgs,servicePlans}};
+  globalThis.ProgrammeStudioModel={version:"3.0.0",normalize:normalizeModel,query:queryModel,compatibility,evaluateImplementation,baselineImplementation,feedbackResources,
+    catalogues:{contexts,governances,strategies,crossingPkgs,fencePkgs,monitoringPkgs,habitatPlans}};
   // END PURE STUDIO MODEL
 
   const els = {
     demand: document.getElementById("demand"),
     demandOut: document.getElementById("demandOut"),
-    paxPerCar: document.getElementById("paxPerCar"),
-    paxOut: document.getElementById("paxOut"),
-    maxTph: document.getElementById("maxTph"),
-    maxTphOut: document.getElementById("maxTphOut"),
+    scenarioFactor: document.getElementById("scenarioFactor"),
+    factorOut: document.getElementById("factorOut"),
+    maxCatchment: document.getElementById("maxCatchment"),
+    maxCatchmentOut: document.getElementById("maxCatchmentOut"),
     budgetCap: document.getElementById("budgetCap"),
     budgetOut: document.getElementById("budgetOut"),
     deadlineCap: document.getElementById("deadlineCap"),
@@ -1313,8 +1313,8 @@
   function getContext(){ return contexts.find(c=>c.id===els.context.value) || contexts[1]; }
   function updateLabels(){
     els.demandOut.textContent = Number(els.demand.value).toLocaleString();
-    els.paxOut.textContent = els.paxPerCar.value;
-    els.maxTphOut.textContent = els.maxTph.value;
+    els.factorOut.textContent = els.scenarioFactor.value;
+    els.maxCatchmentOut.textContent = els.maxCatchment.value;
     els.budgetOut.textContent = Number(els.budgetCap.value).toLocaleString();
     els.deadlineOut.textContent = Number(els.deadlineCap.value).toLocaleString();
     els.riskOut.textContent = Number(els.riskCap.value).toLocaleString();
@@ -1328,8 +1328,8 @@
   function readInputs(){
     return {
       demand: Number(els.demand.value),
-      paxPerCar: clamp(Number(els.paxPerCar.value), 80, 150),
-      maxTph: clamp(Number(els.maxTph.value), 21, 32),
+      scenarioFactor: clamp(Number(els.scenarioFactor.value), 1, 3),
+      maxCatchment: clamp(Number(els.maxCatchment.value), 2, 6),
       budgetCap: Math.max(0, Number(els.budgetCap.value)),
       deadlineCap: Math.max(0, Number(els.deadlineCap.value)),
       riskCap: Math.max(0, Number(els.riskCap.value)),
@@ -1460,20 +1460,20 @@
   }
 
   function buildTable(mins){
-    let html = "<thead><tr><th>service plan</th><th>platform</th><th>signalling</th><th>power</th><th>governance</th><th>strategy</th><th>£m</th><th>mo</th><th>risk</th><th>poss.</th></tr></thead><tbody>";
+    let html = "<thead><tr><th>habitat plan</th><th>crossing</th><th>fencing</th><th>monitoring</th><th>governance</th><th>strategy</th><th>£m</th><th>mo</th><th>risk</th><th>access days</th></tr></thead><tbody>";
     mins.forEach(p=>{
       const sel = state.selectedId===p.id ? ' class="selected-row" aria-selected="true"' : ' aria-selected="false"';
       html += `<tr data-id="${p.id}" tabindex="0"${sel}>
-        <td><b>${p.servicePlan.cars}</b> cars @ <b>${p.servicePlan.tph}</b> tph<br/><span class="mini">${Math.round(p.servicePlan.pphpd).toLocaleString()} pphpd</span></td>
-        <td>${p.packages.platform.label}</td>
-        <td>${p.packages.signal.label}</td>
-        <td>${p.packages.power.label}</td>
+        <td><b>${p.habitatPlan.width}</b> m / <b>${p.habitatPlan.catchment}</b> km<br/><span class="mini">${Math.round(p.habitatPlan.modelCrossings).toLocaleString()} model crossings/day</span></td>
+        <td>${p.packages.crossing.label}</td>
+        <td>${p.packages.fence.label}</td>
+        <td>${p.packages.monitoring.label}</td>
         <td>${p.governance.label}</td>
         <td>${p.strategy.label}</td>
-        <td>${fmt(p.res.capex,1)}</td>
+        <td>${fmt(p.res.capex,2)}</td>
         <td>${fmt(p.res.months,1)}</td>
         <td>${fmt(p.res.risk,1)}</td>
-        <td>${fmt(p.res.possessions,0)}</td>
+        <td>${fmt(p.res.accessDays,0)}</td>
       </tr>`;
     });
     html += "</tbody>";
@@ -1661,36 +1661,30 @@
     el("path",{d:"M 0 0 L 10 5 L 0 10 z",fill:"#ff7b72"},mR);
 
     if(dep){
-      box(30,70,180,110,"Task planner",["throughput target","→ cars × tph"],"rgba(126,231,135,.35)");
-      box(280,30,180,110,"Platform",["provides train length","requires £, months, possessions"],"rgba(126,231,135,.35)");
-      box(280,200,180,110,"Signalling",["provides modelled tph","requires £, months, approvals"],"rgba(126,231,135,.35)");
-      box(540,115,180,110,"Power",["provides power envelope","requires £, months, access"],"rgba(126,231,135,.35)");
-      box(720,30,150,110,"Governance",["interface discipline","claims / approvals"],"rgba(255,123,114,.35)");
-
-      el("line",{x1:210,y1:120,x2:280,y2:82,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
-      text(250,90,"cars",11,"#7ee787","700");
-      el("line",{x1:210,y1:128,x2:280,y2:250,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
-      text(238,214,"tph",11,"#7ee787","700");
-      el("line",{x1:210,y1:132,x2:540,y2:170,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
-      text(390,177,"cars × tph → power",11,"#7ee787","700");
-      el("line",{x1:460,y1:82,x2:540,y2:155,stroke:"#7ee787","stroke-width":3,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
-      text(550,78,"longer train → systems",11,"#7ee787","700");
-      el("line",{x1:720,y1:165,x2:790,y2:140,stroke:"#ff7b72","stroke-width":3,"marker-end":"url(#arrowR)"});
-      text(805,182,"approvals",11,"#ff7b72","700");
-
-      el("line",{x1:795,y1:140,x2:795,y2:220,stroke:"#ff7b72","stroke-width":3,"marker-end":"url(#arrowR)"});
-      el("line",{x1:795,y1:220,x2:460,y2:255,stroke:"#ff7b72","stroke-width":3,"marker-end":"url(#arrowR)"});
-      text(620,275,"programme loop",11,"#ff7b72","700");
-      text(24,26,"Logical dependency view: what each subsystem needs in order for the corridor function to be credible.",12,"#b9c4e3","600","start");
+      const chosen=state.all.find(p=>p.id===state.selectedId);
+      const checks=chosen?.compatibility;
+      box(310,20,280,85,"Habitat plan",chosen?[`${chosen.habitatPlan.width} m width · ${chosen.habitatPlan.catchment} km catchment`,`${chosen.habitatPlan.modelCrossings} model crossings/day (fictional)`]:["width × catchment × scenario coefficient","choose a plan to inspect its checks"],"rgba(126,231,135,.35)");
+      const specs=[{x:20,title:"Crossing width",key:"crossing"},{x:330,title:"Guide fencing",key:"fence"},{x:640,title:"Monitoring coverage",key:"monitoring"}];
+      specs.forEach((d,i)=>{
+        const j=checks?.[i];
+        box(d.x,160,240,100,d.title,j?[`${chosen.packages[d.key].id}: ${j.provided} ${j.unit} provided`,`${j.required} ${j.unit} required · ${j.met?"MEETS":"FAILS"}`]:["provides a typed capability","requires programme resources"],"rgba(126,231,135,.35)");
+        const cx=d.x+120;
+        el("line",{x1:cx,y1:160,x2:450,y2:105,stroke:"#7ee787","stroke-width":2,"stroke-dasharray":"7 7","marker-end":"url(#arrowG)"});
+        el("line",{x1:cx,y1:260,x2:450,y2:320,stroke:"#ff7b72","stroke-width":2,"marker-end":"url(#arrowR)"});
+      });
+      box(250,320,400,95,"Programme resources",["£m · months · risk index · access-day equivalents","delivery arrangement + one supplied staging strategy"],"rgba(255,123,114,.35)");
+      const link=el("a",{href:"#component-compatibility"});
+      const label=el("text",{x:450,y:447,fill:"#9cdcfe","font-size":13,"text-anchor":"middle","text-decoration":"underline"},link);
+      label.textContent="Inspect these same checks and the retained package witness in the table";
     } else {
-      box(50,110,150,90,"Passengers",["platform dwell","boarding"],"rgba(156,220,254,.35)");
-      box(270,110,150,90,"Trains",["dispatch","movement authority"],"rgba(156,220,254,.35)");
-      box(490,110,150,90,"Signals",["route set","headway"],"rgba(156,220,254,.35)");
-      box(710,110,150,90,"Power feed",["traction current","recovery"],"rgba(156,220,254,.35)");
-      el("line",{x1:200,y1:155,x2:270,y2:155,stroke:"#9cdcfe","stroke-width":3,"marker-end":"url(#arrowG)"});
-      el("line",{x1:420,y1:155,x2:490,y2:155,stroke:"#9cdcfe","stroke-width":3,"marker-end":"url(#arrowG)"});
-      el("line",{x1:640,y1:155,x2:710,y2:155,stroke:"#9cdcfe","stroke-width":3,"marker-end":"url(#arrowG)"});
-      text(24,26,"Operations flow view: how the railway runs. Useful operationally, but not yet a formal co-design map.",12,"#b9c4e3","600","start");
+      box(20,130,170,95,"Habitat approach",["animal movement","not simulated here"],"rgba(156,220,254,.35)");
+      box(245,130,170,95,"Guide fencing",["guides toward crossing","escape routes matter"],"rgba(156,220,254,.35)");
+      box(470,130,170,95,"Crossing",["vegetated passage","actual use requires evidence"],"rgba(156,220,254,.35)");
+      box(695,130,170,95,"Habitat beyond",["ecological connectivity","not inferred from width"],"rgba(156,220,254,.35)");
+      [190,415,640].forEach(x=>el("line",{x1:x,y1:177,x2:x+55,y2:177,stroke:"#9cdcfe","stroke-width":3,"marker-end":"url(#arrowG)"}));
+      box(360,305,270,85,"Monitoring observes",["camera stations and field surveys","observation is not a passage mechanism"],"rgba(156,220,254,.35)");
+      el("line",{x1:550,y1:305,x2:550,y2:225,stroke:"#9cdcfe","stroke-width":2,"stroke-dasharray":"4 4"});
+      text(24,40,"Conceptual animal movement: distinct from the typed dependency checks in the model.",13,"#b9c4e3","600","start");
     }
   }
 
@@ -1707,49 +1701,46 @@
 
     if(selected.kind==="existing"){
       els.kpiBottleneck.textContent="No new works";els.kpiBottleneckSub.textContent="Existing capabilities meet this task.";
-      els.kpiPlan.textContent="Existing railway";els.kpiPlanSub.textContent="Zero incremental programme resources.";
-      els.selTitle.textContent="The existing railway meets the target";els.selPill.textContent="No works programme";
-      els.selNarrative.innerHTML=`The declared baseline supplies <b>${selected.servicePlan.pphpd.toLocaleString()} pphpd</b> using 8-car trains at 18 tph. No construction or approval programme is needed to meet this request.`;
-      els.executiveText.textContent="The existing platform, signalling and power capabilities satisfy all three component joins. Programme-only governance and staging filters do not remove an already available implementation.";
-      els.planInterpretation.textContent="Zero means no incremental capex, delivery delay, programme risk or possessions. Existing operating cost and operating risk are outside this accounting. This is one baseline option, not a claim about every real railway.";
+      els.kpiPlan.textContent="Existing crossing";els.kpiPlanSub.textContent="Zero incremental programme resources.";
+      els.selTitle.textContent="The existing crossing meets the target";els.selPill.textContent="No works programme";
+      els.selNarrative.innerHTML=`The declared baseline supplies <b>${selected.habitatPlan.modelCrossings.toLocaleString()} model crossings/day</b> using an existing 20 m crossing, 2 km of guided approaches and four camera stations. No construction or approval programme is needed to meet this request.`;
+      els.executiveText.textContent="The existing crossing, fencing and monitoring capabilities satisfy all three component joins. Programme-only governance and staging filters do not remove an already available implementation.";
+      els.planInterpretation.textContent="Zero means no incremental capex, delivery delay, programme risk or access days. Existing operating cost and operating risk are outside this accounting. This is one baseline option, not a claim about every real crossing site.";
       els.alignmentDiagnosis.textContent="The baseline is already available at time zero. There are no new work stages or induced delay to align.";return;
     }
-    const p = selected.packages.platform, s = selected.packages.signal, w = selected.packages.power;
+    const p = selected.packages.crossing, s = selected.packages.fence, w = selected.packages.monitoring;
     const bottlenecks = [
-      {name:"platform", gap:p.cars / selected.servicePlan.cars - 1},
-      {name:"signalling", gap:s.tph / selected.servicePlan.effReqTph - 1},
-      {name:"power", gap:w.index / selected.servicePlan.reqPower - 1}
+      {name:"crossing", gap:p.width / selected.habitatPlan.width - 1},
+      {name:"fencing", gap:s.catchment / selected.habitatPlan.reqFence - 1},
+      {name:"monitoring", gap:w.stations / selected.habitatPlan.reqStations - 1}
     ];
     const dominant = bottlenecks.sort((a,b)=>a.gap-b.gap)[0].name;
     els.kpiBottleneck.textContent = dominant;
-    els.kpiBottleneckSub.textContent = dominant==="platform" ? "Train length is the tightest delivered function." :
-                                       dominant==="signalling" ? "Relative signalling headroom is tightest in this model." :
-                                       "Traction power envelope is tightest.";
+    els.kpiBottleneckSub.textContent = dominant==="crossing" ? "Crossing width has the least relative headroom." :
+                                       dominant==="fencing" ? "Relative fencing headroom is tightest in this model." :
+                                       "Monitoring station coverage has the least relative headroom.";
 
-    els.kpiPlan.textContent = `${selected.servicePlan.cars}c/${selected.servicePlan.tph}tph`;
+    els.kpiPlan.textContent = `${selected.habitatPlan.width}m / ${selected.habitatPlan.catchment}km`;
     els.kpiPlanSub.textContent = `${selected.governance.label} · ${selected.strategy.label}`;
-    els.selTitle.textContent = `${selected.servicePlan.cars}-car / ${selected.servicePlan.tph} tph`;
+    els.selTitle.textContent = `${selected.habitatPlan.width} m crossing / ${selected.habitatPlan.catchment} km catchment`;
     els.selPill.textContent = `${selected.governance.label} · ${selected.strategy.label}`;
     els.selNarrative.innerHTML = `<b>${selected.governance.label}</b> with <b>${selected.strategy.label}</b>:
-      ${selected.packages.platform.label}, ${selected.packages.signal.label}, and ${selected.packages.power.label}.
-      The programme delivers about <b>${Math.round(selected.servicePlan.pphpd).toLocaleString()} pphpd</b>
-      at <b>£${fmt(selected.res.capex,0)}m</b>, <b>${fmt(selected.res.months,1)} months</b>, and a stylised risk index of <b>${fmt(selected.res.risk,1)}</b>.`;
+      ${selected.packages.crossing.label}, ${selected.packages.fence.label}, and ${selected.packages.monitoring.label}.
+      The programme provides a fictional capability of <b>${Math.round(selected.habitatPlan.modelCrossings).toLocaleString()} model crossings/day</b>
+      at <b>£${fmt(selected.res.capex,2)}m</b>, <b>${fmt(selected.res.months,1)} months</b>, and a stylised risk index of <b>${fmt(selected.res.risk,1)}</b>.`;
 
     els.executiveText.innerHTML =
       `This selected plan is one reading of the antichain. The <b>${els.decisionLens.options[els.decisionLens.selectedIndex].text}</b> lens chooses the initial highlight; selecting a table row overrides it.
-      It meets the task by combining a <b>${selected.servicePlan.cars}-car service plan</b> with <b>${selected.servicePlan.tph} tph</b>, while the co-design rules force signalling up to <b>${selected.servicePlan.effReqTph} tph</b> and power to a relative capacity index of <b>${fmt(selected.servicePlan.reqPower,2)}</b>.`;
+      It meets the declared proxy target with a <b>${selected.habitatPlan.width} m crossing</b> and <b>${selected.habitatPlan.catchment} km connected catchment</b>. The catalogue rules require at least <b>${selected.habitatPlan.reqFence} km guide fencing</b> and <b>${selected.habitatPlan.reqStations} camera stations</b>. Monitoring is a commissioning requirement; it does not multiply the proxy or demonstrate animal use.`;
 
     const mismatchLevel = selected.mismatch < 6 ? "low" : selected.mismatch < 16 ? "moderate" : "high";
     els.planInterpretation.innerHTML =
-      `Directorially, this plan says: <b>buy a capacity envelope, not isolated assets</b>. The platform choice forces knock-on system strengthening; the selected governance coefficients set the hypothetical claims and approvals penalty attached to that coupling.
-      This plan carries a <b>${mismatchLevel}</b> stage-mismatch burden (<b>${fmt(selected.mismatch,1)}</b> capacity-month units), so the main management question is whether the organisation can keep subsystem release dates politically aligned.`;
+      `Directorially, this plan says: <b>buy a capacity envelope, not isolated assets</b>. Crossing width and catchment jointly determine fencing and monitoring requirements; the selected governance coefficients set the hypothetical claims and approvals penalty attached to that coupling.
+      This plan carries a <b>${mismatchLevel}</b> stage-mismatch burden (<b>${fmt(selected.mismatch,1)}</b> normalized readiness-month units), so the main management question is whether the organisation can keep subsystem release dates coordinated with ecological and land-access constraints.`;
 
     els.alignmentDiagnosis.innerHTML =
-      `The selected strategy <b>${selected.strategy.label}</b> produces a mismatch burden of <b>${fmt(selected.mismatch,1)}</b>. When the green, blue, and gold curves separate, the red curve follows the <b>minimum</b> of their normalized upgrade readiness. It illustrates coupled progress; it is not a measured or certified operating-capacity curve.`;
+      `The selected strategy <b>${selected.strategy.label}</b> produces a mismatch burden of <b>${fmt(selected.mismatch,1)}</b>. When the green, blue, and gold curves separate, the red curve follows the <b>minimum</b> of their normalized upgrade readiness. It illustrates coupled progress; it is not a measured or validated animal-use curve.`;
 
-    const bottleneckText = dominant==="platform" ? "station works dominate the usable-service boundary" :
-                           dominant==="signalling" ? "headway and regulation dominate the usable-service boundary" :
-                           "power reinforcement dominates the usable-service boundary";
     els.selNarrative.innerHTML += ` Its smallest relative headroom is in the <b>${dominant}</b> package; this is a capability comparison, not a diagnosis of actual operating failure.`;
   }
 
@@ -1759,93 +1750,51 @@
       els.loopNarrative.textContent = "No loop trace available.";
       return;
     }
-    if(!selected.feedbackEnabled){els.loopNarrative.textContent="Feedback is off. This single row shows the declared base schedule, mismatch and possession contributions without recursive approvals feedback.";return;}
+    if(!selected.feedbackEnabled){els.loopNarrative.textContent="Feedback is off. This single row shows the declared base schedule, mismatch and access-day contributions without recursive approvals feedback.";return;}
     const exact=selected.loopTrace[selected.loopTrace.length-1];
     els.loopNarrative.innerHTML=`The resource evaluation uses the <b>exact affine fixed point</b>: ${fmt(exact.months,2)} months and ${fmt(exact.risk,2)} risk units. The earlier rows illustrate iteration from zero; the last row is the algebraic result. No duration or risk cutoff is hidden in the calculation. This is a scalar scenario evaluator, not a general MCDP feedback solver.`;
   }
 
   function buildMcdpl(selected, inputs){
-    if(selected?.kind==="existing"){els.mcdplView.textContent="# Existing-railway implementation (explanatory notation, not executed)\nprovides: "+selected.servicePlan.pphpd+" pphpd\nrequires incremental: (capex=0, months=0, programme_risk=0, possessions=0)\n# Baseline component compatibility is checked; no programme alternative is selected.";return;}
-    const ctx = inputs.context.label;
-    const demand = inputs.demand.toLocaleString();
-    const lines = [];
-    lines.push("mcdp {");
-    lines.push("  # Rail corridor capacity upgrade, rendered as an MCDP-like model");
-    lines.push("");
-    lines.push("  # --- task ---");
-    lines.push(`  provides demand_pphpd [Nat]`);
-    lines.push(`  provided demand_pphpd ≼ ${demand}`);
-    lines.push("");
-    lines.push("  # --- internal service plan (enumerated in JS here) ---");
-    lines.push("  # choose cars ∈ {8,10,12}, tph ∈ {18,21,24,27,30}");
-    lines.push(`  pax_per_car = ${inputs.paxPerCar}`);
-    lines.push("  # cars * tph * pax_per_car ≥ demand_pphpd");
-    lines.push("");
-    lines.push("  # --- alternatives / catalogues ---");
-    lines.push("  platform = choose(");
-    lines.push("    keep8: `Platform_8,");
-    lines.push("    selective10: `Platform_10_Selective,");
-    lines.push("    full10: `Platform_10_Full,");
-    lines.push("    full12: `Platform_12");
-    lines.push("  )");
-    lines.push("  signalling = choose(");
-    lines.push("    fixed: `Signal_18,");
-    lines.push("    reblock: `Signal_21,");
-    lines.push("    etcs: `Signal_24,");
-    lines.push("    hdetcs: `Signal_27,");
-    lines.push("    cbtc: `Signal_30");
-    lines.push("  )");
-    lines.push("  power = choose(");
-    lines.push("    base: `Power_1_00,");
-    lines.push("    feeders: `Power_1_22,");
-    lines.push("    substations: `Power_1_55,");
-    lines.push("    storage: `Power_1_85,");
-    lines.push("    grid: `Power_2_20");
-    lines.push("  )");
-    lines.push("");
-    lines.push("  governance = choose(");
-    lines.push("    alliance: `Gov_Alliance,");
-    lines.push("    multiprime: `Gov_MultiPrime,");
-    lines.push("    stagedgov: `Gov_Staged");
-    lines.push("  )");
-    lines.push("  strategy = choose(");
-    lines.push("    matched: `MatchedRelease,");
-    lines.push("    fasttrack: `FastTrack,");
-    lines.push("    civilsFirst: `CivilsFirst,");
-    lines.push("    systemsFirst: `SystemsFirst");
-    lines.push("  )");
-    lines.push("");
-    lines.push("  # --- co-design constraints ---");
-    lines.push("  # planned train length and frequency determine subsystem capability requirements");
-    lines.push("  required signal_tph ≽ max(tph_needed, tph_knockon_from_cars)");
-    lines.push("  required power_index ≽ max(load_index(cars, signal_tph), power_knockon_from_cars)");
-    lines.push("");
-    lines.push("  # --- resources ---");
-    lines.push("  requires capex [GBP_M]");
-    lines.push("  requires months [month]");
-    lines.push("  requires risk [index]");
-    lines.push("  requires possessions [weekend]");
-    lines.push("  required capex ≽ ∑ capex required by *");
-    lines.push("  required possessions ≽ ∑ possessions required by *");
-    lines.push("  required months ≽ programme_schedule(platform, signalling, power, governance, strategy)");
-    lines.push("  required risk ≽ programme_risk(platform, signalling, power, governance, strategy)");
-    lines.push("");
-    lines.push("  # Optional loop:");
-    lines.push("  # months = base_months + approvals_delay(risk)");
-    lines.push("  # risk   = base_risk + schedule_penalty(months)");
-    if(selected){
-      lines.push("");
-      lines.push("  # highlighted plan under current lens:");
-      lines.push(`  # service = ${selected.servicePlan.cars} cars @ ${selected.servicePlan.tph} tph`);
-      lines.push(`  # platform = ${selected.packages.platform.id}`);
-      lines.push(`  # signalling = ${selected.packages.signal.id}`);
-      lines.push(`  # power = ${selected.packages.power.id}`);
-      lines.push(`  # governance = ${selected.governance.id}`);
-      lines.push(`  # strategy = ${selected.strategy.id}`);
-      lines.push(`  # context = ${ctx}`);
-    }
-    lines.push("}");
-    els.mcdplView.textContent = lines.join("\n");
+    const lines = [
+      "# Explanatory pseudocode; not executed MCDPL",
+      "functionality: model_crossings_per_day ordered by <=",
+      "resources: (GBP_m, months, programme_risk_index, access_day_equivalents)",
+      "# All four resources are minimized coordinatewise, without a common score.",
+      "",
+      "habitat_plan = choose(width_m in {20,30,40}, catchment_km in {2,3,4,5,6})",
+      `model_crossings_per_day = width_m * catchment_km * ${inputs.scenarioFactor}`,
+      `require model_crossings_per_day >= ${inputs.demand}`,
+      `require catchment_km <= ${inputs.maxCatchment}`,
+      "# This proxy is invented; it predicts neither animal use nor ecological benefit.",
+      "",
+      "crossing = choose(C0, C30s, C30f, C40, C40st)",
+      "fencing = choose(F0, F3, F4, F5, F6)",
+      "monitoring = choose(M0, M8, M12, M18, M28)",
+      "required_width = width_m",
+      "required_fence = max(catchment_km, width_m <= 20 ? 2 : width_m <= 30 ? 3 : 4)",
+      `required_stations = max(ceil(width_m/20 * required_fence/2 * 4 * ${inputs.context.surveyLoad}),`,
+      "                        width_m <= 20 ? 4 : width_m <= 30 ? 6 : 8)",
+      "require crossing.width >= required_width",
+      "require fencing.catchment >= required_fence",
+      "require monitoring.stations >= required_stations",
+      "",
+      "# Existing compatible assets meeting the task require (0,0,0,0) incremental resources.",
+      "# Otherwise retain governance and one of FOUR SUPPLIED staging strategies:",
+      "governance = choose(joint_team, separate_contracts, landowner_compact)",
+      "strategy = choose(matched_bands, parallel_starts, crossing_first, approaches_first)",
+      "# Sum package costs; apply context, governance, strategy and overbuild terms.",
+      "# Schedule uses stage starts and durations; normalized readiness mismatch is sampled.",
+      "# This does not generate legal work paths or assess passage during construction.",
+      "",
+      "# If feedback enabled, solve this exact declared affine evaluator:",
+      "r = (B + 0.72*q + 0.222*A) / (1 - 0.42*alpha)",
+      "T = T0 + q + 0.10*A + alpha*r",
+      "# alpha*0.42 < 1 for supplied arrangements; no hidden time/risk thresholds.",
+      "# Ceilings of zero are unconstrained. Retain all compatible minimal resource tuples."
+    ];
+    if(selected)lines.push("",`# Selected witness: ${selected.id}`,`# Packages: ${selected.packages.crossing.id}, ${selected.packages.fence.id}, ${selected.packages.monitoring.id}`,`# ${selected.governance.label}; ${selected.strategy.label}`,`# ${selected.habitatPlan.modelCrossings} model crossings/day; ${inputs.context.label}`);
+    els.mcdplView.textContent=lines.join("\n");
   }
 
 
@@ -1854,13 +1803,14 @@
     if(!selected){box.textContent="Select a plan to inspect the actual component joins.";clock.textContent="No selected timeline.";return;}
     box.innerHTML='<table><thead><tr><th>Joined requirement</th><th>Required</th><th>Provided</th><th>Check</th></tr></thead><tbody>'+selected.compatibility.map(j=>`<tr><td>${j.port}</td><td>${fmt(j.required,2)} ${j.unit}</td><td>${fmt(j.provided,2)} ${j.unit}</td><td>${j.met?"Meets":"Fails"}</td></tr>`).join('')+'</tbody></table>';
     const c=selected.clock;
-    clock.innerHTML=selected.kind==="existing"?"<b>No new works:</b> the baseline implementation is already available; every incremental programme resource is zero.":`<b>Two clocks.</b> The chart spans ${fmt(c.baseWorks,1)} base works months. Context scales those works to ${fmt(c.contextWorks,1)} months; declared mismatch adds ${fmt(c.rework,1)}, possessions ${fmt(c.possessionDelay,1)}, and approvals ${fmt(c.approvalsDelay,1)}. Total programme duration: <b>${fmt(c.total,1)} months</b>. These added delays are not allocated to individual stages.`;
+    clock.innerHTML=selected.kind==="existing"?"<b>No new works:</b> the baseline implementation is already available; every incremental programme resource is zero.":`<b>Two clocks.</b> The chart spans ${fmt(c.baseWorks,1)} base works months. Context scales those works to ${fmt(c.contextWorks,1)} months; declared mismatch adds ${fmt(c.rework,1)}, access days ${fmt(c.accessDelay,1)}, and approvals ${fmt(c.approvalsDelay,1)}. Total programme duration: <b>${fmt(c.total,1)} months</b>. These added delays are not allocated to individual stages.`;
   }
 
   function renderSelection(){
     const selected = state.all.find(p=>p.id===state.selectedId) || null;
     const inputs = readInputs();
     renderCompatibility(selected);
+    renderDependencySvg(state.currentView);
     drawAlignment(selected);
     drawLoop(selected);
     renderIterTable(selected);
@@ -1882,7 +1832,7 @@
       els.kpiPlan.textContent = "—";
       els.kpiBottleneck.textContent = "—";
       const d=state.diagnostics;
-      els.topline.textContent=!state.complete?"A resource calculation failed. This result is incomplete; it is not a proof of infeasibility.":d?.compatibleImplementations?`${d.compatibleImplementations} compatible implementations meet the capacity task, but every one exceeds a declared resource ceiling. Relax a stated ceiling to inspect them.`:"No compatible implementation in the supplied catalogue meets this capacity task and operational maximum. Lower the task, change the declared context, or extend the catalogue; relaxing resource ceilings alone cannot create an implementation.";
+      els.topline.textContent=!state.complete?"A resource calculation failed. This result is incomplete; it is not a proof of infeasibility.":d?.compatibleImplementations?`${d.compatibleImplementations} compatible implementations meet the capacity task, but every one exceeds a declared resource ceiling. Relax a stated ceiling to inspect them.`:"No compatible implementation in the supplied catalogue meets this capacity task and catchment limit. Lower the task, change the declared context, or extend the catalogue; relaxing resource ceilings alone cannot create an implementation.";
       els.dominanceText.textContent = "No feasible frontier to read.";
       state.selectedId=null;
       els.kpiPlanSub.textContent="No plan meets this request.";
@@ -1904,11 +1854,11 @@
     const minRisk = state.pareto.reduce((a,b)=>a.res.risk < b.res.risk ? a : b);
     els.topline.innerHTML =
       `Computed <b>${state.all.length}</b> feasible candidates and a Pareto antichain of <b>${state.pareto.length}</b> plans.
-       Cheapest minimal plan: <b>£${fmt(minCost.res.capex,0)}m</b>. Fastest: <b>${fmt(minMonths.res.months,1)} months</b>. Lowest risk: <b>${fmt(minRisk.res.risk,1)}</b>.`;
+       Cheapest minimal plan: <b>£${fmt(minCost.res.capex,2)}m</b>. Fastest: <b>${fmt(minMonths.res.months,1)} months</b>. Lowest risk: <b>${fmt(minRisk.res.risk,1)}</b>.`;
 
     if(!state.complete)els.topline.innerHTML="<b>Calculation incomplete.</b> Some implementations could not be evaluated; the displayed minima cover only successful calculations. "+els.topline.innerHTML;
-    if(highlighted.kind==="existing")els.topline.innerHTML=`<b>The existing railway already meets this target.</b> Its ${highlighted.servicePlan.pphpd.toLocaleString()} pphpd capability needs no new works. The single minimal resource tuple is (0, 0, 0, 0), for incremental capex, duration, programme risk and possessions.`;
-    els.kpiPlan.textContent = `${highlighted.servicePlan.cars}c/${highlighted.servicePlan.tph}tph`;
+    if(highlighted.kind==="existing")els.topline.innerHTML=`<b>The existing crossing already meets this target.</b> Its ${highlighted.habitatPlan.modelCrossings.toLocaleString()} model crossings/day capability needs no new works. The single minimal resource tuple is (0, 0, 0, 0), for incremental capex, duration, programme risk and access days.`;
+    els.kpiPlan.textContent = `${highlighted.habitatPlan.width}m / ${highlighted.habitatPlan.catchment}km`;
     els.kpiPlanSub.textContent = `${highlighted.governance.label} · ${highlighted.strategy.label}`;
 
     drawFrontier(state.all, state.pareto, state.selectedId);
@@ -1918,7 +1868,7 @@
   }
 
   function solve(){
-    const invalid=[els.demand,els.paxPerCar,els.maxTph,els.budgetCap,els.deadlineCap,els.riskCap].find(el=>!el.checkValidity()||el.value.trim()==="");
+    const invalid=[els.demand,els.scenarioFactor,els.maxCatchment,els.budgetCap,els.deadlineCap,els.riskCap].find(el=>!el.checkValidity()||el.value.trim()==="");
     if(invalid){
       state.all=[];state.pareto=[];state.selectedId=null;
       els.kpiFeasible.textContent="0";els.kpiPareto.textContent="0";els.kpiPlan.textContent="—";els.kpiBottleneck.textContent="—";
@@ -1933,9 +1883,9 @@
   }
 
   function reset(){
-    els.demand.value = 30000;
-    els.paxPerCar.value = 110;
-    els.maxTph.value = 30;
+    els.demand.value = 300;
+    els.scenarioFactor.value = 2;
+    els.maxCatchment.value = 6;
     els.budgetCap.value = 0;
     els.deadlineCap.value = 0;
     els.riskCap.value = 0;
@@ -1963,12 +1913,12 @@
     els.kpiPlan.textContent = "—";
     els.kpiPlanSub.textContent = "Selected using the current recommendation lens.";
     els.kpiBottleneck.textContent = "—";
-    els.kpiBottleneckSub.textContent = "Computed from the selected service plan.";
+    els.kpiBottleneckSub.textContent = "Computed from the selected habitat plan.";
     els.tableCount.textContent = "0 plans";
     els.feasibilityPill.textContent = "Not solved";
     els.feasibilityPill.style.borderColor = "rgba(255,255,255,.10)";
     els.feasibilityPill.style.background = "rgba(255,255,255,.04)";
-    els.topline.innerHTML = `Set the task and press <b>Recompute frontier</b>. The model will choose train length, headway, subsystem packages, governance, and stage strategy, then filter for minimal resource bundles.`;
+    els.topline.innerHTML = `Set the task and press <b>Recompute frontier</b>. The model will choose crossing width, connected catchment, compatible packages, governance, and stage strategy, then filter for minimal resource bundles.`;
     buildNarratives(null, readInputs());
     buildLoopNarrative(null);
     buildMcdpl(null, readInputs());
@@ -1994,7 +1944,7 @@
   });
 
   [
-    els.demand, els.paxPerCar, els.maxTph, els.budgetCap, els.deadlineCap, els.riskCap,
+    els.demand, els.scenarioFactor, els.maxCatchment, els.budgetCap, els.deadlineCap, els.riskCap,
     els.context, els.governanceFilter, els.strategyFilter, els.feedback, els.decisionLens
   ].forEach(el=>{
     el.addEventListener("input", updateLabels);

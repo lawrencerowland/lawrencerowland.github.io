@@ -177,6 +177,8 @@
     "foray-home navigation"
   ],
   "errors": [],
-  "phase": "Local pre-publication verification after curation",
-  "applicationSHA256": "311e01472bfc0e2348870e8c1a30066c7471493b919972ca370379860866442f"
+  "phase": "Historical local pre-publication verification after curation; not rerun for the 27 September wildlife refactor",
+  "applicationSHA256": "311e01472bfc0e2348870e8c1a30066c7471493b919972ca370379860866442f",
+  "edition": "historical rail edition",
+  "currentWildlifeInterfaceVerified": false
 }

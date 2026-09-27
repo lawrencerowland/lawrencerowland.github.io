@@ -1,28 +1,26 @@
 {
-  "modelVersion": "2.0.0",
-  "applicationSHA256": "cfeb50c4c46d0b01c1c3fa515a3028955450a9984463e90fe6a7e4bc9dd61b73",
+  "modelVersion": "3.0.0",
+  "applicationSHA256": "4e479032269b07968d04dfecc911fafa9d7ee515a1fe4dc39921a92534ff9275",
   "independentModelOracle": {
     "status": "PASS",
-    "queries": 28,
-    "oracleCandidates": 15760,
-    "resourceCoordinates": 63040,
-    "frontierComparisons": 28,
-    "monotoneWitnesses": 30818,
+    "queries": 29,
+    "oracleCandidates": 19941,
+    "resourceCoordinates": 79764,
+    "frontierComparisons": 29,
+    "monotoneWitnesses": 23640,
     "typedJoinChecks": 5625,
     "default": {
-      "feasible": 120,
-      "pareto": 24
+      "feasible": 504,
+      "pareto": 12
     },
-    "previouslyFalseInfeasibility": {
-      "feasible": 6,
+    "uncappedCrossingFirst": {
+      "feasible": 38,
       "pareto": 2
     }
   },
   "browser": {
-    "status": "PASS",
-    "assertions": 57,
-    "pageErrors": []
+    "status": "NOT_RUN_FOR_THIS_REFACTOR",
+    "note": "Updated regression script syntax checked; current browser validation is recorded by the parent integration review. Historical rail-model browser assertions are not inherited."
   },
-  "boundary": "Declared finite calculation and local UI checks; no field validation or publication claim.",
-  "finalIntegrationNote": "Trailing whitespace removed after the local check; model and interface unchanged. Publication verification is recorded separately."
+  "boundary": "Declared fictional wildlife programme calculations; no ecological field validation, engineering approval, practitioner adoption or publication claim."
 }

@@ -1,10 +1,13 @@
-# Three surviving essays, with the best explanations preserved
+# Collection curation and preserved explanations
 
-**7 September 2026 addition:** the [temporary-power loop](../apps/rail-power-loop.html) is a new fourth essay, using the Python MCDP package to size a cyclic component system. It retains all three survivors and the retirement decisions below. [Model and source](rail-power-loop/MODEL.md).
+**27 September 2026:** all four active essais now use the wildlife-crossing scenario, preserving the distinct component, path, programme and feedback methods. See the [scenario and method map](wildlife-scenario.md). The power calculation moved to [monitoring power](../apps/monitoring-power-loop.html), with new units and a newly generated package atlas. The record below describes the earlier railway-edition review; its defects and retirement decisions remain historical evidence.
+
+
+**7 September 2026 addition:** the temporary-power loop was a new fourth essay (now [monitoring power](../apps/monitoring-power-loop.html)), using the Python MCDP package to size a cyclic component system. It retains all three survivors and the retirement decisions below. [Model and source](rail-power-loop/MODEL.md).
 
 6 September2026. [Project Co-design](../index.html) · [Categorical-method audit](categorical-co-design.md)
 
-The active collection contains **staged paths**, **programme studio**, and **wildlife crossing**. The studio is repaired; wildlife is rebuilt. Three weaker rail apps are retired as standalone calculations. Their useful ideas remain in the surviving essays rather than depending on an executable predecessor.
+At that review, the active collection contained **staged paths**, **programme studio**, and **wildlife crossing**. The studio is repaired; wildlife is rebuilt. Three weaker rail apps are retired as standalone calculations. Their useful ideas remain in the surviving essays rather than depending on an executable predecessor.
 
 ## Preservation map
 

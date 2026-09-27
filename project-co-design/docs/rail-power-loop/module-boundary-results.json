@@ -158,7 +158,7 @@
     }
   ],
   "directModuleCalls": 48,
-  "modelSha256": "aa38ec827fb07a0d221e99cacc602a81dc8e86cd70c897892cbe43bc7cac612a",
+  "modelSha256": "a95f0bfa4d2c019443b52c82208ea70553f9115bf3e870e999f33d5f353d44db",
   "moduleConfigurations": 12,
   "scope": "Direct module top, zero and first unit-rating boundary only; outer supported domains unchanged.",
   "status": "PASS"

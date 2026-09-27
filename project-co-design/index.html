@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore four co-design essays: deliver a rail upgrade, size temporary power, compare programme choices, and compose a wildlife crossing. Forays 180–182.">
+  <meta name="description" content="Explore four co-design essais through one wildlife-crossing scenario: compose a crossing, build it in stages, compare programmes and power its monitoring. Forays 180–182.">
   <meta name="theme-color" content="#f6f5ed">
+  <link rel="icon" type="image/svg+xml" href="assets/wildlife-emblem.svg">
   <title>Project Co-design · Design the whole promise</title>
   <style>
     :root{--paper:#f6f5ed;--white:#fffef8;--ink:#153937;--muted:#5b6d66;--green:#147669;--soft:#e5ede3;--line:#d7ddd1;--orange:#a9562c;--gold:#e8b273}
@@ -26,7 +27,7 @@
 <div class="wrap" style="padding-top:16px"><a class="text-link" href="https://lawrencerowland.github.io/side-projects.html">← Forays &amp; side projects</a></div>
 <header class="top wrap">
   <a class="brand" href="./" aria-label="Project Co-design home">
-    <svg width="34" height="38" viewBox="0 0 34 38" aria-hidden="true"><path d="M6 4v30M17 4v30M28 4v30M6 12h22M6 26h22" fill="none" stroke="#147669" stroke-width="2"/><circle cx="6" cy="12" r="3" fill="#153937"/><circle cx="17" cy="26" r="3" fill="#153937"/><circle cx="28" cy="12" r="3" fill="#a9562c"/></svg>
+    <img src="assets/wildlife-emblem.svg" width="42" height="42" alt="">
     <span>Project Co-design<small>FORAYS 180 · 181 · 182</small></span>
   </a>
   <nav aria-label="Main navigation"><a href="#questions">Find your question</a><a href="#composition">How the parts fit</a><a href="#sources">Sources</a></nav>
@@ -34,66 +35,62 @@
 <main id="main" class="wrap">
   
 <section class="pw-scenario" aria-label="Scenario and motivating question">
-  <figure><img src="https://lawrencerowland.github.io/images/scenarios/railway.svg" alt="Train passing signalling and works during a staged railway upgrade" width="640" height="400" decoding="async"><figcaption>Illustrative scene; the experiments below state their own assumptions.</figcaption></figure>
-  <div><p class="pw-kicker">Toy scenario</p><h2>Upgrade a railway while keeping a service running.</h2><p>Platforms, signalling and power must fit together. The finished railway may be feasible while the route to it is not: shared crews, access windows and temporary power can change which stages are deliverable. A separate wildlife-crossing example tests the same habit of reasoning about connected choices.</p><p class="pw-question">Can we deliver the whole promise, including the journey to it?</p></div>
+  <figure><img src="assets/wildlife-crossing-scene.svg" alt="Deer on a green crossing, with guiding fences, observation camera and monitoring power cabinet" width="640" height="400" decoding="async"><figcaption>Illustrative scene; the experiments below state their own assumptions.</figcaption></figure>
+  <div><p class="pw-kicker">Toy scenario</p><h2>Reconnect two habitats across a busy road.</h2><p>The deer need a usable route; the project needs a crossing, guiding fences and a way to observe what happens. Those choices bring land, cost, construction and power obligations. Four essais explore different parts of that one promise, using explicit toy assumptions.</p><p class="pw-question">Can we deliver the whole promise, including the journey to it?</p></div>
 </section>
 <section class="hero" aria-labelledby="hero-title">
     <div>
       <p class="eyebrow">A foray into coupled project choices</p>
       <h1 id="hero-title">Design the<br><em>whole promise.</em></h1>
-      <p class="lead">Platforms, signalling and power have to work together. So do the choices that get them built. Explore the railway, the programme and the path between them.</p>
-      <div class="hero-actions"><a class="button" href="apps/staged-paths.html">Find a deliverable path <span aria-hidden="true">↗</span></a><a class="text-link" href="#questions">Choose another question ↓</a></div>
-      <p class="hero-note">Featured experiment · keep service running through the upgrade</p><p class="hero-note"><a href="apps/rail-power-loop.html">New: can temporary power cover its own overhead? ↗</a></p>
+      <p class="lead">A green bridge is a start. Guidance, observation and delivery must fit it—and each other. Follow those obligations through four different co-design methods.</p>
+      <div class="hero-actions"><a class="button" href="apps/wildlife-crossing.html">Compose a whole crossing <span aria-hidden="true">↗</span></a><a class="text-link" href="#questions">Choose another question ↓</a></div>
+      <p class="hero-note">Start with the crossing · then explore how to build and support it</p><p class="hero-note"><a href="apps/monitoring-power-loop.html">Can monitoring power cover its own overhead? ↗</a></p>
     </div>
     <figure class="path-figure">
-      <div class="figure-head"><span>THE WAY THERE COUNTS</span><span>One admissible five-slot path</span></div>
-      <svg viewBox="0 0 510 336" role="img" aria-labelledby="path-title path-description">
-        <title id="path-title">A temporary bridge makes a rail upgrade deliverable</title>
-        <desc id="path-description">In slot one, upgrade signalling and install the bridge. In slot two, upgrade platforms and signalling. Upgrade the grid in slots three and four. In slot five, complete the platforms and return the bridge. The bridge maintains grid service during cutovers and contributes no final permanent capacity.</desc>
-        <g font-size="10" fill="#5b6d66" text-anchor="middle"><text x="159" y="40">SLOT 1</text><text x="230" y="40">2</text><text x="301" y="40">3</text><text x="372" y="40">4</text><text x="443" y="40">5</text></g>
-        <g stroke="#d2dbcc" stroke-dasharray="3 5"><path d="M159 51v210M230 51v210M301 51v210M372 51v210M443 51v210"/></g>
-        <g font-size="11"><text x="25" y="82">Platforms</text><text x="25" y="141">Signalling</text><text x="25" y="200">Grid</text></g>
-        <g fill="none" stroke="#b2c7b7" stroke-width="3"><path d="M133 78h337M133 137h337M133 196h337"/></g>
-        <g fill="#147669"><rect x="213" y="62" width="34" height="32" rx="6"/><rect x="426" y="62" width="34" height="32" rx="6"/><rect x="142" y="121" width="34" height="32" rx="6"/><rect x="213" y="121" width="34" height="32" rx="6"/><rect x="284" y="180" width="34" height="32" rx="6"/><rect x="355" y="180" width="34" height="32" rx="6"/></g>
-        <g stroke="#fffef8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="m223 78 5 5 8-10M436 78l5 5 8-10M152 137l5 5 8-10M223 137l5 5 8-10M294 196l5 5 8-10M365 196l5 5 8-10"/></g>
-        <path d="M159 249h284" stroke="#e8b273" stroke-width="14" stroke-linecap="round"/><circle cx="159" cy="249" r="8" fill="#a9562c"/><circle cx="443" cy="249" r="8" fill="#fffef8" stroke="#a9562c" stroke-width="2"/>
-        <g font-size="10" text-anchor="middle"><text x="159" y="275">Install</text><text x="301" y="252" style="font-size:9px;font-weight:650">TEMPORARY BRIDGE ACTIVE</text><text x="443" y="275">Return</text></g>
-        <path d="M25 302h460" stroke="#cbd7c7"/><text x="25" y="324" style="font-size:10px;fill:#5b6d66">PERMANENT CAPACITY GROWS. SERVICE CONTINUES.</text>
+      <div class="figure-head"><span>ONE SCENARIO · FOUR QUESTIONS</span><span>The connections do the work</span></div>
+      <svg viewBox="0 0 510 330" role="img" aria-labelledby="path-title path-description">
+        <title id="path-title">Four views of the whole crossing</title>
+        <desc id="path-description">A crossing requires guidance and observation. Construction paths govern how those capabilities become available. Programme comparison evaluates delivery assumptions. Monitoring equipment brings a feedback loop of battery, conversion and cooling requirements. The four models are separate, not numerically coupled.</desc>
+        <g fill="none" stroke="#a9bfae" stroke-width="2"><path d="M255 93v26m0 69v28M137 153H80v89h74m219-89h57v89h-74"/><path d="m250 111 5 8 5-8m-5 97 5-8m-5 8-5-8"/></g>
+        <g fill="#fffef8" stroke="#cbd7c7"><rect x="133" y="40" width="244" height="53" rx="8"/><rect x="133" y="119" width="244" height="69" rx="8"/><rect x="154" y="216" width="202" height="53" rx="8"/></g>
+        <g text-anchor="middle"><text x="255" y="62" font-size="13" font-weight="650">CROSSING + GUIDANCE</text><text x="255" y="80" font-size="10">Which complete configuration fits?</text><text x="255" y="144" font-size="13" font-weight="650">OBSERVATION</text><text x="255" y="164" font-size="10">What must be supplied to support it?</text><text x="255" y="237" font-size="13" font-weight="650">MONITORING POWER</text><text x="255" y="255" font-size="10">Can it also supply its own overhead?</text></g>
+        <g text-anchor="middle" font-size="10"><text x="68" y="180" transform="rotate(-90 68 180)">CONSTRUCT A PATH</text><text x="445" y="180" transform="rotate(90 445 180)">COMPARE PROGRAMMES</text></g>
+        <path d="M25 290h460" stroke="#cbd7c7"/><text x="255" y="313" text-anchor="middle" style="font-size:10px;fill:#5b6d66">SHARED QUESTIONS. SEPARATE, DECLARED MODELS.</text>
       </svg>
-      <figcaption><strong>Useful on the journey. Absent at the destination.</strong> A temporary bridge can disappear from the final design and still belong in a least-cost delivery plan.</figcaption>
+      <figcaption><strong>The bridge is only part of the promise.</strong> Connections expose work and resources that an isolated choice can hide. The arrows here guide the investigation; each essai defines its own mathematical interfaces.</figcaption>
     </figure>
   </section>
   <div class="premise"><p>Co-design keeps the requirements and resource trade-offs of connected systems in the same decision.</p><span>ONE INVESTIGATION<br>SEVERAL WAYS IN</span></div>
   <section class="routes" id="questions" aria-labelledby="questions-title">
-    <div class="section-intro"><div><p class="eyebrow">Start with the question you have</p><h2 id="questions-title">Four ways to explore.</h2></div><p>Begin with a delivery path, size the power that enables it, compare programme assumptions, or explore a wildlife crossing. Each essay has its own declared model.</p></div>
+    <div class="section-intro"><div><p class="eyebrow">Start with the question you have</p><h2 id="questions-title">Four ways to explore.</h2></div><p>Start with a complete crossing. Then ask how to deliver it, which programme assumptions matter, and how to support remote observation. Each essai keeps its own units and declared model.</p></div>
     <article class="route">
-      <div class="route-kind">01 · Construct a path</div>
-      <div><h3>Can we keep the whole promise?</h3><p>Require continued service, shared crews, restricted access or an intermediate milestone. Find feasible action sequences and inspect every step behind the resource trade-offs.</p><p class="scope"><strong>Staged path co-design.</strong> Exact finite construction with independently checked witnesses.</p></div>
-      <a class="route-link" href="apps/staged-paths.html">Explore delivery paths <span class="arrow" aria-hidden="true">↗</span></a>
-    </article>
-    <article class="route">
-      <div class="route-kind">02 · Size the enabling work</div>
-      <div><h3>Can temporary power cover its own overhead?</h3><p>Battery racks bring cooling allowances. Cooling needs electricity, and conversion loses some as heat. Follow those requirements around the loop until a complete installation emerges.</p><p class="scope"><strong>New · Temporary power co-design.</strong> Recorded Python MCDP calculations, with independently checked whole-unit implementations.</p></div>
-      <a class="route-link" href="apps/rail-power-loop.html">Explore the power loop <span class="arrow" aria-hidden="true">↗</span></a>
-    </article>
-    <article class="route">
-      <div class="route-kind">03 · Compare programmes</div>
-      <div><h3>Which trade-offs are worth making?</h3><p>Compare compatible packages, governance assumptions and four supplied staging strategies. See how interface mismatch and an illustrative approvals loop affect the alternatives.</p><p class="scope"><strong>Programme co-design studio.</strong> A broader comparison, with an introductory explanation of coupled requirements.</p></div>
-      <a class="route-link" href="apps/programme-studio.html">Open the studio <span class="arrow" aria-hidden="true">↗</span></a>
-    </article>
-    <article class="route">
-      <div class="route-kind">04 · Connect a habitat</div>
+      <div class="route-kind">01 · Connect a habitat</div>
       <div><h3>What makes a crossing work?</h3><p>A bridge is one part of the answer. Compose bridge, fencing and monitoring choices; inspect the complete alternatives and the trade-offs they leave between resources.</p><p class="scope"><strong>Wildlife-crossing co-design.</strong> A finite component model with explicit interfaces and implementation witnesses.</p></div>
       <a class="route-link" href="apps/wildlife-crossing.html">Explore the crossing <span class="arrow" aria-hidden="true">↗</span></a>
     </article>
+    <article class="route">
+      <div class="route-kind">02 · Construct a path</div>
+      <div><h3>Can we keep the whole promise?</h3><p>Require declared corridor readiness, shared crews, restricted access or an intermediate milestone. Find feasible action sequences and inspect every step behind the resource trade-offs.</p><p class="scope"><strong>Staged path co-design.</strong> Exact finite construction with independently checked witnesses.</p></div>
+      <a class="route-link" href="apps/staged-paths.html">Explore delivery paths <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+    <article class="route">
+      <div class="route-kind">03 · Compare programmes</div>
+      <div><h3>Which trade-offs are worth making?</h3><p>Compare crossing, guiding-fence and monitoring packages, governance assumptions and four supplied staging strategies. See how interface mismatch and an illustrative approvals loop affect the alternatives.</p><p class="scope"><strong>Programme co-design studio.</strong> A broader comparison, with an introductory explanation of coupled requirements.</p></div>
+      <a class="route-link" href="apps/programme-studio.html">Open the studio <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+    <article class="route">
+      <div class="route-kind">04 · Size the enabling work</div>
+      <div><h3>Can monitoring power cover its own overhead?</h3><p>Remote cameras and sensors need power. Battery packs bring cooling allowances; cooling and conversion need power too. Follow the cycle until a complete monitoring installation emerges.</p><p class="scope"><strong>Monitoring-power co-design.</strong> Recorded Python MCDP calculations, with independently checked whole-unit implementations.</p></div>
+      <a class="route-link" href="apps/monitoring-power-loop.html">Explore the power loop <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
   </section>
   <section class="lower" id="composition" aria-label="Composition and preserved explanations">
-    <div><p class="eyebrow">How the parts fit</p><h2>A choice must have an implementation.</h2><p>Specify what the system must provide. Keep combinations whose parts satisfy each other’s requirements. Then compare the resources those complete implementations need.</p><p>The rail path, temporary-power, programme and wildlife models use this common structure at different levels. Their method notes show the actual interfaces and the limits of the construction.</p><a class="text-link" href="docs/categorical-co-design.md">Read the categorical co-design audit ↗</a></div>
-    <aside class="related" aria-labelledby="preserved-title"><p class="eyebrow">A clearer way into the ideas</p><h2 id="preserved-title">The useful explanations stay.</h2><p>The best lessons from the earlier rail apps now sit beside the surviving models: requirements that travel through connected parts, incomparable resource choices, and the distinction between monotonicity and committed assets.</p><a class="text-link" href="apps/programme-studio.html#coupling-primer">Start with the coupling explanation ↗</a><p style="margin-top:15px;margin-bottom:0"><a href="docs/curation.md">What was retired, and what was preserved</a></p></aside>
+    <div><p class="eyebrow">How the parts fit</p><h2>A choice must have an implementation.</h2><p>Specify what the system must provide. Keep combinations whose parts satisfy each other’s requirements. Then compare the resources those complete implementations need.</p><p>The crossing, staged-path, programme and monitoring-power models use this common structure at different levels. Their method notes show the actual interfaces and the limits of the construction.</p><a class="text-link" href="docs/categorical-co-design.md">Read the categorical co-design audit ↗</a></div>
+    <aside class="related" aria-labelledby="preserved-title"><p class="eyebrow">A clearer way into the ideas</p><h2 id="preserved-title">The useful explanations stay.</h2><p>The lessons now sit within the wildlife scenario: requirements that travel through connected parts, incomparable resource choices, and the distinction between monotonicity and committed assets.</p><a class="text-link" href="apps/programme-studio.html#coupling-primer">Start with the coupling explanation ↗</a><p style="margin-top:15px;margin-bottom:0"><a href="docs/curation.md">What was retired, and what was preserved</a></p></aside>
   </section>
   <section class="sources" id="sources" aria-labelledby="sources-title">
     <div><p class="eyebrow">Ideas you can inspect</p><h2 id="sources-title">Sources, assumptions<br>and working evidence.</h2></div>
-    <div><p>These experiments draw on monotone co-design: represent what connected parts must provide, then retain the resource choices that remain incomparable. The method notes connect the actual constructions to Zardini and Censi, and distinguish model assumptions from checked results.</p><p>All are illustrative project models. Their different assumptions belong to each experiment; their results are not interchangeable forecasts.</p><div class="source-links"><a href="docs/rail-staged-codesign-method.md">Staged-path method</a><a href="docs/rail-power-loop/MODEL.md">Temporary-power loop</a><a href="docs/rail-power-loop/package-exploration.md">What the MCDP package adds</a><a href="docs/categorical-co-design.md">Composition and package status</a><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design">Inspect the site source ↗</a></div></div>
+    <div><p>These experiments draw on monotone co-design: represent what connected parts must provide, then retain the resource choices that remain incomparable. The method notes connect the actual constructions to Zardini and Censi, and distinguish model assumptions from checked results.</p><p>All are illustrative project models. Their different assumptions belong to each experiment; their results are not interchangeable forecasts. “Model crossings/day” is an invented capability proxy, not a prediction of animal behaviour. Staged readiness is a separate management condition.</p><div class="source-links"><a href="docs/rail-staged-codesign-method.md">Staged-path method</a><a href="docs/rail-power-loop/MODEL.md">Monitoring-power loop</a><a href="docs/rail-power-loop/package-exploration.md">What the MCDP package adds</a><a href="docs/wildlife-scenario.md">Scenario and method map</a><a href="docs/categorical-co-design.md">Composition and package status</a><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design">Inspect the site source ↗</a></div></div>
   </section>
 </main>
 <footer class="wrap"><p><span class="signature">Project Co-design</span><br>Lawrence Rowland · Forays 180–182<br><a href="https://lawrencerowland.github.io/side-projects.html">Explore the other forays &amp; side projects ↗</a></p><p class="footer-note">A collection of working experiments.<br><a href="#main">Back to the beginning ↑</a></p></footer>

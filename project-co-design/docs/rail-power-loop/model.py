@@ -49,15 +49,15 @@ def equipment(architecture, condition):
     i = dict(lookup('converters', architecture['converter']))
     c = dict(lookup('coolers', architecture['cooler']))
     s = lookup('conditions', condition)
-    b['usableKWh'] = scaled(b['usableKWh'], s['batteryEnergyNumerator'], s['batteryEnergyDenominator'])
-    b['heatKW'] = scaled(b['heatKW'], s['batteryHeatNumerator'], s['batteryHeatDenominator'])
-    c['removalKW'] = scaled(c['removalKW'], s['coolerCapacityNumerator'], s['coolerCapacityDenominator'])
+    b['usableWh'] = scaled(b['usableWh'], s['batteryEnergyNumerator'], s['batteryEnergyDenominator'])
+    b['heatW'] = scaled(b['heatW'], s['batteryHeatNumerator'], s['batteryHeatDenominator'])
+    c['removalW'] = scaled(c['removalW'], s['coolerCapacityNumerator'], s['coolerCapacityDenominator'])
     return b, i, c
 
 
 class Battery(Module):
-    F = {'energy': Naturals(unit='kWh')}
-    R = {k: Naturals(unit=u) for k, u in [('count', 'packs'), ('energyAvailable', 'kWh'), ('heat', 'kW'), ('capital', 'GBP'), ('land', 'm2')]}
+    F = {'energy': Naturals(unit='Wh')}
+    R = {k: Naturals(unit=u) for k, u in [('count', 'packs'), ('energyAvailable', 'Wh'), ('heat', 'W'), ('capital', 'GBP'), ('volume', 'L')]}
 
     def __init__(self, spec):
         self.spec = spec
@@ -67,13 +67,13 @@ class Battery(Module):
         # Naturals includes its added top: infinite demand has no finite resource.
         if self.F.components['energy'].is_top(f['energy']):
             return self.R.top()
-        n, s = ceil_div(f['energy'], self.spec['usableKWh']), self.spec
-        return {'count': n, 'energyAvailable': n*s['usableKWh'], 'heat': n*s['heatKW'], 'capital': n*s['capitalGBP'], 'land': n*s['landM2']}
+        n, s = ceil_div(f['energy'], self.spec['usableWh']), self.spec
+        return {'count': n, 'energyAvailable': n*s['usableWh'], 'heat': n*s['heatW'], 'capital': n*s['capitalGBP'], 'volume': n*s['volumeL']}
 
 
 class Converter(Module):
-    F = {'output': Naturals(unit='kW')}
-    R = {k: Naturals(unit=u) for k, u in [('count', 'units'), ('outputAvailable', 'kW'), ('loss', 'kW'), ('capital', 'GBP'), ('land', 'm2')]}
+    F = {'output': Naturals(unit='W')}
+    R = {k: Naturals(unit=u) for k, u in [('count', 'units'), ('outputAvailable', 'W'), ('loss', 'W'), ('capital', 'GBP'), ('volume', 'L')]}
 
     def __init__(self, spec):
         self.spec = spec
@@ -83,13 +83,13 @@ class Converter(Module):
         # Naturals includes its added top: infinite demand has no finite resource.
         if self.F.components['output'].is_top(f['output']):
             return self.R.top()
-        n, s = ceil_div(f['output'], self.spec['outputKW']), self.spec
-        return {'count': n, 'outputAvailable': n*s['outputKW'], 'loss': n*s['lossKW'], 'capital': n*s['capitalGBP'], 'land': n*s['landM2']}
+        n, s = ceil_div(f['output'], self.spec['outputW']), self.spec
+        return {'count': n, 'outputAvailable': n*s['outputW'], 'loss': n*s['lossW'], 'capital': n*s['capitalGBP'], 'volume': n*s['volumeL']}
 
 
 class Cooler(Module):
-    F = {'heat': Naturals(unit='kW')}
-    R = {k: Naturals(unit=u) for k, u in [('count', 'units'), ('cooling', 'kW'), ('draw', 'kW'), ('capital', 'GBP'), ('land', 'm2')]}
+    F = {'heat': Naturals(unit='W')}
+    R = {k: Naturals(unit=u) for k, u in [('count', 'units'), ('cooling', 'W'), ('draw', 'W'), ('capital', 'GBP'), ('volume', 'L')]}
 
     def __init__(self, spec):
         self.spec = spec
@@ -99,18 +99,18 @@ class Cooler(Module):
         # Naturals includes its added top: infinite demand has no finite resource.
         if self.F.components['heat'].is_top(f['heat']):
             return self.R.top()
-        n, s = ceil_div(f['heat'], self.spec['removalKW']), self.spec
-        return {'count': n, 'cooling': n*s['removalKW'], 'draw': n*s['drawKW'], 'capital': n*s['capitalGBP'], 'land': n*s['landM2']}
+        n, s = ceil_div(f['heat'], self.spec['removalW']), self.spec
+        return {'count': n, 'cooling': n*s['removalW'], 'draw': n*s['drawW'], 'capital': n*s['capitalGBP'], 'volume': n*s['volumeL']}
 
 
 def make_system(architecture, condition):
     specs = equipment(architecture, condition)
     modules = (Battery(specs[0]), Converter(specs[1]), Cooler(specs[2]))
-    system = System('rail-power-' + architecture['id'] + '-' + condition)
-    p = system.provides('power', poset=Naturals(unit='kW'))
+    system = System('monitoring-power-' + architecture['id'] + '-' + condition)
+    p = system.provides('power', poset=Naturals(unit='W'))
     h = system.provides('duration', poset=Naturals(unit='hours'))
     capital = system.requires('capital', poset=Naturals(unit='GBP'))
-    land = system.requires('land', poset=Naturals(unit='m2'))
+    volume = system.requires('volume', poset=Naturals(unit='L'))
     b = system.add('battery', modules[0])
     i = system.add('converter', modules[1])
     c = system.add('cooler', modules[2])
@@ -118,20 +118,20 @@ def make_system(architecture, condition):
     i.output >= p + c.draw
     c.heat >= b.heat + i.loss
     capital >= b.capital + i.capital + c.capital
-    land >= b.land + i.land + c.land
+    volume >= b.volume + i.volume + c.volume
     return system.build(), modules, specs
 
 
 def witness(counts, specs, power, duration):
     b, i, c = specs
     nb, ni, nc = (counts[k] for k in ('batteries', 'converters', 'coolers'))
-    values = {'energyKWh': nb*b['usableKWh'], 'outputKW': ni*i['outputKW'],
-              'heatKW': nb*b['heatKW'] + ni*i['lossKW'], 'coolingKW': nc*c['removalKW'],
-              'drawKW': nc*c['drawKW'], 'lossKW': ni*i['lossKW']}
+    values = {'energyWh': nb*b['usableWh'], 'outputW': ni*i['outputW'],
+              'heatW': nb*b['heatW'] + ni*i['lossW'], 'coolingW': nc*c['removalW'],
+              'drawW': nc*c['drawW'], 'lossW': ni*i['lossW']}
     resources = {'capitalGBP': nb*b['capitalGBP'] + ni*i['capitalGBP'] + nc*c['capitalGBP'],
-                 'landM2': nb*b['landM2'] + ni*i['landM2'] + nc*c['landM2']}
-    requirements = [duration*(power+values['drawKW']+values['lossKW']), power+values['drawKW'], values['heatKW']]
-    provisions = [values['energyKWh'], values['outputKW'], values['coolingKW']]
+                 'volumeL': nb*b['volumeL'] + ni*i['volumeL'] + nc*c['volumeL']}
+    requirements = [duration*(power+values['drawW']+values['lossW']), power+values['drawW'], values['heatW']]
+    provisions = [values['energyWh'], values['outputW'], values['coolingW']]
     checks = [dict(id=interface['id'], label=interface['label'], unit=interface['unit'],
                    required=required, provided=provided, margin=provided-required,
                    satisfied=provided >= required)
@@ -155,7 +155,7 @@ def solve_architecture(architecture, power, duration, condition):
     final = witness(module_counts(result.trace[-1].antichain.points[0]), specs, power, duration)
     if not final['complete']:
         raise AssertionError('Package convergence failed exact interface checks')
-    if result.antichain.points[0] != {'capital': final['resources']['capitalGBP'], 'land': final['resources']['landM2']}:
+    if result.antichain.points[0] != {'capital': final['resources']['capitalGBP'], 'volume': final['resources']['volumeL']}:
         raise AssertionError('Package resource accounting mismatch')
     rows = []
     for entry in result.trace:
@@ -163,11 +163,11 @@ def solve_architecture(architecture, power, duration, condition):
         step = witness(module_counts(point), specs, power, duration)
         n, v, r = step['counts'], step['values'], step['resources']
         m = point['__modules__']
-        assert m['battery']['heat'] + m['converter']['loss'] == v['heatKW']
-        assert m['converter']['loss'] == v['lossKW'] and m['cooler']['draw'] == v['drawKW']
-        assert m['cooler']['cooling'] == v['coolingKW']
-        assert point['capital'] == r['capitalGBP'] and point['land'] == r['landM2']
-        rows.append([entry.iteration,n['batteries'],n['converters'],n['coolers'],v['heatKW'],v['coolingKW'],v['drawKW'],v['lossKW'],r['capitalGBP'],r['landM2']])
+        assert m['battery']['heat'] + m['converter']['loss'] == v['heatW']
+        assert m['converter']['loss'] == v['lossW'] and m['cooler']['draw'] == v['drawW']
+        assert m['cooler']['cooling'] == v['coolingW']
+        assert point['capital'] == r['capitalGBP'] and point['volume'] == r['volumeL']
+        rows.append([entry.iteration,n['batteries'],n['converters'],n['coolers'],v['heatW'],v['coolingW'],v['drawW'],v['lossW'],r['capitalGBP'],r['volumeL']])
     b0 = modules[0].h({'energy': duration*power}).points[0]
     i0 = modules[1].h({'output': power}).points[0]
     c0 = modules[2].h({'heat': b0['heat']+i0['loss']}).points[0]
@@ -184,15 +184,15 @@ def frontier(results):
     valid = [r for r in results if r['catalogue_feasible'] and r['verified_complete'] and r['calculation_status'] == 'converged']
     def dominates(a, b):
         x, y = a['witness']['resources'], b['witness']['resources']
-        return all(x[k] <= y[k] for k in ('capitalGBP','landM2')) and any(x[k] < y[k] for k in ('capitalGBP','landM2'))
+        return all(x[k] <= y[k] for k in ('capitalGBP','volumeL')) and any(x[k] < y[k] for k in ('capitalGBP','volumeL'))
     return [x['architectureId'] for x in valid if not any(dominates(y,x) for y in valid)]
 
 
 def build_queries():
     result = []
     archs = architectures()
-    for power, duration, condition in product(CONTRACT['domain']['powerKW'], CONTRACT['domain']['durationHours'], CONTRACT['domain']['conditions']):
+    for power, duration, condition in product(CONTRACT['domain']['powerW'], CONTRACT['domain']['durationHours'], CONTRACT['domain']['conditions']):
         rows = [solve_architecture(a,power,duration,condition) for a in archs]
-        result.append({'id': 'p{}-h{}-{}'.format(power,duration,condition), 'powerKW': power,
+        result.append({'id': 'p{}-h{}-{}'.format(power,duration,condition), 'powerW': power,
                        'durationHours': duration, 'condition': condition, 'frontier': frontier(rows), 'results': rows})
     return result

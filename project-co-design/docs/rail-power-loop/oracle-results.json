@@ -1,5 +1,5 @@
 {
-  "boundary": "Exact for the declared finite catalogue and supported briefs; no empirical railway or safety validation.",
+  "boundary": "Exact for the declared finite catalogue and supported briefs; no empirical wildlife-monitoring or safety validation.",
   "counts": {
     "adjacent_monotonicity_pairs": 1344,
     "architecture_results": 784,
@@ -36,7 +36,7 @@
           7
         ],
         "resources": [
-          3390000,
+          3390,
           384
         ]
       },
@@ -57,7 +57,7 @@
           4
         ],
         "resources": [
-          3480000,
+          3480,
           324
         ]
       },
@@ -79,7 +79,7 @@
           6
         ],
         "resources": [
-          3520000,
+          3520,
           356
         ]
       },
@@ -100,7 +100,7 @@
           3
         ],
         "resources": [
-          3245000,
+          3245,
           274
         ]
       },
@@ -122,7 +122,7 @@
           8
         ],
         "resources": [
-          4740000,
+          4740,
           256
         ]
       },
@@ -143,7 +143,7 @@
           4
         ],
         "resources": [
-          4200000,
+          4200,
           168
         ]
       },
@@ -164,7 +164,7 @@
           6
         ],
         "resources": [
-          4240000,
+          4240,
           200
         ]
       },
@@ -185,7 +185,7 @@
           4
         ],
         "resources": [
-          4360000,
+          4360,
           152
         ]
       }
@@ -203,11 +203,11 @@
     "p2000-h24-hot"
   ],
   "input_sha256": {
-    "atlas.json": "37c296f7d1574bedb17de710421ecf8426471005898d59698365610833899ea1",
-    "build_atlas.py": "f6b493e68201347909149b9ef08f3e734dfb5d17b5477c2db8ee59e96c149210",
-    "contract.json": "0f5db34271bb0c54ee21aae1ee2f634cc91a07f1197c7e89b6dd6742c9bded09",
-    "model.py": "aa38ec827fb07a0d221e99cacc602a81dc8e86cd70c897892cbe43bc7cac612a",
-    "oracle.py": "011183561e89ce25d18db9f7f690c8c055363c98c0be05620500ee8fb94c6794"
+    "atlas.json": "d6b67b4c98aa36463b919286e5711ad9291a36f3f51f8a00cd6b9e0b9846aa20",
+    "build_atlas.py": "bc04c91b85cb763f888cc62e9251f8f41fe6a886acb6bb88a2126fa6a09f0ade",
+    "contract.json": "d2dc8f2eb348439eea23904a6e64c26e8616902c9b1a5af19199168f38fde0d5",
+    "model.py": "a95f0bfa4d2c019443b52c82208ea70553f9115bf3e870e999f33d5f353d44db",
+    "oracle.py": "ab8ad9912c9c970e76cc14b8e5d17584f96f198c7d55f662303cc6693a2b8459"
   },
   "scope": "Independent finite integer enumeration; no package or model imports",
   "status": "PASS",

@@ -1,5 +1,10 @@
 {
   "status": "PASS",
+  "edition": "wildlife-readiness",
+  "verifiedAt": "2026-09-27T17:59:44.687Z",
+  "engineSHA256": "97098474bab0cf5682f93fcdbabc5ee40bbb25754f0ca9b268bd95e393ea41cb",
+  "embeddedEngineMatches": true,
+  "readinessBoundary": "Management readiness is the minimum required module band, not measured animal passage or ecological benefit.",
   "configurations": 507,
   "independentPrefixes": 4733325,
   "completedHistories": 1016583,
@@ -164,7 +169,7 @@
       5,
       2
     ],
-    "method": "Temporary bridge"
+    "method": "Mobile monitoring cover"
   },
   "rows": [
     {
