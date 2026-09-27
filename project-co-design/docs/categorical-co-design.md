@@ -1,6 +1,6 @@
 # Are these models really using categorical co-design?
 
-Reviewed 6 September 2026; package-backed feedback addition 7 September 2026. [Foray home](../index.html) · [Curation record](curation.md)
+Reviewed 6 September 2026; package-backed feedback addition 7 September 2026; wildlife scenario refactor 27 September 2026. [Foray home](../index.html) · [Curation record](curation.md)
 
 **Yes, in a bounded finite form.** The implementation witnesses, ordered functionality/resources and compatibility constraints do real work. We do not claim that every arrow is a categorical operation, or that these browser apps implement a general MCDP library.
 
@@ -10,16 +10,18 @@ Zardini’s *Co-Design of Complex Systems* (2023), Definition 3.3, separates a d
 
 A query asks for `Min { eval(i) : f ≤ exec(i) }`, optionally subject to resource ceilings. The order compares each resource separately, so several incomparable answers can be minimal. This implements the finite catalogue idea behind the monotone co-design framework. A diagram or a weighted ranking alone would not establish that relation. [Censi, A Mathematical Theory of Co-Design](https://arxiv.org/abs/1512.08055).
 
+The [shared scenario and method map](wildlife-scenario.md) connects these four trials to the End. A common story does not make their numerical assumptions interchangeable.
+
 ## What each essay implements
 
 | Essay | Implementations and interfaces | Accurate claim |
 |---|---|---|
-| [Staged paths](../apps/staged-paths.html) | Legal action histories; start-state guards, service during work, commissioned capacity, crews and access. Each resource vector has a replayable path. | A finite design problem with implementation. The engine compiles explicit temporal constraints into a history search; it is not a general diagram compiler or feedback solver. |
-| [Temporary power](../apps/rail-power-loop.html) | Whole operating battery/converter/cooling counts; energy, electrical-power and thermal requirements form a cycle. | The actual pinned Python package builds a `System` feedback loop and solves each supported brief. Converged least integer counts are checked against availability and an independent bounded enumeration. The browser presents the recorded atlas. |
-| [Programme studio](../apps/programme-studio.html) | Service-plan and platform/signalling/power package tuples satisfying capability requirements; governance assumptions and four supplied schedule templates evaluate incremental cost, time, risk and possessions. | A finite compatible-tuple composition. Flat enumeration is a valid way to solve the declared relation. Its affine approvals calculation is a particular resource evaluator, not a general MCDP feedback operator. |
+| [Staged paths](../apps/staged-paths.html) | Legal action histories; start-state guards, declared corridor readiness during work, commissioned capability, crews and access. Each resource vector has a replayable path. | A finite design problem with implementation. The engine compiles explicit temporal constraints into a history search; it is not a general diagram compiler or feedback solver. |
+| [Monitoring power](../apps/monitoring-power-loop.html) | Whole operating battery/converter/cooling counts; energy, electrical-power and thermal requirements form a cycle. | The actual pinned Python package builds a `System` feedback loop and solves each supported brief. Converged least integer counts are checked against availability and an independent bounded enumeration. The browser presents the recorded atlas. |
+| [Programme studio](../apps/programme-studio.html) | Corridor-plan and crossing/guidance/monitoring package tuples satisfying capability requirements; governance assumptions and four supplied schedule templates evaluate incremental cost, time, risk and access windows. | A finite compatible-tuple composition. Flat enumeration is a valid way to solve the declared relation. Its affine approvals calculation is a particular resource evaluator, not a general MCDP feedback operator. |
 | [Wildlife crossing](../apps/wildlife-crossing.html) | Bridge bundle, fence package and monitoring package, joined through guide-kilometre and observation-point requirements. Costs, land and annual expense are aggregated explicitly. | A finite acyclic composed design problem with full implementing tuples and resource antichains. Component regrouping is checked against an independent flattened relation. |
 
-The studio’s existing-railway option is a **baseline implementation** with zero incremental programme burden when it meets the request. It is not the categorical identity morphism. The identity on an ordered interface is its order relation; those are different notions.
+The studio’s existing-corridor option is a **baseline implementation** with zero incremental programme burden when it meets the request. It is not the categorical identity morphism. The identity on an ordered interface is its order relation; those are different notions.
 
 ## Where composition changes the answer
 
@@ -32,13 +34,13 @@ bridge.observationNeed + fence.observationNeed ≤ monitoring.points
 
 The two groupings `(bridges + fencing) + monitoring` and `bridges + (fencing + monitoring)` retain the same full implementation witnesses. In the second grouping, the fence/monitoring composite exposes guide length and residual observation capacity. No bridge option is discarded merely because its projected cost looks worse before its remaining obligations are met. See the [frozen contract](wildlife-codesign/API.md), [model](wildlife-codesign/model.cjs) and [independent comparison](wildlife-codesign/REVIEW.md).
 
-The staged model has an analogous reason to retain future-relevant information: temporary equipment and prepared grid work can enable a later path. Pruning is restricted to identical physical state and time, after past requirements are checked. It is justified for the declared cost/finish/peak-access query; new cumulative budgets or external calendars would require a revised contract. [Staged method and proof conditions](rail-staged-codesign-method.md).
+The staged model has an analogous reason to retain future-relevant information: temporary equipment and prepared monitoring work can enable a later path. Pruning is restricted to identical physical state and time, after past requirements are checked. It is justified for the declared cost/finish/peak-access query; new cumulative budgets or external calendars would require a revised contract. [Staged method and proof conditions](rail-staged-codesign-method.md).
 
 ## What the checks establish
 
 The finite model checks compare witnesses and feasible resource sets, not merely screenshots or frontier counts. Wildlife’s independent checker rebuilds the catalogues from the written contract, enumerates all component triples and checks the complete external relation. Studio checks include the previously hidden-ceiling counterexample and a baseline already meeting the request. Staged paths retains its independent explicit-history oracle.
 
-For a fixed model, increasing the requested functionality can only remove feasible implementations; relaxing a resource ceiling can only add them. The *Pareto points themselves* need not be nested. Catalogue/context changes are changes of assumptions. Fictional rail/ecological constants and programme-risk coefficients remain assumptions, even when the finite calculation is exact.
+For a fixed model, increasing the requested functionality can only remove feasible implementations; relaxing a resource ceiling can only add them. The *Pareto points themselves* need not be nested. Catalogue/context changes are changes of assumptions. Fictional ecological/capability constants and programme-risk coefficients remain assumptions, even when the finite calculation is exact.
 
 A general MCDP solver additionally addresses suitable ordered spaces, continuity and loop solving. These experiments do not establish those general algorithms or replace field evidence. Their positive claim is smaller and inspectable: explicit components or paths, valid interface constraints, complete declared resource accounting and implementing witnesses behind the resource choices.
 
@@ -59,6 +61,6 @@ Repository availability, installation success and mathematical validity are sepa
 
 ## The package is now exercised in a new essay
 
-On 7 September 2026 we installed and probed Briat's pinned source in an isolated environment, then used its core `System`/`Module`/`solve` path for [temporary power](../apps/rail-power-loop.html). It sizes circular battery, cooling and converter obligations. This is a new package-backed calculation, separate from the three earlier models. [Scope, dependency and proof](rail-power-loop/MODEL.md); [explored capabilities and limits](rail-power-loop/package-exploration.md).
+On 7 September 2026 we installed and probed Briat's pinned source in an isolated environment, then used its core `System`/`Module`/`solve` path for temporary power. On 27 September the active essay became [remote monitoring power](../apps/monitoring-power-loop.html), with watt/Wh-scale equipment, litres of cabinet allocation and a freshly generated package atlas. It sizes circular battery, cooling and converter obligations. This is a new package-backed calculation, separate from the three earlier models. [Scope, dependency and proof](rail-power-loop/MODEL.md); [explored capabilities and limits](rail-power-loop/package-exploration.md).
 
 The original PyMCDP availability finding above remains the dated repository check. The new installation is of Briat's different implementation.

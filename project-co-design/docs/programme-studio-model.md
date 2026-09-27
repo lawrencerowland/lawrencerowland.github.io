@@ -1,105 +1,131 @@
-# Programme studio: compatible designs and declared programme assumptions
+# Wildlife crossing programme studio: compatible designs and declared programme assumptions
 
-Model 2.0.0 · 6 September 2026. [Open the studio](../apps/programme-studio.html) · [Coupling primer](../apps/programme-studio.html#coupling-primer) · [Curation record](curation.md).
+Model 3.0.0 · 27 September 2026. [Open the studio](../apps/programme-studio.html) · [Coupling primer](../apps/programme-studio.html#coupling-primer) · [Curation record](curation.md).
 
-The studio compares service plans, compatible platform/signalling/power packages, three governance alternatives and four supplied stage strategies. It retains an actual implementing tuple for every displayed choice. The separate staged-path essay generates legal work histories and checks operating service during construction. This studio's interpolated readiness curves do not perform that temporal feasibility check.
+The scenario is a road crossing with vegetated passage, guided habitat approaches and monitoring. The studio compares habitat plans, compatible crossing/fencing/monitoring packages, three delivery arrangements and four supplied stage strategies. Every displayed choice retains its implementing tuple. The separate staged-path essay generates legal work histories and checks construction-period readiness constraints. This studio's interpolated readiness curves do not perform that temporal feasibility check.
+
+## Source → concept → construction → limit
+
+The source basis is Zardini's design problems with implementation and composition of compatible implementing tuples, §§3.1–3.5, alongside Censi's minimal resource antichains. [Zardini dissertation](https://www.research-collection.ethz.ch/items/d7c08dd5-bf96-4c1f-a744-5e751f0f44a5), [Censi's mathematical co-design paper](https://arxiv.org/abs/1512.08055).
+
+The concept is a relation between requested functionality and the resources of compatible implementations. The construction here is a finite catalogue join, four supplied schedules, a partial-order frontier and an exact affine resource evaluator. All package capacities, costs, durations, camera requirements, context and governance coefficients are invented. They teach how to configure a coupled project; they are not field estimates, ecological predictions or an engineering specification. The four Project Co-design essays share a wildlife-crossing scenario, **not a quantitatively integrated model or a common calibration**.
 
 ## The finite design relation
 
-Fix the catalogues, passengers per car, corridor context, operational maximum, works-alternative filters and feedback setting. These define the implementation universe and resource evaluator. The external functionality is peak-direction throughput, ordered by the usual `≤`. An implementation contains:
-
-- a service plan: cars and trains per hour;
-- one platform, one signalling and one power package;
-- for new works, a governance choice and one of four prescribed staging patterns;
-- its component-compatibility witness, stage pattern and resource evaluation.
-
-The three joins used by the code are:
+Fix the catalogues, scenario coefficient, landscape context, available connected catchment, works-alternative filters and feedback setting. These define the implementation universe and resource evaluator. External functionality is **model crossings/day**, ordered by the usual `≤`. Its deliberately invented proxy is:
 
 ```text
-platform.cars >= service.cars
-signalling.tph >= max(service.tph, trainLengthSignalRequirement(service.cars))
-power.index >= max((service.cars/8) * (requiredSignalTph/18) * context.traction,
-                   trainLengthPowerRequirement(service.cars))
+model crossings/day = planned width (m) × connected catchment (km) × scenario coefficient
 ```
 
-The train-length signalling requirement is 18/21/24 tph for 8/10/12 cars. The power floor is 1/1.18/1.42 respectively. These are fictional compatibility rules. Extra *provided* signalling capability is an available envelope; the service plan need not operate at that maximum. The actual planned throughput and its induced minimum are used consistently for eligibility and power demand.
+The default coefficient is 2 model crossings/day per m·km. This monotone proxy is not an ecological response law: more fence or a wider structure does not establish increased animal use, species acceptance or population connectivity. Monitoring is a commissioning requirement; it does not multiply this proxy or prove use.
 
-`compatibility()` returns the typed required/provided values and pass/fail result. The selected tuple's table displays those same checks. `query()` performs the finite joins by prefiltering catalogue components and checks the resulting tuple in `evaluateImplementation()`. It retains the compatible subset of the Cartesian product; it does not compare disconnected subsystem optima and assume they will fit together.
+An implementation contains:
 
-With `exec(i) = cars × tph × passengersPerCar` and `eval(i) = (capex, months, programmeRisk, possessions)`, the query is:
+- a habitat plan: 20, 30 or 40 m of intended habitat width and 2–6 km connected catchment;
+- one crossing, one guide-fencing and one monitoring package;
+- for new works, one delivery arrangement and one of four prescribed staging patterns;
+- its component-compatibility witness, stage pattern and evaluated resources.
+
+The crossing catalogue offers retained 20 m infrastructure, selective or full 30 m work, a 40 m landscape bridge, and staged 30→40 m widening. Fence packages provide 2–6 km envelopes with ramps, gates and connected approaches. Monitoring packages offer 4, 8, 12, 18 or 28 camera stations with increasing survey setup. They carry fictional incremental costs, durations, risk inputs and disruptive access-day requirements.
+
+The three joins are:
 
 ```text
-Min { eval(i) : requestedThroughput <= exec(i)
+crossing.width >= habitatPlan.width
+fence.catchment >= requiredFence
+monitoring.stations >= requiredStations
+
+requiredFence = max(habitatPlan.catchment, widthInducedFence)
+widthInducedFence = 2 / 3 / 4 km for 20 / 30 / 40 m width
+requiredStations = max(ceil((width/20) × (requiredFence/2) × 4 × context.surveyLoad),
+                       4 / 6 / 8 stations for 20 / 30 / 40 m width)
+```
+
+Thus a 30 m plan with 2 km connected catchment requires 3 km guide fencing and 9 camera stations in the mixed landscape. A package offering 8 stations fails even though a simple 30 m width check succeeds. Guide fencing can exceed connected habitat reach because its declared scope includes returns and escape approaches.
+
+Package quantities are available envelopes. The habitat plan commissions the required extent; surplus envelope is not assumed active or counted in the functionality proxy. Monitoring is sized to the required width/fencing extent, rather than unused spare package capability. This distinction is an explicit simplification, not a claim that every site can partition construction or monitoring this way.
+
+`compatibility()` returns typed required/provided values and pass/fail results. The selected tuple's table and dependency diagram display those same checks. `query()` computes finite joins by prefiltering catalogue components, then rechecks the tuple in `evaluateImplementation()`. It retains the compatible subset of the Cartesian product; it does not combine disconnected subsystem optima and assume they fit.
+
+With `exec(i)` equal to the proxy and `eval(i) = (capex, months, programmeRisk, accessDays)`, the query is:
+
+```text
+Min { eval(i) : requestedModelCrossings <= exec(i)
                 and every declared nonzero resource ceiling is met }
 ```
 
-`Min` uses coordinatewise dominance, not a weighted score. Stable implementation identifiers and resource evaluations do not depend on the target demand. Raising only demand therefore removes feasible implementations while leaving surviving witnesses unchanged. Pareto points need not themselves form nested sets. Changing context, catalogues, feedback or programme alternatives changes the model/implementation universe and is not the same monotonicity test.
-
-This is a bounded design problem with implementation and a compatible-tuple composition. Flat enumeration is a legitimate finite solution method: the implementing tuple and the compatibility inequalities do the compositional work. It is not a general categorical diagram compiler or MCDP library. The source basis is Zardini's design problems with implementation and composition of compatible implementing tuples, §§3.1–3.5, alongside Censi's minimal resource antichains. [Zardini dissertation](https://www.research-collection.ethz.ch/items/d7c08dd5-bf96-4c1f-a744-5e751f0f44a5), [Censi's mathematical co-design paper](https://arxiv.org/abs/1512.08055).
+`Min` uses coordinatewise dominance, not a weighted score. Stable implementation identifiers and resources do not depend on target demand. Raising **only** demand therefore removes feasible implementations while preserving surviving witnesses. Pareto points need not form nested sets. Changing coefficient, landscape, catalogues, feedback or programme alternatives changes the model and is not the same monotonicity test. This is a bounded design problem with compatible implementing tuples, not a general categorical diagram compiler or MCDP library.
 
 ## An already-available implementation
 
-P0/S0/W0 are the baseline 8-car, 18-tph, power-index-1 packages. A no-project implementation exists when these packages meet all three compatibility joins and the operational maximum allows 18 tph. It supplies `8 × 18 × passengersPerCar` pphpd with zero *incremental* capex, duration, programme risk and possessions. The throughput query decides whether that existing capability meets the request.
+C0/F0/M0 are the baseline 20 m crossing, 2 km guided approaches and 4 camera stations. A no-project implementation exists when these meet all three joins and the catchment limit permits 2 km. At the default coefficient, it supplies 80 **model** crossings/day with `(0,0,0,0)` incremental capex, duration, programme risk and access days. The throughput query decides whether it meets the request.
 
-This option does not select governance or staging: filters over **new works** do not remove the existing railway. Existing operating costs and operating risk lie outside incremental programme accounting. No mobilisation, strategy premium, chart-duration floor or approvals burden is invented around the all-baseline tuple. Unnecessary upgrades may remain feasible but are dominated by this zero-resource option when the task is already satisfied.
+This option selects no delivery arrangement or staging pattern: filters over **new works** do not remove an existing crossing. Existing operating cost, maintenance and operating risk lie outside incremental programme accounting. No mobilisation, strategy premium, chart-duration floor or approvals burden is invented around the baseline. Unnecessary upgrades may remain feasible but are dominated when the task is already satisfied.
 
-This is a baseline implementation, **not** a categorical identity morphism. It is also conditional: Urban context's traction coefficient1.08 exceeds the baseline power envelope under the declared relation, so this particular no-project tuple is not compatible there. The model does not silently invent slower-than-18-tph service plans. Mixed and Surface contexts can admit the baseline. Those are finite-catalogue assumptions, not an assertion about any real railway.
+This is a baseline implementation, **not** a categorical identity morphism. It is conditional: the Woodland context's survey coefficient 1.08 makes the minimum `ceil(4 × 1.08) = 5` stations, so its four-station baseline fails. Mixed and Open contexts admit it. This is a useful surprise from the declared compatibility rules, not evidence that an existing crossing ceases to function in woodland.
 
 ## Resource evaluation and two clocks
 
-The four work strategies remain supplied templates: start together; complete civils then signalling then power; complete signalling/power before civils; or align corresponding stage bands. Stage-start arrays are respected, including gaps between stages. Within each stage the model linearly interpolates the capability increment. The mismatch penalty integrates normalized readiness disparity using 120 equal right-endpoint samples. That sampling rule defines the studio's illustrative evaluator; it is not assessed operating service.
+The three arrangements are a joint road–ecology team, separate works contracts, and a landowner delivery compact. Their overhead, coordination, access and approval effects are assumptions. A favourable joint-team result is not empirical evidence of reduced claims or improved ecological outcomes.
 
-The chart shows **base works months**. Context scales the base span; declared mismatch, possession and approval terms then add programme-level delay. The selected plan displays the full breakdown. These additional delays are not assigned to individual work stages, so the chart is not an executable programme whose last point equals the total duration.
+The four work strategies are supplied templates: start together; complete crossing then fencing then monitoring; complete fencing/monitoring before the crossing; or align corresponding stage bands. The schedules describe construction/readiness patterns, not legal permissions to interrupt habitat access. Stage-start arrays include gaps. Within each stage, capability increments are linearly interpolated. Mismatch integrates normalized readiness disparity using 120 equal right-endpoint samples. The red curve is the minimum readiness fraction, **not animal passage or observed crossing use**.
 
-Capex sums package costs, applies context and governance multipliers, then adds the strategy premium, governance overhead and overbuild penalty. Possessions aggregate package values and apply the declared context, governance and strategy factors. Baseline package risks, governance offsets and strategy offsets are inputs to the synthetic programme-risk evaluator. The coefficients express assumptions; a favourable alliance result is not empirical evidence that alliances reduce claims.
+The chart shows **base works months**. Context scales that span; declared mismatch, access and approval terms then add programme-level delay. The selected plan displays the complete breakdown. These added delays are not assigned to individual stages, so the chart's final point is not total programme completion and the chart is not an executable programme.
 
-For feedback on, let `T0` be context-scaled works duration, `B` base risk, `q` mismatch rework, `P` possessions and `α` approval sensitivity. The equations are:
+Capex sums package costs in £m, applies context and arrangement multipliers, then adds strategy premium, overhead and `0.35 × overbuild`. Overbuild sums relative unused width, fencing and monitoring headroom. Access-day equivalents aggregate package requirements and apply declared context, arrangement and strategy factors; they are not a dated road-closure plan. Package risk inputs, context/arrangement/strategy offsets and `18 × overbuild` feed a synthetic risk index, not a probability or safety limit.
+
+For feedback on, let `T0` be context-scaled works duration, `B` base risk, `q` mismatch rework, `A` access-day equivalents and `α` approval sensitivity:
 
 ```text
-T = T0 + q + 0.10P + αr
-r = B + 0.42(T − T0) + 0.18P + 0.30q
+T = T0 + q + 0.10A + αr
+r = B + 0.42(T − T0) + 0.18A + 0.30q
 ```
 
 Hence:
 
 ```text
-r = (B + 0.72q + 0.222P) / (1 − 0.42α)
-T = T0 + q + 0.10P + αr
+r = (B + 0.72q + 0.222A) / (1 − 0.42α)
+T = T0 + q + 0.10A + αr
 ```
 
-Every supplied governance option has `0 ≤ 0.42α < 1`, so this affine evaluator has a unique finite nonnegative fixed point. Resources use the algebraic result, subject to ordinary floating-point arithmetic. The loop panel's earlier rows illustrate convergence from zero; its final “Exact” row is the algebraic value. This is **not** an implementation of the general MCDP feedback operator over design relations.
+Every supplied arrangement has `0 ≤ 0.42α < 1`, giving a unique finite nonnegative fixed point. Resources use the algebraic result, subject to floating-point arithmetic. Earlier loop rows illustrate convergence from zero; the final “Exact” row is the algebraic value. This is **not** the general MCDP feedback operator over design relations. With feedback off, the declared simpler evaluator is `T=T0+q+0.10A`, `r=B+0.18A+0.30q`; neither recursive approvals nor schedule-to-risk is applied. The no-project option needs no loop.
 
-With feedback off, the deliberately simpler declared evaluator is `T=T0+q+0.10P`, `r=B+0.18P+0.30q`; neither the recursive approvals term nor the schedule-to-risk term is applied. The no-project implementation needs no loop at all.
+## Failure meanings and counterexamples
 
-## Failure meanings
+There are no hidden 180-month/260-risk thresholds. A zero resource ceiling means unconstrained; a long finite programme remains a candidate. The independently checked feedback stress fixture uses explicit high sensitivity outside the three supplied arrangements and retains candidates beyond both old thresholds. It verifies the rule; it is not a fourth recommended delivery arrangement.
 
-There are no undisclosed180-month/260-risk thresholds. A resource ceiling of zero means unconstrained, so a very long finite programme remains a candidate. Its practical desirability is a separate question.
-
-The interface distinguishes invalid input, absence of a compatible catalogue implementation for the task, compatible implementations rejected by declared resource ceilings, and an incomplete calculation caused by an unsupported/nonfinite resource evaluation. A calculation failure is not advertised as proof of infeasibility. In the declared current coefficient domain, the feedback equation is finite; that failure guard protects future model edits.
+The interface distinguishes invalid input, absence of a compatible catalogue implementation, compatible implementations rejected by declared ceilings, and an incomplete calculation caused by unsupported or nonfinite evaluation. Calculation failure is not proof of infeasibility. All four resources are checked for finite, nonnegative values. Unsupported feedback coefficients fail explicitly; successful candidates remain available with an incomplete-result warning if another candidate fails.
 
 ## Independent checks
 
-The test reads the declared catalogues but calls no production eligibility, evaluation or Pareto helpers for its oracle. It enumerates the full Cartesian product, checks the typed requirements independently, constructs stage events, evaluates capability as summed stage increments, performs the declared sampling, solves feedback by high-precision iteration, and computes the frontier by all-pairs dominance. The production engine uses prefiltered joins and an algebraic fixed point, so the comparison exercises independently implemented paths to the same relation.
+The oracle reads catalogue inputs but calls no production eligibility, evaluation, stage or Pareto helpers. It enumerates the full Cartesian product; checks requirements using a separate width lookup table; builds stage events; evaluates capability as summed stage increments; performs the declared sampling; solves feedback by high-precision iteration; and computes the frontier by all-pairs dominance. Production uses prefiltered joins and an algebraic fixed point. Hand-derived anchors separately check 30 m / 2 km → 3 km / 9 stations, the woodland five-station baseline requirement, and the fact that extra cameras never increase the functionality proxy.
 
-Current results:
+The 27 September model run passed:
 
-- 28 query comparisons;15,760 oracle candidates;63,040 resource coordinates;28 complete frontier comparisons.
-- 5,625 exhaustive typed-join comparisons across all service plans, three contexts and all platform/signalling/power triples.
-- 30,818 surviving implementation witnesses retain exactly the same resources as demand rises with the model fixed.
-- The previously false-infeasible Urban / Multi-prime / Civils-first case returns6 finite candidates and2 minimal alternatives, with all user resource ceilings zero.
-- The baseline-compatible18,000pphpd request at150 passengers/car returns the no-project option with `(0,0,0,0)`, including across every works-filter combination and tight positive ceilings. Incompatible/exceeded baseline cases exclude it.
-- Large finite feedback values beyond both former cutoffs satisfy the defining equations; unsupported contraction coefficients are rejected explicitly.
-- 57 browser assertions cover the counterexamples, input/failure distinctions, exact feedback display, component table, no-project narrative, true extreme selection lenses, keyboard row selection, all five tabs, and no document overflow at1440/768/390px. No page errors were observed. Desktop/mobile primer views were inspected visually.
+- 29 query comparisons, 19,941 oracle candidates, 79,764 resource coordinates and 29 complete frontier comparisons.
+- 5,625 exhaustive typed joins across all habitat plans, three landscapes and all component triples.
+- 23,640 surviving witnesses with unchanged resources as only demand rises.
+- Default target 300, coefficient 2, catchment limit 6, Mixed, all arrangements/strategies, feedback on: **504 candidates and 12 minimal alternatives**.
+- Woodland / Separate works contracts / Crossing first at the same target: **38 finite candidates and 2 minimal alternatives** with all ceilings zero.
+- Target 80 in Mixed: baseline is the sole minimal option under every works filter, including £0.25m / 3 months / 5 risk ceilings. A higher request and the woodland compatibility failure exclude it.
+- Large finite feedback values satisfy both defining equations and remain query candidates beyond former cutoffs; unsupported contraction and nonfinite resource fixtures report incomplete calculations.
 
-From `project-co-design/`, run the independent model test with `node tests/programme-studio.test.mjs`; the standalone HTML is the tested model source. Run `tests/programme-studio.ui.mjs` with Playwright installed; optional `PLAYWRIGHT_MODULE` and `CHROME_EXECUTABLE` environment values select a local test runtime. These are finite-model and local UI checks, not practitioner validation, engineering approval or empirical evidence for the risk coefficients.
+Run `node tests/programme-studio.test.mjs` from `project-co-design/`. The standalone HTML is the tested source. The updated `programme-studio.ui.mjs` defines browser regression checks for the renamed wildlife controls, actual joins, diagrams, failure distinctions, baseline, exact loop, lenses, keyboard selection, five tabs and responsive overflow. **The browser script was not run for this refactor**; the integration browser review is recorded separately. Previous rail-model browser assertions are not evidence for this version. These are finite-model checks, not practitioner validation, approval or deployment evidence.
 
 ## Explanation preservation
 
-| Origin | Surviving destination | Preserved and corrected |
-|---|---|---|
-| Incremental rail upgrade, introductory coupling diagram and package/provides/requires/status table | `#coupling-primer`, `#component-compatibility` in the studio | A subsystem provides a capability and requires resources; connected requirements must agree. The table now displays the actual typed checks selecting the implementation. |
-| Incremental/transit slider accounts of induced signalling and power work | `#coupling-primer` | One requested service plan may induce several subsystem requirements. Monotonicity concerns the ordered request/relation, not an obligation never to lower an exploratory input. |
-| Rail simulator, quick method explanation and director's reading of the Pareto set | `#coupling-primer`, Frontier panel, selected-plan reading | Functionality, implementation and resource distinctions; coordinatewise dominance; several incomparable choices; the frontier as a discussion object; compare resource trade-offs without forcing stakeholder objectives into one score. |
-| Earlier logical-dependency versus operational-flow distinction | Brief diagrams and actual compatibility table | Dependency arrows show requirements, not simulated train signals or a causal proof. The table is the executable evidence behind the diagram. |
+| Learning | Destination and retained distinction |
+|---|---|
+| Functionality, implementation, resource | Primer, selected witness, pseudo-MCDPL and Method: requested proxy stays separate from a particular package tuple and its resource bundle. |
+| A local choice induces co-moves | Width-induced fencing and station coverage; actual typed table and selected dependency diagram expose every requirement. |
+| Composition uses compatible tuples | Prefiltered joins plus explicit recheck; independent full-product oracle. No assumption that subsystem optima compose. |
+| Monotonicity and exploration | Raising demand alone shrinks feasible implementations; lowering an exploratory input remains allowed. Commitments would need a separate rule. |
+| Partial-order frontier | Four resource coordinates; incomparable alternatives remain visible. Named lenses choose their actual minima; Balanced is only an initial weighted highlight. |
+| Dependency versus operational flow | Typed dependency diagram links to its witness table; a separate animal-movement sketch explicitly does not simulate use. |
+| Programme configuration | Three declared delivery arrangements and four supplied staging strategies; these do not generate the legal paths of the staged-path essay. |
+| Readiness and programme clocks | Base-stage chart, normalized mismatch and the full context/access/approval breakdown remain distinct. |
+| Feedback and its boundary | Exact affine result and illustrative convergence trace; explicit unsupported-calculation state and no hidden thresholds. |
+| Existing capability | Genuine zero incremental resource baseline, including under new-works filters; context compatibility can exclude it. |
 
-Intentionally discarded: slider-history maxima presented as mathematical monotonicity; the incremental catalogue's unimplemented antichain promise; “OK” packages that fail the actual requested service; an unimplemented business-case feedback arrow; claims that resource-frontier slope identifies an external binding cause; risk ceilings as actual stakeholder veto/consent; universal rail-safety assertions; decorative coproduct/general-feedback terminology unsupported by the engine. No stronger claims are inherited merely because an earlier essay used them.
+No historical claim of universal engineering safety, empirical governance benefit, stakeholder consent, categorical identity or general feedback solving is carried into the wildlife scenario. The core explanations are preserved through the declared crossing model rather than by retaining inappropriate transport terminology.

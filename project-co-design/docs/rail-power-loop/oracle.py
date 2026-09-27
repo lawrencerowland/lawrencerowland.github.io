@@ -14,16 +14,16 @@ import json
 
 
 BATTERIES = {
-    "standard": {"energy": 1000, "cost": 320000, "land": 28, "heat": 12},
-    "compact": {"energy": 1400, "cost": 600000, "land": 16, "heat": 20},
+    "standard": {"energy": 1000, "cost": 320, "volume": 28, "heat": 12},
+    "compact": {"energy": 1400, "cost": 600, "volume": 16, "heat": 20},
 }
 CONVERTERS = {
-    "standard": {"output": 250, "loss": 8, "cost": 75000, "land": 12},
-    "efficient": {"output": 250, "loss": 3, "cost": 115000, "land": 8},
+    "standard": {"output": 250, "loss": 8, "cost": 75, "volume": 12},
+    "efficient": {"output": 250, "loss": 3, "cost": 115, "volume": 8},
 }
 COOLERS = {
-    "air": {"capacity": 40, "draw": 12, "cost": 30000, "land": 12},
-    "liquid": {"capacity": 70, "draw": 8, "cost": 75000, "land": 6},
+    "air": {"capacity": 40, "draw": 12, "cost": 30, "volume": 12},
+    "liquid": {"capacity": 70, "draw": 8, "cost": 75, "volume": 6},
 }
 CAPS = (32, 12, 20)
 POWERS = (0, 250, 500, 750, 1000, 1500, 2000)
@@ -65,7 +65,7 @@ def compatible(counts, names, power, hours, condition):
 def resources(counts, names, condition):
     parts = parameters(names, condition)
     return tuple(sum(n * p[k] for n, p in zip(counts, parts))
-                 for k in ("cost", "land"))
+                 for k in ("cost", "volume"))
 
 
 def finite_oracle(names, power, hours, condition):
@@ -129,14 +129,14 @@ def check_witness(witness, names, power, hours, condition):
     counts = count_tuple(witness)
     assert all(type(n) is int and n >= 0 for n in counts)
     r = resources(counts, names, condition)
-    assert witness["resources"] == {"capitalGBP": r[0], "landM2": r[1]}
+    assert witness["resources"] == {"capitalGBP": r[0], "volumeL": r[1]}
     b, i, c = counts
     battery, converter, cooler = parameters(names, condition)
     assert witness["values"] == {
-        "energyKWh": b * battery["energy"], "outputKW": i * converter["output"],
-        "heatKW": b * battery["heat"] + i * converter["loss"],
-        "coolingKW": c * cooler["capacity"], "drawKW": c * cooler["draw"],
-        "lossKW": i * converter["loss"],
+        "energyWh": b * battery["energy"], "outputW": i * converter["output"],
+        "heatW": b * battery["heat"] + i * converter["loss"],
+        "coolingW": c * cooler["capacity"], "drawW": c * cooler["draw"],
+        "lossW": i * converter["loss"],
     }
     expected = interface_values(counts, names, power, hours, condition)
     ids = {"energy": "battery_energy", "conversion": "converter_output", "cooling": "cooling"}
@@ -147,7 +147,7 @@ def check_witness(witness, names, power, hours, condition):
         assert check["required"] == required
         assert check["margin"] == provided - required
         assert check["satisfied"] == (provided >= required)
-        assert check["unit"] == ("kWh" if check["id"] == "energy" else "kW")
+        assert check["unit"] == ("Wh" if check["id"] == "energy" else "W")
     assert witness["complete"] == compatible(counts, names, power, hours, condition)
     return counts
 
@@ -155,7 +155,7 @@ def check_witness(witness, names, power, hours, condition):
 def run(atlas_path):
     atlas = json.loads(atlas_path.read_text())
     assert atlas["domain"] == {
-        "powerKW": list(POWERS), "durationHours": list(HOURS),
+        "powerW": list(POWERS), "durationHours": list(HOURS),
         "conditions": list(CONDITIONS),
     }
     assert atlas["catalogueCaps"] == dict(zip(("batteries", "converters", "coolers"), CAPS))
@@ -163,7 +163,7 @@ def run(atlas_path):
                    for a in atlas["architectures"]}
     expected_names = set(product(BATTERIES, CONVERTERS, COOLERS))
     assert set(names_by_id.values()) == expected_names and len(names_by_id) == 8
-    queries = {(q["powerKW"], q["durationHours"], q["condition"]): q for q in atlas["queries"]}
+    queries = {(q["powerW"], q["durationHours"], q["condition"]): q for q in atlas["queries"]}
     assert set(queries) == set(product(POWERS, HOURS, CONDITIONS)) and len(atlas["queries"]) == 98
     records = {}
     counters = {"briefs": 98, "architectures_per_brief": 8,
@@ -250,14 +250,14 @@ def run(atlas_path):
         assert sorted(query["frontier"]) == sorted(row["id"] for row in front)
         # Every boundary at which a ceiling-filtered finite answer can change.
         capital_limits = {0, None}
-        land_limits = {0, None}
+        volume_limits = {0, None}
         for row in available:
-            cost, land = row["resources"]
+            cost, volume = row["resources"]
             capital_limits.update((cost, max(0, cost - 1)))
-            land_limits.update((land, max(0, land - 1)))
-        for capital, land in product(capital_limits, land_limits):
+            volume_limits.update((volume, max(0, volume - 1)))
+        for capital, volume in product(capital_limits, volume_limits):
             within = lambda row: ((capital is None or row["resources"][0] <= capital)
-                                  and (land is None or row["resources"][1] <= land))
+                                  and (volume is None or row["resources"][1] <= volume))
             recomputed = {row["id"] for row in resource_front([row for row in available if within(row)])}
             filtered = {row["id"] for row in front if within(row)}
             assert recomputed == filtered
@@ -303,7 +303,7 @@ def run(atlas_path):
                     "architectures": defaults},
         "unavailable_examples": unavailable_examples,
         "empty_frontier_briefs": [q["id"] for q in queries.values() if not q["frontier"]],
-        "boundary": "Exact for the declared finite catalogue and supported briefs; no empirical railway or safety validation.",
+        "boundary": "Exact for the declared finite catalogue and supported briefs; no empirical wildlife-monitoring or safety validation.",
     }
 
 

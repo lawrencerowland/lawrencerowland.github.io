@@ -1,3 +1,5 @@
+// Wildlife interpretation: p/P = passage, s/S = guide fencing, g/G* = monitoring, T* = mobile monitoring team.
+// Stable historical keys preserve exact numerical comparison; readiness is not animal passage.
 // Independent complete-history oracle: no engine imports, DP, state cache or engine helpers.
 // Every admissible nonempty tick choice is enumerated and every history replayed.
 export const DEFAULTS={horizon:8,serviceFloor:1,milestoneSlot:4,milestoneService:2,crews:2,accessCap:2,temporaryAvailable:true};

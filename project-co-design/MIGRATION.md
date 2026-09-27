@@ -1,6 +1,11 @@
 # Collection history and current curation
 
-## Current collection — 6 September 2026
+## Current collection — 27 September 2026
+
+Four active wildlife-crossing essais: **compose the crossing**, **staged paths**, **programme studio**, and **monitoring power**. [Scenario and method map](docs/wildlife-scenario.md) records the shared End, the retained methodological differences and the unit/assumption boundaries. The old power route is a script-free migration notice; its saved settings are not reinterpreted. The three earlier rail retirements below remain in force.
+
+
+## Historical curation — 6 September 2026
 
 Three active essays: **staged paths**, **programme studio**, and **wildlife crossing**. The studio is repaired; wildlife is rebuilt as a compatible component calculation. Rail simulator, incremental upgrade and transit trade-offs are retired, with explanatory pages at their existing addresses and historical sources in version control. Their best explanations are preserved in the studio and staged-path method. See the [curation and preservation record](docs/curation.md).
 

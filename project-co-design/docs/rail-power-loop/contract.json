@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "rail-power-loop-1",
-  "title": "Can the temporary power cover its own overhead?",
+  "schemaVersion": "monitoring-power-loop-1",
+  "title": "Can wildlife monitoring power cover its own overhead?",
   "domain": {
-    "powerKW": [
+    "powerW": [
       0,
       250,
       500,
@@ -26,7 +26,7 @@
     ]
   },
   "default": {
-    "powerKW": 750,
+    "powerW": 750,
     "durationHours": 8,
     "condition": "hot"
   },
@@ -38,55 +38,55 @@
   "batteries": [
     {
       "id": "standard",
-      "name": "Standard batteries",
-      "usableKWh": 1000,
-      "capitalGBP": 320000,
-      "landM2": 28,
-      "heatKW": 12
+      "name": "Standard battery packs",
+      "usableWh": 1000,
+      "capitalGBP": 320,
+      "volumeL": 28,
+      "heatW": 12
     },
     {
       "id": "compact",
-      "name": "Compact batteries",
-      "usableKWh": 1400,
-      "capitalGBP": 600000,
-      "landM2": 16,
-      "heatKW": 20
+      "name": "Compact battery packs",
+      "usableWh": 1400,
+      "capitalGBP": 600,
+      "volumeL": 16,
+      "heatW": 20
     }
   ],
   "converters": [
     {
       "id": "standard",
       "name": "Standard converters",
-      "outputKW": 250,
-      "lossKW": 8,
-      "capitalGBP": 75000,
-      "landM2": 12
+      "outputW": 250,
+      "lossW": 8,
+      "capitalGBP": 75,
+      "volumeL": 12
     },
     {
       "id": "efficient",
       "name": "Efficient converters",
-      "outputKW": 250,
-      "lossKW": 3,
-      "capitalGBP": 115000,
-      "landM2": 8
+      "outputW": 250,
+      "lossW": 3,
+      "capitalGBP": 115,
+      "volumeL": 8
     }
   ],
   "coolers": [
     {
       "id": "air",
       "name": "Air cooling",
-      "removalKW": 40,
-      "drawKW": 12,
-      "capitalGBP": 30000,
-      "landM2": 12
+      "removalW": 40,
+      "drawW": 12,
+      "capitalGBP": 30,
+      "volumeL": 12
     },
     {
       "id": "liquid",
       "name": "Liquid cooling",
-      "removalKW": 70,
-      "drawKW": 8,
-      "capitalGBP": 75000,
-      "landM2": 6
+      "removalW": 70,
+      "drawW": 8,
+      "capitalGBP": 75,
+      "volumeL": 6
     }
   ],
   "conditions": [
@@ -115,21 +115,21 @@
     {
       "id": "energy",
       "label": "Battery energy",
-      "unit": "kWh",
+      "unit": "Wh",
       "requirement": "H * (P + cooler draw + converter loss)",
       "supply": "battery count * usable pack energy"
     },
     {
       "id": "conversion",
       "label": "Converter output",
-      "unit": "kW",
+      "unit": "W",
       "requirement": "P + cooler draw",
       "supply": "converter count * output rating"
     },
     {
       "id": "cooling",
       "label": "Heat removal",
-      "unit": "kW",
+      "unit": "W",
       "requirement": "battery heat + converter loss",
       "supply": "cooler count * removal rating"
     }
@@ -139,18 +139,33 @@
     "batteries",
     "converters",
     "coolers",
-    "heatKW",
-    "coolingKW",
-    "drawKW",
-    "lossKW",
+    "heatW",
+    "coolingW",
+    "drawW",
+    "lossW",
     "capitalGBP",
-    "landM2"
+    "volumeL"
   ],
-  "boundary": "Declared synthetic steady-load sizing model. No measured site data, transient load, electrical protection, charging, reliability, construction sequence or safety approval is modelled. Hot is a declared scenario, not an uncertainty distribution or universal worst case.",
+  "boundary": "Declared synthetic steady-load sizing model for an off-grid wildlife-crossing monitoring cluster. No measured wildlife or site data, animal response, transient load, electrical protection, charging, reliability, construction sequence or safety approval is modelled. Hot is a declared scenario, not an uncertainty distribution or universal worst case.",
   "physicalAssumptions": {
     "usableEnergy": "Net DC energy available after cell-internal losses; converter losses and cooling electricity are accounted separately.",
     "batteryHeat": "Synthetic thermal design allowance per operating pack; not a claim that actual heat must increase whenever packs are added at a fixed load.",
     "converterLoss": "Constant design allowance per operating unit, counted as both battery energy demand and heat to remove.",
-    "operation": "All selected units are operating throughout the declared constant-load outage. No charging is modelled."
+    "operation": "All selected power-support units operate throughout the declared monitoring period at a constant load. Cameras, sensors, illumination, a data link and a logger are represented by one aggregate load; their individual performance and any charging are outside this model.",
+    "cabinetVolume": "Positive, additive cabinet-volume allocations in litres, including an invented allowance for each unit housing and internal spacing. These are not ground footprint, exterior cabinet dimensions, a packing calculation, or measured product volumes."
+  },
+  "unitContract": {
+    "power": "W",
+    "energy": "Wh",
+    "duration": "hours",
+    "capital": "GBP",
+    "cabinetVolume": "L"
+  },
+  "scenarioMapping": {
+    "from": "historical rail-power-loop-1 at aa8047d9315d0dce9c9ea08b077531573a617207",
+    "powerAndEnergy": "Numerical catalogue ratings retained, physical magnitudes divided by 1000: kW becomes W, kWh becomes Wh. All three interface inequalities are recomputed with the pinned package.",
+    "capital": "Every equipment capital coefficient divided by 1000, in GBP.",
+    "cabinetVolume": "New synthetic cabinet-volume allocations use the historical area coefficient numbers as litres; this is a new declared resource relation, not conversion from square metres to litres.",
+    "unchanged": "Integer counts, availability caps, hours, condition factors and the feedback structure are retained for a comparable numerical experiment."
   }
 }

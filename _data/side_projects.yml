@@ -54,12 +54,12 @@
   action: "Explore the farm track"
 
 - title: "Project Co-design"
-  image: "https://lawrencerowland.github.io/images/scenarios/railway.svg"
-  image_alt: "Train passing signalling and works during a staged railway upgrade"
-  scenario: "Upgrade a railway while keeping a service running."
+  image: "https://lawrencerowland.github.io/project-co-design/assets/wildlife-emblem.svg"
+  image_alt: "Deer crossing a green arch between two habitats"
+  scenario: "Reconnect two habitats across a busy road."
   group: "featured"
   question: "Can a feasible finished system be delivered through acceptable stages?"
-  description: "Four connected experiments: staged rail delivery, temporary-power feedback, programme alternatives and composed wildlife crossings."
+  description: "Four wildlife-crossing essais: compose a complete crossing, construct a delivery path, compare programmes and size remote monitoring power."
   tags: ["co-design","trade-offs","staging","category-theory"]
   path: "https://lawrencerowland.github.io/project-co-design/"
   action: "Open project"

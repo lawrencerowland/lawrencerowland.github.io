@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checkedAtUTC": "2026-09-06T22:31:56.806Z",
+  "checkedAtUTC": "2026-09-27T18:04:22.353Z",
   "modelVersion": "wildlife-dpi-1",
   "modelSha256": "cd86bef7f805f756a771ab1ead7197e947208c734a4971e2b7a98cf23795398e",
   "independence": "Oracle reconstructs the declared contract without importing production catalogues, join, witness, query or Pareto helpers. Production calls are only compared against independent results.",
@@ -154,5 +154,5 @@
       ]
     }
   },
-  "elapsedMs": 2446
+  "elapsedMs": 5657
 }

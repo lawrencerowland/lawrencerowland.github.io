@@ -1,20 +1,20 @@
-# Project Co-design
+# Project Co-design · the whole crossing
 
 [Open the foray](https://lawrencerowland.github.io/project-co-design/) · [Forays & Side Projects](https://lawrencerowland.github.io/side-projects.html)
 
-Four interactive essays in coupled project choices, drawing on the co-design framework of Zardini and Censi. Each declares its own functionality, implementations, resource order and scope.
+Four interactive essais use a fictional wildlife crossing to explore coupled project choices. Reconnect two habitats across a busy road: compose the crossing and its support, plan its construction, compare programme assumptions and power its remote monitoring. Each declares its own functionality, implementations, resource order and scope.
 
-| Question | Essay | Construction |
+| Question | Essai | Construction |
 |---|---|---|
-| Can we keep the whole promise? | [Staged paths](apps/staged-paths.html) | Generates admissible finite construction histories under service, milestone, crew and access constraints, retaining resource-incomparable witnesses. |
-| Can temporary power cover its own overhead? | [Temporary power loop](apps/rail-power-loop.html) | Uses the actual Python MCDP package to size cyclic battery, cooling and converter requirements, with checked integer implementations. |
-| Which programme trade-offs are worth making? | [Programme studio](apps/programme-studio.html) | Composes compatible packages and evaluates four prescribed staging/governance alternatives, with explicit illustrative assumptions. |
-| What makes a wildlife crossing work? | [Wildlife crossing](apps/wildlife-crossing.html) | Composes bridge bundles with adequate fencing and monitoring, accounts for all declared resources and returns complete feasible witnesses. |
+| What makes a whole crossing work? | [Wildlife crossing](apps/wildlife-crossing.html) | Composes bridge bundles, guiding fences and observation through typed interfaces, retaining full resource-incomparable witnesses. |
+| Can we deliver it through acceptable stages? | [Staged paths](apps/staged-paths.html) | Generates finite construction histories under readiness, milestone, crew and access constraints. Temporary monitoring can matter before the final design. |
+| Which programme trade-offs are worth making? | [Programme studio](apps/programme-studio.html) | Composes crossing/fence/monitoring packages and evaluates four prescribed staging strategies and governance assumptions. |
+| Can monitoring power cover its own overhead? | [Monitoring power loop](apps/monitoring-power-loop.html) | Uses the pinned Python MCDP package to size cyclic battery, cooling and converter requirements, with checked integer implementations. |
 
-The [coupling primer](apps/programme-studio.html#coupling-primer) preserves the most useful explanations from three retired rail demos. The [curation record](docs/curation.md) explains the defects, what survived and where, and historical source access. Old routes now explain their retirement; they do not run the defective calculations. Wildlife was rebuilt and retained.
+[Shared End, source use and method map](docs/wildlife-scenario.md) explains why these models belong together and why their numbers must not be pooled. They are trials, not calibrated ecological or engineering forecasts.
 
-[Categorical co-design audit and Python package status](docs/categorical-co-design.md) distinguishes the theory actually implemented from unsupported claims. [Staged-path method and checks](docs/rail-staged-codesign-method.md) document the independently verified finite path result. These models are experiments, not calibrated railway or ecological forecasts.
+The [coupling primer](apps/programme-studio.html#coupling-primer) retains the most useful explanations from three retired rail demos. The [curation record](docs/curation.md) records the original defects and preservation decisions. The former power route now explains its wildlife replacement; old saved settings are not silently translated into different units.
 
-The static collection lives in `project-co-design/` on the `master` branch of [lawrencerowland/lawrencerowland.github.io](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design). The existing Pages site publishes it. Apps retain their own model and can be inspected independently.
+[Categorical co-design audit](docs/categorical-co-design.md) distinguishes actual constructions from broader claims. [Staged method](docs/rail-staged-codesign-method.md), [power model](docs/rail-power-loop/MODEL.md), [studio model](docs/programme-studio-model.md) and [crossing model](docs/wildlife-codesign/MODEL.md) retain inspectable contracts and evidence. Rail-named source directories remain for link continuity.
 
-The [package exploration](docs/rail-power-loop/package-exploration.md) explains the new capability, inspected API limits and future options. The [temporary-power method](docs/rail-power-loop/MODEL.md) distinguishes recorded package calculations, explicit equipment allowances and available implementations.
+This static collection lives in `project-co-design/` on `master` in [lawrencerowland/lawrencerowland.github.io](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design). GitHub Pages publishes it. Browser apps remain independently inspectable.

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+<title id="title">A crossing is more than a bridge</title><desc id="desc">Two deer cross a planted green bridge above a road. Guide fences lead from woodland onto the crossing; a camera and a small power cabinet support observation. An invented scene, not an engineering design.</desc>
+<defs><pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(20)"><path d="M0 0v10" stroke="#cbd7c7" stroke-width="2"/></pattern></defs>
+<rect width="640" height="400" rx="24" fill="#f9f7ef"/>
+<circle cx="488" cy="73" r="29" fill="#e8b273" opacity=".7"/>
+<path d="M0 171q90-91 170-40t140-10 169 20 161-25v175H0Z" fill="#e0e8d7"/>
+<path d="M0 253q71-48 165-21t144 2 142-5 189 25v146H0Z" fill="#d0dec8"/>
+<path d="m298 400-3-90 8-47 22-39 26-53h55l-40 67-17 40 12 44 38 78" fill="#b5bcb6"/>
+<path d="m346 400-23-90 3-38 18-38 37-63" stroke="#fffef8" stroke-width="3" stroke-dasharray="12 14" fill="none"/>
+<path d="M77 236c92 0 118-72 236-72s149 72 250 72v36c-97 0-132-74-250-74S168 272 77 272Z" fill="#b19f7c"/>
+<path d="M77 230c92 0 118-72 236-72s149 72 250 72v25c-97 0-132-74-250-74S168 255 77 255Z" fill="#73966b"/>
+<path d="M76 228c92 0 119-72 237-72s149 72 250 72" fill="none" stroke="#147669" stroke-width="5"/>
+<path d="M76 256c92 0 119-73 237-73s149 73 250 73" fill="none" stroke="#147669" stroke-width="5"/>
+<g fill="#147669"><path d="m56 180 25-68 25 68Zm37 11 29-80 29 80ZM18 193l22-58 22 58ZM524 169l24-67 24 67Zm40 18 29-78 29 78Z"/><path d="m475 152 17-46 17 46Z" fill="#658b69"/></g>
+<g stroke="#725e45" stroke-width="4"><path d="M81 175v33m41-23v25m-82-21v31m508-55v38m45-25v35m-101-57v19"/></g>
+<g fill="none" stroke="#937c57" stroke-width="2.5"><path d="m53 306 35-30 57-11 44-25m-139 51 35-29 53-9 48-25M68 311v-27m30 5v-30m38 21v-30m38 13v-28M462 240l49 25 61 6 40 27m-150-70 51 25 63 6 40 27m-138-24v-27m35 38v-29m42 34v-31m34 37v-28"/></g>
+<g fill="#775439" stroke="#775439" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="m256 151 7-12h25l10-15 9-1 9 6-13 5-10 17-20 1-9 11m18-13 9 11m-35-13-8-7"/><path d="m303 124-4-13m5 11 6-12m-8 5-8-4m14 4 7-2" fill="none"/>
+<path d="m333 166 7-11h22l8-13 9-1 7 5-11 5-8 15h-19l-8 11m15-11 9 11m-32-13-7-7"/>
+</g>
+<circle cx="308" cy="127" r="1.6" fill="#fffef8"/><circle cx="380" cy="145" r="1.5" fill="#fffef8"/>
+<path d="M436 178v-58" stroke="#153937" stroke-width="4"/><rect x="415" y="114" width="31" height="14" rx="3" fill="#153937"/><path d="m415 116-10 3v6l10 2" fill="#147669"/><rect x="430" y="170" width="26" height="33" rx="3" fill="#e8b273" stroke="#a9562c" stroke-width="2"/><path d="m443 177-5 9h7l-5 10" fill="none" stroke="#a9562c" stroke-width="2"/>
+<g fill="#fffef8"><ellipse cx="207" cy="304" rx="16" ry="6"/><ellipse cx="474" cy="327" rx="21" ry="7"/></g>
+<path d="m89 343 8-14m-3 15 9-5m424 11 5-14m-2 13 9-7" stroke="#73966b" stroke-width="3" stroke-linecap="round"/>
+<rect x="24" y="22" width="210" height="26" rx="13" fill="#edf1e7"/><text x="129" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" letter-spacing="1.2" fill="#147669">CROSSING · GUIDANCE · OBSERVATION</text>
+</svg>
