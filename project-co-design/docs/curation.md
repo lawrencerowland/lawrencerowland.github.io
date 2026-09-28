@@ -9,6 +9,15 @@
 
 At that review, the active collection contained **staged paths**, **programme studio**, and **wildlife crossing**. The studio is repaired; wildlife is rebuilt. Three weaker rail apps are retired as standalone calculations. Their useful ideas remain in the surviving essays rather than depending on an executable predecessor.
 
+## Earlier working drafts reviewed during consolidation
+
+The 28 September consolidation also reviewed two distinct early drafts. Neither warrants a fifth active essai:
+
+- The initial **animal-crossing calculator** already enumerated 19 nonempty mixed-width bridge bundles. It is distinct from the intermediate fixed-recipe predecessor discussed below. The current component essay adds independently selectable support packages, typed compatibility, zero work and fuller resource accounting. Its useful assumptions-in-export pattern is retained by including the full current catalogues in downloaded comparisons. The old formula costed fractional cameras while displaying rounded-up counts; its purported staffing trade-off was always one FTE over the visible domain.
+- **Monotone Co-Design 2**, the earlier director’s guide, evaluated a manually chosen combination without proving it minimal, and its power check always reported success. Its staged/feedback promises are now implemented or carefully bounded in the maintained essays. The useful instruction to ask component teams for functionality–resource alternatives and explicit interfaces now appears in the [Programme Studio Method tab](../apps/programme-studio.html).
+
+The original source drafts are retained once in the local foray’s source archive, marked superseded. Their invented safety labels, unconditional optimality claims and generic guarantees are not promoted. Staffing as an independent scarce resource remains a possible future modelling question; pricing staff into annual expense does not itself enforce a staffing limit.
+
 ## Preservation map
 
 | Earlier explanation | Surviving home | What is preserved or corrected |

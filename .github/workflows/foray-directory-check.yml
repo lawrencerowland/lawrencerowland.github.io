@@ -60,6 +60,8 @@ jobs:
         run: node project-co-design/tests/programme-studio.test.mjs
       - name: Check wildlife composition against independent flat enumeration
         run: node project-co-design/docs/wildlife-codesign/oracle.mjs
+      - name: Replay crossing witnesses from exported catalogues
+        run: node project-co-design/docs/wildlife-codesign/export.test.cjs
       - name: Check monitoring-power interface, units and migration
         run: node project-co-design/docs/rail-power-loop/monitoring-power.test.cjs
       - uses: actions/setup-python@v5

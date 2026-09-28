@@ -1,6 +1,8 @@
 # One wildlife crossing, four co-design essais
 
-27 September 2026 · [Foray home](../index.html)
+27 September 2026; consolidation 28 September 2026 · [Foray home](../index.html)
+
+Local planning now has one home: **Foray 180 · Co-design for trade-offs**. The former animal-crossing (181) and railway (182) drafts are predecessors, not additional active essais.
 
 ## End
 

@@ -32,6 +32,8 @@ The package is useful, but its convenience APIs are not mathematical certificate
 
 The uncertainty layer needs separate care. In this version an undeclared `Box` direction uses a summed-resource heuristic; an actual system probe selected the favourable endpoint as its reported worst case. Declaring the proven adverse direction produced the expected endpoint in that probe. The `Ellipsoid` direction shortcut is not a general worst-case oracle, and stochastic convenience summaries pool resource coordinates across feasible frontier points. Those coordinates need not describe one design committed before uncertainty resolves. The new app does not use these shortcuts. [Inspected uncertainty implementation](https://github.com/cbriat/codesign-mcdp/blob/97d6446abf48c3424cf52bace9c5d9c40bfda978/codesign/uncertainty.py).
 
+The same pinned uncertainty entry point does not forward `trace=True` or `on_iteration`: the retained probe produced no trace and no callbacks. An uncertainty extension that needs an explanatory iteration trace should solve each explicitly justified endpoint through ordinary `solve(trace=True)` and compare with the uncertainty API. A missing trace is not an empty or completed calculation. The current monitoring app uses ordinary static solves and is unaffected. This is a source-pinned extension caveat, not a general claim about newer versions.
+
 There are also two different online layers: candidate-evaluation search and a myopic sense/solve/act loop. A budget-exhausted search is incomplete; a partially successful control run is not a completed programme. These distinctions would need explicit treatment in an app using them.
 
 ## Publication architecture
