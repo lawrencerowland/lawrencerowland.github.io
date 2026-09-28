@@ -523,3 +523,5 @@ body:has(.pw-home) { background: #f8f6ef; }
 @media (max-width: 560px) { .pw-retained-collections .foray-grid { grid-template-columns: 1fr; } }
 
 @media (min-width: 801px) { .pw-home-question-grid.pw-worked-example-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+.pw-worked-example-grid { align-items: start; }
+.pw-worked-example-grid .foray-detail-body p { margin: 0 0 .75rem; }
