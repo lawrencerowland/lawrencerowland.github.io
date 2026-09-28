@@ -2,6 +2,8 @@
 
 [Open the foray](https://lawrencerowland.github.io/project-co-design/) · [Forays & Side Projects](https://lawrencerowland.github.io/side-projects.html)
 
+Local planning is consolidated under **Foray 180 · Co-design for trade-offs**. Former 181/182 material is source history, not separate active forays.
+
 Four interactive essais use a fictional wildlife crossing to explore coupled project choices. Reconnect two habitats across a busy road: compose the crossing and its support, plan its construction, compare programme assumptions and power its remote monitoring. Each declares its own functionality, implementations, resource order and scope.
 
 | Question | Essai | Construction |

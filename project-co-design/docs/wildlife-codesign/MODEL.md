@@ -2,6 +2,8 @@
 
 This experiment asks which complete bridge, guide-fence and monitoring configurations can provide a requested capability, and which resource commitments remain incomparable. It develops the wildlife branch of the Project Co-design foray by making the component obligations executable. The setting is an invented roe-deer crossing network. Every capacity, price, land allowance, staffing coefficient and support ratio is a declared synthetic assumption, not an estimate or ecological finding.
 
+The current parent is Foray 180, Co-design for trade-offs. The earlier Foray 181 designation remains part of this wildlife branch's provenance; it is not a separate active parent.
+
 [Open the app](../../apps/wildlife-crossing.html). It is a standalone offline HTML file. The model is embedded byte-for-byte from [model.cjs](model.cjs); [API.md](API.md) gives the complete executable contract. No network service or external library is used by the app.
 
 ## The mathematical object
@@ -45,13 +47,17 @@ The second construction uses `monitor.points − fence.observationNeed` only for
 
 There is no intermediate Pareto pruning. Projecting onto cost before joining could discard a component whose different interface obligations matter downstream. Only complete compatible implementations are filtered by the request and then minimised. All implementation witnesses sharing a minimal resource tuple are retained. The interface presents one representative per resource tuple; the export preserves every retained witness.
 
+The comparison export also carries the complete declared catalogue in an additive `catalogues` field, alongside the existing request, witnesses, checks and units. A saved comparison can therefore supply its own component assumptions for independent replay and resource accounting. This preserves the original calculator's useful assumptions-with-results pattern; it changes neither the solver nor its numerical contract. See the [record contract](API.md#downloaded-comparison-record).
+
 The supported target is every integer from 0 to 330. Available sites range from zero to three, so maximum capacity is 315. Site availability restricts implementations; it is not a fourth minimised resource. Optional capital and land ceilings are upper bounds in whole pounds and square metres. Blank means unrestricted; zero means zero. The full supported API bounds are recorded in [API.md](API.md).
 
 For a fixed catalogue, site bound and resource ceilings, raising the target restricts the feasible implementation set. Relaxing a ceiling enlarges it. This is the relevant order behaviour. The resulting Pareto points need not be nested sets, and monotonicity does not prohibit the user from lowering a requirement and solving again. No construction-time path, ecological dynamics or project schedule is modelled here.
 
 ## What the construction changes
 
-At target 110 or 120, the old equal-width 50 + 50 m recipe is dominated by 30 + 50 m with identical support. The mixed pair provides 120 stipulated capacity and saves £2.03m capital, 0.40 ha land and £20,600 annual upkeep. The old pair provides 150; that surplus is unnecessary for these requests. The comparison is query-dependent, not a claim that the smaller pair dominates the larger one for every functionality requirement.
+There are two different predecessors. The original local `animal_crossing_codesign.html` already enumerated all 19 nonempty unordered bundles of up to three 30/50/70 m bridges, including mixed widths. It selected 30 + 50 m at targets 110 and 120. Its fencing and monitoring followed direct formulas, and its export included the assumptions. An intermediate published wildlife app instead used a fixed recipe staircase. The present app's advance over the original is independent support choices, explicit compatibility, zero work and complete declared resource accounting; mixed widths themselves are not new.
+
+At target 110 or 120, the intermediate predecessor's equal-width 50 + 50 m recipe is dominated by 30 + 50 m with identical support under the current catalogue. The mixed pair provides 120 stipulated capacity and saves £2.03m capital, 0.40 ha land and £20,600 annual upkeep. The old pair provides 150; that surplus is unnecessary for these requests. The comparison is query-dependent, not a claim that the smaller pair dominates the larger one for every functionality requirement.
 
 The default frontier has three resource tuples, all implementing the mixed pair:
 

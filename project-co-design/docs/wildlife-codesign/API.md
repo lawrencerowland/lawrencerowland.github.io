@@ -24,3 +24,11 @@ The only compatibility inequalities are `B.fenceNeedKm <= F.km` and `B.observati
 Group (B,F) first, retaining the observation obligation, or group (F,M) first, exposing residual observation capacity `M.points-F.observationNeed` alongside F's guide-km. Both constructions must return the identical complete witness set. Resources add componentwise.
 
 The target selects provided capacity at least q. `maxSites` restricts implementation availability; it is **not** a fourth minimized resource. Capital/land ceilings restrict admissible resource vectors. All restrictions occur before minimization and are recomputed for every query.
+
+## Downloaded comparison record
+
+The app's `wildlife-codesign-comparison.json` contains `model`, `request`, `selectedImplementation`, `replay`, `frontier`, `counts`, `units`, `boundary` and the additive `catalogues` field. `catalogues` is the complete JSON representation of `CATALOGUES`: all three base bridges, 20 bridge bundles, seven fence options and seven monitoring options, including zero choices, interface quantities and component resources. Older records can lack this field; the model version remains `wildlife-dpi-1` because its functions and numerical contract have not changed.
+
+To check a saved witness without the live app, resolve its three `parts` IDs in the saved catalogues, reconstruct the bridge capacity and resources from its widths and `baseBridges`, check both compatibility inequalities and the saved request, then add bridge, fence and monitoring resources. Monitoring records include staffing and its annual cost breakdown. The saved catalogue makes these assumptions inspectable; it does not authenticate a record or turn synthetic coefficients into field evidence. At an infeasible request, the catalogues remain present while `selectedImplementation` and `replay` are `null`.
+
+Run `node export.test.cjs` in this directory to exercise the production download handler with browser primitives stubbed, parse its actual JSON Blob and independently reconstruct saved witnesses and resource totals from the exported catalogues. This is a record-contract check, not a browser-download test.
