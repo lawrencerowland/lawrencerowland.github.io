@@ -3,13 +3,24 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const { execFileSync } = require('node:child_process');
 
-const projects = JSON.parse(execFileSync('ruby', ['-ryaml', '-rjson', '-e',
+const registry = JSON.parse(execFileSync('ruby', ['-ryaml', '-rjson', '-e',
   'puts JSON.generate(YAML.load_file("_data/side_projects.yml"))'], { encoding: 'utf8' }));
-assert.equal(projects.length, 17);
+const projects = registry.filter(p => p.placement === 'project');
+const collections = registry.filter(p => p.placement === 'library');
+assert.equal(registry.length, 17);
+assert.equal(projects.length, 15);
+assert.deepEqual(collections.map(p => p.id), ['project-web-apps', 'react-project-apps']);
+assert.equal(new Set(registry.map(p => p.id)).size, registry.length);
+for (const project of registry) {
+  assert.match(project.id, /^[a-z][a-z0-9-]+$/);
+  assert.ok(['open-enquiry', 'reference', 'earlier-collection'].includes(project.role));
+  assert.ok(['project', 'library'].includes(project.placement));
+  assert.equal(new URL(project.source_url).host, 'github.com');
+}
 assert.equal(projects.find(p => p.title === "Project Co-design").path, "https://lawrencerowland.github.io/project-co-design/");
-assert.equal(new Set(projects.map(project => project.path)).size, projects.length);
+assert.equal(new Set(registry.map(project => project.path)).size, registry.length);
 assert.equal(projects.find(p => p.title === "Shared waters: open systems").path, "https://lawrencerowland.github.io/shared-dynamics/");
-for (const project of projects) {
+for (const project of registry) {
   for (const field of ['title', 'question', 'description', 'path', 'action']) {
     assert.ok(project[field], `${project.title}: missing ${field}`);
   }
@@ -24,6 +35,18 @@ assert.equal(projects.find(p => p.title === 'Functors for Projects').path,
 assert.match(projects.find(p => p.title === 'Project Spines').description, /Six tabs/);
 assert.ok(projects.every(p => p.title !== 'CSV to Gantt'), 'removed CSV-to-Gantt card is absent');
 assert.ok(projects.every(p => !p.path.includes('/csv-to-gantt/')), 'removed CSV-to-Gantt route is absent');
+
+const questions = JSON.parse(execFileSync('ruby', ['-ryaml','-rjson','-e',
+  'puts JSON.generate(YAML.load_file("_data/project_questions.yml"))'], {encoding:'utf8'}));
+assert.equal(questions.length, 3);
+assert.equal(new Set(questions.map(q => q.id)).size, questions.length);
+for (const q of questions) {
+  for (const field of ['id','question','project_label','path','try_this','limitation','source_url']) assert.ok(q[field], `question route ${q.id}: ${field}`);
+  const route = new URL(q.path);
+  assert.equal(route.origin, 'https://lawrencerowland.github.io');
+  assert.ok(route.hash, 'guided route reaches its first interaction');
+  assert.match(q.source_url, /^https:\/\/github.com\/lawrencerowland\/[^/]+\/blob\/[0-9a-f]{40}\//, 'question route has a pinned source');
+}
 
 const cards = projects.map(project => ({ dataset: { tags: project.tags.join(',') }, hidden: false }));
 const listeners = {};
@@ -81,12 +104,20 @@ if (process.argv[2]) {
   assert.match(html, /<h1>Projects<\/h1>/);
   assert.ok(!/Gimmer experiment suites|Featured projects|Playgrounds &amp; libraries|Other side projects/.test(html));
   const escapeHTML = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  for (const q of questions) {
+    for (const field of ['question','project_label','path','try_this','limitation','source_url']) assert.ok(html.includes(escapeHTML(q[field])), `rendered question ${q.id}: ${field}`);
+    assert.ok(html.includes(`id="question-${q.id}"`));
+  }
+  assert.match(html, /<details class="foray-question-routes"/);
   const renderedCards = [...html.matchAll(/<article class="example-card foray-card"[\s\S]*?<\/article>/g)].map(match => match[0]);
   assert.equal(renderedCards.length, projects.length);
+  assert.ok(html.includes('href="/library.html#earlier-app-collections"'), 'retained collections remain signposted');
+  for (const collection of collections) assert.ok(!renderedCards.some(card => card.includes(collection.path)), 'generic collections move out of the project grid');
   assert.ok(!html.includes('{%') && !html.includes('{{'), 'Liquid rendered completely');
   assert.ok(!html.includes('https://lawrencerowland.github.io/csv-to-gantt/'), 'removed route is absent from the rendered directory');
   for (const [index, project] of projects.entries()) {
     const card = renderedCards[index];
+    assert.ok(card.includes(`id="${project.id}"`), `stable entry anchor: ${project.id}`);
     assert.ok(card.includes(`href="${escapeHTML(project.path)}"`), `missing rendered link: ${project.title}`);
     assert.ok(card.includes(`src="${escapeHTML(project.image)}"`), `missing image: ${project.title}`);
     for (const field of ['title', 'scenario', 'question', 'description', 'action']) {
@@ -108,10 +139,26 @@ if (process.argv[2]) {
   assert.ok(html.includes('href="/gpt-links-page.html"'));
   assert.ok(html.includes('href="https://lawrencerowland.github.io/project_innovation_app/"'));
   assert.ok(html.includes('href="/all-project-apps.html"'));
+  const expectedTags = [...new Set(projects.flatMap(p => p.tags))].sort();
+  const topicOptions = [...html.matchAll(/<option value="([^"]+)"/g)].map(m => m[1]).filter(x => x !== 'all');
+  assert.deepEqual(topicOptions, expectedTags, 'filter offers only topics with a displayed project');
+  if (process.argv[3]) {
+    const library = fs.readFileSync(process.argv[3], 'utf8');
+    const keptCards = [...library.matchAll(/<article class="example-card foray-card"[\s\S]*?<\/article>/g)].map(m => m[0]);
+    assert.equal(keptCards.length, collections.length);
+    for (const [i, project] of collections.entries()) {
+      const card = keptCards[i];
+      for (const field of ['title','scenario','question','description','action','path','image']) {
+        assert.ok(card.includes(escapeHTML(project[field])), `preserve collection ${field}: ${project.title}`);
+      }
+      assert.ok(card.includes(`id="${project.id}"`));
+    }
+    assert.match(library, /id="earlier-app-collections"/);
+  }
   assert.match(html, /src="\/assets\/forays\.js\?v=\d+"/);
   assert.ok(html.includes('id="foray-topic" autocomplete="off"'));
 }
-console.log(`PASS: ${projects.length} unique cards, one gallery, all topic filters, empty state, reset and optional rendered-page preservation checks.`);
+console.log(`PASS: ${projects.length} project cards, 2 retained collection records, one gallery, all topic filters, empty state, reset and optional rendered-page preservation checks.`);
 
 assert.deepEqual(projects.filter(p => p.group === 'gimmer').map(p => p.path), [
   'https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html',

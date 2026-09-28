@@ -13,13 +13,28 @@ wide: true
     <nav class="foray-sections" aria-label="More ways to explore">
       <a href="#compare-approaches">Compare approaches <span aria-hidden="true">↗</span></a>
     </nav>
-  </header>
+</header>
 
+  <details class="foray-question-routes" id="start-with-a-question">
+    <summary>Start with a question</summary>
+    <ul class="foray-question-list">
+      {% for question in site.data.project_questions %}
+      <li class="foray-question-route" id="question-{{ question.id | escape }}">
+        <a class="foray-question-link" href="{{ question.path | escape }}">{{ question.question | escape }} <span aria-hidden="true">→</span></a>
+        <p class="foray-question-project">{{ question.project_label | escape }}</p>
+        <p class="foray-question-try">{{ question.try_this | escape }}</p>
+        <p class="foray-question-limit">{{ question.limitation | escape }} <a href="{{ question.source_url | escape }}">Inspect source</a></p>
+      </li>
+      {% endfor %}
+    </ul>
+  </details>
+
+  {% assign projects = site.data.side_projects | where: 'placement', 'project' %}
   <div class="foray-filter" id="foray-filter" hidden>
     <label for="foray-topic">Filter by topic</label>
     <select id="foray-topic" autocomplete="off">
       <option value="all">All topics</option>
-      {% assign all_tags = site.data.side_projects | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+      {% assign all_tags = projects | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
       {% for tag in all_tags %}
       <option value="{{ tag | escape }}">{{ tag | replace: '-', ' ' | escape }}</option>
       {% endfor %}
@@ -30,7 +45,7 @@ wide: true
     <section class="foray-group" aria-label="Project gallery">
       <div class="foray-grid">
       {% assign linked_groups = '|' %}
-      {% for project in site.data.side_projects %}
+      {% for project in projects %}
         {% comment %}Preserve published section fragments at their first corresponding card.{% endcomment %}
         {% assign group_key = project.group | prepend: '|' | append: '|' %}
         {% assign legacy_anchor = '' %}
@@ -42,7 +57,8 @@ wide: true
           {% endcase %}
           {% assign linked_groups = linked_groups | append: project.group | append: '|' %}
         {% endunless %}
-        <article class="example-card foray-card" {% if legacy_anchor != '' %}id="{{ legacy_anchor }}" {% endif %}data-tags="{{ project.tags | join: ',' | escape }}">
+        <article class="example-card foray-card" id="{{ project.id | escape }}" data-tags="{{ project.tags | join: ',' | escape }}">
+          {% if legacy_anchor != '' %}<span class="foray-legacy-anchor" id="{{ legacy_anchor }}" aria-hidden="true"></span>{% endif %}
           <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">
             <span class="foray-scenario-image"><img src="{{ project.image | escape }}" alt="" width="640" height="400" {% if forloop.index <= 3 %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async"></span>
             <div class="foray-tile-body">
@@ -84,6 +100,7 @@ wide: true
 
   <p class="foray-other-links" id="other-projects">Also explore <a href="{{ '/gpt-links-page.html' | relative_url }}">My Custom GPTs</a> or the earlier <a href="https://lawrencerowland.github.io/project_innovation_app/">Project Innovation App</a>.</p>
   <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
+  <p class="foray-note">The two original general app collections are retained in the <a href="{{ '/library.html#earlier-app-collections' | relative_url }}">Library</a>.</p>
   <p class="foray-note">For individual tools from the two general app libraries, use the <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>.</p>
 </div>
 <script src="{{ '/assets/forays.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

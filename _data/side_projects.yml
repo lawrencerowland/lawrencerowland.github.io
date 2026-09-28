@@ -1,4 +1,10 @@
+# Stable identities and editorial placement. Role describes the reading purpose, not model validation.
+# Existing group values are retained only to preserve old section-fragment aliases.
 - title: "Gimmer: processes to plans"
+  id: gimmer-processes-plans
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/gimmer-crag
   image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
   image_alt: "Illustrated timber refuge on a cliff, beside process and plan sketches"
   scenario: "Build a small refuge halfway up a cliff."
@@ -10,6 +16,10 @@
   action: "Browse main collection"
 
 - title: "Gimmer: higher-autonomy experiments"
+  id: gimmer-higher-autonomy
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/gimmer-crag-project-mountain-refuge
   image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
   image_alt: "Cliffside timber refuge with process-to-plan sketches"
   scenario: "The same refuge, with the awkward handovers left in."
@@ -21,6 +31,10 @@
   action: "Browse higher-autonomy experiments"
 
 - title: "Gimmer: broader collection"
+  id: gimmer-broader
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/gimmer-crag
   image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
   image_alt: "Cliffside refuge used as the shared Gimmer test case"
   scenario: "Deliver the refuge\u2014and keep its different accounts connected."
@@ -32,6 +46,10 @@
   action: "Browse broader collection"
 
 - title: "Shared waters: open systems"
+  id: shared-waters
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/shared-dynamics
   image: "https://lawrencerowland.github.io/shared-dynamics/assets/emblem.svg"
   image_alt: "Three distinct systems share an interface above a small floating barge"
   scenario: "Connect an offshore depot, a power barge and their organisations."
@@ -43,6 +61,10 @@
   action: "Explore Shared waters"
 
 - title: "Integrated risks & tasks"
+  id: integrated-risks-tasks
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/integrated_risks_tasks
   image: "https://lawrencerowland.github.io/integrated_risks_tasks/assets/emblem.svg"
   image_alt: "A cow and a concrete wagon need the same narrow lane to a construction site"
   scenario: "Pour the foundations before the cows take the lane."
@@ -54,6 +76,10 @@
   action: "Explore the farm track"
 
 - title: "Project Co-design"
+  id: wildlife-crossing
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design
   image: "https://lawrencerowland.github.io/project-co-design/assets/wildlife-emblem.svg"
   image_alt: "Deer crossing a green arch between two habitats"
   scenario: "Reconnect two habitats across a busy road."
@@ -66,6 +92,10 @@
 
 
 - title: "Programme Decision Sequences"
+  id: programme-decisions
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/Programme-decision-sequences
   image: "https://lawrencerowland.github.io/Programme-decision-sequences/assets/unwinding-uncertainty.png"
   image_alt: "Existing emblem of successive decision steps descending through uncertainty"
   scenario: "Choose now; learn more before the next decision."
@@ -78,6 +108,10 @@
   related: [{"title":"Decision experiments and teaching apps","path":"https://lawrencerowland.github.io/Programme-decision-sequences/experiments.html"}]
 
 - title: "Local to Global"
+  id: local-to-global
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/local-to-global
   image: "https://lawrencerowland.github.io/images/scenarios/triangle.svg"
   image_alt: "Schematic triangular control-centre site crossed by road, railway and canal"
   scenario: "Fit a control centre onto the Tangled Triangle."
@@ -90,6 +124,10 @@
   related: [{"title":"Tangled Triangle: AI interpretation","path":"https://lawrencerowland.github.io/local-to-global/tangled-triangle/"}]
 
 - title: "Project Spines"
+  id: project-spines
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/project-spines
   image: "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG"
   image_alt: "Illustrated mountain refuge used to motivate the finite shed example"
   scenario: "Build a mountain-refuge shed, one dependency at a time."
@@ -103,6 +141,10 @@
   related: [{"title":"Earlier Hollman–Dilworth lab","path":"https://lawrencerowland.github.io/hollman-dilworth-project-controls/"}]
 
 - title: "Portfolio Wave reading map"
+  id: portfolio-wave-reading
+  role: reference
+  placement: project
+  source_url: https://github.com/lawrencerowland/Tag_Concurrence_Graph
   image: "https://lawrencerowland.github.io/images/scenarios/reading.svg"
   image_alt: "Sources linked through themes to experiments"
   scenario: "Follow a reading idea into a project experiment."
@@ -114,6 +156,10 @@
   action: "Open map"
 
 - title: "Functors for Projects"
+  id: functors-for-projects
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/functors-for_projects
   image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
   image_alt: "Two different model views on a project workbench"
   scenario: "Describe one project in more than one useful way."
@@ -126,6 +172,10 @@
 
 
 - title: "Bricklaying a Rotunda"
+  id: bricklaying-rotunda
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/bricklaying-a-rotunda
   image: "https://lawrencerowland.github.io/bricklaying-a-rotunda/dynamic%20project%20states%20project.png"
   image_alt: "Existing rotunda emblem: partially built circular brick wall and alternative trajectories"
   scenario: "Build a circular brick wall, course by course."
@@ -137,6 +187,10 @@
   action: "Browse collection"
 
 - title: "Building a Wall"
+  id: building-wall
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/building_a_wall
   image: "https://lawrencerowland.github.io/images/scenarios/wall.svg"
   image_alt: "Brick wall, pitched roof and scaffold showing connected construction packages"
   scenario: "Build a wall that is ready to receive a roof."
@@ -149,6 +203,10 @@
   related: [{"title":"Build a house. Keep the interfaces honest.","path":"https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/"}]
 
 - title: "Solway Tunnel Ontology"
+  id: solway-tunnel
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/Solway_tunnel_ontology
   image: "https://lawrencerowland.github.io/images/scenarios/tunnel.svg"
   image_alt: "Illustrative tunnel section connecting two shores beneath the Solway"
   scenario: "Imagine delivering a tunnel beneath the Solway."
@@ -161,6 +219,10 @@
   related: [{"title":"Open the kglab ontology audit","path":"https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/kglab-ontology-audit/"}]
 
 - title: "Project Web Apps"
+  id: project-web-apps
+  role: earlier-collection
+  placement: library
+  source_url: https://github.com/lawrencerowland/Project-web-apps
   image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
   image_alt: "A workbench comparing task dependencies and connected resources"
   scenario: "Try a small project before relying on a big model."
@@ -172,6 +234,10 @@
   action: "Browse collection"
 
 - title: "React Project Apps"
+  id: react-project-apps
+  role: earlier-collection
+  placement: library
+  source_url: https://github.com/lawrencerowland/React_proj-apps
   image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
   image_alt: "Two project-model views, representing dependencies and resource choices"
   scenario: "Deliver a software product with competing demands."
@@ -183,6 +249,10 @@
   action: "Browse collection"
 
 - title: "Tag Concurrence Graph"
+  id: tag-concurrence
+  role: reference
+  placement: project
+  source_url: https://github.com/lawrencerowland/Tag_Concurrence_Graph
   image: "https://lawrencerowland.github.io/images/scenarios/reading.svg"
   image_alt: "Reading sources linked by shared themes"
   scenario: "Find connections in a shelf of tagged reading."

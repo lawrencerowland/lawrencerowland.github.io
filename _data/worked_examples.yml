@@ -1,0 +1,39 @@
+- id: feedback-groups
+  role: bounded-worked-example
+  title: "Find the feedback groups."
+  topic: "Dependencies & process design"
+  canonical_url: "https://lawrencerowland.github.io/Project-web-apps/web_apps/frobenius-dsm-explorer.html"
+  image: "/images/scenarios/feedback-groups.svg"
+  image_alt: "Six design activities, with a feedback loop linking the load model, frame design and foundation design"
+  problem: "Which activities depend on one another in a loop? Reorder a six-activity matrix to expose the coupled groups while keeping every dependency."
+  action: "Explore the dependency example"
+  inputs: "Six named activities and editable, binary information dependencies. A mark means that the row activity receives information from the column activity."
+  try: "Compare the one-feedback-group and one-way-flow examples. Change a dependency and inspect which activities belong together. The second tab separately illustrates a change of coordinates."
+  limitation: "Dependency groups do not supply a feasible schedule. This example has no durations, resource capacities, coupling strengths or iteration counts; its three rational-matrix examples are not a general solver."
+  date_kind: app_revision
+  date: "2026-09-20"
+  revision_context: "The app explicitly records a revision on 20 September 2026, correcting an earlier comparison from June 2025. This is the app's revision date, not a claim about later use."
+  source_commit: "0877b95801274a740cf3b1e59533fbaf95b2670b"
+  source_url: "https://github.com/lawrencerowland/Project-web-apps/blob/0877b95801274a740cf3b1e59533fbaf95b2670b/web_apps/frobenius-dsm-explorer.html#L18"
+  source_label: "Source at the recorded revision"
+  checks_url: "https://github.com/lawrencerowland/Project-web-apps/blob/0877b95801274a740cf3b1e59533fbaf95b2670b/tests/frobenius-dsm.cjs"
+  checks_label: "Model checks and their scope"
+
+- id: buffer-day
+  role: bounded-worked-example
+  title: "What does another day of buffer buy?"
+  topic: "Schedule & risk assumptions"
+  canonical_url: "https://lawrencerowland.github.io/Project-web-apps/web_apps/project-risk-gradient.html"
+  image: "/images/scenarios/buffer-day.svg"
+  image_alt: "A seven-task software project branches through development and testing, and documentation and training, before deployment; buffer is shown beside two tasks"
+  problem: "Allocate protective buffer across a seven-task software project. Compare the reduction in its illustrative risk index with the effect on the commitment date."
+  action: "Explore the buffer example"
+  inputs: "A fixed task network, supplied durations and risk coefficients, and a buffer setting of zero to ten days per task."
+  try: "Start from reset. Add one day to Development, then reset and add one day to Documentation. Compare the risk-index change and finish-date effect; inspect the network to understand the difference."
+  limitation: "This is an uncalibrated teaching model. Risk follows a supplied exponential formula with fixed baseline weights and slack. Finish-date effects are calculated separately; the ranking does not establish real risk reduction or an optimal allocation."
+  date_kind: source_commit
+  date: "2026-07-10"
+  revision_context: "The linked source was added on 10 July 2026. That is a source-commit date; the app does not state a separate capture or review date."
+  source_commit: "3228f1badb656be3d37ba8d00ca4b7af5907e996"
+  source_url: "https://github.com/lawrencerowland/Project-web-apps/blob/3228f1badb656be3d37ba8d00ca4b7af5907e996/web_apps/project-risk-gradient.html#L633"
+  source_label: "Source and declared formulas"
