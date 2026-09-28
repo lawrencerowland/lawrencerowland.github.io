@@ -17,21 +17,21 @@ tags: [Projects, Examples, PortfolioManagement, Library]
   <section class="pw-home-questions" aria-labelledby="library-starts">
     <div class="pw-home-section-head"><div><p class="pw-home-kicker">Start with a practical question</p><h2 id="library-starts">Three strands of earlier work.</h2></div><p>Each will gain a clearer identity as its examples, assumptions and useful contributions are reviewed.</p></div>
     <div class="pw-home-question-grid">
-      <article class="pw-home-question">
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/Portfolio-data-model.html' | relative_url }}" aria-labelledby="library-question-1">
         <div class="pw-home-question-visual"><img src="{{ '/images/Portfolio-data-model/Full-programme-data-model.png' | relative_url }}" width="640" height="400" alt="A programme data model connects delivery work with objectives and its organisational context" loading="lazy"></div>
-        <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling example <span>Projects, programmes &amp; portfolios</span></p><h3><a href="{{ '/Portfolio-data-model.html' | relative_url }}">How should the work fit into a shared picture?</a></h3><p>Earlier graph models explore how projects, outcomes and dependencies can be represented together, with different views for different readers.</p></div>
-        <a class="pw-home-route-link" href="{{ '/Portfolio-data-model.html' | relative_url }}">Read the data-model guide <span aria-hidden="true">↗</span></a>
-      </article>
-      <article class="pw-home-question">
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling example <span>Projects, programmes &amp; portfolios</span></p><h3 id="library-question-1">How should the work fit into a shared picture?</h3><p>Earlier graph models explore how projects, outcomes and dependencies can be represented together, with different views for different readers.</p></div>
+        <span class="pw-home-route-link">Read the data-model guide <span aria-hidden="true">↗</span></span>
+      </a></article>
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/Portfolio-frameworks.html' | relative_url }}" aria-labelledby="library-question-2">
         <div class="pw-home-question-visual"><img src="{{ '/images/Portfolio-frameworks/portfolio-tier1.png' | relative_url }}" width="640" height="400" alt="An overview of the categories in a portfolio management framework" loading="lazy"></div>
-        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier method <span>Portfolio management</span></p><h3><a href="{{ '/Portfolio-frameworks.html' | relative_url }}">Which working practices does this portfolio need?</a></h3><p>A guide to choosing and adapting frameworks. The linked public code repository now retains a navigational skeleton, rather than the former full toolkit.</p></div>
-        <a class="pw-home-route-link" href="{{ '/Portfolio-frameworks.html' | relative_url }}">Read the framework guide <span aria-hidden="true">↗</span></a>
-      </article>
-      <article class="pw-home-question">
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier method <span>Portfolio management</span></p><h3 id="library-question-2">Which working practices does this portfolio need?</h3><p>A guide to choosing and adapting frameworks. The linked public code repository now retains a navigational skeleton, rather than the former full toolkit.</p></div>
+        <span class="pw-home-route-link">Read the framework guide <span aria-hidden="true">↗</span></span>
+      </a></article>
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/ML-for-portfolios.html' | relative_url }}" aria-labelledby="library-question-3">
         <div class="pw-home-question-visual"><img src="{{ '/images/ML-for-portfolios/Usecase-to-Operations-subgraph-ML-models-created.png' | relative_url }}" width="640" height="400" alt="A graph relates project use cases to delivery and operational stages" loading="lazy"></div>
-        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier exploration <span>Information &amp; methods</span></p><h3><a href="{{ '/ML-for-portfolios.html' | relative_url }}">Which method fits the question and the available data?</a></h3><p>Earlier thinking on matching machine-learning approaches to project information needs. Read it as a record of methods and possibilities, with technology and performance claims to recheck.</p></div>
-        <a class="pw-home-route-link" href="{{ '/ML-for-portfolios.html' | relative_url }}">Read the methods guide <span aria-hidden="true">↗</span></a>
-      </article>
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier exploration <span>Information &amp; methods</span></p><h3 id="library-question-3">Which method fits the question and the available data?</h3><p>Earlier thinking on matching machine-learning approaches to project information needs. Read it as a record of methods and possibilities, with technology and performance claims to recheck.</p></div>
+        <span class="pw-home-route-link">Read the methods guide <span aria-hidden="true">↗</span></span>
+      </a></article>
     </div>
   </section>
 
