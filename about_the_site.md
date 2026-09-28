@@ -4,7 +4,13 @@ schema_type: AboutPage
 tags: [PortfolioManagement, ProjectManagement, GraphDatabases, MachineLearning, KnowledgeManagement]
 ---
 
-# About
+# About this site
+
+The main focus is now **Lawrence Rowland — independent project experiments**: public enquiries that use concrete toy scenarios to make difficult ideas visible and testable. Begin with the [projects](/side-projects.html), try an example, then follow its sources, construction and limitations. The aim is to help us understand what a method contributes, including where it falls short.
+
+The [library of worked examples and earlier methods](/library.html) remains a distinct part of the site. It keeps captured answers to bounded problems alongside the work that led to them. The account below explains the site's original portfolio-management purpose; it should not be read as evidence that every current prototype has been validated for real-world use. Reuse terms are specific to each repository and its sources.
+
+## The site's earlier purpose
 
 1. TOC 
 {:toc}
@@ -35,7 +41,7 @@ Or go straight to my code and document libraries (repositories) for implementati
 
 For information about me personally, feel free to contact me directly.
 
-Please feel free to use for commercial or private purposes. Where you make improvements, please share them if appropriate.
+Check the licence and source terms in the relevant repository before reuse. Suggestions and improvements are welcome.
 
 # Motivation
 
