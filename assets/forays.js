@@ -4,8 +4,8 @@
   const filter = document.getElementById('foray-filter');
   const select = document.getElementById('foray-topic');
   const count = document.getElementById('foray-count');
+  const empty = document.getElementById('foray-empty');
   const cards = [...directory.querySelectorAll('.foray-card')];
-  const groups = [...directory.querySelectorAll('.foray-group')];
 
   function applyFilter() {
     let visible = 0;
@@ -14,10 +14,7 @@
       card.hidden = select.value !== 'all' && !tags.includes(select.value);
       if (!card.hidden) visible += 1;
     });
-    groups.forEach(group => {
-      const hasMatches = [...group.querySelectorAll('.foray-card')].some(card => !card.hidden);
-      group.querySelector('.foray-empty').hidden = hasMatches;
-    });
+    empty.hidden = visible > 0;
     count.textContent = visible + ' of ' + cards.length + ' projects shown';
   }
 

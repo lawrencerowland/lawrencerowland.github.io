@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Side projects
-description: Experiments, models and playgrounds for exploring project and programme questions.
+title: Projects
+description: Independent experiments and examples exploring project and programme questions.
 schema_type: CollectionPage
 tags: [SideProjects, Examples]
 wide: true
@@ -9,10 +9,9 @@ wide: true
 
 <div class="foray-directory" id="foray-directory">
   <header class="foray-intro" id="browse-projects">
-    <div><h1>Side projects</h1><p>Experiments in project thinking.</p></div>
+    <div><h1>Projects</h1><p>Experiments in project thinking.</p></div>
     <nav class="foray-sections" aria-label="More ways to explore">
       <a href="#compare-approaches">Compare approaches <span aria-hidden="true">↗</span></a>
-      <a href="{{ '/all-project-apps.html' | relative_url }}">All project apps <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
@@ -28,27 +27,26 @@ wide: true
     <p id="foray-count" role="status" aria-live="polite"></p>
   </div>
 
-  {% assign groups = 'gimmer,featured,library,other' | split: ',' %}
-  {% for group in groups %}
-    {% case group %}
-      {% when 'gimmer' %}{% assign section_id = 'gimmer-projects' %}{% assign section_title = 'Gimmer experiment suites' %}
-      {% when 'featured' %}{% assign section_id = 'featured-forays' %}{% assign section_title = 'Featured projects' %}
-      {% when 'library' %}{% assign section_id = 'playgrounds' %}{% assign section_title = 'Playgrounds & libraries' %}
-      {% when 'other' %}{% assign section_id = 'other-projects' %}{% assign section_title = 'Other side projects' %}
-    {% endcase %}
-    <section class="foray-group" id="{{ section_id }}" aria-labelledby="{{ section_id }}-heading">
-      <h2 id="{{ section_id }}-heading">{{ section_title | escape }}</h2>
-      {% if group == 'gimmer' %}
-      <p class="foray-group-description">Three collections exploring Gimmer itself, each with its own scope and apps.</p>
-      {% endif %}
+    <section class="foray-group" aria-label="Project gallery">
       <div class="foray-grid">
+      {% assign linked_groups = '|' %}
       {% for project in site.data.side_projects %}
-        {% if project.group == group %}
-        <article class="example-card foray-card" data-tags="{{ project.tags | join: ',' | escape }}">
+        {% comment %}Preserve published section fragments at their first corresponding card.{% endcomment %}
+        {% assign group_key = project.group | prepend: '|' | append: '|' %}
+        {% assign legacy_anchor = '' %}
+        {% unless linked_groups contains group_key %}
+          {% case project.group %}
+            {% when 'gimmer' %}{% assign legacy_anchor = 'gimmer-projects' %}
+            {% when 'featured' %}{% assign legacy_anchor = 'featured-forays' %}
+            {% when 'library' %}{% assign legacy_anchor = 'playgrounds' %}
+          {% endcase %}
+          {% assign linked_groups = linked_groups | append: project.group | append: '|' %}
+        {% endunless %}
+        <article class="example-card foray-card" {% if legacy_anchor != '' %}id="{{ legacy_anchor }}" {% endif %}data-tags="{{ project.tags | join: ',' | escape }}">
           <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">
-            <span class="foray-scenario-image"><img src="{{ project.image | escape }}" alt="" width="640" height="400" {% if group == 'gimmer' %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async"></span>
+            <span class="foray-scenario-image"><img src="{{ project.image | escape }}" alt="" width="640" height="400" {% if forloop.index <= 3 %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async"></span>
             <div class="foray-tile-body">
-              <h3>{{ project.title | escape }}</h3>
+              <h2>{{ project.title | escape }}</h2>
               <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
               <span class="foray-action">{{ project.action | escape }} <span aria-hidden="true">→</span></span>
             </div>
@@ -70,15 +68,10 @@ wide: true
             </div>
           </details>
         </article>
-        {% endif %}
       {% endfor %}
       </div>
-      <p class="foray-empty" hidden>No projects in this section match this topic. Choose “All topics” to see the full collection.</p>
-      {% if group == 'other' %}
-      <p class="foray-other-links">Also explore <a href="{{ '/gpt-links-page.html' | relative_url }}">My Custom GPTs</a> or the earlier <a href="https://lawrencerowland.github.io/project_innovation_app/">Project Innovation App</a>.</p>
-      {% endif %}
+      <p class="foray-empty" id="foray-empty" hidden>No projects match this topic. Choose “All topics” to see the full collection.</p>
     </section>
-  {% endfor %}
   <section class="foray-comparison" id="compare-approaches" aria-labelledby="compare-approaches-heading">
     <h2 id="compare-approaches-heading">Compare approaches across the portfolio</h2>
     <p class="foray-comparison-lead">One shared challenge. Nine ways to reason.</p>
@@ -89,8 +82,8 @@ wide: true
     </div>
   </section>
 
+  <p class="foray-other-links" id="other-projects">Also explore <a href="{{ '/gpt-links-page.html' | relative_url }}">My Custom GPTs</a> or the earlier <a href="https://lawrencerowland.github.io/project_innovation_app/">Project Innovation App</a>.</p>
   <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
   <p class="foray-note">For individual tools from the two general app libraries, use the <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>.</p>
 </div>
 <script src="{{ '/assets/forays.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-

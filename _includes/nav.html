@@ -1,30 +1,38 @@
-<nav class="navbar">
+{% if page.home_front_door %}<a class="pw-skip-link" href="#home-main">Skip to content</a>{% endif %}
+<nav class="navbar pw-navigation" aria-label="Main navigation">
   <div class="nav-container">
-    <a class="logo" href="{{ '/' | relative_url }}">Home</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav-links">&#9776;</button>
+    <a class="logo pw-site-brand" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}><span>Lawrence Rowland</span><small>Independent project experiments</small></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav-links" hidden><span>Menu</span><span class="pw-menu-icon" aria-hidden="true"></span></button>
     <ul class="nav-links" id="main-nav-links">
-      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
-      <li><a href='https://lawrencerowland.github.io/Project-web-apps/'>Project apps</a></li>
-      <li><a href='https://lawrencerowland.github.io/React_proj-apps/'>More project apps</a></li>
-      <li><a href="{{ '/all-project-apps.html' | relative_url }}" {% if page.url == '/all-project-apps.html' %}class="active"{% endif %}>All project apps</a></li>
-      <li><a href="{{ '/gap-map.html' | relative_url }}" {% if page.url == '/gap-map.html' %}class="active"{% endif %}>Gap Map</a></li>
-      <li><a href="{{ '/graphs.html' | relative_url }}" {% if page.url == '/graphs.html' %}class="active"{% endif %}>Graphs</a></li>
-      <li><a href="{{ '/Books.html' | relative_url }}" {% if page.url == '/Books.html' %}class="active"{% endif %}>Books</a></li>
-      <li><a href="{{ '/side-projects.html' | relative_url }}" {% if page.url == '/side-projects.html' %}class="active"{% endif %}>Side projects</a></li>
-      <li><a href="{{ '/wider-interest/' | relative_url }}" {% if page.url == '/wider-interest/' %}class="active"{% endif %}>Wider Interest</a></li>
-      <li><a href="{{ '/blog_summary.html' | relative_url }}" {% if page.url == '/blog_summary.html' %}class="active"{% endif %}>Blog Summary</a></li>
-      <li><a href="{{ '/about_me.html' | relative_url }}" {% if page.url == '/about_me.html' %}class="active"{% endif %}>About Me</a></li>
-      <li><a href="{{ '/older-stuff.html' | relative_url }}" {% if page.url == '/older-stuff.html' %}class="active"{% endif %}>Older stuff</a></li>
+      <li><a href="{{ '/side-projects.html' | relative_url }}" {% if page.url == '/side-projects.html' %}class="active" aria-current="page"{% endif %}>Projects</a></li>
+      <li><a href="{{ '/library.html' | relative_url }}" {% if page.url == '/library.html' %}class="active" aria-current="page"{% endif %}>Library</a></li>
     </ul>
   </div>
 </nav>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.nav-toggle');
-    const links = document.querySelector('.nav-links');
+    const nav = document.querySelector('.pw-navigation');
+    if (!nav) return;
+    const toggle = nav.querySelector('.nav-toggle');
+    const links = nav.querySelector('.nav-links');
+    const close = () => {
+      links.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
+    };
+    nav.dataset.enhanced = 'true';
+    toggle.hidden = false;
     toggle.addEventListener('click', () => {
-      links.classList.toggle('show');
-      toggle.setAttribute('aria-expanded', String(links.classList.contains('show')));
+      const expanded = links.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', String(expanded));
+      toggle.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
     });
+    nav.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        close(); toggle.focus();
+      }
+    });
+    links.addEventListener('click', event => { if (event.target.closest('a')) close(); });
+    window.matchMedia('(min-width: 701px)').addEventListener('change', close);
   });
 </script>

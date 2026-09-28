@@ -12,6 +12,12 @@ on:
       - '_layouts/**'
       - 'side-projects.md'
       - 'index.md'
+      - 'library.md'
+      - 'about_me.md'
+      - 'about_the_site.md'
+      - 'blog_summary.md'
+      - '_config.yml'
+      - 'tests/public-front-door.test.cjs'
       - 'assets/**'
       - 'tests/foray-directory.test.cjs'
       - 'all-project-apps.md'
@@ -30,6 +36,12 @@ on:
       - '_layouts/**'
       - 'side-projects.md'
       - 'index.md'
+      - 'library.md'
+      - 'about_me.md'
+      - 'about_the_site.md'
+      - 'blog_summary.md'
+      - '_config.yml'
+      - 'tests/public-front-door.test.cjs'
       - 'assets/**'
       - 'tests/foray-directory.test.cjs'
       - 'all-project-apps.md'
@@ -46,6 +58,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+      - name: Check public front door and navigation
+        run: node tests/public-front-door.test.cjs
       - name: Check nine Gimmer models and comparison contracts
         run: node tests/gimmer-comparison.test.cjs
       - name: Check directory data and filtering
@@ -86,3 +100,11 @@ jobs:
         run: node tests/app-migration.test.cjs _site/all-project-apps.html
       - name: Check the rendered Gimmer comparison
         run: node tests/gimmer-comparison.test.cjs _site
+      - name: Check the rendered public front door and library
+        run: node tests/public-front-door.test.cjs _site
+      - name: Save the built site for preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site-preview
+          path: _site
+          retention-days: 7

@@ -7,8 +7,18 @@ tags: [ProjectManagement, AI, Personal]
 
 <header>
   <h1>Lawrence Rowland</h1>
-  <p>AI &amp; Project Management</p>
+  <p>Independent project experiments</p>
 </header>
+
+<section aria-labelledby="current-work">
+  <h2 id="current-work">Learning by making ideas inspectable</h2>
+  <p>I use small, concrete project scenarios to explore ideas about work, resources, decisions and how systems fit together. A farm lane, a mountain refuge or a wildlife crossing gives us something recognisable to think with before we turn to the mathematics.</p>
+  <p>This site centres my independent public experiments. They are attempts to understand and test ideas, with sources, visible models and limits; a working demonstration is not proof that a method will work on a real project. My employment and client work are outside the scope of this collection.</p>
+  <p>Start with the <a href="/side-projects.html">projects</a>, explore an example, and follow its explanation back to the question and the papers behind it. AI helps me build and explore; making the result understandable remains part of the work.</p>
+</section>
+
+<h2>Earlier interests in AI and project management</h2>
+<p>The themes below record a broader strand of this site. They are background to the current experiments, rather than claims that those experiments are ready for operational use.</p>
 
 <section id="methodologies">
   <h2>AI-Driven Project Management Methodologies</h2>
@@ -67,7 +77,7 @@ tags: [ProjectManagement, AI, Personal]
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>To discuss AI implementation in your project environment, reach out via LinkedIn or Substack.</p>
+  <p>To discuss an experiment or suggest a correction, raise an issue in its linked GitHub repository.</p>
 </section>
 
 <footer>

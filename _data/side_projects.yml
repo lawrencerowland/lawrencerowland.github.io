@@ -192,15 +192,3 @@
   tags: ["knowledge-graphs","sources"]
   path: "https://lawrencerowland.github.io/Tag_Concurrence_Graph/"
   action: "Browse collection"
-
-- title: "CSV to Gantt"
-  image: "https://lawrencerowland.github.io/images/scenarios/gantt.svg"
-  image_alt: "A task table transformed into a dated bar chart"
-  scenario: "Turn a small task table into a visible timeline."
-  group: "other"
-  question: "Can a simple table become a Gantt chart?"
-  description: "A side project created by ChatGPT's Operator using Deep Research and Codex."
-  origin: "ChatGPT's Operator"
-  tags: ["gantt","csv","side-project"]
-  path: "https://lawrencerowland.github.io/csv-to-gantt/"
-  action: "Open project"
