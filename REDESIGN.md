@@ -26,18 +26,24 @@ Coverage combined repository metadata, public README and entrance review, repres
 
 No private repository names or contents belong in the public inventory. Retain the distinction between an active investigation, a completed checkpoint, a historical prototype, a reference library and a working utility.
 
+### Update after the first review
+
+Lawrence explicitly requested retirement of CSV to Gantt as an earlier Operator demonstration whose purpose had passed. He deleted its repository; the repository and Pages address now return 404. Its directory entry is removed, leaving 17. This is an explicit exception to preservation, rather than a general instruction to delete less prominent work.
+
+The directory now uses one pictured grid and topic filtering. “Featured projects” and “Playgrounds & libraries” mixed prominence, interaction and collection type, so they no longer divide the grid. Existing group fragment links are retained as aliases and the three Gimmer collections remain separate entries. Notes and About move to the footer; the small existing writing collection is reachable within Library.
+
 ## Stage 1 — Establish the entrance
 
-**Current scope:** homepage, shared header/footer and configuration; About openings; Notes orientation; a Library page using existing public guides; and two confirmed notes-link repairs. Keep the 18-entry directory and existing application routes. Import no private Vault material.
+**Current scope:** homepage, shared header/footer and configuration; About openings; Notes orientation; a Library page using existing public guides; two confirmed notes-link repairs; a single project grid; and removal of the explicitly retired CSV-to-Gantt entry. Keep the remaining 17 directory entries and their application routes after the explicitly requested CSV-to-Gantt retirement. Import no private Vault material.
 
 Make the homepage a curated entrance to open enquiries and bounded worked examples. Give visitors a few compelling scenarios and questions. Keep earlier portfolio/project-management guides, graphs, books and other heritage discoverable through Library, clearly dated and scoped where evidence permits.
 
-Primary navigation is **Projects / Library / Notes / About**. Existing app collections remain accessible through a secondary footer disclosure; they no longer lead the identity. About explains the independent work; Notes explains the existing writing. Naming and migration beyond this first entrance remain gradual.
+Primary navigation is **Projects / Library**; Notes and About remain in the footer. Existing app collections remain accessible through a secondary footer disclosure; they no longer lead the identity. About explains the independent work; Notes explains the existing writing. Naming and migration beyond this first entrance remain gradual.
 
 **Acceptance**
 
 - The opening identifies Lawrence and the work, presents an intelligible project question, and offers a clear first example on desktop and mobile.
-- Navigation destinations agree with their labels; older published routes and all 18 directory entries remain reachable. The two notes repairs resolve to the intended content.
+- Navigation destinations agree with their labels; retained published routes and all 17 directory entries remain reachable. The two notes repairs resolve to the intended content.
 - Keyboard navigation, focus, responsive layout and a complete example-and-return journey are checked. Verify the published revision and retain a rollback route before calling the stage complete.
 
 ## Stage 2 — Make discovery useful
@@ -52,7 +58,7 @@ Name individual solutions as their purpose becomes clear. Their parent may be a 
 
 **Acceptance**
 
-- All 18 current entrances have stable records and working routes; distinct Gimmer lanes and meaningful queries/fragments are preserved.
+- All 17 retained entrances have stable records and working routes; distinct Gimmer lanes and meaningful queries/fragments are preserved.
 - Newcomer questions find useful enquiries or scoped examples; returning readers can still find original titles and identifiers. Role and evidence status are independent fields.
 - Status and dates state what was checked and when. Unknown review state remains unknown; fresh commits or HTTP checks do not silently become model-review claims.
 

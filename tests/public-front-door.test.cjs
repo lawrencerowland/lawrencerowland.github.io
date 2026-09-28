@@ -7,11 +7,13 @@ const nav = fs.readFileSync('_includes/nav.html', 'utf8');
 const footer = fs.readFileSync('_includes/footer.html', 'utf8');
 const home = fs.readFileSync('index.md', 'utf8');
 const library = fs.readFileSync('library.md', 'utf8');
-assert.deepEqual([...nav.matchAll(/>(Projects|Library|Notes|About)<\/a>/g)].map(m => m[1]), ['Projects', 'Library', 'Notes', 'About']);
+assert.deepEqual([...nav.matchAll(/>(Projects|Library|Notes|About)<\/a>/g)].map(m => m[1]), ['Projects', 'Library']);
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
-for (const route of ['/all-project-apps.html', '/graphs.html', '/Books.html', '/gap-map.html', '/wider-interest/', '/older-stuff.html', '/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
+for (const route of ['/blog_summary.html', '/about_me.html', '/all-project-apps.html', '/graphs.html', '/Books.html', '/gap-map.html', '/wider-interest/', '/older-stuff.html', '/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
   assert.ok(footer.includes(route), `preserve the older route ${route}`);
 }
+assert.match(footer, />Notes &amp; writing<\/a>/, 'Notes remains discoverable in the footer');
+assert.match(footer, />About<\/a>/, 'About remains discoverable in the footer');
 for (const source of [home, library]) {
   assert.equal((source.match(/<h1\b/g) || []).length, 1);
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');

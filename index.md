@@ -52,6 +52,6 @@ tags: [Projects, Experiments, Models, IndependentResearch]
 
   <section class="pw-home-approach" aria-labelledby="approach-title">
     <div><p class="pw-home-kicker">How to read these experiments</p><h2 id="approach-title">A small world.<br>A question you can inspect.</h2></div>
-    <div class="pw-home-approach-copy"><p>Start with the situation. Try the model. Then look at the source, the assumptions and the limits of what it shows.</p><p>These are exploratory models and working explanations. A result inside an experiment is a reason to investigate further; it does not establish what will happen on a real project.</p><div class="pw-home-approach-links"><a href="{{ '/library.html' | relative_url }}">Explore worked examples ↗</a><a href="{{ '/blog_summary.html' | relative_url }}">Read the notes ↗</a><a href="{{ '/about_me.html' | relative_url }}">About Lawrence ↗</a></div></div>
+    <div class="pw-home-approach-copy"><p>Start with the situation. Try the model. Then look at the source, the assumptions and the limits of what it shows.</p><p>These are exploratory models and working explanations. A result inside an experiment is a reason to investigate further; it does not establish what will happen on a real project.</p><div class="pw-home-approach-links"><a href="{{ '/library.html' | relative_url }}">Explore worked examples ↗</a></div></div>
   </section>
 </div>

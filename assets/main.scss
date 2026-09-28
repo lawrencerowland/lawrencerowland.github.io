@@ -259,7 +259,7 @@ sup.footnote-ref:hover .footnote-popup {
 .foray-scenario-image { display: block; background: #f3f0e6; border-bottom: 1px solid #e4e6da; }
 .foray-scenario-image img { display: block; width: 100%; height: 235px; object-fit: contain; }
 .foray-tile-body { display: flex; flex: 1; flex-direction: column; padding: 1.15rem 1.25rem 1rem; }
-.foray-card h3 { font-size: 1.15rem; line-height: 1.3; letter-spacing: -.015em; margin: 0 0 .55rem; }
+.foray-card h2, .foray-card h3 { font-size: 1.15rem; line-height: 1.3; letter-spacing: -.015em; margin: 0 0 .55rem; }
 .foray-scenario-caption { font-size: .9rem; line-height: 1.5; color: #56695d; margin: 0 0 1rem; }
 .foray-action { display: flex; justify-content: space-between; gap: .6rem; margin-top: auto; font-size: .8rem; line-height: 1.4; font-weight: 650; color: #215b3f; }
 .foray-action span { font-size: 1.1rem; }
