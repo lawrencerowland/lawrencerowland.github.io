@@ -18,3 +18,8 @@
   origin: "ChatGPT o3"
   tags: [category theory, WBS, petri net, generative model, possible futures]
   path: "/examples/petri-to-wbs.html"
+- title: "Project-Approach Atlas"
+  description: "A reference for choosing an experiment: eleven approaches, primary sources, limits and next checks. Earlier assessments are preserved separately."
+  origin: "Lawrence Rowland with AI assistance"
+  tags: [methods, modelling, reference]
+  path: "/project-approach-atlas/"

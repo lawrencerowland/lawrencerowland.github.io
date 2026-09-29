@@ -3,6 +3,7 @@ name: Check foray directory
 on:
   pull_request:
     paths:
+      - 'project-approach-atlas/**'
       - 'gimmer-comparison/**'
       - 'tests/gimmer-comparison.test.cjs'
       - 'project-co-design/**'
@@ -30,6 +31,7 @@ on:
   push:
     branches: [master]
     paths:
+      - 'project-approach-atlas/**'
       - 'gimmer-comparison/**'
       - 'tests/gimmer-comparison.test.cjs'
       - 'project-co-design/**'
@@ -64,6 +66,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+      - name: Check atlas preservation and interaction contracts
+        run: node project-approach-atlas/tests/atlas.test.cjs
       - name: Check public front door and navigation
         run: node tests/public-front-door.test.cjs
       - name: Check nine Gimmer models and comparison contracts

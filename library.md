@@ -39,6 +39,15 @@ tags: [Projects, Examples, PortfolioManagement, Library]
     </div>
   </section>
 
+  <section class="pw-home-approach" aria-labelledby="atlas-reference-title">
+    <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/project-approach-atlas/' | relative_url }}" aria-labelledby="atlas-reference-title">
+      <div class="pw-home-question-visual"><img src="{{ '/images/scenarios/approach-atlas.svg' | relative_url }}" width="640" height="400" alt="Three connected cards take a project question through a modelling method to a check" loading="lazy"></div>
+      <div class="pw-home-question-copy"><p class="pw-home-project-label">Reference <span>Choosing an approach</span></p><h2 id="atlas-reference-title">Project-Approach Atlas</h2><p>Eleven approaches, their premises, ways they can fail, and a useful next check.</p></div>
+      <span class="pw-home-route-link">Explore the atlas <span aria-hidden="true">→</span></span>
+    </a></article>
+    <div class="pw-home-approach-copy"><p class="pw-home-kicker">Before you choose a method</p><h2>What would make it useful?</h2><p>Start with the question the model should help you answer. The atlas connects each approach to sources and distinguishes a mathematical construction from a claim about project usefulness.</p><p>These reviewed notes are a guide to trying a method. They are not eleven solved examples. The earlier assessments and comparison map remain available within the atlas, clearly marked as unvalidated judgments.</p></div>
+  </section>
+
   <section class="pw-home-questions" aria-labelledby="library-starts">
     <div class="pw-home-section-head"><div><p class="pw-home-kicker">Start with a practical question</p><h2 id="library-starts">Three strands of earlier work.</h2></div><p>Each will gain a clearer identity as its examples, assumptions and useful contributions are reviewed.</p></div>
     <div class="pw-home-question-grid">

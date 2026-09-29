@@ -1,0 +1,173 @@
+[
+  {
+    "originalId": "kg-gt",
+    "family": "Knowledge Graphs",
+    "title": "From qualitative coding to a graph with traceable edges",
+    "premise": "Code a small corpus, record how categories were formed, then distinguish analyst-declared relationships from computed similarities. A graph can expose those choices; it does not discover a grounded theory merely by connecting similar text.",
+    "why": "Investigate whether a reader can trace a concept or edge back to the material and decisions supporting it.",
+    "signals": ["Can another reader inspect the evidence behind an edge?", "Are similarity, co-occurrence, interpretation and equality kept distinct?", "Can a challenged coding decision be revised without losing its history?"],
+    "failureModes": ["Ontology creep beyond the question being investigated", "Coding that overfits persuasive wording or a selected corpus", "Similarity edges presented as meaningful or causal relationships without review"],
+    "nextProbe": "Audit a small set of graph edges. Record their type, source excerpts and reasoning; include a counterexample or disagreement, and revise any edge whose support is unclear.",
+    "correction": "The original described improved stakeholder alignment as a signal without an observation record. It also left the hierarchy-to-similarity step undefined. These are now questions to test. The linked colimit toy checks declared equal-code identifications, not similarity, qualitative meaning or human benefit.",
+    "sources": [
+      {"title": "Corbin and Strauss — Basics of Qualitative Research", "url": "https://in.sagepub.com/en-in/sas/basics-of-qualitative-research/book235578", "role": "Method reference for coding and analysis; it does not validate the proposed graph transformation."},
+      {"title": "W3C — PROV-DM: The PROV Data Model", "url": "https://www.w3.org/TR/prov-dm/", "role": "A vocabulary for recording derivation and responsibility, not proof that an interpretation is correct."}
+    ],
+    "project": {"title": "Grounded theory and a finite colimit", "url": "https://lawrencerowland.github.io/functors-for_projects/apps/grounded-theory-colimit/"}
+  },
+  {
+    "originalId": "petri-sched",
+    "family": "Petri Nets",
+    "title": "Petri-net states and executions before candidate schedules",
+    "premise": "Use places, tokens and transitions to declare a process model. A marking is a state; a firing sequence is an execution. Producing a timed schedule requires additional duration, timing, resource and selection rules.",
+    "why": "Investigate which proposed executions satisfy the declared enabling conditions, and which alternatives a single schedule leaves out.",
+    "signals": ["Can an independently replayed execution reach its stated end state?", "Does a deliberately resource-conflicting execution fail the stated check?", "Are durations and additional resource assumptions visible when dates are assigned?"],
+    "failureModes": ["A net too detailed to inspect or maintain", "Tokens, tasks, states and complete schedules treated as interchangeable", "The data needed to instantiate the model is unavailable or unreliable"],
+    "nextProbe": "Define a minimal workfront-availability token model. Replay one permitted and one conflicting execution, then add explicit durations and compare the resulting dated schedules under the same assumptions.",
+    "correction": "The original title called candidate schedules markings. Markings describe states, while executions require transition sequences; calendar schedules need further semantics. Claims that the method makes impossible plans obvious are limited to violations represented by the supplied model.",
+    "sources": [
+      {"title": "Baez and Master — Open Petri Nets", "url": "https://arxiv.org/abs/1808.05415", "role": "Formal treatment of markings, transition sequences, reachability and composition; it does not supply project durations or a scheduling objective."}
+    ],
+    "project": {"title": "Gimmer: processes to plans", "url": "https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html"}
+  },
+  {
+    "originalId": "smc-wiring",
+    "family": "Category Theory",
+    "title": "Typed wiring diagrams with an explicit process interpretation",
+    "premise": "Represent processes by typed inputs and outputs, with sequential and parallel composition. Choose the meaning of the types, processes and wiring, then check that the implementation respects it. A diagram alone does not generate a WBS or a schedule.",
+    "why": "Investigate whether smaller process descriptions can be connected while preserving their declared interface conditions.",
+    "signals": ["Are incompatible connections rejected with a specific reason?", "Can a composite be checked against the same stated interface conditions as its parts?", "Is every generated work-package choice linked to an explicit grouping rule?"],
+    "failureModes": ["A diagram whose formal vocabulary is harder to inspect than the process", "Costs, uncertainty or shared resources omitted from the chosen interpretation", "Mathematical notation displayed without executable meaning or checks"],
+    "nextProbe": "Take three small construction processes, state their ports and conditions, and check two legal compositions and one illegal connection. If generating WBS stubs, state the additional grouping and naming rules separately.",
+    "correction": "The original suggested a process-first formalism and WBS compilation without specifying their bridge. Composition supplies structure; scheduling and work breakdowns require additional authored semantics. The linked wall experiment is one finite construction, not evidence of general project improvement.",
+    "sources": [
+      {"title": "Fong and Spivak — Seven Sketches in Compositionality", "url": "https://arxiv.org/abs/1803.05316", "role": "Primary introduction to compositional structures and their chosen interpretations; no automatic project-to-WBS theorem is asserted."}
+    ],
+    "project": {"title": "Building a Wall", "url": "https://lawrencerowland.github.io/building_a_wall/"}
+  },
+  {
+    "originalId": "sheaf-wbs",
+    "family": "Sheaves",
+    "title": "Local project views, overlap rules and the gluing question",
+    "premise": "Define the local data, the parts on which it lives and the maps comparing data on overlaps. Agreement under those maps is a compatibility question. A sheaf claim additionally needs the relevant unique-gluing condition; arbitrary constraint propagation is not enough.",
+    "why": "Investigate where local accounts disagree and what is required to assemble them into a coherent account under declared rules.",
+    "signals": ["Is each compatibility check tied to an explicit overlap and comparison map?", "Can a reader locate a deliberate conflict?", "Is a finite constraint result distinguished from a proved sheaf construction?"],
+    "failureModes": ["The implementation checks a different condition from the stated mathematics", "Advanced terminology obscures an ordinary finite constraint check", "A poorly chosen cover or base leaves important interfaces outside the model"],
+    "nextProbe": "Choose three small project views with explicit restriction maps. Test compatible and incompatible assignments. State separately whether unique gluing has been proved, checked only for a finite example, or left open.",
+    "correction": "The original proposed using a sheaf metaphor and backfilling the theory. The revised probe defines the comparison structure first and keeps compatibility distinct from gluing. The linked scope-coherence example checks finite supplied rules; it does not prove sheaf axioms for project data.",
+    "sources": [
+      {"title": "Daniel Rosiak — Sheaf Theory through Examples", "url": "https://mitpress.mit.edu/9780262542159/sheaf-theory-through-examples/", "role": "Primary exposition of local data, restriction maps and sheaf constructions."},
+      {"title": "Mathlib — Sheaf condition as unique gluing", "url": "https://leanprover-community.github.io/mathlib_docs/topology/sheaves/sheaf_condition/unique_gluing.html", "role": "Formal definition showing the stronger condition that a project analogy must justify."}
+    ],
+    "project": {"title": "Local to Global: scope coherence", "url": "https://lawrencerowland.github.io/local-to-global/forays/001-scope-coherence.html"}
+  },
+  {
+    "originalId": "rl-powell",
+    "family": "Sequential Decision / RL",
+    "title": "A five-part model for recurring decisions under uncertainty",
+    "premise": "Model one recurring project decision through state, decision, new information, state transition and objective. Specify the policy that chooses actions from the available information. This framing does not by itself implement reinforcement learning.",
+    "why": "Investigate how different management rules respond to new information, using a declared objective and the same comparison scenarios.",
+    "signals": ["Is the stated information sufficient to apply the policy?", "Can both policies be replayed over the same scenarios?", "Are the objective and omitted uncertainties visible?"],
+    "failureModes": ["Decision-relevant state is unobserved or omitted", "The policy exploits a poorly chosen objective", "The proposed decision rule does not fit who can actually act or what they can observe"],
+    "nextProbe": "Choose one recurring scope decision and one uncertainty source. Declare the five model elements, then compare a fixed rule with one alternative over the same small set of scenarios. Report conditional results rather than real-project performance.",
+    "correction": "The original omitted the objective and called the framework the right ontology. It is now a candidate modelling framework with an explicit comparison criterion. The historical family label is retained, but neither this entry nor the related simulator is evidence that RL improves project control.",
+    "sources": [
+      {"title": "Warren B. Powell — The universal modeling framework", "url": "https://warrenpowell.org/universal-modeling-framework/", "role": "Author's account of the five components, policy choice and the distinction between a model and its implementation."},
+      {"title": "Warren B. Powell — A Universal Framework for Sequential Decision Problems", "url": "https://pubsonline.informs.org/do/10.1287/orms.2023.01.02/full/", "role": "Author's discussion of modelling and policy design; it supplies no evaluation of the linked project toy."}
+    ],
+    "project": {"title": "Programme Decision Sequences", "url": "https://lawrencerowland.github.io/Programme-decision-sequences/"}
+  },
+  {
+    "originalId": "mcd",
+    "family": "Monotone Co-Design",
+    "title": "Coupled functionality and resource trade-offs",
+    "premise": "Represent each subsystem by the functionality it can provide and the resources it requires, with explicit orderings. Explore compatible combinations for a declared functionality target. Check the assumptions needed before applying monotone co-design results.",
+    "why": "Investigate coupled resource trade-offs while keeping feasibility, preference and any separate delivery-stage constraints distinct.",
+    "signals": ["Can the model distinguish incompatible choices from feasible trade-offs?", "Are the chosen functionality and resource orders explicit?", "Do exhaustive checks of the finite example agree with its reported frontier?"],
+    "failureModes": ["Tool suitability and implementation effort remain unassessed", "The formal model omits contractual or operational constraints", "Monotonicity or continuity assumptions are asserted without checking the chosen spaces and relations"],
+    "nextProbe": "Define two small subsystem catalogues, their orders and coupling constraints. Enumerate every combination and report the feasible resource trade-offs. Check the relevant monotonicity assumptions; treat any prohibition on removing installed capacity as a separate delivery rule.",
+    "correction": "The original confused monotonicity with no subsystem shrinking over time, claimed missing tooling and suggested keeping the story monotone despite a crude solver. The repair makes the orders and assumptions inspectable. The wildlife-crossing model is a finite related example, not a demonstration of every result in Censi's theory.",
+    "sources": [
+      {"title": "Andrea Censi — A Mathematical Theory of Co-Design", "url": "https://arxiv.org/abs/1512.08055", "role": "Primary formulation of functionality, resources, feasibility and the conditions behind monotone co-design results."}
+    ],
+    "project": {"title": "Project Co-design: compose a wildlife crossing", "url": "https://lawrencerowland.github.io/project-co-design/apps/wildlife-crossing.html"}
+  },
+  {
+    "originalId": "handover-compile",
+    "family": "Controls & Assurance",
+    "title": "An evidence gate that reports missing or invalid inputs",
+    "premise": "Define the records, versions and approvals required for one declared handover, then check a supplied pack against those rules. Passing a structural check establishes conformance to those rules, not the truth or sufficiency of the evidence.",
+    "why": "Investigate whether a small gate can make missing obligations visible and explain why a pack was accepted or rejected.",
+    "signals": ["Does removing a required record produce a specific failure?", "Are stale versions, overrides and warnings visible?", "Can another checker reproduce the result from the same pack and rule version?"],
+    "failureModes": ["People can bypass the gate without a visible record", "Early discovery is constrained by rules intended for a later handover", "Version changes leave records or approvals attached to the wrong subject"],
+    "nextProbe": "Declare a small fictional pack and check complete, missing-record, stale-version and overridden cases. Keep warning and strict modes explicit and retain the result with the rule version. Do not equate presence of a signature with valid engineering acceptance.",
+    "correction": "The original called deliverables self-validating and claimed immediate comprehension and better evidence hygiene. These are now testable questions. The linked game uses synthetic acceptance rules and successful-inspection assumptions; it is not a deployed assurance system or a SHACL implementation.",
+    "sources": [
+      {"title": "W3C — Shapes Constraint Language (SHACL), 2017 Recommendation", "url": "https://www.w3.org/TR/2017/REC-shacl-20170720/", "role": "A concrete specification for validating declared RDF conditions and reporting violations; conformance is not evidence truth."},
+      {"title": "W3C — PROV-DM: The PROV Data Model", "url": "https://www.w3.org/TR/prov-dm/", "role": "Reference for recording entities, activities and responsibility behind a result."}
+    ],
+    "project": {"title": "Solway: the handover game", "url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/semantic-tunnel-planner/"}
+  },
+  {
+    "originalId": "ontology-refuge",
+    "family": "Ontologies",
+    "title": "A refuge ontology with a purpose for each distinction",
+    "premise": "Describe the fictional refuge's materials, hazards, interfaces and occupancy using explicit classes and relations. Connect that vocabulary to stated questions or checks. A vocabulary alone does not infer engineering methods or certify constraints.",
+    "why": "Investigate whether particular distinctions help trace a requirement or expose a missing relationship compared with a simpler register.",
+    "signals": ["Can a reader explain which question each class or relation serves?", "Does a declared check locate a deliberately missing link?", "Are source vocabulary and locally authored assumptions distinguishable?"],
+    "failureModes": ["The vocabulary grows without supporting a question or check", "A static description is treated as an executable control model", "Missing information is mistaken for falsehood without declaring that validation rule"],
+    "nextProbe": "Choose one interface and one hazard in the refuge example. Write the questions the vocabulary must answer and a small validation rule, inject a missing link, and compare the explanation with a simple table using the same information.",
+    "correction": "The original assigned uncertain ROI and a shelved position without evaluation evidence. The repair retains the practical test—make the vocabulary earn its place—without asserting a benefit or current priority. The public explorer visualises embedded Turtle; that is not full OWL reasoning or safety validation.",
+    "sources": [
+      {"title": "W3C — OWL 2 Web Ontology Language Primer, Second Edition", "url": "https://www.w3.org/TR/owl2-primer/", "role": "Reference for ontology assertions and semantics, including the limits of conclusions from incomplete information."},
+      {"title": "W3C — Shapes Constraint Language (SHACL), 2017 Recommendation", "url": "https://www.w3.org/TR/2017/REC-shacl-20170720/", "role": "A separate approach to declared data-validation conditions; the refuge explorer does not establish that these checks are implemented."}
+    ],
+    "project": {"title": "Gimmer Crag Shed: Ontology Explorer", "url": "https://lawrencerowland.github.io/gimmer-crag/apps/gimmer-crag-shed-ontology-explorer/"}
+  },
+  {
+    "originalId": "monism-critique",
+    "family": "Philosophy of Modelling",
+    "title": "Keep a relation-rich model's boundaries and value choices visible",
+    "premise": "Ask what a model selects, omits and treats as given. A richly connected graph does not by itself show that its relationships are necessary, complete or normatively justified; nor does it establish a metaphysical position.",
+    "why": "Use criticism to identify a concrete modelling assumption that can be changed, challenged or tested.",
+    "signals": ["Can a disputed relation be traced to an assumption or source?", "Does an alternative model expose a consequential omission?", "Are value judgements identified instead of presented as consequences of graph structure?"],
+    "failureModes": ["Criticism becomes general scepticism with no next test", "Philosophical labels replace discussion of a concrete modelling choice", "A useful local model is dismissed for failing to describe everything"],
+    "nextProbe": "Take one public model and write a short anti-pattern checklist: omitted boundary, unsupported relation, hidden value judgement and untested consequence. Change one assumption and record what difference it makes.",
+    "correction": "The original linked dense graphs to monist metaphysics and reported healthier debates without evidence. The revised guardrail concerns inspectable assumptions and model criticism. No specific public implementation of the proposed checklist has been verified, so no project link is claimed.",
+    "sources": [
+      {"title": "George E. P. Box — Science and Statistics (1976)", "url": "https://doi.org/10.1080/01621459.1976.10480949", "role": "Primary discussion of model building and criticism; it does not settle the monism question or establish stakeholder benefits."}
+    ],
+    "project": null
+  },
+  {
+    "originalId": "interface-geometry",
+    "family": "Systems / Interfaces",
+    "title": "Make site interfaces and their assumptions inspectable",
+    "premise": "Represent the canal, road, railway, high-voltage line and other selected boundaries explicitly. Distinguish geometry, assumed clearances, organisational responsibility and unknown information before using them to constrain a plan.",
+    "why": "Investigate whether a proposed option conflicts with a declared interface rule and what information would be needed to assess it properly.",
+    "signals": ["Can a failed check identify the responsible assumed constraint?", "Are unknown dimensions or responsibilities visible?", "Do plan and section views reveal different questions rather than imply one complete site model?"],
+    "failureModes": ["Collecting more detail without a decision or question to serve", "Claiming fewer late surprises without comparative evidence", "Illustrative geometry or invented buffers mistaken for surveyed or authoritative requirements"],
+    "nextProbe": "Build a small interface register linking each declared constraint to an owner, information source and unanswered question. Compare one plan and section, then test a finite set of candidate locations. Treat suggested surveys and approvals as prompts, not requirements automatically established by the diagram.",
+    "correction": "The original said interfaces dominate risk and that the method reduces late surprises. Neither outcome was evidenced. The early Tangled Triangle route examines AI interpretation of interfaces; later finite compatibility checks are a separate enquiry and do not establish site safety or continuous feasibility.",
+    "sources": [
+      {"title": "NASA Systems Engineering Handbook — 6.3 Interface Management", "url": "https://www.nasa.gov/reference/6-3-interface-management/", "role": "Primary guidance on documenting boundaries, responsibilities, interface requirements and controlled changes; not a design standard for this fictional site."}
+    ],
+    "project": {"title": "Tangled Triangle: early interface and architecture sketches", "url": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/"}
+  },
+  {
+    "originalId": "wbs-task-state",
+    "family": "Category Theory",
+    "title": "Compare task views and state views through explicit mappings",
+    "premise": "Define a state-transition model and a chosen task or schedule view. State exactly what the mapping preserves and forgets. A functor claim requires specified categories and preservation of identities and composition; faithfulness and any reverse construction need separate arguments.",
+    "why": "Investigate which distinctions a task view hides and whether those distinctions change the possible next actions or completion paths.",
+    "signals": ["Can two states with the same task summary allow different next actions?", "Are the mapping's preservation conditions stated and checked?", "Is any lost information identified before claiming a reverse mapping?"],
+    "failureModes": ["Categories and morphisms are never defined", "Informal resemblance is described as a proved functorial property", "A state ledger is built without a useful decision or observable view"],
+    "nextProbe": "Construct a tiny state ledger and an explicit task-summary map. Look for two states that collapse to the same summary but have different permitted continuations. Check any claimed composition laws before considering a reverse construction or a dated critical-path view.",
+    "correction": "The original asserted a faithful-ish forward map and a necessarily lax inverse without defining either. Those are not established mathematical properties. The linked Rotunda experiment investigates sufficient state and alternative trajectories; it does not prove the original functor or inverse claim.",
+    "sources": [
+      {"title": "The Stacks Project — Definition of a functor, Tag 001B", "url": "https://stacks.math.columbia.edu/tag/001B", "role": "Formal definition of the object/morphism maps and their identity/composition obligations."},
+      {"title": "The Stacks Project — Faithful and fully faithful functors, Tag 001C", "url": "https://stacks.math.columbia.edu/tag/001C", "role": "Precise meaning of faithfulness; it supplies no automatic reverse map for project views."}
+    ],
+    "project": {"title": "Rotunda: can a blueprint carry the dynamics?", "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/constructive-state/"}
+  }
+]

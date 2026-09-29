@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project-Approach Atlas · Lawrence Rowland</title>
+  <meta name="description" content="Eleven approaches to project modelling: the idea, its limits, primary sources and a useful next check.">
+  <link rel="canonical" href="https://lawrencerowland.github.io/project-approach-atlas/">
+  <link rel="icon" type="image/svg+xml" href="/images/scenarios/approach-atlas.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#explore">Skip to the atlas</a>
+<header class="site-header"><a class="brand" href="/">Lawrence Rowland <span>Independent project experiments</span></a><nav aria-label="Main"><a href="/side-projects.html">Projects</a><a href="/library.html">Library</a></nav></header>
+<main>
+  <section class="hero" aria-labelledby="title">
+    <div><p class="eyebrow">A reference in the Library</p><h1 id="title">Project-Approach<br>Atlas</h1><p class="lead">Choose a method.<br>Name the next test.</p><p>Eleven approaches to thinking about projects, from knowledge graphs to open Petri nets. Start with the question you need to answer, then inspect what a method would require and where it could fail.</p><p class="small">These are working notes for choosing an experiment. A mathematical source can justify a construction; it cannot establish its usefulness to a project manager without a further test.</p></div>
+    <figure><img src="/images/scenarios/approach-atlas.svg" width="640" height="400" alt="Three connected cards: a project question, a modelling method, and a check against the question."><figcaption>Question → method → check. Return to the question when the method stops helping.</figcaption></figure>
+  </section>
+  <aside class="starting-point" aria-labelledby="start-title"><div><p class="eyebrow">One way in</p><h2 id="start-title">Two work packages. One shared lift.</h2><p>Both packages need the lift before their next task can begin. Can a model show what is possible, what must wait, and what more is needed to turn those possibilities into a schedule?</p></div><button id="tryPetri" type="button">Start with Petri nets <span aria-hidden="true">→</span></button></aside>
+  <section id="explore" class="explorer" aria-labelledby="explore-title" tabindex="-1">
+    <div class="section-head"><div><p class="eyebrow">Explore the methods</p><h2 id="explore-title">A premise, a limit, a next check.</h2></div><p>Search across the full notes, including their sources. Open a card’s evidence panel to see what the review corrected.</p></div>
+    <div class="controls">
+      <label class="search">Search the atlas<input id="q" type="search" placeholder="Try resources, gluing, interfaces…" autocomplete="off"></label>
+      <details id="familyFilter" class="family-filter"><summary>Method families</summary><p>Choose one or more. Leave all unchecked to include every family.</p><div id="family" role="group" aria-label="Method families"></div></details>
+      <label>Reading mode<select id="mode"><option value="reviewed">Reviewed notes</option><option value="earlier">Earlier assessments</option></select></label>
+      <label data-view-control hidden>Earlier view<select id="view"><option value="cards">Cards</option><option value="map">Original rating map</option></select></label>
+      <button id="reset" type="button" class="secondary">Clear filters</button>
+    </div>
+    <div id="legacyNotice" class="notice" hidden><strong>Earlier assessments, preserved for comparison.</strong><p>The original eleven entries and their 33 ratings are retained verbatim. No rubric, rater, assessment date or test results accompanied these scores. The map displays those judgments; it is not a measured ranking or evidence of adoption. Some claims were corrected in the reviewed notes.</p></div>
+    <div id="legacyControls" class="controls legacy-controls" hidden>
+      <label>Earlier grouping<select id="tab"><option value="all">All groupings</option><option value="now">Current bets (then)</option><option value="try">Explorations (then)</option><option value="shelve">Shelved (then)</option></select></label>
+      <label>Earlier judgment<select id="status"><option value="all">All judgments</option><option value="good">Promising (then)</option><option value="warn">Uncertain (then)</option><option value="bad">Probably not (then)</option></select></label>
+      <label>Minimum earlier legibility: <output id="minExecVal" for="minExec">0</output><input id="minExec" type="range" min="0" max="10" value="0" step="1"></label>
+    </div>
+    <div class="results-line"><p id="showing" role="status" aria-live="polite">Loading the atlas…</p><p class="small shortcuts">Keyboard: <kbd>/</kbd> search · <kbd>r</kbd> clear filters (outside form fields)</p></div>
+    <div id="cardsView" class="cards" aria-busy="true"></div>
+    <section id="mapView" aria-labelledby="map-title" hidden><h3 id="map-title">Earlier rating map</h3><p>Horizontal: legibility. Vertical: rigor. Both run from 0 to 10. Buildability remains a separate rating in the list and cards. A numbered point groups entries at the same position; select it to read them.</p><div class="map-frame"><span class="axis-y">Rigor 0–10 ↑</span><div id="map" aria-label="Earlier ratings; select a point to show its entries"></div><span class="axis-x">Legibility 0–10 →</span><span class="map-origin">0</span><span class="map-max-x">10</span><span class="map-max-y">10</span></div><h3>All plotted entries</h3><ul id="mapList"></ul></section>
+    <noscript><p>The interactive filters need JavaScript. All text is available in the <a href="methods.json">reviewed source records</a> and the <a href="history.json">earlier source records</a>.</p></noscript>
+  </section>
+  <aside class="about-note"><h2>What this atlas keeps</h2><p>All eleven entries from the earlier Project-Approach Atlas are preserved. The default view corrects claims, names primary sources and frames benefits as questions to investigate. The earlier cards, groupings, filters and rating map are available through Reading mode.</p><p>Review: 29 September 2026. Related project links lead to toy examples that explore an idea; they do not establish its general effectiveness. <a href="history.json">Read the complete earlier records</a> · <a href="https://github.com/lawrencerowland/test/blob/44f481831e7e841d50bca80ff1725a0324a58f0d/index.html">Original atlas source</a> · <a href="methods.json">Read the reviewed records</a></p></aside>
+</main>
+<footer><a href="/library.html">← Back to Library</a><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-approach-atlas">Source and revision history</a><span>Lawrence Rowland · Independent project experiments</span></footer>
+</body>
+</html>

@@ -1,0 +1,245 @@
+[
+  {
+    "id": "kg-gt",
+    "family": "Knowledge Graphs",
+    "tab": "now",
+    "title": "Grounded-theory → axial concepts → similarity-rounded graph",
+    "premise": "Use humanities-style coding to surface concepts, then “round” the hierarchy into a richer graph and explore it interactively.",
+    "why": "High leverage for sensemaking + portfolio narratives; becomes a shared object across stakeholders.",
+    "rigor": 6,
+    "legibility": 8,
+    "buildability": 8,
+    "status": "good",
+    "signals": [
+      "Stakeholder alignment improves",
+      "Reusable across domains",
+      "Interactive HTML makes it legible"
+    ],
+    "failureModes": [
+      "Ontology creep",
+      "Overfitting to rhetoric",
+      "Similarity edges become noise"
+    ],
+    "nextProbe": "Add falsifiable “edge audit”: each similarity edge must cite shared evidence snippets or co-occurrence traces."
+  },
+  {
+    "id": "petri-sched",
+    "family": "Petri Nets",
+    "tab": "now",
+    "title": "Petri net physical logic → candidate schedules as markings",
+    "premise": "Separate invariant process constraints (net) from schedule alternatives (reachable markings / firing sequences).",
+    "why": "Stops dependency graphs lying; concurrency is explicit; supports generative WBS/schedule candidates.",
+    "rigor": 8,
+    "legibility": 6,
+    "buildability": 7,
+    "status": "good",
+    "signals": [
+      "Constraints are local and checkable",
+      "Makes “impossible” plans obvious",
+      "Maps to simulation"
+    ],
+    "failureModes": [
+      "Net too detailed too early",
+      "Stakeholders confuse tokens with tasks",
+      "Data capture burden"
+    ],
+    "nextProbe": "Define a minimal token semantics for “workfront availability” that PMs already understand."
+  },
+  {
+    "id": "smc-wiring",
+    "family": "Category Theory",
+    "tab": "try",
+    "title": "SMC wiring diagrams for processes-as-morphisms",
+    "premise": "Treat project tasks as composable processes; schedules become constraints on composition rather than the primary object.",
+    "why": "Promising for a true “process-first” PM formalism; matches Coecke-style process theories.",
+    "rigor": 9,
+    "legibility": 4,
+    "buildability": 5,
+    "status": "warn",
+    "signals": [
+      "Clear separation of system vs process",
+      "Diagrammatic reasoning feels natural"
+    ],
+    "failureModes": [
+      "Too abstract for sponsors",
+      "Hard to parameterize cost/uncertainty",
+      "Tends to become “math theatre”"
+    ],
+    "nextProbe": "Compile the diagram into an executable interface contract + auto-generated WBS stubs."
+  },
+  {
+    "id": "sheaf-wbs",
+    "family": "Sheaves",
+    "tab": "try",
+    "title": "Sheaf patching: global project view from local data",
+    "premise": "Represent local consistency constraints over a cover of the WBS/graph; global sections correspond to coherent plan states.",
+    "why": "A principled way to talk about “integration” and “interfaces” without hand-waving.",
+    "rigor": 9,
+    "legibility": 5,
+    "buildability": 4,
+    "status": "warn",
+    "signals": [
+      "Makes contradiction-detection precise",
+      "Local-to-global narrative suits federated delivery"
+    ],
+    "failureModes": [
+      "Tooling gap",
+      "Hard to explain Čech/cohomology without intimidation",
+      "Need a careful base space choice"
+    ],
+    "nextProbe": "Use only the sheaf *metaphor* first: implement as constraint propagation over overlaps, then backfill theory."
+  },
+  {
+    "id": "rl-powell",
+    "family": "Sequential Decision / RL",
+    "tab": "try",
+    "title": "Powell-style sequential decision model for project control",
+    "premise": "State + exogenous info + decision + transition; treat management actions distinctly from scheduled work.",
+    "why": "The right ontology for “decision under uncertainty”, not merely “task precedence”.",
+    "rigor": 7,
+    "legibility": 5,
+    "buildability": 5,
+    "status": "warn",
+    "signals": [
+      "Captures learning over time",
+      "Forces you to define state properly",
+      "Naturally connects to policy"
+    ],
+    "failureModes": [
+      "Too many unobservables",
+      "Reward hacking",
+      "Stakeholders reject “policy” framing"
+    ],
+    "nextProbe": "Start with a single decision knob (scope cadence) and one uncertainty channel (temperature/market) to avoid state blow-up."
+  },
+  {
+    "id": "mcd",
+    "family": "Monotone Co-Design",
+    "tab": "try",
+    "title": "Monotone co-design for coupled capacity trade-offs",
+    "premise": "Model capacity expansions as monotone relations across subsystems (platforms, signals, power); seek feasible co-expansions.",
+    "why": "A crisp language for “no subsystem shrinks while another grows” in staged upgrades.",
+    "rigor": 8,
+    "legibility": 6,
+    "buildability": 3,
+    "status": "warn",
+    "signals": [
+      "Encodes non-decreasing safety/throughput intuitions",
+      "Highlights coupling constraints"
+    ],
+    "failureModes": [
+      "Library/tooling missing",
+      "Abstraction mismatch to contracts",
+      "Stakeholders treat monotonicity as optional"
+    ],
+    "nextProbe": "Mock the MCDP engine with a simple Pareto-front enumerator; keep the story monotone even if the solver is crude."
+  },
+  {
+    "id": "handover-compile",
+    "family": "Controls & Assurance",
+    "tab": "now",
+    "title": "Handover pack that fails to compile when evidence/sign-offs missing",
+    "premise": "Make deliverables self-validating: missing controls prevent “build”.",
+    "why": "Operationalizes governance; reduces performative paperwork; aligns with CI/CD instincts.",
+    "rigor": 6,
+    "legibility": 9,
+    "buildability": 7,
+    "status": "good",
+    "signals": [
+      "Immediate executive comprehension",
+      "Forces evidence hygiene",
+      "Automatable"
+    ],
+    "failureModes": [
+      "People bypass the gate",
+      "Over-formalizes early discovery",
+      "Versioning friction"
+    ],
+    "nextProbe": "Add lightweight “dev mode” where warnings are allowed but logged; flip to “strict” at phase gates."
+  },
+  {
+    "id": "ontology-refuge",
+    "family": "Ontologies",
+    "tab": "shelve",
+    "title": "Application ontology for cliff-refuge micro-project",
+    "premise": "Template ontology capturing materials, hazards, interfaces, and occupancy constraints.",
+    "why": "Good as a didactic artifact and for requirements hygiene; less clear ROI for mainstream PM.",
+    "rigor": 6,
+    "legibility": 6,
+    "buildability": 6,
+    "status": "warn",
+    "signals": [
+      "Clarifies domain vocabulary",
+      "Supports traceability"
+    ],
+    "failureModes": [
+      "Becomes “semantic debt”",
+      "Too static for dynamic control"
+    ],
+    "nextProbe": "Only keep ontology if it feeds validation checks (interfaces, hazards) rather than becoming a taxonomy museum."
+  },
+  {
+    "id": "monism-critique",
+    "family": "Philosophy of Modelling",
+    "tab": "shelve",
+    "title": "KG monism / internal relations critique as guardrail",
+    "premise": "Watch for the slide from relation-rich models into monist metaphysics that smuggles normativity into structure.",
+    "why": "Prevents “map becomes territory”; keeps epistemic humility in modelling culture.",
+    "rigor": 7,
+    "legibility": 5,
+    "buildability": 9,
+    "status": "good",
+    "signals": [
+      "Better modelling discipline",
+      "Healthier stakeholder debates"
+    ],
+    "failureModes": [
+      "Can become paralysing scepticism",
+      "Too literary for delivery teams"
+    ],
+    "nextProbe": "Turn critique into a checklist of modelling anti-patterns + mitigations."
+  },
+  {
+    "id": "interface-geometry",
+    "family": "Systems / Interfaces",
+    "tab": "now",
+    "title": "Infrastructure interface topology as first-class project object",
+    "premise": "Treat boundary conditions (canal/viaduct/mining/HV line) as a geometric constraint field shaping all later plans.",
+    "why": "Interfaces dominate risk; making them explicit early is a structural advantage.",
+    "rigor": 6,
+    "legibility": 8,
+    "buildability": 7,
+    "status": "good",
+    "signals": [
+      "Better early options",
+      "Reduces late surprises",
+      "Makes “site as system” legible"
+    ],
+    "failureModes": [
+      "Becomes an endless survey spiral",
+      "Hard to quantify benefit"
+    ],
+    "nextProbe": "Create an “interface register” that auto-generates required surveys + permits + design freezes."
+  },
+  {
+    "id": "wbs-task-state",
+    "family": "Category Theory",
+    "tab": "try",
+    "title": "Task-view ↔ state-view via functorial mapping (lax back)",
+    "premise": "Processes transform state; schedule relationships are derived. Forward map is faithful-ish; inverse is necessarily lax.",
+    "why": "A precise diagnosis of why schedule-first systems distort reality.",
+    "rigor": 8,
+    "legibility": 5,
+    "buildability": 6,
+    "status": "warn",
+    "signals": [
+      "Explains common PM failure patterns",
+      "Suggests better tooling primitives"
+    ],
+    "failureModes": [
+      "Needs careful categorical choices",
+      "Risks becoming non-operational"
+    ],
+    "nextProbe": "Implement a toy “state ledger” with derived critical paths as *views* rather than sources of truth."
+  }
+]
