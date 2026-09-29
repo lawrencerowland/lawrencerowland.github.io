@@ -101,6 +101,9 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 
   <section class="pw-retained-collections" aria-labelledby="library-reading">
     <h2 id="library-reading">Research &amp; writing</h2>
-    <p><a href="{{ '/deep-research/' | relative_url }}">Deep Research</a> · <a href="{{ '/blog.html' | relative_url }}">Earlier blog posts</a></p>
+    <div class="pw-home-question-grid">
+      <article><h3><a href="{{ '/deep-research/' | relative_url }}">Deep Research</a></h3><p>A retained report on project gaps, capabilities and resources, with a direct PDF link and a readable report page.</p></article>
+      <article><h3><a href="{{ '/blog.html' | relative_url }}">Earlier blog posts</a></h3><p>Four posts from 2020 on project information, data models, methods and frameworks. Original dates and articles are retained.</p></article>
+    </div>
   </section>
 </div>

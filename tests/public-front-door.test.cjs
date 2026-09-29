@@ -113,7 +113,7 @@ if (process.argv[2]) {
     for (const key of ['title','canonical_url','image','inputs','try','limitation','revision_context','source_url']) assert.ok(card.includes(escapeHTML(example[key])), `example ${example.id}: preserve ${key}`);
     assert.ok(card.includes('<details'), 'scope remains available by native disclosure without JavaScript');
   }
-  const notes = fs.readFileSync(path.join(root, 'blog_summary.html'), 'utf8');
+  const notes = fs.readFileSync(path.join(root, 'blog.html'), 'utf8');
   assert.ok(notes.includes('/2020/05/07/Data-models-for-Project-Portfolios.md.html'));
   assert.ok(notes.includes('/2020/05/08/Applying-appropriate-machine-learning-approach.html'));
 }
