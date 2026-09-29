@@ -9,10 +9,23 @@ const home = fs.readFileSync('index.md', 'utf8');
 const library = fs.readFileSync('library.md', 'utf8');
 assert.deepEqual([...nav.matchAll(/>(Projects|Library|Notes|About)<\/a>/g)].map(m => m[1]), ['Projects', 'Library']);
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
-for (const route of ['/blog_summary.html', '/about_me.html', '/all-project-apps.html', '/graphs.html', '/Books.html', '/gap-map.html', '/wider-interest/', '/older-stuff.html', '/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
-  assert.ok(footer.includes(route), `preserve the older route ${route}`);
+for (const route of ['/about_me.html', '/all-project-apps.html', '/graphs.html', '/Books.html', '/gap-map.html', '/wider-interest/']) {
+  assert.ok(footer.includes(route), `preserve the footer route ${route}`);
 }
-assert.match(footer, />Notes &amp; writing<\/a>/, 'Notes remains discoverable in the footer');
+for (const route of ['/blog_summary.html', '/blog.html', '/older-stuff.html', '/deep-research/', '/gpt-links-page.html', '/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
+  assert.ok(!footer.includes(route), `secondary destination stays out of the footer: ${route}`);
+}
+assert.ok(!/Machine-learning-for-project-portfolios|Data-Model-for-Project-Frameworks|Data-models-for-(portfolios|programmes|projects)/.test(footer), 'repository duplicates stay with their subject guides');
+assert.ok(!fs.existsSync('older-stuff.md'), 'redundant Older stuff index is retired');
+assert.ok(!library.includes('/older-stuff.html'), 'Library has no link to the retired index');
+for (const route of ['/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
+  assert.ok(library.includes(route), `subject remains directly reachable in Library: ${route}`);
+}
+const reading = library.slice(library.indexOf('aria-labelledby="library-reading"'));
+assert.ok(library.indexOf('aria-labelledby="library-reading"') > library.indexOf('id="earlier-app-collections"'), 'research and writing follow the collections');
+assert.ok(reading.includes('/deep-research/'), 'Deep Research has a Library entrance');
+assert.equal((library.match(/\/blog(?:_summary)?\.html/g) || []).length, 1, 'Library has one blog entrance');
+assert.ok(reading.includes('/blog.html'), 'single blog entrance leads to the complete archive');
 assert.match(footer, />About<\/a>/, 'About remains discoverable in the footer');
 for (const source of [home, library]) {
   assert.equal((source.match(/<h1\b/g) || []).length, 1);

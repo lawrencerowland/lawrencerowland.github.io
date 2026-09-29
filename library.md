@@ -62,7 +62,7 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 
   <section class="pw-home-approach" aria-labelledby="library-future">
     <div><p class="pw-home-kicker">From collection to named example</p><h2 id="library-future">Keep what each example teaches.</h2></div>
-    <div class="pw-home-approach-copy"><p>Over time, individual apps will move out of the generic collections into homes that explain their purpose. Some belong with an ongoing enquiry. Others deserve a name of their own as worked examples, with a clear problem, inputs, result, assumptions and the version at which the work was captured.</p><p>Those are different roles, rather than a ladder every experiment must climb. A retained earlier attempt can still explain something its successor leaves out.</p><p><a href="{{ '/older-stuff.html' | relative_url }}">Browse earlier guides and material</a> · <a href="{{ '/blog_summary.html' | relative_url }}">Read the earlier notes</a></p></div>
+    <div class="pw-home-approach-copy"><p>Over time, individual apps will move out of the generic collections into homes that explain their purpose. Some belong with an ongoing enquiry. Others deserve a name of their own as worked examples, with a clear problem, inputs, result, assumptions and the version at which the work was captured.</p><p>Those are different roles, rather than a ladder every experiment must climb. A retained earlier attempt can still explain something its successor leaves out.</p></div>
   </section>
 
   <section class="pw-retained-collections" id="earlier-app-collections" aria-labelledby="collections-title">
@@ -97,5 +97,10 @@ tags: [Projects, Examples, PortfolioManagement, Library]
       </div>
     </details>
     <p><a href="{{ '/all-project-apps.html' | relative_url }}">Browse the combined app catalogue</a> · <a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a></p>
+  </section>
+
+  <section class="pw-retained-collections" aria-labelledby="library-reading">
+    <h2 id="library-reading">Research &amp; writing</h2>
+    <p><a href="{{ '/deep-research/' | relative_url }}">Deep Research</a> · <a href="{{ '/blog.html' | relative_url }}">Earlier blog posts</a></p>
   </section>
 </div>
