@@ -6,7 +6,7 @@
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grounded Theory as Colimit – Interactive Visual</title>
+<title>Grounded theory · Earlier coding animation</title>
 <style>
     /* === Critical CSS ( < 9 kB ) === */
     html,body{margin:0;padding:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fafafa;color:#111;line-height:1.45}
@@ -21,22 +21,30 @@
     .toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:.7em 1.2em;border-radius:1rem;font-size:.9rem;opacity:0;transition:opacity .4s}
     .toast.show{opacity:1}
     svg text{user-select:none;font-size:.8rem}
+    nav{max-width:1200px;width:90%;margin:auto}#explanation h2{font-size:1.15rem;margin:1rem 0 .5rem}.current-example{display:inline-block;font-weight:650}a:focus-visible,button:focus-visible{outline:3px solid #b76d16;outline-offset:4px}
 </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXM2VXQH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<p><a href="https://lawrencerowland.github.io/Project-web-apps/">Back to Project apps</a></p>
+<nav aria-label="Return routes"><p><a href="/side-projects.html">Projects</a> · <a href="/library.html">Library</a> · <a href="/project-examples.html">Earlier project examples</a></p></nav>
 <div id="app" data-timeout="3000">
-    <h1>Grounded Theory as a Colimit &amp; Initial Algebra</h1>
+    <h1>Grounded theory: an earlier coding animation</h1>
     <div id="explanation">
-        <p>Each empirical <em>incident</em> is an <strong>object</strong>; your comparison memos are <strong>morphisms</strong>. Coding phases quotient this diagram until a universal cone – the <strong>core category</strong> – emerges. You’re effectively constructing the diagram’s colimit, an <em>initial algebra</em> into which every future incident factors uniquely.</p>
+        <h2>Start with the explicit finite example</h2>
+        <p><a class="current-example" href="https://lawrencerowland.github.io/functors-for_projects/apps/grounded-theory-colimit/">Open Grounded theory and a finite colimit →</a></p>
+        <p>There, you choose which incidents must share a code. The app computes the resulting classes and checks whether a proposed coding respects those choices. It does not infer meaning or discover a theory.</p>
+        <h2>What this earlier animation actually does</h2>
+        <p>It illustrates a progression from incidents to groups to a drawn “Core”. Comparisons and groups are chosen at random; the Core appears because you advance the phase. These are visual choices, not results inferred from data.</p>
+        <p><strong>Try the difference:</strong> press Next Phase twice without adding a comparison. The Core still appears. The current finite example keeps unlinked incidents in separate classes.</p>
+        <p>The earlier title, “Grounded Theory as a Colimit &amp; Initial Algebra”, overstated what was computed. This animation does not compute the claimed colimit or define an initial algebra, and it cannot establish theoretical saturation or say how future incidents must fit. The <a href="https://stacks.math.columbia.edu/tag/002U">set-colimit construction</a> is explained and implemented in the linked finite example.</p>
+        <p>The animation below is temporary: changes last until reset or reload. These controls do not save or upload your work.</p>
     </div>
-    <div id="readalong"></div>
+    <div id="readalong" aria-live="polite"></div>
     <div id="controls">
         <button id="addIncident">Add Incident</button>
-        <button id="addMorphism">Add Morphism</button>
+        <button id="addMorphism">Add random comparison</button>
         <button id="stepPhase">Next Phase</button>
         <button id="reset">Reset</button>
     </div>
@@ -63,10 +71,10 @@ try {
     let phase = 0; // 0=open,1=axial,2=selective,3=saturation
     const phases = ['Open coding','Axial coding','Selective coding','Saturation'];
     const phaseText = {
-        0:`<strong>Open coding</strong>: fracture the data; each incident stands alone as you name properties and dimensions without assuming relations.`,
-        1:`<strong>Axial coding</strong>: relate categories to sub‑categories; you start clustering incidents by shared properties, turning the diagram into coloured branches.`,
-        2:`<strong>Selective coding</strong>: integrate around a <em>core</em> category; branches attach to a universal node, giving the colimit that organises the model.`,
-        3:`<strong>Saturation</strong>: no new incidents re‑shape the core; morphisms now factor uniquely through it – the structure has stabilised.`
+        0:`<strong>Open coding — visual analogy.</strong> Dots stand for illustrative incidents. The animation does not read or analyse qualitative data. Add random comparison draws an arrow between two randomly chosen incidents; it does not define a categorical morphism.`,
+        1:`<strong>Axial coding — random groups.</strong> Advancing to this phase assigns each incident to one of three random colour groups. The groups are not computed from comparisons or shared properties.`,
+        2:`<strong>Selective coding — drawn Core.</strong> Advancing to this phase draws a Core and connects it to every incident, even when there are no comparison arrows. No universal property or colimit is checked.`,
+        3:`<strong>Saturation — historical illustration only.</strong> This phase enlarges the Core and changes the line colour. It does not test theoretical saturation, factorisation or stability; you can still add new incidents.`
     };
     // --- data stores ---
     let incidents  = []; // {id,label,x,y,group}

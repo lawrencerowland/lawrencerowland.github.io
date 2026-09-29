@@ -167,7 +167,7 @@
   question: "How might mathematical structures illuminate project work?"
   description: "Browse experiments in functors, adjoints, sheaves, wiring diagrams and finite colimits, including the grounded-theory coding illustration."
   tags: ["category-theory","models","project-management"]
-  path: "https://lawrencerowland.github.io/functors-for_projects/app-index.html"
+  path: "https://lawrencerowland.github.io/functors-for_projects/"
   action: "Browse collection"
 
 
