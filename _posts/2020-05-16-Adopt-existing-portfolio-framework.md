@@ -7,7 +7,7 @@ tags: [ProjectFrameworks, PortfolioManagement]
 # Adopt existing portfolio framework
 
 <!-- Preserve fragment links from the former generated contents list. -->
-<span id="markdown-toc"></span>
+<div id="markdown-toc" class="pw-legacy-anchor" aria-hidden="true"></div>
 
 **Earlier method · original note, 16 May 2020 · reading guidance revised 29 September 2026**
 

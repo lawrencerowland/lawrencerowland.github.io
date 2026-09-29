@@ -9,10 +9,8 @@ tags: [ProjectFrameworks, PortfolioManagement, NaturalLanguageProcessing]
 ---
 
 <div class="pw-home pw-framework-guide" id="home-main" tabindex="-1">
-  <!-- Preserve fragment links from the former generated contents list. -->
-  <span id="markdown-toc"></span>
   <section class="pw-home-approach" aria-labelledby="portfolio-frameworks">
-    <div><p class="pw-home-kicker">The library · earlier method</p><h1 id="portfolio-frameworks">Which working practices does this portfolio need?</h1></div>
+    <div><div id="markdown-toc" class="pw-legacy-anchor" aria-hidden="true"></div><p class="pw-home-kicker">The library · earlier method</p><h1 id="portfolio-frameworks">Which working practices does this portfolio need?</h1></div>
     <div class="pw-home-approach-copy">
       <p>A portfolio framework describes how an organisation chooses, governs and supports its projects and programmes. This earlier work explored three ways to build one: adapt a modular framework, organise an existing body of knowledge, or examine the organisation’s own documents.</p>
       <p>The useful starting point is a business need and the practice that might answer it. The diagrams below retain that thinking. They are examples to interpret, not a complete framework ready to install.</p>

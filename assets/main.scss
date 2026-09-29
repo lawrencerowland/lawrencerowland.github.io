@@ -536,3 +536,6 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-framework-guide figcaption, .pw-framework-guide .pw-framework-note { font-size: 13px; line-height: 1.7; color: var(--pw-muted); }
 .pw-framework-guide figcaption { margin-top: 12px; }
 .pw-framework-guide .pw-framework-note { padding-top: 20px; border-top: 1px solid var(--pw-line); }
+
+/* Keep the retired contents-list target without drawing an empty contents box. */
+#markdown-toc.pw-legacy-anchor { height: 0; padding: 0; margin: 0; border: 0; background: none; }
