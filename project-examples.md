@@ -7,6 +7,7 @@ tags: [Examples, Visualization, KnowledgeManagement]
 
 # Project Examples
 
+Earlier project examples, with links to corrected versions where the work has developed. Earlier illustrations remain available for comparison.
 
 <div class="filter">
   <button data-tag="all">All</button>
@@ -21,6 +22,7 @@ tags: [Examples, Visualization, KnowledgeManagement]
   <div class="example-card" data-tags="{{ example.tags | join: ',' }}">
     <h2><a href="{{ example.path }}">{{ example.title }}</a></h2>
     <p>{{ example.description }}</p>
+    {% if example.earlier_path %}<details><summary>Earlier illustration</summary><p>{{ example.earlier_note }}</p><p><a href="{{ example.earlier_path | relative_url }}">{{ example.earlier_title }}</a></p></details>{% endif %}
     <p><strong>Origin:</strong> {{ example.origin }}</p>
     <p><strong>Tags:</strong> {% for tag in example.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
   </div>

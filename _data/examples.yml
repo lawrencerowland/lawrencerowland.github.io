@@ -3,11 +3,14 @@
   origin: "Gemini or ChatGPT"
   tags: [decision, procurement]
   path: "/examples/decision-tree.html"
-- title: "Grounded Theory as Colimit"
-  description: "Interactive visualisation of grounded theory through a category theory lens"
+- title: "Grounded theory and a finite colimit"
+  description: "Choose which incidents must share a code, inspect the resulting classes and test a proposed coding. An explicit finite construction in Functors for Projects; it does not infer a theory."
   origin: "ChatGPT"
   tags: [category theory, methods, social-science, knowledge-management]
-  path: "/examples/grounded-theory-colimit.html"
+  path: "https://lawrencerowland.github.io/functors-for_projects/apps/grounded-theory-colimit/"
+  earlier_path: "/examples/grounded-theory-colimit.html"
+  earlier_title: "Earlier coding animation"
+  earlier_note: "Retained visual analogy: random groups and a drawn Core, rather than a computed colimit."
 - title: "HS2 decision graph"
   description: "HS2 Supply Chain Risk and Value Decision Making Knowledge Graph"
   origin: "Claude 3.7 Sonnet"

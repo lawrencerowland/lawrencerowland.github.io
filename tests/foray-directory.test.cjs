@@ -31,7 +31,7 @@ for (const project of registry) {
   }
 }
 assert.equal(projects.find(p => p.title === 'Functors for Projects').path,
-  'https://lawrencerowland.github.io/functors-for_projects/app-index.html');
+  'https://lawrencerowland.github.io/functors-for_projects/');
 assert.match(projects.find(p => p.title === 'Project Spines').description, /Six tabs/);
 assert.ok(projects.every(p => p.title !== 'CSV to Gantt'), 'removed CSV-to-Gantt card is absent');
 assert.ok(projects.every(p => !p.path.includes('/csv-to-gantt/')), 'removed CSV-to-Gantt route is absent');
