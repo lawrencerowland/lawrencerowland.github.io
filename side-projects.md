@@ -15,6 +15,7 @@ wide: true
     </nav>
 </header>
 
+  <div class="foray-browse-tools">
   <details class="foray-question-routes" id="start-with-a-question">
     <summary>Start with a question</summary>
     <ul class="foray-question-list">
@@ -40,6 +41,8 @@ wide: true
       {% endfor %}
     </select>
     <p id="foray-count" role="status" aria-live="polite"></p>
+  </div>
+
   </div>
 
     <section class="foray-group" aria-label="Project gallery">
