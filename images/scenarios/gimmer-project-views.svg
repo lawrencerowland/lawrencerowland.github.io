@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Different accounts of the same refuge</title>
+  <desc id="desc">A timber refuge on a cliff is linked to a delivery crate, an observation and a changed drawing. These picture procurement, observation and change; they are not a formal model or computed result.</desc>
+  <rect width="640" height="400" fill="#f3f0e6"/>
+  <path d="M0 285 63 232 98 253 142 174 193 221 254 142 302 217 344 194 408 283V400H0Z" fill="#e0e4d8"/>
+  <path d="M0 333 68 283 137 293 157 244 221 253 263 230 333 274 305 319 346 355 337 400H0Z" fill="#b0b9a3"/>
+  <path d="m91 303 28 45-12 52m80-133-13 60 31 27m79-70-24 37 19 37" fill="none" stroke="#8c9a82" stroke-width="3"/>
+  <path d="M170 253H340V265H170Z" fill="#75836c"/>
+  <path d="M190 186H295V253H190Z" fill="#c8a674" stroke="#715f49" stroke-width="3"/>
+  <path d="m178 188 63-49 69 49Z" fill="#9a7455" stroke="#715f49" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M202 201H226V226H202Z" fill="#e8e7ce" stroke="#715f49" stroke-width="3"/>
+  <path d="M255 202H280V253H255Z" fill="#927959" stroke="#715f49" stroke-width="3"/>
+  <path d="M295 232H330M305 216V279M330 216V279" stroke="#715f49" stroke-width="4"/>
+  <g fill="none" stroke="#a5b59f" stroke-width="3" stroke-dasharray="5 6">
+    <path d="M200 178 140 113M277 166 391 104M322 248 421 270"/>
+  </g>
+  <g fill="#fffcf3" stroke="#bdc6b4" stroke-width="2">
+    <rect x="30" y="40" width="161" height="113" rx="12"/>
+    <rect x="364" y="35" width="219" height="111" rx="12"/>
+    <rect x="414" y="218" width="194" height="132" rx="12"/>
+  </g>
+  <g stroke="#9b7d51" stroke-width="2" fill="#d7bc89" stroke-linejoin="round">
+    <path d="m88 64 31-11 29 13-31 11Z"/>
+    <path d="M88 64v31l29 13V77Z"/>
+    <path d="m117 77 31-11v32l-31 10Z"/>
+    <path d="m102 60 30 13v27" fill="none"/>
+  </g>
+  <path d="M432 76q39-38 78 0-39 38-78 0Z" fill="#e1e8d9" stroke="#668574" stroke-width="3"/>
+  <circle cx="471" cy="76" r="11" fill="#668574"/>
+  <circle cx="474" cy="72" r="3" fill="#fffcf3"/>
+  <path d="M459 238H540V305H459Z" fill="#f0f2e7" stroke="#90a590" stroke-width="2"/>
+  <path d="m469 274 24-19 26 19m-44-2v20h38v-20" fill="none" stroke="#91a294" stroke-width="2"/>
+  <path d="m478 270 24-23 28 23m-46-2v25h40v-25" fill="none" stroke="#a67b47" stroke-width="3"/>
+  <path d="m542 237 10-10 10 10m-10-9v50q0 13-13 13" fill="none" stroke="#a67b47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g font-family="system-ui,sans-serif" fill="#3f5d4c" font-size="15" text-anchor="middle">
+    <text x="111" y="134">Procurement</text>
+    <text x="474" y="127">Observation</text>
+    <text x="511" y="330">Change</text>
+  </g>
+  <text x="31" y="375" font-family="system-ui,sans-serif" font-size="15" fill="#3f5d4c">One refuge. More than one useful view.</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">One cliffside lift, two work packages</title>
+  <desc id="desc">A small timber refuge stands on a ledge. A single lift carries materials between two illustrated work packages. This is a scenario illustration, not a calculated schedule or a formal process diagram.</desc>
+  <defs>
+    <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12 12 0" stroke="#fffdf4" stroke-opacity=".09"/></pattern>
+  </defs>
+  <rect width="640" height="400" fill="#f3f0e6"/>
+  <path d="M0 227 78 169 120 186 163 111 227 174 261 142 321 222V400H0Z" fill="#e0e4d8"/>
+  <path d="M0 266 86 198 116 208 133 247 176 260 168 293 213 316 202 400H0Z" fill="#b0b9a3"/>
+  <path d="m68 233 28 31-19 76m63-63-15 37 30 28m-123-48 13 50" fill="none" stroke="#8c9a82" stroke-width="3"/>
+  <path d="M62 201H239V213H62Z" fill="#75836c"/>
+  <path d="M84 133H190V201H84Z" fill="#c8a674" stroke="#715f49" stroke-width="3"/>
+  <path d="m69 136 64-51 72 51Z" fill="#9a7455" stroke="#715f49" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M92 151H116V174H92Z" fill="#e8e7ce" stroke="#715f49" stroke-width="3"/>
+  <path d="M151 151H176V201H151Z" fill="#927959" stroke="#715f49" stroke-width="3"/>
+  <path d="M190 182H230M200 163V226M230 163V226" stroke="#715f49" stroke-width="4"/>
+  <path d="M83 139H190V201H83Z" fill="url(#grain)"/>
+  <path d="M235 211V80H317" fill="none" stroke="#536c5c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m238 125 47-43" stroke="#536c5c" stroke-width="4"/>
+  <circle cx="314" cy="87" r="10" fill="#f3f0e6" stroke="#536c5c" stroke-width="4"/>
+  <path d="M314 97V226m-5 0v8q5 12 12 0" fill="none" stroke="#927046" stroke-width="3" stroke-linecap="round"/>
+  <path d="m290 253 24-16 23 16" fill="none" stroke="#927046" stroke-width="3"/>
+  <rect x="283" y="253" width="62" height="44" rx="3" fill="#d8bd8b" stroke="#8e744e" stroke-width="2"/>
+  <path d="M297 254V296M330 254V296M284 265H344" stroke="#a5895c" stroke-width="2"/>
+  <path d="M346 274Q403 274 403 188M346 274Q403 274 403 314" fill="none" stroke="#a7b7a4" stroke-width="3" stroke-dasharray="6 6"/>
+  <g fill="#fffcf3" stroke="#bbc4b1" stroke-width="2">
+    <rect x="399" y="105" width="203" height="98" rx="12"/>
+    <rect x="399" y="247" width="203" height="98" rx="12"/>
+  </g>
+  <g stroke="#9d7954" stroke-width="2" fill="#d4b78c">
+    <rect x="417" y="126" width="52" height="15" rx="2"/>
+    <rect x="425" y="143" width="52" height="15" rx="2"/>
+    <rect x="417" y="269" width="52" height="12" rx="2"/>
+    <rect x="425" y="286" width="52" height="12" rx="2"/>
+  </g>
+  <g font-family="system-ui,sans-serif" fill="#3f5d4c">
+    <text x="400" y="62" font-size="15" letter-spacing="1.2">ONE SHARED LIFT</text>
+    <text x="490" y="143" font-size="17">Base</text>
+    <text x="490" y="286" font-size="17">Walls</text>
+    <text x="418" y="182" font-size="13" fill="#6a7767">A package of work</text>
+    <text x="418" y="324" font-size="13" fill="#6a7767">Another package</text>
+    <text x="33" y="371" font-size="15">What must pass between the pieces?</text>
+  </g>
+</svg>

@@ -5,7 +5,18 @@ const { execFileSync } = require('node:child_process');
 
 const registry = JSON.parse(execFileSync('ruby', ['-ryaml', '-rjson', '-e',
   'puts JSON.generate(YAML.load_file("_data/side_projects.yml"))'], { encoding: 'utf8' }));
-const projects = registry.filter(p => p.placement === 'project');
+const projects = registry.filter(p => p.placement === 'project').sort((a, b) => a.gallery_order - b.gallery_order);
+assert.ok(projects.every(p => Number.isInteger(p.gallery_order) && p.gallery_order > 0), 'each gallery entry has an explicit display order');
+assert.equal(new Set(projects.map(p => p.gallery_order)).size, projects.length, 'display order is unambiguous');
+assert.equal(projects.slice(0, 3).filter(p => p.group === 'gimmer').length, 1, 'the first row introduces other scenarios alongside Gimmer');
+for (const p of projects.filter(p => p.group === 'gimmer')) {
+  assert.ok(p.entry_question && p.entry_purpose, `${p.id}: show the distinct purpose before disclosure`);
+}
+assert.equal(new Set(projects.filter(p => p.group === 'gimmer').map(p => p.tile_image || p.image)).size, 3, 'the three Gimmer entrances have distinct pictures');
+for (const p of projects.filter(p => p.tile_image)) {
+  assert.ok(p.tile_image.startsWith('/images/scenarios/'));
+  assert.ok(fs.existsSync(p.tile_image.slice(1)), `${p.id}: local illustration exists`);
+}
 const collections = registry.filter(p => p.placement === 'library');
 assert.equal(registry.length, 17);
 assert.equal(projects.length, 15);
@@ -119,11 +130,15 @@ if (process.argv[2]) {
     const card = renderedCards[index];
     assert.ok(card.includes(`id="${project.id}"`), `stable entry anchor: ${project.id}`);
     assert.ok(card.includes(`href="${escapeHTML(project.path)}"`), `missing rendered link: ${project.title}`);
-    assert.ok(card.includes(`src="${escapeHTML(project.image)}"`), `missing image: ${project.title}`);
+    assert.ok(card.includes(`src="${escapeHTML(project.tile_image || project.image)}"`), `missing image: ${project.title}`);
     for (const field of ['title', 'scenario', 'question', 'description', 'action']) {
       assert.ok(card.includes(escapeHTML(project[field])), `missing ${field}: ${project.title}`);
     }
     assert.ok(card.includes('<summary>About this project</summary>'), `missing disclosure: ${project.title}`);
+    const invitation = card.split('<details')[0];
+    assert.ok(invitation.includes(escapeHTML(project.entry_question || project.question)), `question visible before disclosure: ${project.id}`);
+    if (project.entry_purpose) assert.ok(invitation.includes(escapeHTML(project.entry_purpose)), `purpose visible before disclosure: ${project.id}`);
+    assert.equal((card.match(/class="foray-entry-question"/g) || []).length, 1, `one visible question: ${project.id}`);
     if (project.origin) assert.ok(card.includes(escapeHTML(project.origin)), `missing origin: ${project.title}`);
     for (const link of project.related || []) {
       assert.ok(card.includes(`href="${escapeHTML(link.path)}"`), `missing related route: ${project.title}`);

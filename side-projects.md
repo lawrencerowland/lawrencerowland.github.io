@@ -9,7 +9,7 @@ wide: true
 
 <div class="foray-directory" id="foray-directory">
   <header class="foray-intro" id="browse-projects">
-    <div><h1>Projects</h1><p>Experiments in project thinking.</p></div>
+    <div><h1>Projects</h1><p>Small project scenarios for exploring how work, resources and decisions fit together.</p></div>
     <nav class="foray-sections" aria-label="More ways to explore">
       <a href="#compare-approaches">Compare approaches <span aria-hidden="true">↗</span></a>
     </nav>
@@ -29,7 +29,7 @@ wide: true
     </ul>
   </details>
 
-  {% assign projects = site.data.side_projects | where: 'placement', 'project' %}
+  {% assign projects = site.data.side_projects | where: 'placement', 'project' | sort: 'gallery_order' %}
   <div class="foray-filter" id="foray-filter" hidden>
     <label for="foray-topic">Filter by topic</label>
     <select id="foray-topic" autocomplete="off">
@@ -60,17 +60,19 @@ wide: true
         <article class="example-card foray-card" id="{{ project.id | escape }}" data-tags="{{ project.tags | join: ',' | escape }}">
           {% if legacy_anchor != '' %}<span class="foray-legacy-anchor" id="{{ legacy_anchor }}" aria-hidden="true"></span>{% endif %}
           <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">
-            <span class="foray-scenario-image"><img src="{{ project.image | escape }}" alt="" width="640" height="400" {% if forloop.index <= 3 %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async"></span>
+            <span class="foray-scenario-image"><img src="{{ project.tile_image | default: project.image | escape }}" alt="" width="640" height="400" {% if forloop.index <= 3 %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async"></span>
             <div class="foray-tile-body">
               <h2>{{ project.title | escape }}</h2>
               <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
+              <p class="foray-entry-question">{{ project.entry_question | default: project.question | escape }}</p>
+              {% if project.entry_purpose %}<p class="foray-entry-purpose">{{ project.entry_purpose | escape }}</p>{% endif %}
               <span class="foray-action">{{ project.action | escape }} <span aria-hidden="true">→</span></span>
             </div>
           </a>
           <details class="foray-details">
             <summary>About this project</summary>
             <div class="foray-detail-body">
-              <p class="foray-question">{{ project.question | escape }}</p>
+              {% if project.entry_question %}<p class="foray-question">{{ project.question | escape }}</p>{% endif %}
               <p>{{ project.description | escape }}</p>
               {% if project.origin %}<p class="foray-origin">Origin: {{ project.origin | escape }}</p>{% endif %}
               <ul class="foray-tags" aria-label="Topics">
