@@ -59,13 +59,13 @@ wide: true
         {% endunless %}
         <article class="example-card foray-card" id="{{ project.id | escape }}" data-tags="{{ project.tags | join: ',' | escape }}">
           {% if legacy_anchor != '' %}<span class="foray-legacy-anchor" id="{{ legacy_anchor }}" aria-hidden="true"></span>{% endif %}
-          <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">
+          <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}" aria-describedby="{{ project.id | escape }}-question{% if project.entry_purpose %} {{ project.id | escape }}-purpose{% endif %}">
             <span class="foray-scenario-image"><img src="{{ project.tile_image | default: project.image | escape }}" alt="" width="640" height="400" {% if forloop.index <= 3 %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async"></span>
             <div class="foray-tile-body">
               <h2>{{ project.title | escape }}</h2>
               <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
-              <p class="foray-entry-question">{{ project.entry_question | default: project.question | escape }}</p>
-              {% if project.entry_purpose %}<p class="foray-entry-purpose">{{ project.entry_purpose | escape }}</p>{% endif %}
+              <p class="foray-entry-question" id="{{ project.id | escape }}-question">{{ project.entry_question | default: project.question | escape }}</p>
+              {% if project.entry_purpose %}<p class="foray-entry-purpose" id="{{ project.id | escape }}-purpose">{{ project.entry_purpose | escape }}</p>{% endif %}
               <span class="foray-action">{{ project.action | escape }} <span aria-hidden="true">→</span></span>
             </div>
           </a>

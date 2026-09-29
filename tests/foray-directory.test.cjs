@@ -136,6 +136,9 @@ if (process.argv[2]) {
     }
     assert.ok(card.includes('<summary>About this project</summary>'), `missing disclosure: ${project.title}`);
     const invitation = card.split('<details')[0];
+    const descriptionIds = `${project.id}-question${project.entry_purpose ? ` ${project.id}-purpose` : ''}`;
+    assert.ok(invitation.includes(`aria-describedby="${descriptionIds}"`), `link announces its question/purpose: ${project.id}`);
+    for (const id of descriptionIds.split(' ')) assert.ok(invitation.includes(`id="${id}"`), `description target: ${id}`);
     assert.ok(invitation.includes(escapeHTML(project.entry_question || project.question)), `question visible before disclosure: ${project.id}`);
     if (project.entry_purpose) assert.ok(invitation.includes(escapeHTML(project.entry_purpose)), `purpose visible before disclosure: ${project.id}`);
     assert.equal((card.match(/class="foray-entry-question"/g) || []).length, 1, `one visible question: ${project.id}`);
