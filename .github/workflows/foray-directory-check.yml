@@ -27,6 +27,11 @@ on:
       - 'about_me.md'
       - 'about_the_site.md'
       - 'blog_summary.md'
+      - 'blog.md'
+      - 'deep-research/**'
+      - 'examples/hs2-decision-graph.html'
+      - 'tests/hs2-route.test.cjs'
+      - 'tests/library-housekeeping.test.cjs'
       - '_config.yml'
       - 'tests/public-front-door.test.cjs'
       - 'assets/**'
@@ -62,6 +67,11 @@ on:
       - 'about_me.md'
       - 'about_the_site.md'
       - 'blog_summary.md'
+      - 'blog.md'
+      - 'deep-research/**'
+      - 'examples/hs2-decision-graph.html'
+      - 'tests/hs2-route.test.cjs'
+      - 'tests/library-housekeeping.test.cjs'
       - '_config.yml'
       - 'tests/public-front-door.test.cjs'
       - 'assets/**'
@@ -80,6 +90,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+      - name: Check retained example and writing routes
+        run: |
+          node tests/hs2-route.test.cjs
+          node tests/library-housekeeping.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
@@ -118,6 +132,8 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Check the rendered Library and writing routes
+        run: node tests/library-housekeeping.test.cjs _site
       - name: Check the rendered directory
         run: node tests/foray-directory.test.cjs _site/side-projects.html _site/library.html
       - name: Check the rendered app migration catalogue
