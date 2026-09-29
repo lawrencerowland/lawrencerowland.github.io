@@ -525,3 +525,14 @@ body:has(.pw-home) { background: #f8f6ef; }
 @media (min-width: 801px) { .pw-home-question-grid.pw-worked-example-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 .pw-worked-example-grid { align-items: start; }
 .pw-worked-example-grid .foray-detail-body p { margin: 0 0 .75rem; }
+
+/* Retained framework guide: scoped reading layout, using the existing pictured tiles. */
+.pw-framework-guide .pw-framework-prose { max-width: 850px; margin: 15px auto 65px; }
+.pw-framework-guide .pw-framework-prose h2 { margin: 42px 0 18px; scroll-margin-top: 24px; }
+.pw-framework-guide .pw-framework-prose h3 { margin: 28px 0 12px; font-size: 21px; }
+.pw-framework-guide .pw-framework-prose p { margin: 0 0 18px; }
+.pw-framework-guide .pw-framework-figure { margin: 25px 0 32px; }
+.pw-framework-guide .pw-framework-figure img { display: block; max-height: 360px; width: 100%; object-fit: contain; background: #f0f0e8; }
+.pw-framework-guide figcaption, .pw-framework-guide .pw-framework-note { font-size: 13px; line-height: 1.7; color: var(--pw-muted); }
+.pw-framework-guide figcaption { margin-top: 12px; }
+.pw-framework-guide .pw-framework-note { padding-top: 20px; border-top: 1px solid var(--pw-line); }
