@@ -8,6 +8,9 @@ on:
       - 'project-co-design/**'
       - 'tests/co-design-site.test.cjs'
       - '_data/side_projects.yml'
+      - '_data/project_questions.yml'
+      - '_data/worked_examples.yml'
+      - 'images/scenarios/**'
       - '_includes/**'
       - '_layouts/**'
       - 'side-projects.md'
@@ -32,6 +35,9 @@ on:
       - 'project-co-design/**'
       - 'tests/co-design-site.test.cjs'
       - '_data/side_projects.yml'
+      - '_data/project_questions.yml'
+      - '_data/worked_examples.yml'
+      - 'images/scenarios/**'
       - '_includes/**'
       - '_layouts/**'
       - 'side-projects.md'
@@ -95,7 +101,7 @@ jobs:
           source: ./
           destination: ./_site
       - name: Check the rendered directory
-        run: node tests/foray-directory.test.cjs _site/side-projects.html
+        run: node tests/foray-directory.test.cjs _site/side-projects.html _site/library.html
       - name: Check the rendered app migration catalogue
         run: node tests/app-migration.test.cjs _site/all-project-apps.html
       - name: Check the rendered Gimmer comparison

@@ -19,6 +19,7 @@ for (const source of [home, library]) {
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');
   for (const img of source.matchAll(/<img\b[^>]*>/g)) assert.match(img[0], /\balt="[^"]*"/, 'images expose an accessible description or are decorative');
 }
+assert.match(home, /href="https:\/\/lawrencerowland.github.io\/gimmer-crag\/petri-smc-wbs.html" aria-labelledby="gimmer-question-title"/, 'general process-to-plan question leads to the main collection');
 assert.match(library, /bounded problem/);
 assert.match(library, /not all received a new technical review/);
 
@@ -60,6 +61,20 @@ handlers['button:click'](); handlers['links:click']({ target: { closest: () => (
 handlers['button:click'](); resize(); assertClosed();
 vm.runInNewContext(script, { document: { addEventListener: (_, fn) => fn(), querySelector: () => null } });
 
+const examples = JSON.parse(require('node:child_process').execFileSync('ruby', ['-ryaml','-rjson','-e',
+  'puts JSON.generate(YAML.load_file("_data/worked_examples.yml"))'], {encoding:'utf8'}));
+assert.equal(examples.length, 2);
+assert.equal(new Set(examples.map(x => x.id)).size, examples.length);
+for (const example of examples) {
+  for (const key of ['id','title','canonical_url','image','image_alt','inputs','try','limitation','revision_context','source_commit','source_url']) assert.ok(example[key], `${example.id}: ${key}`);
+  assert.equal(new URL(example.canonical_url).origin, 'https://lawrencerowland.github.io');
+  assert.ok(example.source_url.includes(`/blob/${example.source_commit}/`));
+  assert.ok(['app_revision','source_commit'].includes(example.date_kind));
+  assert.match(example.date, /^\d{4}-\d{2}-\d{2}$/);
+  assert.equal(example.role, 'bounded-worked-example');
+  assert.ok(fs.existsSync(example.image.slice(1)), 'local example illustration exists');
+}
+
 if (process.argv[2]) {
   const root = process.argv[2];
   for (const route of ['index.html', 'library.html', 'about_me.html', 'about_the_site.html', 'blog_summary.html', 'side-projects.html']) {
@@ -76,6 +91,14 @@ if (process.argv[2]) {
         assert.ok(fs.existsSync(path.join(root, local)), `${route}: local target exists: ${match[1]}`);
       }
     }
+  }
+  const libraryHTML = fs.readFileSync(path.join(root,'library.html'),'utf8');
+  const escapeHTML = value => value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  for (const example of examples) {
+    const card = libraryHTML.match(new RegExp(`<article class="pw-home-question" id="${example.id}"[\\s\\S]*?<\\/article>`))?.[0];
+    assert.ok(card, `rendered example ${example.id}`);
+    for (const key of ['title','canonical_url','image','inputs','try','limitation','revision_context','source_url']) assert.ok(card.includes(escapeHTML(example[key])), `example ${example.id}: preserve ${key}`);
+    assert.ok(card.includes('<details'), 'scope remains available by native disclosure without JavaScript');
   }
   const notes = fs.readFileSync(path.join(root, 'blog_summary.html'), 'utf8');
   assert.ok(notes.includes('/2020/05/07/Data-models-for-Project-Portfolios.md.html'));

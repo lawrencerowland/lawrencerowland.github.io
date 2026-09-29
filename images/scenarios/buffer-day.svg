@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Try protective buffer in a seven-task project</title>
+  <desc id="desc">Requirements and design feed two branches: development then testing, and documentation then training. Both join at deployment. Small dashed buffer boxes suggest adjustments; no risk values or timing results are drawn.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1 6 4 1 7" fill="none" stroke="#708879" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="640" height="400" fill="#f3f0e6"/>
+  <text x="32" y="37" fill="#3f6654" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2">BUFFER &amp; COMMITMENT</text>
+  <text x="32" y="66" fill="#2d4d40" font-family="Georgia,serif" font-size="24">One project. Where should buffer go?</text>
+  <rect x="268" y="96" width="238" height="90" rx="13" fill="#e5eade"/>
+  <rect x="268" y="225" width="238" height="90" rx="13" fill="#eae5d5"/>
+  <g fill="none" stroke="#708879" stroke-width="2.7" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M124 197H143"/>
+    <path d="M241 197C257 197 253 135 275 135"/>
+    <path d="M241 197C257 197 253 264 275 264"/>
+    <path d="M380 135H395"/>
+    <path d="M380 264H395"/>
+    <path d="M500 135C517 135 499 183 517 190"/>
+    <path d="M500 264C517 264 499 211 517 204"/>
+  </g>
+  <g fill="#fffdf6" stroke="#8da091" stroke-width="1.8">
+    <rect x="18" y="170" width="106" height="54" rx="8"/>
+    <rect x="145" y="170" width="96" height="54" rx="8"/>
+    <rect x="276" y="108" width="104" height="54" rx="8"/>
+    <rect x="397" y="108" width="103" height="54" rx="8"/>
+    <rect x="276" y="237" width="104" height="54" rx="8"/>
+    <rect x="397" y="237" width="103" height="54" rx="8"/>
+    <rect x="519" y="170" width="105" height="54" rx="8"/>
+  </g>
+  <g fill="#2d4d40" font-family="system-ui,sans-serif" font-size="12.5" text-anchor="middle">
+    <text x="71" y="202">Requirements</text>
+    <text x="193" y="202">Design</text>
+    <text x="328" y="140">Development</text>
+    <text x="448" y="140">Testing</text>
+    <text x="328" y="269">Documentation</text>
+    <text x="448" y="269">Training</text>
+    <text x="571" y="202">Deployment</text>
+  </g>
+  <g fill="#f6eddb" stroke="#b28b50" stroke-width="1.5" stroke-dasharray="4 3">
+    <rect x="291" y="170" width="74" height="24" rx="5"/>
+    <rect x="291" y="299" width="74" height="24" rx="5"/>
+  </g>
+  <g fill="#8b6b39" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">
+    <text x="328" y="186">+ buffer</text>
+    <text x="328" y="315">+ buffer</text>
+  </g>
+  <text x="32" y="360" fill="#2d4d40" font-family="Georgia,serif" font-size="19">Compare the risk index with the finish-date effect.</text>
+  <text x="32" y="384" fill="#697668" font-family="system-ui,sans-serif" font-size="12">Illustration of the supplied task network · no calculated result shown</text>
+</svg>

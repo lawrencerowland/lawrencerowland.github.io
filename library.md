@@ -14,6 +14,31 @@ tags: [Projects, Examples, PortfolioManagement, Library]
     <div class="pw-home-approach-copy"><p>Some work asks an open question. Some reaches a useful stopping point: a model, method or example that resolves a particular problem under stated assumptions.</p><p>This library is the home for those captured solutions and the earlier work behind them. “Solved” here means a bounded problem has a worked answer; it does not mean project management is solved, or that every older example is ready to deploy today.</p><p>The collection is being tidied gradually. These starting points retain their original explanations and limits; they have not all received a new technical review.</p><a href="{{ '/side-projects.html' | relative_url }}">Looking for the open enquiries? Explore the projects →</a></div>
   </section>
 
+  <section class="pw-home-questions" aria-labelledby="worked-examples-title">
+    <div class="pw-home-section-head"><div><p class="pw-home-kicker">Two bounded worked examples</p><h2 id="worked-examples-title">A question you can try.</h2></div><p>Small, explicit models with a useful result to inspect. Each stays in its existing home.</p></div>
+    <div class="pw-home-question-grid pw-worked-example-grid">
+      {% for example in site.data.worked_examples %}
+      <article class="pw-home-question" id="{{ example.id | escape }}">
+        <a class="pw-home-tile-link" href="{{ example.canonical_url | escape }}" aria-labelledby="worked-example-{{ example.id | escape }}">
+          <div class="pw-home-question-visual"><img src="{{ example.image | relative_url }}" width="640" height="400" alt="{{ example.image_alt | escape }}" loading="lazy"></div>
+          <div class="pw-home-question-copy"><p class="pw-home-project-label">Worked example <span>{{ example.topic | escape }}</span></p><h3 id="worked-example-{{ example.id | escape }}">{{ example.title | escape }}</h3><p>{{ example.problem | escape }}</p></div>
+          <span class="pw-home-route-link">{{ example.action | escape }} <span aria-hidden="true">↗</span></span>
+        </a>
+        <details class="foray-details">
+          <summary>What to try, assumptions &amp; source</summary>
+          <div class="foray-detail-body">
+            <p><strong>Inputs.</strong> {{ example.inputs | escape }}</p>
+            <p><strong>Try this.</strong> {{ example.try | escape }}</p>
+            <p><strong>Limits.</strong> {{ example.limitation | escape }}</p>
+            <p>{{ example.revision_context | escape }}</p>
+            <p><a href="{{ example.source_url | escape }}">{{ example.source_label | escape }}</a>{% if example.checks_url %} · <a href="{{ example.checks_url | escape }}">{{ example.checks_label | escape }}</a>{% endif %}</p>
+          </div>
+        </details>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
   <section class="pw-home-questions" aria-labelledby="library-starts">
     <div class="pw-home-section-head"><div><p class="pw-home-kicker">Start with a practical question</p><h2 id="library-starts">Three strands of earlier work.</h2></div><p>Each will gain a clearer identity as its examples, assumptions and useful contributions are reviewed.</p></div>
     <div class="pw-home-question-grid">
@@ -38,5 +63,39 @@ tags: [Projects, Examples, PortfolioManagement, Library]
   <section class="pw-home-approach" aria-labelledby="library-future">
     <div><p class="pw-home-kicker">From collection to named example</p><h2 id="library-future">Keep what each example teaches.</h2></div>
     <div class="pw-home-approach-copy"><p>Over time, individual apps will move out of the generic collections into homes that explain their purpose. Some belong with an ongoing enquiry. Others deserve a name of their own as worked examples, with a clear problem, inputs, result, assumptions and the version at which the work was captured.</p><p>Those are different roles, rather than a ladder every experiment must climb. A retained earlier attempt can still explain something its successor leaves out.</p><p><a href="{{ '/older-stuff.html' | relative_url }}">Browse earlier guides and material</a> · <a href="{{ '/blog_summary.html' | relative_url }}">Read the earlier notes</a></p></div>
+  </section>
+
+  <section class="pw-retained-collections" id="earlier-app-collections" aria-labelledby="collections-title">
+    <h2 id="collections-title">Earlier app collections</h2>
+    <p>The original collections remain available, including their earlier experiments. Individual examples will gain clearer homes as they are reviewed.</p>
+    <details>
+      <summary>Browse the original collections</summary>
+      <div class="foray-grid">
+      {% assign collections = site.data.side_projects | where: 'placement', 'library' %}
+      {% for project in collections %}
+        <article class="example-card foray-card" id="{{ project.id | escape }}">
+          <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">
+            <span class="foray-scenario-image"><img src="{{ project.image | escape }}" alt="" width="640" height="400" loading="lazy" decoding="async"></span>
+            <div class="foray-tile-body">
+              <h3>{{ project.title | escape }}</h3>
+              <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
+              <span class="foray-action">{{ project.action | escape }} <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <details class="foray-details">
+            <summary>About this collection</summary>
+            <div class="foray-detail-body">
+              <p class="foray-question">{{ project.question | escape }}</p>
+              <p>{{ project.description | escape }}</p>
+              {% if project.origin %}<p class="foray-origin">Origin: {{ project.origin | escape }}</p>{% endif %}
+              <ul class="foray-tags" aria-label="Topics">{% for tag in project.tags %}<li>{{ tag | replace: '-', ' ' | escape }}</li>{% endfor %}</ul>
+              {% if project.related %}<ul class="foray-related">{% for link in project.related %}<li><a href="{{ link.path | escape }}">{{ link.title | escape }}</a></li>{% endfor %}</ul>{% endif %}
+            </div>
+          </details>
+        </article>
+      {% endfor %}
+      </div>
+    </details>
+    <p><a href="{{ '/all-project-apps.html' | relative_url }}">Browse the combined app catalogue</a> · <a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a></p>
   </section>
 </div>

@@ -2,7 +2,7 @@
 
 **28 September 2026**  
 **Public identity: Lawrence Rowland — independent project experiments**  
-**Stage 1 is in progress. Stages 2–5 are proposed, independently useful improvements.**
+**Stage 1 is published. Stage 2 is being piloted; Stages 3–5 remain proposed, independently useful improvements.**
 
 ## Purpose
 
@@ -34,6 +34,8 @@ The directory now uses one pictured grid and topic filtering. “Featured projec
 
 ## Stage 1 — Establish the entrance
 
+**Published 28 September 2026:** PR149 merged as `03471bdf219c1db3a71efdd56e8bc72f634ecc35`. Pages deployment and all checks passed. Homepage, directory and Library match the checked build apart from build-time cache keys; the directory script matches exactly. The live directory has 17 cards and no CSV-to-Gantt link.
+
 **Current scope:** homepage, shared header/footer and configuration; About openings; Notes orientation; a Library page using existing public guides; two confirmed notes-link repairs; a single project grid; and removal of the explicitly retired CSV-to-Gantt entry. Keep the remaining 17 directory entries and their application routes after the explicitly requested CSV-to-Gantt retirement. Import no private Vault material.
 
 Make the homepage a curated entrance to open enquiries and bounded worked examples. Give visitors a few compelling scenarios and questions. Keep earlier portfolio/project-management guides, graphs, books and other heritage discoverable through Library, clearly dated and scoped where evidence permits.
@@ -48,6 +50,12 @@ Primary navigation is **Projects / Library**; Notes and About remain in the foot
 
 ## Stage 2 — Make discovery useful
 
+**Current pilot:** a compact, optional question guide in Projects; two named worked examples in Library; stable identities and explicit editorial placement in the existing project registry. The 15 project/reference cards remain in one pictured gallery. The two general app collections retain their full records, illustrations and descriptions in Library, with directory and footer signposts. This changes prominence and routes, not application code.
+
+The first question routes address waiting for shared access, choosing a complete wildlife crossing and the value of timely evidence. Library introduces dependency reordering and a declared risk/buffer model, with the inputs, assumptions, limitations and source revision context visible beside each example. Their fixed constructions give a bounded answer inside those assumptions; neither is presented as evidence of engineering or organisational success.
+
+Reader role (`open-enquiry`, `reference`, `earlier-collection`) is editorial context. It does not assert technical review, maturity or adoption. Source links and original names remain in the registry; substantive model claims belong with each source app. Missing validation/capture dates are not inferred from repository activity.
+
 Test the editorial organisation on real questions before expanding the data structure. Examples include “What can happen next?”, “Why must this task wait?” and “What must one package provide before another starts?”
 
 Then create a lightweight public registry: stable identifiers, names, memberships, entry routes, canonical URLs and sources. Separate reader role—open enquiry, bounded worked example, utility, reference or earlier collection—from evidence/review status. Detailed mathematics and evidence remain with the project. Record a worked example’s problem, assumptions and genuine capture/revision date; do not invent missing dates.
@@ -58,7 +66,7 @@ Name individual solutions as their purpose becomes clear. Their parent may be a 
 
 **Acceptance**
 
-- All 17 retained entrances have stable records and working routes; distinct Gimmer lanes and meaningful queries/fragments are preserved.
+- All 17 retained entrances have stable records and working routes across Projects and Library; distinct Gimmer lanes and meaningful queries/fragments are preserved.
 - Newcomer questions find useful enquiries or scoped examples; returning readers can still find original titles and identifiers. Role and evidence status are independent fields.
 - Status and dates state what was checked and when. Unknown review state remains unknown; fresh commits or HTTP checks do not silently become model-review claims.
 

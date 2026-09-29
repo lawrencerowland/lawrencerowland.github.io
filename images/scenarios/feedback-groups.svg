@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Find the feedback groups in a small design process</title>
+  <desc id="desc">The supplied six-activity example runs from a project brief to design approval. Load model, frame design and foundation design form a feedback loop. This is a dependency sketch, not a schedule.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1 6 4 1 7" fill="none" stroke="#547366" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="feedback-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1 6 4 1 7" fill="none" stroke="#a77c3b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="640" height="400" fill="#f3f0e6"/>
+  <path d="M211 66Q177 68 181 110L222 259Q231 286 267 286H389Q415 286 433 255L501 111Q517 70 478 65Z" fill="#e8eadc" stroke="#d3dac9" stroke-width="2"/>
+  <text x="32" y="37" fill="#3f6654" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2">DEPENDENCIES</text>
+  <text x="32" y="65" fill="#2d4d40" font-family="Georgia,serif" font-size="24">Keep the connections. Reveal the loop.</text>
+  <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M154 182C177 182 177 125 197 125" stroke="#547366" marker-end="url(#arrow)"/>
+    <path d="M315 125H370" stroke="#a77c3b" marker-end="url(#feedback-arrow)"/>
+    <path d="M431 151C431 185 401 201 375 222" stroke="#a77c3b" marker-end="url(#feedback-arrow)"/>
+    <path d="M276 236C221 230 223 189 244 153" stroke="#a77c3b" marker-end="url(#feedback-arrow)"/>
+    <path d="M469 151C512 162 513 190 513 216" stroke="#547366" marker-end="url(#arrow)"/>
+    <path d="M400 247H450" stroke="#547366" marker-end="url(#arrow)"/>
+    <path d="M513 271V305" stroke="#547366" marker-end="url(#arrow)"/>
+  </g>
+  <g fill="#fffdf6" stroke="#8da091" stroke-width="1.8">
+    <rect x="32" y="155" width="122" height="54" rx="8"/>
+    <rect x="195" y="98" width="120" height="54" rx="8"/>
+    <rect x="372" y="98" width="120" height="54" rx="8"/>
+    <rect x="276" y="220" width="124" height="54" rx="8"/>
+    <rect x="450" y="218" width="126" height="54" rx="8"/>
+    <rect x="450" y="307" width="126" height="54" rx="8"/>
+  </g>
+  <g fill="#2d4d40" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">
+    <text x="93" y="179">Project<tspan x="93" dy="18">brief</tspan></text>
+    <text x="255" y="130">Load model</text>
+    <text x="432" y="130">Frame design</text>
+    <text x="338" y="243">Foundation<tspan x="338" dy="18">design</tspan></text>
+    <text x="513" y="250">Cost review</text>
+    <text x="513" y="331">Design<tspan x="513" dy="18">approval</tspan></text>
+  </g>
+  <text x="38" y="338" fill="#8b6b39" font-family="Georgia,serif" font-size="19">Which work is coupled?</text>
+  <text x="38" y="379" fill="#697668" font-family="system-ui,sans-serif" font-size="12">Sketch of the supplied example · arrows show information dependencies</text>
+</svg>

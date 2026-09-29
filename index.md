@@ -31,7 +31,7 @@ tags: [Projects, Experiments, Models, IndependentResearch]
         <div class="pw-home-question-copy"><p class="pw-home-project-label">01 / The farm track</p><h3 id="farm-question-title">What happens when two plans need the same lane?</h3><p>Pour the foundations before the cows take the lane. Explore how project tasks and outside activity compete for the same resources.</p></div>
         <span class="pw-home-route-link">Explore the farm track <span aria-hidden="true">↗</span></span>
       </a></article>
-      <article class="pw-home-question"><a class="pw-home-tile-link" href="https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/" aria-labelledby="gimmer-question-title">
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html" aria-labelledby="gimmer-question-title">
         <div class="pw-home-question-visual"><img src="https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG" width="640" height="400" alt="Illustrated cliffside timber refuge beside process and plan sketches" loading="lazy" decoding="async"></div>
         <div class="pw-home-question-copy"><p class="pw-home-project-label">02 / The mountain refuge</p><h3 id="gimmer-question-title">How do connected work packages become a plan?</h3><p>Build a refuge halfway up a cliff, including its awkward handovers. Follow the processes, dependencies and alternative ways to complete the work.</p></div>
         <span class="pw-home-route-link">Explore the refuge <span aria-hidden="true">↗</span></span>
