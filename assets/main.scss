@@ -548,3 +548,5 @@ body:has(.pw-home) { background: #f8f6ef; }
 .foray-browse-tools .foray-filter { min-height: 54px; }
 .foray-browse-tools .foray-question-routes[open], .foray-browse-tools .foray-question-routes[open] + .foray-filter { grid-column: 1 / -1; }
 @media (max-width: 860px) { .foray-browse-tools { grid-template-columns: minmax(0, 1fr); gap: .75rem; } }
+
+.foray-directory .foray-scenario-caption, .foray-directory .foray-entry-purpose, .foray-directory .foray-intro p { font-weight: 400; }
