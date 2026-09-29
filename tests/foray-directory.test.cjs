@@ -137,7 +137,8 @@ if (process.argv[2]) {
   assert.ok(!intro.includes('all-project-apps.html'), 'generic catalogue is not an opening shortcut');
   assert.ok(html.indexOf('id="compare-approaches"') > html.lastIndexOf('</article>'), 'comparison follows the gallery');
   assert.ok(html.includes('href="/gpt-links-page.html"'));
-  assert.ok(html.includes('href="https://lawrencerowland.github.io/project_innovation_app/"'));
+  // This utility is deliberately discoverable through the generic app catalogues.
+  assert.ok(!html.includes('project_innovation_app'), 'Do not promote the Idea notebook on Projects');
   assert.ok(html.includes('href="/all-project-apps.html"'));
   const expectedTags = [...new Set(projects.flatMap(p => p.tags))].sort();
   const topicOptions = [...html.matchAll(/<option value="([^"]+)"/g)].map(m => m[1]).filter(x => x !== 'all');
