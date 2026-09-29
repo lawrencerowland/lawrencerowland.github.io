@@ -1,303 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-WXM2VXQH");</script>
     <!-- End Google Tag Manager -->
-    <title>Project Management SaaS Decision Tree</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script> <!-- Include D3.js for visualization -->
-    <style>
-        .node {
-            cursor: pointer;
-        }
-        .node circle {
-            fill: #fff;
-            stroke: steelblue;
-            stroke-width: 3px;
-        }
-        .node text {
-            font: 12px sans-serif;
-        }
-        .link {
-            fill: none;
-            stroke: #ccc;
-            stroke-width: 2px;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 16px;
-        }
-         /* Style for buttons */
-        button {
-            padding: 10px 15px;
-            margin: 5px;
-            background-color: #4CAF50; /* Green */
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
 
-        button:hover {
-            background-color: #3e8e41;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What do your decision weights imply? — SaaS sampling example</title>
+<meta name="description" content="A fictional software shortlist shows how fixed branch weights determine exact probabilities and sampled frequencies. A worked example, not a product recommendation.">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="decision-sampling-model.js"></script>
+<style>
+:root { color-scheme: light; --ink:#243b36; --muted:#52635d; --paper:#f5f3ed; --line:#ccd4cd; --accent:#98583d; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.6 system-ui,sans-serif; }
+main,nav { max-width:1140px; margin:auto; padding:1.1rem 1.5rem; }
+nav { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; border-bottom:1px solid var(--line); font-size:.9rem; }
+a { color:var(--ink); text-underline-offset:.2em; }
+a:hover { color:var(--accent); }
+:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+h1,h2 { font-family:Georgia,serif; font-weight:normal; line-height:1.12; }
+h1 { font-size:clamp(2.3rem,5vw,3.8rem); max-width:850px; margin:.4rem 0 1rem; }
+h2 { font-size:1.8rem; margin:.3rem 0 .8rem; }
+p { max-width:78ch; }
+.kicker { text-transform:uppercase; letter-spacing:.12em; font-size:.75rem; color:var(--accent); font-weight:700; margin-bottom:.7rem; }
+.intro { max-width:800px; font-size:1.15rem; }
+.guide { border-left:4px solid var(--accent); padding:.1rem 1.2rem; margin:1.5rem 0; }
+section { margin:2rem 0; }
+.controls { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0; }
+button { font:inherit; padding:.65rem .9rem; border:1px solid var(--ink); border-radius:4px; background:var(--ink); color:white; cursor:pointer; }
+button:hover { background:#39594e; }
+button.secondary { background:transparent; color:var(--ink); }
+.small { font-size:.9rem; color:var(--muted); }
+.scroll { overflow-x:auto; max-width:100%; border:1px solid var(--line); background:#fffefb; border-radius:6px; }
+table { border-collapse:collapse; width:100%; font-size:.95rem; }
+caption { text-align:left; padding:1rem; font-weight:600; }
+th,td { text-align:right; padding:.65rem .8rem; border-bottom:1px solid var(--line); white-space:nowrap; }
+th:first-child,td:first-child { text-align:left; }
+thead { background:#edf0e9; }
+tr.selected { background:#f5e4d6; }
+#tree-container svg { display:block; }
+#tree-container { min-height:4rem; }
+.link { fill:none; stroke:#bbc6bf; stroke-width:2; }
+.link.selected { stroke:var(--accent); stroke-width:4; }
+.node circle { fill:white; stroke:var(--ink); stroke-width:2; }
+.node.selected circle { fill:var(--accent); stroke:var(--accent); }
+.node text { font:13px system-ui,sans-serif; fill:var(--ink); }
+.node .edge-weight { fill:var(--muted); font-size:11px; }
+#path { padding:1rem 1.2rem; background:#edece3; border-radius:6px; }
+#path ol { margin:.5rem 0; padding-left:1.4rem; }
+summary { cursor:pointer; font-weight:600; padding:.6rem 0; }
+.branch-list li { margin:.45rem 0; }
+footer { border-top:1px solid var(--line); padding-top:1rem; margin-top:2rem; }
+@media(max-width:600px) { main,nav { padding:1rem; } h1 { font-size:2.3rem; } th,td { padding:.55rem; } }
+</style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXM2VXQH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-<p><a href='https://lawrencerowland.github.io/Project-web-apps/'>Back to Project apps</a></p>
 
-<h1>Project Management SaaS Decision Tree</h1>
-<p>This interactive tool simulates a decision-making process for selecting a Project Management SaaS solution. It uses a five-deep decision tree and a Monte Carlo Tree Search (MCTS) to estimate the most likely path for an 80th percentile technology manager.</p>
-
-<button onclick="runSimulation(1000)">Run 1000 Simulations</button>
-<button onclick="runSimulation(10000)">Run 10000 Simulations</button> <button onclick="runSimulation(100000)">Run 100000 Simulations</button>
-
-
-<div id="tree-container"></div>
-<div id="result"></div>
-
+<nav aria-label="Portfolio"><a href="/side-projects.html">Projects</a><a href="/library.html">Library</a><a href="/project-examples.html">Earlier project examples</a></nav>
+<main>
+<header>
+<p class="kicker">A bounded worked example · Decision assumptions</p>
+<h1>What do your decision weights imply?</h1>
+<p class="intro">Imagine a team shortlisting project-management software. Its toy decision tree branches through budget, integration, usability and scale, ending at fictional options A–I. How often would each option appear if we followed the supplied weights?</p>
+<p>This example holds the tree and its weights fixed. It calculates each option’s exact probability, then samples paths so you can compare the two. A frequent outcome reflects the assumptions in the tree; it does not establish which product is best.</p>
+</header>
+<div class="guide"><p><strong>Try this.</strong> Run 1,000 samples, then 100,000. Compare the sampled percentages with the exact column. Repeat a run to see random variation. The larger sample usually settles nearer the fixed probabilities; it learns nothing new about the products.</p></div>
+<section aria-labelledby="result-title">
+<h2 id="result-title">Assumptions first. Frequencies second.</h2>
+<div class="controls"><button id="run-1000" onclick="runSimulation(1000)">Run 1,000 samples</button><button id="run-10000" onclick="runSimulation(10000)">Run 10,000 samples</button><button id="run-100000" onclick="runSimulation(100000)">Run 100,000 samples</button><button class="secondary" id="reset" onclick="resetExample()">Reset</button></div>
+<p id="result" role="status" aria-live="polite">Exact probabilities are ready. Choose a run size to add sampled results.</p>
+<div class="scroll" tabindex="0" role="region" aria-label="Exact and sampled probabilities"><table><caption>Nine fictional options · each run replaces the previous sample</caption><thead><tr><th scope="col">Option</th><th scope="col">Exact</th><th scope="col">Count</th><th scope="col">Sampled</th><th scope="col">Gap (pp)</th></tr></thead><tbody id="probabilities"></tbody></table></div>
+<p class="small">Exact probabilities are shown to three decimal places. “pp” means percentage points: sampled minus exact. Option B has zero weight and is never sampled. These are probabilities within the toy model, not measured customer preferences.</p>
+</section>
+<section aria-labelledby="tree-title">
+<h2 id="tree-title">Follow one path through the tree.</h2>
+<p id="tree-help">Branches show their share of the weight at that fork. After a run, the most frequent sampled path is coloured copper; the same path is written below. Scroll the diagram horizontally on a small screen.</p>
+<div id="tree-container" class="scroll" tabindex="0" role="region" aria-label="Decision tree diagram, scroll horizontally"><p>Loading the diagram. All weights and paths are also available as text below.</p></div>
+<div id="path"><p>Run a sample to inspect its most frequent path.</p></div>
+<details><summary>Read every branch and its supplied weight</summary><p>Each child’s weight is divided by the total of its siblings. For example, weights 1 and 1 mean a 50/50 split. Some original branch descriptions repeat or overlap; they are retained here to make the toy’s assumptions inspectable, rather than presenting it as a complete requirements model.</p><div id="all-branches"></div></details>
+</section>
+<section aria-labelledby="method-title">
+<h2 id="method-title">What this example teaches</h2>
+<p>Multiplying the conditional branch probabilities along a path gives its exact probability. Random sampling approximates those same numbers. More samples can reduce sampling noise; they cannot repair poor assumptions, missing options or an unsuitable tree.</p>
+<p><strong>A weighting detail matters.</strong> Options E and F each have a supplied weight of 1. At that fork they therefore get half the probability each, not 100% each. Their full-path probabilities are 0.6 × 0.3 × 0.5 = 9%. Option A instead has 0.6 × 0.7 × 0.85 × 0.75 = 26.775%. The diagram and branch list expose each conditional probability.</p>
+<details><summary>Method, sources &amp; the earlier claim</summary>
+<p>The earlier page called this Monte Carlo Tree Search and described an “80th percentile technology manager”. Its code supplies no evidence for that persona. It repeatedly samples a fixed tree; there is no reward function, expansion of a search tree or learning from rewards. The accurate description is <strong>weighted Monte Carlo path sampling</strong>.</p>
+<p>For the distinction, see Guillaume Chaslot’s <a href="https://project.dke.maastrichtuniversity.nl/games/files/phd/Chaslot_thesis.pdf#page=26">Monte-Carlo Tree Search (2010), chapter 3</a>, which explains selection, expansion, simulation and backpropagation. That is background reading, not a method this example implements.</p>
+<p>The tree, nine options, descriptions, weights and three run sizes are retained from the <a href="https://github.com/lawrencerowland/lawrencerowland.github.io/blob/5f678acf57707a05ac178673404c37da36cafdc6/examples/decision-tree.html">earlier published source</a>. The repair adds exact probabilities, preserves the identity of repeated-label nodes when highlighting a path, and excludes zero-weight branches at random-number boundaries. <a href="https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/tests/decision-sampling.test.cjs">Model checks</a> cover this limited construction.</p>
+</details>
+</section>
+<footer><p class="small">A temporary browser experiment: runs are not saved, and reloading restores the exact table. The original analytics tag remains. <a href="/library.html">Return to the Library →</a></p></footer>
+</main>
 <script>
-// 1. Define the Decision Tree Structure
-const treeData = {
-    name: "Root",
-    description: "Select SaaS Solution",
-    children: [
-        {
-            name: "Budget",
-            description: "< $10/user/month",
-            transitionProbability: 0.6,  // 80th percentile likely cares, but might have exceptions.
-            children: [
-                {
-                    name: "Integration",
-                    description: "Needs deep integration with existing tools",
-                    transitionProbability: 0.7, // 80th percentile: high importance, but not absolute.
-                    children: [
-                        {
-                            name: "Usability",
-                            description: "Intuitive UI is crucial",
-                            transitionProbability: 0.85, // 80th percentile places high value on usability
-                            children: [
-                                {
-                                    name: "Scalability",
-                                    description: "Must scale to 500+ users",
-                                    transitionProbability: 0.75,
-                                    children: [
-                                      { name: "Solution A", description: "Meets all criteria", transitionProbability: 1.0 },
-                                      { name: "Solution B", description: "Lacks scalability", transitionProbability: 0.0 }
-                                    ]
-
-                                },
-                                {
-                                    name: "Scalability",
-                                    description: "Must scale to 500+ users",
-                                     transitionProbability: 0.25,
-                                    children: [
-                                        { name: "Solution C", description: "Good, but less intuitive", transitionProbability: 1.0 }
-                                    ]
-                                }
-
-                            ]
-                        },
-                        {
-                            name: "Usability",
-                            description: "Intuitive UI is less of a priority",
-                            transitionProbability: 0.15,
-                            children: [
-                                { name: "Solution D", description: "Excellent Integration, but difficult UI", transitionProbability: 1.0 }
-                            ]
-                        }
-
-                    ]
-                },
-                 {
-                    name: "Integration",
-                    description: "Basic integration is sufficient",
-                    transitionProbability: 0.3,
-                    children: [
-                       { name: "Solution E", transitionProbability: 1.0, description: "Cheap, limited integration" },
-                       { name: "Solution F", transitionProbability: 1.0, description: "Cheap, limited integration" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: "Budget",
-            description: "> $10/user/month",
-            transitionProbability: 0.4,
-            children: [
-                 {
-                    name: "Features",
-                    description: "Advanced Features",
-                     transitionProbability: 0.8,
-                    children: [
-                       { name: "Solution G", transitionProbability: 1.0, description: "Expensive, but powerful" },
-                       { name: "Solution H", transitionProbability: 1.0, description: "Expensive, but powerful" },
-
-                    ]
-                },
-                {
-                    name: "Features",
-                    description: "Basic Features",
-                    transitionProbability: 0.2,
-                    children: [
-                        { name: "Solution I", transitionProbability: 1.0, description: "Moderately expensive" }
-                    ]
-                }
-            ]
-        }
-    ]
-};
-
-
-// 2. Monte Carlo Tree Search Simulation
-function monteCarloSimulation(root, numSimulations) {
-    const results = {};
-    const paths = {}; // Store paths for visualization
-
-    for (let i = 0; i < numSimulations; i++) {
-        let currentNode = root;
-        let path = [currentNode.name]; // Start path with root name
-
-        while (currentNode.children && currentNode.children.length > 0) {
-            // Choose a child node based on transition probabilities
-            let totalProbability = currentNode.children.reduce((sum, child) => sum + (child.transitionProbability || 0), 0);
-            let randomValue = Math.random() * totalProbability;
-            let cumulativeProbability = 0;
-            let selectedChild = null;
-
-
-             for (const child of currentNode.children) {
-                cumulativeProbability += (child.transitionProbability || 0);
-                if (randomValue <= cumulativeProbability) {
-                    selectedChild = child;
-                    break;
-                }
-            }
-
-            if (!selectedChild) {
-               // Handle cases where probabilities don't sum to 1 (or are missing)
-                selectedChild = currentNode.children[currentNode.children.length - 1];
-            }
-
-            currentNode = selectedChild;
-            path.push(currentNode.name); // Add node name to path
-        }
-        // Count the final decision (leaf node)
-        const decision = currentNode.name;
-        results[decision] = (results[decision] || 0) + 1;
-
-        // Convert path to string for storage/visualization
-        const pathString = path.join(" -> ");
-        paths[pathString] = (paths[pathString] || 0) + 1;
+const {treeData, enumerate, sample} = DecisionSampling;
+const leaves = enumerate();
+const percent = (value, digits = 2) => new Intl.NumberFormat('en-GB', {style:'percent', minimumFractionDigits:digits, maximumFractionDigits:digits}).format(value);
+function renderTable(simulation) {
+    const body = document.getElementById('probabilities');
+    body.replaceChildren();
+    for (const leaf of leaves) {
+        const row = document.createElement('tr');
+        if (simulation && simulation.mostFrequentId === leaf.id) row.className = 'selected';
+        const count = simulation ? simulation.counts[leaf.id] : null;
+        const values = [leaf.name, percent(leaf.probability, 3), count === null ? '—' : count.toLocaleString(), count === null ? '—' : percent(count / simulation.total), count === null ? '—' : ((count / simulation.total - leaf.probability) * 100).toFixed(2)];
+        values.forEach((value, i) => { const cell = document.createElement(i === 0 ? 'th' : 'td'); if (i === 0) cell.scope = 'row'; cell.textContent = value; row.append(cell); });
+        body.append(row);
     }
-
-    return { results, paths };
 }
-
-
-
-// 3. Visualization with D3.js
-function visualizeTree(treeData, simulationResults) {
-    const width = 900;
-    const height = 600;
-
-    // Clear previous tree (if any)
-    d3.select("#tree-container").selectAll("*").remove();
-
-    const svg = d3.select("#tree-container").append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .append("g")
-        .attr("transform", "translate(50,50)");  // Add some margin
-
-    const treeLayout = d3.tree().size([height - 100, width - 200]);
-
-    const root = d3.hierarchy(treeData);
-    treeLayout(root);
-
-    // --- Links ---
-    svg.selectAll('.link')
-        .data(root.links())
-        .enter()
-        .append('path')
-        .attr('class', 'link')
-        .attr('d', d3.linkHorizontal()
-            .x(d => d.y)
-            .y(d => d.x));
-
-    // --- Nodes ---
-    const node = svg.selectAll('.node')
-        .data(root.descendants())
-        .enter().append('g')
-        .attr('class', 'node')
-        .attr('transform', d => `translate(${d.y},${d.x})`);
-
-    node.append('circle')
-        .attr('r', 10);
-
-    node.append('text')
-        .attr('dy', '.35em')
-        .attr('x', d => d.children ? -13 : 13)
-        .style('text-anchor', d => d.children ? 'end' : 'start')
-        .text(d => {
-                let text = d.data.name;
-                if (simulationResults && simulationResults.results[d.data.name]) { //check that simulation Results exits
-                    const count = simulationResults.results[d.data.name];
-                    text += ` (${count})`;  // Append simulation count if available
-                }
-                return text;
-        });
-
-      // Display Descriptions on hover
-      node.append("title")
-        .text(d => d.data.description);
-}
-
-
-
-// 4. Run Simulation and Display Results (Integrated with visualization)
-function runSimulation(numSimulations) {
-    const simulation = monteCarloSimulation(treeData, numSimulations);
-
-    // Display results
-    let resultText = `After ${numSimulations} simulations:<br>`;
-    const sortedResults = Object.entries(simulation.results).sort(([, a], [, b]) => b - a);
-    for (const [decision, count] of sortedResults) {
-        resultText += `${decision}: ${count} times (${(count / numSimulations * 100).toFixed(2)}%)<br>`;
-    }
-    document.getElementById("result").innerHTML = resultText;
-
-
-    // Most Frequent Path (for highlighting)
-    let mostFrequentPath = "";
-    let maxCount = 0;
-    for (const path in simulation.paths) {
-      if (simulation.paths[path] > maxCount) {
-          maxCount = simulation.paths[path];
-          mostFrequentPath = path;
-      }
-    }
-
-    visualizeTree(treeData, simulation);  // Pass simulation results to visualization
-
-    // Find nodes on the most frequent path and style differently (e.g., highlight)
-    const pathNodes = mostFrequentPath.split(" -> ");
-    d3.selectAll(".node").each(function(d) {
-        if (pathNodes.includes(d.data.name)) {
-            d3.select(this).select("circle").style("fill", "orange"); // Highlight nodes in path
-        }
+function branchList(node, id='r') {
+    const list = document.createElement('ul'); list.className = 'branch-list';
+    const children = node.children || [], total = children.reduce((s,c) => s + c.transitionProbability, 0);
+    children.forEach((child, i) => {
+        const item = document.createElement('li');
+        item.textContent = `${child.name}: ${child.description || ''} — weight ${child.transitionProbability}; ${percent(child.transitionProbability / total)} at this fork.`;
+        if (child.children) item.append(branchList(child, `${id}.${i}`));
+        list.append(item);
     });
-
+    return list;
 }
-
-
-// Initial visualization (empty, before simulation)
-visualizeTree(treeData);
+function visualizeTree(selectedId) {
+    const container = document.getElementById('tree-container');
+    if (typeof d3 === 'undefined') { container.textContent = 'The optional diagram could not load. The exact table, sampling and written branches still work.'; return; }
+    const width = 1060, height = 760;
+    const root = d3.hierarchy(treeData);
+    root.eachBefore(node => { node.uid = node.parent ? node.parent.uid + '.' + node.parent.children.indexOf(node) : 'r'; });
+    d3.tree().size([height - 80, width - 250])(root);
+    const onPath = id => !!selectedId && (id === selectedId || selectedId.startsWith(id + '.'));
+    container.replaceChildren();
+    const svg = d3.select(container).append('svg').attr('width',width).attr('height',height).attr('role','img').attr('aria-label','Weighted decision tree. The equivalent text is below.').append('g').attr('transform','translate(80,40)');
+    svg.selectAll('.link').data(root.links()).enter().append('path').attr('class',d => 'link' + (onPath(d.target.uid) ? ' selected' : '')).attr('d',d3.linkHorizontal().x(d=>d.y).y(d=>d.x));
+    const node = svg.selectAll('.node').data(root.descendants()).enter().append('g').attr('class',d=>'node'+(onPath(d.uid)?' selected':'')).attr('data-node-id',d=>d.uid).attr('transform',d=>`translate(${d.y},${d.x})`);
+    node.append('circle').attr('r',7);
+    node.append('text').attr('dy','-0.8em').attr('x',d=>d.children?-10:12).attr('text-anchor',d=>d.children?'end':'start').text(d=>d.data.name);
+    node.filter(d=>d.parent).append('text').attr('class','edge-weight').attr('dy','1.4em').attr('x',d=>d.children?-10:12).attr('text-anchor',d=>d.children?'end':'start').text(d=>percent(d.data.transitionProbability/d.parent.children.reduce((s,c)=>s+c.data.transitionProbability,0)));
+    node.append('title').text(d=>d.data.name+': '+(d.data.description||''));
+}
+function runSimulation(n) {
+    const simulation = sample(n);
+    renderTable(simulation); visualizeTree(simulation.mostFrequentId);
+    const leaf = leaves.find(l=>l.id===simulation.mostFrequentId), count=simulation.counts[leaf.id];
+    document.getElementById('result').textContent = `${n.toLocaleString()} paths sampled. ${leaf.name} occurred most often: ${percent(count/n)}, compared with ${percent(leaf.probability, 3)} exact. Ties use the first option in tree order.`;
+    const path=document.getElementById('path'); path.replaceChildren();
+    const heading=document.createElement('strong'); heading.textContent='Most frequent sampled path — '+leaf.name; path.append(heading);
+    const list=document.createElement('ol'); leaf.path.forEach(step=>{const li=document.createElement('li'); li.textContent=step.name+(step.description?' — '+step.description:''); list.append(li);}); path.append(list);
+}
+function resetExample() {
+    renderTable(null); visualizeTree(null);
+    document.getElementById('result').textContent='Exact probabilities are ready. Choose a run size to add sampled results.';
+    document.getElementById('path').textContent='Run a sample to inspect its most frequent path.';
+}
+document.getElementById('all-branches').append(branchList(treeData));
+resetExample();
 </script>
-
 </body>
 </html>

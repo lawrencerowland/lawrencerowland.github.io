@@ -1,5 +1,5 @@
-- title: "Decision Tree"
-  description: "Selecting a SAAS project product decision tree"
+- title: "What do your decision weights imply?"
+  description: "A fictional software shortlist: compare exact probabilities with sampled paths, and inspect what the supplied branch weights actually imply. A worked sampling example, not a product recommendation."
   origin: "Gemini or ChatGPT"
   tags: [decision, procurement]
   path: "/examples/decision-tree.html"
