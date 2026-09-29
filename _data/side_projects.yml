@@ -2,6 +2,9 @@
 # Existing group values are retained only to preserve old section-fragment aliases.
 - title: "Gimmer: processes to plans"
   id: gimmer-processes-plans
+  entry_question: "Which plans are allowed by the way the work actually happens?"
+  entry_purpose: "Turn process rules and resource assumptions into candidate schedules."
+  gallery_order: 1
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/gimmer-crag
@@ -17,6 +20,10 @@
 
 - title: "Gimmer: higher-autonomy experiments"
   id: gimmer-higher-autonomy
+  tile_image: "/images/scenarios/gimmer-shared-lift.svg"
+  entry_question: "Can work packages share resources without hiding valid ways to build?"
+  entry_purpose: "Agent-led trials of package boundaries, partial progress and feedback."
+  gallery_order: 8
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/gimmer-crag-project-mountain-refuge
@@ -32,6 +39,10 @@
 
 - title: "Gimmer: broader collection"
   id: gimmer-broader
+  tile_image: "/images/scenarios/gimmer-project-views.svg"
+  entry_question: "What else must we understand beyond a task list and dates?"
+  entry_purpose: "Explore procurement, observations, change and different accounts of the refuge."
+  gallery_order: 12
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/gimmer-crag
@@ -47,6 +58,7 @@
 
 - title: "Shared waters: open systems"
   id: shared-waters
+  gallery_order: 6
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/shared-dynamics
@@ -62,6 +74,7 @@
 
 - title: "Integrated risks & tasks"
   id: integrated-risks-tasks
+  gallery_order: 2
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/integrated_risks_tasks
@@ -77,6 +90,7 @@
 
 - title: "Project Co-design"
   id: wildlife-crossing
+  gallery_order: 3
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design
@@ -93,6 +107,7 @@
 
 - title: "Programme Decision Sequences"
   id: programme-decisions
+  gallery_order: 7
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/Programme-decision-sequences
@@ -109,6 +124,7 @@
 
 - title: "Local to Global"
   id: local-to-global
+  gallery_order: 5
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/local-to-global
@@ -125,6 +141,7 @@
 
 - title: "Project Spines"
   id: project-spines
+  gallery_order: 9
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/project-spines
@@ -142,6 +159,7 @@
 
 - title: "Portfolio Wave reading map"
   id: portfolio-wave-reading
+  gallery_order: 14
   role: reference
   placement: project
   source_url: https://github.com/lawrencerowland/Tag_Concurrence_Graph
@@ -157,6 +175,7 @@
 
 - title: "Functors for Projects"
   id: functors-for-projects
+  gallery_order: 10
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/functors-for_projects
@@ -173,6 +192,7 @@
 
 - title: "Bricklaying a Rotunda"
   id: bricklaying-rotunda
+  gallery_order: 4
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/bricklaying-a-rotunda
@@ -188,6 +208,7 @@
 
 - title: "Building a Wall"
   id: building-wall
+  gallery_order: 11
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/building_a_wall
@@ -204,6 +225,7 @@
 
 - title: "Solway Tunnel Ontology"
   id: solway-tunnel
+  gallery_order: 13
   role: open-enquiry
   placement: project
   source_url: https://github.com/lawrencerowland/Solway_tunnel_ontology
@@ -250,6 +272,7 @@
 
 - title: "Tag Concurrence Graph"
   id: tag-concurrence
+  gallery_order: 15
   role: reference
   placement: project
   source_url: https://github.com/lawrencerowland/Tag_Concurrence_Graph

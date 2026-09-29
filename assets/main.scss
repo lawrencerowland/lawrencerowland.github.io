@@ -240,7 +240,7 @@ sup.footnote-ref:hover .footnote-popup {
 .foray-directory [hidden] { display: none !important; }
 .foray-intro { display: flex; justify-content: space-between; align-items: end; gap: 1rem 2rem; padding-bottom: 1rem; border-bottom: 1px solid #dfdfd7; }
 .foray-intro h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin: 0 0 .5rem; }
-.foray-intro p { margin: 0; color: #52615a; }
+.foray-intro p { margin: 0; max-width: 62ch; color: #52615a; }
 .foray-sections { display: flex; flex-direction: column; align-items: end; gap: .35rem; font-size: .85rem; }
 .foray-sections a { padding: .2rem 0; text-underline-offset: 3px; }
 .foray-filter { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; margin: 1rem 0 1.5rem; font-size: .85rem; }
@@ -261,6 +261,8 @@ sup.footnote-ref:hover .footnote-popup {
 .foray-tile-body { display: flex; flex: 1; flex-direction: column; padding: 1.15rem 1.25rem 1rem; }
 .foray-card h2, .foray-card h3 { font-size: 1.15rem; line-height: 1.3; letter-spacing: -.015em; margin: 0 0 .55rem; }
 .foray-scenario-caption { font-size: .9rem; line-height: 1.5; color: #56695d; margin: 0 0 1rem; }
+.foray-entry-question { font-size: .95rem; line-height: 1.5; font-weight: 650; color: #294e39; margin: 0 0 1rem; }
+.foray-entry-purpose { font-size: .82rem; line-height: 1.5; color: #56695d; margin: -.4rem 0 1rem; }
 .foray-action { display: flex; justify-content: space-between; gap: .6rem; margin-top: auto; font-size: .8rem; line-height: 1.4; font-weight: 650; color: #215b3f; }
 .foray-action span { font-size: 1.1rem; }
 .foray-details { border-top: 1px solid #e6e9e2; background: #fafbf7; font-size: .85rem; }
@@ -539,3 +541,12 @@ body:has(.pw-home) { background: #f8f6ef; }
 
 /* Keep the retired contents-list target without drawing an empty contents box. */
 #markdown-toc.pw-legacy-anchor { height: 0; padding: 0; margin: 0; border: 0; background: none; }
+
+/* Keep the two optional ways to browse together, leaving room for the pictures and questions. */
+.foray-browse-tools { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); align-items: start; gap: 1rem 1.5rem; margin: 1.25rem 0; }
+.foray-browse-tools .foray-question-routes, .foray-browse-tools .foray-filter { margin: 0; }
+.foray-browse-tools .foray-filter { min-height: 54px; }
+.foray-browse-tools .foray-question-routes[open], .foray-browse-tools .foray-question-routes[open] + .foray-filter { grid-column: 1 / -1; }
+@media (max-width: 860px) { .foray-browse-tools { grid-template-columns: minmax(0, 1fr); gap: .75rem; } }
+
+.foray-directory .foray-scenario-caption, .foray-directory .foray-entry-purpose, .foray-directory .foray-intro p { font-weight: 400; }
