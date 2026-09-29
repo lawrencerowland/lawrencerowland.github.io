@@ -19,6 +19,9 @@ on:
       - 'project-examples.md'
       - '_data/examples.yml'
       - 'examples/grounded-theory-colimit.html'
+      - 'examples/decision-tree.html'
+      - 'examples/decision-sampling-model.js'
+      - 'tests/decision-sampling.test.cjs'
       - 'Portfolio-frameworks.md'
       - '_posts/2020-05-16-Adopt-existing-portfolio-framework.md'
       - 'about_me.md'
@@ -51,6 +54,9 @@ on:
       - 'project-examples.md'
       - '_data/examples.yml'
       - 'examples/grounded-theory-colimit.html'
+      - 'examples/decision-tree.html'
+      - 'examples/decision-sampling-model.js'
+      - 'tests/decision-sampling.test.cjs'
       - 'Portfolio-frameworks.md'
       - '_posts/2020-05-16-Adopt-existing-portfolio-framework.md'
       - 'about_me.md'
@@ -74,6 +80,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+      - name: Check weighted decision sampling
+        run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
         run: node tests/public-front-door.test.cjs
       - name: Check nine Gimmer models and comparison contracts
