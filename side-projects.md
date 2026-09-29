@@ -98,7 +98,7 @@ wide: true
     </div>
   </section>
 
-  <p class="foray-other-links" id="other-projects">Also explore <a href="{{ '/gpt-links-page.html' | relative_url }}">My Custom GPTs</a> or the earlier <a href="https://lawrencerowland.github.io/project_innovation_app/">Project Innovation App</a>.</p>
+  <p class="foray-other-links" id="other-projects">Also explore <a href="{{ '/gpt-links-page.html' | relative_url }}">My Custom GPTs</a>.</p>
   <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
   <p class="foray-note">The two original general app collections are retained in the <a href="{{ '/library.html#earlier-app-collections' | relative_url }}">Library</a>.</p>
   <p class="foray-note">For individual tools from the two general app libraries, use the <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>.</p>
