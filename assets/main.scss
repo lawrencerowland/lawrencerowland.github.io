@@ -395,7 +395,7 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-footer-heading { display: flex; gap: 35px; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #d4dbce; padding-bottom: 21px; margin-bottom: 26px; }
 .pw-footer-heading > a { color: var(--pw-ink); font: 400 23px/1.25 Georgia, 'Times New Roman', serif; text-decoration: none; }
 .pw-footer-heading p { color: var(--pw-muted); margin: 0; font-size: 12px; }
-.pw-footer-columns { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 33px; }
+.pw-footer-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 33px; }
 .pw-footer h2 { font-family: inherit; font-weight: 650; font-size: 11px; color: #496452; line-height: 1.5; letter-spacing: .065em; text-transform: uppercase; margin: 0 0 12px; }
 .pw-footer ul { margin: 0; padding: 0; list-style: none; }
 .pw-footer li { margin: 0 0 7px; }
