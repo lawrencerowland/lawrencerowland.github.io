@@ -112,7 +112,6 @@ Do not manufacture a publishing cadence, a “latest” feed from file timestamp
 
 - **GitHub profile:** the [profile README](https://github.com/lawrencerowland/lawrencerowland) contains literal citation tokens and dated “right now” claims. Remove presentation artefacts, verify claims and align this important entrance with the independent-work identity.
 - **Ontology downloads:** [Ontologies for projects](https://lawrencerowland.github.io/Ontologies-for-projects/) contains 48 catalogue records. Its first sampled download, `ontologies/2020BFOeasier.ttl`, returned 404 at both the generated outside-repository URL and the expected repository-relative URL. Check publication layout as well as link construction; do not claim all 48 downloads were tested.
-- **Preserve the useful atlas:** [/test/](https://lawrencerowland.github.io/test/) is a substantive Project-Approach Atlas with eleven method entries, not one of the empty/placeholder roots. Salvage its premise, failure-mode and next-probe structure. Review its unsupported scores and outcome claims against current evidence before promotion or relocation.
 - **Smaller entry repairs:** make the innovation prototype’s actual app link clickable, and explain deliberately stripped framework repositories rather than promising missing toolkits.
 
 Complete and review each stage before committing to the next. Discovery, explanation, model development and demonstrated human value are different advances; record which one a change actually achieves.
