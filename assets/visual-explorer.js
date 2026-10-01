@@ -1,43 +1,24 @@
 /* Saved previews only: the linked examples retain their own models and controls. */
 (function () {
   'use strict';
-  const TOPICS = ['all', 'relationships', 'processes', 'resources', 'choices', 'uncertainty'];
-  const KINDS = ['all', 'interactive', 'diagram'];
-  const normalise = value => String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-
   function readState(search, items) {
     const params = new URLSearchParams(search);
     return {
-      q: (params.get('q') || '').trim(),
-      topic: TOPICS.includes(params.get('topic')) ? params.get('topic') : 'all',
-      kind: KINDS.includes(params.get('kind')) ? params.get('kind') : 'all',
       view: items.some(item => item.id === params.get('view')) ? params.get('view') : null
     };
   }
 
-  function matchingItems(items, state) {
-    const words = normalise(state.q).split(/\s+/).filter(Boolean);
-    return items.filter(item => {
-      if (state.topic !== 'all' && !item.topics.includes(state.topic)) return false;
-      if (state.kind !== 'all' && item.kind !== state.kind) return false;
-      const haystack = normalise([item.title, item.home, item.caption, item.look, item.limit,
-        item.status, item.year, item.kind, ...item.topics].join(' '));
-      return words.every(word => haystack.includes(word));
-    });
-  }
-
   function stateURL(href, state) {
     const url = new URL(href);
-    for (const key of ['q', 'topic', 'kind', 'view']) {
-      const value = state[key];
-      if (value && value !== 'all') url.searchParams.set(key, value);
-      else url.searchParams.delete(key);
-    }
+    // Retired filters must never narrow the picture wall, including old bookmarks.
+    for (const key of ['q', 'topic', 'kind']) url.searchParams.delete(key);
+    if (state.view) url.searchParams.set('view', state.view);
+    else url.searchParams.delete('view');
     return url;
   }
 
   // Shared with the small Node test; no browser runtime dependency.
-  if (typeof module !== 'undefined' && module.exports) module.exports = { readState, matchingItems, stateURL };
+  if (typeof module !== 'undefined' && module.exports) module.exports = { readState, stateURL };
   if (typeof document === 'undefined') return;
   const root = document.querySelector('.viz-explorer');
   const dialog = document.getElementById('viz-dialog');
@@ -46,33 +27,60 @@
   const byId = new Map(items.map(item => [item.id, item]));
   const get = id => document.getElementById(id);
   const tiles = Array.from(root.querySelectorAll('[data-view]'));
-  const search = get('viz-search');
-  const kind = get('viz-kind');
-  const topicButtons = Array.from(root.querySelectorAll('[data-topic]'));
   let state = readState(location.search, items);
-  let visible = [];
   let returnFocus = null;
+  let tooltipTile = null;
+  let tooltipTimer;
   const saveURL = () => history.replaceState(null, '', stateURL(location.href, state));
   const asset = path => (root.dataset.baseurl || '') + path;
   const setText = (id, text) => { get(id).textContent = text; };
 
-  function renderGrid() {
-    visible = matchingItems(items, state);
-    const ids = new Set(visible.map(item => item.id));
-    tiles.forEach(tile => { tile.hidden = !ids.has(tile.dataset.view); });
-    topicButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.topic === state.topic)));
-    search.value = state.q;
-    kind.value = state.kind;
-    setText('viz-count', `${visible.length} of ${items.length} views`);
-    get('viz-reset').hidden = !state.q && state.topic === 'all' && state.kind === 'all';
-    get('viz-empty').hidden = visible.length !== 0;
+  function hideTooltip() {
+    clearTimeout(tooltipTimer);
+    if (tooltipTile) tooltipTile.querySelector('.viz-tooltip').hidden = true;
+    tooltipTile = null;
+  }
+
+  function positionTooltip() {
+    if (!tooltipTile) return;
+    const tooltip = tooltipTile.querySelector('.viz-tooltip');
+    const rect = tooltipTile.getBoundingClientRect();
+    const viewport = window.visualViewport;
+    const leftEdge = (viewport ? viewport.offsetLeft : 0) + 12;
+    const topEdge = (viewport ? viewport.offsetTop : 0) + 12;
+    const rightEdge = leftEdge + (viewport ? viewport.width : document.documentElement.clientWidth) - 24;
+    const bottomEdge = topEdge + (viewport ? viewport.height : window.innerHeight) - 24;
+    tooltip.style.maxWidth = `${rightEdge - leftEdge}px`;
+    tooltip.style.maxHeight = `${bottomEdge - topEdge}px`;
+    const width = tooltip.offsetWidth;
+    const height = tooltip.offsetHeight;
+    const below = rect.bottom + 8;
+    const top = below + height <= bottomEdge ? below : rect.top - height - 8;
+    tooltip.style.left = `${Math.max(leftEdge, Math.min(rect.left + (rect.width - width) / 2, rightEdge - width))}px`;
+    tooltip.style.top = `${Math.max(topEdge, Math.min(top, bottomEdge - height))}px`;
+  }
+
+  function showTooltip(tile) {
+    if (dialog.open) return;
+    hideTooltip();
+    tooltipTile = tile;
+    tile.querySelector('.viz-tooltip').hidden = false;
+    positionTooltip();
+  }
+
+  function leaveTooltip(tile) {
+    clearTimeout(tooltipTimer);
+    // Leave enough time to cross the small gap onto the hint itself.
+    tooltipTimer = setTimeout(() => {
+      if (tooltipTile === tile && document.activeElement !== tile && !tile.matches(':hover')) hideTooltip();
+    }, 160);
   }
 
   function renderPreview() {
     const item = byId.get(state.view);
     if (!item) return;
-    const index = visible.findIndex(view => view.id === item.id);
-    setText('viz-position', `${index + 1} of ${visible.length} views`);
+    const index = items.findIndex(view => view.id === item.id);
+    setText('viz-position', `${index + 1} of ${items.length} views`);
     setText('viz-detail-title', item.title);
     setText('viz-detail-home', item.home);
     setText('viz-detail-status', [item.status, item.year].filter(Boolean).join(' · '));
@@ -94,7 +102,7 @@
     get('viz-original-wrap').hidden = !item.source_image;
     get('viz-original').href = item.source_image || item.url;
     get('viz-previous').disabled = index <= 0;
-    get('viz-next').disabled = index >= visible.length - 1;
+    get('viz-next').disabled = index >= items.length - 1;
     const related = get('viz-related-links');
     related.replaceChildren();
     for (const link of item.related || []) {
@@ -125,11 +133,7 @@
 
   function openPreview(id, trigger) {
     if (!byId.has(id)) return;
-    // A shared view link always opens, even with stale or contradictory filters.
-    if (!visible.some(item => item.id === id)) {
-      state = { q: '', topic: 'all', kind: 'all', view: id };
-      renderGrid();
-    }
+    hideTooltip();
     state.view = id;
     returnFocus = trigger || tiles.find(tile => tile.dataset.view === id);
     renderPreview();
@@ -140,8 +144,8 @@
   }
 
   function step(direction) {
-    const index = visible.findIndex(item => item.id === state.view);
-    const next = visible[index + direction];
+    const index = items.findIndex(item => item.id === state.view);
+    const next = items[index + direction];
     if (!next) return;
     state.view = next.id;
     returnFocus = tiles.find(tile => tile.dataset.view === next.id);
@@ -151,35 +155,25 @@
 
   tiles.forEach(tile => {
     tile.setAttribute('aria-haspopup', 'dialog');
+    tile.addEventListener('pointerenter', event => { if (event.pointerType !== 'touch') showTooltip(tile); });
+    tile.addEventListener('pointerleave', () => leaveTooltip(tile));
+    tile.addEventListener('focus', () => showTooltip(tile));
+    tile.addEventListener('blur', () => leaveTooltip(tile));
     tile.addEventListener('click', event => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
       event.preventDefault();
       openPreview(tile.dataset.view, tile);
     });
   });
-  get('viz-controls').hidden = false;
-  const filters = get('viz-filters');
-  filters.hidden = false;
-  const wideScreen = window.matchMedia('(min-width: 761px)');
-  filters.open = wideScreen.matches || Boolean(state.q || state.topic !== 'all' || state.kind !== 'all');
-  wideScreen.addEventListener('change', event => { if (event.matches) filters.open = true; });
-  get('viz-controls').addEventListener('submit', event => event.preventDefault());
-  search.addEventListener('input', () => {
-    const cursor = search.selectionStart;
-    state.q = search.value; // Keep spaces while typing multi-word searches.
-    renderGrid();
-    if (cursor !== null) search.setSelectionRange(cursor, cursor);
-    saveURL();
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && tooltipTile && !dialog.open) hideTooltip();
   });
-  kind.addEventListener('change', () => { state.kind = kind.value; renderGrid(); saveURL(); });
-  topicButtons.forEach(button => button.addEventListener('click', () => {
-    state.topic = button.dataset.topic; renderGrid(); saveURL();
-  }));
-  get('viz-controls').addEventListener('reset', event => {
-    event.preventDefault();
-    state = { q: '', topic: 'all', kind: 'all', view: null };
-    renderGrid(); saveURL(); search.focus();
-  });
+  window.addEventListener('resize', positionTooltip);
+  window.addEventListener('scroll', positionTooltip, true);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', positionTooltip);
+    window.visualViewport.addEventListener('scroll', positionTooltip);
+  }
   get('viz-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
     if (event.target !== dialog) return;
@@ -190,7 +184,7 @@
     state.view = null;
     document.body.classList.remove('viz-preview-open');
     saveURL();
-    (returnFocus && !returnFocus.hidden ? returnFocus : get('viz-count')).focus();
+    (returnFocus || root).focus();
   });
   get('viz-previous').addEventListener('click', () => step(-1));
   get('viz-next').addEventListener('click', () => step(1));
@@ -211,11 +205,10 @@
   });
   window.addEventListener('popstate', () => {
     state = readState(location.search, items);
-    if (state.q || state.topic !== 'all' || state.kind !== 'all') filters.open = true;
-    renderGrid();
     if (state.view) openPreview(state.view);
     else if (dialog.open) dialog.close();
+    else saveURL();
   });
-  renderGrid();
+  saveURL();
   if (state.view) openPreview(state.view);
 })();
