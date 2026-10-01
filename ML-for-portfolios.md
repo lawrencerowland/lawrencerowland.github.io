@@ -33,6 +33,25 @@ The original name was *Project Success Prediction*, but its target is **IEG Bank
 
 [Film, script and workflow files](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md#resources) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
 
+## A different question: monthly portfolio decisions
+{: #monthly-portfolio-decisions }
+
+*December 2020 working note · reading guide added 1 October 2026*
+
+**What should we decide this month, and what should we learn before deciding again?** This earlier note puts advancing, suspending and cancelling projects beside investigation, review and assurance. One set of choices changes the work; the other may change what we know about it.
+
+[![This month's state and decision lead through progress and new information into next month's updated state and decision.]({{ '/images/ML-for-portfolios/monthly-portfolio-review.svg' | relative_url }})](https://github.com/lawrencerowland/Project_decisions#the-monthly-portfolio-review)
+
+*Reading diagram made in 2026 from the original note. It illustrates the question; it does not calculate a policy.*
+
+The useful thread is **state → decision → new information → next state and decision**. Read `S` as the project's position at a review, `x` as the decision, and `W` as information arriving afterwards. Does the timing of our reviews fit the information we need—and could finding out more change the next decision?
+
+[Read the monthly portfolio-review guide →](https://github.com/lawrencerowland/Project_decisions#the-monthly-portfolio-review)
+
+The two retained notebooks explore a much smaller idea: random choices between **promote, maintain and cancel**, with supplied rewards. Neither learns a policy, consumes new evidence or models assurance. The guide distinguishes their different attempts and known counting/transition defects; the original note and saved outputs remain available. This is an unfinished exploration, with useful questions rather than validated recommendations.
+
+[Original note and clarifications](https://github.com/lawrencerowland/Project_decisions/blob/main/2020_12_Reinforcement_learning_for_project_portfolios.md) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
+
 # Code and library base
 If you wish to go straight to the code and document libraries, start [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
 
