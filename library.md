@@ -64,6 +64,22 @@ tags: [Projects, Examples, PortfolioManagement, Library]
     </div>
   </section>
 
+  <section class="pw-home-questions" id="notebook-examples" aria-labelledby="notebook-examples-title">
+    <div class="pw-home-section-head"><div><p class="pw-home-kicker">Processes &amp; relationships</p><h2 id="notebook-examples-title">Connecting the parts of a project.</h2></div><p>Two small modelling explorations from 2022, with their original pictures and a guide to what each construction expresses.</p></div>
+    <div class="pw-home-question-grid pw-worked-example-grid">
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/library/models/mobilising-two-projects.html' | relative_url }}" aria-labelledby="mobilisation-example-title">
+        <div class="pw-home-question-visual"><img src="{{ '/images/notebook-examples/mobilising-two-projects.png' | relative_url }}" width="432" height="288" alt="Two mobilisation processes produce teams and blueprints; crossed wires connect matching outputs to separate merge processes" loading="lazy"></div>
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling notebook <span>DisCoPy · 8 October 2022</span></p><h3 id="mobilisation-example-title">How do two mobilisation processes fit together?</h3><p>Each project produces a team and a blueprint. Follow the wires to see how typed process composition brings like outputs together, and what it leaves for the project manager to decide.</p></div>
+        <span class="pw-home-route-link">Read the mobilisation example <span aria-hidden="true">→</span></span>
+      </a></article>
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/library/models/rail-stakeholders-objectives-scope.html' | relative_url }}" aria-labelledby="rail-layers-example-title">
+        <div class="pw-home-question-visual"><img src="{{ '/images/notebook-examples/rail-three-layers.png' | relative_url }}" width="349" height="236" alt="A rail-project network drawn on three labelled layers: objectives, stakeholders and scope, with links between them" loading="lazy"></div>
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling notebook <span>Py3Plex · October 2022</span></p><h3 id="rail-layers-example-title">How does railway scope connect to people and objectives?</h3><p>A new station, faster trains and carbon ambitions meet track, signalling and the organisations involved. Read three layers together, then see what an objective-only view leaves out.</p></div>
+        <span class="pw-home-route-link">Read the rail-network example <span aria-hidden="true">→</span></span>
+      </a></article>
+    </div>
+  </section>
+
   <section class="pw-home-approach" aria-labelledby="library-future">
     <div><p class="pw-home-kicker">From collection to named example</p><h2 id="library-future">Keep what each example teaches.</h2></div>
     <div class="pw-home-approach-copy"><p>Over time, individual apps will move out of the generic collections into homes that explain their purpose. Some belong with an ongoing enquiry. Others deserve a name of their own as worked examples, with a clear problem, inputs, result, assumptions and the version at which the work was captured.</p><p>Those are different roles, rather than a ladder every experiment must climb. A retained earlier attempt can still explain something its successor leaves out.</p></div>

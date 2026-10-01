@@ -593,3 +593,11 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-library-article p { margin: 0 0 .5rem; }
 .pw-library-article p:last-child { font-size: .9rem; color: var(--pw-muted); margin-bottom: 0; }
 .pw-library-article a { display: inline-block; font-weight: 600; line-height: 1.5; }
+
+/* Small original notebook outputs remain readable without excessive enlargement. */
+.pw-notebook-guide .pw-notebook-figure { max-width: 560px; margin-left: auto; margin-right: auto; }
+.pw-notebook-guide .pw-framework-prose { overflow-wrap: anywhere; }
+.pw-notebook-guide pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.pw-notebook-guide details { margin: 24px 0; padding: 16px 20px; border: 1px solid var(--pw-line); border-radius: 5px; }
+.pw-notebook-guide details summary { cursor: pointer; font-weight: 600; }
+.pw-notebook-guide details[open] summary { margin-bottom: 16px; }
