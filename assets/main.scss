@@ -653,6 +653,14 @@ body:has(.pw-home) { background: #f8f6ef; }
 .viz-detail-picture { padding: 28px 20px 22px; background: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 0; }
 .viz-detail-picture img { display: block; width: auto; height: auto; max-width: 100%; max-height: 64dvh; object-fit: contain; }
 .viz-detail-picture > a { font-size: 12px; margin: 18px 0 0; padding: 8px 0; color: #42634b; }
+.viz-related { width: 100%; margin-top: 16px; padding-top: 14px; border-top: 1px solid #d8dece; }
+.viz-related > p { margin: 0 0 9px; font: 12px/1.4 'Inter', Arial, sans-serif; color: #61705f; }
+.viz-related > div { display: flex; flex-wrap: wrap; gap: 14px; }
+.viz-related-link { display: block; width: 110px; max-width: 100%; font: 12px/1.4 'Inter', Arial, sans-serif; color: #42634b; text-decoration: none; }
+.viz-related-link img { box-sizing: border-box; width: 110px; height: 68px; max-height: none; padding: 4px; border: 1px solid #d6dccf; border-radius: 4px; background: #fff; object-fit: contain; }
+.viz-related-link span { display: block; margin-top: 5px; }
+.viz-related-link:hover { text-decoration: underline; }
+.viz-related-link:hover img { border-color: #69896e; }
 .viz-detail-copy { padding: 24px; font: 14px/1.65 'Inter', Arial, sans-serif; overflow-wrap: anywhere; }
 .viz-detail-copy p { margin: 0 0 16px; }
 .viz-detail-copy .viz-detail-home { font-size: 12px; color: #657060; margin-bottom: 10px; }

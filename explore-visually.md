@@ -49,7 +49,7 @@ home_front_door: true
   <dialog class="viz-dialog" id="viz-dialog" aria-labelledby="viz-detail-title">
     <div class="viz-dialog-top"><p id="viz-position" aria-live="polite"></p><button type="button" id="viz-close" aria-label="Close preview" autofocus>Close <span aria-hidden="true">×</span></button></div>
     <div class="viz-detail-layout">
-      <div class="viz-detail-picture"><img id="viz-detail-image" alt=""><a id="viz-full-image" href="#" target="_blank" rel="noopener">Open picture at full size ↗</a></div>
+      <div class="viz-detail-picture"><img id="viz-detail-image" alt=""><a id="viz-full-image" href="#" target="_blank" rel="noopener">Open picture at full size ↗</a><nav class="viz-related" id="viz-related" aria-label="Compare related views" hidden><p>Compare</p><div id="viz-related-links"></div></nav></div>
       <div class="viz-detail-copy">
         <p class="viz-detail-home" id="viz-detail-home"></p>
         <h2 id="viz-detail-title"></h2>

@@ -75,7 +75,13 @@
     "height": 354,
     "image": "/images/visual-explorer/dependency-matrix.webp",
     "thumb": "/images/visual-explorer/dependency-matrix-thumb.webp",
-    "alt": "Reordering the same six activities brings their mutually dependent group into one block of the matrix."
+    "alt": "Reordering the same six activities brings their mutually dependent group into one block of the matrix.",
+    "related": [
+      {
+        "id": "dependency-groups",
+        "label": "As a graph"
+      }
+    ]
   },
   {
     "id": "rail-layers",
@@ -100,7 +106,13 @@
     "height": 236,
     "image": "/images/visual-explorer/rail-layers.webp",
     "thumb": "/images/visual-explorer/rail-layers-thumb.webp",
-    "alt": "Objectives, stakeholders and scope occupy separate layers while links connect them across a rail-project example."
+    "alt": "Objectives, stakeholders and scope occupy separate layers while links connect them across a rail-project example.",
+    "related": [
+      {
+        "id": "rail-neighbours",
+        "label": "Close-up"
+      }
+    ]
   },
   {
     "id": "wildlife-configuration",
@@ -282,7 +294,17 @@
     "height": 572,
     "image": "/images/visual-explorer/farm-lane-net.webp",
     "thumb": "/images/visual-explorer/farm-lane-net-thumb.webp",
-    "alt": "This shared-lane Petri-net fragment makes two competing starts and the return of one reusable access token visible."
+    "alt": "This shared-lane Petri-net fragment makes two competing starts and the return of one reusable access token visible.",
+    "related": [
+      {
+        "id": "farm-before",
+        "label": "Original plan"
+      },
+      {
+        "id": "farm-after",
+        "label": "Cows arrive"
+      }
+    ]
   },
   {
     "id": "four-directors",
@@ -359,7 +381,17 @@
     "height": 433,
     "image": "/images/visual-explorer/tasks-states.webp",
     "thumb": "/images/visual-explorer/tasks-states-thumb.webp",
-    "alt": "A waste-removal job is drawn as tasks, the conditions those tasks achieve, and the roles allocated to them."
+    "alt": "A waste-removal job is drawn as tasks, the conditions those tasks achieve, and the roles allocated to them.",
+    "related": [
+      {
+        "id": "tasks-only",
+        "label": "Tasks alone"
+      },
+      {
+        "id": "early-petri",
+        "label": "Early Petri net"
+      }
+    ]
   },
   {
     "id": "dependency-groups",
@@ -385,7 +417,13 @@
     "height": 328,
     "image": "/images/visual-explorer/dependency-groups.webp",
     "thumb": "/images/visual-explorer/dependency-groups-thumb.webp",
-    "alt": "The condensed graph treats the mutually connected Load model, Frame design and Foundation design as one component."
+    "alt": "The condensed graph treats the mutually connected Load model, Frame design and Foundation design as one component.",
+    "related": [
+      {
+        "id": "dependency-matrix",
+        "label": "As a matrix"
+      }
+    ]
   },
   {
     "id": "shared-abstraction",
@@ -437,7 +475,17 @@
     "height": 1200,
     "image": "/images/visual-explorer/farm-before.webp",
     "thumb": "/images/visual-explorer/farm-before-thumb.webp",
-    "alt": "The original whiteboard connects moving and pouring concrete with wagon, workers and shuttering inside a chosen scope."
+    "alt": "The original whiteboard connects moving and pouring concrete with wagon, workers and shuttering inside a chosen scope.",
+    "related": [
+      {
+        "id": "farm-after",
+        "label": "Cows arrive"
+      },
+      {
+        "id": "farm-lane-net",
+        "label": "Shared lane"
+      }
+    ]
   },
   {
     "id": "farm-after",
@@ -463,7 +511,17 @@
     "height": 1200,
     "image": "/images/visual-explorer/farm-after.webp",
     "thumb": "/images/visual-explorer/farm-after-thumb.webp",
-    "alt": "Cattle-to-market and weather enter the original sketch. The road is shared, and the concrete move is crossed out."
+    "alt": "Cattle-to-market and weather enter the original sketch. The road is shared, and the concrete move is crossed out.",
+    "related": [
+      {
+        "id": "farm-before",
+        "label": "Before the cows"
+      },
+      {
+        "id": "farm-lane-net",
+        "label": "Shared lane"
+      }
+    ]
   },
   {
     "id": "boundary-composition",
@@ -514,7 +572,13 @@
     "height": 302,
     "image": "/images/visual-explorer/rail-neighbours.webp",
     "thumb": "/images/visual-explorer/rail-neighbours-thumb.webp",
-    "alt": "The carbon objective and its two immediate outgoing objective neighbours form a small, readable neighbourhood."
+    "alt": "The carbon objective and its two immediate outgoing objective neighbours form a small, readable neighbourhood.",
+    "related": [
+      {
+        "id": "rail-layers",
+        "label": "Whole picture"
+      }
+    ]
   },
   {
     "id": "programme-schema",
@@ -526,7 +590,7 @@
     ],
     "kind": "diagram",
     "status": "Earlier example",
-    "caption": "A programme schema connects strategic intent, programmes, projects, work packages, outputs, services and customers.",
+    "caption": "A programme schema connects strategic objectives, programme outcomes, programmes, projects, work packages, services and consumers.",
     "look": "Follow the links crossing between the strategic, delivery and operational parts of the drawing.",
     "limit": "An earlier toy schema, drawing on public university material and guessed details; not an adopted organisational model.",
     "state": "",
@@ -539,7 +603,7 @@
     "height": 498,
     "image": "/images/visual-explorer/programme-schema.webp",
     "thumb": "/images/visual-explorer/programme-schema-thumb.webp",
-    "alt": "A programme schema connects strategic intent, programmes, projects, work packages, outputs, services and customers."
+    "alt": "Strategy, Projects and Operations are grouped around Programme Outcomes, with links between strategic objectives, delivery work, services and consumers."
   },
   {
     "id": "buffer-network",
@@ -592,11 +656,17 @@
     "height": 264,
     "image": "/images/visual-explorer/early-petri.webp",
     "thumb": "/images/visual-explorer/early-petri-thumb.webp",
-    "alt": "The first two waste-removal tasks become transitions, with states and roles represented as places carrying token properties."
+    "alt": "The first two waste-removal tasks become transitions, with states and roles represented as places carrying token properties.",
+    "related": [
+      {
+        "id": "tasks-states",
+        "label": "States & resources"
+      }
+    ]
   },
   {
     "id": "methods-data",
-    "title": "Match a modelling method to its data",
+    "title": "Connect software tools with possible data",
     "home": "Earlier methods",
     "url": "https://lawrencerowland.github.io/library/articles/choosing-a-machine-learning-approach.html",
     "topics": [
@@ -605,10 +675,10 @@
     ],
     "kind": "diagram",
     "status": "Earlier example",
-    "caption": "A graph places candidate machine-learning models beside the kinds of project data proposed for them.",
-    "look": "Use the connections as questions about available evidence and the intended use case.",
+    "caption": "Software libraries and platforms are linked to particular datasets proposed for exploration.",
+    "look": "Follow a tool-to-dataset link and consider what question that pairing might help investigate.",
     "limit": "Historical possibilities, not a validated method-selection rule or current performance claim.",
-    "state": "Original model-to-data graph.",
+    "state": "Original software-tools-to-data sketch.",
     "year": "2020",
     "checked": "2026-10-01",
     "source_image": "https://lawrencerowland.github.io/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-ML-model-to-data.png",
@@ -618,7 +688,7 @@
     "height": 713,
     "image": "/images/visual-explorer/methods-data.webp",
     "thumb": "/images/visual-explorer/methods-data-thumb.webp",
-    "alt": "A graph places candidate machine-learning models beside the kinds of project data proposed for them."
+    "alt": "Two columns headed Code Libraries and Data connect tools such as Python spaCy, Keras and Orange to named datasets."
   },
   {
     "id": "tasks-only",
@@ -643,7 +713,13 @@
     "height": 91,
     "image": "/images/visual-explorer/tasks-only.webp",
     "thumb": "/images/visual-explorer/tasks-only-thumb.webp",
-    "alt": "Identify waste, prepare the extraction plan, commission suppliers and remove waste appear as a simple task sequence."
+    "alt": "Identify waste, prepare the extraction plan, commission suppliers and remove waste appear as a simple task sequence.",
+    "related": [
+      {
+        "id": "tasks-states",
+        "label": "States & resources"
+      }
+    ]
   },
   {
     "id": "portfolio-framework",

@@ -23,6 +23,15 @@ for (const item of items) {
   assert.match(item.checked, /^\d{4}-\d{2}-\d{2}$/);
   assert.match(item.source_sha256, /^[a-f0-9]{64}$/);
   assert.ok(item.width > 0 && item.height > 0);
+  const related = item.related || [];
+  assert.equal(new Set(related.map(link => link.id)).size, related.length, `${item.id} has unique companions`);
+  for (const link of related) {
+    assert.notEqual(link.id, item.id, 'a comparison must open a different view');
+    assert.ok(items.some(companion => companion.id === link.id), `${item.id} companion exists`);
+    assert.ok(link.label.trim(), 'companion links have short visible labels');
+    const bookmark = stateURL('https://example.test/explore-visually.html', { ...state, view: link.id });
+    assert.equal(readState(bookmark.search, items).view, link.id, 'companion destinations can be bookmarked');
+  }
   for (const key of ['image', 'thumb']) {
     assert.match(item[key], /^\/images\/visual-explorer\/[a-z0-9-]+\.(webp|svg)$/);
     assert.ok(fs.statSync(path.join(root, item[key])).size > 100, `${item.id} ${key} exists`);

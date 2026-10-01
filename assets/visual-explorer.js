@@ -95,6 +95,32 @@
     get('viz-original').href = item.source_image || item.url;
     get('viz-previous').disabled = index <= 0;
     get('viz-next').disabled = index >= visible.length - 1;
+    const related = get('viz-related-links');
+    related.replaceChildren();
+    for (const link of item.related || []) {
+      const companion = byId.get(link.id);
+      if (!companion) continue;
+      const anchor = document.createElement('a');
+      anchor.className = 'viz-related-link';
+      anchor.href = stateURL(location.href, { ...state, view: companion.id }).href;
+      anchor.setAttribute('aria-label', `Compare: ${companion.title}`);
+      const thumbnail = document.createElement('img');
+      thumbnail.src = asset(companion.thumb);
+      thumbnail.alt = '';
+      thumbnail.width = companion.width;
+      thumbnail.height = companion.height;
+      const label = document.createElement('span');
+      label.textContent = link.label;
+      anchor.append(thumbnail, label);
+      anchor.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        event.preventDefault();
+        openPreview(companion.id);
+        dialog.scrollTop = 0;
+      });
+      related.append(anchor);
+    }
+    get('viz-related').hidden = !related.childElementCount;
   }
 
   function openPreview(id, trigger) {
