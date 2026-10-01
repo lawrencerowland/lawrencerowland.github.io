@@ -550,3 +550,24 @@ body:has(.pw-home) { background: #f8f6ef; }
 @media (max-width: 860px) { .foray-browse-tools { grid-template-columns: minmax(0, 1fr); gap: .75rem; } }
 
 .foray-directory .foray-scenario-caption, .foray-directory .foray-entry-purpose, .foray-directory .foray-intro p { font-weight: 400; }
+
+/* Source-led graph comparison: reading layout, no model runtime. */
+.pw-model-comparison .pw-model-heading { max-width: 850px; margin: 0 auto; padding: 52px 0 24px; }
+.pw-model-comparison h1 { font: 400 clamp(40px, 5vw, 62px)/1.08 Georgia, serif; letter-spacing: -.04em; margin: 16px 0 24px; }
+.pw-model-comparison .pw-model-heading > p { margin: 0 0 18px; }
+.pw-model-comparison .pw-model-lead { font-size: 20px; line-height: 1.65; }
+.pw-model-comparison .pw-model-returns { display: flex; flex-wrap: wrap; gap: .4rem .65rem; font-size: 14px; }
+.pw-model-comparison .pw-model-variants { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; margin: 24px 0; }
+.pw-model-comparison .pw-model-variant { padding: 22px; border: 1px solid #d9ded3; border-radius: 8px; background: #fffdf8; min-width: 0; scroll-margin-top: 20px; }
+.pw-model-comparison .pw-model-variant h3 { margin: 8px 0 14px; font: 400 24px/1.25 Georgia, serif; }
+.pw-model-comparison .pw-model-variant p { font-size: 15px; overflow-wrap: anywhere; }
+.pw-model-comparison .pw-model-variant p:last-child { margin-bottom: 0; }
+.pw-model-comparison .pw-model-variant .pw-home-kicker { font-size: 12px; }
+.pw-model-comparison .pw-framework-figure img { height: auto; max-height: none; padding: 14px; background: #fff; border: 1px solid #d9ded3; border-radius: 5px; }
+.pw-model-comparison li { margin-bottom: 12px; }
+@media (max-width: 650px) {
+  .pw-model-comparison .pw-model-variants { grid-template-columns: minmax(0,1fr); }
+  .pw-model-comparison .pw-model-heading { padding-top: 35px; }
+  .pw-model-comparison .pw-model-lead { font-size: 18px; }
+  .pw-model-comparison .pw-framework-figure img { padding: 5px; }
+}

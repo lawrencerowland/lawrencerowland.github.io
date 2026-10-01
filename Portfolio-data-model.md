@@ -25,6 +25,10 @@ Start with one of these earlier examples. The explanations and pictures can be r
   </figure>
   <p><a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Example%2012%20Business%20four-way/READme.md">Read the explanation</a> · <a href="https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/master/Example%2012%20Business%20four-way/4-facet-business-model.png">Inspect the diagram (PNG)</a> · <a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Example%2012%20Business%20four-way/4-facet-business-model.graphml">Editable model (GraphML; needs graph software)</a></p>
 
+  <h2 id="one-job-seven-models">One job, seven graph models</h2>
+  <p>A small waste-removal project makes the differences between tasks, states, resources and a Petri-net fragment visible. Compare what each earlier representation retains or loses, with original pictures and direct links to the seven source variants.</p>
+  <p><a href="{{ '/project-model-comparison.html' | relative_url }}">Read the pictured comparison →</a></p>
+
   <h2 id="other-model-reading-routes">Three more reading routes</h2>
   <dl>
     <dt><strong>One programme, two levels of detail</strong></dt>
