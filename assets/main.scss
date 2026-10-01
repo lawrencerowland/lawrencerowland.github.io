@@ -592,4 +592,4 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-library-article + .pw-library-article { border-top: 1px solid var(--pw-line); padding-top: 1rem; margin-top: 1rem; }
 .pw-library-article p { margin: 0 0 .5rem; }
 .pw-library-article p:last-child { font-size: .9rem; color: var(--pw-muted); margin-bottom: 0; }
-.pw-library-article a { font-weight: 600; line-height: 1.5; }
+.pw-library-article a { display: inline-block; font-weight: 600; line-height: 1.5; }
