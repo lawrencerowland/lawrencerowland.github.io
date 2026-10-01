@@ -14,6 +14,13 @@ tags: [Projects, Examples, PortfolioManagement, Library]
     <div class="pw-home-approach-copy"><p>Some work asks an open question. Some reaches a useful stopping point: a model, method or example that resolves a particular problem under stated assumptions.</p><p>This library is the home for those captured solutions and the earlier work behind them. “Solved” here means a bounded problem has a worked answer; it does not mean project management is solved, or that every older example is ready to deploy today.</p><p>The collection is being tidied gradually. These starting points retain their original explanations and limits; they have not all received a new technical review.</p><a href="{{ '/side-projects.html' | relative_url }}">Looking for the open enquiries? Explore the projects →</a></div>
   </section>
 
+  <section class="viz-library-entry" aria-labelledby="visual-explorer-title">
+    <a href="{{ '/explore-visually.html' | relative_url }}" class="viz-library-link">
+      <span class="viz-library-pictures" aria-hidden="true">{% for view in site.data.visualisations limit: 6 %}<img src="{{ view.thumb | relative_url }}" alt="" width="180" height="120" loading="lazy">{% endfor %}</span>
+      <span class="viz-library-copy"><span class="pw-home-kicker">Find a picture that helps you think</span><strong id="visual-explorer-title">Explore visually →</strong><span>{{ site.data.visualisations | size }} small views from across the published work. Browse the pictures, enlarge a diagram, then follow it into its original example.</span></span>
+    </a>
+  </section>
+
   <section class="pw-home-questions" aria-labelledby="worked-examples-title">
     <div class="pw-home-section-head"><div><p class="pw-home-kicker">Two bounded worked examples</p><h2 id="worked-examples-title">A question you can try.</h2></div><p>Small, explicit models with a useful result to inspect. Each stays in its existing home.</p></div>
     <div class="pw-home-question-grid pw-worked-example-grid">
