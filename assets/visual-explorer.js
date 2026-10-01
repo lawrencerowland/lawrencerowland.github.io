@@ -132,6 +132,11 @@
     });
   });
   get('viz-controls').hidden = false;
+  const filters = get('viz-filters');
+  filters.hidden = false;
+  const wideScreen = window.matchMedia('(min-width: 761px)');
+  filters.open = wideScreen.matches || Boolean(state.q || state.topic !== 'all' || state.kind !== 'all');
+  wideScreen.addEventListener('change', event => { if (event.matches) filters.open = true; });
   get('viz-controls').addEventListener('submit', event => event.preventDefault());
   search.addEventListener('input', () => {
     const cursor = search.selectionStart;
@@ -164,6 +169,15 @@
   get('viz-previous').addEventListener('click', () => step(-1));
   get('viz-next').addEventListener('click', () => step(1));
   dialog.addEventListener('keydown', event => {
+    if (event.key === 'Tab') {
+      const focusable = Array.from(dialog.querySelectorAll('a[href], button:not([disabled])'))
+        .filter(element => element.getClientRects().length && !element.closest('[hidden]'));
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      return;
+    }
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       event.preventDefault(); step(event.key === 'ArrowLeft' ? -1 : 1);
@@ -171,6 +185,7 @@
   });
   window.addEventListener('popstate', () => {
     state = readState(location.search, items);
+    if (state.q || state.topic !== 'all' || state.kind !== 'all') filters.open = true;
     renderGrid();
     if (state.view) openPreview(state.view);
     else if (dialog.open) dialog.close();

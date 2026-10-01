@@ -69,10 +69,10 @@
     "year": "",
     "checked": "2026-10-01",
     "source_image": "",
-    "source_sha256": "814ba9e7183096076a489ab3a91d47343952307d4aa54b44643d29b77d6bfa28",
+    "source_sha256": "273e88f7219a29571dcaf2f4b486822f5c6b82a4210da23a4798182a8531f86c",
     "capture": "Page screenshot",
-    "width": 284,
-    "height": 334,
+    "width": 314,
+    "height": 354,
     "image": "/images/visual-explorer/dependency-matrix.webp",
     "thumb": "/images/visual-explorer/dependency-matrix-thumb.webp",
     "alt": "Reordering the same six activities brings their mutually dependent group into one block of the matrix."

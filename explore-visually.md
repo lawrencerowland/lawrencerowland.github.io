@@ -10,12 +10,13 @@ home_front_door: true
 <div class="pw-home viz-explorer" id="home-main" tabindex="-1" data-baseurl="{{ site.baseurl | escape }}">
   <header class="viz-heading">
     <a class="viz-return" href="{{ '/library.html' | relative_url }}">← Library</a>
-    <p class="pw-home-kicker">A different way in</p>
     <h1>Explore visually.</h1>
     <p>Find a picture that helps you think. Open it, see what to look for, then explore the original example.</p>
     <p class="viz-note">A first selection of {{ site.data.visualisations | size }} views from across the published work, including earlier examples. More to come.</p>
   </header>
 
+  <details class="viz-filter-disclosure" id="viz-filters" hidden>
+  <summary>Search &amp; filters</summary>
   <form class="viz-controls" id="viz-controls" role="search" aria-label="Find a visualisation" hidden>
     <div class="viz-search-row">
       <div class="viz-search"><label for="viz-search">Search pictures, questions or projects</label><input type="search" id="viz-search" placeholder="Try resources, cows, feedback…" autocomplete="off"></div>
@@ -31,6 +32,7 @@ home_front_door: true
     </div></fieldset>
     <div class="viz-results-line"><p id="viz-count" role="status" aria-live="polite" tabindex="-1"></p><button type="reset" class="viz-reset" id="viz-reset" hidden>Clear filters</button></div>
   </form>
+  </details>
 
   <noscript><p>Each picture links directly to its original example. Enable JavaScript for enlarged previews, search and filters.</p></noscript>
   <div class="viz-grid" id="viz-grid" aria-label="Visualisations">
