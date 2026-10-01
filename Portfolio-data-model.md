@@ -29,6 +29,13 @@ Start with one of these earlier examples. The explanations and pictures can be r
   <p>A small waste-removal project makes the differences between tasks, states, resources and a Petri-net fragment visible. Compare what each earlier representation retains or loses, with original pictures and direct links to the seven source variants.</p>
   <p><a href="{{ '/project-model-comparison.html' | relative_url }}">Read the pictured comparison →</a></p>
 
+  <h2 id="processes-and-relationships">Processes and relationships in notebooks</h2>
+  <p>Two small 2022 explorations ask how the parts fit together. Each guide starts with the project situation and original pictures, then explains the construction and its limits.</p>
+  <ul>
+    <li><a href="{{ '/library/models/mobilising-two-projects.html' | relative_url }}">Mobilising two projects</a>: use DisCoPy to connect two processes, bringing teams and blueprints to their respective merge steps.</li>
+    <li><a href="{{ '/library/models/rail-stakeholders-objectives-scope.html' | relative_url }}">A rail project in three layers</a>: use Py3Plex to keep objectives, stakeholders and scope distinct while recording relationships between them.</li>
+  </ul>
+
   <h2 id="other-model-reading-routes">Three more reading routes</h2>
   <dl>
     <dt><strong>One programme, two levels of detail</strong></dt>
