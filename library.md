@@ -57,7 +57,7 @@ tags: [Projects, Examples, PortfolioManagement, Library]
       {% include library-related-reading.html subject="frameworks" %}</article>
       <article class="pw-home-question" id="library-methods"><a class="pw-home-tile-link" href="{{ '/ML-for-portfolios.html' | relative_url }}" aria-labelledby="library-question-3">
         <div class="pw-home-question-visual"><img src="{{ '/images/ML-for-portfolios/Usecase-to-Operations-subgraph-ML-models-created.png' | relative_url }}" width="640" height="400" alt="A graph relates project use cases to delivery and operational stages" loading="lazy"></div>
-        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier exploration <span>Information &amp; methods</span></p><h3 id="library-question-3">Which method fits the question and the available data?</h3><p>Earlier thinking on matching machine-learning approaches to project information needs. Read it as a record of methods and possibilities, with technology and performance claims to recheck.</p></div>
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier exploration <span>Information &amp; methods</span></p><h3 id="library-question-3">Which method fits the question and the available data?</h3><p>Earlier thinking on matching methods to project information, including an illustrated Orange walkthrough: from completed-project records to predictions and proposed portfolio decisions. Historical results and missing inputs are explained beside the example.</p></div>
         <span class="pw-home-route-link">Read the methods guide <span aria-hidden="true">↗</span></span>
       </a>
       {% include library-related-reading.html subject="methods" %}</article>
