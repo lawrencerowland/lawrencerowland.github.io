@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" role="img" aria-labelledby="title desc">
+ <title id="title">Project processes inside an active context: a corrected generic comb</title>
+ <desc id="desc">Read left to right. Setup allocates the initial situation between a first project process P1 and a continuing-context process E1. Both feed one explicit handover H, which exchanges resources and observations and allocates the next inputs. A second project process P2 and context process E2 feed assessment and an updated situation. A pale U-shaped context connects setup, continuing outside activity and assessment. Project scope is a chosen boundary, not a resource wire. Uncertainty can affect either lane.</desc>
+ <defs>
+  <marker id="arrow" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto"><path d="M0 0 7 3.5 0 7Z" fill="#264e4b"/></marker>
+  <pattern id="hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V12" stroke="#bdc8b9" stroke-width="2"/></pattern>
+ </defs>
+ <rect width="1240" height="760" rx="14" fill="#fffef9"/>
+ <g font-family="system-ui,sans-serif" fill="#264e4b">
+  <text x="42" y="44" font-size="25" font-weight="650">The project is an opening in an active context.</text>
+  <text x="42" y="78" font-size="18" fill="#52635d">One generic interaction round · time runs left to right →</text>
+  <!-- The context is a region, not an extra resource wire. Its middle tooth is the handover. -->
+  <path d="M85 145H230V405H545V190H695V405H1010V145H1155V605H85Z" fill="#e9eee5" stroke="#bbc8b9" stroke-width="2"/>
+  <path d="M85 582H1155V605H85Z" fill="url(#hatch)"/>
+  <path d="M252 153H530M710 153H988" stroke="#5e8a70" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="620" y="128" font-size="19" text-anchor="middle" fill="#316c56">PROJECT SCOPE: the processes we choose to include</text>
+  <text x="620" y="558" font-size="20" text-anchor="middle">CONTEXT: setup + ongoing outside activity + receiving the result</text>
+  <!-- All branches are separate ports on process boxes; there are no resource forks. -->
+  <g fill="none" stroke="#264e4b" stroke-width="2.5" marker-end="url(#arrow)">
+   <path d="M15 332H100"/>
+   <path d="M215 285H238V250H285"/>
+   <path d="M215 375H238V470H285"/>
+   <path d="M495 250H557"/>
+   <path d="M495 470H557"/>
+   <path d="M683 250H745"/>
+   <path d="M683 470H745"/>
+   <path d="M955 250H1002V285H1025"/>
+   <path d="M955 470H1002V375H1025"/>
+   <path d="M1140 332H1220"/>
+  </g>
+  <g stroke-width="2.5">
+   <rect x="100" y="252" width="115" height="155" rx="8" fill="#fffef9" stroke="#6e7e70"/>
+   <rect x="285" y="207" width="210" height="86" rx="8" fill="#e3efe1" stroke="#316c56"/>
+   <rect x="285" y="427" width="210" height="86" rx="8" fill="#fffef9" stroke="#6e7e70"/>
+   <rect x="557" y="207" width="126" height="306" rx="8" fill="#f2e4c7" stroke="#9a763e"/>
+   <rect x="745" y="207" width="210" height="86" rx="8" fill="#e3efe1" stroke="#316c56"/>
+   <rect x="745" y="427" width="210" height="86" rx="8" fill="#fffef9" stroke="#6e7e70"/>
+   <rect x="1025" y="252" width="115" height="155" rx="8" fill="#fffef9" stroke="#6e7e70"/>
+  </g>
+  <g text-anchor="middle" font-size="20">
+   <text x="157" y="300">Setup</text><text x="157" y="331">allocate</text><text x="157" y="362">inputs</text>
+   <text x="390" y="242">Project process P₁</text><text x="390" y="270" font-size="17">a task or intervention</text>
+   <text x="390" y="462">Context process E₁</text><text x="390" y="490" font-size="17">BAU / other activity</text>
+   <text x="620" y="310" font-weight="650">Handover</text><text x="620" y="341">H</text><text x="620" y="376" font-size="17">exchange</text><text x="620" y="402" font-size="17">observe</text><text x="620" y="428" font-size="17">allocate</text>
+   <text x="850" y="242">Project process P₂</text><text x="850" y="270" font-size="17">next task or response</text>
+   <text x="850" y="462">Context process E₂</text><text x="850" y="490" font-size="17">the world continues</text>
+   <text x="1082" y="300">Receive</text><text x="1082" y="331">result &amp;</text><text x="1082" y="362">assess</text>
+  </g>
+  <g font-size="18" fill="#52635d">
+   <text x="23" y="230">Initial</text><text x="23" y="255">situation</text><text x="28" y="312">S</text>
+   <text x="1167" y="230">Updated</text><text x="1167" y="255">situation</text><text x="1178" y="312">S′</text>
+   <text x="249" y="236">X₁</text><text x="249" y="457">R₁</text>
+   <text x="516" y="236">A₁</text><text x="516" y="457">B₁</text>
+   <text x="700" y="236">X₂</text><text x="700" y="457">R₂</text>
+   <text x="971" y="236">Y</text><text x="971" y="457">R₃</text>
+  </g>
+  <text x="1082" y="447" font-size="17" text-anchor="middle">against stated</text><text x="1082" y="473" font-size="17" text-anchor="middle">objectives</text>
+  <g fill="#9c443b"><text x="388" y="329" font-size="17" text-anchor="middle">uncertain duration or outcome?</text><text x="391" y="399" font-size="17" text-anchor="middle">uncertain timing or effects?</text></g>
+  <text x="42" y="650" font-size="19" font-weight="650">Wires carry typed bundles; boxes transform them. S and S′ may include observations and resource conditions.</text>
+  <text x="42" y="682" font-size="18">H makes reciprocal influence explicit between successive stages. It transfers or allocates capacity—it does not copy it.</text>
+  <text x="42" y="721" font-size="18" fill="#52635d">Comb-inspired open process schematic. No unstated instantaneous feedback; no claim that this is an implemented optic.</text>
+ </g>
+</svg>

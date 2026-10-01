@@ -16,6 +16,10 @@ on:
       - 'side-projects.md'
       - 'index.md'
       - 'library.md'
+      - 'explore-visually.md'
+      - '_data/visualisations.json'
+      - 'images/visual-explorer/**'
+      - 'tests/visual-explorer.test.cjs'
       - 'project-examples.md'
       - '_data/examples.yml'
       - 'examples/grounded-theory-colimit.html'
@@ -63,6 +67,10 @@ on:
       - 'side-projects.md'
       - 'index.md'
       - 'library.md'
+      - 'explore-visually.md'
+      - '_data/visualisations.json'
+      - 'images/visual-explorer/**'
+      - 'tests/visual-explorer.test.cjs'
       - 'project-examples.md'
       - '_data/examples.yml'
       - 'examples/grounded-theory-colimit.html'
@@ -112,6 +120,8 @@ jobs:
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
         run: node tests/public-front-door.test.cjs
+      - name: Check visual explorer catalogue and discovery
+        run: node tests/visual-explorer.test.cjs
       - name: Check nine Gimmer models and comparison contracts
         run: node tests/gimmer-comparison.test.cjs
       - name: Check directory data and filtering
@@ -156,6 +166,8 @@ jobs:
         run: node tests/gimmer-comparison.test.cjs _site
       - name: Check the rendered public front door and library
         run: node tests/public-front-door.test.cjs _site
+      - name: Check the rendered visual explorer
+        run: node tests/visual-explorer.test.cjs _site
       - name: Save the built site for preview
         uses: actions/upload-artifact@v4
         with:
