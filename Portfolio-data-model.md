@@ -12,6 +12,40 @@ tags: [DataModeling, GraphDatabases, PortfolioManagement]
 1. TOC
 {:toc}
 
+# Read the worked models
+
+Start with one of these earlier examples. The explanations and pictures can be read in a browser; editing a graph or running a notebook needs the relevant software. These are retained models and working notes, with assumptions to examine before reuse.
+
+<div class="pw-framework-guide">
+  <h2 id="four-directors-one-roadmap">Four directors, one roadmap</h2>
+  <p>Strategy, Product, Portfolio and Operations directors describe the same business plan in different ways. This small imagined company explores how a shared picture can preserve those views. Its proposed links between outcomes, outputs, features and services are assumptions for that example.</p>
+  <figure class="pw-framework-figure">
+    <a href="https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/master/Example%2012%20Business%20four-way/4-facet-business-model.png"><img src="https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/master/Example%2012%20Business%20four-way/4-facet-business-model.png" width="667" height="671" loading="lazy" alt="Four grouped views, Strategy, P3M, Product and Operations, connect through business outcomes, outputs, services or products, and features."></a>
+    <figcaption>The original four-view diagram. Select it to inspect the labels at full size.</figcaption>
+  </figure>
+  <p><a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Example%2012%20Business%20four-way/READme.md">Read the explanation</a> · <a href="https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/master/Example%2012%20Business%20four-way/4-facet-business-model.png">Inspect the diagram (PNG)</a> · <a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Example%2012%20Business%20four-way/4-facet-business-model.graphml">Editable model (GraphML; needs graph software)</a></p>
+
+  <h2 id="other-model-reading-routes">Three more reading routes</h2>
+  <dl>
+    <dt><strong>One programme, two levels of detail</strong></dt>
+    <dd>
+      <p>Compare a general schema with a more organisation-specific version of a digital-transformation programme. The toy example draws on public university material and includes guessed details.</p>
+      <p><a href="https://github.com/lawrencerowland/Data-models-for-programmes/blob/master/READmeForprogrammegraphs.md">Read the explanation</a> · <a href="{{ '/images/Portfolio-data-model/Digital_Programme_simplified_graph_schema.jpg' | relative_url }}">Inspect the overview diagram</a> · Editable models: <a href="https://github.com/lawrencerowland/Data-models-for-programmes/blob/master/graph_models/Digital%20Transformation%20Programme%20schema%20only-Option-1.graphml">general schema</a> / <a href="https://github.com/lawrencerowland/Data-models-for-programmes/blob/master/graph_models/Digital-Transformation-Programme-schema-only-Option-2.graphml">organisation-specific schema</a> (GraphML; needs graph software).</p>
+    </dd>
+    <dt><strong>Start from the portfolio's needs</strong></dt>
+    <dd>
+      <p>Seven working notes describe different portfolio pressures. Start with the cross-organisation example: when might supporting existing stakeholder meetings work better than creating a new portfolio office?</p>
+      <p><a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Typical-portfolio-needs/Portfolio%20mgt%20challenges%20when%20bridging%20across%20organisations.md">Read the cross-organisation note</a> · <a href="https://github.com/lawrencerowland/Data-models-for-portfolios/tree/master/Typical-portfolio-needs">Browse all seven notes</a>. These are earlier discussion material, rather than a validated service specification.</p>
+    </dd>
+    <dt><strong>Projects, tasks and artefacts as an ontology</strong></dt>
+    <dd>
+      <p>An earlier Owlready/Gist experiment creates project, task and artefact instances and explores their relationships. The notebook is unfinished and contains machine-specific paths.</p>
+      <p><a href="https://github.com/lawrencerowland/Data-models-for-projects/blob/master/Data_model_recorded_as_ontology_Owlready/2021_project_ontology_in_Gistv1.ipynb">Read the notebook on GitHub</a> · <a href="https://github.com/lawrencerowland/Data-models-for-projects/tree/master/Data_model_recorded_as_ontology_Owlready">Inspect the supporting source files</a>. Editing or running it needs Python/Jupyter and its libraries; the source has not been rerun for this guide.</p>
+    </dd>
+  </dl>
+</div>
+
+
 # Purpose
 
 Manage and visualise a portfolio of projects with a data-model that is adapted to the team's business context.
