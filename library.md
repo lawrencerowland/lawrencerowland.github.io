@@ -42,10 +42,10 @@ tags: [Projects, Examples, PortfolioManagement, Library]
   <section class="pw-home-questions" aria-labelledby="library-starts">
     <div class="pw-home-section-head"><div><p class="pw-home-kicker">Start with a practical question</p><h2 id="library-starts">Three strands of earlier work.</h2></div><p>Each will gain a clearer identity as its examples, assumptions and useful contributions are reviewed.</p></div>
     <div class="pw-home-question-grid">
-      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/Portfolio-data-model.html' | relative_url }}" aria-labelledby="library-question-1">
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/Portfolio-data-model.html#read-the-worked-models' | relative_url }}" aria-labelledby="library-question-1">
         <div class="pw-home-question-visual"><img src="{{ '/images/Portfolio-data-model/Full-programme-data-model.png' | relative_url }}" width="640" height="400" alt="A programme data model connects delivery work with objectives and its organisational context" loading="lazy"></div>
-        <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling example <span>Projects, programmes &amp; portfolios</span></p><h3 id="library-question-1">How should the work fit into a shared picture?</h3><p>Earlier graph models explore how projects, outcomes and dependencies can be represented together, with different views for different readers.</p></div>
-        <span class="pw-home-route-link">Read the data-model guide <span aria-hidden="true">↗</span></span>
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling example <span>Projects, programmes &amp; portfolios</span></p><h3 id="library-question-1">How should the work fit into a shared picture?</h3><p>Read four directors’ views of one roadmap, compare programme schemas, or explore portfolio-needs notes and an earlier project ontology experiment. The explanations link to their original diagrams and source files.</p></div>
+        <span class="pw-home-route-link">Read the worked models <span aria-hidden="true">↗</span></span>
       </a></article>
       <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/Portfolio-frameworks.html' | relative_url }}" aria-labelledby="library-question-2">
         <div class="pw-home-question-visual"><img src="{{ '/images/Portfolio-frameworks/portfolio-tier1.png' | relative_url }}" width="640" height="400" alt="An overview of the categories in a portfolio management framework" loading="lazy"></div>
