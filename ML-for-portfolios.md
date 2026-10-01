@@ -1,5 +1,7 @@
 ---
 layout: default
+title: Machine learning for project portfolios
+description: Earlier methods and an illustrated Orange walkthrough connecting project records, predictions and portfolio decisions.
 schema_type: TechArticle
 tags: [MachineLearning, PortfolioManagement, GraphDatabases, ProjectManagement]
 ---
@@ -13,6 +15,23 @@ tags: [MachineLearning, PortfolioManagement, GraphDatabases, ProjectManagement]
 
 # Purpose
 Apply machine learning to understand how to improve the project portfolio
+
+## A worked example: project ratings in Orange
+{: #orange-project-ratings }
+
+*2019 exploration · explanation reviewed 1 October 2026*
+
+**Could completed-project records help a portfolio manager decide where to look next?** This World Bank example makes the process visible: prepare records, compare models, inspect the mistakes, and consider what a prediction might change in a monthly review.
+
+[![Original Orange workflow: project data preparation branches into model comparison, visual exploration and an intended prediction route.]({{ '/images/ML-for-portfolios/orange-project-ratings-workflow.png' | relative_url }})](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md)
+
+Follow the top row from **Extract** to **Sample data**, then the lower branch into **Test possible supervised models**. The illustrated guide explains why a good-looking score and a useful management decision are different achievements.
+
+[Read the illustrated Orange walkthrough →](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md)
+
+The original name was *Project Success Prediction*, but its target is **IEG Bank Performance**, a specific evaluation rating. This is a historical demonstration: the workbook is absent and the displayed accuracy has not been reproduced as an early forecast. The guide retains all 15 screenshots, the short film, demonstration script and saved workflow, with clear routes to each.
+
+[Film, script and workflow files](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md#resources) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
 
 # Code and library base
 If you wish to go straight to the code and document libraries, start [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
