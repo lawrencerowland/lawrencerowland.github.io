@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<h1>This writing is now in the Library</h1>
+<p>The articles keep their original publication dates. <a id="article-destination" href="{{ page.redirect_to | relative_url }}">Continue to the Library article or collection →</a></p>
+<script>
+(function () {
+  var destination = document.getElementById('article-destination');
+  var url = new URL(destination.href);
+  url.search = window.location.search;
+  if (window.location.hash) url.hash = window.location.hash;
+  destination.href = url.href;
+  try { window.location.replace(url.href); } catch (error) { /* The visible link remains usable. */ }
+}());
+</script>

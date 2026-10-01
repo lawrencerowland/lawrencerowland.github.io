@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Project management: Some jobs to be done",
+    "date": "2020-06-20",
+    "url": "/library/articles/project-management-jobs-to-be-done.html",
+    "summary": "Project information needs and the management jobs that information should support."
+  },
+  {
+    "title": "Adopt existing portfolio framework",
+    "date": "2020-05-16",
+    "url": "/library/articles/adopting-a-portfolio-framework.html",
+    "summary": "Choosing and adapting a portfolio-management framework. Reading guidance revised in September 2026."
+  },
+  {
+    "title": "Applying appropriate machine-learning approach.",
+    "date": "2020-05-08",
+    "url": "/library/articles/choosing-a-machine-learning-approach.html",
+    "summary": "An earlier route from a project use case to a method, model, environment and dataset."
+  },
+  {
+    "title": "Data models for project portfolios",
+    "date": "2020-05-07",
+    "url": "/library/articles/data-models-for-project-portfolios.html",
+    "summary": "Using graph databases to maintain and visualise a project portfolio."
+  }
+]

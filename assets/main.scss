@@ -571,3 +571,21 @@ body:has(.pw-home) { background: #f8f6ef; }
   .pw-model-comparison .pw-model-lead { font-size: 18px; }
   .pw-model-comparison .pw-framework-figure img { padding: 5px; }
 }
+
+/* Dated writing belongs to the retained Library, with its period visible. */
+.pw-historical-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.pw-historical-card { padding: 1.25rem; border: 1px solid #d8d1c5; border-radius: .5rem; background: #faf8f3; }
+.pw-historical-card h4 { font-size: 1.1rem; line-height: 1.4; margin: .5rem 0; }
+.pw-historical-card p:last-child { margin-bottom: 0; }
+.pw-article-date { color: #655c4f; font: .82rem/1.6 'Inter', Arial, sans-serif; }
+.pw-historical-article { overflow-wrap: anywhere; }
+.pw-historical-article h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.2; margin: .8rem 0 1.2rem; }
+.pw-article-context { background: #faf8f3; border-left: 3px solid #b6a58c; padding: 1rem; color: #514a40; font-size: .95rem; }
+.pw-article-body { margin: 2rem 0; }
+.pw-article-body h2 { margin-top: 2rem; font-size: 1.4rem; }
+.pw-article-body img { max-width: 100%; height: auto; }
+.pw-article-body figure { margin: 1rem 0; }
+.pw-article-related { border-top: 1px solid #d8d1c5; padding-top: 1.5rem; }
+.pw-article-related h2 { font-size: 1.2rem; }
+.pw-article-related span { color: #655c4f; font-size: .9rem; }
+@media (max-width: 640px) { .pw-historical-grid { grid-template-columns: 1fr; } }

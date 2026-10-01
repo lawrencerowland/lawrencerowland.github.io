@@ -24,8 +24,13 @@ for (const route of ['/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/
 const reading = library.slice(library.indexOf('aria-labelledby="library-reading"'));
 assert.ok(library.indexOf('aria-labelledby="library-reading"') > library.indexOf('id="earlier-app-collections"'), 'research and writing follow the collections');
 assert.ok(reading.includes('/deep-research/'), 'Deep Research has a Library entrance');
-assert.equal((library.match(/\/blog(?:_summary)?\.html/g) || []).length, 1, 'Library has one blog entrance');
-assert.ok(reading.includes('/blog.html'), 'single blog entrance leads to the complete archive');
+assert.ok(!/\/blog(?:_summary)?\.html/.test(library), 'Library leads directly to articles without an archive entrance');
+assert.ok(reading.includes('id="historical-articles"'), 'historical articles have a Library section');
+assert.ok(reading.includes('site.data.historical_articles'), 'all four dated articles are presented directly');
+const historicalArticles = JSON.parse(fs.readFileSync('_data/historical_articles.yml', 'utf8'));
+assert.equal(historicalArticles.length, 4);
+assert.ok(historicalArticles.every(article => article.date.startsWith('2020-') && article.url.startsWith('/library/articles/')));
+assert.ok(!footer.includes('/feed.xml'), 'retired blog RSS is not promoted');
 assert.match(footer, />About<\/a>/, 'About remains discoverable in the footer');
 for (const source of [home, library]) {
   assert.equal((source.match(/<h1\b/g) || []).length, 1);
@@ -113,8 +118,16 @@ if (process.argv[2]) {
     for (const key of ['title','canonical_url','image','inputs','try','limitation','revision_context','source_url']) assert.ok(card.includes(escapeHTML(example[key])), `example ${example.id}: preserve ${key}`);
     assert.ok(card.includes('<details'), 'scope remains available by native disclosure without JavaScript');
   }
-  const notes = fs.readFileSync(path.join(root, 'blog.html'), 'utf8');
-  assert.ok(notes.includes('/2020/05/07/Data-models-for-Project-Portfolios.md.html'));
-  assert.ok(notes.includes('/2020/05/08/Applying-appropriate-machine-learning-approach.html'));
+  const historicalCards = [...libraryHTML.matchAll(/<article class="pw-historical-card">[\s\S]*?<\/article>/g)].map(match => match[0]);
+  assert.equal(historicalCards.length, 4, 'four direct historical article entrances');
+  for (const article of historicalArticles) {
+    const card = historicalCards.find(card => card.includes('href="' + article.url + '"'));
+    assert.ok(card, 'direct Library entrance for ' + article.title);
+    assert.ok(card.includes(escapeHTML(article.title)), 'original title is visible');
+    assert.ok(card.includes('datetime="' + article.date + '"'), 'original publication date is visible');
+    assert.ok(card.includes(escapeHTML(article.summary)), 'reading context remains visible');
+    assert.ok(fs.existsSync(path.join(root, article.url)), 'article is published at the new Library route');
+  }
+  assert.ok(!/href="\/blog(?:_summary)?\.html/.test(libraryHTML), 'no parallel blog entrance is advertised');
 }
 console.log('PASS: public entry routes, retained library, navigation disclosure and optional rendered links.');

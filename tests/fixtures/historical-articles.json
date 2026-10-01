@@ -1,0 +1,145 @@
+{
+  "baseline_commit": "38c935c3520067522588c6a266e028bd588749fc",
+  "rendered_baseline": "PR #160 GitHub Actions public-site-preview artifact for the same baseline commit",
+  "normalization": "Strip YAML, move original title to layout, demote H1 to H2, repair one graph image path, move reader navigation to layout; preserve other text, links and order. Visible-text checks omit only navigation paragraphs, tags and redundant whitespace.",
+  "articles": [
+    {
+      "date": "2020-05-07",
+      "baseline_source": "_posts/2020-05-07-Data-models-for-Project-Portfolios.md.md",
+      "source_sha256": "02b7b48141dcc888dc0a0378364128512953dece9ed4b8cf014ab5936a601576",
+      "url": "/library/articles/data-models-for-project-portfolios.html",
+      "source": "library/articles/data-models-for-project-portfolios.md",
+      "old_url": "/2020/05/07/Data-models-for-Project-Portfolios.md.html",
+      "title_anchor": "data-models-for-project-portfolios",
+      "normalized_body_sha256": "569cbbfdb8a2a8cd6268d93a5f886508ba78602fde7a1e703779ffada979c19c",
+      "images": [
+        {
+          "url": "/images/Portfolio-data-model/Graph_Option.png",
+          "sha256": "7b6870ff474ea50fb8242f862c37a8e6bb5dbbc17847dc5ad0c6de52d015e707"
+        }
+      ],
+      "legacy_ids": [
+        "purpose",
+        "why-a-data-model-",
+        "why-a-graph-database-for-a-data-model",
+        "code-and-library-base",
+        "use-cases",
+        "introduction",
+        "data-model-"
+      ],
+      "normalized_visible_text_sha256": "f5cdebf67e0386476439683bb4db7a56e0cbdb7583b59e4e88b7528bb0bd74da",
+      "rendered_body_sha256": "84857d5b2e238388699b990ef2191e99585aad6901830ce7989e5550d49840d6",
+      "external_links": []
+    },
+    {
+      "date": "2020-05-08",
+      "baseline_source": "_posts/2020-05-08-Applying appropriate machine-learning approach.md",
+      "source_sha256": "8e3cd3ef337bf3bf6c958afbfa1ed1afa7b3afea42e7f853e4fa5485ed03160c",
+      "url": "/library/articles/choosing-a-machine-learning-approach.html",
+      "source": "library/articles/choosing-a-machine-learning-approach.md",
+      "old_url": "/2020/05/08/Applying-appropriate-machine-learning-approach.html",
+      "title_anchor": "applying-appropriate-machine-learning-approach",
+      "normalized_body_sha256": "e76f3d628189d2d84ca60e9b3f3ce50575b641ccade992ba84a7d86d40667682",
+      "images": [
+        {
+          "url": "/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-use-case-to-ML-type.png",
+          "sha256": "fc3d97a477107b256443242303fc0e04a6fe16fb095d3eb395edc251d01ff6e9"
+        },
+        {
+          "url": "/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-project-use-case-to-ML-model.png",
+          "sha256": "7f37a883c14dc3e792153e7b99795c4085f8f90a7e903d5d10eb27905df31d11"
+        },
+        {
+          "url": "/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-ML-project-use-case-subgraph-for-environments.png",
+          "sha256": "ae854b2be53216abc405ad933204daa074c47f370626d220085e738564a9dbac"
+        },
+        {
+          "url": "/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-ML-models-to-library.png",
+          "sha256": "34285d9ac83cd5de6dd30755b475fa738682ab32858b1e77f09a1740aeff0141"
+        },
+        {
+          "url": "/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-ML-model-to-data.png",
+          "sha256": "111d7f2e747e11e4b4101027750225af4b43df603e353673685e88d13ff37acb"
+        }
+      ],
+      "legacy_ids": [
+        "markdown-toc",
+        "markdown-toc-selection-of-machine-learning-method",
+        "markdown-toc-selection-of-machine-learning-model",
+        "markdown-toc-selection-of-model-environment",
+        "markdown-toc-selection-of-machine-learning-code-library",
+        "markdown-toc-selection-of-suitable-data-sets-for-each-use-case",
+        "markdown-toc-summary",
+        "markdown-toc-get-started",
+        "markdown-toc-acknowledgements",
+        "selection-of-machine-learning-method",
+        "selection-of-machine-learning-model",
+        "selection-of-model-environment",
+        "selection-of-machine-learning-code-library",
+        "selection-of-suitable-data-sets-for-each-use-case",
+        "summary",
+        "get-started",
+        "acknowledgements"
+      ],
+      "normalized_visible_text_sha256": "545f172038bf5e6f947404a1b274fbe20112779d5b0219a2ebe4fdefabd208ad",
+      "rendered_body_sha256": "9f12cd88885dc3ed006cc2226058b786577f04fe9bdc62f15cf27b243926c110",
+      "external_links": [
+        "https://lawrencerowland.github.io/ML-for-portfolios.html",
+        "https://github.com/lawrencerowland/Machine-learning-for-project-portfolios",
+        "https://predictionmachines.ai"
+      ]
+    },
+    {
+      "date": "2020-05-16",
+      "baseline_source": "_posts/2020-05-16-Adopt-existing-portfolio-framework.md",
+      "source_sha256": "82a02b252dd09669d8ade15393c29e9e7f50c245bef16be1075720181e87b54a",
+      "url": "/library/articles/adopting-a-portfolio-framework.html",
+      "source": "library/articles/adopting-a-portfolio-framework.md",
+      "old_url": "/2020/05/16/Adopt-existing-portfolio-framework.html",
+      "title_anchor": "adopt-existing-portfolio-framework",
+      "normalized_body_sha256": "0b9fdaebc24e5271c19f6d1b7900b1b2a3c559525966d30bb29e9ddc2d19c360",
+      "images": [
+        {
+          "url": "/images/2020-05-16-Adopt-existing-portfolio-framework/Portfolio-services-mapped-to-business-needs-Rowland-and-Lewis.png",
+          "sha256": "ea4dab847930a860f611a4eca26fc3a932b8948cfa6a931c12e227085899f982"
+        }
+      ],
+      "legacy_ids": [
+        "markdown-toc",
+        "markdown-toc-purpose",
+        "purpose",
+        "markdown-toc-benefits",
+        "benefits",
+        "what-remains-available",
+        "markdown-toc-acknowledgements",
+        "acknowledgements"
+      ],
+      "normalized_visible_text_sha256": "87c8891833fb22f8482c6b20875eb97cba9a62949db1ef8f8a5c9badcfe000cc",
+      "rendered_body_sha256": "5706d5d66214775cb0a2fbdc537d0d99a3c78f0cbcd283defc4ece029666c7f7",
+      "external_links": [
+        "https://github.com/lawrencerowland/Data-Model-for-Project-Frameworks"
+      ]
+    },
+    {
+      "date": "2020-06-20",
+      "baseline_source": "_posts/2020-06-20-Project-management-jobs-to-be-done.md",
+      "source_sha256": "bc5b7e5f9aca482ae8448a2888e7f93426bc45085bf3482b03e3c82d585bb085",
+      "url": "/library/articles/project-management-jobs-to-be-done.html",
+      "source": "library/articles/project-management-jobs-to-be-done.md",
+      "old_url": "/2020/06/20/Project-management-jobs-to-be-done.html",
+      "title_anchor": "project-management-some-jobs-to-be-done",
+      "normalized_body_sha256": "f563b7fa71f0965decc25b7ab8be0fa01cce3987906026a98a537b3480ca372a",
+      "images": [],
+      "legacy_ids": [
+        "markdown-toc",
+        "markdown-toc-what-are-the-jobs-being-done-",
+        "markdown-toc-acknowledgements",
+        "what-are-the-jobs-being-done-",
+        "acknowledgements"
+      ],
+      "normalized_visible_text_sha256": "15f40b0dc6e37af2cdddc3a50b7ff78c0c3d1abea86a1321d68b93d3ef3efc18",
+      "rendered_body_sha256": "f27708c191ca0ca58b5ed6cd18f77fad96ba05bf3c18ec3250b0d7a09634eed6",
+      "external_links": []
+    }
+  ]
+}

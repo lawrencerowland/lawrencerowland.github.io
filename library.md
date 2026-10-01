@@ -101,9 +101,18 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 
   <section class="pw-retained-collections" aria-labelledby="library-reading">
     <h2 id="library-reading">Research &amp; writing</h2>
-    <div class="pw-home-question-grid">
-      <article><h3><a href="{{ '/deep-research/' | relative_url }}">Deep Research</a></h3><p>A retained report on project gaps, capabilities and resources, with a direct PDF link and a readable report page.</p></article>
-      <article><h3><a href="{{ '/blog.html' | relative_url }}">Earlier blog posts</a></h3><p>Four posts from 2020 on project information, data models, methods and frameworks. Original dates and articles are retained.</p></article>
+    <article><h3><a href="{{ '/deep-research/' | relative_url }}">Deep Research</a></h3><p>A retained report on project gaps, capabilities and resources, with a direct PDF link and a readable report page.</p></article>
+    <span id="notes"></span><span id="blog-posts"></span><span id="earlier-notes--2020"></span>
+    <h3 id="historical-articles">Historical articles · 2020</h3>
+    <p>Four earlier articles on the information and methods a portfolio needs. Each keeps its original publication date; later revisions are labelled separately.</p>
+    <div class="pw-historical-grid">
+      {% for article in site.data.historical_articles %}
+      <article class="pw-historical-card">
+        <p class="pw-article-date"><time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: '%-d %B %Y' }}</time></p>
+        <h4><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a></h4>
+        <p>{{ article.summary | escape }}</p>
+      </article>
+      {% endfor %}
     </div>
   </section>
 </div>
