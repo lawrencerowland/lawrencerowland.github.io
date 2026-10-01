@@ -41,7 +41,7 @@ Once a use-case has been chosen, the following decisions can be made:
 - Choose a code library or algorithm to apply that model
 - select data-set
 
-More is said about each stage [here](https://lawrencerowland.github.io/2020/05/08/Applying-appropriate-machine-learning-approach.html)
+More is said about each stage [here](https://lawrencerowland.github.io/library/articles/choosing-a-machine-learning-approach.html)
 
 # Applying machine learning at project or programme or portfolio levels
 
@@ -57,7 +57,7 @@ Machine learning provides different types of insight at different project levels
 - PMO and CENTRE OF EXCELLENCE. NLP applied to boost taxonomic and semantic approaches to curating body of project practice for the organisation. 
 
 # More guidance on applying ML to portfolios
-The guidance continues [here](https://lawrencerowland.github.io/2020/05/08/Applying-appropriate-machine-learning-approach.html)
+The guidance continues [here](https://lawrencerowland.github.io/library/articles/choosing-a-machine-learning-approach.html)
 
 
 

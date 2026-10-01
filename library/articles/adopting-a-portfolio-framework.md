@@ -1,11 +1,14 @@
 ---
-layout: post
-schema_type: BlogPosting
+layout: historical-article
+schema_type: Article
+seo:
+  type: Article
+title: "Adopt existing portfolio framework"
+title_anchor: adopt-existing-portfolio-framework
+date: 2020-05-16
+historical_article: true
 tags: [ProjectFrameworks, PortfolioManagement]
 ---
-
-# Adopt existing portfolio framework
-
 <!-- Preserve fragment links from the former generated contents list. -->
 <div id="markdown-toc" class="pw-legacy-anchor" aria-hidden="true"></div>
 
@@ -41,4 +44,4 @@ The map and this explanation remain public. The [linked repository](https://gith
 
 Howard Lewis set out the event triggers and client needs. The retained diagram is the Rowland-and-Lewis mapping named in the original source.
 
-[Return to Portfolio frameworks]({{ '/Portfolio-frameworks.html#use-case-1-adopt-a-framework' | relative_url }}) · [Library]({{ '/library.html' | relative_url }}) · [Back to Blog]({{ '/blog.html' | relative_url }})
+[Return to Portfolio frameworks]({{ '/Portfolio-frameworks.html#use-case-1-adopt-a-framework' | relative_url }}) · [Library]({{ '/library.html' | relative_url }}) · [Return to related Library material]({{ '/library.html#library-frameworks' | relative_url }})

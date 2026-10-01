@@ -40,23 +40,27 @@ tags: [Projects, Examples, PortfolioManagement, Library]
   </section>
 
   <section class="pw-home-questions" aria-labelledby="library-starts">
-    <div class="pw-home-section-head"><div><p class="pw-home-kicker">Start with a practical question</p><h2 id="library-starts">Three strands of earlier work.</h2></div><p>Each will gain a clearer identity as its examples, assumptions and useful contributions are reviewed.</p></div>
+    <span id="notes"></span><span id="blog-posts"></span><span id="earlier-notes--2020"></span><span id="historical-articles"></span>
+    <div class="pw-home-section-head"><div><p class="pw-home-kicker">Start with a practical question</p><h2 id="library-starts">Three strands of earlier work.</h2></div><p>Browse each subject’s examples, explanations and related reading. Earlier articles retain their original dates.</p></div>
     <div class="pw-home-question-grid">
-      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/Portfolio-data-model.html#read-the-worked-models' | relative_url }}" aria-labelledby="library-question-1">
+      <article class="pw-home-question" id="library-data-models"><a class="pw-home-tile-link" href="{{ '/Portfolio-data-model.html#read-the-worked-models' | relative_url }}" aria-labelledby="library-question-1">
         <div class="pw-home-question-visual"><img src="{{ '/images/Portfolio-data-model/Full-programme-data-model.png' | relative_url }}" width="640" height="400" alt="A programme data model connects delivery work with objectives and its organisational context" loading="lazy"></div>
         <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling example <span>Projects, programmes &amp; portfolios</span></p><h3 id="library-question-1">How should the work fit into a shared picture?</h3><p>Compare tasks, states and resources in one small job; read four directors’ views of one roadmap; or explore programme schemas, portfolio-needs notes and an earlier ontology experiment. The explanations link to their original diagrams and source files.</p></div>
         <span class="pw-home-route-link">Read the worked models <span aria-hidden="true">↗</span></span>
-      </a></article>
-      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/Portfolio-frameworks.html' | relative_url }}" aria-labelledby="library-question-2">
+      </a>
+      {% include library-related-reading.html subject="data-models" %}</article>
+      <article class="pw-home-question" id="library-frameworks"><a class="pw-home-tile-link" href="{{ '/Portfolio-frameworks.html' | relative_url }}" aria-labelledby="library-question-2">
         <div class="pw-home-question-visual"><img src="{{ '/images/Portfolio-frameworks/portfolio-tier1.png' | relative_url }}" width="640" height="400" alt="An overview of the categories in a portfolio management framework" loading="lazy"></div>
         <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier method <span>Portfolio management</span></p><h3 id="library-question-2">Which working practices does this portfolio need?</h3><p>A guide to choosing and adapting frameworks. The linked public code repository now retains a navigational skeleton, rather than the former full toolkit.</p></div>
         <span class="pw-home-route-link">Read the framework guide <span aria-hidden="true">↗</span></span>
-      </a></article>
-      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/ML-for-portfolios.html' | relative_url }}" aria-labelledby="library-question-3">
+      </a>
+      {% include library-related-reading.html subject="frameworks" %}</article>
+      <article class="pw-home-question" id="library-methods"><a class="pw-home-tile-link" href="{{ '/ML-for-portfolios.html' | relative_url }}" aria-labelledby="library-question-3">
         <div class="pw-home-question-visual"><img src="{{ '/images/ML-for-portfolios/Usecase-to-Operations-subgraph-ML-models-created.png' | relative_url }}" width="640" height="400" alt="A graph relates project use cases to delivery and operational stages" loading="lazy"></div>
         <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier exploration <span>Information &amp; methods</span></p><h3 id="library-question-3">Which method fits the question and the available data?</h3><p>Earlier thinking on matching machine-learning approaches to project information needs. Read it as a record of methods and possibilities, with technology and performance claims to recheck.</p></div>
         <span class="pw-home-route-link">Read the methods guide <span aria-hidden="true">↗</span></span>
-      </a></article>
+      </a>
+      {% include library-related-reading.html subject="methods" %}</article>
     </div>
   </section>
 
@@ -101,9 +105,6 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 
   <section class="pw-retained-collections" aria-labelledby="library-reading">
     <h2 id="library-reading">Research &amp; writing</h2>
-    <div class="pw-home-question-grid">
-      <article><h3><a href="{{ '/deep-research/' | relative_url }}">Deep Research</a></h3><p>A retained report on project gaps, capabilities and resources, with a direct PDF link and a readable report page.</p></article>
-      <article><h3><a href="{{ '/blog.html' | relative_url }}">Earlier blog posts</a></h3><p>Four posts from 2020 on project information, data models, methods and frameworks. Original dates and articles are retained.</p></article>
-    </div>
+    <article><h3><a href="{{ '/deep-research/' | relative_url }}">Deep Research</a></h3><p>A retained report on project gaps, capabilities and resources, with a direct PDF link and a readable report page.</p></article>
   </section>
 </div>

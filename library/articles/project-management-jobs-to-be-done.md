@@ -1,16 +1,18 @@
 ---
-layout: post
-schema_type: BlogPosting
+layout: historical-article
+schema_type: Article
+seo:
+  type: Article
+title: "Project management: Some jobs to be done"
+title_anchor: project-management-some-jobs-to-be-done
+date: 2020-06-20
+historical_article: true
 tags: [ProjectManagement, PortfolioManagement]
 ---
-
-# Project management: Some jobs to be done
-
-
 1. TOC
 {:toc}
 
-# What are the jobs being done ?
+## What are the jobs being done ?
 
 Clayton Christensen would always ask, when it came to a service or a product, what is the that is actually being done. 
 
@@ -26,7 +28,7 @@ Clayton Christensen would always ask, when it came to a service or a product, wh
 
 
 
-# Acknowledgements
+## Acknowledgements
 Christensen
 
-[Back to Blog]({{ '/blog.html' | relative_url }})
+[Return to related Library material]({{ '/library.html#library-frameworks' | relative_url }})

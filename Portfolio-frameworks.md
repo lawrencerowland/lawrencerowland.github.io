@@ -61,7 +61,7 @@ tags: [ProjectFrameworks, PortfolioManagement, NaturalLanguageProcessing]
 
     <span id="markdown-toc-use-case-1-adopt-a-framework"></span><h2 id="use-case-1-adopt-a-framework">Use case 1: Adopt a framework</h2>
     <p>The earlier framework was assembled from experience across portfolios. Its modular idea was to select the practices needed, rather than deploy every module. The retained overview separates governance, reporting and control measures, and delivery support.</p>
-    <p><a href="{{ '/2020/05/16/Adopt-existing-portfolio-framework.html' | relative_url }}">Read the illustrated adoption note</a>: follow a business need through to a proposed portfolio response. The original map and its attribution remain available; the former detailed module library is absent from the current public repository.</p>
+    <p><a href="{{ '/library/articles/adopting-a-portfolio-framework.html' | relative_url }}">Read the illustrated adoption note</a>: follow a business need through to a proposed portfolio response. The original map and its attribution remain available; the former detailed module library is absent from the current public repository.</p>
     <p><a href="{{ '/images/Portfolio-frameworks/portfolio-tier1.png' | relative_url }}">Open the three-part framework diagram at full size</a></p>
 
     <span id="markdown-toc-use-case-2-extract-from-existing-framework"></span><h2 id="use-case-2-extract-from-existing-framework">Use case 2: Extract from existing framework</h2>
