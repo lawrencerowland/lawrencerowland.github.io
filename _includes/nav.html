@@ -5,7 +5,7 @@
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav-links" hidden><span>Menu</span><span class="pw-menu-icon" aria-hidden="true"></span></button>
     <ul class="nav-links" id="main-nav-links">
       <li><a href="{{ '/side-projects.html' | relative_url }}" {% if page.url == '/side-projects.html' %}class="active" aria-current="page"{% endif %}>Projects</a></li>
-      <li><a href="{{ '/library.html' | relative_url }}" {% if page.url == '/library.html' %}class="active" aria-current="page"{% endif %}>Library</a></li>
+      <li><a href="{{ '/library.html' | relative_url }}" {% if page.url == '/library.html' or page.url contains '/library/' %}class="active" aria-current="page"{% endif %}>Library</a></li>
     </ul>
   </div>
 </nav>

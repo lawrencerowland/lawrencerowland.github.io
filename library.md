@@ -55,7 +55,8 @@ tags: [Projects, Examples, PortfolioManagement, Library]
         <div class="pw-home-question-copy"><p class="pw-home-project-label">Modelling example <span>Projects, programmes &amp; portfolios</span></p><h3 id="library-question-1">How should the work fit into a shared picture?</h3><p>Compare tasks, states and resources in one small job; read four directors’ views of one roadmap; or explore programme schemas, portfolio-needs notes and an earlier ontology experiment. The explanations link to their original diagrams and source files.</p></div>
         <span class="pw-home-route-link">Read the worked models <span aria-hidden="true">↗</span></span>
       </a>
-      {% include library-related-reading.html subject="data-models" %}</article>
+      {% include library-related-reading.html subject="data-models" %}
+      <div class="pw-library-reading"><h4>Historical case study · September 2020</h4><p><a href="{{ '/library/models/us-portfolio-questions.html' | relative_url }}">Following questions through a US IT portfolio</a> — original pictures connect suppliers, delivery work and measures, with dated reading guidance.</p></div></article>
       <article class="pw-home-question" id="library-frameworks"><a class="pw-home-tile-link" href="{{ '/Portfolio-frameworks.html' | relative_url }}" aria-labelledby="library-question-2">
         <div class="pw-home-question-visual"><img src="{{ '/images/Portfolio-frameworks/portfolio-tier1.png' | relative_url }}" width="640" height="400" alt="An overview of the categories in a portfolio management framework" loading="lazy"></div>
         <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier method <span>Portfolio management</span></p><h3 id="library-question-2">Which working practices does this portfolio need?</h3><p>A guide to choosing and adapting frameworks. The linked public code repository now retains a navigational skeleton, rather than the former full toolkit.</p></div>

@@ -36,6 +36,11 @@ Start with one of these earlier examples. The explanations and pictures can be r
     <li><a href="{{ '/library/models/rail-stakeholders-objectives-scope.html' | relative_url }}">A rail project in three layers</a>: use Py3Plex to keep objectives, stakeholders and scope distinct while recording relationships between them.</li>
   </ul>
 
+  <h2 id="us-portfolio-questions">One question, a connected portfolio</h2>
+  <p>A September 2020 US IT portfolio walkthrough follows suppliers into investments, projects, activities and measures. Read the original pictures as a sequence of management questions, with the historical totals and query limits explained.</p>
+  <figure class="pw-framework-figure"><a href="{{ '/library/models/us-portfolio-questions.html' | relative_url }}"><img src="https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/IBM_supplier.png" width="958" height="700" loading="lazy" alt="Original supplier view linking several IBM records to investments and their agencies."></a><figcaption>Start with common supplier exposure, then choose the next relationship to inspect.</figcaption></figure>
+  <p><a href="{{ '/library/models/us-portfolio-questions.html' | relative_url }}">Read the US portfolio case study →</a></p>
+
   <h2 id="other-model-reading-routes">Three more reading routes</h2>
   <dl>
     <dt><strong>One programme, two levels of detail</strong></dt>
