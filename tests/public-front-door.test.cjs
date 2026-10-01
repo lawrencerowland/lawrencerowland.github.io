@@ -25,8 +25,16 @@ const reading = library.slice(library.indexOf('aria-labelledby="library-reading"
 assert.ok(library.indexOf('aria-labelledby="library-reading"') > library.indexOf('id="earlier-app-collections"'), 'research and writing follow the collections');
 assert.ok(reading.includes('/deep-research/'), 'Deep Research has a Library entrance');
 assert.ok(!/\/blog(?:_summary)?\.html/.test(library), 'Library leads directly to articles without an archive entrance');
-assert.ok(reading.includes('id="historical-articles"'), 'historical articles have a Library section');
-assert.ok(reading.includes('site.data.historical_articles'), 'all four dated articles are presented directly');
+const subjectSection = library.slice(library.indexOf('aria-labelledby="library-starts"'), library.indexOf('aria-labelledby="library-future"'));
+assert.ok(subjectSection.includes('id="historical-articles"'), 'the former collection fragment remains at the subject section');
+assert.ok(!/pw-historical-grid|pw-historical-card|<h[1-6][^>]*id="historical-articles"/.test(library), 'no standalone historical article group remains');
+const relatedReading = fs.readFileSync('_includes/library-related-reading.html', 'utf8');
+assert.ok(relatedReading.includes('site.data.historical_articles') && relatedReading.includes('include.subject'), 'related reading selects articles by subject');
+for (const subject of ['data-models', 'frameworks', 'methods']) {
+  const card = subjectSection.match(new RegExp('<article\\b[^>]*id="library-' + subject + '"[\\s\\S]*?<\\/article>'))?.[0];
+  assert.ok(card, 'pictured subject card remains: ' + subject);
+  assert.ok(card.includes('library-related-reading.html') && card.includes(subject), 'subject card contains its related article links');
+}
 const historicalArticles = JSON.parse(fs.readFileSync('_data/historical_articles.yml', 'utf8'));
 assert.equal(historicalArticles.length, 4);
 assert.ok(historicalArticles.every(article => article.date.startsWith('2020-') && article.url.startsWith('/library/articles/')));
@@ -118,11 +126,13 @@ if (process.argv[2]) {
     for (const key of ['title','canonical_url','image','inputs','try','limitation','revision_context','source_url']) assert.ok(card.includes(escapeHTML(example[key])), `example ${example.id}: preserve ${key}`);
     assert.ok(card.includes('<details'), 'scope remains available by native disclosure without JavaScript');
   }
-  const historicalCards = [...libraryHTML.matchAll(/<article class="pw-historical-card">[\s\S]*?<\/article>/g)].map(match => match[0]);
+  const historicalCards = [...libraryHTML.matchAll(/<li class="pw-library-article">[\s\S]*?<\/li>/g)].map(match => match[0]);
   assert.equal(historicalCards.length, 4, 'four direct historical article entrances');
   for (const article of historicalArticles) {
     const card = historicalCards.find(card => card.includes('href="' + article.url + '"'));
     assert.ok(card, 'direct Library entrance for ' + article.title);
+    const subjectCard = libraryHTML.match(new RegExp('<article\\b[^>]*id="' + article.library_anchor + '"[\\s\\S]*?<\\/article>'))?.[0];
+    assert.ok(subjectCard && subjectCard.includes(card), article.title + ': appears within its pictured subject card');
     assert.ok(card.includes(escapeHTML(article.title)), 'original title is visible');
     assert.ok(card.includes('datetime="' + article.date + '"'), 'original publication date is visible');
     assert.ok(card.includes(escapeHTML(article.summary)), 'reading context remains visible');

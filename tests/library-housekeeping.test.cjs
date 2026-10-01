@@ -27,11 +27,11 @@ function normalizedBody(source) {
     .replace(/^#{1,2} /gm, '## ')
     .replace(/\{% include screenshot url="2020-05-07-Data-models-for-Project-Portfolios\/Graph_Option\.png" %\}/g, '[RETAINED_GRAPH_OPTION_IMAGE]')
     .replace(/<figure><img src="\{\{ '\/images\/Portfolio-data-model\/Graph_Option\.png' \| relative_url \}\}" alt="A graph-based view of a project portfolio"><\/figure>/g, '[RETAINED_GRAPH_OPTION_IMAGE]')
-    .replace(/^\[(?:Back to Blog|Return to Portfolio frameworks|Historical articles in the Library)\].*$/gm, '')
+    .replace(/^\[(?:Back to Blog|Return to Portfolio frameworks|Historical articles in the Library|Return to related Library material)\].*$/gm, '')
     .split('\n').map(line => line.trim()).join('\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 function normalizedVisibleText(html) {
-  return html.replace(/<p><a\b[^>]*>(?:Back to Blog|Return to Portfolio frameworks|Historical articles in the Library)<\/a>[\s\S]*?<\/p>/g, '')
+  return html.replace(/<p><a\b[^>]*>(?:Back to Blog|Return to Portfolio frameworks|Historical articles in the Library|Return to related Library material)<\/a>[\s\S]*?<\/p>/g, '')
     .replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 const externalLinks = html => [...html.matchAll(/<a\b[^>]*href="(https?:[^"#]+(?:#[^"]*)?)"/g)].map(match => match[1]);
@@ -40,13 +40,20 @@ const sourceLayout = read('_layouts/historical-article.html');
 assert.match(sourceLayout, /Originally published/);
 assert.match(sourceLayout, /<time\b/);
 assert.match(sourceLayout, /page\.date/);
-assert.ok(sourceLayout.includes('/library.html#historical-articles'), 'articles have a direct Library return');
+assert.ok(sourceLayout.includes('/library.html#') && sourceLayout.includes('library_anchor'), 'articles return to their Library subject');
+assert.ok(!sourceLayout.includes('/library.html#historical-articles') && !sourceLayout.includes('More from the same period'), 'related reading follows subject rather than publication period');
 assert.ok(!fs.existsSync(path.join(root, 'blog.md')) && !fs.existsSync(path.join(root, 'blog_summary.md')), 'both blog index sources are retired');
 assert.ok(!fs.existsSync(path.join(root, '_posts')) || fs.readdirSync(path.join(root, '_posts')).length === 0, 'no parallel post archive remains');
 assert.equal(articles.length, 4);
 assert.equal(records.length, 4);
 assert.equal(new Set(records.map(article => article.url)).size, 4);
 assert.deepEqual([...records.map(article => article.url)].sort(), [...articles.map(article => article.url)].sort());
+const subjects = {
+  '/library/articles/data-models-for-project-portfolios.html': 'data-models',
+  '/library/articles/choosing-a-machine-learning-approach.html': 'methods',
+  '/library/articles/adopting-a-portfolio-framework.html': 'frameworks',
+  '/library/articles/project-management-jobs-to-be-done.html': 'frameworks'
+};
 for (const article of articles) {
   const source = read(article.source);
   const record = records.find(candidate => candidate.url === article.url);
@@ -55,6 +62,9 @@ for (const article of articles) {
   assert.equal(scalar(source, 'date'), article.date, 'retain the original publication date');
   assert.equal(scalar(source, 'title_anchor'), article.title_anchor, 'retain the original title fragment');
   assert.equal(record.date, article.date);
+  assert.equal(record.subject, subjects[article.url], 'article is grouped with its subject');
+  assert.equal(record.library_anchor, 'library-' + subjects[article.url]);
+  assert.ok(record.guide_url && record.guide_title, 'article retains a route to the related subject guide');
   assert.equal(record.title, scalar(source, 'title'));
   assert.ok(record.summary.trim(), 'every Library entry has reading context');
   assert.equal(digest(normalizedBody(source)), article.normalized_body_sha256, article.source + ': complete original body preserved under the documented changes');
@@ -72,7 +82,7 @@ assert.ok(read('Portfolio-frameworks.md').includes('/library/articles/adopting-a
 
 const redirects = articles.map(article => ({
   old: article.old_url, target: article.url, fragment: '#' + article.legacy_ids.find(id => !id.startsWith('markdown-toc'))
-})).concat(['/blog.html', '/blog_summary.html'].map(old => ({old, target: '/library.html#historical-articles', fragment: '#earlier-notes--2020'})));
+})).concat(['/blog.html', '/blog_summary.html'].map(old => ({old, target: '/library.html#library-starts', fragment: '#earlier-notes--2020'})));
 const legacySources = fs.readdirSync(path.join(root, 'legacy-writing')).filter(file => file.endsWith('.html')).map(file => read('legacy-writing/' + file));
 assert.equal(legacySources.length, 6, 'six compatibility pages and no blog copy');
 const redirectScript = html => [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(match => match[1]).find(script => script.includes('article-destination') && script.includes('location.replace'));
@@ -108,7 +118,7 @@ for (const redirect of redirects) {
   exerciseRedirect(script, redirect);
 }
 const librarySource = read('library.md');
-for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles']) assert.ok(ids(librarySource).has(id), 'Library retains index fragment ' + id);
+for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts', 'library-data-models', 'library-frameworks', 'library-methods']) assert.ok(ids(librarySource).has(id), 'Library retains index fragment ' + id);
 assert.ok(read('sitemap.md').includes('page.legacy_redirect'), 'human sitemap excludes compatibility pages');
 assert.ok(!read('sitemap.md').includes('site.posts'), 'no empty Posts section');
 assert.ok(!read('_includes/footer.html').includes('/feed.xml'), 'empty historical feed is not advertised');
@@ -127,6 +137,13 @@ if (process.argv[2]) {
   const humanMap = builtRead('sitemap.html');
   for (const article of articles) {
     const html = builtRead(article.url);
+    const record = records.find(candidate => candidate.url === article.url);
+    assert.ok(html.includes('href="/library.html#' + record.library_anchor + '"'), article.url + ': returns to its subject in Library');
+    const related = html.match(/<nav class="pw-article-related"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+    assert.ok(related, 'related reading navigation exists');
+    assert.ok(related.includes('href="' + record.guide_url + '"'), 'related subject guide remains reachable');
+    const relatedArticles = [...related.matchAll(/href="(\/library\/articles\/[^"]+)"/g)].map(match => match[1]);
+    assert.deepEqual(relatedArticles.sort(), records.filter(candidate => candidate.subject === record.subject && candidate.url !== article.url).map(candidate => candidate.url).sort(), 'related articles share the same subject');
     const body = html.match(/<div class="pw-article-body">([\s\S]*)<\/div>\s*<nav class="pw-article-related"/)?.[1];
     assert.ok(body !== undefined, article.url + ': rendered article body exists');
     assert.equal(digest(normalizedVisibleText(body)), article.normalized_visible_text_sha256, article.url + ': original visible text and order preserved');

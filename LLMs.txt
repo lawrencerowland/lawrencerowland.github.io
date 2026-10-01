@@ -9,7 +9,7 @@ Main sections
 - **Frameworks** (`/Portfolio-frameworks.html`): building a portfolio framework.
 - **Project apps** (https://lawrencerowland.github.io/Project-web-apps/): list of interactive example pages from `_data/examples.yml`.
 - **Graphs** (`/graphs.html`): showcases interactive network graphs, with a demo under `/network/`.
-- **Historical articles** (`/library.html#historical-articles`): four dated articles from 2020, each at `/library/articles/`. Former blog URLs forward here or to the corresponding article.
+- **Earlier articles**: four dated 2020 articles at `/library/articles/`, placed alongside the related data-model, framework and methods material in `/library.html#library-starts`. Former blog URLs forward to those subjects or directly to the corresponding article.
 - **About the site** (`/about_the_site.html`): overview of the site's purpose.
 Other content
 -------------

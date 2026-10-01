@@ -3,24 +3,44 @@
     "title": "Project management: Some jobs to be done",
     "date": "2020-06-20",
     "url": "/library/articles/project-management-jobs-to-be-done.html",
-    "summary": "Project information needs and the management jobs that information should support."
+    "summary": "Project information needs and the management jobs that information should support.",
+    "subject": "frameworks",
+    "subject_title": "Portfolio frameworks",
+    "library_anchor": "library-frameworks",
+    "guide_url": "/Portfolio-frameworks.html",
+    "guide_title": "Read the framework guide"
   },
   {
     "title": "Adopt existing portfolio framework",
     "date": "2020-05-16",
     "url": "/library/articles/adopting-a-portfolio-framework.html",
-    "summary": "Choosing and adapting a portfolio-management framework. Reading guidance revised in September 2026."
+    "summary": "Choosing and adapting a portfolio-management framework. Reading guidance revised in September 2026.",
+    "subject": "frameworks",
+    "subject_title": "Portfolio frameworks",
+    "library_anchor": "library-frameworks",
+    "guide_url": "/Portfolio-frameworks.html",
+    "guide_title": "Read the framework guide"
   },
   {
     "title": "Applying appropriate machine-learning approach.",
     "date": "2020-05-08",
     "url": "/library/articles/choosing-a-machine-learning-approach.html",
-    "summary": "An earlier route from a project use case to a method, model, environment and dataset."
+    "summary": "An earlier route from a project use case to a method, model, environment and dataset.",
+    "subject": "methods",
+    "subject_title": "Information and methods",
+    "library_anchor": "library-methods",
+    "guide_url": "/ML-for-portfolios.html",
+    "guide_title": "Read the methods guide"
   },
   {
     "title": "Data models for project portfolios",
     "date": "2020-05-07",
     "url": "/library/articles/data-models-for-project-portfolios.html",
-    "summary": "Using graph databases to maintain and visualise a project portfolio."
+    "summary": "Using graph databases to maintain and visualise a project portfolio.",
+    "subject": "data-models",
+    "subject_title": "Data models",
+    "library_anchor": "library-data-models",
+    "guide_url": "/Portfolio-data-model.html#read-the-worked-models",
+    "guide_title": "Read the worked models"
   }
 ]

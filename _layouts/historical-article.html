@@ -1,17 +1,21 @@
 ---
 layout: default
 ---
+{% assign article_context = site.data.historical_articles | where: 'url', page.url | first %}
+{% assign library_return = '/library.html#' | append: article_context.library_anchor %}
 <article class="pw-historical-article post">
-  <p class="pw-article-return"><a href="{{ '/library.html#historical-articles' | relative_url }}">← Historical articles in the Library</a></p>
+  <p class="pw-article-return"><a href="{{ library_return | relative_url }}">← {{ article_context.subject_title | escape }} in the Library</a></p>
   <header>
     <p class="pw-article-date">Historical article · Originally published <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%-d %B %Y' }}</time></p>
     <h1 id="{{ page.title_anchor | escape }}">{{ page.title | escape }}</h1>
     <p class="pw-article-context">Earlier writing, collected in the Library in October 2026. The original publication date is retained; this move does not update the technology, availability or performance claims. Any later revision is labelled in the article.</p>
   </header>
   <div class="pw-article-body">{{ content }}</div>
-  <nav class="pw-article-related" aria-label="Historical articles">
-    <h2>More from the same period</h2>
-    <ul>{% for article in site.data.historical_articles %}{% unless article.url == page.url %}<li><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a> <span>({{ article.date | date: '%-d %B %Y' }})</span></li>{% endunless %}{% endfor %}</ul>
-    <p><a href="{{ '/library.html#historical-articles' | relative_url }}">Return to the Library →</a></p>
+  <nav class="pw-article-related" aria-label="Related subject material">
+    <h2>Explore {{ article_context.subject_title | downcase | escape }}</h2>
+    <p><a href="{{ article_context.guide_url | relative_url }}">{{ article_context.guide_title | escape }}</a></p>
+    {% assign related_articles = site.data.historical_articles | where: 'subject', article_context.subject %}
+    {% if related_articles.size > 1 %}<ul>{% for article in related_articles %}{% unless article.url == page.url %}<li><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a> <span>({{ article.date | date: '%-d %B %Y' }})</span></li>{% endunless %}{% endfor %}</ul>{% endif %}
+    <p><a href="{{ library_return | relative_url }}">Return to related Library material →</a></p>
   </nav>
 </article>

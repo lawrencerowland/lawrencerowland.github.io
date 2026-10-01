@@ -31,4 +31,4 @@ Clayton Christensen would always ask, when it came to a service or a product, wh
 ## Acknowledgements
 Christensen
 
-[Historical articles in the Library]({{ '/library.html#historical-articles' | relative_url }})
+[Return to related Library material]({{ '/library.html#library-frameworks' | relative_url }})

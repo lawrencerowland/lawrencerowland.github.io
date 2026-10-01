@@ -1,0 +1,13 @@
+{% assign readings = site.data.historical_articles | where: 'subject', include.subject %}
+<div class="pw-library-reading">
+  <h4>Related reading</h4>
+  <ul>
+    {% for article in readings %}
+    <li class="pw-library-article">
+      <p class="pw-article-date">Article · <time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: '%-d %B %Y' }}</time></p>
+      <p><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a></p>
+      <p>{{ article.summary | escape }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

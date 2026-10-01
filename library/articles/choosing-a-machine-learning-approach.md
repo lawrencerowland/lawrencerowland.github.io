@@ -64,4 +64,4 @@ Please go to the relevant code and document library[here](https://github.com/law
 ## Acknowledgements
 Agrawal et al have a canvas [here](https://predictionmachines.ai) for planning it at high level, understanding purpose and constraints.
 
-[Historical articles in the Library]({{ '/library.html#historical-articles' | relative_url }})
+[Return to related Library material]({{ '/library.html#library-methods' | relative_url }})
