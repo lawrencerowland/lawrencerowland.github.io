@@ -429,7 +429,9 @@ function loadResourcesData(){
   ]).then(([c1,c2])=>{
     const d1=parseCSV(c1).map(d=>{d.repo='Project-web-apps';return d;});
     const d2=c2;
-    integrateApps(d1.concat(d2));
+    // Receiving-site metadata wins while the old catalogue is being retired.
+    const maintained=new Set(d2.map(app=>app.repo+':'+app.name));
+    integrateApps(d1.filter(app=>!maintained.has(app.repo+':'+app.name)).concat(d2));
     assignAppCapabilities();
     buildDomainFilters();
     renderList();

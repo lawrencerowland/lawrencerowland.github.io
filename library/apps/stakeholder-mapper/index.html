@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Who needs a different conversation? · Stakeholder mapper</title>
+  <meta name="description" content="Map stakeholder power and interest, revise your judgements and inspect what a simple engagement grid leaves out.">
+  <link rel="canonical" href="https://lawrencerowland.github.io/library/apps/stakeholder-mapper/">
+  <style>
+    :root{color-scheme:light;--ink:#263e35;--muted:#53645b;--line:#d4d8cc;--paper:#faf8f0;--accent:#285b47}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}main,nav{max-width:1220px;margin:auto;padding:20px}nav{display:flex;gap:18px;border-bottom:1px solid var(--line);font-size:.9rem}a{color:var(--accent)}h1,h2{font-family:Georgia,serif;line-height:1.15}h1{font-size:clamp(1.9rem,4vw,2.7rem);margin:10px 0}h2{font-size:1.5rem;margin-top:0}header{max-width:850px;margin-bottom:24px}.kicker{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}p{margin:.7em 0}.muted{color:var(--muted)}.workspace{display:grid;grid-template-columns:280px minmax(0,1fr);gap:20px}.panel{background:#fffef9;border:1px solid var(--line);border-radius:9px;padding:20px;min-width:0}label{display:block;font-weight:600;margin:14px 0 4px}input{width:100%;padding:10px;border:1px solid #aeb7ad;border-radius:4px;font:inherit}button{font:inherit;border:1px solid var(--accent);border-radius:4px;background:var(--accent);color:white;padding:9px 13px;cursor:pointer}button.secondary{background:transparent;color:var(--accent)}button:hover{filter:brightness(.92)}:focus-visible{outline:3px solid #bf743b;outline-offset:3px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}[hidden]{display:none!important}#status{min-height:3em;margin:14px 0 0;font-weight:600}#status.error{color:#9b301f}svg{width:100%;height:auto;display:block}.plot-point{cursor:pointer}.plot-point:focus{outline:none}.plot-point:focus circle,.plot-point.selected circle{stroke:#bf743b;stroke-width:4}.plot-point text{pointer-events:none;font:12px system-ui}.plot-point title{font:inherit}.plot-point circle{fill:#285b47;stroke:#fff;stroke-width:2}.table-wrap{overflow:auto;margin-top:24px}table{border-collapse:collapse;width:100%;min-width:650px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid var(--line)}th{font-size:.9rem}td button{font-size:.85rem;padding:5px 9px;margin:2px}tr.selected{background:#f3ecdb}.name-cell{max-width:300px;overflow-wrap:anywhere}.explanation{margin-top:24px;max-width:900px}details{margin:14px 0}summary{cursor:pointer;font-weight:600}.hint{font-size:.88rem}#selection{min-height:3em}.score{white-space:nowrap}@media(max-width:700px){main,nav{padding:16px}.workspace{grid-template-columns:1fr}.panel{padding:14px}h1{font-size:2rem}nav{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+<nav aria-label="Return routes"><a href="/library/methods/states-and-relationships.html#stakeholder-mapper">Project states &amp; relationships</a><a href="/library.html">Library</a></nav>
+<main>
+  <header><p class="kicker">Stakeholder mapper</p><h1>Who needs a different conversation?</h1>
+    <p>A team is repairing a village footbridge. The sponsor can release funds; residents use the crossing every day. Their influence and their interest are different things. Put your assessments on the map, then reconsider how you will involve each person.</p>
+    <p class="muted"><strong>Try this:</strong> edit Residents’ power from 30 to 70. The suggested contact approach changes; their interests have not. These four starting assessments are invented.</p>
+    <p class="hint">Changes live only in this tab. Reloading restores the example; this tool does not save or send your entries.</p>
+  </header>
+  <div class="workspace">
+    <section class="panel" aria-labelledby="form-title"><h2 id="form-title">Add a stakeholder</h2>
+      <form id="stakeholder-form" novalidate>
+        <label for="name-input">Name</label><input id="name-input" maxlength="160" required placeholder="Person or group">
+        <label for="power-input">Power / influence (0–100)</label><input id="power-input" type="number" min="0" max="100" step="any" value="50" required>
+        <label for="interest-input">Interest (0–100)</label><input id="interest-input" type="number" min="0" max="100" step="any" value="50" required>
+        <div class="actions"><button id="add-btn" type="submit">Add to map</button><button id="cancel-btn" class="secondary" type="button" hidden>Cancel edit</button></div>
+      </form>
+      <p id="status" role="status" aria-live="polite"></p>
+      <div class="actions"><button type="button" class="secondary" id="example-btn">Restore example</button><button type="button" class="secondary" id="clear-btn">Clear map</button></div>
+    </section>
+    <section class="panel" aria-labelledby="map-title"><h2 id="map-title">Power and interest</h2>
+      <svg id="grid-svg" viewBox="0 0 620 550" role="group" aria-label="Stakeholder map: power increases upwards; interest increases rightwards. Numbered points correspond to the table below.">
+        <rect x="60" y="60" width="250" height="220" fill="#e6ebdd"/><rect x="310" y="60" width="250" height="220" fill="#eee2c4"/>
+        <rect x="60" y="280" width="250" height="220" fill="#f0eeea"/><rect x="310" y="280" width="250" height="220" fill="#e4eeeb"/>
+        <path d="M60 60V500H560 M60 280H560 M310 60V500" fill="none" stroke="#68796b"/>
+        <g fill="#263e35" font-family="system-ui" font-size="15" text-anchor="middle"><text x="185" y="90">Keep satisfied</text><text x="435" y="90">Manage closely</text><text x="185" y="315">Monitor</text><text x="435" y="315">Keep informed</text><text x="310" y="542">Interest →</text><text x="19" y="280" transform="rotate(-90 19 280)">Power / influence →</text></g>
+        <g fill="#53645b" font-family="system-ui" font-size="12" text-anchor="middle"><text x="60" y="521">0</text><text x="310" y="521">50</text><text x="560" y="521">100</text><text x="43" y="504">0</text><text x="43" y="284">50</text><text x="43" y="64">100</text></g>
+        <g id="points"></g>
+      </svg>
+      <p class="hint">Select a numbered point or a row. “×2” means two people share that position; the table keeps both. A score of 50 is assigned to the high side.</p>
+      <p id="selection" aria-live="polite">Choose a point or a row to inspect its assessment.</p>
+    </section>
+  </div>
+  <section class="panel table-wrap" aria-labelledby="list-title"><h2 id="list-title">Stakeholder list</h2><p id="empty" hidden>No stakeholders yet. Add one above or restore the example.</p>
+    <table id="stakeholder-table"><caption class="muted">Your assessments and suggested contact approaches</caption><thead><tr><th scope="col">Person or group</th><th scope="col">Power</th><th scope="col">Interest</th><th scope="col">Grid suggestion</th><th scope="col">Change</th></tr></thead><tbody id="stakeholder-list"></tbody></table>
+  </section>
+  <section class="explanation"><h2>What the map helps you notice</h2><p>Power means the ability to affect the project; interest means concern or involvement. A high-power person may care little about today’s work, while someone with little formal power may be deeply affected by it.</p>
+    <p>The four labels are prompts for an engagement conversation. “Manage closely” suggests regular two-way involvement; “Keep satisfied” suggests checking concerns and consequential decisions; “Keep informed” suggests accessible updates and listening; “Monitor” suggests checking for changing interests. Low power is not a reason to exclude someone affected by the project.</p>
+    <details><summary>Assumptions, limitations and source</summary><p>You supply the scores. The 0–100 scale and split at 50 are conventions in this example, not measured probabilities or a validated threshold. Moving a score from 49 to 50 changes its category sharply, even though your judgement barely changed. Scores do not measure support, opposition, rights, urgency or relationships between people.</p><p>Review the map with the people concerned and as the project changes. The <a href="https://analysisfunction.civilservice.gov.uk/policy-store/stakeholder-mapping/">UK Government Analysis Function’s stakeholder-mapping guidance</a> explains the power/interest approach and revisiting assessments. Its contact labels differ slightly; this app retains the original four labels and exposes their simple rule.</p><p>This is a repaired version of the earlier Stakeholder Influence Mapper. The underlying power/interest classification remains; clearer axes, editable entries and an accessible list make the assessment easier to inspect.</p></details>
+  </section>
+  <noscript><p>Enable JavaScript to edit and plot stakeholders. The explanation above remains readable.</p></noscript>
+</main>
+<script src="model.js"></script>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
+let stakeholders=[], editing=null, selected=null, nextID=1;
+function say(text,error=false){$('status').textContent=text;$('status').classList.toggle('error',error)}
+function resetForm(){editing=null;$('stakeholder-form').reset();$('form-title').textContent='Add a stakeholder';$('add-btn').textContent='Add to map';$('cancel-btn').hidden=true;}
+function select(ids){selected=ids[0];$('selection').textContent=ids.map(id=>{const s=stakeholders.find(x=>x.id===id);return s.name+': power '+s.power+', interest '+s.interest+' — '+StakeholderMap.category(s.power,s.interest)}).join('; ');document.querySelectorAll('[data-stakeholder]').forEach(el=>el.classList.toggle('selected',el.dataset.stakeholder.split(',').includes(String(selected))));}
+function edit(id){const s=stakeholders.find(x=>x.id===id);editing=id;$('form-title').textContent='Edit stakeholder';$('add-btn').textContent='Save changes';$('cancel-btn').hidden=false;$('name-input').value=s.name;$('power-input').value=s.power;$('interest-input').value=s.interest;say('Editing '+s.name+'. Save changes to update the map.');$('name-input').focus();}
+function button(text,label,action){const b=document.createElement('button');b.type='button';b.textContent=text;b.className='secondary';b.setAttribute('aria-label',label);b.addEventListener('click',action);return b;}
+function render(){
+  $('points').replaceChildren();$('stakeholder-list').replaceChildren();$('empty').hidden=stakeholders.length>0;$('stakeholder-table').hidden=stakeholders.length===0;
+  const groups=new Map();
+  stakeholders.forEach((s,i)=>{
+    const key=s.power+','+s.interest;if(!groups.has(key))groups.set(key,[]);groups.get(key).push({...s,number:i+1});
+    const row=document.createElement('tr');row.dataset.stakeholder=s.id;
+    const name=document.createElement('td');name.className='name-cell';name.append(button((i+1)+'. '+s.name,'Inspect '+s.name,()=>select([s.id])));row.append(name);
+    for(const value of [s.power,s.interest,StakeholderMap.category(s.power,s.interest)]){const td=document.createElement('td');td.textContent=value;row.append(td)}
+    const actions=document.createElement('td');actions.append(button('Edit','Edit '+s.name,()=>edit(s.id)),button('Remove','Remove '+s.name,()=>{stakeholders=stakeholders.filter(x=>x.id!==s.id);if(editing===s.id)resetForm();selected=null;$('selection').textContent='Choose a point or a row to inspect its assessment.';render();say('Removed '+s.name+' from this tab.');$('name-input').focus()}));row.append(actions);$('stakeholder-list').append(row);
+  });
+  for(const group of groups.values()){
+    const {x,y}=StakeholderMap.coordinates(group[0].power,group[0].interest),g=document.createElementNS(NS,'g');g.classList.add('plot-point');g.dataset.stakeholder=group.map(s=>s.id).join(',');g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',group.map(s=>s.number+'. '+s.name).join('; ')+'. Power '+group[0].power+', interest '+group[0].interest);g.setAttribute('transform',`translate(${x} ${y})`);
+    const circle=document.createElementNS(NS,'circle');circle.setAttribute('r','12');const t=document.createElementNS(NS,'text');t.setAttribute('text-anchor','middle');t.setAttribute('dy','4');t.setAttribute('fill','white');t.textContent=group.length>1?'×'+group.length:group[0].number;g.append(circle,t);const choose=()=>select(group.map(s=>s.id));g.addEventListener('click',choose);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}});$('points').append(g);
+  }
+  if(selected&&stakeholders.some(s=>s.id===selected))select([selected]);
+}
+$('stakeholder-form').addEventListener('submit',e=>{e.preventDefault();try{const value=StakeholderMap.stakeholder($('name-input').value,$('power-input').value,$('interest-input').value);const isEdit=editing!==null;if(isEdit){Object.assign(stakeholders.find(s=>s.id===editing),value);selected=editing}else{selected=nextID++;stakeholders.push({id:selected,...value})}resetForm();render();say((isEdit?'Updated ':'Added ')+value.name+' in this tab.');$('name-input').focus()}catch(error){say(error.message,true)}});
+$('cancel-btn').addEventListener('click',()=>{resetForm();say('Edit cancelled; map unchanged.');$('name-input').focus()});
+$('clear-btn').addEventListener('click',()=>{stakeholders=[];selected=null;resetForm();render();$('selection').textContent='Add a stakeholder to start the map.';say('Map cleared in this tab. Restore example brings back the invented example.')});
+function example(){stakeholders=[['Sponsor',85,75],['Residents',30,85],['Council finance team',80,25],['Equipment supplier',25,25]].map(([name,power,interest])=>({id:nextID++,...StakeholderMap.stakeholder(name,power,interest)}));selected=null;resetForm();render();$('selection').textContent='Choose a point or a row to inspect its assessment.';say('Four invented assessments loaded.');}
+$('example-btn').addEventListener('click',example);example();
+</script>
+</body></html>

@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const model=require('../library/apps/stakeholder-mapper/model.js');
+assert.deepEqual(model.stakeholder(' Residents ',30,85),{name:'Residents',power:30,interest:85});
+assert.equal(model.category(30,85),'Keep informed');
+assert.equal(model.category(70,85),'Manage closely');
+assert.equal(model.category(80,25),'Keep satisfied');
+assert.equal(model.category(25,25),'Monitor');
+assert.equal(model.category(50,50),'Manage closely');
+assert.equal(model.category(49.9,49.9),'Monitor');
+assert.deepEqual(model.coordinates(100,0),{x:60,y:60});
+assert.deepEqual(model.coordinates(0,100),{x:560,y:500});
+for(const value of ['', ' ', 'abc', NaN, Infinity, -1,101])assert.throws(()=>model.stakeholder('A',value,50));
+assert.throws(()=>model.stakeholder('',50,50));
+assert.throws(()=>model.stakeholder('x'.repeat(161),50,50));
+assert.equal(model.stakeholder('<b>Name</b>',12.5,47.5).name,'<b>Name</b>');
+console.log('PASS: four engagement regions, threshold, correct plot direction and finite input validation.');

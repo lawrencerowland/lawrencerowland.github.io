@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project data checks — Library</title>
+  <link rel="canonical" href="https://lawrencerowland.github.io/library/apps/project-data-standard/">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f6f3e9; --panel:#fffdf7; --ink:#263d33; --muted:#53655a; --accent:#377460;
+      --ok:#2fb36a; --warn:#f0ad4e; --err:#e55353; --chip:#eef1e5; --line:#ccd4c5;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--ink); background:linear-gradient(180deg,#f6f3e9,#f6f3e9 20%,#f6f3e9);
+    }
+    header{padding:24px 20px 12px; border-bottom:1px solid var(--line);}
+    header h1{margin:0; font-size:22px; letter-spacing:.3px}
+    header p{margin:6px 0 0; color:var(--muted); font-size:14px}
+    .wrap{display:grid; grid-template-columns:280px minmax(0,1fr); gap:16px; padding:16px}
+    nav{
+      background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px; position:sticky; top:12px; height:max-content;
+    }
+    nav a{display:block; padding:10px 10px; margin:4px 0; border-radius:8px; color:var(--ink); text-decoration:none; font-size:14px}
+    nav a:hover{background:var(--chip)}
+    .section{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px}
+    .grid{display:grid; gap:12px}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .wrap>main,.grid>*,.row>*{min-width:0}
+    .card{background:var(--chip); border:1px solid var(--line); border-radius:10px; padding:12px}
+    h2{margin:2px 0 12px; font-size:18px}
+    h3{margin:4px 0 8px; font-size:15px; color:var(--muted); font-weight:600}
+    .btn{
+      appearance:none; border:1px solid var(--line); background:#e8efe0; color:var(--ink);
+      padding:8px 12px; border-radius:8px; font-size:14px; cursor:pointer;
+    }
+    .btn:hover{background:#dbe7cf}
+    .btn.ghost{background:transparent}
+    .btn.inline{padding:4px 8px; font-size:12px; border-radius:6px}
+    .controls{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+    textarea, input, select{
+      width:100%; background:#fffefa; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:10px; font-size:13px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    }
+    textarea{min-height:200px; resize:vertical}
+    .pill{display:inline-flex; align-items:center; gap:6px; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--line); background:var(--chip)}
+    .pill.ok{border-color:#1f6b45; background:#e3efdf}
+    .pill.warn{border-color:#7a5a1b; background:#fbefd1}
+    .pill.err{border-color:#7a1b1b; background:#fbe6e0}
+    .kv{display:grid; grid-template-columns:140px minmax(0,1fr); gap:8px; font-size:13px}
+    .kv>*,.note{min-width:0;overflow-wrap:anywhere}
+    .muted{color:var(--muted)}
+    .mono{font-family:ui-monospace,Consolas,monaco,monospace}
+    table{width:100%; border-collapse:collapse; font-size:13px}
+    th,td{border-bottom:1px solid var(--line); padding:8px 6px; text-align:left; vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    code.inline{background:#edf1e7; padding:2px 6px; border-radius:6px; border:1px solid var(--line)}
+    .chips{display:flex; flex-wrap:wrap; gap:6px}
+    .chip{background:#edf1e7; border:1px solid var(--line); border-radius:999px; padding:4px 8px; font-size:12px}
+    .badge{padding:2px 6px; border-radius:6px; border:1px solid var(--line); background:#edf1e7; font-size:11px}
+    .canvas-wrap{background:#fffefa; border:1px solid var(--line); border-radius:10px; padding:10px}
+    .hl{white-space:pre-wrap; line-height:1.35; background:#f0f3e9; border:1px solid var(--line); border-radius:8px; padding:10px; overflow:auto}
+    .slim{font-size:12px}
+    .bar{height:8px; background:#e0e5d9; border:1px solid var(--line); border-radius:6px; overflow:hidden}
+    .bar > span{display:block; height:100%; background:linear-gradient(90deg,#4e9af1,#70d6ff)}
+    .note{font-size:12px; color:var(--muted)}
+    .foot{padding:10px 16px; color:var(--muted); font-size:12px; text-align:center}
+    .link{color:var(--accent); text-decoration:none}
+    .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .right{margin-left:auto}
+    .small{font-size:12px}
+    .danger{color:#9d3434}
+    .success{color:#246245}
+    .svgwrap{background:#fffefa; border:1px solid var(--line); border-radius:10px; padding:8px; overflow:auto}
+      .library-nav{position:static;display:flex;gap:18px;flex-wrap:wrap;margin:12px 20px;padding:0;border:0;background:none}.library-nav a{display:inline;padding:4px 0;color:#246245;text-decoration:underline}
+    :focus-visible{outline:3px solid #8f5c18;outline-offset:3px}button:disabled{opacity:.55;cursor:default}canvas{width:100%;height:auto}h1{line-height:1.2}body{line-height:1.5}.canvas-wrap,.svgwrap{overflow:auto;max-width:100%;min-width:0}#timeline{min-width:520px}#provGraph{min-width:830px}table{overflow-wrap:anywhere}
+    @media(max-width:950px){.wrap{grid-template-columns:minmax(0,1fr)}.wrap>nav{position:static;display:flex;flex-wrap:wrap;gap:4px}.grid.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:650px){.grid.cols-2,.grid.cols-3{grid-template-columns:minmax(0,1fr)}.section{padding:12px}.wrap{padding:10px}.kv{grid-template-columns:100px minmax(0,1fr)}header{padding:16px}}
+  </style>
+</head>
+<body>
+  <nav class="library-nav" aria-label="Library navigation"><a href="/library/methods/data-and-assurance.html">Data &amp; assurance</a><a href="/library.html">Library</a></nav>
+  <header>
+    <h1>Project data checks</h1>
+    <p>Explore an illustrative project-data schema. Change the fictional example and inspect dates, costs, funding and provenance. Checks run in your browser.</p>
+  </header>
+
+  <div class="wrap">
+    <nav aria-label="On this page">
+      <a href="#primer">Primer</a>
+      <a href="#playground">Playground</a>
+      <a href="#visuals">Visuals</a>
+      <a href="#codelists">Codelists</a>
+      <a href="#provenance">Provenance</a>
+      <a href="#report">Report</a>
+    </nav>
+
+    <main><noscript><p>This example needs JavaScript to check data and draw its diagrams. The primer and illustrative rule boundaries remain readable.</p></noscript>
+      <!-- Primer -->
+      <section id="primer" class="section">
+        <h2>Primer</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Why a core?</h3>
+            <p class="slim">This example proposes a small shared project record. It illustrates how explicit fields and checks can expose inconsistencies; it is not an official Project Data Standard, a full JSON Schema validator or evidence of reliable forecasting.</p>
+          </div>
+          <div class="card">
+            <h3>What’s validated?</h3>
+            <p class="slim">Required fields, ID and codelist formats, real dates, start/finish order, finite non-negative amounts, same-currency CAPEX budgets, provenance age and duplicate IDs. Actuals mean spend to date; forecast means total expected spend. Early completion and forecasts below baseline are allowed.</p>
+          </div>
+          <div class="card">
+            <h3>How to use</h3>
+            <p class="slim">Try this: set a milestone actual date before its planned date, then change a CAPEX funding currency. The first is allowed; the second blocks the comparison. Tune tolerance/SLA, validate, then download the results with the assessed settings. A check report is not certification or approval.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Playground -->
+      <section id="playground" class="section">
+        <div class="row">
+          <h2 class="row">Playground</h2>
+          <div class="right row small">
+            <label>SLA (days): <input id="slaDays" type="number" min="1" value="30" style="width:80px"/></label>
+            <label>Tolerance (sum vs baseline): <input id="tolerance" type="number" min="0" max="0.2" step="0.005" value="0.02" style="width:100px"/></label>
+            <button class="btn inline" id="btnLoad">Load example</button>
+            <button class="btn inline" id="btnValidate">Validate</button>
+          </div>
+        </div>
+        <div class="grid cols-2">
+          <div>
+            <h3>Payload (JSON)</h3>
+            <textarea id="payload" spellcheck="false" aria-label="Illustrative project JSON payload"></textarea>
+            <div class="note">Nothing is sent anywhere; validation happens entirely in your browser.</div>
+          </div>
+          <div>
+            <h3>Example-rule results</h3><p class="note">Scores are the percentage of these illustrative checks that pass, not a measure of project health or readiness. — means no applicable checks. Unknown fields and many domain rules are not assessed.</p>
+            <div class="grid">
+              <div class="card">
+                <div class="row">
+                  <div class="pill" id="statusPill" role="status" aria-live="polite"><strong>Ready</strong></div>
+                  <div class="right small muted">Last run: <span id="lastRun">—</span></div>
+                </div>
+                <div class="grid cols-3" style="margin-top:8px">
+                  <div>
+                    <div class="muted small">Checks passed (%)</div>
+                    <div style="font-size:24px" id="scoreOverall">—</div>
+                    <div class="bar"><span id="barOverall" style="width:0%"></span></div>
+                  </div>
+                  <div>
+                    <div class="muted small">Completeness</div>
+                    <div id="scoreCompl">—</div>
+                  </div>
+                  <div>
+                    <div class="muted small">Validity</div>
+                    <div id="scoreValid">—</div>
+                  </div>
+                  <div>
+                    <div class="muted small">Consistency</div>
+                    <div id="scoreCons">—</div>
+                  </div>
+                  <div>
+                    <div class="muted small">Timeliness</div>
+                    <div id="scoreTime">—</div>
+                  </div>
+                  <div>
+                    <div class="muted small">Uniqueness</div>
+                    <div id="scoreUnique">—</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>Rule violations</h3>
+                <table id="violationsTable">
+                  <thead>
+                    <tr><th>Rule</th><th>Severity</th><th>Message</th></tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+
+              <div class="card">
+                <h3>Parsed header</h3>
+                <div class="kv">
+                  <div class="muted">Project ID</div><div class="mono" id="outId">—</div>
+                  <div class="muted">Name</div><div class="mono" id="outName">—</div>
+                  <div class="muted">Phase</div><div class="mono" id="outPhase">—</div>
+                  <div class="muted">Owner</div><div class="mono" id="outOwner">—</div>
+                  <div class="muted">RAG</div><div class="mono" id="outRag">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visuals -->
+      <section id="visuals" class="section">
+        <div class="row">
+          <h2>Visuals</h2>
+          <div class="small muted right">These update after you press <em>Validate</em>.</div>
+        </div>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Milestone timeline</h3>
+            <div class="canvas-wrap"><svg id="timeline" width="100%" height="220" role="img" aria-label="Milestone timeline"></svg><ul id="timelineSummary" class="note"></ul></div>
+            <div class="chips" style="margin-top:6px">
+              <span class="chip">Planned ●</span>
+              <span class="chip">Forecast ◆</span>
+              <span class="chip">Actual ▲</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Funding vs Baseline/Forecast/Actual</h3>
+            <div class="canvas-wrap"><canvas id="fundingChart" width="560" height="240" role="img" aria-label="Funding comparison; values are listed below"></canvas><p id="fundingSummary" class="note"></p></div>
+            <div class="small muted">Compares amounts only where the currency matches the baseline. The budget comparison assumes the CAPEX lines cover the whole baseline; partial years are not proof of a funding shortfall. No currency conversion is performed.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Codelists -->
+      <section id="codelists" class="section">
+        <h2>Codelists</h2>
+        <div class="row small">
+          <label>Filter: <input id="codeFilter" placeholder="type to filter…" class="small" style="width:220px"/></label>
+        </div>
+        <div class="grid cols-3" style="margin-top:10px">
+          <div class="card">
+            <h3>DeliveryPhase</h3>
+            <div id="listPhase" class="chips"></div>
+          </div>
+          <div class="card">
+            <h3>ApprovalStage</h3>
+            <div id="listStage" class="chips"></div>
+          </div>
+          <div class="card">
+            <h3>RAG</h3>
+            <div id="listRag" class="chips"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Provenance -->
+      <section id="provenance" class="section">
+        <h2>Declared provenance</h2>
+        <div class="svgwrap">
+          <svg id="provGraph" width="100%" height="260" role="img" aria-label="Declared provenance graph; full values are listed below"></svg>
+        </div>
+        <ul id="provenanceSummary" class="note"></ul>
+        <div class="note">Shows actors and systems declared in <code class="inline">project.provenance</code> and the <code class="inline">was_derived_from</code> link. These are assertions in the payload, not independently verified lineage.</div>
+      </section>
+
+      <!-- Report -->
+      <section id="report" class="section">
+        <div class="row">
+          <h2>Export report</h2>
+          <button class="btn" id="btnExport" disabled>Download JSON report</button>
+          <div class="small muted right" id="exportStatus">—</div>
+        </div>
+        <pre class="hl slim" id="reportPreview" aria-label="Report preview">(validate to populate)</pre>
+      </section>
+
+      <div class="foot">Illustrative rules and fictional example data. Nothing is uploaded or saved between visits; download any report you want to keep.</div>
+    </main>
+  </div>
+
+  <script src="./model.js"></script>
+  <script>
+    /***********************
+     * Sample payload (generic PDS) — edit to taste
+     ***********************/
+    const SAMPLE = {
+      "pds_version": "0.1.0",
+      "project": {
+        "id": "urn:pds:project:123e4567-e89b-12d3-a456-426614174000",
+        "external_ids": [{ "scheme": "GMPP", "id": "MP-0421" }],
+        "name": "Fictional Northern Spine Corridor Upgrade",
+        "description": "Multi-year upgrade of the Northern Spine arterial route, improving resilience and journey time reliability.",
+        "security_classification": "OFFICIAL",
+        "sponsor_department": "Example Transport Sponsor",
+        "owner_org": "Example Roads Authority",
+        "programme_id": "urn:pds:programme:9f1e2d7a-4b0b-4a12-bc17-2a5e3a6bc111",
+        "sector": "Transport",
+        "sub_sector": "Highways",
+        "wbs_code": "1.0",
+        "delivery_phase": "Delivery",
+        "approvals": [
+          {"stage": "SOC", "status": "Approved", "decision_date": "2023-02-14"},
+          {"stage": "OBC", "status": "Approved", "decision_date": "2024-11-21"}
+        ],
+        "dates": {"start_planned": "2024-10-01","finish_planned": "2028-03-31","start_actual":"2024-10-15"},
+        "baseline": {"cost": {"capex": {"amount": 1250000000, "currency": "GBP"}, "opex": {"amount": 15000000, "currency": "GBP"}}},
+        "forecast": {"cost": {"capex": {"amount": 1295000000, "currency": "GBP"}, "opex": {"amount": 16000000, "currency": "GBP"}}},
+        "actuals": {"cost": {"capex": {"amount": 175000000, "currency": "GBP"}, "opex": {"amount": 3000000, "currency": "GBP"}}},
+        "rag_overall": "AMBER",
+        "rag_cost": "AMBER_GREEN",
+        "rag_schedule": "AMBER_RED",
+        "risk_exposure": {"p50": 65000000, "p80": 120000000},
+        "milestones": [
+          {"id":"MS-001","name":"OJEU Notice","is_gate":false,"planned_date":"2025-01-10","forecast_date":"2025-01-31","status":"Forecast"},
+          {"id":"MS-002","name":"Section A Substantial Completion","is_gate":false,"planned_date":"2026-12-01"}
+        ],
+        "funding_lines": [
+          {"id":"FL-2025-CAPEX","category":"CAPEX","funding_source":"HMT","fiscal_year":"2025/26","budgeted":{"amount":320000000,"currency":"GBP"},"forecast":{"amount":340000000,"currency":"GBP"},"actual":{"amount":150000000,"currency":"GBP"}},
+          {"id":"FL-2026-CAPEX","category":"CAPEX","funding_source":"HMT","fiscal_year":"2026/27","budgeted":{"amount":410000000,"currency":"GBP"}}
+        ],
+        "contracts": [{"id":"CON-1","ocds_ocid":"ocds-0c46vo-0001-000001","uri":"https://contracts.example/ocds/ocds-0c46vo-0001-000001","supplier_name":"ABC Infrastructure JV"}],
+        "locations": [{"name":"Section A","gss_code":"E08000003","geometry":{"type":"Point","coordinates":[-2.24,53.48]}}],
+        "documents": [{"uri":"https://docs.example/soc.pdf","title":"SOC","category":"BusinessCase"}],
+        "provenance": {
+          "created_at": "2025-01-20T10:45:00Z",
+          "created_by": "pm@owner-org.example",
+          "last_modified_at": "2025-10-15T08:10:00Z",
+          "last_modified_by": "pmo@central-data-office.example",
+          "source_system": "Primavera P6",
+          "was_derived_from": "https://primavera.example/projects/NSCU",
+          "method": "Automated ETL + PMO review"
+        }
+      }
+    };
+
+    /***********************
+     * Codelists (keep in step with your spec)
+     ***********************/
+    const {CODELISTS, parseDate, validatePDS} = ProjectDataChecks;
+    const $ = sel => document.querySelector(sel);
+    const nowISO = () => new Date().toISOString();
+    const fmt = n => Number.isFinite(n) ? new Intl.NumberFormat('en-GB', {maximumFractionDigits: 2}).format(n) : '—';
+    function setPill(ok, warn, message) {
+      const pill = $('#statusPill');
+      pill.className = 'pill ' + (ok ? 'ok' : warn ? 'warn' : 'err');
+      pill.textContent = message;
+    }
+
+    /***********************
+     * UI Wiring
+     ***********************/
+    function populateCodelists(filter=""){
+      function fill(id, arr){
+        const el = $(id); el.innerHTML="";
+        for(const item of arr){
+          if(filter && !item.toLowerCase().includes(filter.toLowerCase())) continue;
+          const span=document.createElement("span"); span.className="chip"; span.textContent=item; el.appendChild(span);
+        }
+      }
+      fill("#listPhase", CODELISTS.DeliveryPhase);
+      fill("#listStage", CODELISTS.ApprovalStage);
+      fill("#listRag", CODELISTS.RAG);
+    }
+
+    function drawTimeline(project){
+      const svg=$("#timeline"); svg.innerHTML="";
+      const summary = $('#timelineSummary'); summary.replaceChildren();
+      const milestones = project.milestones || [];
+      const allDates = [project.dates.start_planned, project.dates.finish_planned, ...milestones.flatMap(m => [m.planned_date, m.forecast_date, m.actual_date])].map(parseDate).filter(Boolean);
+      for (const milestone of milestones) {
+        const li = document.createElement('li');
+        li.textContent = [milestone.id || 'Unnamed milestone', milestone.name || '', ...['planned_date','forecast_date','actual_date'].filter(k => milestone[k] !== undefined).map(k => k.replace('_date','') + ': ' + milestone[k])].join(' · ');
+        summary.appendChild(li);
+      }
+      if (!allDates.length) { svg.setAttribute('height', '80'); return; }
+      const width = Math.max(svg.clientWidth || 600, 520), height = Math.max(200, milestones.length * 42 + 90), pad = 60;
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`); svg.setAttribute('height', height);
+      const start = new Date(Math.min(...allDates)), end = new Date(Math.max(...allDates));
+      const span = end - start || 86400000;
+      // axis
+      const axis=document.createElementNS("http://www.w3.org/2000/svg","line");
+      axis.setAttribute("x1", pad); axis.setAttribute("x2", width-pad);
+      axis.setAttribute("y1", height-40); axis.setAttribute("y2", height-40);
+      axis.setAttribute("stroke","#698073"); axis.setAttribute("stroke-width","2");
+      svg.appendChild(axis);
+      // ticks
+      function tickAt(dt,label){
+        const x=pad + ( (dt-start)/span ) * (width-2*pad);
+        const g=document.createElementNS(svg.namespaceURI,"g");
+        const l=document.createElementNS(svg.namespaceURI,"line");
+        l.setAttribute("x1",x); l.setAttribute("x2",x);
+        l.setAttribute("y1",height-40); l.setAttribute("y2",height-34);
+        l.setAttribute("stroke","#698073");
+        const t=document.createElementNS(svg.namespaceURI,"text");
+        t.setAttribute("x",x); t.setAttribute("y",height-16);
+        t.setAttribute("fill","#53655a"); t.setAttribute("font-size","11"); t.setAttribute("text-anchor","middle");
+        t.textContent=label; g.appendChild(l); g.appendChild(t); svg.appendChild(g);
+      }
+      tickAt(start, start.toISOString().slice(0,10)); tickAt(end, end.toISOString().slice(0,10));
+
+      // milestones
+      let y=40;
+      for(const m of project.milestones||[]){
+        const rowY=y; y+=42;
+        const pd=parseDate(m.planned_date), fd=parseDate(m.forecast_date), ad=parseDate(m.actual_date);
+        const name=document.createElementNS(svg.namespaceURI,"text");
+        name.setAttribute("x", 10); name.setAttribute("y", rowY-11);
+        name.setAttribute("fill","#263d33"); name.setAttribute("font-size","12"); name.textContent=(m.id? m.id+": ":"")+m.name;
+        svg.appendChild(name);
+        function mark(dt, shape, fill){
+          if(!dt) return;
+          const x=pad + ((dt-start)/span)*(width-2*pad);
+          if(shape==="circle"){
+            const c=document.createElementNS(svg.namespaceURI,"circle");
+            c.setAttribute("cx",x); c.setAttribute("cy", rowY);
+            c.setAttribute("r","4"); c.setAttribute("fill",fill);
+            svg.appendChild(c);
+          }else if(shape==="diamond"){
+            const d=document.createElementNS(svg.namespaceURI,"rect");
+            d.setAttribute("x",x-4); d.setAttribute("y",rowY-4);
+            d.setAttribute("width","8"); d.setAttribute("height","8");
+            d.setAttribute("fill",fill); d.setAttribute("transform",`rotate(45 ${x} ${rowY})`);
+            svg.appendChild(d);
+          }else if(shape==="triangle"){
+            const tri=document.createElementNS(svg.namespaceURI,"polygon");
+            const pts=`${x},${rowY-5} ${x-5},${rowY+5} ${x+5},${rowY+5}`;
+            tri.setAttribute("points",pts); tri.setAttribute("fill",fill); svg.appendChild(tri);
+          }
+        }
+        mark(pd,"circle","#377460");   // planned ●
+        mark(fd,"diamond","#285f8a");  // forecast ◆
+        mark(ad,"triangle","#a05b15"); // actual ▲
+      }
+    }
+
+    function drawFundingChart(project, funding) {
+      const c = $('#fundingChart'), ctx = c.getContext('2d');
+      ctx.clearRect(0, 0, c.width, c.height);
+      const isRecord = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+      const validCurrency = value => typeof value === 'string' && /^[A-Z]{3}$/.test(value);
+      const validMoney = value => isRecord(value) && Number.isFinite(value.amount) && value.amount >= 0 && validCurrency(value.currency);
+      const capex = key => isRecord(project) && isRecord(project[key]) && isRecord(project[key].cost) ? project[key].cost.capex : null;
+      const baseline = capex('baseline');
+      const currency = validMoney(baseline) ? baseline.currency : null;
+      const comparable = value => currency && validMoney(value) && value.currency === currency ? value.amount : null;
+      const budget = currency && isRecord(funding) && Number.isFinite(funding.total) && funding.total >= 0 && funding.currency === currency ? funding.total : null;
+      const values = [comparable(baseline), comparable(capex('forecast')), comparable(capex('actuals')), budget];
+      const labels = ['Baseline', 'Forecast total', 'Spend to date', 'CAPEX budgets'];
+      const message = labels.map((label, i) => label + ': ' + (values[i] === null ? 'not comparable' : fmt(values[i]) + ' ' + currency)).join('; ');
+      $('#fundingSummary').textContent = message + '. ' + (budget !== null ? funding.within ? 'Budget sum within selected tolerance.' : 'Budget sum outside selected tolerance; check year coverage.' : 'Budget comparison unavailable.');
+      const max = Math.max(...values.filter(v => v !== null), 1);
+      const base = c.height - 42;
+      values.forEach((value, i) => {
+        const x = 24 + i * 135, h = value === null ? 0 : value / max * 140;
+        ctx.fillStyle = '#377460'; ctx.fillRect(x, base - h, 92, h);
+        ctx.fillStyle = '#253b33'; ctx.font = '11px system-ui';
+        ctx.fillText(labels[i], x, base + 18); ctx.fillText(fmt(value), x, base - h - 8);
+      });
+    }
+
+    function drawProvenance(project){
+      const svg=$("#provGraph"); svg.innerHTML="";
+      const summary = $('#provenanceSummary'); summary.replaceChildren();
+      for (const key of ['source_system','created_by','last_modified_by','was_derived_from']) {
+        const item = document.createElement('li'); item.textContent = key.replaceAll('_', ' ') + ': ' + (project.provenance[key] || '—'); summary.appendChild(item);
+      }
+      const ns="http://www.w3.org/2000/svg";
+      svg.setAttribute("viewBox", "0 0 830 240");
+      function box(x,y,w,h,text,sub,fill="#eef2e6"){
+        const g=document.createElementNS(ns,"g");
+        const r=document.createElementNS(ns,"rect");
+        r.setAttribute("x",x); r.setAttribute("y",y); r.setAttribute("width",w); r.setAttribute("height",h);
+        r.setAttribute("rx","8"); r.setAttribute("fill",fill); r.setAttribute("stroke","#ccd4c5");
+        const t=document.createElementNS(ns,"text");
+        t.setAttribute("x",x+10); t.setAttribute("y",y+20); t.setAttribute("fill","#263d33"); t.setAttribute("font-size","12");
+        t.textContent=text;
+        const s=document.createElementNS(ns,"text");
+        s.setAttribute("x",x+10); s.setAttribute("y",y+38); s.setAttribute("fill","#53655a"); s.setAttribute("font-size","11");
+        const full = String(sub || ''); s.textContent = full.length > 32 ? full.slice(0, 29) + '…' : full;
+        const title = document.createElementNS(ns, 'title'); title.textContent = text + ': ' + full; g.appendChild(title);
+        g.appendChild(r); g.appendChild(t); g.appendChild(s); svg.appendChild(g);
+        return {x,y,w,h};
+      }
+      function arrow(x1,y1,x2,y2,label){
+        const l=document.createElementNS(ns,"line");
+        l.setAttribute("x1",x1); l.setAttribute("y1",y1); l.setAttribute("x2",x2); l.setAttribute("y2",y2);
+        l.setAttribute("stroke","#698073"); l.setAttribute("marker-end","url(#arrow)");
+        svg.appendChild(l);
+        if(label){
+          const t=document.createElementNS(ns,"text");
+          t.setAttribute("x",(x1+x2)/2); t.setAttribute("y",(y1+y2)/2 - 6);
+          t.setAttribute("fill","#53655a"); t.setAttribute("font-size","11"); t.setAttribute("text-anchor","middle");
+          t.textContent=label; svg.appendChild(t);
+        }
+      }
+      // marker
+      const defs=document.createElementNS(ns,"defs");
+      const marker=document.createElementNS(ns,"marker");
+      marker.setAttribute("id","arrow"); marker.setAttribute("viewBox","0 0 10 10");
+      marker.setAttribute("refX","6"); marker.setAttribute("refY","5"); marker.setAttribute("markerWidth","6");
+      marker.setAttribute("markerHeight","6"); marker.setAttribute("orient","auto-start-reverse");
+      const tri=document.createElementNS(ns,"path"); tri.setAttribute("d","M 0 0 L 10 5 L 0 10 z"); tri.setAttribute("fill","#698073");
+      marker.appendChild(tri); defs.appendChild(marker); svg.appendChild(defs);
+
+      const proj = box(24, 20, 260, 60, "Project", (project?.name||"—")+"  ("+(project?.id||"—")+")", "#e2ebd8");
+      const src  = box(24, 120, 260, 60, "Source system", project?.provenance?.source_system || "—");
+      const creator = box(320, 20, 220, 60, "Created by", project?.provenance?.created_by || "—");
+      const editor  = box(320, 120, 220, 60, "Last modified by", project?.provenance?.last_modified_by || "—");
+      const derived = box(570, 70, 230, 60, "Derived from", project?.provenance?.was_derived_from || "—");
+
+      arrow(proj.x+130, proj.y+60, src.x+130, src.y, "source system");
+      arrow(proj.x+260, proj.y+30, creator.x, creator.y+30, "created by");
+      arrow(proj.x+260, proj.y+50, editor.x, editor.y+30, "modified by");
+      arrow(proj.x+260, proj.y+40, derived.x, derived.y+30, "derived from");
+    }
+
+    function applyResults(payload, res){
+      // Status pill
+      const hasErr = res.violations.some(v=>v.severity==="error");
+      const hasWarn = res.violations.some(v=>v.severity==="warning");
+      setPill(!hasErr && !hasWarn, hasWarn && !hasErr, hasErr? "Issues found" : hasWarn? "Warnings" : "Example checks passed");
+      $("#lastRun").textContent = new Date().toLocaleString();
+
+      // Scores
+      $("#scoreOverall").textContent = res.scores.overall ?? '—';
+      $("#scoreCompl").textContent = res.scores.completeness ?? '—';
+      $("#scoreValid").textContent = res.scores.validity ?? '—';
+      $("#scoreCons").textContent  = res.scores.consistency ?? '—';
+      $("#scoreTime").textContent  = res.scores.timeliness ?? '—';
+      $("#scoreUnique").textContent= res.scores.uniqueness ?? '—';
+      $("#barOverall").style.width = res.scores.overall+"%";
+
+      // Header
+      const p = res.project;
+      $("#outId").textContent = p.id || "—";
+      $("#outName").textContent = p.name || "—";
+      $("#outPhase").textContent = p.delivery_phase || "—";
+      $("#outOwner").textContent = p.owner_org || "—";
+      $("#outRag").textContent = p.rag_overall || "—";
+
+      // Violations table
+      const tbody=$("#violationsTable tbody"); tbody.innerHTML="";
+      if(res.violations.length===0){
+        const tr=document.createElement("tr");
+        tr.innerHTML="<td colspan='3' class='muted'>No violations</td>"; tbody.appendChild(tr);
+      } else {
+        for(const v of res.violations){
+          const tr=document.createElement("tr");
+          const ruleTd=document.createElement("td");
+          ruleTd.className="mono";
+          ruleTd.textContent = v.rule ?? "";
+
+          const severityTd=document.createElement("td");
+          severityTd.className = v.severity==="error" ? "danger" : (v.severity==="warning" ? "muted" : "");
+          severityTd.textContent = v.severity ?? "";
+
+          const messageTd=document.createElement("td");
+          messageTd.textContent = v.message ?? "";
+
+          tr.append(ruleTd, severityTd, messageTd);
+          tbody.appendChild(tr);
+        }
+      }
+
+      // Visuals
+      drawTimeline(p);
+      drawFundingChart(p, res.funding);
+      drawProvenance(p);
+
+      // Report preview
+      const report = {
+        generated_at: nowISO(),
+        schema_note: "Illustrative example rules; not official PDS conformance",
+        example_schema_version: payload?.pds_version || "unknown",
+        assessed_options: res.options,
+        checks: res.checks,
+        project_id: p.id || null,
+        name: p.name || null,
+        owner_org: p.owner_org || null,
+        delivery_phase: p.delivery_phase || null,
+        rag_overall: p.rag_overall || null,
+        scores: res.scores,
+        violations: res.violations
+      };
+      $("#reportPreview").textContent = JSON.stringify(report, null, 2);
+      return report;
+    }
+
+    /***********************
+     * Events
+     ***********************/
+    function invalidateResults(message = 'Input changed — validate again') {
+      window._latestReport = null; $('#btnExport').disabled = true;
+      $('#reportPreview').textContent = '(validate current input to populate)';
+      $('#exportStatus').textContent = 'No current report'; $('#lastRun').textContent = '—';
+      ['scoreOverall','scoreCompl','scoreValid','scoreCons','scoreTime','scoreUnique','outId','outName','outPhase','outOwner','outRag'].forEach(id => $('#' + id).textContent = '—');
+      $('#barOverall').style.width = '0%'; $('#violationsTable tbody').replaceChildren();
+      $('#timeline').replaceChildren(); $('#timelineSummary').replaceChildren(); $('#provGraph').replaceChildren(); $('#provenanceSummary').replaceChildren();
+      $('#fundingChart').getContext('2d').clearRect(0, 0, 560, 240); $('#fundingSummary').textContent = '';
+      setPill(false, true, message);
+    }
+    $('#btnLoad').addEventListener('click', () => { $('#payload').value = JSON.stringify(SAMPLE, null, 2); invalidateResults('Example loaded — validate to inspect it'); });
+    ['payload','slaDays','tolerance'].forEach(id => $('#' + id).addEventListener('input', () => invalidateResults()));
+    $('#btnValidate').addEventListener('click', () => {
+      invalidateResults();
+      try {
+        if (!$('#slaDays').checkValidity() || !$('#tolerance').checkValidity() || $('#slaDays').value.trim() === '' || $('#tolerance').value.trim() === '') throw new Error('Enter an SLA of at least 1 day and a tolerance between 0 and 0.2.');
+        const payload = JSON.parse($('#payload').value);
+        const result = validatePDS(payload, {slaDays: Number($('#slaDays').value), tolerance: Number($('#tolerance').value)});
+        const report = applyResults(payload, result);
+        window._latestReport = report; $('#btnExport').disabled = false;
+        $('#exportStatus').textContent = 'Current checked input is ready to download';
+      } catch (error) {
+        invalidateResults('Cannot check this input');
+        const tr = document.createElement('tr'), td = document.createElement('td');
+        td.colSpan = 3; td.textContent = error.message; tr.appendChild(td); $('#violationsTable tbody').appendChild(tr);
+      }
+    });
+    $('#codeFilter').addEventListener('input', event => populateCodelists(event.target.value));
+    $('#btnExport').addEventListener('click', () => {
+      if (!window._latestReport) return;
+      const blob = new Blob([JSON.stringify(window._latestReport, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob), link = document.createElement('a');
+      link.href = url; link.download = 'project-data-check-report.json'; document.body.appendChild(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      $('#exportStatus').textContent = 'Download requested for the current checked input';
+    });
+
+    // Initial render
+    populateCodelists();
+    $("#payload").value = JSON.stringify(SAMPLE, null, 2);
+  </script>
+</body>
+</html>

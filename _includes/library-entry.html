@@ -39,7 +39,7 @@
     </div>
   </details>
   {% elsif entry.kind == 'app' %}
-  <details class="foray-details"><summary>What to try &amp; what it leaves out</summary><div class="foray-detail-body"><p><strong>Try.</strong> {{ entry.try_this | escape }}</p><p><strong>Limits.</strong> {{ entry.limitation | escape }}</p><p>Earlier example, repaired and reviewed {{ entry.reviewed }}. This review checks the stated model and interactions; it does not establish usefulness in practice.</p><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/tools/library-apps/apps/{{ entry.id }}">Editable source</a></div></details>
+  <details class="foray-details"><summary>What to try &amp; what it leaves out</summary><div class="foray-detail-body"><p><strong>Try.</strong> {{ entry.try_this | escape }}</p><p><strong>Limits.</strong> {{ entry.limitation | escape }}</p><p>Earlier example, repaired and reviewed {{ entry.reviewed }}. This review checks the stated model and interactions; it does not establish usefulness in practice.</p><a href="{% if entry.source_url %}{{ entry.source_url | escape }}{% else %}https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/tools/library-apps/apps/{{ entry.id }}{% endif %}">Editable source</a></div></details>
   {% elsif entry.limitation %}
   <details class="foray-details"><summary>What this example leaves open</summary><div class="foray-detail-body"><p>{{ entry.limitation | escape }}</p></div></details>
   {% endif %}

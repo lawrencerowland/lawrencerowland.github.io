@@ -1,10 +1,10 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..'),site=process.argv[2]?path.resolve(process.argv[2]):root;
 const read=p=>fs.readFileSync(path.join(root,p),'utf8'),served=p=>fs.readFileSync(path.join(site,p),'utf8');
-const apps=JSON.parse(read('_data/library_apps.json')),themes=JSON.parse(read('_data/library_themes.json'));
+const apps=JSON.parse(read('_data/library_apps.json')).filter(app=>app.build!=='static'),themes=JSON.parse(read('_data/library_themes.json'));
 assert.equal(apps.length,16);assert.equal(themes.length,5);
 assert.equal(new Set(apps.map(a=>a.id)).size,16);
-const manifest=JSON.parse(read('assets/data/library-apps.json'));
+const manifest=JSON.parse(read('assets/data/library-apps.json')).filter(app=>app.repo==='React_proj-apps');
 assert.deepEqual(manifest.map(a=>a.name),apps.map(a=>a.id));
 for(const app of apps){
  const theme=themes.find(t=>t.id===app.theme);assert.ok(theme);
