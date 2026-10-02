@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Projects
+title: Experiments in how projects work
 description: Independent experiments and examples exploring project and programme questions.
 schema_type: CollectionPage
 tags: [SideProjects, Examples]
@@ -9,7 +9,7 @@ wide: true
 
 <div class="foray-directory" id="foray-directory">
   <header class="foray-intro" id="browse-projects">
-    <div><h1>Projects</h1><p>Small project scenarios for exploring how work, resources and decisions fit together.</p></div>
+    <div><h1>Experiments in how projects work</h1><p>Small project scenarios for exploring how work, resources and decisions fit together.</p></div>
     <nav class="foray-sections" aria-label="More ways to explore">
       <a href="#compare-approaches">Compare approaches <span aria-hidden="true">↗</span></a>
     </nav>

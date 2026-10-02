@@ -112,7 +112,7 @@ if (process.argv[2]) {
   assert.equal((html.match(/class="foray-grid"/g) || []).length, 1);
   assert.equal((html.match(/class="foray-group"/g) || []).length, 1);
   assert.equal((html.match(/class="foray-empty"/g) || []).length, 1);
-  assert.match(html, /<h1>Projects<\/h1>/);
+  assert.match(html, /<h1>Experiments in how projects work<\/h1>/);
   assert.ok(!/Gimmer experiment suites|Featured projects|Playgrounds &amp; libraries|Other side projects/.test(html));
   const escapeHTML = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   for (const q of questions) {
