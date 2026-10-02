@@ -40,6 +40,7 @@ on:
       - 'gpt-links-page.md'
       - 'wider-interest/**'
       - 'tests/navigation-compatibility.test.cjs'
+      - 'tests/*migration*.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -103,6 +104,7 @@ on:
       - 'gpt-links-page.md'
       - 'wider-interest/**'
       - 'tests/navigation-compatibility.test.cjs'
+      - 'tests/*migration*.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -155,6 +157,13 @@ jobs:
           node tests/hs2-route.test.cjs
           node tests/library-housekeeping.test.cjs
           node tests/library-flat-subjects.test.cjs
+      - name: Check ten migrated Library examples
+        run: |
+          node --test tests/decision-app-migration.test.cjs
+          node --test tests/schedule-app-migration.test.cjs
+          node --test tests/capability-app-migration.test.cjs
+          node tests/stakeholder-migration.test.cjs
+          node tests/ten-library-migration.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
@@ -215,6 +224,8 @@ jobs:
         run: node tests/visual-explorer.test.cjs _site
       - name: Check rendered Library app routes
         run: node tests/library-app-retirement.test.cjs _site
+      - name: Check rendered destinations for the ten migrated examples
+        run: node tests/ten-library-migration.test.cjs _site
       - name: Save the built site for preview
         uses: actions/upload-artifact@v4
         with:

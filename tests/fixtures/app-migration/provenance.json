@@ -31,5 +31,23 @@
       "fixture": "React_proj-apps-after.csv",
       "rows": 16
     }
+  },
+  "library_migration": {
+    "date": "2026-10-02",
+    "source_commit": "fa5a4a4819c8c5d25b413c7d1f3219aac2e81fc2",
+    "before_rows": 60,
+    "after_rows": 50,
+    "removed_names": [
+      "intro_risk_matrix",
+      "weighted-decision-matrix",
+      "eisenhower-matrix",
+      "decision-latency",
+      "critical-path-spotter",
+      "hs2_WBS_to_PBS",
+      "Project_Data_standard_example",
+      "white_space_analysis",
+      "service_trident",
+      "stakeholder-mapper"
+    ]
   }
 }
