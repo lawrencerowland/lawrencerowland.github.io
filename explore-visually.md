@@ -9,7 +9,7 @@ home_front_door: true
 
 <div class="pw-home viz-explorer" id="home-main" tabindex="-1" data-baseurl="{{ site.baseurl | escape }}">
   <header class="viz-heading">
-    <a class="viz-return" href="{{ '/library.html' | relative_url }}">← Library</a>
+    <a class="viz-return" href="{{ '/library.html' | relative_url }}#home-main">← Back to Library</a>
     <h1>Explore visually.</h1>
     <p>Find a picture that helps you think. Hover or focus for a hint; open it to explore the original example.</p>
     <p class="viz-note">A first selection of {{ site.data.visualisations | size }} views from across the published work, including earlier examples. More to come.</p>
@@ -24,7 +24,6 @@ home_front_door: true
     </a>
     {% endfor %}
   </div>
-  <p class="viz-footnote">These are saved views of the examples, not live models in miniature. Open an interactive example to change its inputs. Inclusion here does not mean that an older model has received a new technical review.</p>
 
   <dialog class="viz-dialog" id="viz-dialog" aria-labelledby="viz-detail-title">
     <div class="viz-dialog-top"><p id="viz-position" aria-live="polite"></p><button type="button" id="viz-close" aria-label="Close preview" autofocus>Close <span aria-hidden="true">×</span></button></div>

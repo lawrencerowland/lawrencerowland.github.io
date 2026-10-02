@@ -23,6 +23,13 @@ tags: [Projects, Experiments, Models, IndependentResearch]
     </figure>
   </section>
 
+  <section class="viz-library-entry" aria-labelledby="visual-explorer-title">
+    <a href="{{ '/explore-visually.html' | relative_url }}" class="viz-library-link">
+      <img src="{{ '/images/visual-explorer/mosaic-invitation.svg' | relative_url }}" alt="" width="976" height="216" loading="lazy" decoding="async">
+      <strong id="visual-explorer-title">Explore visually →</strong>
+    </a>
+  </section>
+
   <section class="pw-home-questions" id="start-a-question" aria-labelledby="questions-title">
     <div class="pw-home-section-head"><div><p class="pw-home-kicker">Three places to start</p><h2 id="questions-title">Follow a question into a project.</h2></div><p>Change a condition, compare a choice, or follow a connection. Each enquiry makes a different part of project work visible.</p></div>
     <div class="pw-home-question-grid">

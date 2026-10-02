@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 976 216" width="976" height="216" role="img" aria-labelledby="title desc">
+  <title id="title">A mosaic of visual possibilities</title>
+  <desc id="desc">Fourteen decorative tiles of networks, flowing wires, triangles, processes, forests and geometric models.</desc>
+  <defs>
+    <rect id="tile" width="128" height="84" rx="8"/>
+  </defs>
+  <g stroke="#c9d2c1" stroke-width="1">
+    <use href="#tile" x="16" y="16" fill="#fcfaf3"/>
+    <use href="#tile" x="152" y="16" fill="#e2e8dc"/>
+    <use href="#tile" x="288" y="16" fill="#f1e7d0"/>
+    <use href="#tile" x="424" y="16" fill="#fcfaf3"/>
+    <use href="#tile" x="560" y="16" fill="#d5e0d0"/>
+    <use href="#tile" x="696" y="16" fill="#fcfaf3"/>
+    <use href="#tile" x="832" y="16" fill="#e7e9e0"/>
+    <use href="#tile" x="16" y="116" fill="#e2e8dc"/>
+    <use href="#tile" x="152" y="116" fill="#fcfaf3"/>
+    <use href="#tile" x="288" y="116" fill="#d5e0d0"/>
+    <use href="#tile" x="424" y="116" fill="#e7e9e0"/>
+    <use href="#tile" x="560" y="116" fill="#fcfaf3"/>
+    <use href="#tile" x="696" y="116" fill="#f1e7d0"/>
+    <use href="#tile" x="832" y="116" fill="#fcfaf3"/>
+  </g>
+  <g fill="none" stroke="#496954" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(16 16)">
+      <path d="M24 24 64 15 105 37 85 66 38 62 24 24 85 66M38 62 64 15 105 37 38 62"/>
+      <g fill="#fcfaf3"><circle cx="24" cy="24" r="6"/><circle cx="64" cy="15" r="6"/><circle cx="105" cy="37" r="6"/><circle cx="38" cy="62" r="6"/></g>
+      <circle cx="85" cy="66" r="7" fill="#c5a15c" stroke="#a68140"/>
+    </g>
+    <g transform="translate(152 16)">
+      <path d="M14 20H41C65 20 59 64 86 64H114M14 64H41C65 64 59 20 86 20H114" stroke-width="4"/>
+      <path d="M14 42H114" stroke="#a68140" stroke-width="4"/>
+      <g fill="#fcfaf3"><circle cx="14" cy="20" r="3"/><circle cx="14" cy="42" r="3"/><circle cx="14" cy="64" r="3"/><circle cx="114" cy="20" r="3"/><circle cx="114" cy="42" r="3"/><circle cx="114" cy="64" r="3"/></g>
+    </g>
+    <g transform="translate(288 16)">
+      <path d="m22 64 42-48 43 48ZM43 40H85L64 64Z" fill="#dfd2b1"/>
+      <path d="m64 16 0 48M22 64 63 40 107 64" stroke="#a68140"/>
+      <g fill="#fcfaf3" stroke="#a68140"><circle cx="64" cy="16" r="4"/><circle cx="22" cy="64" r="4"/><circle cx="107" cy="64" r="4"/></g>
+    </g>
+    <g transform="translate(424 16)">
+      <path d="M20 42H50M78 42H108M64 27V17H94V27M64 57V68H32V56"/>
+      <circle cx="20" cy="42" r="8" fill="#e2e8dc"/>
+      <rect x="50" y="28" width="28" height="28" rx="3" fill="#b4c7ac"/>
+      <circle cx="108" cy="42" r="8" fill="#f1e7d0" stroke="#a68140"/>
+    </g>
+    <g transform="translate(560 16)">
+      <path d="M13 70C40 59 67 65 115 54" stroke="#96af8e"/>
+      <path d="M32 35V66M61 19V64M91 31V62"/>
+      <path d="m19 47 13-25 13 25Zm26-8 16-29 16 29ZM77 45l14-25 14 25Z" fill="#496954" stroke="none"/>
+      <path d="m23 54 9-18 9 18Zm26-7 12-23 12 23Zm33 6 9-18 9 18Z" fill="#78976e" stroke="none"/>
+      <circle cx="109" cy="16" r="6" fill="#d0b373" stroke="none"/>
+    </g>
+    <g transform="translate(696 16)">
+      <path d="M20 15V66H109" stroke="#b2bfa9"/>
+      <path d="M27 59C43 57 40 28 65 28S81 18 101 18" stroke-width="3"/>
+      <path d="M30 65V51H48V40H69V34H88V24H106" stroke="#c0a064"/>
+      <circle cx="65" cy="28" r="5" fill="#496954"/>
+      <circle cx="88" cy="34" r="4" fill="#c0a064" stroke="none"/>
+    </g>
+    <g transform="translate(832 16)">
+      <path d="M14 23H114M14 43H114M14 63H114" stroke="#c5cfbc"/>
+      <rect x="19" y="16" width="31" height="13" rx="3" fill="#6d8c65" stroke="none"/>
+      <rect x="42" y="36" width="41" height="13" rx="3" fill="#c0a064" stroke="none"/>
+      <rect x="77" y="56" width="29" height="13" rx="3" fill="#8ba17e" stroke="none"/>
+      <path d="M50 23H62V35M83 43H92V55"/>
+    </g>
+    <g transform="translate(16 116)">
+      <path d="M15 17H62V69H15ZM74 17H113V69H74Z" stroke="#a9bda0" stroke-dasharray="4 5"/>
+      <path d="M28 30 50 44 28 58M50 44H86L100 30M86 44 100 58"/>
+      <g fill="#fcfaf3"><circle cx="28" cy="30" r="5"/><circle cx="28" cy="58" r="5"/><circle cx="50" cy="44" r="6"/><circle cx="100" cy="30" r="5"/><circle cx="100" cy="58" r="5"/></g>
+      <circle cx="86" cy="44" r="6" fill="#c5a15c" stroke="#a68140"/>
+    </g>
+    <g transform="translate(152 116)">
+      <path d="M13 64C26 45 45 62 57 44S86 37 114 19M13 49C29 27 43 46 59 26S87 24 109 13" stroke="#a5b799"/>
+      <path d="M17 71C34 59 50 76 68 56S96 55 115 37" stroke="#c6b180"/>
+      <path d="M32 14C52 23 32 46 54 56S78 61 80 75" stroke="#6e8b85" stroke-width="3"/>
+      <circle cx="54" cy="56" r="5" fill="#fcfaf3"/>
+    </g>
+    <g transform="translate(288 116)">
+      <circle cx="64" cy="42" r="27" fill="#e5ebdf"/>
+      <path d="M37 42H91M64 15V69M44 24 84 60M44 60 84 24" stroke="#8fa684"/>
+      <circle cx="64" cy="42" r="12" fill="#496954"/>
+      <circle cx="64" cy="15" r="5" fill="#c5a15c" stroke="#a68140"/>
+      <circle cx="37" cy="42" r="5" fill="#fcfaf3"/>
+      <circle cx="84" cy="60" r="5" fill="#fcfaf3"/>
+    </g>
+    <g transform="translate(424 116)">
+      <path d="m22 66 42-52 42 52ZM43 40H85M22 66 85 40M43 40 106 66M64 14V66"/>
+      <path d="M17 70H111" stroke="#a9b79f"/>
+      <g fill="#c5a15c" stroke="none"><circle cx="64" cy="14" r="5"/><circle cx="43" cy="40" r="4"/><circle cx="85" cy="40" r="4"/><circle cx="64" cy="66" r="4"/></g>
+    </g>
+    <g transform="translate(560 116)">
+      <path d="M20 42H48V21H78M48 42V64H78M78 21H105M78 64H105"/>
+      <path d="M78 21V42H105" stroke="#b18e4d"/>
+      <circle cx="20" cy="42" r="8" fill="#d5e0d0"/>
+      <g fill="#fcfaf3"><circle cx="78" cy="21" r="5"/><circle cx="78" cy="64" r="5"/></g>
+      <g fill="#91a881" stroke="none"><rect x="100" y="16" width="10" height="10" rx="2"/><rect x="100" y="59" width="10" height="10" rx="2"/></g>
+      <rect x="100" y="37" width="10" height="10" rx="2" fill="#c5a15c" stroke="none"/>
+    </g>
+    <g transform="translate(696 116)">
+      <path d="m27 35 22-13 22 13v26L49 74 27 61Z" fill="#e6d9ba" stroke="#a18b58"/>
+      <path d="m27 35 22 13 22-13M49 48V74" stroke="#a18b58"/>
+      <path d="m58 21 22-13 22 13v26L80 60 58 47Z" fill="#fcfaf3"/>
+      <path d="m58 21 22 13 22-13M80 34V60"/>
+      <path d="m58 21 22-13 22 13-22 13Z" fill="#b7c8ac"/>
+    </g>
+    <g transform="translate(832 116)">
+      <path d="m31 18 40-5 28 27-13 29-38 3-25-28ZM31 18 86 69M71 13 48 72M99 40 23 44" stroke="#91a881"/>
+      <g fill="#496954" stroke="none"><circle cx="31" cy="18" r="5"/><circle cx="71" cy="13" r="5"/><circle cx="99" cy="40" r="5"/><circle cx="48" cy="72" r="5"/><circle cx="23" cy="44" r="5"/></g>
+      <circle cx="86" cy="69" r="6" fill="#c5a15c" stroke="#a68140"/>
+    </g>
+  </g>
+</svg>
