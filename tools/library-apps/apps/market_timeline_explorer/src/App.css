@@ -1,0 +1,6 @@
+.market-explorer { max-width: 1100px; margin: auto; box-sizing: border-box; }
+.market-explorer ul { list-style: none; padding-left: 0; }
+.market-explorer button { font: inherit; cursor: pointer; }
+.market-explorer button:focus-visible { outline: 3px solid #1e3a8a; outline-offset: 3px; }
+.market-explorer button:disabled { opacity: .4; cursor: default; }
+.market-explorer button[aria-pressed="true"] { outline: 2px solid #1e3a8a; }

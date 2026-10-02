@@ -1,0 +1,26 @@
+.app-container {
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.button-group button {
+  margin-right: 0.5rem;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+}
+
+.simulate-button {
+  margin-top: 1rem;
+}
+
+main { max-width: 900px; padding: 1.5rem; margin: auto; }
+main input[type="range"] { display: block; width: min(100%, 30rem); margin: 1rem 0; }
+button:focus-visible, input:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }

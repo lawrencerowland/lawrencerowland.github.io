@@ -16,6 +16,14 @@ on:
       - 'side-projects.md'
       - 'index.md'
       - 'library.md'
+      - 'tools/library-apps/**'
+      - 'library/apps/**'
+      - 'library/methods/**'
+      - 'React_proj-apps/**'
+      - '_data/library_*.json'
+      - 'images/library-apps/**'
+      - 'tests/library-app-retirement.test.cjs'
+      - 'gap-map.md'
       - 'explore-visually.md'
       - '_data/visualisations.json'
       - 'images/visual-explorer/**'
@@ -67,6 +75,14 @@ on:
       - 'side-projects.md'
       - 'index.md'
       - 'library.md'
+      - 'tools/library-apps/**'
+      - 'library/apps/**'
+      - 'library/methods/**'
+      - 'React_proj-apps/**'
+      - '_data/library_*.json'
+      - 'images/library-apps/**'
+      - 'tests/library-app-retirement.test.cjs'
+      - 'gap-map.md'
       - 'explore-visually.md'
       - '_data/visualisations.json'
       - 'images/visual-explorer/**'
@@ -112,6 +128,20 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: tools/library-apps/package-lock.json
+      - name: Check repaired Library models and reproduce published apps
+        working-directory: tools/library-apps
+        run: |
+          npm ci --ignore-scripts
+          npm test
+          npm run build
+          git diff --exit-code -- ../../library/apps
+      - name: Check Library app preservation and legacy routes
+        run: node tests/library-app-retirement.test.cjs
       - name: Check retained example and writing routes
         run: |
           node tests/hs2-route.test.cjs
@@ -168,6 +198,8 @@ jobs:
         run: node tests/public-front-door.test.cjs _site
       - name: Check the rendered visual explorer
         run: node tests/visual-explorer.test.cjs _site
+      - name: Check rendered Library app routes
+        run: node tests/library-app-retirement.test.cjs _site
       - name: Save the built site for preview
         uses: actions/upload-artifact@v4
         with:

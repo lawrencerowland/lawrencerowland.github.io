@@ -30,6 +30,8 @@ plugins:
 # Avoid processing large example files that aren't part of the site
 exclude:
   - claude_example
+  - tools
+  - node_modules
 
 titles_from_headings:
   enabled:     true

@@ -28,11 +28,14 @@ const expected={
  'frobenius-dsm-explorer':'Project-web-apps/web_apps/frobenius-dsm-explorer.html',
  'social-debt-explorer':'more-project-apps/web_apps/social-debt-explorer.html'
 };
-assert.equal(specialists.length,18);
-assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,18);
-assert.equal(new Set(specialists.map(x=>x.url)).size,18,'distinct maintained routes');
-assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,18,'unambiguous legacy query identities');
+const migratedLibrary=JSON.parse(fs.readFileSync(path.join(root,'_data/library_apps.json'),'utf8'));
+for(const app of migratedLibrary)expected[app.id]=app.url.slice(1);
+assert.equal(specialists.length,35);
+assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,35);
+assert.equal(new Set(specialists.map(x=>x.url)).size,34,'distinct maintained routes');
+assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,34,'unambiguous legacy query identities');
 assert.deepEqual(new Set(specialists.map(x=>x.name)),new Set(Object.keys(expected)));
+assert.equal(specialists.filter(x=>x.name==='project-controls-knowledge-graph').length,2,'two original source identities now share the consolidated graph');
 for(const row of specialists){
  assert.equal(row.url,'https://lawrencerowland.github.io/'+expected[row.name],row.name+' links directly to its new home');
  assert.ok(row.home&&row.description&&row.tags,'complete specialist metadata');
@@ -73,13 +76,14 @@ async function load(phase,query='',hash=''){
  const fetch=async url=>{requests.push(url);if(url.startsWith('/Project-web-apps/app-index.csv?'))return{ok:true,text:async()=>csv('Project-web-apps',phase)};if(url.startsWith('/React_proj-apps/app-index.csv?'))return{ok:true,text:async()=>csv('React_proj-apps',phase)};if(url==='/assets/data/specialist-apps.json')return{ok:true,json:async()=>JSON.parse(JSON.stringify(specialists))};throw Error('Unexpected request '+url);};
  const context={document,fetch,window:{location:{search:query,hash}},URL,URLSearchParams,console};vm.createContext(context);vm.runInContext(script,context);
  assert.equal(typeof events.DOMContentLoaded,'function');events.DOMContentLoaded();await new Promise(setImmediate);
- assert.equal(requests.length,3,'both general catalogues and specialists were fetched');
+ assert.equal(requests.length,2,'only the surviving general catalogue and named destinations were fetched');
+ assert.ok(requests.every(url=>!url.includes('/React_proj-apps/')),'retired repository is no longer a live data dependency');
  const cards=elements['app-container'].children;
- const expectedNames=['Project-web-apps','React_proj-apps'].flatMap(repo=>rowNames(csv(repo,phase)).filter(name=>!specialists.some(item=>item.repo===repo&&item.name===name)));
- assert.equal(cards.length,phase.startsWith('current-')?77:78,'only general catalogue rows remain');
+ const expectedNames=['Project-web-apps'].flatMap(repo=>rowNames(csv(repo,phase)).filter(name=>!specialists.some(item=>item.repo===repo&&item.name===name)));
+ assert.equal(cards.length,phase.startsWith('current-')?60:61,'only general catalogue rows remain');
  assert.deepEqual(cards.map(card=>card.id).sort(),expectedNames.map(name=>'app-'+slug(name)).sort(),'every unrelated source row is still rendered');
  for(const name of Object.keys(expected)){
-  assert.ok(!cards.some(c=>c.id==='app-'+slug(name)),phase+': '+name+' is absent from ordinary cards');
+  if(!expectedNames.includes(name))assert.ok(!cards.some(c=>c.id==='app-'+slug(name)),phase+': '+name+' is absent from ordinary cards');
  }
  assert.ok(elements['filter-container'].children.length>1,'category controls rendered');assert.ok(elements['heatmap-container'].children.length>1,'heatmap rendered');assert.ok(elements['tag-cloud'].children.length>1,'tags rendered');
  return {cards,context,elements};
@@ -112,5 +116,5 @@ async function load(phase,query='',hash=''){
  for(const query of ['?app=does-not-exist','?app=decision-tree-extra','?app=https://example.org/','?app=%3Cscript%3E']){
   const absent=await load('current-after',query);assert.ok(absent.cards.every(c=>!c.classList.contains('highlight')));assert.equal(absent.elements['moved-app-notice'].hidden,true,'unknown selectors never become destination links');
  }
- console.log('PASS: 18 named apps absent from ordinary cards across four source states; 144 exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
+ console.log('PASS: 35 original app identities absent from ordinary cards across four source states; 272 exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
 })().catch(error=>{console.error(error);process.exitCode=1;});

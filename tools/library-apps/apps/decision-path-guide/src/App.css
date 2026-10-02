@@ -1,0 +1,26 @@
+.app-container {
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.button-group button,
+.option-list button {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.option-list label {
+  display: block;
+  margin: 0.25rem 0;
+}
+
+.footnote {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.graph-container {
+  height: 500px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}

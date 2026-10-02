@@ -430,13 +430,11 @@ function showMovedAppFromQuery(specialists) {
 function loadData() {
   Promise.all([
     fetch('/Project-web-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
-    fetch('/React_proj-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
     fetch('/assets/data/specialist-apps.json').then(r => { if (!r.ok) throw new Error('Specialist catalogue unavailable'); return r.json(); })
-  ]).then(([c1, c2, specialists]) => {
+  ]).then(([c1, specialists]) => {
     const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
-    const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
     const movedNames = new Set(specialists.map(item => item.repo + ":" + item.name));
-    const data = d1.concat(d2).filter(item => item.name && !movedNames.has(item.repo + ":" + item.name));
+    const data = d1.filter(item => item.name && !movedNames.has(item.repo + ":" + item.name));
     const allTags = Array.from(new Set(data.flatMap(d => {
       const tagField = d.tags || d.tag || d.keywords || d.categories || '';
       return tagField.split(/[,;]/).map(t => t.trim()).filter(Boolean);
@@ -445,7 +443,7 @@ function loadData() {
     createTagCloud(allTags);
     createCards(data);
     renderHeatmap(data);
-    highlightFromQuery();
+    if (!specialists.some(item => slugify(item.name) === new URLSearchParams(window.location.search).get('app'))) highlightFromQuery();
     showMovedAppFromQuery(specialists);
   });
 }
