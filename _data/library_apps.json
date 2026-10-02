@@ -14,7 +14,9 @@
     "origin": "cant remember",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 20,
+    "kind": "app"
   },
   {
     "id": "stakeholder-analysis-dashboard",
@@ -31,7 +33,9 @@
     "origin": "cant remember",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 40,
+    "kind": "app"
   },
   {
     "id": "stakeholder-network-graph",
@@ -48,7 +52,9 @@
     "origin": "cant remember",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 60,
+    "kind": "app"
   },
   {
     "id": "scope-benefits-tree",
@@ -65,7 +71,9 @@
     "origin": "cant remember",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 80,
+    "kind": "app"
   },
   {
     "id": "olaf-delivery-dashboard",
@@ -82,7 +90,9 @@
     "origin": "Claude",
     "original_model": "Sonnet 3.5",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 90,
+    "kind": "app"
   },
   {
     "id": "decision-path-guide",
@@ -99,7 +109,9 @@
     "origin": "Replit",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 10,
+    "kind": "app"
   },
   {
     "id": "pareto_projects",
@@ -116,7 +128,9 @@
     "origin": "cant remember",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 20,
+    "kind": "app"
   },
   {
     "id": "copula-risk-analysis",
@@ -133,7 +147,9 @@
     "origin": "ChatGPT",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 50,
+    "kind": "app"
   },
   {
     "id": "project-management-simulation",
@@ -150,7 +166,9 @@
     "origin": "Claude",
     "original_model": "Cant remember",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 10,
+    "kind": "app"
   },
   {
     "id": "project-dynamics-simulator",
@@ -167,7 +185,9 @@
     "origin": "Claude",
     "original_model": "Cant remember",
     "original_notes": "Real projects are not just made up of task nodes connected by dependency edges. There are regular circles of daily activities, monthly progress review actions, etc. There is negative feedback pushing back on attempted initiatives, and positive reinforcing loops sometimes triggered after the first or second task is done.",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 30,
+    "kind": "app"
   },
   {
     "id": "building-site-occupancy-simulation",
@@ -184,7 +204,9 @@
     "origin": "ChatGPT",
     "original_model": "Agent",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 40,
+    "kind": "app"
   },
   {
     "id": "data-maturity-combined",
@@ -201,7 +223,9 @@
     "origin": "Claude",
     "original_model": "Sonnet 3.6",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 20,
+    "kind": "app"
   },
   {
     "id": "project-controls-knowledge-graph",
@@ -218,7 +242,9 @@
     "origin": "Claude",
     "original_model": "Sonnet 3.6",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 40,
+    "kind": "app"
   },
   {
     "id": "capabilities-wiring-diag",
@@ -235,7 +261,9 @@
     "origin": "Claude",
     "original_model": "Sonnet 3.6",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 30,
+    "kind": "app"
   },
   {
     "id": "pm-software-evolution",
@@ -252,7 +280,9 @@
     "origin": "Claude",
     "original_model": "Sonnet 3.7",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 60,
+    "kind": "app"
   },
   {
     "id": "market_timeline_explorer",
@@ -269,6 +299,8 @@
     "origin": "ChatGPT",
     "original_model": "o3 Pro",
     "original_notes": "",
-    "reviewed": "2 October 2026"
+    "reviewed": "2 October 2026",
+    "order": 70,
+    "kind": "app"
   }
 ]

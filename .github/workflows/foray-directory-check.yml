@@ -51,6 +51,7 @@ on:
       - 'examples/hs2-decision-graph.html'
       - 'tests/hs2-route.test.cjs'
       - 'tests/library-housekeeping.test.cjs'
+      - 'tests/library-flat-subjects.test.cjs'
       - '_config.yml'
       - 'tests/public-front-door.test.cjs'
       - 'assets/**'
@@ -110,6 +111,7 @@ on:
       - 'examples/hs2-decision-graph.html'
       - 'tests/hs2-route.test.cjs'
       - 'tests/library-housekeeping.test.cjs'
+      - 'tests/library-flat-subjects.test.cjs'
       - '_config.yml'
       - 'tests/public-front-door.test.cjs'
       - 'assets/**'
@@ -146,6 +148,7 @@ jobs:
         run: |
           node tests/hs2-route.test.cjs
           node tests/library-housekeeping.test.cjs
+          node tests/library-flat-subjects.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
@@ -187,7 +190,9 @@ jobs:
           source: ./
           destination: ./_site
       - name: Check the rendered Library and writing routes
-        run: node tests/library-housekeeping.test.cjs _site
+        run: |
+          node tests/library-housekeeping.test.cjs _site
+          node tests/library-flat-subjects.test.cjs _site
       - name: Check the rendered directory
         run: node tests/foray-directory.test.cjs _site/side-projects.html _site/library.html
       - name: Check the rendered app migration catalogue

@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign article_context = site.data.historical_articles | where: 'url', page.url | first %}
-{% assign library_return = '/library.html#' | append: article_context.library_anchor %}
+{% assign library_return = article_context.library_url %}
 <article class="pw-historical-article post">
   <p class="pw-article-return"><a href="{{ library_return | relative_url }}">← {{ article_context.subject_title | escape }} in the Library</a></p>
   <header>

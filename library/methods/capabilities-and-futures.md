@@ -1,7 +1,7 @@
 ---
 layout: library-theme
-title: "Capabilities & AI futures"
-description: "Distinguish a capability map, a sourced software timeline and a speculative market scenario."
+title: "Capabilities & futures"
+description: "Explore the practices, capabilities and tools a portfolio might need, with earlier reading, framework guides and clearly labelled future scenarios."
 theme_id: capabilities-and-futures
 schema_type: CollectionPage
 wide: true

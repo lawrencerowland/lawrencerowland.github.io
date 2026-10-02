@@ -14,7 +14,7 @@ tags: [DataModeling, CategoryTheory, ProjectManagement]
     <h1>Mobilising two projects<br>with string diagrams.</h1>
     <p class="pw-model-lead">Imagine two projects starting from business as usual. Each mobilisation produces a team and a blueprint. How could those two beginnings connect to a combined team and a combined blueprint?</p>
     <p>This small notebook draws the proposed structure. Its wires make explicit which outputs need to meet before the parts can be joined.</p>
-    <p class="pw-model-returns"><a href="{{ '/library.html#notebook-examples' | relative_url }}">← Notebook examples in the Library</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
+    <p class="pw-model-returns"><a href="{{ '/library/methods/states-and-relationships.html#mobilising-two-projects' | relative_url }}">← Notebook examples in the Library</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
   </header>
   <div class="pw-framework-prose">
     <figure class="pw-framework-figure pw-notebook-figure">
@@ -42,6 +42,6 @@ tags: [DataModeling, CategoryTheory, ProjectManagement]
     <p>The boxes are symbolic declarations. The notebook supplies no method for combining actual people or reconciling blueprints. It has no durations, resource capacities or scheduling calculation, and it does not discover a plan. The proposed connections are supplied by hand; their type compatibility does not establish practical feasibility.</p>
     <p><a href="https://github.com/lawrencerowland/discopy/blob/e7c0d28703f5e99166a07f7fc230bc956c9e78ba/LR_get_started.ipynb">Read the original notebook on GitHub →</a></p>
     <p class="pw-framework-note">Guide written 1 October 2026 from the retained notebook and image. The source was inspected, without rerunning the notebook. Links preserve the reviewed source snapshot.</p>
-    <p class="pw-model-returns"><a href="{{ '/library.html#notebook-examples' | relative_url }}">Back to the Library’s notebook examples</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
+    <p class="pw-model-returns"><a href="{{ '/library/methods/states-and-relationships.html#mobilising-two-projects' | relative_url }}">Back to the Library’s notebook examples</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
   </div>
 </div>

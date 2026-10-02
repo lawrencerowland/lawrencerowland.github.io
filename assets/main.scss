@@ -692,3 +692,12 @@ body:has(.pw-home) { background: #f8f6ef; }
   .pw-library-routes > div { grid-template-columns: 1fr; gap: 22px; }
   .pw-footer-entrances { grid-template-columns: 1fr; gap: 8px; }
 }
+
+/* Library subject areas share one level: models, apps and reading are peers. */
+.pw-library-subjects { border-top: 0; padding-top: 0; }
+.pw-library-subjects .pw-home-question h2,
+.pw-library-theme .pw-home-question h2 { font: 400 27px/1.3 Georgia, 'Times New Roman', serif; letter-spacing: -.025em; margin: 13px 0 15px; }
+.pw-library-theme .pw-home-question { scroll-margin-top: 25px; }
+.pw-library-theme .pw-home-question:target { outline: 3px solid var(--pw-green); outline-offset: 4px; }
+.pw-library-legacy-route:not(:target) { display: none; }
+.pw-library-legacy-route:target { padding: 1rem; border: 1px solid var(--pw-line); }

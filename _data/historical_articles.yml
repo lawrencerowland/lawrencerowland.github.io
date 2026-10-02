@@ -8,7 +8,8 @@
     "subject_title": "Portfolio frameworks",
     "library_anchor": "library-frameworks",
     "guide_url": "/Portfolio-frameworks.html",
-    "guide_title": "Read the framework guide"
+    "guide_title": "Read the framework guide",
+    "library_url": "/library/methods/capabilities-and-futures.html#project-management-jobs-to-be-done"
   },
   {
     "title": "Adopt existing portfolio framework",
@@ -19,7 +20,8 @@
     "subject_title": "Portfolio frameworks",
     "library_anchor": "library-frameworks",
     "guide_url": "/Portfolio-frameworks.html",
-    "guide_title": "Read the framework guide"
+    "guide_title": "Read the framework guide",
+    "library_url": "/library/methods/capabilities-and-futures.html#adopting-a-portfolio-framework"
   },
   {
     "title": "Applying appropriate machine-learning approach.",
@@ -30,7 +32,8 @@
     "subject_title": "Information and methods",
     "library_anchor": "library-methods",
     "guide_url": "/ML-for-portfolios.html",
-    "guide_title": "Read the methods guide"
+    "guide_title": "Read the methods guide",
+    "library_url": "/library/methods/data-and-assurance.html#choosing-a-machine-learning-approach"
   },
   {
     "title": "Data models for project portfolios",
@@ -41,6 +44,7 @@
     "subject_title": "Data models",
     "library_anchor": "library-data-models",
     "guide_url": "/Portfolio-data-model.html#read-the-worked-models",
-    "guide_title": "Read the worked models"
+    "guide_title": "Read the worked models",
+    "library_url": "/library/methods/states-and-relationships.html#data-models-for-project-portfolios"
   }
 ]

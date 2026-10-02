@@ -31,7 +31,7 @@ Follow the top row from **Extract** to **Sample data**, then the lower branch in
 
 The original name was *Project Success Prediction*, but its target is **IEG Bank Performance**, a specific evaluation rating. This is a historical demonstration: the workbook is absent and the displayed accuracy has not been reproduced as an early forecast. The guide retains all 15 screenshots, the short film, demonstration script and saved workflow, with clear routes to each.
 
-[Film, script and workflow files](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md#resources) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
+[Film, script and workflow files](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md#resources) · [Back to the Library]({{ '/library/methods/data-and-assurance.html#orange-project-ratings' | relative_url }})
 
 ## Before work starts: the Highways delay notebook
 {: #highways-delay-notebook }
@@ -56,7 +56,7 @@ The saved code follows three steps:
 
 [Read the original Highways notebook →](https://github.com/lawrencerowland/project-scheduling-with-Neo4j/blob/a1aba1c37c53374f1255225b02e09b1fbfb61e5b/2020%2008%20Highways.ipynb)
 
-It is retained in the Neo4j repository for historical reasons; this is a tabular prediction experiment, separate from its graph-model examples. [Repository guide](https://github.com/lawrencerowland/project-scheduling-with-Neo4j#highways-delay-prediction-a-separate-notebook) · [Current explanation of information leakage](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
+It is retained in the Neo4j repository for historical reasons; this is a tabular prediction experiment, separate from its graph-model examples. [Repository guide](https://github.com/lawrencerowland/project-scheduling-with-Neo4j#highways-delay-prediction-a-separate-notebook) · [Current explanation of information leakage](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage) · [Back to the Library]({{ '/library/methods/data-and-assurance.html#highways-delay-notebook' | relative_url }})
 
 ## A different question: monthly portfolio decisions
 {: #monthly-portfolio-decisions }
@@ -75,7 +75,7 @@ The useful thread is **state → decision → new information → next state and
 
 The two retained notebooks explore a much smaller idea: random choices between **promote, maintain and cancel**, with supplied rewards. Neither learns a policy, consumes new evidence or models assurance. The guide distinguishes their different attempts and known counting/transition defects; the original note and saved outputs remain available. This is an unfinished exploration, with useful questions rather than validated recommendations.
 
-[Original note and clarifications](https://github.com/lawrencerowland/Project_decisions/blob/main/2020_12_Reinforcement_learning_for_project_portfolios.md) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
+[Original note and clarifications](https://github.com/lawrencerowland/Project_decisions/blob/main/2020_12_Reinforcement_learning_for_project_portfolios.md) · [Back to the Library]({{ '/library/methods/decisions-and-trade-offs.html#monthly-portfolio-decisions' | relative_url }})
 
 # Code and library base
 If you wish to go straight to the code and document libraries, start [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
