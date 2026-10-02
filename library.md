@@ -65,10 +65,11 @@ tags: [Projects, Examples, PortfolioManagement, Library]
       {% include library-related-reading.html subject="frameworks" %}</article>
       <article class="pw-home-question" id="library-methods"><a class="pw-home-tile-link" href="{{ '/ML-for-portfolios.html' | relative_url }}" aria-labelledby="library-question-3">
         <div class="pw-home-question-visual"><img src="{{ '/images/ML-for-portfolios/Usecase-to-Operations-subgraph-ML-models-created.png' | relative_url }}" width="640" height="400" alt="A graph relates project use cases to delivery and operational stages" loading="lazy"></div>
-        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier exploration <span>Information &amp; methods</span></p><h3 id="library-question-3">Which method fits the question and the available data?</h3><p>Earlier thinking on matching methods to project information. Follow an illustrated Orange prediction workflow, or explore a different question: what should a monthly portfolio review decide, and what should it learn? Each guide explains what its original files do and leave unresolved.</p></div>
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">Earlier exploration <span>Information &amp; methods</span></p><h3 id="library-question-3">Which method fits the question and the available data?</h3><p>Earlier thinking on matching methods to project information. Follow an illustrated Orange prediction workflow, ask what an A14 delay forecast could know before work starts, or consider what a monthly portfolio review should decide and learn. Each guide explains what its original files do and leave unresolved.</p></div>
         <span class="pw-home-route-link">Read the methods guide <span aria-hidden="true">↗</span></span>
       </a>
-      {% include library-related-reading.html subject="methods" %}</article>
+      {% include library-related-reading.html subject="methods" %}
+      <div class="pw-library-reading"><h4>Earlier notebook · 2020</h4><p><a href="{{ '/ML-for-portfolios.html#highways-delay-notebook' | relative_url }}">What could an activity-delay forecast know in time?</a> — the Highways experiment, with its original plot and unfinished validation made clear.</p></div></article>
     </div>
   </section>
 

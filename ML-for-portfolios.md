@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Machine learning for project portfolios
-description: Earlier methods and an illustrated Orange walkthrough connecting project records, predictions and portfolio decisions.
+description: Earlier Orange and Highways prediction explorations, with their limits, alongside questions about monthly portfolio decisions.
 schema_type: TechArticle
 tags: [MachineLearning, PortfolioManagement, GraphDatabases, ProjectManagement]
 ---
@@ -32,6 +32,31 @@ Follow the top row from **Extract** to **Sample data**, then the lower branch in
 The original name was *Project Success Prediction*, but its target is **IEG Bank Performance**, a specific evaluation rating. This is a historical demonstration: the workbook is absent and the displayed accuracy has not been reproduced as an early forecast. The guide retains all 15 screenshots, the short film, demonstration script and saved workflow, with clear routes to each.
 
 [Film, script and workflow files](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md#resources) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
+
+## Before work starts: the Highways delay notebook
+{: #highways-delay-notebook }
+
+*Notebook labelled August 2020 · reading guide added 2 October 2026*
+
+**Could completed A14 activities help a planner identify which unstarted work might finish late?** The notebook asks a useful prior question: which information would actually be available when making that prediction? An actual finish date can help explain the past while being unavailable for a forecast.
+
+The saved code follows three steps:
+
+1. **Choose a reporting snapshot.** It selects 30 September 2019, keeps completed and not-started activities, and excludes work in progress. The saved outputs show 9,332 completed records for training and 2,462 not-started records for prediction.
+2. **Ask two different questions.** A classifier predicts the flag `FinishDateVariance >= 5`; a regressor estimates `FinishDateVariance` itself. The notebook does not establish the field's units or sign convention, so “five days late” would be an unjustified translation. Finish variance is also different from an activity's duration.
+3. **Inspect the estimates.** It compares candidate models with DABL, examines predictions on the training records, then makes estimates for the not-started records. Those estimates are not later observed outcomes.
+
+[![Saved training-set scatter plot: recorded finish variance on the horizontal axis and predicted variance on the vertical axis. Most predictions form a narrow band while recorded values spread much further.]({{ '/images/ML-for-portfolios/highways-training-variance.png' | relative_url }})]({{ '/images/ML-for-portfolios/highways-training-variance.png' | relative_url }})
+
+*Original saved plot, extracted unchanged from “Show how well this model does on the Training Set” in the regression section. The diagonal marks equality; distance from it shows a mismatch. The original axes are unlabelled: the plotting code supplies the meanings above. This picture describes a training-set comparison, not performance on future activities. Select it for the original-size image.*
+
+**What remains useful is the discipline of asking what we could know in time.** The notebook removes actual-finish and progress fields, and excludes the target and its derived flag from model inputs. It explicitly warns about information leakage. That is a valuable question to bring to a project forecast; it does not establish that the remaining inputs are available early enough or that the finished model predicts reliably.
+
+**Read it as an unfinished exploration.** The separate test-set step and a check that predictions still align with the correct activity rows are recorded as unfinished. DABL's saved model-selection scores are a different check from the later training-set comparisons; neither establishes performance on later project work. Cleaning occurs before the completed/not-started split, and the feature preparation and prediction-time availability still need validation. The required `P6Activities.csv` is absent, and the notebook has not been rerun for this guide.
+
+[Read the original Highways notebook →](https://github.com/lawrencerowland/project-scheduling-with-Neo4j/blob/a1aba1c37c53374f1255225b02e09b1fbfb61e5b/2020%2008%20Highways.ipynb)
+
+It is retained in the Neo4j repository for historical reasons; this is a tabular prediction experiment, separate from its graph-model examples. [Repository guide](https://github.com/lawrencerowland/project-scheduling-with-Neo4j#highways-delay-prediction-a-separate-notebook) · [Current explanation of information leakage](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage) · [Back to the Library]({{ '/library.html#library-methods' | relative_url }})
 
 ## A different question: monthly portfolio decisions
 {: #monthly-portfolio-decisions }
