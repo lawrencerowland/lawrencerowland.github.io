@@ -4,7 +4,6 @@ const vm = require('node:vm');
 const path = require('node:path');
 
 const nav = fs.readFileSync('_includes/nav.html', 'utf8');
-const footer = fs.readFileSync('_includes/footer.html', 'utf8');
 const home = fs.readFileSync('index.md', 'utf8');
 const library = fs.readFileSync('library.md', 'utf8');
 const materials = JSON.parse(fs.readFileSync('_data/library_materials.json', 'utf8'));
@@ -12,25 +11,22 @@ const themes = JSON.parse(fs.readFileSync('_data/library_themes.json', 'utf8'));
 const themeLayout = fs.readFileSync('_layouts/library-theme.html', 'utf8');
 const materialFor = url => materials.find(item => item.url === url || item.url?.split('#')[0] === url);
 assert.deepEqual([...nav.matchAll(/>(Experiments|Library|Visual atlas|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Library', 'Visual atlas', 'Wider interest']);
+assert.match(nav, /<span>Lawrence Rowland<\/span><small>Project Experiments in AI<\/small>/, 'the top brand keeps the name and requested subtitle');
+assert.ok(!nav.includes('Independent project experiments'), 'the former brand subtitle is retired');
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
-for (const route of ['/about_me.html', '/side-projects.html', '/library.html', '/explore-visually.html', '/wider-interest/']) {
-  assert.ok(footer.includes(route), `preserve the footer route ${route}`);
+assert.ok(!fs.existsSync('_includes/footer.html'), 'the duplicate shared footer is retired');
+for (const file of fs.readdirSync('_layouts').filter(file => file.endsWith('.html'))) {
+  assert.ok(!/include\s+footer\.html/.test(fs.readFileSync(path.join('_layouts', file), 'utf8')), file + ': no retired footer include');
 }
-for (const route of ['/graphs.html', '/Books.html', '/gap-map.html', '/all-project-apps.html', '/project-examples.html']) {
-  assert.ok(!footer.includes(route), `supporting destination stays out of the footer: ${route}`);
+for (const route of ['/graphs.html', '/Books.html', '/gap-map.html', '/all-project-apps.html']) {
   assert.ok(library.includes(route) || materialFor(route), `supporting destination remains reachable through Library subjects: ${route}`);
 }
+assert.ok(!library.includes('/project-examples.html'), 'the retired example index is not a second collection entrance');
 const graphMaterial = materialFor('/graphs.html');
 assert.equal(graphMaterial?.theme, 'states-and-relationships', 'graphs and connections share the relationships subject');
 assert.ok(!library.includes('aria-labelledby="library-maps-title"'), 'maps do not form a separate Library hierarchy');
-assert.ok(!footer.includes('github.com/lawrencerowland'), 'repository directory is not a public entrance');
-assert.ok(!footer.includes('Explore the ideas.'), 'the footer codicil is removed');
-assert.ok(!footer.includes('/gimmer-comparison/') && !home.includes('/gimmer-comparison/'), 'planning comparison is below the Experiments entrance');
+assert.ok(!home.includes('/gimmer-comparison/'), 'planning comparison is below the Experiments entrance');
 assert.ok(fs.readFileSync('side-projects.md', 'utf8').includes('/gimmer-comparison/'), 'the comparison remains reachable from Experiments');
-for (const route of ['/blog_summary.html', '/blog.html', '/older-stuff.html', '/deep-research/', '/gpt-links-page.html', '/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
-  assert.ok(!footer.includes(route), `secondary destination stays out of the footer: ${route}`);
-}
-assert.ok(!/Machine-learning-for-project-portfolios|Data-Model-for-Project-Frameworks|Data-models-for-(portfolios|programmes|projects)/.test(footer), 'repository duplicates stay with their subject guides');
 assert.ok(!fs.existsSync('older-stuff.md'), 'redundant Older stuff index is retired');
 assert.ok(!library.includes('/older-stuff.html'), 'Library has no link to the retired index');
 for (const route of ['/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
@@ -43,23 +39,28 @@ for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-arti
 }
 assert.ok(!/pw-historical-grid|pw-historical-card|<h[1-6][^>]*id="historical-articles"/.test(library), 'no standalone historical article group remains');
 assert.ok(themeLayout.includes('site.data.library_materials'), 'subject pages include established material alongside apps');
-assert.equal(themes.length, 5, 'five equal subject entrances');
+assert.equal(themes.length, 5, 'the five established subject records remain unchanged');
 for (const phrase of ['Try an idea', 'Five ways into the work.', 'Two bounded worked examples', 'Three strands of earlier work.', 'Connecting the parts of a project.']) {
   assert.ok(!library.includes(phrase), 'retired material-type hierarchy is absent: ' + phrase);
 }
 const historicalArticles = JSON.parse(fs.readFileSync('_data/historical_articles.yml', 'utf8'));
 assert.equal(historicalArticles.length, 4);
 assert.ok(historicalArticles.every(article => article.date.startsWith('2020-') && article.url.startsWith('/library/articles/')));
-assert.ok(!footer.includes('/feed.xml'), 'retired blog RSS is not promoted');
-assert.match(footer, />About<\/a>/, 'About remains discoverable in the footer');
+assert.match(library, /<h1\b[^>]*>Library<\/h1>/, 'Library has a concise title');
+assert.match(library, /<p\b[^>]*>A home for more established methods\.<\/p>/, 'Library has the requested subtitle');
+assert.ok(!/bounded problem|not all received a new technical review|Looking for the open enquiries|Some work asks an open question/.test(library), 'the former Library introduction is retired');
+for (const route of ['/explore-visually.html', '/side-projects.html']) assert.ok(!library.includes(route), 'peer pages are reached through the main navigation: ' + route);
+for (const [route, label] of [['/about_me.html', 'About'], ['/sitemap.html', 'Sitemap']]) {
+  assert.equal(library.split(route).length - 1, 1, 'one Library utility link: ' + label);
+  assert.match(library, new RegExp('>' + label + '<\\/a>'));
+}
+assert.ok(!library.includes('/about_the_site.html'), 'About has one canonical entrance');
 for (const source of [home, library]) {
   assert.equal((source.match(/<h1\b/g) || []).length, 1);
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');
   for (const img of source.matchAll(/<img\b[^>]*>/g)) assert.match(img[0], /\balt="[^"]*"/, 'images expose an accessible description or are decorative');
 }
 assert.match(home, /href="https:\/\/lawrencerowland.github.io\/gimmer-crag\/petri-smc-wbs.html" aria-labelledby="gimmer-question-title"/, 'general process-to-plan question leads to the main collection');
-assert.match(library, /bounded problem/);
-assert.match(library, /not all received a new technical review/);
 
 // Exercise the real navigation script: disclosure, Escape, link selection and
 // resizing must keep the announced state and displayed state in agreement.
@@ -115,12 +116,14 @@ for (const example of examples) {
 
 if (process.argv[2]) {
   const root = process.argv[2];
-  for (const route of ['index.html', 'library.html', 'about_me.html', 'about_the_site.html', 'blog_summary.html', 'side-projects.html']) {
+  for (const route of ['index.html', 'library.html', 'about_me.html', 'blog_summary.html', 'side-projects.html', 'explore-visually.html']) {
     const html = fs.readFileSync(path.join(root, route), 'utf8');
     assert.ok(!html.includes('{%') && !html.includes('{{'), `${route}: Liquid fully rendered`);
     assert.match(html, /<meta[^>]+name="viewport"/);
     assert.match(html, /href="\/library.html"/);
     assert.match(html, /aria-controls="main-nav-links"/);
+    assert.equal((html.match(/aria-label="Main navigation"/g) || []).length, 1, route + ': one main navigation');
+    assert.ok(!/class="[^"]*(?:site-footer|pw-footer)/.test(html), route + ': no duplicate shared footer');
     if (['index.html', 'library.html'].includes(route)) {
       assert.equal((html.match(/<h1\b/g) || []).length, 1, `${route}: one h1 after Jekyll processing`);
       for (const match of html.matchAll(/(?:href|src)="(\/[^"?#]*)(?:[?#][^"]*)?"/g)) {

@@ -9,17 +9,10 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 ---
 
 <div class="pw-home" id="home-main" tabindex="-1">
-  <section class="pw-home-approach" aria-labelledby="library-title">
-    <div><p class="pw-home-kicker">The library</p><h1 id="library-title">Worked examples.<br>Ideas worth keeping.</h1></div>
-    <div class="pw-home-approach-copy"><p>Some work asks an open question. Some reaches a useful stopping point: a model, method or example that resolves a particular problem under stated assumptions.</p><p>This library is the home for those captured solutions and the earlier work behind them. “Solved” here means a bounded problem has a worked answer; it does not mean project management is solved, or that every older example is ready to deploy today.</p><p>The collection is being tidied gradually. These starting points retain their original explanations and limits; they have not all received a new technical review.</p><a href="{{ '/side-projects.html' | relative_url }}">Looking for the open enquiries? Explore the projects →</a></div>
-  </section>
-
-  <section class="viz-library-entry" aria-labelledby="visual-explorer-title">
-    <a href="{{ '/explore-visually.html' | relative_url }}" class="viz-library-link">
-      <img src="{{ '/images/visual-explorer/mosaic-invitation.svg' | relative_url }}" alt="" width="976" height="216" loading="lazy" decoding="async">
-      <strong id="visual-explorer-title">Explore visually →</strong>
-    </a>
-  </section>
+  <header class="pw-page-heading">
+    <h1 id="library-title">Library</h1>
+    <p>A home for more established methods.</p>
+  </header>
 
   <section class="pw-home-questions pw-library-subjects" id="interactive-methods" aria-label="Library subjects">
     <span id="library-starts"></span><span id="notes"></span><span id="blog-posts"></span><span id="earlier-notes--2020"></span><span id="historical-articles"></span>
@@ -31,6 +24,11 @@ tags: [Projects, Examples, PortfolioManagement, Library]
         <span class="pw-home-route-link">Explore this subject →</span>
       </a></article>
     {% endfor %}
+      <article class="pw-home-question" id="custom-gpts"><a class="pw-home-tile-link" href="{{ '/gpt-links-page.html' | relative_url }}" aria-labelledby="custom-gpts-title">
+        <div class="pw-home-question-visual"><img src="{{ '/images/8GPTs.WEBP' | relative_url }}" alt="" width="1792" height="1024" loading="lazy"></div>
+        <div class="pw-home-question-copy"><h2 id="custom-gpts-title">Custom GPTs</h2><p>Coaches, co-pilots and agents for thinking through project work.</p></div>
+        <span class="pw-home-route-link">Browse the GPTs →</span>
+      </a></article>
     </div>
   </section>
 
@@ -65,8 +63,10 @@ tags: [Projects, Examples, PortfolioManagement, Library]
       {% endfor %}
       </div>
     </details>
-    <p><a href="{{ '/all-project-apps.html' | relative_url }}">Browse the combined app catalogue</a> · <a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a> · <a href="{{ '/project-examples.html' | relative_url }}">Earlier project examples</a></p>
+    <p><a href="{{ '/all-project-apps.html' | relative_url }}">Browse the combined app catalogue</a> · <a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a></p>
   </section>
+
+  <nav class="pw-library-utilities" aria-label="About and site index"><a href="{{ '/about_me.html' | relative_url }}">About</a><a href="{{ '/sitemap.html' | relative_url }}">Sitemap</a></nav>
 
   {% for route in site.data.library_redirects %}
   <p class="pw-library-legacy-route" id="{{ route.id }}">This entry is now in <a data-library-destination href="{{ route.url | relative_url }}">{{ route.title | escape }} →</a></p>

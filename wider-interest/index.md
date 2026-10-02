@@ -1,12 +1,10 @@
 ---
 layout: default
-title: Wider Interest
+title: Wider interest
 schema_type: CollectionPage
 ---
 
-# Wider Interest
-
-This section gathers topics outside the main theme of the site.
+<header class="pw-page-heading"><h1>Wider interest</h1><p>Topics beyond projects and AI.</p></header>
 
 - [John Burnet of Barn's journey](john-burnet-of-barns-journey.html)
 - [Johnson's Dictionary Project](johnsons-dictionary-project.html)

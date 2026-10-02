@@ -37,6 +37,9 @@ on:
       - 'Portfolio-frameworks.md'
       - 'about_me.md'
       - 'about_the_site.md'
+      - 'gpt-links-page.md'
+      - 'wider-interest/**'
+      - 'tests/navigation-compatibility.test.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -97,6 +100,9 @@ on:
       - 'Portfolio-frameworks.md'
       - 'about_me.md'
       - 'about_the_site.md'
+      - 'gpt-links-page.md'
+      - 'wider-interest/**'
+      - 'tests/navigation-compatibility.test.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -152,7 +158,9 @@ jobs:
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
-        run: node tests/public-front-door.test.cjs
+        run: |
+          node tests/public-front-door.test.cjs
+          node tests/navigation-compatibility.test.cjs
       - name: Check visual explorer catalogue and discovery
         run: node tests/visual-explorer.test.cjs
       - name: Check nine Gimmer models and comparison contracts
@@ -200,7 +208,9 @@ jobs:
       - name: Check the rendered Gimmer comparison
         run: node tests/gimmer-comparison.test.cjs _site
       - name: Check the rendered public front door and library
-        run: node tests/public-front-door.test.cjs _site
+        run: |
+          node tests/public-front-door.test.cjs _site
+          node tests/navigation-compatibility.test.cjs _site
       - name: Check the rendered visual explorer
         run: node tests/visual-explorer.test.cjs _site
       - name: Check rendered Library app routes
