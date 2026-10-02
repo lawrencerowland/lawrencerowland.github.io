@@ -270,3 +270,21 @@
   tags: ["knowledge-graphs","sources"]
   path: "https://lawrencerowland.github.io/Tag_Concurrence_Graph/"
   action: "Browse collection"
+
+- title: "Knowing enough to act together"
+  id: knowing-enough
+  gallery_order: 16
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/knowing-enough
+  image: "https://lawrencerowland.github.io/knowing-enough/assets/museum-whale.png"
+  image_alt: "A museum team prepares to move an oversized whale exhibit"
+  scenario: "Move an oversized whale exhibit through a museum."
+  group: "featured"
+  entry_question: "What must each crew know to choose its part of the move?"
+  entry_purpose: "Find information arrangements that let each person choose."
+  question: "When can a physically possible move be chosen through local information?"
+  description: "Compare route cues, completion reports and direct inspections. Discover which information arrangements let the handlers choose a passage and the curator decide whether to reopen."
+  tags: ["knowledge","coordination","project-state"]
+  path: "https://lawrencerowland.github.io/knowing-enough/"
+  action: "Explore the whale move"
