@@ -5,9 +5,9 @@ schema_type: CollectionPage
 tags: [CustomGPTs, ProjectManagement]
 ---
 
-# My Custom GPTs
+# Custom GPTs
 
-[Side Projects](/side-projects.html)
+[← Library]({{ '/library.html#custom-gpts' | relative_url }})
 
 1. TOC
 {:toc}

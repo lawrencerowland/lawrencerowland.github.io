@@ -60,7 +60,9 @@ const source = read('explore-visually.md');
 assert.match(source, /href="\{\{ view\.url \| escape \}\}"/, 'without JavaScript every tile still opens its example');
 assert.match(source, /<dialog[^>]*aria-labelledby="viz-detail-title"/);
 assert.match(source, /<noscript>/);
-assert.match(read('library.md'), /\/explore-visually\.html/);
+assert.match(source, /<h1>Visual atlas<\/h1>/, 'the visual page uses the peer navigation title');
+assert.ok(!/Back to Library|viz-return/.test(source), 'the atlas does not advertise a separate return hierarchy');
+assert.ok(!read('library.md').includes('/explore-visually.html'), 'the Library has no duplicate visual mosaic entrance');
 assert.ok(read('_includes/nav.html').includes('explore-visually'), 'the visual atlas is one of the four public entrances');
 
 if (process.argv[2]) {
@@ -72,7 +74,9 @@ if (process.argv[2]) {
   assert.deepEqual(JSON.parse(embedded[1]), items, 'Jekyll publishes the exact checked catalogue');
   assert.equal([...html.matchAll(/class="viz-tile"/g)].length, items.length);
   assert.ok(!html.includes('{%') && !html.includes('{{'), 'all Liquid is rendered');
-  assert.match(library, /href="\/explore-visually.html"/);
+  assert.equal((library.match(/href="\/explore-visually.html"/g) || []).length, 1, 'only the shared navigation links from Library to Visual atlas');
+  assert.match(html, /<h1>Visual atlas<\/h1>/);
+  assert.ok(!html.includes('Back to Library'));
   for (const file of assetPaths) assert.ok(fs.existsSync(path.join(dir, file)), `${file} is included in the built site`);
   for (const item of items) assert.ok(html.includes(`data-view="${item.id}"`));
   assert.ok(fs.readFileSync(path.join(dir, 'sitemap.xml'), 'utf8').includes('/explore-visually.html'));

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Independent project experiments
-description: Small projects, bigger questions. Explore independent experiments in how plans, risks, resources and organisations fit together.
+title: Project Experiments in AI
+description: Small projects, bigger questions. Explore experiments in how plans, risks, resources and organisations fit together.
 schema_type: WebPage
 wide: true
 home_front_door: true
@@ -11,23 +11,15 @@ tags: [Projects, Experiments, Models, IndependentResearch]
 <div class="pw-home" id="home-main" tabindex="-1">
   <section class="pw-home-hero" aria-labelledby="home-title">
     <div class="pw-home-hero-copy">
-      <p class="pw-home-kicker">Independent project experiments</p>
+      <p class="pw-home-kicker">Project Experiments in AI</p>
       <h1 id="home-title">Small projects.<br><em>Bigger questions.</em></h1>
       <p class="pw-home-lead">A farm track. A mountain refuge. A crossing for wildlife. Small, concrete situations make it easier to ask how plans, risks, resources and organisations fit together.</p>
       <div class="pw-home-actions"><a class="pw-home-button" href="{{ '/side-projects.html' | relative_url }}">Explore experiments <span aria-hidden="true">↗</span></a><a class="pw-home-text-link" href="#start-a-question">Find a question ↓</a></div>
-      <p class="pw-home-byline">Experiments by Lawrence Rowland.</p>
     </div>
     <figure class="pw-home-hero-figure">
       <a href="https://lawrencerowland.github.io/integrated_risks_tasks/" aria-label="Explore the Farm Track: when two plans need the same lane"><img src="https://lawrencerowland.github.io/integrated_risks_tasks/assets/farm-track-hero.png" width="1672" height="941" alt="A concrete mixer waits while cows use the narrow lane leading to a small construction site." fetchpriority="high" decoding="async"></a>
       <figcaption><span class="pw-home-figure-number">FIELD SCENE 01 / THE FARM TRACK</span><strong>One lane. Two perfectly good plans.</strong><span>The project shares its world with other people’s work.</span></figcaption>
     </figure>
-  </section>
-
-  <section class="viz-library-entry" aria-labelledby="visual-explorer-title">
-    <a href="{{ '/explore-visually.html' | relative_url }}" class="viz-library-link">
-      <img src="{{ '/images/visual-explorer/mosaic-invitation.svg' | relative_url }}" alt="" width="976" height="216" loading="lazy" decoding="async">
-      <strong id="visual-explorer-title">Explore visually →</strong>
-    </a>
   </section>
 
   <section class="pw-home-questions" id="start-a-question" aria-labelledby="questions-title">

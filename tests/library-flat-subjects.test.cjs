@@ -41,7 +41,9 @@ const requiredDestinations = [
   ['/graphs.html', 'states-and-relationships'],
   ['/gap-map.html', 'capabilities-and-futures'],
   ['/Books.html', 'capabilities-and-futures'],
-  ['/deep-research/', 'capabilities-and-futures']
+  ['/deep-research/', 'capabilities-and-futures'],
+  ['/examples/decision-tree.html', 'decisions-and-trade-offs'],
+  ['/examples/petri-to-wbs.html', 'states-and-relationships']
 ];
 for (const [url, theme, image] of requiredDestinations) {
   const item = byURL(url);
@@ -84,7 +86,10 @@ for (const redirect of redirects) {
 const library = read('library.md');
 for (const fragment of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts', 'interactive-methods']) assert.ok(ids(library).includes(fragment), 'retain broad Library fragment ' + fragment);
 for (const phrase of ['Try an idea', 'Five ways into the work.', 'Two bounded worked examples', 'Three strands of earlier work.', 'Connecting the parts of a project.', 'Maps, connections &amp; reading']) assert.ok(!library.includes(phrase), 'retire type-based section: ' + phrase);
-assert.ok(library.includes('/explore-visually.html'), 'visual browsing remains a collection-wide entrance');
+assert.ok(!library.includes('/explore-visually.html'), 'Visual atlas is a peer page reached through the main navigation');
+assert.ok(!library.includes('/project-examples.html'), 'unique earlier examples now have direct subject homes');
+assert.ok(library.includes('id="custom-gpts"') && library.includes('/gpt-links-page.html'), 'Custom GPTs has a direct sixth entrance');
+assert.ok(!allItems.some(item => item.id === 'custom-gpts'), 'Custom GPTs does not create artificial subject metadata');
 assert.ok(library.includes('id="earlier-app-collections"') && library.includes('<details>'), 'remaining collections retain their native disclosure');
 assert.ok(library.includes('site.data.library_redirects') && library.includes('/assets/js/library-routes.js'), 'legacy fragments have rendered links and a forwarding script');
 
@@ -145,7 +150,11 @@ if (process.argv[2]) {
   const builtRead = file => fs.readFileSync(path.join(built, file), 'utf8');
   const libraryHTML = builtRead('library.html');
   const rootCards = [...libraryHTML.matchAll(/<article class="pw-home-question"[\s\S]*?<\/article>/g)].map(match => match[0]);
-  assert.equal(rootCards.length, 5, 'the Library presents only five equal topic cards');
+  assert.equal(rootCards.length, 6, 'the Library presents five subject cards and Custom GPTs');
+  const customGPTCards = rootCards.filter(card => card.includes('href="/gpt-links-page.html"'));
+  assert.equal(customGPTCards.length, 1, 'one direct Custom GPTs entrance');
+  assert.match(customGPTCards[0], /<h2\b[^>]*>Custom GPTs<\/h2>/);
+  assert.ok(rootCards.indexOf(customGPTCards[0]) === 5, 'Custom GPTs follows the five established subjects');
   for (const theme of themes) {
     const route = '/library/methods/' + theme.id + '.html';
     assert.equal(rootCards.filter(card => card.includes('href="' + route + '"')).length, 1, theme.id + ': one topic entrance');
@@ -183,4 +192,4 @@ if (process.argv[2]) {
     assert.ok(fallback && fallback.includes('data-library-destination') && fallback.includes('href="' + redirect.url + '"'), 'saved-link fallback reaches its exact card without JavaScript: ' + redirect.id);
   }
 }
-console.log('PASS: five flat subjects, complete peer-card preservation, dated article returns and precise saved-link forwards' + (process.argv[2] ? '; rendered cards, images and links.' : '.'));
+console.log('PASS: five flat subjects plus Custom GPTs, complete peer-card preservation, dated article returns and precise saved-link forwards' + (process.argv[2] ? '; rendered cards, images and links.' : '.'));

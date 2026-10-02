@@ -126,7 +126,7 @@ for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-arti
 for (const id of ['library-data-models', 'library-frameworks', 'library-methods']) assert.ok(libraryRedirects.some(item => item.id === id), 'Library retains a forwarding entrance for migrated index fragment ' + id);
 assert.ok(read('sitemap.md').includes('page.legacy_redirect'), 'human sitemap excludes compatibility pages');
 assert.ok(!read('sitemap.md').includes('site.posts'), 'no empty Posts section');
-assert.ok(!read('_includes/footer.html').includes('/feed.xml'), 'empty historical feed is not advertised');
+assert.ok(!read('_includes/nav.html').includes('/feed.xml') && !librarySource.includes('/feed.xml'), 'empty historical feed is not advertised');
 assert.ok(!read('_includes/head.html').includes('feed_meta'), 'no empty-feed autodiscovery');
 
 // Retain the existing checks for the separate Deep Research material.

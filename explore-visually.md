@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Explore visually
+title: Visual atlas
 description: Browse small pictures of project models, diagrams and interactive views, then open a larger explanation or visit the original example.
 schema_type: CollectionPage
 wide: true
@@ -8,9 +8,8 @@ home_front_door: true
 ---
 
 <div class="pw-home viz-explorer" id="home-main" tabindex="-1" data-baseurl="{{ site.baseurl | escape }}">
-  <header class="viz-heading">
-    <a class="viz-return" href="{{ '/library.html' | relative_url }}#home-main">← Back to Library</a>
-    <h1>Explore visually.</h1>
+  <header class="viz-heading pw-page-heading">
+    <h1>Visual atlas</h1>
     <p>Find a picture that helps you think. Hover or focus for a hint; open it to explore the original example.</p>
     <p class="viz-note">A first selection of {{ site.data.visualisations | size }} views from across the published work, including earlier examples. More to come.</p>
   </header>

@@ -91,6 +91,30 @@
     "action": "Explore the graphs"
   },
   {
+    "id": "decision-tree",
+    "theme": "decisions-and-trade-offs",
+    "order": 25,
+    "kind": "material",
+    "title": "What do your decision weights imply?",
+    "url": "/examples/decision-tree.html",
+    "description": "A fictional software shortlist makes the supplied branch weights visible. Compare each option’s exact probability with sampled paths, then inspect the assumptions behind the result.",
+    "label": "Interactive example · Weighted path sampling",
+    "action": "Try the decision sampler",
+    "limitation": "The tree and weights stay fixed. More samples reduce sampling noise; they do not learn which product is best, repair the assumptions or turn this into a recommendation."
+  },
+  {
+    "id": "petri-to-wbs",
+    "theme": "states-and-relationships",
+    "order": 35,
+    "kind": "material",
+    "title": "From shed states to a candidate task structure",
+    "url": "/examples/petri-to-wbs.html",
+    "description": "Switch among three starting token patterns for a toy shed build. Compare the displayed Petri net, transition table, task tree and simple dates.",
+    "label": "Earlier process illustration · Petri net → WBS",
+    "action": "Explore the shed example",
+    "limitation": "The traversal records each transition at most once across alternative markings. Its combined transition list need not be one executable firing sequence, so the displayed task structure and dates are illustrations, not a verified complete shed plan."
+  },
+  {
     "id": "monthly-portfolio-decisions",
     "theme": "decisions-and-trade-offs",
     "order": 40,

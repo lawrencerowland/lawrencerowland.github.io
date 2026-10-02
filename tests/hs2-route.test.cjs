@@ -4,7 +4,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const html = fs.readFileSync(path.join(__dirname, '../examples/hs2-decision-graph.html'), 'utf8');
-const registry = fs.readFileSync(path.join(__dirname, '../_data/examples.yml'), 'utf8');
 const target = 'https://lawrencerowland.github.io/Project-web-apps/web_apps/hs2-decision-graph.html';
 const script = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)]
   .map(match => match[1]).find(source => source.includes('location.replace'));
@@ -20,13 +19,11 @@ function follow(search = '', hash = '', blocked = false) {
   return { href: link.href, forwarded };
 }
 
-test('retained root route and catalogue identify the published canonical graph', () => {
+test('retained root route identifies the published canonical graph', () => {
   assert.ok(html.includes(`<link rel="canonical" href="${target}">`));
   assert.ok(html.includes(`<a id="destination" href="${target}">`));
   assert.match(html, /<noscript><p>Automatic forwarding requires JavaScript/);
   assert.doesNotMatch(html, /http-equiv\s*=\s*["']refresh/i);
-  const record = registry.split(/(?=^- title: )/m).find(block => block.startsWith('- title: "HS2 decision graph"'));
-  assert.ok(record.includes(`path: "${target}"`));
   assert.deepEqual(follow(), { href: target, forwarded: target });
 });
 

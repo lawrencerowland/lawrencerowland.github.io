@@ -1,15 +1,15 @@
 ---
 layout: default
 title: Experiments in how projects work
-description: Independent experiments and examples exploring project and programme questions.
+description: Experiments and examples exploring project and programme questions.
 schema_type: CollectionPage
 tags: [SideProjects, Examples]
 wide: true
 ---
 
 <div class="foray-directory" id="foray-directory">
-  <header class="foray-intro" id="browse-projects">
-    <div><h1>Experiments in how projects work</h1><p>Small project scenarios for exploring how work, resources and decisions fit together.</p></div>
+  <header class="foray-intro pw-page-heading" id="browse-projects">
+    <div><h1>Experiments</h1><p>Small project scenarios for exploring how work, resources and decisions fit together.</p></div>
     <nav class="foray-sections" aria-label="More ways to explore">
       <a href="#compare-approaches">Compare approaches <span aria-hidden="true">↗</span></a>
     </nav>
@@ -103,9 +103,7 @@ wide: true
     </div>
   </section>
 
-  <p class="foray-other-links" id="other-projects">Also explore <a href="{{ '/gpt-links-page.html' | relative_url }}">My Custom GPTs</a>.</p>
-  <p class="foray-note">These are exploratory tools and toy models, not validated delivery methods.</p>
-  <p class="foray-note">The two original general app collections are retained in the <a href="{{ '/library.html#earlier-app-collections' | relative_url }}">Library</a>.</p>
-  <p class="foray-note">For individual tools from the two general app libraries, use the <a href="{{ '/all-project-apps.html' | relative_url }}">All Project Apps catalogue</a>.</p>
+  <p class="pw-library-legacy-route" id="other-projects">Custom GPTs now live in the <a data-library-destination href="{{ '/library.html#custom-gpts' | relative_url }}">Library →</a>.</p>
 </div>
+<script src="{{ '/assets/js/library-routes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/forays.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

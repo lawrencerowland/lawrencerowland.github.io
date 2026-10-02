@@ -6,6 +6,11 @@ const { execFileSync } = require('node:child_process');
 const registry = JSON.parse(execFileSync('ruby', ['-ryaml', '-rjson', '-e',
   'puts JSON.generate(YAML.load_file("_data/side_projects.yml"))'], { encoding: 'utf8' }));
 const projects = registry.filter(p => p.placement === 'project').sort((a, b) => a.gallery_order - b.gallery_order);
+const directorySource = fs.readFileSync('side-projects.md', 'utf8');
+for (const phrase of ['My Custom GPTs', 'These are exploratory tools and toy models', 'The two original general app collections', 'For individual tools from the two general app libraries']) {
+  assert.ok(!directorySource.includes(phrase), 'the retired directory tail is absent: ' + phrase);
+}
+assert.ok(!directorySource.includes('class="foray-note"'), 'the directory ends without the former three notes');
 assert.ok(projects.every(p => Number.isInteger(p.gallery_order) && p.gallery_order > 0), 'each gallery entry has an explicit display order');
 assert.equal(new Set(projects.map(p => p.gallery_order)).size, projects.length, 'display order is unambiguous');
 assert.equal(projects.slice(0, 3).filter(p => p.group === 'gimmer').length, 1, 'the first row introduces other scenarios alongside Gimmer');
@@ -38,7 +43,7 @@ for (const project of registry) {
   assert.ok(['gimmer', 'featured', 'library', 'other'].includes(project.group));
   assert.ok(Array.isArray(project.tags) && project.tags.length);
   for (const link of [project, ...(project.related || [])]) {
-    assert.equal(new URL(link.path).origin, 'https://lawrencerowland.github.io');
+    assert.equal(new URL(link.path, 'https://lawrencerowland.github.io').origin, 'https://lawrencerowland.github.io');
   }
 }
 assert.equal(projects.find(p => p.title === 'Functors for Projects').path,
@@ -122,7 +127,7 @@ if (process.argv[2]) {
   assert.match(html, /<details class="foray-question-routes"/);
   const renderedCards = [...html.matchAll(/<article class="example-card foray-card"[\s\S]*?<\/article>/g)].map(match => match[0]);
   assert.equal(renderedCards.length, projects.length);
-  assert.ok(html.includes('href="/library.html#earlier-app-collections"'), 'retained collections remain signposted');
+  assert.ok(!html.includes('href="/library.html#earlier-app-collections"'), 'collections use their single Library home');
   for (const collection of collections) assert.ok(!renderedCards.some(card => card.includes(collection.path)), 'generic collections move out of the project grid');
   assert.ok(!html.includes('{%') && !html.includes('{{'), 'Liquid rendered completely');
   assert.ok(!html.includes('https://lawrencerowland.github.io/csv-to-gantt/'), 'removed route is absent from the rendered directory');
@@ -154,10 +159,10 @@ if (process.argv[2]) {
   const intro = html.match(/<header class="foray-intro"[\s\S]*?<\/header>/)[0];
   assert.ok(!intro.includes('all-project-apps.html'), 'generic catalogue is not an opening shortcut');
   assert.ok(html.indexOf('id="compare-approaches"') > html.lastIndexOf('</article>'), 'comparison follows the gallery');
-  assert.ok(html.includes('href="/gpt-links-page.html"'));
+  assert.ok(!html.includes('My Custom GPTs'), 'Custom GPTs is no longer a directory-tail entrance');
   // This utility is deliberately discoverable through the generic app catalogues.
   assert.ok(!html.includes('project_innovation_app'), 'Do not promote the Idea notebook on Projects');
-  assert.ok(html.includes('href="/all-project-apps.html"'));
+  assert.ok(!html.includes('href="/all-project-apps.html"'), 'the app catalogue is reached through Library');
   const expectedTags = [...new Set(projects.flatMap(p => p.tags))].sort();
   const topicOptions = [...html.matchAll(/<option value="([^"]+)"/g)].map(m => m[1]).filter(x => x !== 'all');
   assert.deepEqual(topicOptions, expectedTags, 'filter offers only topics with a displayed project');
