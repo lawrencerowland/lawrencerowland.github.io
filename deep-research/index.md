@@ -14,4 +14,4 @@ A retained research report on project delivery. Read it as background material; 
 
 The PDF can be opened directly if your browser does not display it inside the report page.
 
-[Return to the Library →]({{ '/library.html#library-reading' | relative_url }})
+[Return to the Library →]({{ '/library/methods/capabilities-and-futures.html#deep-research' | relative_url }})

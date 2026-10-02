@@ -1,0 +1,46 @@
+{% assign entry = include.entry %}
+{% assign picture = entry.image %}
+{% assign picture_alt = entry.image_alt %}
+{% assign title = entry.title %}
+{% assign destination = entry.url %}
+{% assign description = entry.description %}
+{% assign label = entry.label %}
+{% assign action = entry.action | default: 'Open the example' %}
+{% if entry.kind == 'worked-example' %}
+  {% assign example = site.data.worked_examples | where: 'id', entry.id | first %}
+  {% assign picture = example.image %}{% assign picture_alt = example.image_alt %}
+  {% assign title = example.title %}{% assign destination = example.canonical_url %}
+  {% assign description = example.problem %}{% assign label = example.topic %}{% assign action = example.action %}
+{% elsif entry.kind == 'article' %}
+  {% assign historical = site.data.historical_articles | where: 'url', entry.historical_url | first %}
+  {% assign title = historical.title %}{% assign destination = historical.url %}
+  {% assign description = historical.summary %}{% assign action = 'Read the article' %}
+{% elsif entry.kind == 'app' %}
+  {% assign label = 'Interactive example' %}
+{% endif %}
+<article class="pw-home-question" id="{{ entry.id }}">
+  <a class="pw-home-tile-link" href="{{ destination | relative_url }}" aria-labelledby="title-{{ entry.id }}">
+    {% if picture %}<div class="pw-home-question-visual"><img src="{{ picture | relative_url }}" alt="{{ picture_alt | escape }}" width="960" height="600" loading="lazy" decoding="async"></div>{% endif %}
+    <div class="pw-home-question-copy">
+      {% if entry.kind == 'article' %}<p class="pw-home-project-label">Historical article · <time datetime="{{ historical.date | date: '%Y-%m-%d' }}">{{ historical.date | date: '%-d %B %Y' }}</time></p>{% else %}<p class="pw-home-project-label">{{ label | escape }}</p>{% endif %}
+      <h2 id="title-{{ entry.id }}">{{ title | escape }}</h2><p>{{ description | escape }}</p>
+    </div>
+    <span class="pw-home-route-link">{{ action | escape }} →</span>
+  </a>
+  {% if entry.kind == 'worked-example' %}
+  <details class="foray-details">
+    <summary>What to try, assumptions &amp; source</summary>
+    <div class="foray-detail-body">
+      <p><strong>Inputs.</strong> {{ example.inputs | escape }}</p>
+      <p><strong>Try this.</strong> {{ example.try | escape }}</p>
+      <p><strong>Limits.</strong> {{ example.limitation | escape }}</p>
+      <p>{{ example.revision_context | escape }}</p>
+      <p><a href="{{ example.source_url | escape }}">{{ example.source_label | escape }}</a>{% if example.checks_url %} · <a href="{{ example.checks_url | escape }}">{{ example.checks_label | escape }}</a>{% endif %}</p>
+    </div>
+  </details>
+  {% elsif entry.kind == 'app' %}
+  <details class="foray-details"><summary>What to try &amp; what it leaves out</summary><div class="foray-detail-body"><p><strong>Try.</strong> {{ entry.try_this | escape }}</p><p><strong>Limits.</strong> {{ entry.limitation | escape }}</p><p>Earlier example, repaired and reviewed {{ entry.reviewed }}. This review checks the stated model and interactions; it does not establish usefulness in practice.</p><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/tools/library-apps/apps/{{ entry.id }}">Editable source</a></div></details>
+  {% elsif entry.limitation %}
+  <details class="foray-details"><summary>What this example leaves open</summary><div class="foray-detail-body"><p>{{ entry.limitation | escape }}</p></div></details>
+  {% endif %}
+</article>

@@ -16,7 +16,7 @@ tags: [DataModeling, MultilayerNetworks, ProjectManagement]
     <h1>A rail project.<br>Three connected layers.</h1>
     <p class="pw-model-lead">A rail scheme brings together a proposed station, faster trains, carbon ambitions, construction work and organisations with different concerns. How can these kinds of information stay distinct while their connections remain visible?</p>
     <p>Lawrence’s small Py3Plex notebook explores that question through objectives, stakeholders and scope. This guide, dated 1 October 2026, reads its original saved pictures and source.</p>
-    <p class="pw-model-returns"><a href="{{ '/library.html#notebook-examples' | relative_url }}">← Notebook examples in the Library</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
+    <p class="pw-model-returns"><a href="{{ '/library/methods/states-and-relationships.html#rail-stakeholders-objectives-scope' | relative_url }}">← Notebook examples in the Library</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
   </header>
   <div class="pw-framework-prose">
     <figure class="pw-framework-figure pw-notebook-figure">
@@ -53,6 +53,6 @@ tags: [DataModeling, MultilayerNetworks, ProjectManagement]
     <h2 id="source-and-status">Read the notebook</h2>
     <p><a href="https://github.com/lawrencerowland/py3plex/blob/9bdfca4aa40a5115e8697fbd64e67347dc7a0a9a/stakeholder_objectives.ipynb">Inspect the saved notebook and its edge lists →</a></p>
     <p>This is Lawrence’s hand-entered example in a fork of the <a href="https://github.com/lawrencerowland/py3plex/blob/9bdfca4aa40a5115e8697fbd64e67347dc7a0a9a/README.md">Py3Plex library</a>, rather than an upstream demonstration. The two pictures are unchanged notebook outputs. The notebook was not rerun for this guide; present-day execution is unverified. It illustrates a representation, without calculating a schedule or validating a stakeholder decision.</p>
-    <p class="pw-model-returns"><a href="{{ '/library.html#notebook-examples' | relative_url }}">Back to notebook examples</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
+    <p class="pw-model-returns"><a href="{{ '/library/methods/states-and-relationships.html#rail-stakeholders-objectives-scope' | relative_url }}">Back to notebook examples</a> · <a href="{{ '/Portfolio-data-model.html#processes-and-relationships' | relative_url }}">Processes and relationships</a></p>
   </div>
 </div>

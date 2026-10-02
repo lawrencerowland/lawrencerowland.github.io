@@ -1,0 +1,213 @@
+[
+  {
+    "id": "library-data-models",
+    "theme": "states-and-relationships",
+    "order": 10,
+    "kind": "material",
+    "title": "How should the work fit into a shared picture?",
+    "url": "/Portfolio-data-model.html#read-the-worked-models",
+    "image": "/images/Portfolio-data-model/Full-programme-data-model.png",
+    "image_alt": "A programme data model connects delivery work with objectives and its organisational context",
+    "description": "Compare tasks, states and resources in one small job; read four directors’ views of one roadmap; or explore programme schemas, portfolio-needs notes and an earlier ontology experiment. The explanations link to their original diagrams and source files.",
+    "label": "Worked models · Projects, programmes & portfolios",
+    "action": "Read the worked models"
+  },
+  {
+    "id": "library-frameworks",
+    "theme": "capabilities-and-futures",
+    "order": 10,
+    "kind": "material",
+    "title": "Which working practices does this portfolio need?",
+    "url": "/Portfolio-frameworks.html",
+    "image": "/images/Portfolio-frameworks/portfolio-tier1.png",
+    "image_alt": "An overview of the categories in a portfolio management framework",
+    "description": "A guide to choosing and adapting frameworks. The linked public code repository now retains a navigational skeleton, rather than the former full toolkit.",
+    "label": "Earlier method · Portfolio management",
+    "action": "Read the framework guide"
+  },
+  {
+    "id": "library-methods",
+    "theme": "data-and-assurance",
+    "order": 10,
+    "kind": "material",
+    "title": "Which method fits the question and the available data?",
+    "url": "/ML-for-portfolios.html",
+    "image": "/images/ML-for-portfolios/Usecase-to-Operations-subgraph-ML-models-created.png",
+    "image_alt": "A graph relates project use cases to delivery and operational stages",
+    "description": "Earlier thinking on matching methods to project information. Follow an illustrated Orange prediction workflow, ask what an A14 delay forecast could know before work starts, or consider what a monthly portfolio review should decide and learn. Each guide explains what its original files do and leave unresolved.",
+    "label": "Earlier exploration · Information & methods",
+    "action": "Read the methods guide"
+  },
+  {
+    "id": "mobilising-two-projects",
+    "theme": "states-and-relationships",
+    "order": 30,
+    "kind": "material",
+    "title": "How do two mobilisation processes fit together?",
+    "url": "/library/models/mobilising-two-projects.html",
+    "image": "/images/notebook-examples/mobilising-two-projects.png",
+    "image_alt": "Two mobilisation processes produce teams and blueprints; crossed wires connect matching outputs to separate merge processes",
+    "description": "Each project produces a team and a blueprint. Follow the wires to see how typed process composition brings like outputs together, and what it leaves for the project manager to decide.",
+    "label": "Modelling notebook · DisCoPy · 8 October 2022",
+    "action": "Read the mobilisation example"
+  },
+  {
+    "id": "rail-stakeholders-objectives-scope",
+    "theme": "states-and-relationships",
+    "order": 50,
+    "kind": "material",
+    "title": "How does railway scope connect to people and objectives?",
+    "url": "/library/models/rail-stakeholders-objectives-scope.html",
+    "image": "/images/notebook-examples/rail-three-layers.png",
+    "image_alt": "A rail-project network drawn on three labelled layers: objectives, stakeholders and scope, with links between them",
+    "description": "A new station, faster trains and carbon ambitions meet track, signalling and the organisations involved. Read three layers together, then see what an objective-only view leaves out.",
+    "label": "Modelling notebook · Py3Plex · October 2022",
+    "action": "Read the rail-network example"
+  },
+  {
+    "id": "us-portfolio-questions",
+    "theme": "states-and-relationships",
+    "order": 70,
+    "kind": "material",
+    "title": "Following questions through a US IT portfolio",
+    "url": "/library/models/us-portfolio-questions.html",
+    "image": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/IBM_supplier.png",
+    "image_alt": "Original graph: purple supplier records connect to green investments and orange organisational nodes.",
+    "description": "Original pictures connect suppliers, delivery work and measures, with dated reading guidance. Follow a management question through the connected records, then check what was counted.",
+    "label": "Historical case study · September 2020",
+    "action": "Follow the questions"
+  },
+  {
+    "id": "graphs-and-connections",
+    "theme": "states-and-relationships",
+    "order": 100,
+    "kind": "material",
+    "title": "Graphs & connections",
+    "url": "/graphs.html",
+    "image": "/images/Interactive_project_graph_1.png",
+    "image_alt": "An earlier interactive project strategy graph",
+    "description": "Explore the relationships in earlier project models, strategies and methods. Three pictured routes lead into a strategy graph, an operating-model graph and a machine-learning roadmap.",
+    "label": "Earlier graph collection",
+    "action": "Explore the graphs"
+  },
+  {
+    "id": "monthly-portfolio-decisions",
+    "theme": "decisions-and-trade-offs",
+    "order": 40,
+    "kind": "material",
+    "title": "Decide now—or find out more first?",
+    "url": "/ML-for-portfolios.html#monthly-portfolio-decisions",
+    "image": "/images/ML-for-portfolios/monthly-portfolio-review.svg",
+    "image_alt": "The current review’s state and decision connect through progress and new information to the next review’s updated state and decision.",
+    "description": "Today’s state and decision lead through progress and new information into the next review.",
+    "label": "Earlier question · December 2020; reading diagram · 2026",
+    "action": "Read the illustrated example",
+    "limitation": "A 2026 reading diagram of a December 2020 question. The retained notebooks do not learn a policy, consume new evidence or model assurance."
+  },
+  {
+    "id": "orange-project-ratings",
+    "theme": "data-and-assurance",
+    "order": 50,
+    "kind": "material",
+    "title": "Turn project records into a question worth testing",
+    "url": "/ML-for-portfolios.html#orange-project-ratings",
+    "image": "/images/ML-for-portfolios/orange-project-ratings-workflow.png",
+    "image_alt": "An Orange workflow connects data preparation to model comparisons, visual exploration and an intended runtime prediction branch.",
+    "description": "Data preparation branches into model comparison, visual exploration and an intended prediction route.",
+    "label": "Earlier workflow · 2019",
+    "action": "Read the illustrated example",
+    "limitation": "The target is IEG Bank Performance, not general project success. The workbook is absent; this is not a reproduced early forecast or working deployment."
+  },
+  {
+    "id": "highways-delay-notebook",
+    "theme": "data-and-assurance",
+    "order": 30,
+    "kind": "material",
+    "title": "What could an activity-delay forecast know in time?",
+    "url": "/ML-for-portfolios.html#highways-delay-notebook",
+    "image": "/images/ML-for-portfolios/highways-training-variance.png",
+    "image_alt": "Saved training-set scatter plot compares recorded finish variance with predicted variance",
+    "description": "Ask what an A14 delay forecast could know before work starts. The Highways experiment retains its original plot, with the missing CSV and unfinished validation made clear.",
+    "label": "Earlier notebook · 2020",
+    "action": "Read the Highways experiment"
+  },
+  {
+    "id": "gap-map",
+    "theme": "capabilities-and-futures",
+    "order": 50,
+    "kind": "material",
+    "title": "Gap Map",
+    "url": "/gap-map.html",
+    "description": "Inspect an earlier map of project-management gaps and proposed capabilities, and follow the connections to supporting resources.",
+    "label": "Interactive reference map",
+    "action": "Explore the Gap Map"
+  },
+  {
+    "id": "books",
+    "theme": "capabilities-and-futures",
+    "order": 80,
+    "kind": "material",
+    "title": "Books",
+    "url": "/Books.html",
+    "description": "Reading on organisational change, innovation, learning and working methods, alongside earlier books on technology and data science.",
+    "label": "Earlier reading list",
+    "action": "Browse the reading list"
+  },
+  {
+    "id": "deep-research",
+    "theme": "capabilities-and-futures",
+    "order": 100,
+    "kind": "material",
+    "title": "Deep Research",
+    "url": "/deep-research/",
+    "description": "A retained report on project gaps, capabilities and resources, with a direct PDF link and a readable report page.",
+    "label": "Background report · April 2025",
+    "action": "Read the report"
+  },
+  {
+    "id": "feedback-groups",
+    "theme": "delivery-dynamics",
+    "order": 20,
+    "kind": "worked-example"
+  },
+  {
+    "id": "buffer-day",
+    "theme": "decisions-and-trade-offs",
+    "order": 30,
+    "kind": "worked-example"
+  },
+  {
+    "id": "project-management-jobs-to-be-done",
+    "theme": "capabilities-and-futures",
+    "order": 20,
+    "kind": "article",
+    "historical_url": "/library/articles/project-management-jobs-to-be-done.html"
+  },
+  {
+    "id": "adopting-a-portfolio-framework",
+    "theme": "capabilities-and-futures",
+    "order": 40,
+    "kind": "article",
+    "historical_url": "/library/articles/adopting-a-portfolio-framework.html",
+    "image": "/images/2020-05-16-Adopt-existing-portfolio-framework/Portfolio-services-mapped-to-business-needs-Rowland-and-Lewis.png",
+    "image_alt": "Portfolio services mapped to business needs in the original framework article"
+  },
+  {
+    "id": "choosing-a-machine-learning-approach",
+    "theme": "data-and-assurance",
+    "order": 60,
+    "kind": "article",
+    "historical_url": "/library/articles/choosing-a-machine-learning-approach.html",
+    "image": "/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-use-case-to-ML-type.png",
+    "image_alt": "The original article maps a project use case to a type of machine learning"
+  },
+  {
+    "id": "data-models-for-project-portfolios",
+    "theme": "states-and-relationships",
+    "order": 110,
+    "kind": "article",
+    "historical_url": "/library/articles/data-models-for-project-portfolios.html",
+    "image": "/images/Portfolio-data-model/Graph_Option.png",
+    "image_alt": "A graph-based view of a project portfolio"
+  }
+]

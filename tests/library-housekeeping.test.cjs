@@ -10,6 +10,8 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const digest = content => crypto.createHash('sha256').update(content).digest('hex');
 const fixture = JSON.parse(read('tests/fixtures/historical-articles.json'));
 const records = JSON.parse(read('_data/historical_articles.yml'));
+const materials = JSON.parse(read('_data/library_materials.json'));
+const libraryRedirects = JSON.parse(read('_data/library_redirects.json'));
 const articles = fixture.articles;
 const scalar = (source, key) => {
   const frontMatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -40,7 +42,7 @@ const sourceLayout = read('_layouts/historical-article.html');
 assert.match(sourceLayout, /Originally published/);
 assert.match(sourceLayout, /<time\b/);
 assert.match(sourceLayout, /page\.date/);
-assert.ok(sourceLayout.includes('/library.html#') && sourceLayout.includes('library_anchor'), 'articles return to their Library subject');
+assert.ok(sourceLayout.includes('library_url'), 'articles return directly to their peer card in the Library subject');
 assert.ok(!sourceLayout.includes('/library.html#historical-articles') && !sourceLayout.includes('More from the same period'), 'related reading follows subject rather than publication period');
 assert.ok(!fs.existsSync(path.join(root, 'blog.md')) && !fs.existsSync(path.join(root, 'blog_summary.md')), 'both blog index sources are retired');
 assert.ok(!fs.existsSync(path.join(root, '_posts')) || fs.readdirSync(path.join(root, '_posts')).length === 0, 'no parallel post archive remains');
@@ -63,7 +65,9 @@ for (const article of articles) {
   assert.equal(scalar(source, 'title_anchor'), article.title_anchor, 'retain the original title fragment');
   assert.equal(record.date, article.date);
   assert.equal(record.subject, subjects[article.url], 'article is grouped with its subject');
-  assert.equal(record.library_anchor, 'library-' + subjects[article.url]);
+  const placement = materials.find(item => item.kind === 'article' && item.historical_url === article.url);
+  assert.ok(placement, 'article has a peer placement in the subject');
+  assert.equal(record.library_url, '/library/methods/' + placement.theme + '.html#' + placement.id);
   assert.ok(record.guide_url && record.guide_title, 'article retains a route to the related subject guide');
   assert.equal(record.title, scalar(source, 'title'));
   assert.ok(record.summary.trim(), 'every Library entry has reading context');
@@ -118,7 +122,8 @@ for (const redirect of redirects) {
   exerciseRedirect(script, redirect);
 }
 const librarySource = read('library.md');
-for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts', 'library-data-models', 'library-frameworks', 'library-methods']) assert.ok(ids(librarySource).has(id), 'Library retains index fragment ' + id);
+for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts']) assert.ok(ids(librarySource).has(id), 'Library retains generic index fragment ' + id);
+for (const id of ['library-data-models', 'library-frameworks', 'library-methods']) assert.ok(libraryRedirects.some(item => item.id === id), 'Library retains a forwarding entrance for migrated index fragment ' + id);
 assert.ok(read('sitemap.md').includes('page.legacy_redirect'), 'human sitemap excludes compatibility pages');
 assert.ok(!read('sitemap.md').includes('site.posts'), 'no empty Posts section');
 assert.ok(!read('_includes/footer.html').includes('/feed.xml'), 'empty historical feed is not advertised');
@@ -138,7 +143,7 @@ if (process.argv[2]) {
   for (const article of articles) {
     const html = builtRead(article.url);
     const record = records.find(candidate => candidate.url === article.url);
-    assert.ok(html.includes('href="/library.html#' + record.library_anchor + '"'), article.url + ': returns to its subject in Library');
+    assert.ok(html.includes('href="' + record.library_url + '"'), article.url + ': returns to its peer card in the Library subject');
     const related = html.match(/<nav class="pw-article-related"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
     assert.ok(related, 'related reading navigation exists');
     assert.ok(related.includes('href="' + record.guide_url + '"'), 'related subject guide remains reachable');
@@ -164,8 +169,11 @@ if (process.argv[2]) {
     const renderedImages = [...body.matchAll(/<img\b[^>]*src="([^"]+)"/g)].map(match => match[1]);
     assert.deepEqual(renderedImages, article.images.map(image => image.url), article.url + ': all original diagrams appear in order');
     for (const image of article.images) assert.equal(digest(fs.readFileSync(path.join(built, image.url))), image.sha256, 'built diagram is byte-preserved');
-    assert.ok(library.includes('href="' + article.url + '"'), 'Library directly links ' + article.url);
-    assert.ok(library.match(dateTag), 'Library dates ' + article.url);
+    const subjectURL = new URL(record.library_url, origin);
+    const subjectPage = builtRead(subjectURL.pathname);
+    assert.ok(ids(subjectPage).has(subjectURL.hash.slice(1)), 'article return fragment exists on subject page');
+    assert.ok(subjectPage.includes('href="' + article.url + '"'), 'Library subject directly links ' + article.url);
+    assert.ok(subjectPage.match(dateTag), 'Library subject dates ' + article.url);
     assert.ok(siteMap.includes('<loc>' + origin + article.url + '</loc>'), 'machine sitemap includes article');
     assert.ok(humanMap.includes('href="' + article.url + '"'), 'human sitemap includes article');
   }
@@ -186,7 +194,7 @@ if (process.argv[2]) {
   assert.ok(fs.existsSync(path.join(built, 'feed.xml')), 'feed endpoint remains available for existing subscribers');
   assert.ok(!builtRead('feed.xml').includes('<entry'), 'no parallel blog article feed remains');
   assert.ok(fs.readFileSync(path.join(built, pdf)).equals(fs.readFileSync(path.join(root, pdf))), 'published PDF is byte-preserved');
-  const routes = ['library.html', ...articles.map(article => article.url), ...redirects.map(redirect => redirect.old), 'deep-research/index.html', 'deep-research/research1.html', 'deep-research/research2.html'];
+  const routes = ['library.html', ...new Set(materials.map(item => 'library/methods/' + item.theme + '.html')), ...articles.map(article => article.url), ...redirects.map(redirect => redirect.old), 'deep-research/index.html', 'deep-research/research1.html', 'deep-research/research2.html'];
   for (const file of routes) {
     const html = builtRead(file);
     assert.ok(!html.includes('{{') && !html.includes('{%'), file + ': Liquid fully rendered');

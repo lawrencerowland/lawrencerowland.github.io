@@ -7,6 +7,10 @@ const nav = fs.readFileSync('_includes/nav.html', 'utf8');
 const footer = fs.readFileSync('_includes/footer.html', 'utf8');
 const home = fs.readFileSync('index.md', 'utf8');
 const library = fs.readFileSync('library.md', 'utf8');
+const materials = JSON.parse(fs.readFileSync('_data/library_materials.json', 'utf8'));
+const themes = JSON.parse(fs.readFileSync('_data/library_themes.json', 'utf8'));
+const themeLayout = fs.readFileSync('_layouts/library-theme.html', 'utf8');
+const materialFor = url => materials.find(item => item.url === url || item.url?.split('#')[0] === url);
 assert.deepEqual([...nav.matchAll(/>(Experiments|Library|Visual atlas|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Library', 'Visual atlas', 'Wider interest']);
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
 for (const route of ['/about_me.html', '/side-projects.html', '/library.html', '/explore-visually.html', '/wider-interest/']) {
@@ -14,10 +18,11 @@ for (const route of ['/about_me.html', '/side-projects.html', '/library.html', '
 }
 for (const route of ['/graphs.html', '/Books.html', '/gap-map.html', '/all-project-apps.html', '/project-examples.html']) {
   assert.ok(!footer.includes(route), `supporting destination stays out of the footer: ${route}`);
-  assert.ok(library.includes(route), `supporting destination remains reachable in Library: ${route}`);
+  assert.ok(library.includes(route) || materialFor(route), `supporting destination remains reachable through Library subjects: ${route}`);
 }
-const maps = library.indexOf('aria-labelledby="library-maps-title"');
-assert.ok(maps > 0 && maps < library.indexOf('aria-labelledby="worked-examples-title"'), 'maps and connections appear near the top of Library');
+const graphMaterial = materialFor('/graphs.html');
+assert.equal(graphMaterial?.theme, 'states-and-relationships', 'graphs and connections share the relationships subject');
+assert.ok(!library.includes('aria-labelledby="library-maps-title"'), 'maps do not form a separate Library hierarchy');
 assert.ok(!footer.includes('github.com/lawrencerowland'), 'repository directory is not a public entrance');
 assert.ok(!footer.includes('Explore the ideas.'), 'the footer codicil is removed');
 assert.ok(!footer.includes('/gimmer-comparison/') && !home.includes('/gimmer-comparison/'), 'planning comparison is below the Experiments entrance');
@@ -29,21 +34,18 @@ assert.ok(!/Machine-learning-for-project-portfolios|Data-Model-for-Project-Frame
 assert.ok(!fs.existsSync('older-stuff.md'), 'redundant Older stuff index is retired');
 assert.ok(!library.includes('/older-stuff.html'), 'Library has no link to the retired index');
 for (const route of ['/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
-  assert.ok(library.includes(route), `subject remains directly reachable in Library: ${route}`);
+  assert.ok(materialFor(route), `guide remains directly reachable in a Library subject: ${route}`);
 }
-const reading = library.slice(library.indexOf('aria-labelledby="library-reading"'));
-assert.ok(library.indexOf('aria-labelledby="library-reading"') > library.indexOf('id="earlier-app-collections"'), 'research and writing follow the collections');
-assert.ok(reading.includes('/deep-research/'), 'Deep Research has a Library entrance');
-assert.ok(!/\/blog(?:_summary)?\.html/.test(library), 'Library leads directly to articles without an archive entrance');
-const subjectSection = library.slice(library.indexOf('aria-labelledby="library-starts"'), library.indexOf('aria-labelledby="library-future"'));
-assert.ok(subjectSection.includes('id="historical-articles"'), 'the former collection fragment remains at the subject section');
+assert.equal(materialFor('/deep-research/')?.theme, 'capabilities-and-futures', 'Deep Research has a capabilities subject entrance');
+assert.ok(!/\/blog(?:_summary)?\.html/.test(library), 'Library leads to subject material without an archive entrance');
+for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts']) {
+  assert.ok(library.includes('id="' + id + '"'), 'the former generic fragment remains at the topic grid: ' + id);
+}
 assert.ok(!/pw-historical-grid|pw-historical-card|<h[1-6][^>]*id="historical-articles"/.test(library), 'no standalone historical article group remains');
-const relatedReading = fs.readFileSync('_includes/library-related-reading.html', 'utf8');
-assert.ok(relatedReading.includes('site.data.historical_articles') && relatedReading.includes('include.subject'), 'related reading selects articles by subject');
-for (const subject of ['data-models', 'frameworks', 'methods']) {
-  const card = subjectSection.match(new RegExp('<article\\b[^>]*id="library-' + subject + '"[\\s\\S]*?<\\/article>'))?.[0];
-  assert.ok(card, 'pictured subject card remains: ' + subject);
-  assert.ok(card.includes('library-related-reading.html') && card.includes(subject), 'subject card contains its related article links');
+assert.ok(themeLayout.includes('site.data.library_materials'), 'subject pages include established material alongside apps');
+assert.equal(themes.length, 5, 'five equal subject entrances');
+for (const phrase of ['Try an idea', 'Five ways into the work.', 'Two bounded worked examples', 'Three strands of earlier work.', 'Connecting the parts of a project.']) {
+  assert.ok(!library.includes(phrase), 'retired material-type hierarchy is absent: ' + phrase);
 }
 const historicalArticles = JSON.parse(fs.readFileSync('_data/historical_articles.yml', 'utf8'));
 assert.equal(historicalArticles.length, 4);
@@ -131,23 +133,31 @@ if (process.argv[2]) {
   const libraryHTML = fs.readFileSync(path.join(root,'library.html'),'utf8');
   const escapeHTML = value => value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   for (const example of examples) {
-    const card = libraryHTML.match(new RegExp(`<article class="pw-home-question" id="${example.id}"[\\s\\S]*?<\\/article>`))?.[0];
-    assert.ok(card, `rendered example ${example.id}`);
-    for (const key of ['title','canonical_url','image','inputs','try','limitation','revision_context','source_url']) assert.ok(card.includes(escapeHTML(example[key])), `example ${example.id}: preserve ${key}`);
+    const item = materials.find(item => item.kind === 'worked-example' && item.id === example.id);
+    assert.ok(item, `worked example ${example.id} has a subject placement`);
+    const themeHTML = fs.readFileSync(path.join(root, 'library/methods/' + item.theme + '.html'), 'utf8');
+    const card = themeHTML.match(new RegExp(`<article class="pw-home-question" id="${example.id}"[\\s\\S]*?<\\/article>`))?.[0];
+    assert.ok(card, `rendered subject example ${example.id}`);
+    for (const key of ['title','topic','canonical_url','image','image_alt','problem','action','inputs','try','limitation','revision_context','source_url','source_label']) assert.ok(card.includes(escapeHTML(example[key])), `example ${example.id}: preserve ${key}`);
+    for (const key of ['checks_url', 'checks_label']) if (example[key]) assert.ok(card.includes(escapeHTML(example[key])), `example ${example.id}: preserve ${key}`);
     assert.ok(card.includes('<details'), 'scope remains available by native disclosure without JavaScript');
   }
-  const historicalCards = [...libraryHTML.matchAll(/<li class="pw-library-article">[\s\S]*?<\/li>/g)].map(match => match[0]);
-  assert.equal(historicalCards.length, 4, 'four direct historical article entrances');
+  const historicalCards = [];
   for (const article of historicalArticles) {
-    const card = historicalCards.find(card => card.includes('href="' + article.url + '"'));
-    assert.ok(card, 'direct Library entrance for ' + article.title);
-    const subjectCard = libraryHTML.match(new RegExp('<article\\b[^>]*id="' + article.library_anchor + '"[\\s\\S]*?<\\/article>'))?.[0];
-    assert.ok(subjectCard && subjectCard.includes(card), article.title + ': appears within its pictured subject card');
+    const item = materials.find(item => item.kind === 'article' && item.historical_url === article.url);
+    assert.ok(item, 'historical article has a subject placement: ' + article.title);
+    assert.equal(article.library_url, '/library/methods/' + item.theme + '.html#' + item.id, 'article return points to its peer card');
+    const themeHTML = fs.readFileSync(path.join(root, 'library/methods/' + item.theme + '.html'), 'utf8');
+    const card = themeHTML.match(new RegExp('<article class="pw-home-question" id="' + item.id + '"[\\s\\S]*?<\\/article>'))?.[0];
+    assert.ok(card, 'peer subject entrance for ' + article.title);
+    assert.ok(card.includes('href="' + article.url + '"'), 'peer card directly opens the article');
     assert.ok(card.includes(escapeHTML(article.title)), 'original title is visible');
     assert.ok(card.includes('datetime="' + article.date + '"'), 'original publication date is visible');
     assert.ok(card.includes(escapeHTML(article.summary)), 'reading context remains visible');
-    assert.ok(fs.existsSync(path.join(root, article.url)), 'article is published at the new Library route');
+    assert.ok(fs.existsSync(path.join(root, article.url)), 'article is published at the retained Library route');
+    historicalCards.push(card);
   }
+  assert.equal(historicalCards.length, 4, 'four direct historical article entrances on equal subject cards');
   assert.ok(!/href="\/blog(?:_summary)?\.html/.test(libraryHTML), 'no parallel blog entrance is advertised');
 }
 console.log('PASS: public entry routes, retained library, navigation disclosure and optional rendered links.');

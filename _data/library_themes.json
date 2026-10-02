@@ -3,35 +3,35 @@
     "id": "states-and-relationships",
     "title": "Project states & relationships",
     "question": "What changes, and what connects to what?",
-    "description": "Follow portfolio stages, stakeholder perspectives, scope-to-benefit assumptions and a small delivery checklist.",
+    "description": "Connect tasks, states, people and resources. Explore shared project models, process diagrams and the relationships behind a portfolio.",
     "image": "/images/library-apps/portfolio-state-machine.jpg"
   },
   {
     "id": "decisions-and-trade-offs",
     "title": "Decisions & trade-offs",
     "question": "What are we deciding, and what do we give up?",
-    "description": "Frame a decision, compare competing objectives, and separate delay distributions from dependence.",
+    "description": "Frame a decision, compare competing objectives, and inspect what buffer, delay assumptions and new information change.",
     "image": "/images/library-apps/pareto_projects.jpg"
   },
   {
     "id": "delivery-dynamics",
     "title": "Delivery dynamics & feedback",
     "question": "How does the project change as work happens?",
-    "description": "Explore learning, rework, reviews and site occupancy through deliberately small models.",
+    "description": "Explore dependency loops, learning, rework, reviews and site occupancy through deliberately small models.",
     "image": "/images/library-apps/project-dynamics-simulator.jpg"
   },
   {
     "id": "data-and-assurance",
     "title": "Data, evidence & assurance",
     "question": "What would make the picture trustworthy?",
-    "description": "Use a maturity discussion and a project-controls learning map to examine how information supports decisions.",
+    "description": "Match methods to the available information. Examine data maturity, project controls and what earlier prediction experiments could establish.",
     "image": "/images/library-apps/project-controls-knowledge-graph.jpg"
   },
   {
     "id": "capabilities-and-futures",
-    "title": "Capabilities & AI futures",
-    "question": "What might tools change, and what still needs judgement?",
-    "description": "Distinguish a capability map, a sourced software timeline and a speculative market scenario.",
+    "title": "Capabilities & futures",
+    "question": "What capabilities do we need, and what might change?",
+    "description": "Explore the practices, capabilities and tools a portfolio might need, with earlier reading, framework guides and clearly labelled future scenarios.",
     "image": "/images/library-apps/capabilities-wiring-diag.jpg"
   }
 ]
