@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Project graph views · Library</title>
+<link rel="canonical" href="https://lawrencerowland.github.io/library/apps/project-graph-views/">
+
+<style>
+  :root {
+    --border: #ddd;
+    --bg: #f7f7f9;
+    --ink: #111;
+    --muted: #666;
+    --pill: #eef;
+    --warn: #fff3cd;
+    --bad: #ffe5e5;
+    --good: #e6ffe6;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  body { font-family: system-ui, Segoe UI, Arial; margin: 16px; color: var(--ink); }
+  h1 { margin: 0 0 6px; font-size: 20px; }
+  .subtitle { margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.35; }
+  .container { display: flex; gap: 14px; align-items: flex-start; }
+  .panel { border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+  .controls { width: 360px; padding: 12px; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; }
+  .main { flex: 1; padding: 12px; min-width: 320px; }
+  .section { margin: 10px 0 14px; }
+  .section h3 { margin: 0 0 8px; font-size: 13px; color: #222; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  label { font-size: 12px; color: #222; display: grid; gap: 4px; }
+  input, select, textarea, button {
+    font: inherit;
+    font-size: 13px;
+  }
+  input, select, textarea {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 9px;
+    background: #fff;
+  }
+  textarea { width: 100%; min-height: 120px; font-family: var(--mono); font-size: 12px; }
+  button {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 999px;
+    padding: 7px 10px;
+    cursor: pointer;
+  }
+  button.primary { background: #eef; border-color: #99f; }
+  button.danger { background: #ffecec; border-color: #f2a1a1; }
+  button:disabled { opacity: .55; cursor: not-allowed; }
+  details { border: 1px dashed var(--border); border-radius: 10px; padding: 8px 10px; background: #fff; }
+  summary { cursor: pointer; font-size: 13px; color: #222; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--pill); margin-right: 6px; font-size: 12px; }
+  .small { font-size: 12px; color: var(--muted); }
+  .kpi { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 10px; }
+  .kpi .box {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 10px;
+    background: #fff;
+    min-width: 150px;
+  }
+  .kpi .num { font-weight: 700; font-size: 16px; }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 10px; }
+  .tabbtn { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); }
+  .tabbtn.active { background: #eef; border-color: #99f; }
+  .tabcontent { display: none; }
+  .tabcontent.active { display: block; }
+  pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0;
+    max-height: 60vh;
+    overflow: auto;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; }
+  th, td { border: 1px solid var(--border); padding: 6px; vertical-align: top; }
+  th { background: var(--bg); text-align: left; }
+  .notice { background: var(--warn); border: 1px solid #f1d38a; padding: 8px 10px; border-radius: 10px; font-size: 12px; }
+  .bad { background: var(--bad); }
+  .good { background: var(--good); }
+  .cardlist { display: grid; gap: 8px; }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+    cursor: pointer;
+  }
+  .card:hover { border-color: #bbb; }
+  .card h4 { margin: 0 0 6px; font-size: 14px; }
+  .meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 6px; }
+  .kv { display: grid; grid-template-columns: 140px 1fr; gap: 6px 10px; font-size: 12px; }
+  .kv div.key { color: var(--muted); }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .split > div { min-width: 0; }
+  .mono { font-family: var(--mono); }
+  .warnline { color: #7a4b00; }
+
+  /* Feature explainer UI */
+  .explainers {
+    display: grid;
+    gap: 10px;
+  }
+  .explainerBtns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .exbtn {
+    border-radius: 999px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .exbtn.active {
+    background: #eef;
+    border-color: #99f;
+  }
+  .expanel {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+    padding: 10px;
+  }
+  .expanel h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+  }
+  .expanel ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .expanel li {
+    margin: 6px 0;
+    font-size: 12px;
+  }
+  .exmeta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 0 8px;
+  }
+  * { box-sizing: border-box; }
+  :root { --border:#ccd6c8; --bg:#f0f3e9; --ink:#173b2a; --muted:#516457; --pill:#e3eddd; }
+  body { margin:0; padding:20px; background:#f7f5eb; line-height:1.5; }
+  nav { margin-bottom:12px; font-size:14px; } a { color:#246844; }
+  button.primary,.tabbtn.active,.exbtn.active { background:#dfead7; border-color:#829c75; }
+  button,input,select,textarea { color:var(--ink); max-width:100%; }
+  :focus-visible { outline:3px solid #94722d; outline-offset:3px; }
+  .container,.panel,.row,.section,.main,.controls,label { min-width:0; }
+  .controls { flex:0 0 360px; } .main { min-width:0; }
+  .section,.tabcontent,.expanel,.notice,.kv,.small,.card { overflow-wrap:anywhere; }
+  .kv { grid-template-columns:minmax(80px,1fr) minmax(0,2fr); }
+  .card { text-align:left; width:100%; border-radius:10px; }
+  #lineageNodes,#lineageEdges,#schemaTable,#receiptTable,#extra { overflow-x:auto; }
+  #appStatus { min-height:1.5em; font-size:14px; }
+  .boundaries { margin-bottom:12px; max-width:1000px; }
+  .subtitle { max-width:900px; font-size:15px; }
+  @media(max-width:1000px) { .container { display:block; } .controls { width:100%; position:static; max-height:none; margin-bottom:14px; } }
+  @media(max-width:650px) { body { padding:12px; } .split { grid-template-columns:1fr; } .row > label { width:100%; min-width:0!important; } }
+</style>
+
+</head>
+<body>
+<nav aria-label="Library"><a href="/library/methods/data-and-assurance.html">← Data and assurance</a> · <a href="/library.html">Library</a></nav>
+<h1>Project graph views</h1>
+<noscript>This graph tool needs JavaScript. Its source and review notes are available beside this page.</noscript>
+<p class="subtitle">
+  Explore a fictional project graph through eight repeatable queries. Change the graph or query, then inspect the included items, relationships and reasons. Export the result with a record of the rules and source data used.
+</p>
+<details class="boundaries"><summary>How to read this worked example</summary><p>Rules inspect the graph you supply. They do not establish that risks are real, controls work, evidence is sufficient, or a decision is approved. “Approved” and “Verified” are input labels. Relationship direction follows the supplied starter schema. Its legacy depends_on label points from predecessor work to a successor, despite the label: check direction when importing. Standard edge types must match their declared endpoint types. Properties support text, finite numbers, booleans and null; structured data belongs in a separately linked source.</p><p>The JSON and CSV files are generic mapping formats intended for adapting to tools such as SharpCloud. No vendor import or live connection has been verified. The FNV-1a checksum is a repeatable change indicator, not a cryptographic signature or authentication.</p><p>Exports use the most recent successful query; changed controls must be run again. Download CSVs prefix formula-leading text with an apostrophe for spreadsheet use; JSON retains exact values. The receipt records both the chosen parameters and truncation. Tables of query findings and lineage describe the full query before the card limit; lineage can contain context items outside the exported view. Download Graph JSON separately if you need the full input graph for a rerun.</p></details>
+<p id="appStatus" role="status" aria-live="polite"></p>
+<textarea id="copyFallback" aria-label="Text for manual copying" hidden readonly></textarea>
+
+<div class="container">
+  <!-- CONTROLS -->
+  <div class="panel controls">
+    <div class="section">
+      <h3>View selector</h3>
+      <div class="row">
+        <label>
+          Role
+          <select id="role"></select>
+        </label>
+        <label style="flex:1; min-width: 220px;">
+          Template
+          <select id="template"></select>
+        </label>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <label>
+          Today (T)
+          <input id="today" type="date" />
+        </label>
+        <label>
+          Link mode
+          <select id="linkMode">
+            <option value="evidence" selected>Evidence links only</option>
+            <option value="complete">All links between included nodes</option>
+          </select>
+        </label>
+        <label>
+          Limit
+          <input id="limit" type="number" min="1" max="2000" step="1" value="250" />
+        </label>
+      </div>
+
+      <div id="paramArea" class="section" style="margin-top:10px;">
+        <h3>Template parameters</h3>
+        <div id="paramForm" class="small">Select a template.</div>
+      </div>
+
+      <div class="row">
+        <button class="primary" id="run">Run query</button>
+        <button id="copyView">Copy view JSON</button>
+      </div>
+
+      <div id="warnings" class="section"></div>
+    </div>
+
+    <div class="section">
+      <h3>Exports</h3>
+      <div class="row">
+        <button id="dlViewJson">View JSON</button>
+        <button id="dlItemsCsv">Items CSV</button>
+        <button id="dlLinksCsv">Links CSV</button>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button id="dlReceiptJson">Receipt JSON</button>
+        <button id="dlReceiptCsv">Receipt table CSV</button>
+        <button id="printReceipt">Print receipt</button>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button id="dlLineageNodes">Lineage nodes CSV</button>
+        <button id="dlLineageEdges">Lineage edges CSV</button>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button id="dlSchema">Schema CSV</button>
+        <button id="dlSaved">Saved-search stubs JSON</button>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button class="primary" id="dlAuditZip">Download audit bundle (ZIP)</button>
+      </div>
+      <div class="small" style="margin-top:6px;">
+        Mapping example: map <span class="mono">external_id</span> to destination item IDs when adapting an import; links export uses
+        <span class="mono">from_external_id</span>/<span class="mono">to_external_id</span>.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Graph ingest (JSON / CSV)</h3>
+      <details>
+        <summary>Show ingest tools</summary>
+
+        <div class="section">
+          <div class="row">
+            <button id="resetDemo">Reset demo graph</button>
+            <button id="dlGraphJson">Download graph JSON</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Graph JSON</h3>
+          <textarea aria-label="Graph JSON" id="graphJson" spellcheck="false"></textarea>
+          <div class="row" style="margin-top:8px;">
+            <button class="primary" id="loadGraphJson">Load graph JSON</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Nodes CSV</h3>
+          <textarea aria-label="Nodes CSV" id="nodesCsv" spellcheck="false"></textarea>
+          <div class="small" style="margin-top:6px;">
+            Required columns: <span class="mono">id,type,title</span>. Optional: <span class="mono">tags,source,last_modified</span> and any property columns (e.g. <span class="mono">state,target_date,owner,hazard_tag,risk_score,review_due,asset,decision_date,change_state</span>).
+            Plain tags use <span class="mono">|</span>. Generated input uses <span class="mono">tags-json</span> and <span class="mono">property-json:name</span> columns to retain scalar types and custom fields. Empty encoded cells mean absent properties; <span class="mono">null</span> is a JSON null value.
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Edges CSV</h3>
+          <textarea aria-label="Edges CSV" id="edgesCsv" spellcheck="false"></textarea>
+          <div class="small" style="margin-top:6px;">
+            Required columns: <span class="mono">from,to,type</span>. Optional: <span class="mono">id,source,last_modified</span>. A header with no data rows represents no edges. Give stable edge IDs for repeated imports; omitted IDs use row numbers.
+          </div>
+          <div class="row" style="margin-top:8px;">
+            <button class="primary" id="loadCsv">Load CSV → Graph</button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="panel main">
+    <div class="kpi" id="kpis"></div>
+
+    <div class="tabs">
+      <button class="tabbtn active" data-tab="preview">Preview</button>
+      <button class="tabbtn" data-tab="viewjson">View JSON</button>
+      <button class="tabbtn" data-tab="receipt">Receipt</button>
+      <button class="tabbtn" data-tab="lineage">Lineage</button>
+      <button class="tabbtn" data-tab="schema">Schema & Templates</button>
+      <button class="tabbtn" data-tab="features">Feature Explainers</button>
+    </div>
+
+    <div id="preview" class="tabcontent active">
+      <div class="split">
+        <div>
+          <div class="row" style="margin-bottom:8px;">
+            <label style="flex:1; min-width: 220px;">
+              Search cards
+              <input id="searchCards" placeholder="Filter by title/id/type/tag…" />
+            </label>
+          </div>
+          <div id="cards" class="cardlist"></div>
+        </div>
+        <div>
+          <div class="section">
+            <h3>Drill-down</h3>
+            <div id="drill" class="notice">Click a card on the left to see details, neighbors, and inclusion reasons.</div>
+          </div>
+          <div class="section">
+            <h3>Template outputs</h3>
+            <div id="extra" class="small">No additional tables for this template.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="viewjson" class="tabcontent">
+      <pre id="viewOut"></pre>
+    </div>
+
+    <div id="receipt" class="tabcontent">
+      <div class="split">
+        <div>
+          <h3 style="margin:0 0 8px;">Receipt JSON</h3>
+          <pre id="receiptOut"></pre>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px;">Receipt table</h3>
+          <div id="receiptTable"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="lineage" class="tabcontent">
+      <h3 style="margin:0 0 8px;">Lineage map</h3>
+      <div class="small" style="margin-bottom:8px;">
+        “Produced the view” edges = the exact edges traversed/used by the rule logic (not necessarily all edges between included nodes).
+      </div>
+      <div class="split">
+        <div>
+          <h3 style="margin:0 0 6px;">Nodes</h3>
+          <div id="lineageNodes"></div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 6px;">Edges</h3>
+          <div id="lineageEdges"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="schema" class="tabcontent">
+      <div class="split">
+        <div>
+          <h3 style="margin:0 0 8px;">Minimal schema</h3>
+          <div id="schemaTable"></div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px;">Saved-search stubs (JSON)</h3>
+          <pre id="savedOut"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div id="features" class="tabcontent">
+      <div class="split">
+        <div>
+          <div class="section">
+            <h3 style="margin:0 0 8px;">Explainer buttons</h3>
+            <div class="small" style="margin-bottom:8px;">
+              Click a button to view the full inventory list (old + new features).
+            </div>
+            <div id="featureButtons" class="explainerBtns"></div>
+            <div class="row" style="margin-top:8px;">
+              <button id="copyFeatureText">Copy current explainer</button>
+              <button id="copyAllFeatureText">Copy all explainers</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div id="featurePanel" class="expanel">
+            <div class="notice">Select an explainer button to view details.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>

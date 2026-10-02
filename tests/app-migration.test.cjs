@@ -8,7 +8,13 @@ const script=[...page.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>
 assert.ok(script,'the actual page has its catalogue loader');
 if(process.argv[2])assert.ok(!page.includes('{%')&&!page.includes('{{'),'Liquid has rendered');
 const specialists=JSON.parse(fs.readFileSync(path.join(root,'assets/data/specialist-apps.json'),'utf8'));
+const retired=JSON.parse(fs.readFileSync(path.join(root,'assets/data/retired-apps.json'),'utf8'));
 const expected={
+ 'what_AI_model_for_what':'library/apps/capabilities-wiring-diag/',
+ 'idea-notebook':'project_innovation_app/webapp/index.html',
+ 'pm_gap_map':'gap-map.html',
+ 'gap_map_gemini':'gap-map.html',
+ 'Graph to sharp':'library/apps/project-graph-views/',
  'grounded-theory-colimit':'functors-for_projects/apps/grounded-theory-colimit/',
  'Project_Decision_Framing_Tool':'Programme-decision-sequences/apps/project-framing/',
  'climate-sequential-decision-paths':'Programme-decision-sequences/apps/climate-decision-paths/',
@@ -30,10 +36,10 @@ const expected={
 };
 const migratedLibrary=JSON.parse(fs.readFileSync(path.join(root,'_data/library_apps.json'),'utf8'));
 for(const app of migratedLibrary)expected[app.original_name||app.id]=app.url.slice(1);
-assert.equal(specialists.length,53);
-assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,53);
-assert.equal(new Set(specialists.map(x=>x.url)).size,52,'distinct maintained routes');
-assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,52,'unambiguous legacy query identities');
+assert.equal(specialists.length,60);
+assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,60);
+assert.equal(new Set(specialists.map(x=>x.url)).size,56,'distinct maintained routes');
+assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,59,'unambiguous legacy query identities');
 assert.deepEqual(new Set(specialists.map(x=>x.name)),new Set(Object.keys(expected)));
 assert.equal(specialists.filter(x=>x.name==='project-controls-knowledge-graph').length,2,'two original source identities now share the consolidated graph');
 for(const row of specialists){
@@ -60,6 +66,10 @@ const eightMigration=fixtureMeta.eight_migration;
 const eightBefore=csv('Project-web-apps','eight-before'),eightAfter=csv('Project-web-apps','eight-after');
 assert.equal(rowNames(eightBefore).length,50);assert.equal(rowNames(eightAfter).length,42);
 assert.equal(eightAfter,eightBefore.split(/(?<=\n)/).filter(line=>!eightMigration.removed_names.includes(line.split(',')[1])).join(''),'only the eight selected rows are retired, with every unrelated source byte retained');
+const stepOne=fixtureMeta.step_one;
+const stepBefore=csv('Project-web-apps','step-one-before'),stepAfter=csv('Project-web-apps','step-one-after');
+assert.equal(rowNames(stepBefore).length,42);assert.equal(rowNames(stepAfter).length,34);
+assert.equal(stepAfter,stepBefore.split(/(?<=\n)/).filter(line=>!stepOne.removed_names.includes(line.split(',')[1])).join(''),'only the eight approved rows are removed');
 const descendants=node=>node.children.flatMap(child=>[child,...descendants(child)]);
 class Element{
  constructor(tag){this.tagName=tag;this.children=[];this.dataset={};this.style={};this.className='';this.listeners={};this.scrolled=0;this._html='';}
@@ -81,14 +91,14 @@ async function load(phase,query='',hash=''){
   addEventListener:(type,fn)=>events[type]=fn,
   querySelectorAll:selector=>selector==='.example-card'?elements['app-container'].children.filter(n=>n.classList.contains('example-card')):selector==='#filter-container button'?elements['filter-container'].children:selector==='#tag-cloud button'?elements['tag-cloud'].children:(()=>{throw Error('Unimplemented selector: '+selector);})()
  };
- const fetch=async url=>{requests.push(url);if(url.startsWith('/Project-web-apps/app-index.csv?'))return{ok:true,text:async()=>csv('Project-web-apps',phase)};if(url.startsWith('/React_proj-apps/app-index.csv?'))return{ok:true,text:async()=>csv('React_proj-apps',phase)};if(url==='/assets/data/specialist-apps.json')return{ok:true,json:async()=>JSON.parse(JSON.stringify(specialists))};throw Error('Unexpected request '+url);};
+ const fetch=async url=>{requests.push(url);if(url.startsWith('/Project-web-apps/app-index.csv?'))return{ok:true,text:async()=>csv('Project-web-apps',phase)};if(url.startsWith('/React_proj-apps/app-index.csv?'))return{ok:true,text:async()=>csv('React_proj-apps',phase)};if(url==='/assets/data/retired-apps.json')return{ok:true,json:async()=>retired};if(url==='/assets/data/specialist-apps.json')return{ok:true,json:async()=>JSON.parse(JSON.stringify(specialists))};throw Error('Unexpected request '+url);};
  const context={document,fetch,window:{location:{search:query,hash}},URL,URLSearchParams,console};vm.createContext(context);vm.runInContext(script,context);
  assert.equal(typeof events.DOMContentLoaded,'function');events.DOMContentLoaded();await new Promise(setImmediate);
- assert.equal(requests.length,2,'only the surviving general catalogue and named destinations were fetched');
+ assert.equal(requests.length,3,'the surviving general catalogue, named destinations and explicit retirements were fetched');
  assert.ok(requests.every(url=>!url.includes('/React_proj-apps/')),'retired repository is no longer a live data dependency');
  const cards=elements['app-container'].children;
- const expectedNames=['Project-web-apps'].flatMap(repo=>rowNames(csv(repo,phase)).filter(name=>!specialists.some(item=>item.repo===repo&&item.name===name)));
- assert.equal(cards.length,phase.startsWith('current-')||phase.startsWith('library-')||phase.startsWith('eight-')?42:43,'only general catalogue rows remain');
+ const expectedNames=['Project-web-apps'].flatMap(repo=>rowNames(csv(repo,phase)).filter(name=>![...specialists,...retired].some(item=>item.repo===repo&&item.name===name)));
+ assert.equal(cards.length,expectedNames.length,'only general catalogue rows remain');
  assert.deepEqual(cards.map(card=>card.id).sort(),expectedNames.map(name=>'app-'+slug(name)).sort(),'every unrelated source row is still rendered');
  for(const name of Object.keys(expected)){
   if(!expectedNames.includes(name))assert.ok(!cards.some(c=>c.id==='app-'+slug(name)),phase+': '+name+' is absent from ordinary cards');
@@ -97,7 +107,7 @@ async function load(phase,query='',hash=''){
  return {cards,context,elements};
 }
 (async()=>{
- for(const phase of ['before','after','current-before','current-after','library-before','library-after','eight-before','eight-after']){
+ for(const phase of ['before','after','current-before','current-after','library-before','library-after','eight-before','eight-after','step-one-before','step-one-after']){
   const result=await load(phase);assert.equal(result.cards.filter(c=>c.classList.contains('highlight')).length,0);
   assert.equal(result.elements['moved-app-notice'].hidden,true,'ordinary browsing does not show a moved-app notice');
   result.context.filterCards('risk_management');assert.ok(result.cards.some(c=>c.style.display==='block'));assert.ok(result.cards.some(c=>c.style.display==='none'));
@@ -116,6 +126,10 @@ async function load(phase,query='',hash=''){
     assert.ok(content.some(node=>node.tagName==='p'&&node.textContent.includes(specialists.find(item=>item.name===name).home)));
    }
   }
+  const retiredResult=await load(phase,'?app=3d-construction-workflow');
+  assert.equal(retiredResult.elements['moved-app-notice'].hidden,false);
+  assert.ok(descendants(retiredResult.elements['moved-app-notice']).some(n=>n.textContent?.includes('did not model')));
+  assert.equal(descendants(retiredResult.elements['moved-app-notice']).filter(n=>n.tagName==='a').length,0,'retirement does not invent an equivalent destination');
   const ordinary=await load(phase,'?app=door-moisture-model');
   const highlighted=ordinary.cards.filter(card=>card.classList.contains('highlight'));
   assert.equal(highlighted.length,1);assert.equal(highlighted[0].id,'app-door-moisture-model');assert.equal(highlighted[0].scrolled,1,'unmoved app query still highlights its card');
@@ -124,5 +138,5 @@ async function load(phase,query='',hash=''){
  for(const query of ['?app=does-not-exist','?app=decision-tree-extra','?app=https://example.org/','?app=%3Cscript%3E']){
   const absent=await load('current-after',query);assert.ok(absent.cards.every(c=>!c.classList.contains('highlight')));assert.equal(absent.elements['moved-app-notice'].hidden,true,'unknown selectors never become destination links');
  }
- console.log('PASS: 53 original app identities absent from ordinary cards across eight source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
+ console.log('PASS: 60 original app identities and one retirement absent from ordinary cards across ten source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
 })().catch(error=>{console.error(error);process.exitCode=1;});

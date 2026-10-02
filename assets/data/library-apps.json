@@ -440,5 +440,31 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/probecrafter/",
     "home": "Library · Capabilities & futures"
+  },
+  {
+    "#": "53",
+    "name": "Graph-sharp1",
+    "description": "Generate parameterised views from a typed project graph and inspect why each item was included.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "graph, sharpcloud, visualization, data_ingest, audit",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-graph-views/",
+    "home": "Library · Data, evidence & assurance"
+  },
+  {
+    "#": "75",
+    "name": "contract-portfolio-board",
+    "description": "Allocate planning artefacts among contracts, workstreams, context, internal work and concepts of operation.",
+    "origin": "User",
+    "model": "GPT-5.3-Codex",
+    "tags": "contracts, portfolio_management, planning, visualization, interactive",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/contract-portfolio-board/",
+    "home": "Library · Project states & relationships"
   }
 ]

@@ -15,7 +15,7 @@ const expected={
  'service-trident':['service_trident','capabilities-and-futures'],
  'stakeholder-mapper':['stakeholder-mapper','states-and-relationships']
 };
-assert.equal(all.length,34);assert.equal(apps.length,10);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
+assert.equal(all.length,36);assert.equal(apps.length,10);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
 const manifest=JSON.parse(read('assets/data/library-apps.json')),specialists=JSON.parse(read('assets/data/specialist-apps.json'));
 for(const app of apps){
  assert.equal(app.original_name,expected[app.id][0]);assert.equal(app.theme,expected[app.id][1]);
@@ -43,10 +43,12 @@ for(const app of apps){
   assert.equal((page.match(new RegExp('id="'+app.id+'"','g'))||[]).length,1);assert.ok(page.includes(app.source_url));
  }
 }
-// Actual Gap Map loader: a stale source catalogue must not resurrect moved copies.
-const gap=read('gap-map.md');const loader=gap.slice(gap.indexOf('function loadResourcesData(){'),gap.indexOf('\nlet currentCats='));
-const vm=require('node:vm');let received;
-const sampleOld=[{name:'intro_risk_matrix'},{name:'door-moisture-model'}];const maintained=manifest.filter(a=>a.name==='intro_risk_matrix');
-const context={fetch:async url=>url.includes('app-index.csv')?{text:async()=>''}:{ok:true,json:async()=>maintained},parseCSV:()=>sampleOld,integrateApps:apps=>received=apps,assignAppCapabilities(){},buildDomainFilters(){},renderList(){},graphVisible:false,Date,Set};
-vm.runInNewContext(loader,context);
-context.loadResourcesData().then(()=>{assert.equal(received.filter(a=>a.name==='intro_risk_matrix').length,1);assert.equal(received.find(a=>a.name==='intro_risk_matrix').url,maintained[0].url);assert.ok(received.some(a=>a.name==='door-moisture-model'));console.log('PASS: ten source identities, correct subjects, provenance, local dependencies, picture/source routes and stale-catalogue deduplication'+(process.argv[2]?'; exact built site.':'.'));}).catch(error=>{console.error(error);process.exitCode=1});
+// Exercise the actual shared catalogue loader against a stale source record.
+const M=require('../assets/js/gap-map-model.js');
+const old='name,description\nintro_risk_matrix,old\ndoor-moisture-model,residual\n';
+M.loadCatalogues(async url=>({ok:true,text:async()=>old,json:async()=>url.includes('library-apps.json')?manifest.filter(a=>a.name==='intro_risk_matrix'):[]})).then(({apps:received})=>{
+ assert.equal(received.filter(a=>a.name==='intro_risk_matrix').length,1);
+ assert.equal(received.find(a=>a.name==='intro_risk_matrix').url,manifest.find(a=>a.name==='intro_risk_matrix').url);
+ assert.ok(received.some(a=>a.name==='door-moisture-model'));
+ console.log('PASS: ten retained app identities, subjects, source hashes, dependencies, pictures and current catalogue deduplication'+(process.argv[2]?'; exact built site.':'.'));
+}).catch(error=>{console.error(error);process.exitCode=1});
