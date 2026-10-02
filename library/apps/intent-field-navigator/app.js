@@ -113,11 +113,25 @@
     }
 
     // ------------------------ CSV ingestion ------------------------
-    async function loadCSVs(files){
-      const texts=await Promise.all([files.intents.text(),files.work.text(),files.outcomes?files.outcomes.text():null]);
-      const data=prepareData(parseCSV(texts[0]),parseCSV(texts[1]),texts[2]===null?[]:parseCSV(texts[2]));
+    let latestLoadRequest = 0;
+    async function loadCSVs(files, {successMessage, errorPrefix = 'Load failed'} = {}){
+      const request = ++latestLoadRequest;
+      status('Loading CSVs…');
+      let data;
+      try {
+        const texts=await Promise.all([files.intents.text(),files.work.text(),files.outcomes?files.outcomes.text():null]);
+        if(request !== latestLoadRequest) return false;
+        data=prepareData(parseCSV(texts[0]),parseCSV(texts[1]),texts[2]===null?[]:parseCSV(texts[2]));
+      } catch(error) {
+        // A newer choice owns both the displayed data and its load status.
+        if(request !== latestLoadRequest) return false;
+        status(`${errorPrefix}: ${error.message} Previous data is unchanged.`);
+        throw error;
+      }
       Object.assign(State,data);State.baselineWeights=State.intents.map(x=>x.target_weight);State.learningApplied=false;
-      renderIntentSliders();computeAll();status(`Loaded ${State.items.length} work items and ${State.intents.filter(x=>x.active).length} active intents.`);
+      renderIntentSliders();computeAll();
+      status(successMessage ?? `Loaded ${State.items.length} work items and ${State.intents.filter(x=>x.active).length} active intents.`);
+      return true;
     }
     function normalizeIntentWeights(){const active=State.intents.filter(x=>x.active);if(!active.length)throw new Error('At least one active intent is needed.');if(active.some(x=>!Number.isFinite(x.target_weight)||x.target_weight<0))throw new Error('Every target share must be finite and nonnegative.');const sum=active.reduce((s,x)=>s+x.target_weight,0);if(!Number.isFinite(sum))throw new Error('Target shares are too large.');for(const x of active)x.target_weight=sum?x.target_weight/sum:1/active.length;}
 
@@ -405,6 +419,19 @@
       });
     }
 
+    function intentSliderLabel(it) {
+      return `<strong>${escapeHTML(it.name)}</strong> <span class="small muted">(${escapeHTML(it.intent_id)})</span> <span class="small">target_weight: ${(it.target_weight*100).toFixed(1)}%</span>`;
+    }
+
+    function syncIntentSliders() {
+      // Keep the live inputs attached so keyboard focus and pointer gestures survive.
+      for(const it of State.intents.filter(x=>x.active)) {
+        const slider = State.sliders[it.intent_id];
+        slider.value = Math.round(it.target_weight*100);
+        slider.previousElementSibling.innerHTML = intentSliderLabel(it);
+      }
+    }
+
     function renderIntentSliders() {
       const wrap = document.getElementById('intentSliders');
       wrap.innerHTML = '';
@@ -414,14 +441,13 @@
         const div = document.createElement('div');
         div.className = 'intent-slider';
         const lab = document.createElement('div');
-        lab.innerHTML = `<strong>${escapeHTML(it.name)}</strong> <span class="small muted">(${escapeHTML(it.intent_id)})</span> <span class="small">target_weight: ${(it.target_weight*100).toFixed(1)}%</span>`;
+        lab.innerHTML = intentSliderLabel(it);
         const slider = document.createElement('input');
         slider.setAttribute("aria-label", `Target share for ${it.name}`);
         slider.type = 'range'; slider.min = 0; slider.max = 100; slider.value = Math.round(it.target_weight*100);
         slider.oninput = (e) => {
           const val = parseInt(e.target.value,10)/100;
           it.target_weight = val;
-          // renormalize across all active on slide end?
         };
         slider.onchange = (e) => {
           // Renormalize all active after user change
@@ -429,7 +455,7 @@
           let s=0; for (const k of act) s += k.target_weight;
           if (s<=0){ const u=1/act.length; for (const k of act) k.target_weight = u; }
           else for (const k of act) k.target_weight /= s;
-          renderIntentSliders();computeAll();status("Target shares changed; matches are unchanged, comparison and exports updated.");
+          syncIntentSliders();computeAll();status("Target shares changed; matches are unchanged, comparison and exports updated.");
         };
         div.appendChild(lab); div.appendChild(slider);
         wrap.appendChild(div);
@@ -684,15 +710,22 @@
         alert("Please choose intents.csv and work_items.csv; outcomes.csv is optional.");
         return;
       }
-      try{await loadCSVs({intents:intentsFile, work:workFile, outcomes:outcomesFile});}catch(err){status("Load failed: "+err.message+" Previous data is unchanged.");}
+      try{await loadCSVs({intents:intentsFile, work:workFile, outcomes:outcomesFile});}catch{/* The current request has already reported its validation/read error. */}
     });
 
     document.getElementById('demoBtn').addEventListener('click', async ()=>{
       const files = demoCSVs();
-      try{await loadCSVs(files);}catch(err){status("Demo failed: "+err.message);}
+      try{await loadCSVs(files,{errorPrefix:'Demo failed'});}catch{/* Reported by the current load request. */}
     });
 
-    document.getElementById('boundaryDemoBtn').addEventListener('click',async()=>{try{await loadCSVs(boundaryCSVs());status('Boundary example: MIX has two equal matches, NONE stays unallocated, and ZERO contributes no effort. Candidate moves are independent alternatives.');}catch(err){status('Demo failed: '+err.message);}});
+    document.getElementById('boundaryDemoBtn').addEventListener('click',async()=>{
+      try {
+        await loadCSVs(boundaryCSVs(), {
+          errorPrefix:'Demo failed',
+          successMessage:'Boundary example: MIX has two equal matches, NONE stays unallocated, and ZERO contributes no effort. Candidate moves are independent alternatives.'
+        });
+      } catch {/* Reported by the current load request. */}
+    });
     document.getElementById('recomputeBtn').addEventListener('click', ()=>{
       computeAll();
     });

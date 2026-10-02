@@ -80,3 +80,65 @@ test('intent identifiers resembling object properties do not corrupt allocations
 test('intent unmatched vectors have no entropy and are excluded from the histogram',()=>{
   const m=fresh('intent-field-navigator');assert.equal(m.entropy([0,0]),null);close(m.entropy([.5,.5]),1);close(m.entropy([1,0]),0);m.State.intents=[{active:true},{active:true}];m.State.items=[{}, {}, {}];m.State.probs=[[0,0],[.5,.5],[1,0]];const ent=m.computeEntropyList();assert.deepEqual(ent,[null,1,0]);const histogram=m.entHistogram(ent);assert.equal(histogram.counts.reduce((s,x)=>s+x,0),2);assert.equal(histogram.counts[0],1);assert.equal(histogram.counts[9],1);m.State.probs=[[0,0],[0,0],[0,0]];assert.equal(m.computeGraphRoughness(),null);
 });
+
+// Exercise the actual DOM event handlers; only the canvas renderer is stubbed.
+function intentUI(t) {
+  const fs=require('node:fs');
+  const {createRequire}=require('node:module');
+  const {JSDOM}=createRequire(path.join(root,'tools/library-apps/package.json'))('jsdom');
+  const app=path.join(root,'library/apps/intent-field-navigator');
+  const dom=new JSDOM(fs.readFileSync(path.join(app,'index.html'),'utf8'),{url:'https://example.test/library/apps/intent-field-navigator/',runScripts:'outside-only'});
+  const w=dom.window;w.Chart=class {destroy(){}};w.File=global.File;w.Blob=global.Blob;
+  w.eval(fs.readFileSync(path.join(app,'app.js'),'utf8'));
+  t.after(()=>w.close());
+  return w;
+}
+const uiIntents='intent_id,name,target_weight\nA,Alpha,0.5\nB,Beta,0.5';
+const uiWork=id=>'item_id,title,effort\n'+id+',Alpha,1';
+const uiFile=text=>({text:async()=>text});
+const drainUI=()=>new Promise(resolve=>setImmediate(resolve));
+function clickImport(w,work,intents=uiFile(uiIntents)) {
+  for(const [id,files] of [['intentsFile',[intents]],['workFile',[work]],['outcomesFile',[]]])Object.defineProperty(w.document.getElementById(id),'files',{configurable:true,value:files});
+  w.document.getElementById('loadBtn').click();
+}
+
+test('intent target sliders remain attached and focused across consecutive keyboard-style changes',async t=>{
+  const w=intentUI(t);await w.loadCSVs({intents:uiFile(uiIntents),work:uiFile(uiWork('BASE'))});
+  const slider=w.document.querySelector('#intentSliders input');slider.focus();
+  const initial=w.document.querySelector('#chartValues').textContent;
+  for(const value of ['60','70']){
+    slider.value=value;slider.dispatchEvent(new w.Event('input',{bubbles:true}));slider.dispatchEvent(new w.Event('change',{bubbles:true}));
+    assert.equal(w.document.activeElement,slider,'changing a target must retain its focused control');assert.ok(slider.isConnected);
+  }
+  assert.notEqual(w.document.querySelector('#chartValues').textContent,initial);
+  assert.match(w.document.getElementById('status').textContent,/Target shares changed/);
+});
+
+test('intent latest import wins over a delayed older success and error through actual buttons',async t=>{
+  const w=intentUI(t);
+  for(const staleOutcome of ['success','error']){
+    let resolveOld,rejectOld;const pending=new Promise((resolve,reject)=>{resolveOld=resolve;rejectOld=reject;});
+    clickImport(w,{text:()=>pending});
+    clickImport(w,uiFile(uiWork('NEWEST_'+staleOutcome)));
+    await drainUI();const table=w.document.querySelector('#matchTable').textContent;const message=w.document.getElementById('status').textContent;
+    assert.match(table,new RegExp('NEWEST_'+staleOutcome));
+    if(staleOutcome==='success')resolveOld(uiWork('STALE'));else rejectOld(new Error('stale read failure'));
+    await drainUI();assert.equal(w.document.querySelector('#matchTable').textContent,table);assert.equal(w.document.getElementById('status').textContent,message);
+  }
+});
+
+test('intent an invalid latest request keeps prior data and cannot be overwritten by an older load',async t=>{
+  const w=intentUI(t);await w.loadCSVs({intents:uiFile(uiIntents),work:uiFile(uiWork('BASE'))});const before=w.document.querySelector('#matchTable').textContent;
+  let release;clickImport(w,{text:()=>new Promise(resolve=>release=resolve)});
+  clickImport(w,uiFile(uiWork('INVALID')),uiFile('intent_id,name,target_weight\nA,Alpha,1\nA,Alpha,1'));
+  await drainUI();const error=w.document.getElementById('status').textContent;assert.match(error,/unique/);assert.equal(w.document.querySelector('#matchTable').textContent,before);
+  release(uiWork('STALE'));await drainUI();assert.equal(w.document.querySelector('#matchTable').textContent,before);assert.equal(w.document.getElementById('status').textContent,error);
+});
+
+test('intent a stale boundary demo cannot replace a newer import or its status',async t=>{
+  const w=intentUI(t);let release;const pending=new Promise(resolve=>release=resolve);
+  w.File=class extends global.File {async text(){if(this.name==='boundary-work.csv')await pending;return super.text();}};
+  w.document.getElementById('boundaryDemoBtn').click();
+  clickImport(w,uiFile(uiWork('NEWEST')));await drainUI();const message=w.document.getElementById('status').textContent;
+  release();await drainUI();assert.match(w.document.querySelector('#matchTable').textContent,/NEWEST/);assert.equal(w.document.getElementById('status').textContent,message);assert.doesNotMatch(message,/Boundary example/);
+});
