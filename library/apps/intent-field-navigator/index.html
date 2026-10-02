@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Compare a backlog with its stated priorities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    :root { --gap: 12px; --pad: 14px; --border: #e4e7eb; --muted:#6b7280; --bg:#fafafa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; background: #fff; color: #111827; }
+    header { padding: 16px 20px; border-bottom: 1px solid var(--border); background: var(--bg); }
+    header h1 { margin: 0; font-size: 18px; }
+    header p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+    main { padding: 16px 20px; display: grid; grid-template-columns: 320px 1fr; gap: var(--gap); }
+    .panel { border: 1px solid var(--border); border-radius: 8px; padding: var(--pad); background: #fff; }
+    .panel h2 { margin: 0 0 8px; font-size: 15px; }
+    .panel h3 { margin: 18px 0 8px; font-size: 14px; }
+    label { font-size: 12px; color: #374151; display: block; margin: 10px 0 4px; }
+    input[type="file"] { width: 100%; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+    .controls { display: grid; gap: 8px; }
+    button { padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); background: #f3f4f6; cursor: pointer; font-size: 13px; }
+    button.primary { background: #111827; color: #fff; border-color: #111827; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .kv { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
+    .small { font-size: 12px; color: var(--muted); }
+    .bad { color: #b91c1c; }
+    .good { color: #065f46; }
+    .table-wrap { overflow: auto; border: 1px solid var(--border); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    th { background: #f9fafb; position: sticky; top: 0; z-index: 1; }
+    .pill { display: inline-block; padding: 2px 6px; border-radius: 999px; border: 1px solid var(--border); margin: 1px 4px 1px 0; font-size: 11px; color: #374151;}
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+    .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gap); }
+    .muted { color: var(--muted); }
+    .code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; background: #f9fafb; border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+    footer { padding: 16px 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+    .slider { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+    input[type="range"] { width: 100%; }
+    .intent-slider { margin: 6px 0 10px; }
+    .flex { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .explainer-buttons { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .explainer-buttons button.active { background: #111827; color: #fff; border-color: #111827; }
+    .explainer-card { border: 1px solid var(--border); border-radius: 8px; padding: 12px; background: #f9fafb; }
+    .explainer-card h3 { margin: 0 0 6px; font-size: 14px; }
+    .explainer-card ul { margin: 0; padding-left: 18px; font-size: 12.5px; color: #111827; }
+    .explainer-card li { margin-bottom: 6px; }
+    .explainer-card p { margin: 0; font-size: 12.5px; color: #111827; }
+  body{background:#f7f3e9;color:#203e30;font:15px/1.5 system-ui,sans-serif}header{background:#f0ecdf}header h1{font-size:clamp(1.35rem,3vw,1.9rem)}nav,.orientation,#status{max-width:1300px;margin:12px auto;padding:0 20px}a{color:#2d6042}.orientation details{border:1px solid #cbd2bf;border-radius:10px;padding:12px;background:#fffdf7}summary{font-weight:650;cursor:pointer}main{max-width:1400px;margin:auto;grid-template-columns:minmax(250px,310px) minmax(0,1fr)}main>*,.grid2>*,.grid3>*,.panel,.row>*{min-width:0}.panel{background:#fffdf7;border-color:#cbd2bf}button{background:#e7eddf;color:#244e35;border-color:#afc0a7}button.primary,.explainer-buttons button.active{background:#315d3e;color:#fff}.code,th,.explainer-card{background:#f0efe3;border-color:#cbd2bf}.muted,.small,footer{color:#536456}canvas{width:100%;max-width:100%;height:270px}pre{white-space:pre-wrap;overflow-wrap:anywhere}.grid3{grid-template-columns:minmax(0,1fr)}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}input{max-width:100%}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #956b25;outline-offset:3px}#status{padding:12px 20px;background:#e9eedf}.table-wrap{max-width:100%}td{overflow-wrap:anywhere}table{min-width:550px}@media(max-width:850px){main{grid-template-columns:minmax(0,1fr);padding:10px}.grid2,.row{grid-template-columns:minmax(0,1fr)}nav,.orientation{padding:0 12px}}
+.code{overflow-wrap:anywhere;white-space:normal;min-width:0}.panel>div,.controls>*{min-width:0}.controls button{overflow-wrap:anywhere}input[type=file]{min-width:0;width:100%}
+</style>
+  <!-- CSV parsing and charts -->
+<link rel="canonical" href="https://lawrencerowland.github.io/library/apps/intent-field-navigator/">
+</head>
+<body><noscript><p>This comparison needs JavaScript. The explanation and Library links remain available.</p></noscript><nav aria-label="Library"><a href="/library/methods/decisions-and-trade-offs.html">Decisions and trade-offs</a> · <a href="/library.html">Library</a></nav>
+  <header>
+    <h1>Compare a backlog with its stated priorities</h1>
+    <p>Load CSVs → compute soft alignment, coverage vs. target prior, entropy, nudges → export results. Local files and calculations.</p>
+  </header>
+
+  <section class="orientation"><p>Try the fictional backlog, inspect a close match, then change a target share. Text and tags estimate an allocation of effort across themes; they cannot establish actual strategic value.</p><p>Match weights are normalised lexical similarities, not calibrated probabilities. A work item with no matching words or tags remains unallocated. Target edits change the comparison, not the matches. Candidate moves are independent suggestions for discussion, not a jointly optimised plan.</p><details><summary>Method, limits and original design idea</summary><p>The English-oriented tokenisation ignores word order. The model uses term-frequency/inverse-document-frequency vectors and cosine similarity, boosted by tag overlap. Top-K retains positive matches, including all ties at the boundary; selected scores are exponentiated and normalised (softmax). Coverage divides attributed effort by all effort, so unmatched work remains visible rather than being redistributed. Entropy describes the allocation weights, not the quality of the work. Unmatched work has no allocation distribution: its entropy is N/A and it is excluded from the entropy histogram and ranking.</p><p>The original Intent Field Navigator imagined a live intent codex, work harvesting, embeddings, a graph field solver, integration with GitHub/Jira/Notion and adaptive portfolio steering. Those remain design hypotheses. This working example reads local CSV files and uses a transparent lexical heuristic. Its graph roughness is a stated weighted squared-difference diagnostic, not a solved field or an optimal investment decision.</p><p>Optional outcome updates use a hand-built standardised score: outcome minus half lead time and half defect rate. A declared realised intent takes precedence; otherwise the top lexical match is used. One update per reset is allowed, and zero target shares remain zero. There is no causal attribution or reinforcement-learning guarantee.</p><p>Based on Intent Field Navigator, source revision 9d9c253, reviewed 2 October 2026. See the <a href="https://nlp.stanford.edu/IR-book/html/htmledition/term-frequency-and-weighting-1.html">authors’ introduction to text weighting</a>. All scripts are local; nothing is uploaded. Keep the source CSVs to retain your inputs.</p></details></section><p id="status" role="status" aria-live="polite">Load the demo or choose your CSV files.</p><main>
+    <section class="panel">
+      <h2>1) Data</h2>
+      <label for="intentsFile">Intents CSV</label>
+      <input id="intentsFile" type="file" accept=".csv"/>
+      <label for="workFile">Work Items CSV</label>
+      <input id="workFile" type="file" accept=".csv"/>
+      <label for="outcomesFile">Outcomes CSV (optional)</label>
+      <input id="outcomesFile" type="file" accept=".csv"/>
+
+      <div class="controls" style="margin-top:14px;">
+        <button id="loadBtn" class="primary">Load CSVs</button>
+        <button id="demoBtn">Load Demo Data</button><button id="boundaryDemoBtn">Try ambiguous and unmatched work</button>
+      </div>
+
+      <h2 style="margin-top:18px;">2) Parameters</h2>
+      <div class="slider">
+        <label for="topK">Top-K edges per item (graph sparsity)</label>
+        <input id="topK" type="range" min="1" max="8" value="3"/>
+        <div id="topKVal" class="small">3</div>
+      </div>
+      <div class="slider">
+        <label for="epsilon">Ambiguity epsilon for nudges (Δ top-2)</label>
+        <input id="epsilon" type="range" min="1" max="20" value="8"/>
+        <div id="epsilonVal" class="small">0.08</div>
+      </div>
+      <div class="slider">
+        <label for="tagBoost">Tag boost (Jaccard factor)</label>
+        <input id="tagBoost" type="range" min="0" max="30" value="13"/>
+        <div id="tagBoostVal" class="small">1.30</div>
+      </div>
+      <div class="slider">
+        <label for="eta">Outcome update size η</label>
+        <input id="eta" type="range" min="1" max="50" value="10"/>
+        <div id="etaVal" class="small">0.10</div>
+      </div>
+      <div class="controls">
+        <button id="recomputeBtn" class="primary" disabled>Recompute</button>
+        <button id="resetWeights" disabled>Reset target shares</button>
+        <button id="learnBtn" disabled>Update Weights from Outcomes</button>
+      </div>
+
+      <h3>Exports</h3>
+      <div class="controls">
+        <button id="exportAlign" disabled>Export: intent_alignment_report.csv</button>
+        <button id="exportMatches" disabled>Export: ranked_matches.csv</button>
+        <button id="exportNudges" disabled>Export: nudge_recommendations.csv</button>
+        <button id="exportCoverage" disabled>Export: coverage_summary.csv</button>
+        <button id="exportGraph" disabled>Export: graph_edges.csv</button>
+      </div>
+
+      <h3>CSV Schemas</h3><p class="small">IDs must be unique. Supply every active target weight or leave all blank for equal shares. Missing effort defaults to 1; zero effort stays zero. Quote commas, quotes and line breaks. Limits: 2,000 rows per file, 30 active intents, 5 MB per file and 5,000 distinct words/tags. Numeric inputs must be finite, nonnegative and at most 1 trillion. Defect rate is a fraction from 0 to 1. Legacy export columns p_top/probability contain allocation weights, not calibrated probabilities. Unmatched items have a blank entropy field (N/A).</p>
+      <div class="code">
+        intents.csv: intent_id,name,description,tags,target_weight,active<br/>
+        work_items.csv: item_id,title,description,tags,type,status,squad,effort,url<br/>
+        outcomes.csv (optional): item_id,outcome,lead_time,defect_rate,realized_intent
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Dashboard</h2>
+      <div class="panel" style="margin-bottom:12px;">
+        <h3>Explainers</h3>
+        <div class="explainer-buttons" role="group" aria-label="Intent Field Navigator explainers">
+          <button type="button" class="explainer-btn active" data-explainer="overview" aria-pressed="true">How to Read It</button>
+          <button type="button" class="explainer-btn" data-explainer="architecture" aria-pressed="false">Architecture &amp; Flow</button>
+          <button type="button" class="explainer-btn" data-explainer="value" aria-pressed="false">Uses and Limits</button>
+          <button type="button" class="explainer-btn" data-explainer="improvements" aria-pressed="false">Calculations and Limits</button>
+        </div>
+        <div id="explainerContent" class="explainer-card" role="region" aria-live="polite"></div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Attributed Effort vs Target Shares</h3>
+          <canvas role="img" aria-label="Attributed and target effort shares; numerical values below" id="coverageChart" height="180"></canvas>
+        </div>
+        <div class="panel">
+          <h3>Coverage Gap (attributed − target)</h3>
+          <canvas role="img" aria-label="Attributed share minus target share; numerical values below" id="gapChart" height="180"></canvas>
+        </div>
+      </div>
+
+      <div class="grid3" style="margin-top:12px;">
+        <div class="panel">
+          <h3>Allocation entropy (matched items)</h3>
+          <canvas role="img" aria-label="Histogram of allocation entropy; values below" id="entropyChart" height="160"></canvas>
+        </div>
+        <div class="panel">
+          <h3>Graph roughness proxy</h3>
+          <div id="roughness" class="kv">
+            <div class="small">Weighted squared difference between top allocation weights and target shares. A comparison aid; no validated threshold or diagnosis.</div>
+            <div id="roughnessVal" class="small"></div>
+          </div>
+          <h3 style="margin-top:10px;">Intent Weight Sliders (editable)</h3>
+          <div id="intentSliders"></div>
+          <div class="small">Changing a slider renormalises target shares and updates charts, candidate moves and exports immediately. Reset target shares restores the loaded example.</div>
+        </div>
+        <div class="panel">
+          <h3>Totals</h3>
+          <div id="totals" class="small"></div>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:12px;">
+        <div class="panel">
+          <h3>Most Spread Allocations (matched items)</h3>
+          <div class="table-wrap" style="max-height:240px;">
+            <table id="ambigTable">
+              <thead><tr><th>Item</th><th>Squad</th><th>Entropy</th><th>Top-2 weights</th><th>Tags</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Candidate Moves</h3>
+          <div class="table-wrap" style="max-height:240px;">
+            <table id="nudgeTable">
+              <thead><tr><th>Item</th><th>From → To</th><th>Δgap (est.)</th><th>Δp</th><th>Effort</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:12px;">
+        <details><summary>Chart values and method diagnostics</summary><pre id="chartValues"></pre></details><h3>Ranked Matches (per item)</h3>
+        <div class="table-wrap" style="max-height:320px;">
+          <table id="matchTable">
+            <thead><tr><th>Item</th><th>Top Intent</th><th>Top weight</th><th>Top-3</th><th>Title</th><th>Squad</th><th>Tags</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    Runs locally after loading: inspect your CSVs, compare assumptions and export the calculated results. No input files are uploaded.
+  </footer>
+
+  <script src="charts.js"></script><script src="app.js"></script>
+</body>
+</html>

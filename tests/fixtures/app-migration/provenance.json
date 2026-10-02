@@ -49,5 +49,21 @@
       "service_trident",
       "stakeholder-mapper"
     ]
+  },
+  "eight_migration": {
+    "date": "2026-10-02",
+    "source_commit": "9d9c253f9c203441be1fd301bcb9a6b976b85d4f",
+    "before_rows": 50,
+    "after_rows": 42,
+    "removed_names": [
+      "p3m-capability-tool",
+      "interactive-concept-map",
+      "WBS_rewrite",
+      "date-defence-kit",
+      "interface_maturity_simulator",
+      "intent_field_navigator",
+      "governance-trio-replay-rules-lineage",
+      "probecrafter"
+    ]
   }
 }

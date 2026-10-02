@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Check the evidence behind a project decision</title>
+<style>
+  :root{
+    --bg:#f7f3e9; --panel:#fffdf7; --ink:#193b32; --muted:#53645a; --ok:#27623b; --bad:#a33e2e; --warn:#8c611e; --wire:#cbd2bf; --accent:#477956;
+  }
+  *{box-sizing:border-box} body{margin:0;font:14px/1.35 system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--ink)}
+  header{padding:16px 20px;border-bottom:1px solid #cbd2bf;background:linear-gradient(180deg,#f0ecdf,#f7f3e9)}
+  .titlebar{display:flex;align-items:center;gap:10px;justify-content:space-between}
+  header h1{margin:0;font-size:18px}
+  header p{margin:6px 0 0;color:var(--muted)}
+  main{display:grid;gap:14px;padding:16px 16px 112px;grid-template-columns:minmax(290px,330px) minmax(0,1fr);max-width:1180px;margin:0 auto}
+  .card{background:var(--panel);border:1px solid #cbd2bf;border-radius:8px;box-shadow:0 12px 24px rgba(0,0,0,.25)}
+  .cardTitle{padding:12px 14px;border-bottom:1px solid #cbd2bf;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .cardTitle h2{margin:0;font-size:14px;color:#214735;letter-spacing:.2px}
+  .left{display:flex;flex-direction:column;gap:14px}
+  .flow{padding:14px}
+  .flow .step{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:8px;border:1px dashed #2a3144;border-radius:8px;margin-bottom:10px}
+  .flow .step input{transform:scale(1.1)}
+  .flow label{min-width:0;overflow-wrap:anywhere}
+  .flow .meta{margin-left:auto;color:var(--muted);font-size:12px;text-align:right;white-space:nowrap}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e5eadc;color:#214735;font-size:12px;border:1px solid #bacbb5}
+  .grid{display:grid;gap:14px;grid-template-columns:1fr;align-content:start}
+  .pane{padding:12px 12px 6px}
+  .pane h3{margin:0 0 8px;font-size:13px;color:#214735}
+  .log{background:#f8f5eb;border:1px solid #cbd2bf;border-radius:8px;padding:10px;max-height:220px;overflow:auto}
+  .log code{white-space:pre-wrap;color:#214735}
+  .rules table{width:100%;border-collapse:collapse;font-size:13px}
+  .rules th,.rules td{padding:8px;border-bottom:1px solid #cbd2bf}
+  .rules tr:last-child td{border-bottom:none}
+  .pass{color:var(--ok);font-weight:600}
+  .fail{color:var(--bad);font-weight:600}
+  .legend{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px;margin-top:6px}
+  .dot{width:10px;height:10px;border-radius:50%}
+  .canvasWrap{position:relative;padding:10px;border:1px solid #cbd2bf;border-radius:8px;background:#f8f5eb;overflow:auto}
+  #graph{width:100%;min-width:760px;height:260px;display:block;background:
+    linear-gradient(90deg,transparent 49%, #151b29 50%, transparent 51%) 0 0/60px 60px,
+    linear-gradient(0deg,transparent 49%, #151b29 50%, transparent 51%) 0 0/60px 60px}
+  .pill{position:absolute;top:10px;right:10px}
+  .footer{position:fixed;inset:auto 0 0 0;background:#f8f5eb;border-top:1px solid #cbd2bf;padding:10px 16px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .footer div:first-child{min-width:0}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  button{background:#e9eedd;color:#214735;border:1px solid #bacbb5;border-radius:8px;padding:8px 10px;cursor:pointer}
+  .iconBtn{display:inline-grid;place-items:center;width:28px;height:28px;min-width:28px;padding:0;border-radius:50%;font-weight:700;line-height:1;background:#17233d;border-color:#bacbb5;color:#173b2a}
+  .iconBtn:hover,.mini:hover{border-color:#4d76ce;background:#223965}
+  button:disabled{opacity:.6;cursor:not-allowed}
+  .mini{font-size:12px;padding:6px 8px;border-radius:999px}
+  .tight{letter-spacing:.2px}
+  .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;background:#f8f5eb;border:1px solid #273249;color:#214735;padding:2px 6px;border-radius:6px}
+  [hidden]{display:none!important}
+  .modalOverlay{position:fixed;inset:0;z-index:20;background:rgba(5,8,13,.72);display:grid;place-items:center;padding:18px}
+  .modal{position:relative;width:min(620px,100%);max-height:min(720px,calc(100vh - 36px));overflow:auto;background:#fffdf7;border:1px solid #2a3650;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.5);padding:20px}
+  .modal .close{position:absolute;top:12px;right:12px}
+  .modal .eyebrow{margin:0 38px 6px 0;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+  .modal h2{margin:0 38px 12px 0;font-size:18px;color:#193b32}
+  .modalBody{color:#304d39}
+  .modalBody p{margin:0 0 10px}
+  .modalBody ul,.modalBody ol{margin:8px 0 0 20px;padding:0}
+  .modalBody li{margin:6px 0}
+  .modalBody strong{color:#173b2a}
+  @media (max-width: 820px){
+    header{padding:14px 16px}
+    main{grid-template-columns:1fr;padding:14px 14px 16px}
+    .flow .step{grid-template-columns:auto minmax(0,1fr)}
+    .flow .meta{grid-column:2;margin-left:0;text-align:left;white-space:normal}
+    .footer{position:static;align-items:flex-start;flex-direction:column}
+    .actions{justify-content:flex-start}
+  }
+nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150px}nav,.orientation,#status,.shareLabel{padding:0 16px}nav a{color:#285a3b}.orientation{line-height:1.55}.orientation details{padding:12px;background:#fffdf7;border:1px solid #cbd2bf;border-radius:10px}summary{cursor:pointer;font-weight:650}.footer{position:static}main{padding-bottom:16px}main>*,.grid,.card,.pane{min-width:0}pre{white-space:pre-wrap;overflow-wrap:anywhere}#graph{min-width:820px}#shareLink{display:block;width:calc(100% - 32px);padding:10px;border:1px solid #becbb5}.shareLabel{display:block}select{font:inherit;padding:8px;background:#fffdf7;color:#193b32}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #93641a;outline-offset:3px}.modalOverlay{border:0;width:min(650px,calc(100% - 24px));max-height:90vh;padding:0;background:transparent}.modalOverlay:not([open]){display:none}.modalOverlay::backdrop{background:#193b3270}.modal{width:100%;max-height:none}.na{color:#5a6459}header h1{font-size:clamp(1.3rem,3vw,1.8rem)}.titlebar{align-items:flex-start}th,td{overflow-wrap:anywhere}.rules table{table-layout:fixed}.rules th:first-child{width:31%}.rules th:nth-child(2){width:20%}@media(max-width:600px){main{grid-template-columns:minmax(0,1fr)}.rules th,.rules td{padding:6px;font-size:12px}}
+</style>
+<link rel="canonical" href="https://lawrencerowland.github.io/library/apps/governance-trio/">
+</head>
+<body><noscript><p>This interactive example needs JavaScript. The explanation and Library links remain available.</p></noscript>
+  <nav aria-label="Library"><a href="/library/methods/data-and-assurance.html">Data and assurance</a> · <a href="/library.html">Library</a></nav><header>
+    <div class="titlebar">
+      <h1>Check the evidence behind a project decision</h1>
+      <button class="iconBtn" type="button" data-help="overview" aria-label="What is this and how do I use it?" title="What is this?">?</button>
+    </div>
+    <p>Toggle events on the left; the right‑hand artefacts update immediately: <span class="kbd">Scenario Log</span>, <span class="kbd">Rule Receipts</span>, and a <span class="kbd">Lineage Map</span>.</p>
+  </header>
+
+  <section class="orientation"><p>A fictional team ingests data, builds a model, reviews it, approves it and publishes a report. Toggle the selected events and inspect the missing prerequisites.</p><p>The log and times are synthetic. Rules test event presence and a chosen role, not event chronology, real identities, reviewer independence or an external execution.</p><details><summary>How the example works and where it came from</summary><p>The event display always follows the same illustrative order. The scenario identifier is a simple non-cryptographic label; it is not a tamper-proof receipt. Sharing preserves selected events, role and seed in the URL fragment. No events are sent to a workflow system.</p><p>Adapted from Governance Trio at source revision 9d9c253, reviewed 2 October 2026. The original idea of generating replay records, rule receipts and lineage from real workflow evidence remains a future integration proposal.</p></details></section><main>
+    <section class="left">
+      <div class="card">
+        <div class="cardTitle"><h2>Scenario: Workflow Events</h2><button class="iconBtn" type="button" data-help="scenario" aria-label="About workflow events" title="About this panel">?</button></div>
+        <div class="flow" id="flow"></div><div class="pane"><label for="approvalRole">Carol’s simulated approval role</label> <select id="approvalRole"><option>Lead</option><option>QA</option><option>Dev</option></select></div>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle"><h2>Rulebook (human‑readable)</h2><button class="iconBtn" type="button" data-help="rulebook" aria-label="About the rulebook" title="About this panel">?</button></div>
+        <div class="pane">
+          <p class="legend">
+            <span class="dot" style="background:var(--ok)"></span> pass
+            <span class="dot" style="background:var(--bad)"></span> fail
+            <span class="badge">v0.1 demo</span>
+          </p>
+          <ul>
+            <li><strong>R1 — Two‑person review:</strong> Approval needs both named reviews; their independence is assumed.</li>
+            <li><strong>R2 — Traceable output:</strong> Publication needs both ingest and build in this scenario.</li>
+            <li><strong>R3 — Approval prerequisite:</strong> Approval requires a selected build. Chronology is not checked.</li>
+            <li><strong>R4 — Authority scope:</strong> Only selected roles {Lead, QA} may approve.</li><li><strong>R5 — Upstream prerequisites:</strong> A build needs ingest; a review needs a build.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="cardTitle"><h2>Scenario Log (deterministic log)</h2><button class="iconBtn" type="button" data-help="replay" aria-label="About the simulated scenario log" title="About this panel">?</button></div>
+        <div class="pane">
+          <div class="log"><code id="replay"></code></div>
+          <div class="legend"><span class="badge">Deterministic seed:</span> <span id="seed" class="kbd">—</span></div>
+        </div>
+      </div>
+
+      <div class="card rules">
+        <div class="cardTitle"><h2>Rule Receipts (machine‑checkable)</h2><button class="iconBtn" type="button" data-help="receipts" aria-label="About rule receipts" title="About this panel">?</button></div>
+        <div class="pane">
+          <table id="rules">
+            <thead><tr><th style="text-align:left;">Rule</th><th>Status</th><th style="text-align:left;">Explanation</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle"><h2>Lineage Map (who/what produced what)</h2><button class="iconBtn" type="button" data-help="lineage" aria-label="About the lineage map" title="About this panel">?</button></div>
+        <div class="pane">
+          <div class="canvasWrap">
+            <canvas id="graph" role="img" aria-label="Artifact lineage; relationships and missing prerequisites are listed below"></canvas>
+            <span class="pill badge">Selected relationships</span>
+          </div>
+        </div>
+      </div>
+      <div class="card pane"><h3>Relationships and missing prerequisites</h3><pre id="lineageText"></pre></div>
+    </section>
+  </main>
+
+  <p id="status" role="status" aria-live="polite"></p><label class="shareLabel" for="shareLink">Scenario link (select to copy manually)</label><input id="shareLink" readonly><div class="footer">
+    <div>Tip: click <span class="kbd">Reset</span> to see how receipts & lineage snap back. All logic runs in‑browser.</div>
+    <div class="actions">
+      <button class="mini tight" type="button" data-help="using">Help</button>
+      <button id="seedBtn" class="mini tight">New Seed</button>
+      <button id="resetBtn" class="mini tight">Reset</button>
+      <button id="shareBtn" class="mini tight">Share State</button>
+    </div>
+  </div>
+
+  <dialog class="modalOverlay" id="helpOverlay">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle" aria-describedby="helpBody">
+      <button class="iconBtn close" id="helpClose" type="button" aria-label="Close help" title="Close">x</button>
+      <p class="eyebrow" id="helpKicker"></p>
+      <h2 id="helpTitle"></h2>
+      <div class="modalBody" id="helpBody"></div>
+    </section>
+  </dialog>
+
+<script src="model.js"></script><script src="app.js"></script>
+</body>
+</html>

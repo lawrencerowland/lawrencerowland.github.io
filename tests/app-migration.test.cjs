@@ -30,10 +30,10 @@ const expected={
 };
 const migratedLibrary=JSON.parse(fs.readFileSync(path.join(root,'_data/library_apps.json'),'utf8'));
 for(const app of migratedLibrary)expected[app.original_name||app.id]=app.url.slice(1);
-assert.equal(specialists.length,45);
-assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,45);
-assert.equal(new Set(specialists.map(x=>x.url)).size,44,'distinct maintained routes');
-assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,44,'unambiguous legacy query identities');
+assert.equal(specialists.length,53);
+assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,53);
+assert.equal(new Set(specialists.map(x=>x.url)).size,52,'distinct maintained routes');
+assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,52,'unambiguous legacy query identities');
 assert.deepEqual(new Set(specialists.map(x=>x.name)),new Set(Object.keys(expected)));
 assert.equal(specialists.filter(x=>x.name==='project-controls-knowledge-graph').length,2,'two original source identities now share the consolidated graph');
 for(const row of specialists){
@@ -56,6 +56,10 @@ const migration=fixtureMeta.library_migration;
 const libraryBefore=csv('Project-web-apps','library-before'),libraryAfter=csv('Project-web-apps','library-after');
 assert.equal(rowNames(libraryBefore).length,60);assert.equal(rowNames(libraryAfter).length,50);
 assert.equal(libraryAfter,libraryBefore.split(/(?<=\n)/).filter(line=>!migration.removed_names.includes(line.split(',')[1])).join(''),'the ten selected rows alone are removed; all unrelated source bytes survive');
+const eightMigration=fixtureMeta.eight_migration;
+const eightBefore=csv('Project-web-apps','eight-before'),eightAfter=csv('Project-web-apps','eight-after');
+assert.equal(rowNames(eightBefore).length,50);assert.equal(rowNames(eightAfter).length,42);
+assert.equal(eightAfter,eightBefore.split(/(?<=\n)/).filter(line=>!eightMigration.removed_names.includes(line.split(',')[1])).join(''),'only the eight selected rows are retired, with every unrelated source byte retained');
 const descendants=node=>node.children.flatMap(child=>[child,...descendants(child)]);
 class Element{
  constructor(tag){this.tagName=tag;this.children=[];this.dataset={};this.style={};this.className='';this.listeners={};this.scrolled=0;this._html='';}
@@ -84,7 +88,7 @@ async function load(phase,query='',hash=''){
  assert.ok(requests.every(url=>!url.includes('/React_proj-apps/')),'retired repository is no longer a live data dependency');
  const cards=elements['app-container'].children;
  const expectedNames=['Project-web-apps'].flatMap(repo=>rowNames(csv(repo,phase)).filter(name=>!specialists.some(item=>item.repo===repo&&item.name===name)));
- assert.equal(cards.length,phase.startsWith('current-')||phase.startsWith('library-')?50:51,'only general catalogue rows remain');
+ assert.equal(cards.length,phase.startsWith('current-')||phase.startsWith('library-')||phase.startsWith('eight-')?42:43,'only general catalogue rows remain');
  assert.deepEqual(cards.map(card=>card.id).sort(),expectedNames.map(name=>'app-'+slug(name)).sort(),'every unrelated source row is still rendered');
  for(const name of Object.keys(expected)){
   if(!expectedNames.includes(name))assert.ok(!cards.some(c=>c.id==='app-'+slug(name)),phase+': '+name+' is absent from ordinary cards');
@@ -93,7 +97,7 @@ async function load(phase,query='',hash=''){
  return {cards,context,elements};
 }
 (async()=>{
- for(const phase of ['before','after','current-before','current-after','library-before','library-after']){
+ for(const phase of ['before','after','current-before','current-after','library-before','library-after','eight-before','eight-after']){
   const result=await load(phase);assert.equal(result.cards.filter(c=>c.classList.contains('highlight')).length,0);
   assert.equal(result.elements['moved-app-notice'].hidden,true,'ordinary browsing does not show a moved-app notice');
   result.context.filterCards('risk_management');assert.ok(result.cards.some(c=>c.style.display==='block'));assert.ok(result.cards.some(c=>c.style.display==='none'));
@@ -120,5 +124,5 @@ async function load(phase,query='',hash=''){
  for(const query of ['?app=does-not-exist','?app=decision-tree-extra','?app=https://example.org/','?app=%3Cscript%3E']){
   const absent=await load('current-after',query);assert.ok(absent.cards.every(c=>!c.classList.contains('highlight')));assert.equal(absent.elements['moved-app-notice'].hidden,true,'unknown selectors never become destination links');
  }
- console.log('PASS: 45 original app identities absent from ordinary cards across six source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
+ console.log('PASS: 53 original app identities absent from ordinary cards across eight source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
 })().catch(error=>{console.error(error);process.exitCode=1;});

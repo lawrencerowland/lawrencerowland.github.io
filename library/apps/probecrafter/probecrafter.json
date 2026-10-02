@@ -1,0 +1,317 @@
+{
+  "name": "Probecrafter",
+  "tagline": "A library of questions for programme conversations about alignment, working rhythms and value.",
+  "lastUpdated": "2025-02-18",
+  "personas": [
+    {
+      "name": "Executive Sponsor",
+      "mission": "Keep political capital high while the programme navigates budget and priority shifts.",
+      "frictions": [
+        "Hard to tell if teams are shielding problems.",
+        "Struggles to translate delivery telemetry into choices for the board.",
+        "Needs confidence that external partners are aligned on value and pace."
+      ],
+      "whatTheyNotice": [
+        "Signals that reveal silent trade-offs against the strategic narrative.",
+        "Proof that the transformation office is sequencing dependencies realistically.",
+        "Opportunities to re-shape governance rituals without losing grip."
+      ]
+    },
+    {
+      "name": "Programme Director",
+      "mission": "Hold together delivery squads, vendors, and policy streams under shifting scope.",
+      "frictions": [
+        "Competing backlog priorities that erode shared cadence.",
+        "Low confidence data around non-functional risk and readiness gates.",
+        "Exhausted teams defaulting to shallow progress updates."
+      ],
+      "whatTheyNotice": [
+        "Signals that surface cumulative debt before it bites.",
+        "Places where teams are quietly renegotiating commitments.",
+        "Choke points in decision latency between senior stakeholders."
+      ]
+    },
+    {
+      "name": "Value Realisation Lead",
+      "mission": "Evidence that the transformation is unlocking measurable benefits, not just shipping artefacts.",
+      "frictions": [
+        "Benefit owners report late and inconsistently.",
+        "Baseline data is shaky, making attribution fragile.",
+        "Economic narrative drifts away from the investment case."
+      ],
+      "whatTheyNotice": [
+        "Signals that link tactical delivery choices with value erosion or uplift.",
+        "Opportunities to recalibrate measurement cadences.",
+        "Language that reveals dissonance between business units."
+      ]
+    }
+  ],
+  "probePacks": [
+    {
+      "id": "alignment-field-scan",
+      "title": "Alignment Field Scan",
+      "intent": "Alignment",
+      "phase": "Discovery",
+      "personaTags": [
+        "Executive Sponsor",
+        "Programme Director"
+      ],
+      "summary": "Check whether core leaders share the same picture of purpose, pace, and sequencing.",
+      "signals": [
+        "Different parts of the system using incompatible time horizons.",
+        "Narratives that subtly rewrite benefits to fit current progress.",
+        "Leaders outsourcing uncomfortable trade-offs to governance forums."
+      ],
+      "questions": [
+        {
+          "prompt": "When you describe the programme to someone new, which milestones do you emphasise first?",
+          "angle": "Surface the mental model that anchors leadership attention.",
+          "whatToListenFor": [
+            "Milestones chosen for political optics rather than value progression.",
+            "Missing articulation of interdependencies or capability drops.",
+            "Language that signals avoidance of known pain points."
+          ],
+          "followUps": [
+            "Which of those milestones feels the least stable right now?",
+            "Who would disagree with that sequence and why?"
+          ],
+          "notes": "Use if updates feel overly optimistic or heavily scripted."
+        },
+        {
+          "prompt": "Where do you feel forced to trade certainty for momentum this quarter?",
+          "angle": "Explore where momentum has been prioritised over certainty, and whether the trade-off is still justified.",
+          "whatToListenFor": [
+            "Examples of scope being deferred without re-baselining.",
+            "Reliance on future phases to catch unresolved defects.",
+            "Signals of governance fatigue."
+          ],
+          "followUps": [
+            "How visible is that trade-off to the sponsor board?",
+            "What data would let you reverse that trade-off?"
+          ],
+          "notes": "Pair with a decision-latency heatmap if available."
+        },
+        {
+          "prompt": "Which governance forum last informed a decision, sequence or resource priority, and what evidence mattered?",
+          "angle": "Test if governance rituals are still fit for purpose.",
+          "whatToListenFor": [
+            "Forums acting as rubber stamps instead of design studios.",
+            "Late discovery of cross-cutting dependencies.",
+            "Symptoms of governance bypass (side agreements, escalations)."
+          ],
+          "followUps": [
+            "Who is consistently surprised by those changes?",
+            "If you could scrap one forum, which would it be and why?"
+          ],
+          "notes": "A decision to retain the current plan can be sound. Ask what was considered, rather than treating every unchanged plan as a failure."
+        }
+      ],
+      "artefacts": [
+        "Leadership intent map",
+        "Benefits narrative trace",
+        "Governance cadence canvas"
+      ]
+    },
+    {
+      "id": "cadence-health-check",
+      "title": "Cadence Health Check",
+      "intent": "Ways of Working",
+      "phase": "Stabilise",
+      "personaTags": [
+        "Programme Director"
+      ],
+      "summary": "Reveal where rhythm, rituals, or tooling are no longer absorbing complexity.",
+      "signals": [
+        "Squads reporting cycle-time but hiding decision queueing.",
+        "Vendors optimising for statement-of-work not system throughput.",
+        "Leaders only experiencing the programme via slideware."
+      ],
+      "questions": [
+        {
+          "prompt": "Which ceremony feels most performative now?",
+          "angle": "Identify rituals that consume energy without new insight.",
+          "whatToListenFor": [
+            "Daily stand-ups that simply replay dashboards.",
+            "Steering groups that never change orders despite new information.",
+            "Reviews dominated by status rather than blockers."
+          ],
+          "followUps": [
+            "What would happen if you paused it for a sprint?",
+            "Which voices are absent from that ceremony?"
+          ],
+          "notes": "Use ahead of cadence resets or tool migrations."
+        },
+        {
+          "prompt": "Where do decisions regularly stall, and who has to chase them?",
+          "angle": "Expose latency and hidden coordination cost.",
+          "whatToListenFor": [
+            "Reliance on informal networks to unblock work.",
+            "Senior leaders unaware of queue length.",
+            "Dependency on a single subject-matter expert."
+          ],
+          "followUps": [
+            "What counter-metric proves the latency improved?",
+            "Which decision could you automate or pre-authorise?"
+          ],
+          "notes": "Pair with a visible blocker board to anchor the story."
+        },
+        {
+          "prompt": "Whose update never lands because the data is contested?",
+          "angle": "Find metrics that have lost trust.",
+          "whatToListenFor": [
+            "Multiple sources-of-truth for the same number.",
+            "Benefits tracked off to the side in spreadsheets.",
+            "Teams sanitising data to avoid rework."
+          ],
+          "followUps": [
+            "Who ultimately arbitrates the number?",
+            "What would it take to rebuild trust in that signal?"
+          ],
+          "notes": "Useful when prepping for value realisation reviews."
+        }
+      ],
+      "artefacts": [
+        "Decision latency tracker",
+        "Operating rhythm heatmap",
+        "Measurement trust canvas"
+      ]
+    },
+    {
+      "id": "value-story-audit",
+      "title": "Value Story Audit",
+      "intent": "Value",
+      "phase": "Accelerate",
+      "personaTags": [
+        "Value Realisation Lead",
+        "Executive Sponsor"
+      ],
+      "summary": "Link delivery effort with benefit trajectories and surface erosion early.",
+      "signals": [
+        "Benefits leading indicators lag behind spend.",
+        "Operational teams disconnect from the investment thesis.",
+        "Finance and delivery using different value vocabularies."
+      ],
+      "questions": [
+        {
+          "prompt": "Which benefit do you secretly think will never materialise?",
+          "angle": "Invite candour about weak benefit hypotheses.",
+          "whatToListenFor": [
+            "Benefit owners relying on historical baselines that no longer apply.",
+            "Benefits contingent on behaviours outside the programme's influence.",
+            "Ask directly about confidence and supporting evidence; do not infer confidence from silence or laughter."
+          ],
+          "followUps": [
+            "What evidence would convince you otherwise?",
+            "Who else senses the same fragility?"
+          ],
+          "notes": "Ask once rapport is established—expect a pause before the answer."
+        },
+        {
+          "prompt": "Where do operational KPIs contradict the value dashboard?",
+          "angle": "Surface tension between business-as-usual and transformation metrics.",
+          "whatToListenFor": [
+            "Business units reporting improvements but benefits dashboard flat.",
+            "Narratives that reframe benefits as compliance wins.",
+            "Reliance on anecdotal evidence because telemetry lags."
+          ],
+          "followUps": [
+            "Who adjudicates between those KPIs when planning next quarter?",
+            "Which signal would you publish weekly if tools made it easy?"
+          ],
+          "notes": "Pair with a data lineage sketch to anchor the conversation."
+        },
+        {
+          "prompt": "What would make you comfortable committing to value acceleration targets in public?",
+          "angle": "Test readiness for transparent benefit storytelling.",
+          "whatToListenFor": [
+            "Dependency on external suppliers for data refreshes.",
+            "Need for new incentives or capability to own outcomes.",
+            "Desire for staged commitments tied to milestone evidence."
+          ],
+          "followUps": [
+            "Which stakeholder must sign off before you would do that?",
+            "What rehearsal space do you need before the next board?"
+          ],
+          "notes": "Finish the pack with an offer to co-design the rehearsal artefacts."
+        }
+      ],
+      "artefacts": [
+        "Benefit hypothesis canvas",
+        "Evidence flightpath",
+        "Value operating cadence"
+      ]
+    }
+  ],
+  "sessionTemplates": [
+    {
+      "name": "90-Minute Delivery Surprise Review",
+      "goal": "Expose where leaders experience surprise so mitigation can be prioritised.",
+      "duration": "90 minutes",
+      "recommendedProbes": [
+        "alignment-field-scan",
+        "cadence-health-check"
+      ],
+      "steps": [
+        "Open with heatmap of delivery shocks in last 60 days.",
+        "Run Alignment Field Scan questions with sponsor + director.",
+        "Switch to Cadence Health Check to explore possible causes and the evidence needed to distinguish them.",
+        "Close by assigning probe owners and visible next steps."
+      ],
+      "outputs": [
+        "A short list of candidate interventions, with assumptions and evidence to check.",
+        "Named accountable owners with next check-in date.",
+        "Artifacts to update (e.g., governance cadence canvas)."
+      ]
+    },
+    {
+      "name": "Value Narrative Deep-Dive",
+      "goal": "Reconcile delivery telemetry with the promised investment story.",
+      "duration": "2 hours",
+      "recommendedProbes": [
+        "value-story-audit"
+      ],
+      "steps": [
+        "Start with the original investment case and latest benefits pack.",
+        "Use Value Story Audit probes with benefit owners and finance.",
+        "Map contested metrics and agree temporary proxy signals.",
+        "Draft an updated value narrative and comms cadence."
+      ],
+      "outputs": [
+        "Red/amber/green map of benefit health.",
+        "List of telemetry gaps with responsible data teams.",
+        "Draft paragraph for next steering pack."
+      ]
+    }
+  ],
+  "scorecard": {
+    "alignment": {
+      "definition": "Leaders share a coherent, up-to-date picture of value, pace, and dependencies.",
+      "measures": [
+        "Shared articulation of next material milestone.",
+        "Crisp definition of decision rights and escalation paths.",
+        "Evidence that trade-offs are transparent to the right forums."
+      ]
+    },
+    "cadence": {
+      "definition": "Rituals absorb complexity without generating theatre.",
+      "measures": [
+        "Cycle time vs. decision latency trend.",
+        "Examples of rituals retained, redesigned or retired, and the reasons for those choices.",
+        "Level of trust in shared telemetry."
+      ]
+    },
+    "value": {
+      "definition": "Benefits telemetry influences prioritisation, not just reporting.",
+      "measures": [
+        "Benefit hypotheses reviewed before each replan.",
+        "Frequency of proactive value interventions.",
+        "Clarity of narrative connecting spend to realised outcomes."
+      ]
+    }
+  },
+  "coachNotes": [
+    "Pair each probe pack with a tangible artefact—people open up when they can mark or annotate real data.",
+    "Heatmap the probes you actually used in a session to spot blind spots over time.",
+    "Rotate who leads each probe set so the practice scales beyond the core change team."
+  ]
+}

@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How changes spread between project interfaces</title>
+  <style>
+    :root{
+      --bg:#f7f3e9;
+      --panel:#fffdf7;
+      --panel2:#f3f0e5;
+      --ink:#193b32;
+      --muted:#53645a;
+      --line:#cbd2bf;
+      --accent:#477956;
+      --warn:#986618;
+      --bad:#a43e2f;
+      --good:#306c44;
+      --shadow: 0 10px 24px rgba(0,0,0,.35);
+      --radius: 14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 900px at 20% 10%, #eeeadc 0%, #f7f3e9 45%, #f7f3e9 100%);
+      color:var(--ink);
+      font-family: var(--sans);
+      overflow:hidden;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 18px;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,253,247,.9), rgba(255,253,247,.65));
+      backdrop-filter: blur(8px);
+      position:sticky;
+      top:0;
+      z-index:5;
+    }
+    .title{
+      display:flex;
+      gap:12px;
+      align-items:baseline;
+      flex-wrap:wrap;
+    }
+    .title h1{
+      font-size:16px;
+      margin:0;
+      letter-spacing:.2px;
+      font-weight:700;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(245,241,230,.7);
+      font-size:12px;
+      color: var(--muted);
+    }
+    .pill b{color:var(--ink); font-weight:700;}
+    .wrap{
+      height: calc(100% - 58px);
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:14px;
+      padding:14px;
+      box-sizing:border-box;
+    }
+    .panel{
+      background: rgba(255,253,247,.68);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:0;
+    }
+    .panel .hd{
+      padding:12px 12px 10px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      background: rgba(245,241,230,.65);
+    }
+    .panel .hd h2{
+      margin:0;
+      font-size:13px;
+      letter-spacing:.2px;
+      font-weight:700;
+    }
+    .panel .bd{
+      padding:12px;
+      overflow:auto;
+      min-height:0;
+    }
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin:10px 0 6px;
+    }
+    select,input,button,textarea{
+      font-family:inherit;
+      color:var(--ink);
+    }
+    select,input[type="number"],input[type="text"],textarea{
+      width:100%;
+      box-sizing:border-box;
+      background: rgba(233,231,218,.65);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 10px;
+      outline:none;
+      font-size:13px;
+    }
+    input[type="range"]{width:100%}
+    textarea{
+      min-height:140px;
+      font-family: var(--mono);
+      font-size:12px;
+      line-height:1.35;
+      white-space:pre;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .row3{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:10px;
+    }
+    .btns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    button{
+      border:1px solid var(--line);
+      border-radius:12px;
+      background: rgba(55,110,73,.18);
+      padding:10px 11px;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:650;
+      transition: transform .06s ease, background .15s ease;
+    }
+    button:hover{ background: rgba(55,110,73,.26); }
+    button:active{ transform: translateY(1px); }
+    button.secondary{ background: rgba(49,87,63,.12); }
+    button.danger{ background: rgba(255,107,107,.15); }
+    button.danger:hover{ background: rgba(255,107,107,.23); }
+    button.good{ background: rgba(107,255,176,.14); }
+    button.good:hover{ background: rgba(107,255,176,.20); }
+    button.info{
+      cursor: default;
+      text-align: left;
+      width: 100%;
+      line-height: 1.35;
+      background: rgba(245,241,230,.7);
+      white-space: pre-wrap;
+    }
+    button.info:hover{ background: rgba(245,241,230,.7); }
+    .hint{
+      font-size:12px;
+      color: var(--muted);
+      line-height:1.35;
+      margin-top:10px;
+    }
+    .kbd{
+      font-family: var(--mono);
+      font-size:11px;
+      padding:2px 6px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background: rgba(233,231,218,.65);
+      color: var(--ink);
+    }
+
+    /* Right side */
+    .tabs{
+      display:flex;
+      gap:8px;
+      padding:10px 12px;
+      border-bottom:1px solid var(--line);
+      background: rgba(245,241,230,.65);
+      flex-wrap:wrap;
+    }
+    .tab{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(233,231,218,.45);
+      color: var(--muted);
+      cursor:pointer;
+      user-select:none;
+    }
+    .tab.active{
+      background: rgba(55,110,73,.22);
+      color: var(--ink);
+      border-color: rgba(55,110,73,.55);
+    }
+    .view{
+      display:none;
+      padding:12px;
+      overflow:auto;
+      min-height:0;
+      height:100%;
+      box-sizing:border-box;
+    }
+    .view.active{ display:block; }
+
+    /* Matrix */
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      font-size:12px;
+      min-width:880px;
+    }
+    th,td{
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:8px 8px;
+      vertical-align:middle;
+    }
+    th{
+      position:sticky;
+      top:0;
+      z-index:2;
+      background: rgba(245,241,230,.95);
+      text-align:left;
+      font-weight:750;
+      letter-spacing:.2px;
+    }
+    th:first-child, td:first-child{
+      position:sticky;
+      left:0;
+      z-index:1;
+      background: rgba(245,241,230,.95);
+      min-width:260px;
+    }
+    th:first-child{ z-index:3; }
+    tr:first-child th{
+      border-top:1px solid var(--line);
+    }
+    td:first-child{ border-left:1px solid var(--line); }
+    th:first-child{ border-left:1px solid var(--line); }
+    td{
+      background: rgba(233,231,218,.35);
+    }
+    .ifaceName{
+      font-weight:800;
+      font-size:12.5px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .metaSmall{
+      margin-top:4px;
+      color: var(--muted);
+      font-size:11px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .sparkWrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:6px;
+    }
+    .sparkLbl{
+      font-size:11px;
+      color: var(--muted);
+      width:56px;
+    }
+    .spark{
+      width:110px;
+      height:22px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background: rgba(233,231,218,.55);
+    }
+    .cell{
+      cursor:pointer;
+      border-left:1px solid var(--line);
+      border-top:1px solid var(--line);
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      border-radius:10px;
+      padding:8px 8px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      user-select:none;
+      transition: transform .06s ease, outline .15s ease;
+      outline: 0px solid rgba(55,110,73,.0);
+    }
+    .cell:hover{
+      transform: translateY(-1px);
+      outline: 2px solid rgba(55,110,73,.25);
+    }
+    .cell.selected{
+      outline: 3px solid rgba(55,110,73,.55);
+    }
+    .cellVal{
+      font-weight:900;
+      font-size:13px;
+    }
+    .cellDelta{
+      font-family: var(--mono);
+      font-size:11px;
+      opacity:.95;
+      padding:2px 6px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(233,231,218,.28);
+      color: var(--ink);
+      white-space:nowrap;
+    }
+    .deltaPos{ border-color: rgba(107,255,176,.35); color: rgba(180,255,220,.95); }
+    .deltaNeg{ border-color: rgba(255,107,107,.35); color: rgba(255,196,196,.95); }
+    .deltaZero{ border-color: rgba(49,87,63,.25); color: rgba(49,87,63,.9); }
+
+    /* Dashboard */
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(180px,1fr));
+      gap:10px;
+      margin-bottom:12px;
+    }
+    .kpi{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(233,231,218,.35);
+      padding:10px 12px;
+    }
+    .kpi .k{
+      font-size:11px;
+      color: var(--muted);
+    }
+    .kpi .v{
+      font-size:18px;
+      font-weight:900;
+      margin-top:4px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:12px;
+      align-items:stretch;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(233,231,218,.35);
+      padding:12px;
+      overflow:auto;
+      min-height:0;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:12px;
+      letter-spacing:.2px;
+    }
+    canvas{
+      max-width:100%;
+    }
+
+    /* Network */
+    .netWrap{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:12px;
+      align-items:stretch;
+    }
+    .netStage{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(233,231,218,.35);
+      overflow:hidden;
+      position:relative;
+      min-height:520px;
+    }
+    .tooltip{
+      position:absolute;
+      pointer-events:none;
+      padding:10px 10px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background: rgba(245,241,230,.92);
+      box-shadow: var(--shadow);
+      font-size:12px;
+      color: var(--ink);
+      min-width:220px;
+      display:none;
+      z-index:10;
+    }
+    .tooltip .t{
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .tooltip .r{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      font-family: var(--mono);
+      font-size:11px;
+      color: var(--muted);
+      margin:2px 0;
+    }
+
+    /* Log */
+    .log{
+      font-family: var(--mono);
+      font-size:11.5px;
+      line-height:1.35;
+      white-space:pre-wrap;
+      background: rgba(233,231,218,.35);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 10px;
+      min-height:180px;
+      max-height:280px;
+      overflow:auto;
+    }
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin:12px 0;
+    }
+    .small{
+      font-size:11px;
+      color: var(--muted);
+      line-height:1.35;
+    }
+
+    /* Small screens */
+    @media (max-width: 1050px){
+      body{ overflow:auto; }
+      .wrap{ height:auto; grid-template-columns: 1fr; }
+      .netWrap{ grid-template-columns: 1fr; }
+      table{ min-width: 740px; }
+      .kpis{ grid-template-columns: repeat(2, minmax(160px,1fr)); }
+    }
+  
+*{box-sizing:border-box}body{height:auto;overflow:auto;background:#f7f3e9;color:#193b32}nav,.orientation{max-width:1380px;margin:auto;padding:12px 18px}nav a{color:#265b3c}header{position:static;flex-wrap:wrap;gap:10px}header .title h1{font-size:clamp(1.2rem,3vw,1.8rem)}.orientation p{max-width:100ch;line-height:1.55}.orientation details{background:#fffdf7;border:1px solid #cbd2bf;border-radius:10px;padding:12px}summary{cursor:pointer;font-weight:650}.wrap{height:auto;max-width:1450px;margin:auto;grid-template-columns:minmax(260px,340px) minmax(0,1fr)}.wrap>*,.panel,.bd,.view,.grid2>*,.netWrap>*{min-width:0}.view{height:auto}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:minmax(0,1fr)}.netWrap{grid-template-columns:minmax(0,1fr)}.netStage{min-height:350px}.cell{width:100%;color:#102d24}.cellDelta{color:#163e2b}.deltaPos{color:#194c2c}.deltaNeg{color:#8d2820}.deltaZero{color:#384c3d}.view>*,textarea,svg{max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #9c691d;outline-offset:3px}.tab.active{font-weight:800;border-width:2px}.small,.hint{line-height:1.55;font-size:12px}button.info{cursor:default}canvas{max-width:100%}@media(max-width:850px){.wrap{grid-template-columns:minmax(0,1fr);padding:10px}.row3{grid-template-columns:1fr}.panel .hd{flex-wrap:wrap}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}header{padding:12px}.netStage{min-height:260px}}
+</style>
+<link rel="canonical" href="https://lawrencerowland.github.io/library/apps/interface-maturity/">
+</head>
+<body><noscript><p>This interactive example needs JavaScript. The explanation and Library links remain available.</p></noscript>
+<nav aria-label="Library"><a href="/library/methods/delivery-dynamics.html">Delivery dynamics</a> · <a href="/library.html">Library</a></nav><header>
+  <div class="title">
+    <h1>How changes spread between project interfaces</h1>
+    <span class="pill">Step <b id="stepPill">0</b></span>
+    <span class="pill">Selected: <b id="selPill">—</b></span>
+  </div>
+  <div class="title">
+    <span class="pill">Local iterations <b id="iterPill">4</b></span>
+    <span class="pill">Spillover <b id="spillPill">0.15 / 0.05</b></span>
+    <span class="pill">Friction cap <b id="fricPill">A&gt;70 → improvement ×0.5</b></span>
+  </div>
+</header>
+
+<section class="orientation"><p>Five fictional interfaces share parties, so a change can ripple through a small network. Try clarifying scope, inspect the changes, then alter an assumption.</p><details><summary>Model assumptions and limits</summary><p>Scores, equal weighting, coefficients and thresholds are invented teaching assumptions, not surveyed evidence or a calibrated organisational forecast. A step is one action, not a day. The index averages four attributes and 100 minus Ambiguity.</p><p>Nudges ripple through a fixed number of coupling waves. An absolute set holds the selected attribute at the requested value for the step. Only realised, clamped local changes spill to neighbours. Friction damps beneficial spillover when the receiver's ambiguity exceeds its threshold. On each nonzero action or scenario, the threshold penalty applies once across all interfaces; a zero action does nothing.</p><p>The four scenarios directly change their stated attributes and apply the threshold penalty; they do not run the local coupling or spillover engine. Reset restores both baseline values and assumptions. Applying the five coupling controls replaces the coupling-edge list with those five relationships. Nothing is saved automatically: export simulation state to keep a session.</p><p>Adapted from the older Interface Maturity Simulator (source revision 9d9c253, reviewed 2 October 2026). The SharpCloud mapping remains a conceptual export, not an integration or official API format.</p></details></section><main class="wrap">
+
+  <!-- LEFT: Controls & Log -->
+  <section class="panel" aria-label="Controls panel">
+    <div class="hd">
+      <h2>Controls</h2>
+      <div class="pill" title="Tip: click a matrix cell to prefill">
+        Tip: <span class="kbd">Click</span> a cell
+      </div>
+    </div>
+    <div class="bd" id="controls">
+
+      <label for="ifaceSel">Interface</label>
+      <select id="ifaceSel"></select>
+
+      <label for="varSel">Variable</label>
+      <select id="varSel"></select>
+
+      <div class="row">
+        <div>
+          <label for="modeSel">Mode</label>
+          <select id="modeSel">
+            <option value="delta">Apply Δ (nudge)</option>
+            <option value="set">Set absolute value</option>
+          </select>
+        </div>
+        <div>
+          <label for="deltaNum">Δ / Value</label>
+          <input id="deltaNum" type="number" step="1" value="10" />
+        </div>
+      </div>
+
+      <label for="deltaRange">Quick slider</label>
+      <input id="deltaRange" type="range" min="-30" max="30" step="1" value="10" />
+
+      <div class="btns">
+        <button id="applyBtn" class="good">Apply</button>
+        <button id="undoBtn" class="secondary">Undo</button>
+        <button id="resetBtn" class="danger">Reset</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <label for="scenarioSel">Scenario nudge (exogenous bulk change)</label>
+      <select id="scenarioSel">
+        <option value="">— choose —</option>
+        <option value="early_warning">Early-warning culture: +10 Escalation readiness (all)</option>
+        <option value="contract_misalign">Contract misalign: −15 Shared incentives (all)</option>
+        <option value="clarify_scope">Clarify scope: −12 Ambiguity (all)</option>
+        <option value="deadline_pressure">Deadline pressure: +12 Ambiguity & −8 Trust (PM↔Client)</option>
+      </select>
+      <div class="btns">
+        <button id="scenarioBtn" class="secondary">Apply scenario</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <details>
+        <summary style="cursor:pointer; font-weight:800; color:var(--ink);">Model knobs (editable)</summary>
+
+        <div class="row">
+          <div>
+            <label for="iterRange">Local coupling iterations</label>
+            <input id="iterRange" type="range" min="1" max="10" step="1" value="4" />
+          </div>
+          <div>
+            <label for="iterNum">Iterations</label>
+            <input id="iterNum" type="number" min="1" max="10" step="1" value="4" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="spillStrong">Spillover (shared party)</label>
+            <input id="spillStrong" type="number" step="0.01" value="0.15" />
+          </div>
+          <div>
+            <label for="spillWeak">Spillover (no shared party)</label>
+            <input id="spillWeak" type="number" step="0.01" value="0.05" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="fricThresh">Friction cap threshold (Ambiguity &gt;)</label>
+            <input id="fricThresh" type="number" step="1" value="70" />
+          </div>
+          <div>
+            <label for="fricFactor">Positive Δ factor when capped</label>
+            <input id="fricFactor" type="number" step="0.05" value="0.5" />
+          </div>
+        </div>
+
+        <div class="row3">
+          <div>
+            <label for="svEsc">Threshold penalty: Escalation &lt;</label>
+            <input id="svEsc" type="number" step="1" value="30" />
+          </div>
+          <div>
+            <label for="svAmb">Threshold penalty: Ambiguity &gt;</label>
+            <input id="svAmb" type="number" step="1" value="60" />
+          </div>
+          <div>
+            <label for="svPen">Penalty (−Trust/−Adapt)</label>
+            <input id="svPen" type="number" step="1" value="5" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="small">
+          Local coupling edges (editable):<br/>
+          <span class="kbd">Ambiguity → Trust</span>, <span class="kbd">Ambiguity → Escalation</span>, <span class="kbd">Trust → Adaptability</span>, <span class="kbd">Trust → Incentives</span>, <span class="kbd">Incentives → Ambiguity</span>
+        </div>
+        <div class="row3">
+          <div>
+            <label for="c_am_t">Ambiguity → Trust</label>
+            <input id="c_am_t" type="number" step="0.05" value="-0.6" />
+          </div>
+          <div>
+            <label for="c_am_e">Ambiguity → Escalation</label>
+            <input id="c_am_e" type="number" step="0.05" value="0.3" />
+          </div>
+          <div>
+            <label for="c_t_ad">Trust → Adaptability</label>
+            <input id="c_t_ad" type="number" step="0.05" value="0.5" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="c_t_s">Trust → Shared incentives</label>
+            <input id="c_t_s" type="number" step="0.05" value="0.5" />
+          </div>
+          <div>
+            <label for="c_s_am">Incentives → Ambiguity</label>
+            <input id="c_s_am" type="number" step="0.05" value="-0.4" />
+          </div>
+        </div>
+
+        <div class="btns">
+          <button id="applyKnobsBtn" class="secondary">Apply knobs</button>
+        </div>
+      </details>
+
+      <div class="divider"></div>
+
+      <div class="panel" style="border-radius:14px; box-shadow:none; border:1px solid var(--line); background: rgba(233,231,218,.20);">
+        <div class="hd" style="border-bottom:1px solid var(--line); background: rgba(245,241,230,.40);">
+          <h2>Last action log</h2>
+          <span class="pill"><span class="kbd">Undo</span> is stateful</span>
+        </div>
+        <div class="bd">
+          <div id="log" class="log" role="status" aria-live="polite">Ready.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="btns" style="flex-direction:column; align-items:stretch;">
+        <button type="button" class="info">
+          <strong>Features:</strong>
+          Renders a 5×5 “SharpCloud‑style” attribute matrix (rows = interfaces, columns = variables)
+          Lets you nudge any cell by Δ (or set an absolute value)
+          Applies local coupling (iterated ripple), network spillover, friction cap, threshold penalty
+          Shows logs, KPIs, sparklines, and a network view
+          Includes a “SharpCloud Mapping” export pack (JSON + CSV) that is independent of any SharpCloud instance, but mirrors how you’d model it there
+        </button>
+        <button type="button" class="info">
+          <strong>What you can do:</strong>
+          Click a cell like PM↔Client → Shared incentives, apply Δ +15
+          Watch:
+          Local coupling ripple (Trust/Adaptability move, Ambiguity shifts via Incentives→Ambiguity)
+          Spillover to interfaces sharing PM or Client
+          Friction cap when Ambiguity &gt; 70 (beneficial changes damped)
+          Threshold penalty when Escalation is low and Ambiguity high
+        </button>
+      </div>
+
+      <div class="hint">
+        The matrix is a <strong>SharpCloud-like</strong> representation:
+        rows = “stories” (interfaces), columns = attributes (Trust, Adaptability, …).  
+        Click a cell → pick a Δ → watch local coupling + network spillover.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RIGHT: Views -->
+  <section class="panel" aria-label="Views panel">
+    <div class="tabs">
+      <button class="tab active" data-tab="matrix" type="button">Matrix (Attribute Heatmap)</button>
+      <button class="tab" data-tab="network" type="button">Network (Relationships)</button>
+      <button class="tab" data-tab="dashboard" type="button">Dashboard (KPIs)</button>
+      <button class="tab" data-tab="mapping" type="button">SharpCloud Mapping (Export)</button>
+    </div>
+
+    <div id="matrix" class="view active">
+      <div class="small" style="margin-bottom:10px;">
+        Click any cell to select it. Values are 0–100. Ambiguity is inverted (high = bad) for color.
+      </div>
+      <div id="matrixHost"></div>
+    </div>
+
+    <div id="network" class="view">
+      <div class="netWrap">
+        <div class="netStage" id="netStage">
+          <div class="tooltip" id="netTip"></div>
+          <svg role="img" aria-label="Interface network; the mapping export lists each relationship and its directional coefficients" id="netSvg" viewBox="0 0 1000 600" width="100%" height="100%"></svg>
+        </div>
+        <div class="card">
+          <h3>Network legend</h3>
+          <div class="small">
+            <div style="margin-bottom:8px;">Nodes = interfaces (stories). Color = “maturity index”.</div>
+            <div style="margin-bottom:8px;">Edges: <span class="kbd">shared party</span> uses spillover <b id="netStrong">0.15</b>. Weak ties use <b id="netWeak">0.05</b>.</div>
+            <div class="divider"></div>
+            <label style="margin:0 0 6px;">Show weak ties</label>
+            <input id="showWeak" type="checkbox" checked />
+            <div class="divider"></div>
+            <div>
+              <b>Maturity index (0–100)</b> = average of:
+              Trust, Adaptability, Escalation readiness, Shared incentives, and (100 − Ambiguity).
+            </div>
+            <div class="divider"></div>
+            <div class="small">
+              Hover nodes for details.  
+              Tip: after a nudge, weak ties can still move (slowly), but weights dampen large interfaces.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dashboard" class="view">
+      <div class="kpis" id="kpis"></div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Maturity index by interface</h3>
+          <canvas id="barCanvas" width="900" height="320"></canvas>
+        </div>
+        <div class="card">
+          <h3>Average maturity trend</h3>
+          <canvas id="trendCanvas" width="520" height="320"></canvas>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card">
+        <h3>Notes you can say out loud in a demo</h3>
+        <div class="small" id="demoNotes"></div><details><summary>Chart values and recent index history</summary><pre id="chartValues"></pre></details>
+      </div>
+    </div>
+
+    <div id="mapping" class="view">
+      <div class="card">
+        <h3>How this maps to SharpCloud (conceptual)</h3>
+        <div class="small">
+          <ol>
+            <li><b>Stories</b>: each interface row becomes a Story (e.g., “PM↔Design”).</li>
+            <li><b>Attributes</b>: Trust, Adaptability, Ambiguity, EscalationReadiness, SharedIncentives (numeric 0–100).</li>
+            <li><b>Tags</b>: Owner, Workstream Tag, Parties (e.g., Party:PM).</li>
+            <li><b>Relationships</b>: connect Stories if they share a Party (strong tie), else weak tie (optional).</li>
+            <li><b>Panels</b>:
+              <ul>
+                <li>Attribute Matrix: heatmap (this page’s Matrix view)</li>
+                <li>Network view: relationships graph (this page’s Network view)</li>
+                <li>Dashboard: KPIs and trends (this page’s Dashboard view)</li>
+              </ul>
+            </li>
+          </ol>
+          This page exports a <b>standalone JSON “pack”</b> + <b>CSV</b> you could adapt to whatever import/API process you use—without depending on any SharpCloud instance.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Export pack (JSON)</h3>
+          <div class="btns" style="margin:0 0 10px;">
+            <button id="copyJsonBtn" class="secondary">Copy JSON</button>
+            <button id="downloadJsonBtn" class="secondary">Download JSON</button>
+          </div>
+          <textarea aria-label="Conceptual mapping JSON" id="jsonOut" spellcheck="false"></textarea>
+        </div>
+
+        <div class="card">
+          <h3>Attribute table (CSV)</h3>
+          <div class="btns" style="margin:0 0 10px;">
+            <button id="copyCsvBtn" class="secondary">Copy CSV</button>
+            <button id="downloadCsvBtn" class="secondary">Download CSV</button>
+          </div>
+          <textarea aria-label="Interface CSV" id="csvOut" spellcheck="false"></textarea>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="card">
+        <h3>Import / Export state (for this simulator)</h3>
+        <div class="small">Paste a previously exported simulator state JSON here and click “Load state”.</div>
+        <div class="btns" style="margin:10px 0;">
+          <button id="exportStateBtn" class="secondary">Export simulator state</button>
+          <button id="loadStateBtn" class="secondary">Load state</button>
+        </div>
+        <textarea aria-label="Simulation state JSON" id="stateIO" spellcheck="false" placeholder='{"step":...,"interfaces":[...]}'></textarea>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Governance Trio
+
+Migrated from `Project-web-apps/web_apps/governance-trio-replay-rules-lineage.html`, revision `9d9c253f9c203441be1fd301bcb9a6b976b85d4f`; reviewed 2 October 2026. Home: Data and assurance. Source SHA-256: `dc0fb8bde301928c013305feabc4b958865e175eba0feb040db3fbe60a75fa16`.
+
+Preserved: six workflow events, deterministic seed-based synthetic log, rule receipts, artifact-lineage drawing, contextual help, new seed, reset and shared URL state. Old base64 `{a,seed}` fragments load with the original Lead-role assumption; new fragments also carry the chosen role. No browser storage is used or cleared. Redirects must preserve the fragment. Scenario IDs now include the chosen role; their non-cryptographic nature is explicit.
+
+Corrections: chronology/replay-proof claims replaced with event-presence checks and a synthetic log; non-triggered rules are not applicable; authority can fail by choosing Dev; two named reviews are not proof of independence. Traceable publication requires ingest and build. An additional upstream-prerequisite receipt covers build/review gaps. Lineage only draws each immediate relation when its required predecessor is selected and reports omissions in text. Both review notes connect directly to approval. URL schema validates before load and preserves query strings. Invalid fragments remain visible until a deliberate scenario change. Clipboard falls back to a selectable field after rejection or timeout. Native dialog contains keyboard focus; lineage text supplements canvas; diagram scrolls inside its card.
+
+Verification: `node --test tests/eight-data-models.test.cjs` covers all 64 event combinations, role failure, missing edges, old payloads, invalid schema and reproducibility. Browser journeys: approval alone; add ingest/build/two reviews; Dev→Lead; publish; share/reload; help by keyboard; reset; narrow-screen diagram.

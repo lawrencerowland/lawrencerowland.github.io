@@ -41,6 +41,7 @@ on:
       - 'wider-interest/**'
       - 'tests/navigation-compatibility.test.cjs'
       - 'tests/*migration*.cjs'
+      - 'tests/eight-*.test.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -105,6 +106,7 @@ on:
       - 'wider-interest/**'
       - 'tests/navigation-compatibility.test.cjs'
       - 'tests/*migration*.cjs'
+      - 'tests/eight-*.test.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -164,6 +166,13 @@ jobs:
           node --test tests/capability-app-migration.test.cjs
           node tests/stakeholder-migration.test.cjs
           node tests/ten-library-migration.test.cjs
+      - name: Check eight further migrated Library examples
+        run: |
+          node --test tests/eight-capability-models.test.cjs
+          node --test tests/eight-schedule-models.test.cjs
+          node --test tests/eight-data-models.test.cjs
+          node --test tests/eight-probecrafter-model.test.cjs
+          node tests/eight-library-migration.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
@@ -226,6 +235,8 @@ jobs:
         run: node tests/library-app-retirement.test.cjs _site
       - name: Check rendered destinations for the ten migrated examples
         run: node tests/ten-library-migration.test.cjs _site
+      - name: Check rendered destinations for the next eight examples
+        run: node tests/eight-library-migration.test.cjs _site
       - name: Save the built site for preview
         uses: actions/upload-artifact@v4
         with:

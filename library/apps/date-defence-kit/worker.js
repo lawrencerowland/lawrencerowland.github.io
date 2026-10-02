@@ -1,0 +1,3 @@
+'use strict';
+importScripts('model.js');
+onmessage=function(event){try{const M=DateDefenseModel,p=M.prepare(event.data.tasks,event.data.config),random=M.rng(p.config.seed),totals=[],counts=p.tasks.map(()=>0),every=Math.max(100,Math.ceil(p.config.iterations/40));for(let i=0;i<p.config.iterations;i++){const r=M.trial(p,random);totals.push(r.finish);r.critical.forEach((c,j)=>counts[j]+=c);if((i+1)%every===0)postMessage({type:'progress',done:i+1})}postMessage({type:'done',result:{...M.summary(totals,counts,p.tasks),tasks:p.tasks,config:p.config}})}catch(error){postMessage({type:'error',message:error.message})}};

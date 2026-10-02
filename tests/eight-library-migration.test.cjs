@@ -2,25 +2,25 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),site=process.argv[2]?path.resolve(process.argv[2]):root;
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const all=JSON.parse(read('_data/library_apps.json')),apps=all.filter(app=>app.source_revision==='fa5a4a4819c8c5d25b413c7d1f3219aac2e81fc2');
+const all=JSON.parse(read('_data/library_apps.json')),apps=all.filter(app=>app.source_revision==='9d9c253f9c203441be1fd301bcb9a6b976b85d4f');
 const expected={
- 'risk-matrix':['intro_risk_matrix','decisions-and-trade-offs'],
- 'weighted-decision-matrix':['weighted-decision-matrix','decisions-and-trade-offs'],
- 'eisenhower-matrix':['eisenhower-matrix','decisions-and-trade-offs'],
- 'decision-latency':['decision-latency','delivery-dynamics'],
- 'critical-path-spotter':['critical-path-spotter','delivery-dynamics'],
- 'wbs-to-pbs':['hs2_WBS_to_PBS','states-and-relationships'],
- 'project-data-standard':['Project_Data_standard_example','data-and-assurance'],
- 'white-space-analysis':['white_space_analysis','capabilities-and-futures'],
- 'service-trident':['service_trident','capabilities-and-futures'],
- 'stakeholder-mapper':['stakeholder-mapper','states-and-relationships']
+ 'p3m-capability-review':['p3m-capability-tool','capabilities-and-futures'],
+ 'concept-triad-builder':['interactive-concept-map','decisions-and-trade-offs'],
+ 'wbs-rewriter':['WBS_rewrite','delivery-dynamics'],
+ 'date-defence-kit':['date-defence-kit','delivery-dynamics'],
+ 'interface-maturity':['interface_maturity_simulator','delivery-dynamics'],
+ 'intent-field-navigator':['intent_field_navigator','decisions-and-trade-offs'],
+ 'governance-trio':['governance-trio-replay-rules-lineage','data-and-assurance'],
+ 'probecrafter':['probecrafter','capabilities-and-futures']
 };
-assert.equal(all.length,34);assert.equal(apps.length,10);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
+assert.equal(all.length,34);assert.equal(apps.length,8);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
 const manifest=JSON.parse(read('assets/data/library-apps.json')),specialists=JSON.parse(read('assets/data/specialist-apps.json'));
 for(const app of apps){
  assert.equal(app.original_name,expected[app.id][0]);assert.equal(app.theme,expected[app.id][1]);
  assert.equal(app.original_path,'web_apps/'+app.original_name+'.html');assert.equal(app.source_repository,'Project-web-apps');
- assert.equal(app.source_revision,'fa5a4a4819c8c5d25b413c7d1f3219aac2e81fc2');assert.match(app.source_sha256,/^[a-f0-9]{64}$/);
+ assert.equal(app.source_revision,'9d9c253f9c203441be1fd301bcb9a6b976b85d4f');assert.match(app.source_sha256,/^[a-f0-9]{64}$/);
+ assert.ok(app.source_files[app.original_path]===app.source_sha256);
+ for (const hash of Object.values(app.source_files)) assert.match(hash,/^[a-f0-9]{64}$/);
  assert.equal(app.url,'/library/apps/'+app.id+'/');assert.ok(app.description&&app.try_this&&app.limitation&&app.reviewed);
  assert.equal(app.source_url,'https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/'+app.id);
  assert.ok(fs.statSync(path.join(site,app.image)).size>1000,app.id+': a real pictured entrance');
@@ -46,7 +46,7 @@ for(const app of apps){
 // Actual Gap Map loader: a stale source catalogue must not resurrect moved copies.
 const gap=read('gap-map.md');const loader=gap.slice(gap.indexOf('function loadResourcesData(){'),gap.indexOf('\nlet currentCats='));
 const vm=require('node:vm');let received;
-const sampleOld=[{name:'intro_risk_matrix'},{name:'door-moisture-model'}];const maintained=manifest.filter(a=>a.name==='intro_risk_matrix');
+const sampleOld=[{name:'probecrafter'},{name:'door-moisture-model'}];const maintained=manifest.filter(a=>a.name==='probecrafter');
 const context={fetch:async url=>url.includes('app-index.csv')?{text:async()=>''}:{ok:true,json:async()=>maintained},parseCSV:()=>sampleOld,integrateApps:apps=>received=apps,assignAppCapabilities(){},buildDomainFilters(){},renderList(){},graphVisible:false,Date,Set};
 vm.runInNewContext(loader,context);
-context.loadResourcesData().then(()=>{assert.equal(received.filter(a=>a.name==='intro_risk_matrix').length,1);assert.equal(received.find(a=>a.name==='intro_risk_matrix').url,maintained[0].url);assert.ok(received.some(a=>a.name==='door-moisture-model'));console.log('PASS: ten source identities, correct subjects, provenance, local dependencies, picture/source routes and stale-catalogue deduplication'+(process.argv[2]?'; exact built site.':'.'));}).catch(error=>{console.error(error);process.exitCode=1});
+context.loadResourcesData().then(()=>{assert.equal(received.filter(a=>a.name==='probecrafter').length,1);assert.equal(received.find(a=>a.name==='probecrafter').url,maintained[0].url);assert.ok(received.some(a=>a.name==='door-moisture-model'));console.log('PASS: eight source identities, correct subjects, provenance, local dependencies, picture/source routes and stale-catalogue deduplication'+(process.argv[2]?'; exact built site.':'.'));}).catch(error=>{console.error(error);process.exitCode=1});
