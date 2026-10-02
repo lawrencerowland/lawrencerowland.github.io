@@ -310,3 +310,5 @@ The Project Apps TSX version has the same 56 concept identities, but supplied pr
 ## Final receiving-site checks
 
 55 model/interaction tests pass across 18 files. All 16 apps have desktop and 390px browser journeys, with no page exceptions or document overflow. The site-occupancy model compiled with the official NetLogo Web compiler and completed nine checked full-day runs; downloaded bytes match the maintained model. The combined catalogue checks 35 original repository/name identities and 272 saved selectors across four source states. Forty legacy entry journeys preserve query and fragment state, including the three apps moved earlier. The repository remains pending until the receiving site is merged and public checks complete.
+
+Independent receiving-site review found and corrected two small guidance issues: the copula frame now describes the fixed marginal distributions correctly, and the compatible CSV describes the stakeholder app as a concept schema. The actual Gap Map loader retains all 16 canonical URLs and reciprocal capability links without fetching the retiring repository. Original catalogue metadata and licence were checked byte-for-byte.

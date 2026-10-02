@@ -22,3 +22,7 @@ The website will then be available at `http://localhost:4000`.
 The interactive examples under [`examples/`](examples/) are regular HTML files
 and can also be opened directly in a browser if you prefer to run them outside
 of Jekyll.
+
+## Interactive Library examples
+
+The retained React models now have named homes under `library/apps/`. Their editable source, pinned build and preservation record are in [`tools/library-apps/`](tools/library-apps/). The main website remains static; only maintainers need that build when changing an app.
