@@ -1,0 +1,25 @@
+---
+layout: default
+---
+{% assign theme = site.data.library_themes | where: 'id', page.theme_id | first %}
+<div class="pw-home" id="home-main" tabindex="-1">
+  <p><a href="{{ '/library.html#interactive-methods' | relative_url }}">← Library</a></p>
+  <section class="pw-home-approach">
+    <div><p class="pw-home-kicker">Interactive examples</p><h1>{{ theme.title }}</h1></div>
+    <div class="pw-home-approach-copy"><h2>{{ theme.question }}</h2><p>{{ theme.description }}</p><p>Each example makes a limited idea inspectable. Read its assumptions, try a change, and ask what would be needed before using it on a real project.</p></div>
+  </section>
+  <div class="pw-home-question-grid pw-worked-example-grid">
+  {% assign examples = site.data.library_apps | where: 'theme', page.theme_id %}
+  {% for app in examples %}
+    <article class="pw-home-question" id="{{ app.id }}">
+      <a class="pw-home-tile-link" href="{{ app.url | relative_url }}" aria-labelledby="title-{{ app.id }}">
+        <div class="pw-home-question-visual"><img src="{{ app.image | relative_url }}" alt="{{ app.image_alt | escape }}" width="960" height="600" loading="lazy"></div>
+        <div class="pw-home-question-copy"><h2 id="title-{{ app.id }}">{{ app.title }}</h2><p>{{ app.description }}</p></div>
+        <span class="pw-home-route-link">Open the example →</span>
+      </a>
+      <details class="foray-details"><summary>What to try &amp; what it leaves out</summary><div class="foray-detail-body"><p><strong>Try.</strong> {{ app.try_this }}</p><p><strong>Limits.</strong> {{ app.limitation }}</p><p>Earlier example, repaired and reviewed {{ app.reviewed }}. This review checks the stated model and interactions; it does not establish usefulness in practice.</p><a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/tools/library-apps/apps/{{ app.id }}">Editable source</a></div></details>
+    </article>
+  {% endfor %}
+  </div>
+  <p>Related reading: <a href="{{ '/Portfolio-data-model.html' | relative_url }}">Project data models</a> · <a href="{{ '/Portfolio-frameworks.html' | relative_url }}">Frameworks</a> · <a href="{{ '/ML-for-portfolios.html' | relative_url }}">Information &amp; methods</a>.</p>
+</div>

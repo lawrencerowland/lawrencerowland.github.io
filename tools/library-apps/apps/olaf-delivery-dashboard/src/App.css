@@ -1,0 +1,14 @@
+/* Basic styling for Olaf Delivery Dashboard */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.delivery-app { max-width: 650px; box-sizing: border-box; margin: auto; }
+.delivery-app button { font: inherit; padding: .65rem; border: 1px solid #64748b; border-radius: .35rem; cursor: pointer; }
+.delivery-app button:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+.delivery-app button:disabled { opacity: .5; cursor: default; }
+.delivery-app .counter-row { display: flex; gap: .5rem; }
+.delivery-app > .flex { flex-wrap: wrap; }
+.delivery-app svg { width: 1.25rem; height: 1.25rem; }
+
+.delivery-app svg { margin-right: .35rem; flex-shrink: 0; }

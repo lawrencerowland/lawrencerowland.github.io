@@ -1,0 +1,35 @@
+import { render, screen, fireEvent } from '@testing-library/react';
+import { expect, test } from 'vitest';
+import App, { DecisionGuideLogic } from './App';
+test('statement journey retains context, object, cancellation, support, process and effective date', () => {
+  render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: /^Statement Decision/ }));
+  fireEvent.change(screen.getByLabelText('What is the context of your decision?'), { target: { value: 'Workshop' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Accept' }));
+  fireEvent.change(screen.getByLabelText('What is the object influenced by the decision?'), { target: { value: 'Pilot' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Yes' }));
+  fireEvent.change(screen.getByLabelText(/Which previous decision/), { target: { value: 'Old pilot' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+  fireEvent.click(screen.getByLabelText('Expert'));
+  fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+  fireEvent.change(screen.getByLabelText(/What decision process/), { target: { value: 'Review' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+  fireEvent.change(screen.getByLabelText(/When will this decision/), { target: { value: '2026-10-02' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+  expect(screen.getByText(/DecisionEvent: 2026-10-02/)).toHaveTextContent('CancelledDecision: Old pilot');
+  expect(screen.getByText(/DecisionEvent: 2026-10-02/)).toHaveTextContent('Expert');
+  fireEvent.click(screen.getByRole('button', { name: 'Start Over' }));
+  expect(screen.getByRole('heading', { name: /What type of decision/ })).toBeInTheDocument();
+});
+test('complex property selection visits each property before participants and cancellation', () => {
+  const logic = new DecisionGuideLogic();
+  const decisions = { Decision: 'Complex Decision (multiple aspects and considerations)' };
+  expect(logic.getNextQuestion('ComplexDecisionAspects', ['DecisionProperties', 'DecisionParticipants'], decisions).current_class).toBe('DecisionProperties');
+  expect(logic.getNextQuestion('DecisionProperties', ['DecisionArtifact', 'DecisionObject', 'Party'], decisions).current_class).toBe('DecisionArtifact');
+  expect(logic.getNextQuestion('DecisionArtifact', 'Minutes', decisions).current_class).toBe('DecisionObject');
+  expect(logic.getNextQuestion('DecisionObject', 'Pilot', decisions).current_class).toBe('Party');
+  expect(logic.getNextQuestion('Party', 'Sponsor', decisions).current_class).toBe('DecisionParticipants');
+  expect(logic.getNextQuestion('DecisionParticipants', ['Expert'], decisions).current_class).toBe('CancelsDecision');
+});

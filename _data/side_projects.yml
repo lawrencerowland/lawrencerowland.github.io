@@ -255,21 +255,6 @@
   path: "https://lawrencerowland.github.io/Project-web-apps/"
   action: "Browse collection"
 
-- title: "React Project Apps"
-  id: react-project-apps
-  role: earlier-collection
-  placement: library
-  source_url: https://github.com/lawrencerowland/React_proj-apps
-  image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
-  image_alt: "Two project-model views, representing dependencies and resource choices"
-  scenario: "Deliver a software product with competing demands."
-  group: "library"
-  question: "Which interactive model makes a project question clearer?"
-  description: "The companion collection of richer project simulations and interactive models."
-  tags: ["project-management","models","tools"]
-  path: "https://lawrencerowland.github.io/React_proj-apps/"
-  action: "Browse collection"
-
 - title: "Tag Concurrence Graph"
   id: tag-concurrence
   gallery_order: 15

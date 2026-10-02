@@ -30,6 +30,19 @@ tags: [Projects, Examples, PortfolioManagement, Library]
     </a>
   </section>
 
+  <section class="pw-home-questions" id="interactive-methods" aria-labelledby="method-themes-title">
+    <div class="pw-home-section-head"><div><p class="pw-home-kicker">Try an idea</p><h2 id="method-themes-title">Five ways into the work.</h2></div><p>Interactive examples grouped by the question they help you explore. Models, historical maps and speculative scenarios each state their limits.</p></div>
+    <div class="pw-home-question-grid">
+    {% for theme in site.data.library_themes %}
+      <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/library/methods/' | append: theme.id | append: '.html' | relative_url }}" aria-labelledby="theme-{{ theme.id }}">
+        <div class="pw-home-question-visual"><img src="{{ theme.image | relative_url }}" alt="" width="960" height="600" loading="lazy"></div>
+        <div class="pw-home-question-copy"><p class="pw-home-project-label">{{ theme.title }}</p><h3 id="theme-{{ theme.id }}">{{ theme.question }}</h3><p>{{ theme.description }}</p></div>
+        <span class="pw-home-route-link">Explore the examples →</span>
+      </a></article>
+    {% endfor %}
+    </div>
+  </section>
+
   <section class="pw-home-questions" aria-labelledby="worked-examples-title">
     <div class="pw-home-section-head"><div><p class="pw-home-kicker">Two bounded worked examples</p><h2 id="worked-examples-title">A question you can try.</h2></div><p>Small, explicit models with a useful result to inspect. Each stays in its existing home.</p></div>
     <div class="pw-home-question-grid pw-worked-example-grid">

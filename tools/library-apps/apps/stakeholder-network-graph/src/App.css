@@ -1,0 +1,18 @@
+.app-container {
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+button {
+  margin-bottom: 0.5rem;
+}
+
+.instructions {
+  margin-bottom: 1rem;
+}
+
+.graph-host { width: 100%; min-width: 0; overflow: hidden; border: 1px solid #aab5c2; }
+.graph-controls, .concept-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+button { font: inherit; padding: .5rem .75rem; cursor: pointer; }
+button[aria-pressed="true"] { background: #214b73; color: #fff; }
+:focus-visible { outline: 3px solid #a44712; outline-offset: 3px; }

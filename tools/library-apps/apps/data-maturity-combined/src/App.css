@@ -1,0 +1,26 @@
+/* Basic styling for Data Maturity Combined app */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.maturity-app { padding: 1rem; max-width: 1500px; margin: auto; }
+.maturity-app button { font: inherit; border: 1px solid #64748b; cursor: pointer; }
+.maturity-app button:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+.maturity-app .detail-button { padding: .25rem; margin: .25rem; border-radius: 50%; background: white; color: #1e3a8a; }
+.maturity-app .min-w-32 { min-width: 10rem; }
+.maturity-app .w-32 { width: 9rem; } .maturity-app .w-24 { width: 7rem; }
+.maturity-app .framework-detail { position: relative; width: min(26rem, 78vw); z-index: 50; box-sizing: border-box; color: #111827; }
+.maturity-app .framework-detail > button { float: right; position: static; }
+.maturity-app table { min-width: 800px; border-collapse: collapse; }
+.maturity-app th, .maturity-app td { padding: .6rem; vertical-align: top; }
+.maturity-app [aria-pressed="true"] { outline: 2px solid #1e3a8a; outline-offset: 1px; }
+.maturity-app .absolute.top-2 { position: static; }
+@media (max-width: 700px) { .maturity-app { padding: .5rem; } .maturity-app .grid-cols-3 { grid-template-columns: 1fr; } .maturity-app .flex.justify-between { flex-wrap: wrap; } }
+
+.maturity-app .h-6 { height: 1.5rem; }
+.maturity-app .w-0\.5 { width: .125rem; }
+.maturity-app .bg-gray-300 { background: #cbd5e1; }
+.maturity-app .gap-6 { gap: 1.5rem; }
+
+.maturity-app .level-filters { flex-wrap: wrap; }
+.maturity-app caption { text-align: left; padding: .5rem 0; }

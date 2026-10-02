@@ -386,7 +386,7 @@ function integrateApps(apps){
     });
     const resId='R'+(nextId++);
     const slug=slugify(app.name);
-    const resource={id:resId,title:app.name,type:'App',slug:slug,fromApp:true,domains:Array.from(domainSet),url:app.repo==='Project-web-apps'?`/Project-web-apps/web_apps/${app.name}.html`:`/${app.repo}/apps/${app.name}/index.html`,linkedCapabilities:[]};
+    const resource={id:resId,title:app.name,type:'App',slug:slug,fromApp:true,domains:Array.from(domainSet),url:app.url || (app.repo==='Project-web-apps'?`/Project-web-apps/web_apps/${app.name}.html`:`/${app.repo}/apps/${app.name}/index.html`),linkedCapabilities:[]};
     data.resources.push(resource);
     tags.forEach(t=>{const caps=tagToCaps[t]; if(caps){caps.forEach(cid=>{const cap=data.capabilities.find(c=>c.id===cid); if(cap && !cap.linkedResources.includes(resId)) cap.linkedResources.push(resId); if(!resource.linkedCapabilities.includes(cid)) resource.linkedCapabilities.push(cid);});}});
   });
@@ -425,10 +425,10 @@ function assignAppCapabilities(){
 function loadResourcesData(){
   return Promise.all([
     fetch('/Project-web-apps/app-index.csv?t='+Date.now()).then(r=>r.text()),
-    fetch('/React_proj-apps/app-index.csv?t='+Date.now()).then(r=>r.text())
+    fetch('/assets/data/library-apps.json').then(r=>{if(!r.ok)throw new Error('Library examples unavailable');return r.json();})
   ]).then(([c1,c2])=>{
     const d1=parseCSV(c1).map(d=>{d.repo='Project-web-apps';return d;});
-    const d2=parseCSV(c2).map(d=>{d.repo='React_proj-apps';return d;});
+    const d2=c2;
     integrateApps(d1.concat(d2));
     assignAppCapabilities();
     buildDomainFilters();

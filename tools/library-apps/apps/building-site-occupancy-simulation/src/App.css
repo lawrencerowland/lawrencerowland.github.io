@@ -1,0 +1,48 @@
+/* Styles for the Building Site Occupancy Simulation app.  Keep
+ * typography simple and provide clear spacing between sections.
+ */
+
+.app-container {
+  margin: 0 auto;
+  padding: 1.5rem;
+  max-width: 800px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+ul {
+  margin-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #007acc;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.download-link:hover {
+  background-color: #005a99;
+}

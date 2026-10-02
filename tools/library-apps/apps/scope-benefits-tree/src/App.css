@@ -1,0 +1,15 @@
+.app-container {
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.tree-flow {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+button { font: inherit; padding: .5rem .75rem; margin-bottom: .75rem; }
+dt { font-weight: 700; margin-top: 1rem; }
+dd { margin: .25rem 0 0; max-width: 75ch; }
+:focus-visible { outline: 3px solid #315cca; outline-offset: 3px; }

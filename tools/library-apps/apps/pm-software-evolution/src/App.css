@@ -1,0 +1,11 @@
+.pmse-container {
+  padding: 1rem;
+}
+
+.pmse-container { max-width: 1500px; margin: auto; box-sizing: border-box; }
+.pmse-container .timeline-scroll { overflow-x: auto; padding: .5rem 0; }
+.pmse-container .timeline-wide { min-width: 2900px; }
+.pmse-container button, .pmse-container select { font: inherit; padding: .4rem; }
+.pmse-container [role="button"]:focus-visible, .pmse-container button:focus-visible, .pmse-container select:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+.pmse-container details li { padding: .4rem 0; }
+@media (max-width: 650px) { .pmse-container .grid-cols-2 { grid-template-columns: 1fr; } .pmse-container > .flex > .flex { flex-wrap: wrap; } }
