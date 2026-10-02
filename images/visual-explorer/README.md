@@ -31,3 +31,11 @@ Eight more views bring the selection to 34: Spines’ shed precedence layers, th
 The new standalone `shell-resources.svg` and `monthly-decisions.svg` are copied directly from their published sources. The other five new SVGs capture the published rendered or inline SVG: source styling and background are embedded so the saved view renders on its own; event handlers are removed. No diagram coordinates, labels, connections or model states are changed. For these records, `source_sha256` refers to the captured source SVG before standalone styling. Their `state` fields name the settings pictured; source links do not imply those settings are restored.
 
 The Orange screenshot uses the same proportional WebP derivation as earlier raster previews. Its original 2019 date is retained. The monthly-review record names the 2020 working note and explicitly identifies its diagram as a 2026 reading aid.
+
+## 2 October additions and compact entrance
+
+Four further views bring the selection to 38: the festival survey policy, Gimmer’s two plans under extra capacity, a Rotunda continuous trajectory, and Shared waters’ agreed specification with competing team reservations. All four are captured from their existing foray sites in the stated settings. The original 34 entries, explanations and comparison links are unchanged.
+
+The festival and Gimmer images are proportional crops of actual desktop browser screenshots, retaining both branches/timelines and their reading captions. Their source hashes refer to the cropped PNG before WebP conversion. Rotunda and Shared waters are exact rendered SVG captures with source styles/backgrounds embedded, then rasterised to WebP; their source hashes refer to the raw captured SVG. No labels, connections, geometry or computed values were redrawn. The source URLs do not restore temporary replay/selection state; the preview records explain the pictured settings.
+
+`mosaic-invitation.svg` is a separate decorative illustration for the short home and Library entrance. Its abstract tiles evoke diagrams; they are not catalogue records or source-model screenshots. The gallery bottom caveat was removed at Lawrence’s request; specific explanatory limits remain with each preview. “Back to Library” has an explicit top-of-content destination and a generous target.

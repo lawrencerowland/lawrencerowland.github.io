@@ -604,8 +604,10 @@ body:has(.pw-home) { background: #f8f6ef; }
 
 /* A compact visual entrance; source apps and the two main navigation routes stay put. */
 .viz-explorer [hidden] { display: none !important; }
+.viz-explorer { padding-bottom: 48px; }
 .viz-heading { padding: 20px 0 18px; max-width: 760px; }
-.viz-return { display: inline-block; font-size: 13px; padding: 8px 0; margin-bottom: 6px; }
+.viz-return { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #c7d1c0; border-radius: 5px; background: #fffdf8; text-decoration: none; }
+.viz-return:hover { border-color: #829679; text-decoration: underline; }
 .viz-heading h1 { font: 400 clamp(36px, 4vw, 48px)/1.1 Georgia, serif; letter-spacing: -.035em; margin: 6px 0 12px; }
 .viz-heading > p { font-size: 16px; line-height: 1.6; margin: 0 0 10px; }
 .viz-heading > .viz-note { font-size: 13px; color: var(--pw-muted); }
@@ -620,7 +622,6 @@ body:has(.pw-home) { background: #f8f6ef; }
 .viz-tile:hover { color: #213b2c; text-decoration: none; }
 .viz-tile:is(:hover, :focus-visible) .viz-picture { border-color: #69896e; box-shadow: 0 2px 9px #273f3014; }
 .viz-explorer :is(a, button):focus-visible, .viz-library-link:focus-visible { outline: 3px solid #ad751d; outline-offset: 4px; }
-.viz-footnote { font-size: 12px; color: var(--pw-muted); max-width: 78ch; padding: 25px 0 45px; margin-top: 35px; border-top: 1px solid var(--pw-line); }
 .viz-preview-open { overflow: hidden; }
 .viz-dialog { box-sizing: border-box; width: min(1180px, calc(100vw - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; border: 1px solid #c2ccbb; border-radius: 10px; background: #faf8f0; color: #233b2c; box-shadow: 0 18px 80px #0c1d1655; }
 .viz-dialog::backdrop { background: #10281cbd; }
@@ -654,13 +655,10 @@ body:has(.pw-home) { background: #f8f6ef; }
 .viz-detail-nav { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 18px; border-top: 1px solid #d8dece; }
 .viz-detail-nav > span { font-size: 11px; color: #697160; }
 .viz-library-entry { margin: -5px 0 48px; }
-.viz-library-link { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 22px; background: #f0f1e7; border: 1px solid #d4ddc9; border-radius: 7px; color: var(--pw-green); text-decoration: none; }
+.viz-library-link { display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 14px 22px; background: #f0f1e7; border: 1px solid #d4ddc9; border-radius: 7px; color: var(--pw-green); text-decoration: none; }
 .viz-library-link:hover { text-decoration: none; border-color: #829679; }
-.viz-library-pictures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
-.viz-library-pictures img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; background: white; border-radius: 3px; padding: 4px; box-sizing: border-box; }
-.viz-library-copy > span, .viz-library-copy > strong { display: block; }
-.viz-library-copy > strong { font: 400 32px/1.2 Georgia, serif; margin: 9px 0 12px; }
-.viz-library-copy > span:last-child { font-size: 14px; line-height: 1.7; color: var(--pw-muted); }
+.viz-library-link > img { display: block; width: min(68%, 700px); height: auto; }
+.viz-library-link > strong { font: 400 clamp(24px, 2.5vw, 32px)/1.2 Georgia, serif; white-space: nowrap; }
 @media (max-width: 760px) {
   .viz-dialog { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); }
   .viz-detail-layout { grid-template-columns: minmax(0, 1fr); }
@@ -668,7 +666,9 @@ body:has(.pw-home) { background: #f8f6ef; }
   .viz-detail-picture img { max-height: 45dvh; }
   .viz-detail-copy { padding: 22px; }
   .viz-detail-nav > span { display: none; }
-  .viz-library-link { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .viz-library-link { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px; }
+  .viz-library-link > img { width: 100%; }
+  .viz-library-link > strong { align-self: flex-end; padding: 4px 2px; }
 }
 @media (max-width: 400px) {
   .viz-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }

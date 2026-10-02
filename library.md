@@ -16,8 +16,8 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 
   <section class="viz-library-entry" aria-labelledby="visual-explorer-title">
     <a href="{{ '/explore-visually.html' | relative_url }}" class="viz-library-link">
-      <span class="viz-library-pictures" aria-hidden="true">{% for view in site.data.visualisations limit: 6 %}<img src="{{ view.thumb | relative_url }}" alt="" width="180" height="120" loading="lazy">{% endfor %}</span>
-      <span class="viz-library-copy"><span class="pw-home-kicker">Find a picture that helps you think</span><strong id="visual-explorer-title">Explore visually →</strong><span>{{ site.data.visualisations | size }} small views from across the published work. Browse the pictures, enlarge a diagram, then follow it into its original example.</span></span>
+      <img src="{{ '/images/visual-explorer/mosaic-invitation.svg' | relative_url }}" alt="" width="976" height="216" loading="lazy" decoding="async">
+      <strong id="visual-explorer-title">Explore visually →</strong>
     </a>
   </section>
 

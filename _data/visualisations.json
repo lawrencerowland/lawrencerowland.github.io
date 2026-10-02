@@ -78,6 +78,32 @@
     "alt": "Five specialist exclusion rules overlap on a triangular site. Filled dots satisfy them all at the same sampled location."
   },
   {
+    "id": "festival-evidence",
+    "title": "Can evidence change the choice before it closes?",
+    "home": "Programme Decision Sequences · festival shuttle",
+    "url": "https://lawrencerowland.github.io/Programme-decision-sequences/evidence.html#visual-title",
+    "topics": [
+      "choices",
+      "uncertainty"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "A demand survey leads to two possible later reservations. Each signal updates the demand belief before the bus-hire deadline.",
+    "look": "Follow the high and low signals into different fleet choices. Signal probabilities are not chances that a booking succeeds.",
+    "limit": "A fictional binary-demand model with declared payoffs and independent signals. The values are service-value points, not a transport budget or forecast.",
+    "state": "Worth buying preset; review 0. Prior 0.5, survey accuracy 0.8, routine accuracy 0.5, survey cost 4, waiting cost 3, deadline 2, survey latency 1.",
+    "year": "",
+    "checked": "2026-10-02",
+    "source_image": "",
+    "capture": "Page screenshot",
+    "image": "/images/visual-explorer/festival-evidence.webp",
+    "thumb": "/images/visual-explorer/festival-evidence-thumb.webp",
+    "alt": "A fresh demand survey branches into two equally likely signals: high updates belief to 80% and reserves three buses; low updates belief to 20% and reserves one bus.",
+    "width": 668,
+    "height": 586,
+    "source_sha256": "5074c3711ee164f14131421de1e360d3eab0efe77ec38abcf268a5391d515a1d"
+  },
+  {
     "id": "island-feedback",
     "title": "When does an answer become the next question?",
     "home": "Functors for Projects · Island Reading Room",
@@ -102,6 +128,32 @@
     "image": "/images/visual-explorer/island-feedback.svg",
     "thumb": "/images/visual-explorer/island-feedback.svg",
     "alt": "Landing and delivery coordinators exchange offers and requests through a shared interface. External reports and project requests remain visible at the edges."
+  },
+  {
+    "id": "rotunda-trajectory",
+    "title": "Is a way of moving the same as a path?",
+    "home": "Bricklaying a Rotunda · continuous dynamics",
+    "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/constructive-state/index.html#continuous",
+    "topics": [
+      "processes",
+      "relationships"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "Teal arrows sample a rule of motion across the state cylinder. One gold trajectory follows that rule, with the same history unwrapped alongside it.",
+    "look": "Compare the field with the single history. Cylinder height is completed work, not physical tower height. Replay time and explanation layer are temporary source controls.",
+    "limit": "A separate smooth toy that omits bricks, curing and shared hoists. The full tangent bundle is four-dimensional; the displayed planes are samples. No link to the finite brick model is proved.",
+    "state": "Steady work; initial angle 30°, angular rate 0.8, work rate 0.1. Trajectory layer; replay t = 5.00, completed work w = 0.5, angle θ = 259.2°.",
+    "year": "",
+    "checked": "2026-10-02",
+    "source_image": "",
+    "capture": "Rendered SVG from the published page",
+    "image": "/images/visual-explorer/rotunda-trajectory.webp",
+    "thumb": "/images/visual-explorer/rotunda-trajectory-thumb.webp",
+    "alt": "Teal direction arrows and sample tangent planes on a work-state cylinder, with one gold trajectory and its matching unwrapped coordinate history shown alongside.",
+    "width": 1200,
+    "height": 654,
+    "source_sha256": "1254406dc7ed3b20d95efb45e5899e111709793d83d75be61c85c80da80acdc3"
   },
   {
     "id": "dependency-matrix",
@@ -295,6 +347,32 @@
     "image": "/images/visual-explorer/shared-boundaries.webp",
     "thumb": "/images/visual-explorer/shared-boundaries-thumb.webp",
     "alt": "Barge-service planning and depot-receiving planning expose the same draft-offer interface at their boundaries."
+  },
+  {
+    "id": "shared-capacity",
+    "title": "Can everyone agree and still double-book the team?",
+    "home": "Shared waters · shared observations and capacity",
+    "url": "https://lawrencerowland.github.io/shared-dynamics/interfaces.html#interfaces-diagram",
+    "topics": [
+      "relationships",
+      "resources"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "Three processes agree on version A of one power-link specification, yet design and installation both request the same integration team.",
+    "look": "Separate the solid specification-observation wires from the dashed capacity requests. In the source, also select Installation requests the team to reproduce this conflict.",
+    "limit": "A finite candidate snapshot with equality and one supplied same-slot capacity rule. It is not an execution trace or schedule; agreement establishes neither approval nor truth.",
+    "state": "All three version observations A; Design and Installation both request the team. Two reservations for capacity one.",
+    "year": "",
+    "checked": "2026-10-02",
+    "source_image": "",
+    "capture": "Rendered SVG from the published page",
+    "image": "/images/visual-explorer/shared-capacity.webp",
+    "thumb": "/images/visual-explorer/shared-capacity-thumb.webp",
+    "alt": "Three version A observations connect to one agreed power-link specification; separate dashed requests from design and installation show two reservations for one integration team.",
+    "width": 1200,
+    "height": 613,
+    "source_sha256": "a69ac2d484c54da9191554d211b2c55da35d80eab401c6493a950d9326ee1d42"
   },
   {
     "id": "lens-directions",
@@ -704,6 +782,32 @@
     "image": "/images/visual-explorer/boundary-composition.webp",
     "thumb": "/images/visual-explorer/boundary-composition-thumb.webp",
     "alt": "With two independently supplied lifts, the frame and roof task arrows can appear alongside one another in one admitted step."
+  },
+  {
+    "id": "gimmer-hidden-order",
+    "title": "Does more capacity remove the wait?",
+    "home": "Gimmer · processes to plans",
+    "url": "https://lawrencerowland.github.io/gimmer-crag/apps/mountain-refuge-petri-wbs-demo/index.html?view=comparison#same-plan-witness",
+    "topics": [
+      "processes",
+      "resources"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "Two models that shared a baseline plan respond differently to doubled resources: one overlaps wall and roof work; the other retains a required handoff.",
+    "look": "Compare the wall and roof bars on their shared day 18–27 scale. In the source, choose More resources; compare Same plan to see what the baseline concealed.",
+    "limit": "Fixed toy durations and a chosen-execution projection. This does not validate real construction sequencing, resource estimates, safety or a mathematical functor.",
+    "state": "More resources, step 2: two crew, two tool and two lift tokens; walls-first priority; fixed durations. Timeline excerpts from the 14-task plans.",
+    "year": "",
+    "checked": "2026-10-02",
+    "source_image": "",
+    "capture": "Page screenshot",
+    "image": "/images/visual-explorer/gimmer-hidden-order.webp",
+    "thumb": "/images/visual-explorer/gimmer-hidden-order-thumb.webp",
+    "alt": "Two wall-and-roof timelines on the same day 18–27 scale: shared-resource model A overlaps both tasks and finishes on day 31; required-order model B puts roof after walls and finishes on day 34.",
+    "width": 1107,
+    "height": 359,
+    "source_sha256": "cd8500fba7ba76ceebb6286c5768b76ce6ff93189e4595c580f2b86f8614ae07"
   },
   {
     "id": "rail-neighbours",
