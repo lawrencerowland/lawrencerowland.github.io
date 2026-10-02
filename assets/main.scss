@@ -674,3 +674,21 @@ body:has(.pw-home) { background: #f8f6ef; }
   .viz-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .viz-detail-copy { padding: 19px; }
 }
+
+/* Four public entrances; supporting maps and reading live in the Library. */
+.pw-footer-entrances { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 32px; }
+.pw-footer .pw-footer-entrances li { margin: 0; }
+.pw-footer .pw-footer-entrances a { font-size: 13px; }
+.pw-library-routes { border-top: 1px solid var(--pw-line); padding: 25px 0 30px; margin-bottom: 25px; }
+.pw-library-routes > h2 { font: 400 26px/1.3 Georgia, serif; margin: 0 0 20px; }
+.pw-library-routes > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.pw-library-routes h3 { font: 600 15px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0 0 7px; }
+.pw-library-routes p { font-size: 13px; line-height: 1.65; color: var(--pw-muted); }
+@media (min-width: 701px) and (max-width: 900px) {
+  .pw-navigation .nav-container { gap: 20px; padding-inline: 24px; }
+  .pw-navigation .nav-links { gap: 20px; }
+}
+@media (max-width: 600px) {
+  .pw-library-routes > div { grid-template-columns: 1fr; gap: 22px; }
+  .pw-footer-entrances { grid-template-columns: 1fr; gap: 8px; }
+}

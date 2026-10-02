@@ -61,7 +61,7 @@ assert.match(source, /href="\{\{ view\.url \| escape \}\}"/, 'without JavaScript
 assert.match(source, /<dialog[^>]*aria-labelledby="viz-detail-title"/);
 assert.match(source, /<noscript>/);
 assert.match(read('library.md'), /\/explore-visually\.html/);
-assert.ok(!read('_includes/nav.html').includes('explore-visually'), 'discovery belongs under the existing Library navigation');
+assert.ok(read('_includes/nav.html').includes('explore-visually'), 'the visual atlas is one of the four public entrances');
 
 if (process.argv[2]) {
   const dir = path.resolve(process.argv[2]);

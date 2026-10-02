@@ -12,5 +12,24 @@
     "after_rows": 16,
     "moved_rows": 3,
     "moved_names": 3
+  },
+  "current_cleanup": {
+    "date": "2026-10-02",
+    "Project-web-apps": {
+      "source_commit": "1a71864699894e8a34e007d50d2ed69b3a6e4c8c",
+      "before_rows": 65,
+      "after_rows": 61,
+      "removed_names": [
+        "decision-tree",
+        "project-risk-gradient",
+        "frobenius-dsm-explorer",
+        "social-debt-explorer"
+      ]
+    },
+    "React_proj-apps": {
+      "source_commit": "338469d49e7c706adc70d7b1542957371d47161b",
+      "fixture": "React_proj-apps-after.csv",
+      "rows": 16
+    }
   }
 }

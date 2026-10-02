@@ -43,7 +43,9 @@ wide: true
 
 # All Project Apps
 
-Browse the general collections and selected apps now maintained in their specialist homes. Tangled Triangle separates early AI interpretation of interfaces and system architecture from the later local-to-global experiments.
+Browse the apps still in the general collections. Find named projects and worked examples in <a href="{{ '/side-projects.html' | relative_url }}">Experiments</a> and the <a href="{{ '/library.html' | relative_url }}">Library</a>.
+
+<div id="moved-app-notice" role="status" hidden></div>
 
 <div id="filter-container" class="filter"></div>
 
@@ -401,6 +403,30 @@ function highlightFromQuery(){
   }
 }
 
+function showMovedAppFromQuery(specialists) {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('app');
+  const item = specialists.find(item => slugify(item.name) === slug);
+  if (!item) return;
+
+  // The app selector belongs to this catalogue; forward the app's other state.
+  params.delete('app');
+  const destination = new URL(item.url);
+  destination.search = params.toString();
+  destination.hash = window.location.hash;
+
+  const notice = document.getElementById('moved-app-notice');
+  const message = document.createElement('p');
+  message.textContent = item.name + ' now lives in ' + item.home + '.';
+  const link = document.createElement('a');
+  link.href = destination.href;
+  link.textContent = 'Open the example in its current home →';
+  notice.appendChild(message);
+  notice.appendChild(link);
+  notice.hidden = false;
+  notice.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
 function loadData() {
   Promise.all([
     fetch('/Project-web-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
@@ -410,7 +436,7 @@ function loadData() {
     const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
     const d2 = parseCSV(c2).map(d => { d.repo = 'React_proj-apps'; return d; });
     const movedNames = new Set(specialists.map(item => item.repo + ":" + item.name));
-    const data = d1.concat(d2).filter(item => item.name && !movedNames.has(item.repo + ":" + item.name)).concat(specialists);
+    const data = d1.concat(d2).filter(item => item.name && !movedNames.has(item.repo + ":" + item.name));
     const allTags = Array.from(new Set(data.flatMap(d => {
       const tagField = d.tags || d.tag || d.keywords || d.categories || '';
       return tagField.split(/[,;]/).map(t => t.trim()).filter(Boolean);
@@ -420,6 +446,7 @@ function loadData() {
     createCards(data);
     renderHeatmap(data);
     highlightFromQuery();
+    showMovedAppFromQuery(specialists);
   });
 }
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Worked examples & earlier methods
+title: Library of more established methods
 description: Captured solutions, modelling examples and earlier methods for particular project and portfolio problems, kept distinct from open research enquiries.
 schema_type: CollectionPage
 wide: true
@@ -12,6 +12,15 @@ tags: [Projects, Examples, PortfolioManagement, Library]
   <section class="pw-home-approach" aria-labelledby="library-title">
     <div><p class="pw-home-kicker">The library</p><h1 id="library-title">Worked examples.<br>Ideas worth keeping.</h1></div>
     <div class="pw-home-approach-copy"><p>Some work asks an open question. Some reaches a useful stopping point: a model, method or example that resolves a particular problem under stated assumptions.</p><p>This library is the home for those captured solutions and the earlier work behind them. “Solved” here means a bounded problem has a worked answer; it does not mean project management is solved, or that every older example is ready to deploy today.</p><p>The collection is being tidied gradually. These starting points retain their original explanations and limits; they have not all received a new technical review.</p><a href="{{ '/side-projects.html' | relative_url }}">Looking for the open enquiries? Explore the projects →</a></div>
+  </section>
+
+  <section class="pw-library-routes" aria-labelledby="library-maps-title">
+    <h2 id="library-maps-title">Maps, connections &amp; reading</h2>
+    <div>
+      <article><h3><a href="{{ '/graphs.html' | relative_url }}">Graphs &amp; connections →</a></h3><p>Explore the relationships in earlier project models, strategies and methods.</p></article>
+      <article><h3><a href="{{ '/gap-map.html' | relative_url }}">Gap Map →</a></h3><p>Inspect an earlier map of project-management gaps and proposed capabilities.</p></article>
+      <article><h3><a href="{{ '/Books.html' | relative_url }}">Books →</a></h3><p>Reading on organisational change, innovation, learning and working methods.</p></article>
+    </div>
   </section>
 
   <section class="viz-library-entry" aria-labelledby="visual-explorer-title">
@@ -96,9 +105,9 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 
   <section class="pw-retained-collections" id="earlier-app-collections" aria-labelledby="collections-title">
     <h2 id="collections-title">Earlier app collections</h2>
-    <p>The original collections remain available, including their earlier experiments. Individual examples will gain clearer homes as they are reviewed.</p>
+    <p>The collections keep the apps still waiting for a clearer home. As examples move into named projects or Library subjects, their old listings are removed; saved links still lead to their destinations.</p>
     <details>
-      <summary>Browse the original collections</summary>
+      <summary>Browse the remaining collections</summary>
       <div class="foray-grid">
       {% assign collections = site.data.side_projects | where: 'placement', 'library' %}
       {% for project in collections %}
@@ -125,7 +134,7 @@ tags: [Projects, Examples, PortfolioManagement, Library]
       {% endfor %}
       </div>
     </details>
-    <p><a href="{{ '/all-project-apps.html' | relative_url }}">Browse the combined app catalogue</a> · <a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a></p>
+    <p><a href="{{ '/all-project-apps.html' | relative_url }}">Browse the combined app catalogue</a> · <a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a> · <a href="{{ '/project-examples.html' | relative_url }}">Earlier project examples</a></p>
   </section>
 
   <section class="pw-retained-collections" aria-labelledby="library-reading">

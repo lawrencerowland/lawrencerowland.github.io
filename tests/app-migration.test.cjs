@@ -22,11 +22,16 @@ const expected={
  'Sequential decisions':'Programme-decision-sequences/apps/climate-policy-simulator/',
  'IT-project-seq-decisions':'Programme-decision-sequences/apps/it-decision-tutorial/',
  'Another-IT-project-simulation':'Programme-decision-sequences/apps/weekly-it-project-game/',
- 'tag-concurrence-explorer':'Tag_Concurrence_Graph/app_catalogue.html'
+ 'tag-concurrence-explorer':'Tag_Concurrence_Graph/app_catalogue.html',
+ 'decision-tree':'examples/decision-tree.html',
+ 'project-risk-gradient':'Project-web-apps/web_apps/project-risk-gradient.html',
+ 'frobenius-dsm-explorer':'Project-web-apps/web_apps/frobenius-dsm-explorer.html',
+ 'social-debt-explorer':'more-project-apps/web_apps/social-debt-explorer.html'
 };
-assert.equal(specialists.length,14);
-assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,14);
-assert.equal(new Set(specialists.map(x=>x.url)).size,14,'distinct specialist routes');
+assert.equal(specialists.length,18);
+assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,18);
+assert.equal(new Set(specialists.map(x=>x.url)).size,18,'distinct maintained routes');
+assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,18,'unambiguous legacy query identities');
 assert.deepEqual(new Set(specialists.map(x=>x.name)),new Set(Object.keys(expected)));
 for(const row of specialists){
  assert.equal(row.url,'https://lawrencerowland.github.io/'+expected[row.name],row.name+' links directly to its new home');
@@ -35,8 +40,15 @@ for(const row of specialists){
 }
 const fixtures=path.join(__dirname,'fixtures/app-migration');
 const fixtureMeta=JSON.parse(fs.readFileSync(path.join(fixtures,'provenance.json'),'utf8'));
-const csv=(repo,phase)=>fs.readFileSync(path.join(fixtures,repo+'-'+phase+'.csv'),'utf8');
+const csv=(repo,phase)=>fs.readFileSync(path.join(fixtures,repo+'-'+(repo==='React_proj-apps'&&phase.startsWith('current-')?'after':phase)+'.csv'),'utf8');
 const slug=name=>name.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const rowNames=text=>text.split(/\r?\n/).slice(1).filter(line=>line.trim()).map(line=>line.split(',')[1]);
+const cleanupNames=fixtureMeta.current_cleanup['Project-web-apps'].removed_names;
+const beforeCleanup=csv('Project-web-apps','current-before');
+const afterCleanup=csv('Project-web-apps','current-after');
+assert.equal(rowNames(beforeCleanup).length,65);
+assert.equal(rowNames(afterCleanup).length,61);
+assert.equal(afterCleanup,beforeCleanup.split(/(?<=\n)/).filter(line=>!cleanupNames.includes(line.split(',')[1])).join(''),'current cleanup removes only the four approved records; every unrelated byte stays unchanged');
 const descendants=node=>node.children.flatMap(child=>[child,...descendants(child)]);
 class Element{
  constructor(tag){this.tagName=tag;this.children=[];this.dataset={};this.style={};this.className='';this.listeners={};this.scrolled=0;this._html='';}
@@ -49,8 +61,8 @@ class Element{
  };}
  scrollIntoView(options){this.scrolled++;this.scrollOptions=options;}
 }
-async function load(phase,query=''){
- const ids=['app-container','filter-container','heatmap-container','tag-cloud'],elements=Object.fromEntries(ids.map(id=>{const node=new Element('div');node.id=id;return[id,node];}));
+async function load(phase,query='',hash=''){
+ const ids=['app-container','filter-container','heatmap-container','tag-cloud','moved-app-notice'],elements=Object.fromEntries(ids.map(id=>{const node=new Element('div');node.id=id;node.hidden=id==='moved-app-notice';return[id,node];}));
  const events={},requests=[];
  const all=()=>Object.values(elements).flatMap(node=>[node,...descendants(node)]);
  const document={
@@ -59,32 +71,46 @@ async function load(phase,query=''){
   querySelectorAll:selector=>selector==='.example-card'?elements['app-container'].children.filter(n=>n.classList.contains('example-card')):selector==='#filter-container button'?elements['filter-container'].children:selector==='#tag-cloud button'?elements['tag-cloud'].children:(()=>{throw Error('Unimplemented selector: '+selector);})()
  };
  const fetch=async url=>{requests.push(url);if(url.startsWith('/Project-web-apps/app-index.csv?'))return{ok:true,text:async()=>csv('Project-web-apps',phase)};if(url.startsWith('/React_proj-apps/app-index.csv?'))return{ok:true,text:async()=>csv('React_proj-apps',phase)};if(url==='/assets/data/specialist-apps.json')return{ok:true,json:async()=>JSON.parse(JSON.stringify(specialists))};throw Error('Unexpected request '+url);};
- const context={document,fetch,window:{location:{search:query}},URLSearchParams,console};vm.createContext(context);vm.runInContext(script,context);
+ const context={document,fetch,window:{location:{search:query,hash}},URL,URLSearchParams,console};vm.createContext(context);vm.runInContext(script,context);
  assert.equal(typeof events.DOMContentLoaded,'function');events.DOMContentLoaded();await new Promise(setImmediate);
  assert.equal(requests.length,3,'both general catalogues and specialists were fetched');
  const cards=elements['app-container'].children;
- const expectedCount=Object.values(fixtureMeta).reduce((n,row)=>n+row.after_rows,0)+14;
- assert.equal(cards.length,expectedCount,'unmoved rows remain and specialists are added exactly once');
- for(const [name,newPath] of Object.entries(expected)){
-  const matches=cards.filter(c=>c.id==='app-'+slug(name));assert.equal(matches.length,1,phase+': '+name+' appears once');
-  const content=descendants(matches[0]);assert.equal(content.filter(n=>n.tagName==='a').length,1);
-  assert.equal(content.find(n=>n.tagName==='a').href,'https://lawrencerowland.github.io/'+newPath);
-  assert.equal(content.filter(n=>n.tagName==='img').length,0,'moved card has no broken legacy image: '+name);
-  assert.ok(content.some(n=>n.tagName==='p'&&n.textContent==='Home: '+specialists.find(x=>x.name===name).home));
+ const expectedNames=['Project-web-apps','React_proj-apps'].flatMap(repo=>rowNames(csv(repo,phase)).filter(name=>!specialists.some(item=>item.repo===repo&&item.name===name)));
+ assert.equal(cards.length,phase.startsWith('current-')?77:78,'only general catalogue rows remain');
+ assert.deepEqual(cards.map(card=>card.id).sort(),expectedNames.map(name=>'app-'+slug(name)).sort(),'every unrelated source row is still rendered');
+ for(const name of Object.keys(expected)){
+  assert.ok(!cards.some(c=>c.id==='app-'+slug(name)),phase+': '+name+' is absent from ordinary cards');
  }
  assert.ok(elements['filter-container'].children.length>1,'category controls rendered');assert.ok(elements['heatmap-container'].children.length>1,'heatmap rendered');assert.ok(elements['tag-cloud'].children.length>1,'tags rendered');
  return {cards,context,elements};
 }
 (async()=>{
- for(const phase of ['before','after']){
+ for(const phase of ['before','after','current-before','current-after']){
   const result=await load(phase);assert.equal(result.cards.filter(c=>c.classList.contains('highlight')).length,0);
+  assert.equal(result.elements['moved-app-notice'].hidden,true,'ordinary browsing does not show a moved-app notice');
   result.context.filterCards('risk_management');assert.ok(result.cards.some(c=>c.style.display==='block'));assert.ok(result.cards.some(c=>c.style.display==='none'));
   result.context.filterCards('all');assert.ok(result.cards.every(c=>c.style.display==='block'));
-  for(const name of Object.keys(expected)){
-   const result=await load(phase,'?app='+encodeURIComponent(slug(name))),highlighted=result.cards.filter(c=>c.classList.contains('highlight'));
-   assert.equal(highlighted.length,1,'one deep-linked highlight');assert.equal(highlighted[0].id,'app-'+slug(name));assert.equal(highlighted[0].scrolled,1,'deep link scrolls after asynchronous render');
+  for(const [name,destination] of Object.entries(expected)){
+   for(const [extra,hash] of [['',''],['&view=details&value=two%20words&repeat=1&repeat=2&encoded=%2523%26%3D','#section%2F2']]){
+    const result=await load(phase,'?app='+encodeURIComponent(slug(name))+extra,hash);
+    assert.equal(result.cards.filter(c=>c.classList.contains('highlight')).length,0,'moved app is not restored as a card');
+    const notice=result.elements['moved-app-notice'],content=descendants(notice),links=content.filter(node=>node.tagName==='a');
+    assert.equal(notice.hidden,false,'an exact old query exposes its destination');assert.equal(notice.scrolled,1);
+    assert.equal(links.length,1);assert.ok(links[0].textContent,'destination link remains understandable');
+    const target=new URL(links[0].href);
+    assert.equal(target.origin+target.pathname,'https://lawrencerowland.github.io/'+destination);
+    assert.deepEqual([...target.searchParams],[...new URLSearchParams(extra.replace(/^&/,''))],'other parameters, including repeated and encoded values, reach the app');
+    assert.equal(target.hash,hash,'the app fragment survives');
+    assert.ok(content.some(node=>node.tagName==='p'&&node.textContent.includes(specialists.find(item=>item.name===name).home)));
+   }
   }
+  const ordinary=await load(phase,'?app=door-moisture-model');
+  const highlighted=ordinary.cards.filter(card=>card.classList.contains('highlight'));
+  assert.equal(highlighted.length,1);assert.equal(highlighted[0].id,'app-door-moisture-model');assert.equal(highlighted[0].scrolled,1,'unmoved app query still highlights its card');
+  assert.equal(ordinary.elements['moved-app-notice'].hidden,true);
  }
- const absent=await load('after','?app=does-not-exist');assert.ok(absent.cards.every(c=>!c.classList.contains('highlight')));
- console.log('PASS: 14 specialist apps exactly once before/after retirement; direct destination links; 28 deep-link journeys; no legacy images; existing filters/heatmap/tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
+ for(const query of ['?app=does-not-exist','?app=decision-tree-extra','?app=https://example.org/','?app=%3Cscript%3E']){
+  const absent=await load('current-after',query);assert.ok(absent.cards.every(c=>!c.classList.contains('highlight')));assert.equal(absent.elements['moved-app-notice'].hidden,true,'unknown selectors never become destination links');
+ }
+ console.log('PASS: 18 named apps absent from ordinary cards across four source states; 144 exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
 })().catch(error=>{console.error(error);process.exitCode=1;});

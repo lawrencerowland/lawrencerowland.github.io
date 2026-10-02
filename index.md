@@ -14,8 +14,8 @@ tags: [Projects, Experiments, Models, IndependentResearch]
       <p class="pw-home-kicker">Independent project experiments</p>
       <h1 id="home-title">Small projects.<br><em>Bigger questions.</em></h1>
       <p class="pw-home-lead">A farm track. A mountain refuge. A crossing for wildlife. Small, concrete situations make it easier to ask how plans, risks, resources and organisations fit together.</p>
-      <div class="pw-home-actions"><a class="pw-home-button" href="{{ '/side-projects.html' | relative_url }}">Explore projects <span aria-hidden="true">↗</span></a><a class="pw-home-text-link" href="#start-a-question">Find a question ↓</a></div>
-      <p class="pw-home-byline">Experiments by Lawrence Rowland.<br>Ideas to explore, models to inspect, assumptions to question.</p>
+      <div class="pw-home-actions"><a class="pw-home-button" href="{{ '/side-projects.html' | relative_url }}">Explore experiments <span aria-hidden="true">↗</span></a><a class="pw-home-text-link" href="#start-a-question">Find a question ↓</a></div>
+      <p class="pw-home-byline">Experiments by Lawrence Rowland.</p>
     </div>
     <figure class="pw-home-hero-figure">
       <a href="https://lawrencerowland.github.io/integrated_risks_tasks/" aria-label="Explore the Farm Track: when two plans need the same lane"><img src="https://lawrencerowland.github.io/integrated_risks_tasks/assets/farm-track-hero.png" width="1672" height="941" alt="A concrete mixer waits while cows use the narrow lane leading to a small construction site." fetchpriority="high" decoding="async"></a>

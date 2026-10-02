@@ -4,8 +4,10 @@
     <a class="logo pw-site-brand" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}><span>Lawrence Rowland</span><small>Independent project experiments</small></a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav-links" hidden><span>Menu</span><span class="pw-menu-icon" aria-hidden="true"></span></button>
     <ul class="nav-links" id="main-nav-links">
-      <li><a href="{{ '/side-projects.html' | relative_url }}" {% if page.url == '/side-projects.html' %}class="active" aria-current="page"{% endif %}>Projects</a></li>
-      <li><a href="{{ '/library.html' | relative_url }}" {% if page.url == '/library.html' or page.url contains '/library/' %}class="active" aria-current="page"{% endif %}>Library</a></li>
+      <li><a href="{{ '/side-projects.html' | relative_url }}" {% if page.url == '/side-projects.html' %}class="active" aria-current="page"{% endif %}>Experiments</a></li>
+      <li><a href="{{ '/library.html' | relative_url }}" {% if page.url == '/library.html' or page.url contains '/library/' or page.url == '/graphs.html' or page.url == '/Books.html' or page.url == '/gap-map.html' %}class="active" aria-current="page"{% endif %}>Library</a></li>
+      <li><a href="{{ '/explore-visually.html' | relative_url }}" {% if page.url == '/explore-visually.html' %}class="active" aria-current="page"{% endif %}>Visual atlas</a></li>
+      <li><a href="{{ '/wider-interest/' | relative_url }}" {% if page.url contains '/wider-interest/' %}class="active" aria-current="page"{% endif %}>Wider interest</a></li>
     </ul>
   </div>
 </nav>

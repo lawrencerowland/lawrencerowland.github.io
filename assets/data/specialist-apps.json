@@ -180,5 +180,57 @@
     "repo": "React_proj-apps",
     "url": "https://lawrencerowland.github.io/Tag_Concurrence_Graph/app_catalogue.html",
     "home": "Tag Concurrence Graph"
+  },
+  {
+    "#": "3",
+    "name": "decision-tree",
+    "description": "Illustrative weighted path sampling for a fictional software shortlist; compare exact probabilities with sampled results at the current app.",
+    "origin": "Cant remember",
+    "model": "Cant remember",
+    "tags": "decision, procurement",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/examples/decision-tree.html",
+    "home": "Library · decision weights"
+  },
+  {
+    "#": "78",
+    "name": "project-risk-gradient",
+    "description": "Interactive risk-gradient sandbox showing where the next day of task buffer yields the largest modeled risk reduction and whether it moves the finish date.",
+    "origin": "User",
+    "model": "GPT-5.3-Codex",
+    "tags": "risk, schedule, slack, critical_path, visualization, decision_support",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/project-risk-gradient.html",
+    "home": "Library · schedule and risk"
+  },
+  {
+    "#": "80",
+    "name": "social-debt-explorer",
+    "description": "Social Debt: from technical debt to the hidden coordination costs of software teamwork. Illustrated situations and an ontology explorer in More Project Apps.",
+    "origin": "User",
+    "model": "Codex",
+    "tags": "social_debt, teamwork, ontology, knowledge_graph, visualization",
+    "explainer post": "",
+    "notes": "Canonical app is in more-project-apps; this gallery entry redirects there.",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/more-project-apps/web_apps/social-debt-explorer.html",
+    "home": "More Project Apps · Social Debt"
+  },
+  {
+    "#": "81",
+    "name": "frobenius-dsm-explorer",
+    "description": "Frobenius and DSM: edit project dependencies, reveal feedback blocks, and distinguish reordering activities from changing coordinates.",
+    "origin": "User",
+    "model": "Codex",
+    "tags": "DSM, dependencies, Frobenius, linear_algebra, process_design, interactive",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/frobenius-dsm-explorer.html",
+    "home": "Library · feedback groups"
   }
 ]

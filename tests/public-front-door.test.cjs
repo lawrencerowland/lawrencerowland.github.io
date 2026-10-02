@@ -7,11 +7,21 @@ const nav = fs.readFileSync('_includes/nav.html', 'utf8');
 const footer = fs.readFileSync('_includes/footer.html', 'utf8');
 const home = fs.readFileSync('index.md', 'utf8');
 const library = fs.readFileSync('library.md', 'utf8');
-assert.deepEqual([...nav.matchAll(/>(Projects|Library|Notes|About)<\/a>/g)].map(m => m[1]), ['Projects', 'Library']);
+assert.deepEqual([...nav.matchAll(/>(Experiments|Library|Visual atlas|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Library', 'Visual atlas', 'Wider interest']);
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
-for (const route of ['/about_me.html', '/all-project-apps.html', '/graphs.html', '/Books.html', '/gap-map.html', '/wider-interest/']) {
+for (const route of ['/about_me.html', '/side-projects.html', '/library.html', '/explore-visually.html', '/wider-interest/']) {
   assert.ok(footer.includes(route), `preserve the footer route ${route}`);
 }
+for (const route of ['/graphs.html', '/Books.html', '/gap-map.html', '/all-project-apps.html', '/project-examples.html']) {
+  assert.ok(!footer.includes(route), `supporting destination stays out of the footer: ${route}`);
+  assert.ok(library.includes(route), `supporting destination remains reachable in Library: ${route}`);
+}
+const maps = library.indexOf('aria-labelledby="library-maps-title"');
+assert.ok(maps > 0 && maps < library.indexOf('aria-labelledby="worked-examples-title"'), 'maps and connections appear near the top of Library');
+assert.ok(!footer.includes('github.com/lawrencerowland'), 'repository directory is not a public entrance');
+assert.ok(!footer.includes('Explore the ideas.'), 'the footer codicil is removed');
+assert.ok(!footer.includes('/gimmer-comparison/') && !home.includes('/gimmer-comparison/'), 'planning comparison is below the Experiments entrance');
+assert.ok(fs.readFileSync('side-projects.md', 'utf8').includes('/gimmer-comparison/'), 'the comparison remains reachable from Experiments');
 for (const route of ['/blog_summary.html', '/blog.html', '/older-stuff.html', '/deep-research/', '/gpt-links-page.html', '/ML-for-portfolios.html', '/Portfolio-frameworks.html', '/Portfolio-data-model.html']) {
   assert.ok(!footer.includes(route), `secondary destination stays out of the footer: ${route}`);
 }
