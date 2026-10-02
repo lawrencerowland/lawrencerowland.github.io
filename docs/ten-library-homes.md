@@ -1,7 +1,7 @@
 # Ten reviewed apps receive Library homes
 
 Prepared 2 October 2026. This is the receiving record for ten repaired Project Apps examples and their five existing Library subjects.
-Receiving change: [website repository](https://github.com/lawrencerowland/lawrencerowland.github.io). Paired retirement: [Project-web-apps repository](https://github.com/lawrencerowland/Project-web-apps). Review and publication references will be added after they exist.
+Receiving change: [website PR175](https://github.com/lawrencerowland/lawrencerowland.github.io/pull/175). Paired retirement: [Project Apps PR149](https://github.com/lawrencerowland/Project-web-apps/pull/149). Both are proposed changes; publication remains pending.
 
 ## Source and identities
 
@@ -59,8 +59,8 @@ The static receiving apps are excluded from the earlier bundled-app rebuild loop
 - Capability/data regression group: **12 passed**, including a full-grid white-space oracle, funding-renderer invalid-currency cases and stalled-clipboard fallback. Stakeholder classification/range/orientation assertions also passed.
 - Independent integration review checked all ten source IDs/hashes, routes, subjects, manifests, stale-catalogue deduplication and deletion scope. Existing app-migration and earlier sixteen-app retirement checks passed.
 - Old repository’s complete `node test.js` passed, including all 23 canonical forwards with query/fragment preservation. Diff whitespace checks passed in both repositories.
-- Final browser, narrow-layout, image and rendered-site verification is still in progress. Observed journeys include shared risk cells, the vendor tie/blank-rating pause, urgency editing and CPM float/finish changes; these are not a blanket claim that every browser path has passed.
-- Project-data report preview generation and download dispatch were observed. A completed browser download event and saved file have **not** yet been confirmed. No publication or human-use outcome is inferred from local tests.
+- Browser journeys passed for all ten apps, including shared risk cells and invalid-name-to-edit recovery, vendor ties and blank-rating pause, urgency editing, CPM float/finish changes, decision cross-highlighting, linked product inspection, early milestone validation, white-space boundary changes, service mapping/copy, and stakeholder overlap/edit/removal. All ten phone-width layouts fit the page at 390px; wider diagrams and tables scroll inside their panels. Ten diagram screenshots provide the pictured entrances. Exact Jekyll build and rendered-route checks run on PR175; its current check status is authoritative.
+- All 22 source Node checks passed; the prior sixteen apps passed 55 model tests and rebuilt to 49 unchanged files. Project-data report preview generation and download dispatch were observed. A completed browser download event and saved file have **not** yet been confirmed. No publication or human-use outcome is inferred from local tests.
 
 ## Publication order
 
