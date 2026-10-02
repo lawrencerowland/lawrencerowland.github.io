@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="graph" width="1200" height="520" viewBox="0 0 1200 520" style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;background:#fafafa"><rect x="0" y="0" width="1200" height="520" fill="#fafafa" /><style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .visualization-section {
+            flex: 1;
+        }
+        
+        .algorithm-section {
+            width: 400px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .algorithm-section h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-1px);
+        }
+        
+        button.active {
+            background: #e74c3c;
+        }
+        
+        .info-button {
+            background: #95a5a6;
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        
+        .info-button:hover {
+            background: #7f8c8d;
+        }
+        
+        .algo-button {
+            background: #27ae60;
+        }
+        
+        .algo-button:hover {
+            background: #229954;
+        }
+        
+        .algo-button.active {
+            background: #e67e22;
+        }
+        
+        #graph-container {
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #fafafa;
+            overflow-x: auto;
+            min-height: 500px;
+        }
+        
+        .node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .node rect {
+            fill: #3498db;
+            stroke: #2980b9;
+            stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .node:hover rect {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        
+        .node.antichain-1 rect { fill: #f39c12; stroke: #d68910; }
+        .node.antichain-2 rect { fill: #27ae60; stroke: #229954; }
+        .node.antichain-3 rect { fill: #8e44ad; stroke: #7d3c98; }
+        .node.antichain-4 rect { fill: #16a085; stroke: #138d75; }
+        .node.antichain-5 rect { fill: #d35400; stroke: #ba4a00; }
+        .node.antichain-6 rect { fill: #2c7fb8; stroke: #1f5f8a; }
+        .node.antichain-7 rect { fill: #6c5ce7; stroke: #5141bf; }
+        .node.antichain-8 rect { fill: #596275; stroke: #3f4654; }
+        
+        .node.spine rect,
+        .node.spine.antichain-1 rect,
+        .node.spine.antichain-2 rect,
+        .node.spine.antichain-3 rect,
+        .node.spine.antichain-4 rect,
+        .node.spine.antichain-5 rect,
+        .node.spine.antichain-6 rect,
+        .node.spine.antichain-7 rect,
+        .node.spine.antichain-8 rect {
+            fill: #e74c3c !important;
+            stroke: #c0392b !important;
+            stroke-width: 3 !important;
+        }
+        
+        .node.highlight rect {
+            stroke: #f39c12 !important;
+            stroke-width: 4 !important;
+            filter: drop-shadow(0 0 8px rgba(243, 156, 18, 0.6));
+        }
+        
+        .node text {
+            fill: white;
+            font-size: 11px;
+            font-weight: 500;
+            pointer-events: none;
+        }
+        
+        .edge {
+            fill: none;
+            stroke: #7f8c8d;
+            stroke-width: 2;
+            marker-end: url(#arrowhead);
+        }
+        
+        .edge.highlight {
+            stroke: #f39c12;
+            stroke-width: 3;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid #333;
+        }
+        
+        .info-panel {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .info-panel.active {
+            display: block;
+        }
+        
+        .info-panel h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        
+        .antichain-group {
+            fill-opacity: 0.1;
+            stroke-width: 3;
+            stroke-dasharray: 5,5;
+        }
+        
+        .algorithm-step {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            display: none;
+        }
+        
+        .algorithm-step.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .algorithm-step.completed {
+            border-left-color: #27ae60;
+            opacity: 0.8;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .step-description {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            margin-top: 10px;
+            color: #2c3e50;
+        }
+
+        .validation-summary {
+            margin: 0 0 18px;
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .validation-summary.ok {
+            color: #17633a;
+            background: #eaf7ef;
+            border: 1px solid #b8dec6;
+        }
+
+        .validation-summary.bad {
+            color: #8b1e1e;
+            background: #fdeeee;
+            border: 1px solid #efbcbc;
+        }
+    </style><defs><marker id="arrowhead" viewBox="0 -5 10 10" refX="30" refY="0" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,-5L10,0L0,5" fill="#7f8c8d" /></marker></defs><g class="antichain-groups"><rect class="antichain-rect antichain-group" x="30" y="210" width="120" height="60" fill="#f39c12" stroke="#f39c12" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /><rect class="antichain-rect antichain-group" x="170" y="110" width="120" height="280" fill="#27ae60" stroke="#27ae60" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /><rect class="antichain-rect antichain-group" x="310" y="50" width="120" height="400" fill="#8e44ad" stroke="#8e44ad" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /><rect class="antichain-rect antichain-group" x="450" y="210" width="120" height="60" fill="#16a085" stroke="#16a085" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /><rect class="antichain-rect antichain-group" x="590" y="50" width="120" height="400" fill="#d35400" stroke="#d35400" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /><rect class="antichain-rect antichain-group" x="730" y="130" width="120" height="280" fill="#2c7fb8" stroke="#2c7fb8" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /><rect class="antichain-rect antichain-group" x="870" y="210" width="120" height="60" fill="#6c5ce7" stroke="#6c5ce7" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /><rect class="antichain-rect antichain-group" x="1010" y="210" width="120" height="60" fill="#596275" stroke="#596275" style="fill-opacity:0.1;stroke-width:3;stroke-dasharray:5,5" /></g><g class="edges"><path class="edge" id="edge-A-B" d="M90,240 C132.5,240 132.5,140 175,140" /><path class="edge" id="edge-A-C" d="M90,240 C132.5,240 132.5,360 175,360" /><path class="edge" id="edge-B-D" d="M230,140 C272.5,140 272.5,80 315,80" /><path class="edge" id="edge-C-E" d="M230,360 C272.5,360 272.5,240 315,240" /><path class="edge" id="edge-C-L" d="M230,360 C272.5,360 272.5,420 315,420" /><path class="edge" id="edge-D-F" d="M370,80 C412.5,80 412.5,240 455,240" /><path class="edge" id="edge-E-F" d="M370,240 C412.5,240 412.5,240 455,240" /><path class="edge" id="edge-F-G" d="M510,240 C552.5,240 552.5,80 595,80" /><path class="edge" id="edge-F-H" d="M510,240 C552.5,240 552.5,240 595,240" /><path class="edge" id="edge-F-J" d="M510,240 C552.5,240 552.5,420 595,420" /><path class="edge" id="edge-G-I" d="M650,80 C692.5,80 692.5,160 735,160" /><path class="edge" id="edge-H-I" d="M650,240 C692.5,240 692.5,160 735,160" /><path class="edge" id="edge-J-K" d="M650,420 C692.5,420 692.5,380 735,380" /><path class="edge" id="edge-J-M" d="M650,420 C762.5,420 762.5,240 875,240" /><path class="edge" id="edge-L-K" d="M370,420 C552.5,420 552.5,380 735,380" /><path class="edge" id="edge-I-M" d="M790,160 C832.5,160 832.5,240 875,240" /><path class="edge" id="edge-K-N" d="M790,380 C902.5,380 902.5,240 1015,240" /><path class="edge" id="edge-M-N" d="M930,240 C972.5,240 972.5,240 1015,240" /></g><g class="nodes"><g class="node antichain-1 spine" id="node-A" transform="translate(40, 220)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Site Survey</text></g><g class="node antichain-2 spine" id="node-B" transform="translate(180, 120)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Permits</text></g><g class="node antichain-2" id="node-C" transform="translate(180, 340)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Materials List</text></g><g class="node antichain-3 spine" id="node-D" transform="translate(320, 60)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Helicopter Booking</text></g><g class="node antichain-3" id="node-E" transform="translate(320, 220)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Foundation Prep</text></g><g class="node antichain-4 spine" id="node-F" transform="translate(460, 220)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Materials Delivery</text></g><g class="node antichain-5 spine" id="node-G" transform="translate(600, 60)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Foundation Pour</text></g><g class="node antichain-5" id="node-H" transform="translate(600, 220)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Frame Assembly</text></g><g class="node antichain-6 spine" id="node-I" transform="translate(740, 140)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Wall Installation</text></g><g class="node antichain-5" id="node-J" transform="translate(600, 400)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Roof Structure</text></g><g class="node antichain-6" id="node-K" transform="translate(740, 360)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Safety Rails</text></g><g class="node antichain-3" id="node-L" transform="translate(320, 400)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Emergency Kit</text></g><g class="node antichain-7 spine" id="node-M" transform="translate(880, 220)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Weatherproofing</text></g><g class="node antichain-8 spine" id="node-N" transform="translate(1020, 220)"><rect width="100" height="40" rx="5" /><text x="50" y="25" text-anchor="middle">Final Inspection</text></g></g></svg>

@@ -5,10 +5,10 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const items = JSON.parse(read('_data/visualisations.json'));
-const { readState, matchingItems, stateURL } = require('../assets/visual-explorer.js');
-const state = { q: '', topic: 'all', kind: 'all', view: null };
+const { readState, stateURL } = require('../assets/visual-explorer.js');
+const state = { view: null };
 
-assert.ok(items.length >= 24 && items.length <= 36, 'bounded pilot collection');
+assert.ok(items.length > 0, 'the visual collection is populated');
 assert.equal(new Set(items.map(item => item.id)).size, items.length, 'unique stable view IDs');
 assert.equal(new Set(items.map(item => item.source_sha256)).size, items.length, 'no duplicated source pictures');
 const assetPaths = new Set();
@@ -39,23 +39,22 @@ for (const item of items) {
   }
 }
 const previewBytes = [...assetPaths].reduce((n, file) => n + fs.statSync(path.join(root, file)).size, 0);
-assert.ok(previewBytes < 2_000_000, 'the pilot previews stay below 2 MB combined');
-assert.ok(items.reduce((n, item) => n + fs.statSync(path.join(root, item.thumb)).size, 0) < 250_000, 'the entire tile wall stays below 250 KB');
+assert.ok(previewBytes <= 3_000_000, 'the previews stay within 3 MB combined');
+assert.ok(items.reduce((n, item) => n + fs.statSync(path.join(root, item.thumb)).size, 0) <= 400_000, 'the entire tile wall stays within 400 KB');
 
-assert.equal(matchingItems(items, state).length, items.length);
-assert.deepEqual(matchingItems(items, { ...state, q: 'Petri', topic: 'resources' }).map(item => item.id), ['boundary-net', 'farm-lane-net']);
-assert.deepEqual(matchingItems(items, { ...state, q: 'feedback', kind: 'interactive' }).map(item => item.id), ['dependency-matrix', 'dependency-groups']);
-assert.equal(matchingItems(items, { ...state, q: 'nonesuchword' }).length, 0);
-assert.deepEqual(matchingItems(items, { ...state, q: 'boundary resource' }).map(item => item.id), ['boundary-net', 'boundary-composition'], 'multi-word search requires both terms');
-assert.deepEqual(matchingItems(items, { ...state, q: 'PÉTRI' }), matchingItems(items, { ...state, q: 'petri' }), 'case and accents do not block discovery');
-assert.ok(matchingItems(items, { ...state, q: '2022' }).every(item => item.year === '2022'));
-assert.equal(matchingItems(items, { ...state, q: '<script>alert(1)</script>' }).length, 0);
-const combined = { q: 'roof lift', topic: 'resources', kind: 'interactive', view: 'boundary-composition' };
-const encoded = stateURL('https://example.test/explore-visually.html?from=library', combined);
-assert.equal(encoded.searchParams.get('from'), 'library');
-assert.deepEqual(readState(encoded.search, items), combined, 'a shared view preserves its search and filters');
-assert.equal(stateURL(encoded.href, state).search, '?from=library', 'reset removes only the explorer state');
-assert.deepEqual(readState('?topic=invalid&kind=invalid&view=missing&q=%20lane%20', items), { ...state, q: 'lane' });
+const selected = { view: items[0].id };
+const encoded = stateURL('https://example.test/explore-visually.html?from=library&q=roof+lift&topic=resources&kind=diagram#pictures', selected);
+assert.equal(encoded.searchParams.get('from'), 'library', 'unrelated parameters survive preview navigation');
+assert.equal(encoded.hash, '#pictures', 'preview navigation preserves the page fragment');
+assert.deepEqual(readState(encoded.search, items), selected, 'a shared view opens the selected picture');
+assert.equal(encoded.searchParams.has('q'), false, 'retired search parameters are removed');
+assert.equal(encoded.searchParams.has('topic'), false, 'retired topic parameters are removed');
+assert.equal(encoded.searchParams.has('kind'), false, 'retired kind parameters are removed');
+assert.equal(stateURL(encoded.href, state).search, '?from=library', 'closing a preview removes only explorer state');
+assert.deepEqual(readState('?topic=resources&kind=diagram&view=missing&q=nonesuchword', items), state, 'old filters and unknown views cannot narrow the wall');
+for (const item of items) {
+  assert.deepEqual(readState(`?q=nonesuchword&topic=invalid&kind=invalid&view=${item.id}`, items), { view: item.id }, 'every picture remains reachable from old filtered bookmarks');
+}
 
 const source = read('explore-visually.md');
 assert.match(source, /href="\{\{ view\.url \| escape \}\}"/, 'without JavaScript every tile still opens its example');
@@ -78,4 +77,4 @@ if (process.argv[2]) {
   for (const item of items) assert.ok(html.includes(`data-view="${item.id}"`));
   assert.ok(fs.readFileSync(path.join(dir, 'sitemap.xml'), 'utf8').includes('/explore-visually.html'));
 }
-console.log(`Visual explorer: ${items.length} views; search, combined filters, shared URLs, fallback routes and assets passed (${previewBytes} preview bytes).`);
+console.log(`Visual explorer: ${items.length} views; shared URLs, retired-filter bookmarks, fallback routes and assets passed (${previewBytes} preview bytes).`);

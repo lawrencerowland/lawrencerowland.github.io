@@ -26,6 +26,32 @@
     "alt": "A connected Petri net makes a lifting resource and the installed roof explicit. Tokens determine which selected work events can start."
   },
   {
+    "id": "shed-spine",
+    "title": "Which chain crosses every work layer?",
+    "home": "Project Spines · mountain refuge shed",
+    "url": "https://lawrencerowland.github.io/project-spines/experiments/shed-spine-construction.html#graph",
+    "topics": [
+      "processes",
+      "relationships"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "Fourteen shed tasks form eight precedence layers. The highlighted chain meets each displayed layer exactly once.",
+    "look": "Follow the red tasks through the coloured layers, then compare the three partitions in the source.",
+    "limit": "Logical independence does not guarantee simultaneous work. This finite example checks three particular minimum partitions, not arbitrary task groups.",
+    "state": "Earliest Feasible Layers; Show Spine on. The selected 17-day chain differs from the 19-day CPM path, which is also a spine.",
+    "capture": "Rendered SVG from the published page",
+    "width": 1200,
+    "height": 520,
+    "source_image": "",
+    "year": "",
+    "checked": "2026-10-01",
+    "source_sha256": "2d318a4f5b9035df014420da2402880bce1c405547924ecb3f72eb98e57ec846",
+    "image": "/images/visual-explorer/shed-spine.svg",
+    "thumb": "/images/visual-explorer/shed-spine.svg",
+    "alt": "Fourteen shed tasks form eight precedence layers. The highlighted chain meets each displayed layer exactly once."
+  },
+  {
     "id": "triangle-compatibility",
     "title": "Can all five local rules agree?",
     "home": "Local to Global",
@@ -50,6 +76,32 @@
     "image": "/images/visual-explorer/triangle-compatibility.webp",
     "thumb": "/images/visual-explorer/triangle-compatibility-thumb.webp",
     "alt": "Five specialist exclusion rules overlap on a triangular site. Filled dots satisfy them all at the same sampled location."
+  },
+  {
+    "id": "island-feedback",
+    "title": "When does an answer become the next question?",
+    "home": "Functors for Projects · Island Reading Room",
+    "url": "https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/index.html#experiment",
+    "topics": [
+      "processes",
+      "relationships"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "Landing and delivery coordinators exchange offers and requests through a shared interface. External reports and project requests remain visible at the edges.",
+    "look": "Follow the two crossing B wires in opposite directions. Their crossing is not a junction.",
+    "limit": "Authored routing policies in a finite model, not full game strategies. A proposed delivery plan establishes no physical delivery or safe passage.",
+    "state": "Initial request; shore path allowed; fixed pallet; full conversation shown; external report selected but not supplied.",
+    "capture": "Rendered SVG from the published page",
+    "width": 980,
+    "height": 340,
+    "source_image": "",
+    "year": "",
+    "checked": "2026-10-01",
+    "source_sha256": "5252f6fe2dc52e82726919d99008593a49fd68e26fb4b4d643df9e047532c193",
+    "image": "/images/visual-explorer/island-feedback.svg",
+    "thumb": "/images/visual-explorer/island-feedback.svg",
+    "alt": "Landing and delivery coordinators exchange offers and requests through a shared interface. External reports and project requests remain visible at the edges."
   },
   {
     "id": "dependency-matrix",
@@ -141,6 +193,32 @@
     "alt": "The selected implementation becomes two crossing sites, guide fencing and observation points in an invented landscape."
   },
   {
+    "id": "shell-resources",
+    "title": "Where does the scaffolding go next?",
+    "home": "Building a Wall · wider shell",
+    "url": "https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/index.html#wider-shell",
+    "topics": [
+      "processes",
+      "resources"
+    ],
+    "kind": "diagram",
+    "status": "Experiment",
+    "caption": "The shell’s wiring returns the excavator and threads the supplied scaffolding through walling, roofing and return. Two work branches meet at inspection.",
+    "look": "Trace the scaffolding wire, then follow the separate Roofing and Fitting branches into inspection.",
+    "limit": "An architectural study, not an executed extension of the controls. Labour, physics, durations and inspection criteria remain unspecified; connections do not certify a building.",
+    "state": "Published wider-shell study; 28 connections.",
+    "capture": "Published diagram",
+    "width": 1839,
+    "height": 562,
+    "source_image": "https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/wider-shell.svg",
+    "year": "",
+    "checked": "2026-10-01",
+    "source_sha256": "534c057b5a0034a44d8f94e77ba1ccdb48c8301fee05d9b7ab0cbbfd4fbc66d5",
+    "image": "/images/visual-explorer/shell-resources.svg",
+    "thumb": "/images/visual-explorer/shell-resources.svg",
+    "alt": "The shell’s wiring returns the excavator and threads the supplied scaffolding through walling, roofing and return. Two work branches meet at inspection."
+  },
+  {
     "id": "farm-context",
     "title": "Put the project inside its context",
     "home": "Integrated risks & tasks",
@@ -219,6 +297,32 @@
     "alt": "Barge-service planning and depot-receiving planning expose the same draft-offer interface at their boundaries."
   },
   {
+    "id": "lens-directions",
+    "title": "What must travel back across an interface?",
+    "home": "Bricklaying a Rotunda · wiring and lenses",
+    "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/wiring_lens_explainer.html",
+    "topics": [
+      "relationships",
+      "processes"
+    ],
+    "kind": "diagram",
+    "status": "Experiment",
+    "caption": "A lens pairs a forward map with a backward map that may also depend on the forward-side value.",
+    "look": "In section 2 of the source, compare f with f♯: the backward map has both A⁺ and B⁻ as inputs.",
+    "limit": "A diagram of the lens interface, not an executed rotunda trajectory or a physical feedback controller.",
+    "state": "Source section 2, Lenses: forward + backward; original dark palette.",
+    "capture": "Published inline SVG with its source styling",
+    "width": 520,
+    "height": 220,
+    "source_image": "",
+    "year": "",
+    "checked": "2026-10-01",
+    "source_sha256": "291745c8e2fe435ad4083dc6c85b1ba1ce21fc1c1102bbd32e8ba0f205135975",
+    "image": "/images/visual-explorer/lens-directions.svg",
+    "thumb": "/images/visual-explorer/lens-directions.svg",
+    "alt": "A lens pairs a forward map with a backward map that may also depend on the forward-side value."
+  },
+  {
     "id": "mobilising",
     "title": "Compose two mobilisation processes",
     "home": "DisCoPy mobilisation notebook",
@@ -268,6 +372,32 @@
     "image": "/images/visual-explorer/project-views.webp",
     "thumb": "/images/visual-explorer/project-views-thumb.webp",
     "alt": "A microsite project is grouped into task, schedule, cost, resource and other views. Connections distinguish relations from proposed mappings."
+  },
+  {
+    "id": "joint-relationships",
+    "title": "Do three pairwise links make a joint decision?",
+    "home": "Functors for Projects · three-way relationships",
+    "url": "https://lawrencerowland.github.io/functors-for_projects/apps/simplicial-project-management/index.html#diagram",
+    "topics": [
+      "relationships",
+      "choices"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "Filled triangles record explicitly declared three-way relationships. Outlines retain the pairwise links without that additional joint relationship.",
+    "look": "Compare the selected scope–schedule–resources face with an outlined triangle.",
+    "limit": "Illustrative choices: a filled face proves neither agreement nor feasibility. No cost, schedule, risk or topology analysis is computed.",
+    "state": "Default Scope · Schedule · Resources case selected.",
+    "capture": "Rendered SVG from the published page",
+    "width": 760,
+    "height": 530,
+    "source_image": "",
+    "year": "",
+    "checked": "2026-10-01",
+    "source_sha256": "8ab2e33fd3a7ca74bf8d3da93010cf4bc7050cacfc886deb21df308f1f70ea7f",
+    "image": "/images/visual-explorer/joint-relationships.svg",
+    "thumb": "/images/visual-explorer/joint-relationships.svg",
+    "alt": "Filled triangles record explicitly declared three-way relationships. Outlines retain the pairwise links without that additional joint relationship."
   },
   {
     "id": "farm-lane-net",
@@ -330,6 +460,32 @@
     "image": "/images/visual-explorer/four-directors.webp",
     "thumb": "/images/visual-explorer/four-directors-thumb.webp",
     "alt": "Strategy, Product, Portfolio and Operations describe the same imagined company through different kinds of objects."
+  },
+  {
+    "id": "incident-quotient",
+    "title": "Which distinctions do your coding choices remove?",
+    "home": "Functors for Projects · finite colimit",
+    "url": "https://lawrencerowland.github.io/functors-for_projects/apps/grounded-theory-colimit/index.html#build-title",
+    "topics": [
+      "relationships",
+      "choices"
+    ],
+    "kind": "interactive",
+    "status": "Experiment",
+    "caption": "Two chosen same-code identifications put incidents I1, I2 and I3 into one quotient class, while I4 remains separate.",
+    "look": "Follow the identification links across the top, then the incident-to-class lines below.",
+    "limit": "An equality-only coding analogy. The model neither analyses incident meaning nor discovers a core theory.",
+    "state": "Four incidents; identifications I1 → I2 and I2 → I3; two quotient classes. No coding test run.",
+    "capture": "Rendered SVG from the published page",
+    "width": 900,
+    "height": 230,
+    "source_image": "",
+    "year": "",
+    "checked": "2026-10-01",
+    "source_sha256": "10646f51dbb78997a35e744b8295553ce1b267f60f5469a435965954b324bc00",
+    "image": "/images/visual-explorer/incident-quotient.svg",
+    "thumb": "/images/visual-explorer/incident-quotient.svg",
+    "alt": "Two chosen same-code identifications put incidents I1, I2 and I3 into one quotient class, while I4 remains separate."
   },
   {
     "id": "milestone-context",
@@ -746,5 +902,57 @@
     "image": "/images/visual-explorer/portfolio-framework.webp",
     "thumb": "/images/visual-explorer/portfolio-framework-thumb.webp",
     "alt": "The framework groups portfolio work into governance, reporting and control, and programme/project delivery support."
+  },
+  {
+    "id": "orange-workflow",
+    "title": "Turn project records into a question worth testing",
+    "home": "Library · Orange project ratings",
+    "url": "https://lawrencerowland.github.io/ML-for-portfolios.html#orange-project-ratings",
+    "topics": [
+      "relationships",
+      "choices"
+    ],
+    "kind": "diagram",
+    "status": "Earlier example",
+    "caption": "Data preparation branches into model comparison, visual exploration and an intended prediction route.",
+    "look": "Follow Extract to Sample data, then the lower branch into Test possible supervised models.",
+    "limit": "The target is IEG Bank Performance, not general project success. The workbook is absent; this is not a reproduced early forecast or working deployment.",
+    "state": "Original saved Orange workflow screenshot.",
+    "year": "2019",
+    "checked": "2026-10-01",
+    "source_image": "https://lawrencerowland.github.io/images/ML-for-portfolios/orange-project-ratings-workflow.png",
+    "capture": "Published workflow screenshot",
+    "alt": "An Orange workflow connects data preparation to model comparisons, visual exploration and an intended runtime prediction branch.",
+    "source_sha256": "1f2ee47664c40718f7ecbd290889c77fbb0ea43991e2171c9d06a6ce59579107",
+    "width": 1680,
+    "height": 1050,
+    "image": "/images/visual-explorer/orange-workflow.webp",
+    "thumb": "/images/visual-explorer/orange-workflow-thumb.webp"
+  },
+  {
+    "id": "monthly-decisions",
+    "title": "Decide now—or find out more first?",
+    "home": "Library · monthly portfolio review",
+    "url": "https://lawrencerowland.github.io/ML-for-portfolios.html#monthly-portfolio-decisions",
+    "topics": [
+      "choices",
+      "uncertainty"
+    ],
+    "kind": "diagram",
+    "status": "Earlier example",
+    "caption": "Today’s state and decision lead through progress and new information into the next review.",
+    "look": "Follow S₀ and x₀ through W₁ to the updated state and next decision.",
+    "limit": "A 2026 reading diagram of a December 2020 question. The retained notebooks do not learn a policy, consume new evidence or model assurance.",
+    "state": "Reading diagram, not a computed policy.",
+    "year": "2020",
+    "checked": "2026-10-01",
+    "source_image": "https://lawrencerowland.github.io/images/ML-for-portfolios/monthly-portfolio-review.svg",
+    "source_sha256": "421931967deb47d672658c6463934c9fb5bda4903a68473772dbd65f411313ce",
+    "capture": "Published reading diagram (2026)",
+    "width": 760,
+    "height": 380,
+    "image": "/images/visual-explorer/monthly-decisions.svg",
+    "thumb": "/images/visual-explorer/monthly-decisions.svg",
+    "alt": "The current review’s state and decision connect through progress and new information to the next review’s updated state and decision."
   }
 ]

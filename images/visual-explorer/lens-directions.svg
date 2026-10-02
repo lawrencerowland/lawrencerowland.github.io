@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" width="520" height="220" role="img" aria-label="Lens diagram" style="font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;background:#0b0f14">
+              <rect x="0" y="0" width="520" height="220" fill="#0b0f14" /><style>:root{--text:#e7eef8;--muted:#a8b3c7;--line:#263247}.svg-label{fill:var(--text);font-size:12px}.svg-muted{fill:var(--muted);font-size:11px}.node{fill:rgba(255,255,255,.04);stroke:var(--line);stroke-width:1.2}.wire{stroke:rgba(125,211,252,.85);stroke-width:2;fill:none}.wire2{stroke:rgba(167,139,250,.85);stroke-width:2;fill:none}.port{fill:rgba(255,255,255,.10);stroke:var(--line);stroke-width:1}.arrow{marker-end:url(#arrow)}</style><defs>
+                <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L10,3 L0,6 z" fill="#e7eef8" />
+                </marker>
+              </defs>
+
+              
+              <rect class="node" x="50" y="55" width="160" height="110" rx="14" style="fill:#ffffff;fill-opacity:0.04;stroke:#263247;stroke-width:1.2" />
+              <text class="svg-label" x="130" y="78" text-anchor="middle" style="fill:#e7eef8;font-size:12px">A</text>
+              <text class="svg-muted" x="70" y="112" style="fill:#a8b3c7;font-size:11px">A⁺ (forward)</text>
+              <text class="svg-muted" x="70" y="142" style="fill:#a8b3c7;font-size:11px">A⁻ (backward)</text>
+              <circle class="port" cx="210" cy="110" r="7" style="fill:#ffffff;fill-opacity:0.1;stroke:#263247;stroke-width:1" />
+              <circle class="port" cx="50" cy="140" r="7" style="fill:#ffffff;fill-opacity:0.1;stroke:#263247;stroke-width:1" />
+
+              
+              <rect class="node" x="310" y="55" width="160" height="110" rx="14" style="fill:#ffffff;fill-opacity:0.04;stroke:#263247;stroke-width:1.2" />
+              <text class="svg-label" x="390" y="78" text-anchor="middle" style="fill:#e7eef8;font-size:12px">B</text>
+              <text class="svg-muted" x="330" y="112" style="fill:#a8b3c7;font-size:11px">B⁺</text>
+              <text class="svg-muted" x="330" y="142" style="fill:#a8b3c7;font-size:11px">B⁻</text>
+              <circle class="port" cx="310" cy="110" r="7" style="fill:#ffffff;fill-opacity:0.1;stroke:#263247;stroke-width:1" />
+              <circle class="port" cx="470" cy="140" r="7" style="fill:#ffffff;fill-opacity:0.1;stroke:#263247;stroke-width:1" />
+
+              
+              <path class="wire arrow" style="stroke:#7dd3fc;stroke-opacity:0.85;stroke-width:2;fill:none;marker-end:url(#arrow2)" d="M217 110 C250 110, 270 110, 303 110" />
+              <text class="svg-label" x="260" y="98" text-anchor="middle" style="fill:#e7eef8;font-size:12px">f : A⁺ → B⁺</text>
+
+              
+              <path class="wire2 arrow" style="stroke:#a78bfa;stroke-opacity:0.85;stroke-width:2;fill:none;marker-end:url(#arrow2)" d="M460 140 C390 200, 160 200, 58 140" />
+              <text class="svg-label" x="260" y="206" text-anchor="middle" style="fill:#e7eef8;font-size:12px">f♯ : A⁺ × B⁻ → A⁻</text>
+
+              <rect x="0" y="0" width="520" height="220" fill="transparent" />
+            </svg>
