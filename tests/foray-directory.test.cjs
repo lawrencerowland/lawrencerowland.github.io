@@ -7,6 +7,10 @@ const registry = JSON.parse(execFileSync('ruby', ['-ryaml', '-rjson', '-e',
   'puts JSON.generate(YAML.load_file("_data/side_projects.yml"))'], { encoding: 'utf8' }));
 const projects = registry.filter(p => p.placement === 'project').sort((a, b) => a.gallery_order - b.gallery_order);
 const directorySource = fs.readFileSync('side-projects.md', 'utf8');
+const directoryTitle = /<h1\b[^>]*>Experiments<\/h1>/;
+const directoryIntro = /<header\b[^>]*class="[^"]*\bforay-intro\b[^"]*"[^>]*>[\s\S]*?<\/header>/;
+assert.match(directorySource, directoryTitle, 'the directory has the concise Experiments title');
+assert.match(directorySource, directoryIntro, 'the directory introduction remains identifiable with additional styling classes');
 for (const phrase of ['My Custom GPTs', 'These are exploratory tools and toy models', 'The two original general app collections', 'For individual tools from the two general app libraries']) {
   assert.ok(!directorySource.includes(phrase), 'the retired directory tail is absent: ' + phrase);
 }
@@ -117,7 +121,7 @@ if (process.argv[2]) {
   assert.equal((html.match(/class="foray-grid"/g) || []).length, 1);
   assert.equal((html.match(/class="foray-group"/g) || []).length, 1);
   assert.equal((html.match(/class="foray-empty"/g) || []).length, 1);
-  assert.match(html, /<h1>Experiments in how projects work<\/h1>/);
+  assert.match(html, directoryTitle);
   assert.ok(!/Gimmer experiment suites|Featured projects|Playgrounds &amp; libraries|Other side projects/.test(html));
   const escapeHTML = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   for (const q of questions) {
@@ -156,7 +160,8 @@ if (process.argv[2]) {
   for (const id of ['gimmer-projects', 'featured-forays', 'playgrounds', 'other-projects']) {
     assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) || []).length, 1, `preserve one target for #${id}`);
   }
-  const intro = html.match(/<header class="foray-intro"[\s\S]*?<\/header>/)[0];
+  const intro = html.match(directoryIntro)?.[0];
+  assert.ok(intro, 'the rendered directory introduction remains identifiable');
   assert.ok(!intro.includes('all-project-apps.html'), 'generic catalogue is not an opening shortcut');
   assert.ok(html.indexOf('id="compare-approaches"') > html.lastIndexOf('</article>'), 'comparison follows the gallery');
   assert.ok(!html.includes('My Custom GPTs'), 'Custom GPTs is no longer a directory-tail entrance');

@@ -92,6 +92,9 @@ if (process.argv[2]) {
   const builtRead = file => fs.readFileSync(path.join(built, file), 'utf8');
   const merged = builtRead('about_me.html');
   const siteMap = builtRead('sitemap.xml'), humanMap = builtRead('sitemap.html');
+  for (const route of ['/gimmer-comparison/', '/project-co-design/', '/library/models/us-portfolio-questions.html']) {
+    assert.equal(humanMap.split('href="' + route + '"').length - 1, 1, 'one retained sitemap route: ' + route);
+  }
   for (const id of aboutSections) assert.ok(ids(merged).includes(id), 'published About section ' + id);
   assert.equal(new Set(ids(merged)).size, ids(merged).length, 'published About fragment targets are unique');
   for (const item of redirects) {
