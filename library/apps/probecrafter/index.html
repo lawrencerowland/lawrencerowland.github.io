@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probecrafter · Programme conversation prompts</title>
+  <link rel="canonical" href="https://lawrencerowland.github.io/library/apps/probecrafter/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0f172a;
+      --bg-panel: #111c34;
+      --bg-soft: #15213a;
+      --ink: #f1f5f9;
+      --ink-muted: #cbd5f5;
+      --ink-soft: #a5b4fc;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-strong: #0ea5e9;
+      --danger: #f87171;
+      --success: #4ade80;
+      --card-border: rgba(148, 163, 184, 0.25);
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #1e293b, #0f172a 55%, #0b1120 100%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    a { color: var(--accent); }
+    header {
+      padding: 32px 24px 20px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.92));
+    }
+    header h1 {
+      margin: 12px 0 8px;
+      font-size: 32px;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      margin: 4px 0;
+      color: var(--ink-muted);
+      max-width: 780px;
+      line-height: 1.45;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr 1fr;
+      gap: 18px;
+      padding: 24px;
+    }
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 24px 45px rgba(8, 15, 32, 0.45);
+    }
+    .panel h2 {
+      font-size: 18px;
+      margin: 0 0 14px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    label { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 6px; }
+    select {
+      width: 100%;
+      background: var(--bg-soft);
+      color: var(--ink);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--ink-soft);
+    }
+    .pack-list {
+      display: grid;
+      gap: 12px;
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+    .pack-card {
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 14px;
+      padding: 14px;
+      background: var(--bg-soft);
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .pack-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 30px rgba(14, 165, 233, 0.18);
+    }
+    .pack-card.active {
+      border-color: var(--accent);
+      background: rgba(14, 165, 233, 0.12);
+      box-shadow: 0 16px 38px rgba(14, 165, 233, 0.28);
+    }
+    .pack-card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+    .pack-card p {
+      margin: 4px 0 10px;
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .pack-card .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .detail {
+      display: grid;
+      gap: 14px;
+    }
+    .detail-header h2 {
+      margin: 0;
+      font-size: 26px;
+    }
+    .detail-header p {
+      margin: 6px 0 12px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .signal-list, .artefacts, .persona-tags, .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .signal-list span {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(248, 250, 252, 0.08);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+    .question-card {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      display: grid;
+      gap: 10px;
+    }
+    .question-card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .question-card p {
+      margin: 0;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+    .question-card ul {
+      margin: 4px 0 0 18px;
+      padding: 0;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+    .btn {
+      appearance: none;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: #0f172a;
+    }
+    .session-board {
+      margin: 0 24px 24px;
+      background: var(--bg-panel);
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      padding: 20px;
+      box-shadow: 0 18px 36px rgba(8, 12, 28, 0.45);
+    }
+    .session-board h2 {
+      margin: 0 0 16px;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 16px;
+    }
+    .session-items {
+      display: grid;
+      gap: 12px;
+    }
+    .session-item {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.8);
+      display: grid;
+      gap: 6px;
+    }
+    .session-item header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+    .session-item header h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    .session-item p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 14px;
+    }
+    .session-item button {
+      border: none;
+      background: rgba(248, 113, 113, 0.15);
+      color: var(--danger);
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .session-meta {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+    .grid-section {
+      margin: 0 24px 24px;
+      display: grid;
+      gap: 18px;
+    }
+    .grid-three {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .card {
+      background: var(--bg-panel);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 18px 36px rgba(7, 10, 24, 0.45);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--ink-soft);
+      font-size: 18px;
+    }
+    .card p {
+      margin: 4px 0;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .card ul {
+      margin: 6px 0 0 18px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+    .score-item {
+      background: rgba(148, 163, 184, 0.09);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: rgba(56, 189, 248, 0.18);
+      border-radius: 999px;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    footer {
+      padding: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(148, 163, 184, 0.7);
+    }
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .pack-list {
+        max-height: none;
+      }
+    }
+    button, input, textarea { font: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #facc15; outline-offset: 3px; }
+    .pack-card { text-align:left; color:inherit; width:100%; font:inherit; }
+    .pack-card span { display:block; } .pack-card .meta { display:flex; } .pack-card .meta span {display:inline-flex;}
+    .pack-card .pack-title { font-weight:700;font-size:18px;margin-bottom:8px; }
+    .pack-card .pack-summary { line-height:1.5;margin-bottom:8px; }
+    .session-actions {display:flex;flex-wrap:wrap;gap:12px;margin:14px 0;align-items:center;}
+    .session-actions label {text-transform:none;letter-spacing:normal; margin:0;}
+    .session-actions input {display:block;max-width:240px;margin-top:6px;font-size:12px;}
+    #runSheet {width:100%;background:var(--bg-soft);color:var(--ink);border:1px solid var(--card-border);padding:12px;line-height:1.5;}
+    .session-controls {display:flex;flex-wrap:wrap;gap:10px;margin:8px 0;}
+    .session-item button {min-height:36px;}
+    button:disabled {opacity:.45;cursor:default;}
+    @media (max-width:600px) {header,.layout {padding:20px 14px}.session-board,.grid-section {margin:0 14px 20px}.session-item header{display:block}h1{font-size:28px!important}.panel{min-width:0}.session-actions>*{max-width:100%}}
+    #printedRunSheet {display:none;}
+    @media print {body {background:white;color:black;} body>*{display:none!important} #sessionBoard,#runSheetPanel{display:block!important} #sessionBoard>*{display:none!important} #sessionBoard>#runSheetPanel{display:block!important} #runSheetPanel>*{display:none!important} #runSheetPanel>pre{display:block!important;white-space:pre-wrap;font:12pt/1.5 sans-serif} }
+  </style>
+</head>
+<body>
+  <header>
+    <p><a href="/library.html">← Library</a> · <a href="/library/methods/capabilities-and-futures.html">Capabilities &amp; futures</a></p>
+    <h1>Probecrafter</h1>
+    <p id="tagline">Loading probe library…</p>
+    <p id="meta"></p>
+    <p>Choose a role, explore a question pack, then build a conversation run-sheet. These are authored prompts, not validated diagnostic tests: answers need evidence and alternative explanations.</p>
+    <p><a href="#sessionBoard">Your run-sheet</a> · <a href="#practice">Reflection prompts</a></p>
+    <noscript>Enable JavaScript to filter the question packs and assemble a run-sheet. The complete prompts are also available in <a href="probecrafter.json">the question library</a>.</noscript>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Filters</h2>
+      <div>
+        <label for="personaFilter">Persona</label>
+        <select id="personaFilter"></select>
+      </div>
+      <div>
+        <label for="intentFilter">Intent</label>
+        <select id="intentFilter"></select>
+      </div>
+      <div>
+        <label for="phaseFilter">Delivery Phase</label>
+        <select id="phaseFilter"></select>
+      </div>
+      <div>
+        <p style="font-size:13px;color:var(--ink-muted);line-height:1.4;">
+          Filters update the probe packs instantly. Use them to narrow the stack to a specific conversation.
+        </p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Probe Packs</h2>
+      <p id="packCount" role="status"></p>
+      <div id="packList" class="pack-list"></div>
+      <div id="emptyState" style="display:none;color:var(--ink-muted);font-size:14px;margin-top:8px;">No probe packs match the filters. Try widening your selection.</div>
+    </section>
+
+    <section class="panel" id="detailPanel">
+      <div id="detail" class="detail"></div>
+    </section>
+  </main>
+
+  <section class="session-board" id="sessionBoard" aria-labelledby="sessionTitle">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+      <h2 id="sessionTitle">Session Board</h2>
+      <button class="btn" id="resetSession" disabled>Clear Session</button>
+    </div>
+    <p style="margin:6px 0 16px;color:var(--ink-muted);max-width:720px;">
+      Select “Add to Session” beside a question, then reorder the run-sheet with the up/down buttons. Repeated questions are allowed for interviewing different people. Follow-ups and coaching notes travel with each question.
+    </p>
+    <p id="saveStatus" role="status">Run-sheets save in this browser when storage is available. Export a copy to keep or share.</p>
+    <div class="session-actions">
+      <button class="btn" id="exportSession">Export run-sheet JSON</button>
+      <label class="btn" for="importSession">Import run-sheet JSON<input type="file" id="importSession" accept=".json,application/json"></label>
+      <button class="btn" id="showRunSheet">Show printable run-sheet</button>
+      <button class="btn" id="undoClear" disabled>Undo clear</button>
+    </div>
+    <div id="runSheetPanel" hidden><pre id="printedRunSheet"></pre><label for="runSheet">Run-sheet text — select and copy, or print</label><textarea id="runSheet" rows="12" readonly></textarea><button class="btn" id="printRunSheet">Print run-sheet</button></div>
+    <div id="sessionItems" class="session-items"></div>
+    <div id="sessionEmpty" style="color:var(--ink-muted);font-size:14px;">No probes added yet. Select a pack and add questions to design a session.</div>
+    <div id="sessionMeta" class="session-meta"></div>
+  </section>
+
+  <section class="grid-section">
+    <h2 style="color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;font-size:16px;margin:0;">Persona Snapshots</h2>
+    <div id="personaDeck" class="grid-three"></div>
+  </section>
+
+  <section class="grid-section">
+    <h2 style="color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;font-size:16px;margin:0;">Session Templates</h2>
+    <div id="templateDeck" class="grid-three"></div>
+  </section>
+
+  <section class="grid-section">
+    <h2 style="color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;font-size:16px;margin:0;">Practice reflection prompts</h2>
+    <p id="practice">The original scorecard is a qualitative checklist. There is no calculated or validated maturity score. Role snapshots and suggested timings are examples to adapt, not assumptions about every team.</p>
+    <div id="scoreDeck" class="grid-three"></div>
+  </section>
+
+  <section class="grid-section">
+    <h2 style="color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;font-size:16px;margin:0;">Coach Notes</h2>
+    <div id="coachNotes" class="grid-three"></div>
+  </section>
+
+  <footer>
+    Original question library dated 18 February 2025; reviewed and clarified October 2026. <a href="probecrafter.json">Read the prompts</a> · <a href="https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/probecrafter">Source and review</a>. Your run-sheet stays in this browser unless you export or share it.
+  </footer>
+
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
