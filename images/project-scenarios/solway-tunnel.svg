@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+<title id="title">A tunnel being driven below a coastal channel</title>
+<desc id="desc">A cutaway coastal landscape reveals the seabed beneath a stretch of sea between grassy shores. A tunnel runs through the ground below, with concrete lining, a rail wagon and a circular boring shield at the excavation face.</desc>
+<defs><clipPath id="frame"><rect width="640" height="400" rx="24"/></clipPath><pattern id="earth" width="39" height="27" patternUnits="userSpaceOnUse"><path d="m6 9 8 2m15 10 6-2" stroke="#9f8e6f" stroke-width="1.5" fill="none"/></pattern></defs>
+<g clip-path="url(#frame)"><rect width="640" height="400" fill="#f5f2e8"/><circle cx="473" cy="60" r="27" fill="#cf9b57" opacity=".55"/>
+<path d="M18 152q54-55 115-26l58 31 277-9 66-38q57-26 88 7v101H18Z" fill="#b9c6aa"/>
+<path d="m24 175 109-10 80 21 206 4 88-24 109-10v221H24Z" fill="#c7b593"/>
+<path d="M25 180q66-24 126-4t91 20 134 2 106-17 134-12v70q-87-15-158 9t-172-1-142-8-119 19Z" fill="#d9c5a1"/>
+<path d="M25 267q90-39 168-13t125 17 126-13 172-5v54q-82-11-151 7t-118-5-173-16-149 24Z" fill="#bda27d"/>
+<path d="M25 335q63-19 135-15t181 13 166-5 109 11v38H25Z" fill="#d8c4a4"/>
+<path d="m24 175 109-10 80 21 206 4 88-24 109-10v221H24Z" fill="url(#earth)"/>
+<path d="M145 161q56 20 80 26l180 6q43-3 104-31v-30H145Z" fill="#9eb9b5"/>
+<path d="M153 139q91 8 177 0t174 1M190 162h42m109-8h59m-108 21h24m124-19h27" fill="none" stroke="#f5f2e8" stroke-width="2"/>
+<path d="M24 176q62-25 121-11m367-2q58-27 104-13" fill="none" stroke="#39594c" stroke-width="4"/>
+<path d="M24 168q62-25 121-11m367-2q58-27 104-13" fill="none" stroke="#8b9f77" stroke-width="10"/>
+<g stroke="#3d554c" stroke-width="2" stroke-linejoin="round">
+<path d="M70 141v-40h45v39" fill="#f5f2e8"/><path d="m62 102 30-26 31 26Z" fill="#b86f50"/><path d="M79 119h11v20m9-29h10v11H99Z" fill="#9eb9b5"/>
+<path d="M551 125V94h35v31" fill="#f5f2e8"/><path d="m545 95 24-18 25 18Z" fill="#39594c"/><path d="M560 105h9v20m10-23v10" fill="#9eb9b5"/>
+<path d="M53 141v18m-13-12 26-9m534-8v17m-14-9 28-7" fill="none"/>
+<path d="m252 120 46 1-8 13h-28Z" fill="#39594c"/><path d="M276 118V86l-20 30Z" fill="#f5f2e8"/><path d="m280 89 16 28h-16Z" fill="#cf9b57"/>
+<path d="M36 296c0-24 18-40 42-42h367v82H78c-23 0-42-16-42-40Z" fill="#a7ac9a"/>
+<path d="M49 296c0-16 11-27 29-28h367v55H78c-17 0-29-12-29-27Z" fill="#39594c"/>
+<path d="M96 254v14m41-14v14m41-14v14m41-14v14m41-14v14m41-14v14m41-14v14m41-14v14m41-14v14M96 323v13m41-13v13m41-13v13m41-13v13m41-13v13m41-13v13m41-13v13m41-13v13m41-13v13" fill="none"/>
+<path d="M64 277h301M68 314h365M67 321h367" fill="none" stroke="#cf9b57" stroke-width="2"/>
+<path d="M91 312v10m31-10v10m31-10v10m31-10v10m31-10v10m31-10v10m31-10v10m31-10v10m31-10v10m31-10v10m31-10v10m31-10v10" stroke="#a6aa96" fill="none"/>
+<path d="m159 286 55 1-6 22h-43Z" fill="#b86f50"/><path d="m164 286 12-8 12 4 11-5 11 10" fill="#bda27d"/>
+<circle cx="175" cy="313" r="5" fill="#9eb9b5"/><circle cx="200" cy="313" r="5" fill="#9eb9b5"/>
+<path d="m248 290 45 1v18h-45Z" fill="#b9c6aa"/><path d="M258 290v-8h17v8m-61 16h34" fill="none"/><circle cx="257" cy="313" r="5" fill="#9eb9b5"/><circle cx="283" cy="313" r="5" fill="#9eb9b5"/>
+<path d="M316 281h72v32h-72Z" fill="#b9c6aa"/><path d="M327 287h44v19h-44Z" fill="#829785"/><path d="M318 293h-16m69 0h28m-40-15v-10" fill="none" stroke="#cf9b57" stroke-width="5"/>
+<path d="M389 261h39v70h-39Z" fill="#cf9b57"/><ellipse cx="430" cy="296" rx="23" ry="40" fill="#b86f50"/><ellipse cx="433" cy="296" rx="17" ry="32" fill="#cf9b57"/>
+<path d="M433 267v58m-15-29h30m-26-21 23 42m-23 0 23-42" fill="none" stroke="#3d554c" stroke-width="4"/><circle cx="433" cy="296" r="7" fill="#39594c"/>
+<path d="m455 278 15-7m-11 22 17-1m-21 22 14 6" fill="none" stroke="#9b7f59"/>
+<path d="M497 253h55v42h-55Z" fill="#a7ac9a"/><path d="m497 253 14-11h55l-14 11m0 0 14-11v42l-14 11" fill="#c3c6b6"/>
+</g>
+<path d="M46 368h548" stroke="#9f8e6f" stroke-width="2" opacity=".5"/>
+</g></svg>

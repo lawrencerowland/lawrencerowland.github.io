@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+<title id="title">An offshore depot and power barge share the water</title>
+<desc id="desc">A working island platform holds a warehouse, storage tanks and pipework. Beside it a power barge carries generators and a wheelhouse, with a heavy cable curving between the two facilities.</desc>
+<defs><clipPath id="frame"><rect width="640" height="400" rx="24"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<rect width="640" height="400" fill="#f5f2e8"/><circle cx="523" cy="66" r="29" fill="#cf9b57" opacity=".55"/>
+<path d="M0 149q75-38 136-16t125-10 166 8 213-7v82H0Z" fill="#b9c6aa" opacity=".5"/>
+<path d="M0 166q145 8 297-6t343 8v232H0Z" fill="#9eb9b5"/>
+<g fill="none" stroke="#f5f2e8" stroke-width="2" opacity=".65"><path d="M16 198h36m226-19h55m185 5h62M17 300h53m-21 41h94m374 8h89M152 363h54m34-43h47m-18 46h65m232-169h39M395 193h27"/></g>
+<g stroke="#3d554c" stroke-width="2" stroke-linejoin="round">
+<path d="M63 215v65l14 5v-66m93 31v57l14 6v-67m96-31v57l13-6v-56" fill="#39594c"/>
+<path d="m39 218 164-69 148 42-166 77Z" fill="#d8d1b7"/>
+<path d="m39 218 146 50 166-77v16l-166 78-146-51Z" fill="#cf9b57"/>
+<path d="m185 268 166-77v16l-166 78Z" fill="#a58d66"/>
+<path d="m72 207 91-39 87 27-93 44Z" fill="#b9c6aa"/>
+<path d="m72 207 85 32v-65l-85-28Z" fill="#d4d4ba"/>
+<path d="m157 239 93-44v-64l-93 43Z" fill="#b9c6aa"/>
+<path d="m58 149 83-63 93 27 29 20-108 51Z" fill="#39594c"/>
+<path d="m58 149 83-63 14 98Z" fill="#b86f50"/>
+<path d="m178 224 44-21v-42l-44 21Z" fill="#657b6a"/>
+<path d="m188 178 25-12m-25 21 25-12m-25 21 25-12m-25 21 25-12" fill="none" opacity=".7"/>
+<path d="m93 192 24 9v-23l-24-9Z" fill="#9eb9b5"/>
+<path d="m127 205 17 6v-23l-17-6Z" fill="#9eb9b5"/>
+<path d="M264 152v44c0 12 47 12 47 0v-44" fill="#d8d1b7"/><ellipse cx="287.5" cy="152" rx="23.5" ry="10" fill="#f5f2e8"/>
+<path d="M279 142v-13h19v14m-34 27c8 9 39 9 47 0m-47 16c8 9 39 9 47 0" fill="none"/>
+<path d="m256 216 40-19m-40 11 32-15v-22m8 26 21 7v16" fill="none" stroke="#b86f50" stroke-width="6"/>
+<path d="M52 221v-20l14-6m-14 6 102 35m-57-22v22m34-11v22m23-11v22M319 220v-21l18-8v21" fill="none"/>
+<path d="m281 255 163-57 165 57-13 52-145 63-139-53Z" fill="#39594c"/>
+<path d="m281 255 163-57 165 57-158 67Z" fill="#c7c9b3"/>
+<path d="m451 322 158-67-13 52-145 63Z" fill="#536f63"/>
+<path d="m299 281 139 54m27 2 128-56" fill="none" stroke="#cf9b57" stroke-width="5"/>
+<path d="m345 248 47-17 52 18-46 20Z" fill="#f5f2e8"/>
+<path d="m345 248 53 21v-34l-53-19Z" fill="#b9c6aa"/>
+<path d="m398 269 46-20v-33l-46 19Z" fill="#829785"/>
+<path d="m345 216 47-17 52 17-46 19Z" fill="#d4d4ba"/>
+<path d="m354 231 29 11m-29-4 29 11m-29-4 29 11" fill="none"/>
+<path d="m415 277 47-20 53 20-46 21Z" fill="#f5f2e8"/>
+<path d="m415 277 54 21v-33l-54-20Z" fill="#b9c6aa"/>
+<path d="m469 298 46-21v-32l-46 20Z" fill="#829785"/>
+<path d="m415 245 47-20 53 20-46 20Z" fill="#d4d4ba"/>
+<path d="m425 260 29 11m-29-4 29 11m-29-4 29 11" fill="none"/>
+<path d="m371 208 1-22 11 4v22m58 25v-22l12 4v22" fill="#39594c"/>
+<path d="m503 247 40-17 44 15-40 18Z" fill="#d8d1b7"/>
+<path d="m503 247 44 16v-53l-44-14Z" fill="#f5f2e8"/>
+<path d="m547 263 40-18v-52l-40 17Z" fill="#b9c6aa"/>
+<path d="m496 196 42-19 57 17-47 21Z" fill="#39594c"/>
+<path d="m512 209 26 9v13l-26-9Zm43 10 24-10v14l-24 10Z" fill="#9eb9b5"/>
+<path d="M544 179v-34m-11 11h24" fill="none"/>
+<path d="m300 253 13-5m-9 7v18m269 10v19m-12-14 27-12" fill="none"/>
+</g>
+<path d="M322 222c23 25-38 74-9 81s44-32 38-42" fill="none" stroke="#3d554c" stroke-width="7" stroke-linecap="round"/>
+<path d="M322 221c23 25-38 74-9 81s44-32 38-42" fill="none" stroke="#cf9b57" stroke-width="2" stroke-linecap="round"/>
+<g fill="none" stroke="#f5f2e8" stroke-width="2" opacity=".8"><path d="M303 348q66 20 101 21m82-5 83-36M52 286l33 12m106 20 58-26"/></g>
+</g></svg>
