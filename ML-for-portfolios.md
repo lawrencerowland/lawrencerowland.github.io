@@ -23,15 +23,15 @@ Apply machine learning to understand how to improve the project portfolio
 
 **Could completed-project records help a portfolio manager decide where to look next?** This World Bank example makes the process visible: prepare records, compare models, inspect the mistakes, and consider what a prediction might change in a monthly review.
 
-[![Original Orange workflow: project data preparation branches into model comparison, visual exploration and an intended prediction route.]({{ '/images/ML-for-portfolios/orange-project-ratings-workflow.png' | relative_url }})](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md)
+[![Original Orange workflow: project data preparation branches into model comparison, visual exploration and an intended prediction route.]({{ '/images/ML-for-portfolios/orange-project-ratings-workflow.png' | relative_url }})](/library/sources/orange-project-ratings/project-success-prediction-readme.html)
 
 Follow the top row from **Extract** to **Sample data**, then the lower branch into **Test possible supervised models**. The illustrated guide explains why a good-looking score and a useful management decision are different achievements.
 
-[Read the illustrated Orange walkthrough →](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md)
+[Read the illustrated Orange walkthrough →](/library/sources/orange-project-ratings/project-success-prediction-readme.html)
 
 The original name was *Project Success Prediction*, but its target is **IEG Bank Performance**, a specific evaluation rating. This is a historical demonstration: the workbook is absent and the displayed accuracy has not been reproduced as an early forecast. The guide retains all 15 screenshots, the short film, demonstration script and saved workflow, with clear routes to each.
 
-[Film, script and workflow files](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/master/project-success-prediction/READme.md#resources) · [Back to the Library]({{ '/library/methods/data-and-assurance.html#orange-project-ratings' | relative_url }})
+[Film, script and workflow files](/library/sources/orange-project-ratings/project-success-prediction-readme.html#resources) · [Back to the Library]({{ '/library/methods/data-and-assurance.html#orange-project-ratings' | relative_url }})
 
 ## Before work starts: the Highways delay notebook
 {: #highways-delay-notebook }
@@ -54,9 +54,9 @@ The saved code follows three steps:
 
 **Read it as an unfinished exploration.** The separate test-set step and a check that predictions still align with the correct activity rows are recorded as unfinished. DABL's saved model-selection scores are a different check from the later training-set comparisons; neither establishes performance on later project work. Cleaning occurs before the completed/not-started split, and the feature preparation and prediction-time availability still need validation. The required `P6Activities.csv` is absent, and the notebook has not been rerun for this guide.
 
-[Read the original Highways notebook →](https://github.com/lawrencerowland/project-scheduling-with-Neo4j/blob/a1aba1c37c53374f1255225b02e09b1fbfb61e5b/2020%2008%20Highways.ipynb)
+[Read the original Highways notebook →](/library/sources/project-graphs/2020-08-highways.html)
 
-It is retained in the Neo4j repository for historical reasons; this is a tabular prediction experiment, separate from its graph-model examples. [Repository guide](https://github.com/lawrencerowland/project-scheduling-with-Neo4j#highways-delay-prediction-a-separate-notebook) · [Current explanation of information leakage](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage) · [Back to the Library]({{ '/library/methods/data-and-assurance.html#highways-delay-notebook' | relative_url }})
+It is retained in the Neo4j repository for historical reasons; this is a tabular prediction experiment, separate from its graph-model examples. [Retained reading guide](/library/sources/project-graphs/readme.html#highways-delay-prediction-a-separate-notebook) · [Current explanation of information leakage](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage) · [Back to the Library]({{ '/library/methods/data-and-assurance.html#highways-delay-notebook' | relative_url }})
 
 ## A different question: monthly portfolio decisions
 {: #monthly-portfolio-decisions }
@@ -65,20 +65,20 @@ It is retained in the Neo4j repository for historical reasons; this is a tabular
 
 **What should we decide this month, and what should we learn before deciding again?** This earlier note puts advancing, suspending and cancelling projects beside investigation, review and assurance. One set of choices changes the work; the other may change what we know about it.
 
-[![This month's state and decision lead through progress and new information into next month's updated state and decision.]({{ '/images/ML-for-portfolios/monthly-portfolio-review.svg' | relative_url }})](https://github.com/lawrencerowland/Project_decisions#the-monthly-portfolio-review)
+[![This month's state and decision lead through progress and new information into next month's updated state and decision.]({{ '/images/ML-for-portfolios/monthly-portfolio-review.svg' | relative_url }})](/library/sources/monthly-portfolio-review/readme.html#the-monthly-portfolio-review)
 
 *Reading diagram made in 2026 from the original note. It illustrates the question; it does not calculate a policy.*
 
 The useful thread is **state → decision → new information → next state and decision**. Read `S` as the project's position at a review, `x` as the decision, and `W` as information arriving afterwards. Does the timing of our reviews fit the information we need—and could finding out more change the next decision?
 
-[Read the monthly portfolio-review guide →](https://github.com/lawrencerowland/Project_decisions#the-monthly-portfolio-review)
+[Read the monthly portfolio-review guide →](/library/sources/monthly-portfolio-review/readme.html#the-monthly-portfolio-review)
 
 The two retained notebooks explore a much smaller idea: random choices between **promote, maintain and cancel**, with supplied rewards. Neither learns a policy, consumes new evidence or models assurance. The guide distinguishes their different attempts and known counting/transition defects; the original note and saved outputs remain available. This is an unfinished exploration, with useful questions rather than validated recommendations.
 
-[Original note and clarifications](https://github.com/lawrencerowland/Project_decisions/blob/main/2020_12_Reinforcement_learning_for_project_portfolios.md) · [Back to the Library]({{ '/library/methods/decisions-and-trade-offs.html#monthly-portfolio-decisions' | relative_url }})
+[Original note and clarifications](/library/sources/monthly-portfolio-review/2020-12-reinforcement-learning-for-project-portfolios.html) · [Back to the Library]({{ '/library/methods/decisions-and-trade-offs.html#monthly-portfolio-decisions' | relative_url }})
 
 # Code and library base
-If you wish to go straight to the code and document libraries, start [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
+The guides and selected files above remain readable here. The [broader GitHub repository](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) contains other source material and may require access.
 
 # Use cases for machine learning in managing projects. 
 

@@ -1,0 +1,35 @@
+---
+layout: default
+title: "Useful project interventions — PW-410"
+schema_type: TechArticle
+public_reading: true
+---
+
+<div class="public-reading">
+<p class="reading-return"><a href="https://lawrencerowland.github.io/bracken-vale/">← Return to the example</a> · <a href="/library/sources/bracken-vale/">Supporting files</a></p>
+<aside class="reading-provenance"><p><strong>Public reading copy · captured 3 October 2026.</strong> A dated copy of the public foray scope and coverage record. Follow the project for subsequent work. Original wording and saved results are retained; relative links are adapted for this site. This copy does not update itself when the source changes. Links to GitHub may require repository access.</p>
+<p><a href="/library/sources/bracken-vale/files/FORAY.md.txt" download="FORAY.md">Download original file</a> · <a href="https://github.com/lawrencerowland/bracken-vale/blob/210bb906206d116fff62f98cd7bcc3aa4ab6e97d/FORAY.md">GitHub source at 210bb90 (may require access)</a></p></aside>
+</div>
+
+{% raw %}
+# Useful project interventions — PW-410
+
+## End
+
+Find useful, understandable ways to help project people make decisions, see relationships, learn and work with evidence. Maintain a traceable response to the 32 functional intentions in the originating June 2025 outline. Useful progress may be a working intervention, a corrected premise or a finding that an ordinary table is sufficient. A successful trial does not itself establish adoption or return.
+
+## Ways
+
+Start with a concrete job, a person and an inspectable outcome. Choose methods to serve that job: typed relationships, explicit decision rules, dynamics, elicitation, retrieval or AI where justified. Compare the added structure and maintenance burden with ordinary practice. Preserve the distinction between source intention, chosen method, fictional construction, checked behaviour and observed human benefit.
+
+Make assumptions visible, support meaningful edits, retain unknowns and disagreements, and test failures as well as expected results. Explain what a diagram or formal device adds. Keep the full intention visible when the current demonstration provides only part of it.
+
+The public [coverage record](/library/sources/bracken-vale/coverage.html) indexes all 32 intentions; each app README explains the local mechanism and reference checks. The original source document and detailed first-method proposal remain in the private foray folder. This public formulation contains no organisational source excerpts.
+
+## Means
+
+The initial setting is Bracken Vale, a wholly fictional rail infrastructure organisation with separate passenger and freight operators. Its four recurring projects provide a shared context. Names, data, rules, geography and images are newly invented. Means are revisable: the railway and these first constructions should help the enquiry, not become its definition.
+
+Publish in a separate Experiments repository. Following Lawrence’s 3 October 2026 clarification, Essai 01 contains one first version for each of all 32 use cases, presented as one flat collection. One version means a meaningful, inspectable construction with explicit limits; full AI, shared-service, collaboration and human-benefit ambitions remain separate open questions. The first essai is complete on that coverage rule, not a claim that the whole End has been achieved. Main-site navigation integration is deliberately held while another thread works there. Future essais should think afresh and record what they learned, without converting early suggestions into a fixed programme.
+
+{% endraw %}

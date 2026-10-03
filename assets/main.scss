@@ -765,3 +765,18 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-scenario-hero img { height:auto; object-fit:contain; }
 .pw-scenario-hero figcaption { font:12px/1.5 'Inter',Arial,sans-serif; color:#64716a; margin-top:8px; }
 .pw-breadcrumb { font:13px/1.6 'Inter',Arial,sans-serif; margin-bottom:20px; }
+
+/* Public reading copies: retain long code, tables and saved notebook outputs on small screens. */
+.public-reading-page { width: 100%; min-width: 0; box-sizing: border-box; max-width: 980px; margin: 0 auto; padding-left: 24px; padding-right: 24px; overflow-wrap: anywhere; }
+.public-reading-page table { display: block; max-width: 100%; overflow-x: auto; }
+.public-reading-page img { max-width: 100%; height: auto; }
+.reading-provenance { border-left: 3px solid #aa843d; background: #f5f3ed; padding: 12px 18px; margin: 20px 0 28px; font-size: .9em; }
+.reading-provenance p:last-child { margin-bottom: 0; }
+.reading-cell { border-top: 1px solid #d7dbd7; margin: 28px 0; padding-top: 12px; min-width: 0; }
+.reading-cell-label { color: #59685f; font-size: .82em; }
+.public-reading-page pre { max-width: 100%; overflow: auto; white-space: pre; }
+.reading-output { margin: 12px 0; }
+.reading-output summary { cursor: pointer; padding: 8px 0; }
+.reading-output pre { max-height: 32rem; }
+.reading-output img { display: block; margin: 12px 0; }
+@media (max-width: 600px) { .public-reading-page { padding-left: 16px; padding-right: 16px; } }

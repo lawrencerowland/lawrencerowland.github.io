@@ -1,0 +1,9 @@
+# Canvas and data practice — 7.3
+
+A real editable text canvas and six editable table rows teach source-led wording and denominator choice. The initial artefact wrongly treats a proposed window as agreed, assumes missing values are zero and reports row-based completion. CD1/CD2 explicitly supply the contrary facts. R2/R3 repeat T2 exactly; T4 has unknown status and hours.
+
+Hand reference: raw rows give 4/6 = 66.67%; distinct tasks are T1–T5, of which 3 are done and 1 unknown. Overall completion is 3/5 = 60%; among known-status tasks only it is 3/4 = 75%. These answer different questions. Conflicting duplicate groups become unknown. Blank hours remain null, never zero.
+
+Walkthrough: **Save canvas wording** with the proposed/unconfirmed status and CD1; open row editing and **Save row** after excluding one T2 copy; retain T4 unknown. Select the full distinct population and explain T4 with **Recalculate chart**. **Check my document and analysis** checks the substantive phrase/citation pattern, duplicate handling, preserved unknowns, population and explanation. **Get a contextual hint** uses the current failure, not a generic next-step click. Assessment snapshots retain the exact artefact and are validated by recomputation; a changed artefact makes the displayed assessment stale.
+
+**Clear tracking and assessment history** removes disclosed events and attempts while preserving current work. Only explicit in-page actions are logged. Wording recognition is a disclosed pattern test, not general semantic judgement; rationale quality is not independently graded. Compared with a static tutorial, this exposes underlying records and observes the edited artefact. Live AI hints and integrations across other apps remain open. Tests include hand calculations, correct and wrong edits, conflict/unknown handling, event clearing, forged assessments, hostile text and reopen.
