@@ -1,0 +1,126 @@
+{
+  "purpose": "Unmodified public diagram originals retained with the website so source repository privacy cannot break their display or full-size links.",
+  "copied_on": "2026-10-03",
+  "images": [
+    {
+      "image": "/images/library-originals/us-portfolio-fda.png",
+      "source_repository": "lawrencerowland/Data-models-for-portfolios",
+      "source_commit": "fa79aed9e5e7a83391de3b65c7067d5c4a13bb23",
+      "source_path": "Example_0_a_thousand_US_projects/images1/FDA_146nodes_155rels.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/FDA_146nodes_155rels.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/FDA_146nodes_155rels.png",
+      "sha256": "87d764f867434ad6b43cf5c36bb987752daf4a557ba6a7b663974e7bf908b6fb",
+      "width": 1586,
+      "height": 1569,
+      "bytes": 1036620
+    },
+    {
+      "image": "/images/library-originals/us-portfolio-ibm-suppliers.png",
+      "source_repository": "lawrencerowland/Data-models-for-portfolios",
+      "source_commit": "fa79aed9e5e7a83391de3b65c7067d5c4a13bb23",
+      "source_path": "Example_0_a_thousand_US_projects/images1/IBM_supplier.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/IBM_supplier.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/IBM_supplier.png",
+      "sha256": "07d9f31cf6c573dbdf298d5301ea6892e347259483813e3cd10c5497bfbe9b3d",
+      "width": 958,
+      "height": 700,
+      "bytes": 266073
+    },
+    {
+      "image": "/images/library-originals/us-portfolio-implementation-route.png",
+      "source_repository": "lawrencerowland/Data-models-for-portfolios",
+      "source_commit": "fa79aed9e5e7a83391de3b65c7067d5c4a13bb23",
+      "source_path": "Example_0_a_thousand_US_projects/images1/Solution_selection_1.dot.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/Solution_selection_1.dot.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/Solution_selection_1.dot.png",
+      "sha256": "88ea609136d0a69c887afdcd219e080b568430ef8d24edd4a640d6b33e7d770e",
+      "width": 836,
+      "height": 923,
+      "bytes": 228537
+    },
+    {
+      "image": "/images/library-originals/us-portfolio-transformation-route.png",
+      "source_repository": "lawrencerowland/Data-models-for-portfolios",
+      "source_commit": "fa79aed9e5e7a83391de3b65c7067d5c4a13bb23",
+      "source_path": "Example_0_a_thousand_US_projects/images1/Solution_selection_3a.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/Solution_selection_3a.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/Solution_selection_3a.png",
+      "sha256": "0b21bb48dfcfd52fe1c2df8b89963c7f77f5409718b356a193229ffae91eebdd",
+      "width": 747,
+      "height": 923,
+      "bytes": 225046
+    },
+    {
+      "image": "/images/library-originals/us-portfolio-schema.png",
+      "source_repository": "lawrencerowland/Data-models-for-portfolios",
+      "source_commit": "fa79aed9e5e7a83391de3b65c7067d5c4a13bb23",
+      "source_path": "Example_0_a_thousand_US_projects/images1/schema.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/schema.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/schema.png",
+      "sha256": "12888a3b49266569239723555ef55c60c224a970d778b5d06d5f87b502845261",
+      "width": 774,
+      "height": 458,
+      "bytes": 63900
+    },
+    {
+      "image": "/images/library-originals/four-directors.png",
+      "source_repository": "lawrencerowland/Data-models-for-portfolios",
+      "source_commit": "01b04839ec24fbff82ffd3ec33fb0de125eacb2c",
+      "source_path": "Example 12 Business four-way/4-facet-business-model.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/01b04839ec24fbff82ffd3ec33fb0de125eacb2c/Example%2012%20Business%20four-way/4-facet-business-model.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/master/Example%2012%20Business%20four-way/4-facet-business-model.png",
+      "sha256": "2f6fe26a68f4bca9fd8fd9699e22d714742c44decf60bb07ac860c3692e85702",
+      "width": 667,
+      "height": 671,
+      "bytes": 45238
+    },
+    {
+      "image": "/images/library-originals/waste-tasks-states-resources.png",
+      "source_repository": "lawrencerowland/project-scheduling-with-Neo4j",
+      "source_commit": "aa6e8102bd5ff5fe14a05380895ce0bfcfc65351",
+      "source_path": "images/2020 02 Tasks and states and resources LR.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20Tasks%20and%20states%20and%20resources%20LR.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20Tasks%20and%20states%20and%20resources%20LR.png",
+      "sha256": "50bf1bc1d43ac18a2c067dd42c92ccd090e654a02d40c76042f0c5f6c9828f10",
+      "width": 701,
+      "height": 433,
+      "bytes": 76968
+    },
+    {
+      "image": "/images/library-originals/waste-petri-fragment.png",
+      "source_repository": "lawrencerowland/project-scheduling-with-Neo4j",
+      "source_commit": "aa6e8102bd5ff5fe14a05380895ce0bfcfc65351",
+      "source_path": "images/2020 02 petri net tasks LR.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20petri%20net%20tasks%20LR.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20petri%20net%20tasks%20LR.png",
+      "sha256": "937a3f34212cfc69ef1bd9e2dd96f778e7e83e8709d5bed1404fb7ba291f3df1",
+      "width": 535,
+      "height": 264,
+      "bytes": 33689
+    },
+    {
+      "image": "/images/library-originals/waste-states.png",
+      "source_repository": "lawrencerowland/project-scheduling-with-Neo4j",
+      "source_commit": "aa6e8102bd5ff5fe14a05380895ce0bfcfc65351",
+      "source_path": "images/2020 02 states as nodes LR.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20states%20as%20nodes%20LR.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20states%20as%20nodes%20LR.png",
+      "sha256": "93a8bf6e30e53b63cc1ee02a2d1bf607b91617ab7502c48ee99c61ea05980704",
+      "width": 311,
+      "height": 263,
+      "bytes": 24636
+    },
+    {
+      "image": "/images/library-originals/waste-tasks.png",
+      "source_repository": "lawrencerowland/project-scheduling-with-Neo4j",
+      "source_commit": "aa6e8102bd5ff5fe14a05380895ce0bfcfc65351",
+      "source_path": "images/2020 02 tasks without states LR.png",
+      "source_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20tasks%20without%20states%20LR.png",
+      "previous_url": "https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20tasks%20without%20states%20LR.png",
+      "sha256": "a59719b0855b465fbe1a4be301e62363acbd020e4b7700fe3e79a8a74c49b2b0",
+      "width": 546,
+      "height": 91,
+      "bytes": 18575
+    }
+  ]
+}

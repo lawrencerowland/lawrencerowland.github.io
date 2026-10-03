@@ -203,7 +203,7 @@ if(typeof document!=='undefined') {
   $('overview').addEventListener('click',()=>{if(map){$('all-routes').checked=true;updateLayers();map.fitBounds(allBounds,{padding:[35,35]});}});
   if(typeof L!=='undefined') {
     map=L.map('map').setView([55.65,-3.6],9);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).on('tileerror',()=>{$('map-status').textContent='Some background map tiles could not load. The route sketch and stage list remain available.';}).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).on('tileerror',()=>{$('map-status').textContent='Some background map tiles could not load. The route sketch and stage list remain available.';}).addTo(map);
     allBounds=L.latLngBounds([]);
     journeyData.forEach((stage,index)=>{
       const group=L.featureGroup(),points=new Set();

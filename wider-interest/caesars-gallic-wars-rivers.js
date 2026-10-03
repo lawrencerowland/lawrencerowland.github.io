@@ -1502,7 +1502,7 @@ if (typeof document !== 'undefined') {
   $('overview').addEventListener('click',()=>{if(map)map.fitBounds(Object.values(riverLocations).map(location=>location.latlon),{padding:[30,30]});});
   if (typeof L !== 'undefined') {
     map=L.map('map').setView([47.4,3.4],5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).on('tileerror',()=>{$('map-status').textContent='Some map tiles could not load. Passage text and orientation markers remain available.';}).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).on('tileerror',()=>{$('map-status').textContent='Some map tiles could not load. Passage text and orientation markers remain available.';}).addTo(map);
     Object.entries(riverLocations).forEach(([river,location])=>{markers[river]=L.circleMarker(location.latlon,{radius:6,color:'#fff',weight:2,fillColor:'#347b9a',fillOpacity:.6}).addTo(map).bindPopup(`${name(river)} · near ${location.place}<br>Approximate orientation point`);});
     $('map-status').textContent='Orange pins: rivers named in the selected passage. Pins locate a modern town, not a crossing or battle.';
     window.addEventListener('resize',()=>map.invalidateSize());
