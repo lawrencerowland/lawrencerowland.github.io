@@ -997,17 +997,6 @@
     {
       "repository": "Data-models-for-portfolios",
       "commit": "01b04839ec24fbff82ffd3ec33fb0de125eacb2c",
-      "path": "Example_0_a_thousand_US_projects/images1/Metrics met.csv",
-      "group": "us-portfolio",
-      "sha256": "b1843c582f2a87a412b2f8fd2d08bddfbf825a5f7fa41cbf20878a0557a19455",
-      "bytes": 1333,
-      "source_url": "https://github.com/lawrencerowland/Data-models-for-portfolios/blob/01b04839ec24fbff82ffd3ec33fb0de125eacb2c/Example_0_a_thousand_US_projects/images1/Metrics%20met.csv",
-      "captured": "2026-10-03",
-      "download_url": "/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/images1/Metrics%20met.csv"
-    },
-    {
-      "repository": "Data-models-for-portfolios",
-      "commit": "01b04839ec24fbff82ffd3ec33fb0de125eacb2c",
       "path": "Example_0_a_thousand_US_projects/images1/Metrics_met_where_projects_delayed.png",
       "group": "us-portfolio",
       "sha256": "a82af87c03005fd73d1b6a0a72ddc806fb7282904e4041cc77617913252e300e",
@@ -1092,45 +1081,6 @@
       "source_url": "https://github.com/lawrencerowland/Data-models-for-portfolios/blob/01b04839ec24fbff82ffd3ec33fb0de125eacb2c/Example_0_a_thousand_US_projects/images1/Solution_selection_3a.png",
       "captured": "2026-10-03",
       "download_url": "/images/library-originals/us-portfolio-transformation-route.png"
-    },
-    {
-      "repository": "Data-models-for-portfolios",
-      "commit": "01b04839ec24fbff82ffd3ec33fb0de125eacb2c",
-      "path": "Example_0_a_thousand_US_projects/images1/Solution_selector_example_1.dot.txt",
-      "group": "us-portfolio",
-      "sha256": "947a51abc798fdb600431090ded78085e657eb8f2d3fb245ae92126594739042",
-      "bytes": 945,
-      "source_url": "https://github.com/lawrencerowland/Data-models-for-portfolios/blob/01b04839ec24fbff82ffd3ec33fb0de125eacb2c/Example_0_a_thousand_US_projects/images1/Solution_selector_example_1.dot.txt",
-      "captured": "2026-10-03",
-      "download_url": "/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/images1/Solution_selector_example_1.dot.txt",
-      "reader_url": "/library/sources/us-portfolio/example-0-a-thousand-us-projects-images1-solution-selector-example-1-dot.html",
-      "title": "Solution selector example 1.dot"
-    },
-    {
-      "repository": "Data-models-for-portfolios",
-      "commit": "01b04839ec24fbff82ffd3ec33fb0de125eacb2c",
-      "path": "Example_0_a_thousand_US_projects/images1/Solution_selector_example_2.dot.txt",
-      "group": "us-portfolio",
-      "sha256": "ee4bda0309a539e03f2c873a5ea679739d3a67d8900b340540cdfe95b3633d92",
-      "bytes": 1009,
-      "source_url": "https://github.com/lawrencerowland/Data-models-for-portfolios/blob/01b04839ec24fbff82ffd3ec33fb0de125eacb2c/Example_0_a_thousand_US_projects/images1/Solution_selector_example_2.dot.txt",
-      "captured": "2026-10-03",
-      "download_url": "/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/images1/Solution_selector_example_2.dot.txt",
-      "reader_url": "/library/sources/us-portfolio/example-0-a-thousand-us-projects-images1-solution-selector-example-2-dot.html",
-      "title": "Solution selector example 2.dot"
-    },
-    {
-      "repository": "Data-models-for-portfolios",
-      "commit": "01b04839ec24fbff82ffd3ec33fb0de125eacb2c",
-      "path": "Example_0_a_thousand_US_projects/images1/Solution_selector_example_3.dot.txt",
-      "group": "us-portfolio",
-      "sha256": "c518368554c511216a4c294740a1b75c42b6c0fdb5b5f84e4956858b59d178b2",
-      "bytes": 922,
-      "source_url": "https://github.com/lawrencerowland/Data-models-for-portfolios/blob/01b04839ec24fbff82ffd3ec33fb0de125eacb2c/Example_0_a_thousand_US_projects/images1/Solution_selector_example_3.dot.txt",
-      "captured": "2026-10-03",
-      "download_url": "/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/images1/Solution_selector_example_3.dot.txt",
-      "reader_url": "/library/sources/us-portfolio/example-0-a-thousand-us-projects-images1-solution-selector-example-3-dot.html",
-      "title": "Solution selector example 3.dot"
     },
     {
       "repository": "Data-models-for-portfolios",

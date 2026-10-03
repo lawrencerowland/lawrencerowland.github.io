@@ -23,9 +23,6 @@ Public copies captured **3 October 2026** from the cited source revisions. Sourc
 - [subgraph OxfordUS Portfolio](/library/sources/us-portfolio/example-0-a-thousand-us-projects-subgraph-oxfordus-portfolio.html) · notebook with saved outputs
 - [FDA sub graph](/library/sources/us-portfolio/example-0-a-thousand-us-projects-cypher-code-fda-sub-graph.html)
 - [FDA sub graph 0](/library/sources/us-portfolio/example-0-a-thousand-us-projects-cypher-code-fda-sub-graph-0.html)
-- [Solution selector example 1.dot](/library/sources/us-portfolio/example-0-a-thousand-us-projects-images1-solution-selector-example-1-dot.html)
-- [Solution selector example 2.dot](/library/sources/us-portfolio/example-0-a-thousand-us-projects-images1-solution-selector-example-2-dot.html)
-- [Solution selector example 3.dot](/library/sources/us-portfolio/example-0-a-thousand-us-projects-images1-solution-selector-example-3-dot.html)
 
 ## Supporting downloads
 
@@ -37,6 +34,5 @@ Public copies captured **3 October 2026** from the cited source revisions. Sourc
 - [export.cypher1](/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/cypher_code/export.cypher1) · 236 kB
 - [export.cypher2](/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/cypher_code/export.cypher2) · 45 kB
 - [export.cypher3](/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/cypher_code/export.cypher3) · 24 kB
-- [Metrics met.csv](/library/sources/us-portfolio/files/Example_0_a_thousand_US_projects/images1/Metrics%20met.csv) · 1 kB
 
 The downloads retain the original bytes. Notebook readers show saved cells and outputs without running them. Older model inputs may need missing data, libraries or compatible software. Public availability does not grant additional rights to underlying datasets or third-party material.
