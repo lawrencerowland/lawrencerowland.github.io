@@ -86,7 +86,7 @@ for (const redirect of redirects) {
 const library = read('library.md');
 for (const fragment of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts', 'interactive-methods']) assert.ok(ids(library).includes(fragment), 'retain broad Library fragment ' + fragment);
 for (const phrase of ['Try an idea', 'Five ways into the work.', 'Two bounded worked examples', 'Three strands of earlier work.', 'Connecting the parts of a project.', 'Maps, connections &amp; reading']) assert.ok(!library.includes(phrase), 'retire type-based section: ' + phrase);
-assert.ok(!library.includes('/explore-visually.html'), 'Visual atlas is a peer page reached through the main navigation');
+assert.ok(!library.includes('/explore-visually.html'), 'Working views is supplied through the additional-tile registry');
 assert.ok(!library.includes('/project-examples.html'), 'unique earlier examples now have direct subject homes');
 assert.ok(library.includes('id="custom-gpts"') && library.includes('/gpt-links-page.html'), 'Custom GPTs has a direct sixth entrance');
 assert.ok(!allItems.some(item => item.id === 'custom-gpts'), 'Custom GPTs does not create artificial subject metadata');
@@ -152,11 +152,11 @@ if (process.argv[2]) {
   const libraryHTML = builtRead('library.html');
   const subjectSection = libraryHTML.match(/<section\b[^>]*class="[^"]*pw-library-subjects[^"]*"[\s\S]*?<\/section>/)?.[0];
   assert.ok(subjectSection, 'the six subject entrances remain a distinct first group');
-  const rootCards = [...subjectSection.matchAll(/<article class="pw-home-question"[\s\S]*?<\/article>/g)].map(match => match[0]);
+  const rootCards = [...subjectSection.matchAll(/<article class="pw-picture-card[^"]*"[\s\S]*?<\/article>/g)].map(match => match[0]);
   assert.equal(rootCards.length, 6, 'the Library presents five subject cards and Custom GPTs');
   const customGPTCards = rootCards.filter(card => card.includes('href="/gpt-links-page.html"'));
   assert.equal(customGPTCards.length, 1, 'one direct Custom GPTs entrance');
-  assert.match(customGPTCards[0], /<h2\b[^>]*>Custom GPTs<\/h2>/);
+  assert.match(customGPTCards[0], /<strong\b[^>]*>Custom GPTs<\/strong>/);
   assert.ok(rootCards.indexOf(customGPTCards[0]) === 5, 'Custom GPTs follows the five established subjects');
   for (const theme of themes) {
     const route = '/library/methods/' + theme.id + '.html';

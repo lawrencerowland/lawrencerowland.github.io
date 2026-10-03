@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Gimmer: higher-autonomy experiments</title>
+  <desc id="description">Three distinct experiment cards sit around a repeated build, test and review loop with a shared centre.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path d="M199 150a125 125 0 0 1 242-5M440 253a125 125 0 0 1-233 17M191 254a125 125 0 0 1 1-107" class="warm"/>
+  <path class="warm" d="m425 132 16 13 10-18M216 255l-9 15 20 3M181 164l11-17 13 15"/>
+  <path class="ghost" d="m321 105 0 96m-106 73 106-73 107 73"/>
+  <rect class="paper" x="265" y="63" width="112" height="85" rx="9"/>
+  <path class="ink" d="M286 126v-22h28V85h41v41m-41-22h41"/>
+  <rect class="paper" x="141" y="238" width="112" height="85" rx="9"/>
+  <path class="fine" d="M162 300h69m-60-11 14-16 15 9 20-25"/><circle cx="220" cy="257" r="5" fill="#ad733e"/>
+  <rect class="paper" x="389" y="238" width="112" height="85" rx="9"/>
+  <path class="ink" d="M409 260h66m-66 17h46m-46 17h57"/>
+  <circle class="ochre" cx="321" cy="201" r="24"/>
+</svg>

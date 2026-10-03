@@ -1,0 +1,473 @@
+[
+  {
+    "id": "gimmer",
+    "title": "Gimmer refuge",
+    "description": "Build a small refuge halfway up a cliff.",
+    "url": "/project-scenarios/gimmer/",
+    "image": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG",
+    "image_alt": "A timber refuge on a mountain ledge, with small process and plan sketches.",
+    "predicament": "Materials must reach a mountain ledge before a base, walls and roof can come together. Crews, lifting equipment, handovers and decisions about change all affect what can happen next.",
+    "motivation": "One imagined refuge supports several enquiries: which plans are possible, how work packages combine, what a schedule reveals, and how different accounts of the project connect.",
+    "limitation": "These enquiries share a setting. Each uses its own assumptions and rules; their results are not a single engineered refuge plan.",
+    "project_ids": [
+      "gimmer-processes-plans",
+      "gimmer-higher-autonomy",
+      "gimmer-broader",
+      "project-spines"
+    ],
+    "projects": [
+      {
+        "id": "processes-to-plans",
+        "title": "Processes to plans",
+        "description": "Which plans follow from the process rules and available resources?",
+        "url": "https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html",
+        "project_id": "gimmer-processes-plans",
+        "image": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG",
+        "image_alt": "A timber refuge on a mountain ledge, with small process and plan sketches."
+      },
+      {
+        "id": "higher-autonomy",
+        "title": "Work packages and handovers",
+        "description": "Can packages share a lift, release partial work and respond to feedback?",
+        "url": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/",
+        "project_id": "gimmer-higher-autonomy",
+        "image": "/images/scenarios/gimmer-shared-lift.svg",
+        "image_alt": "Two refuge work packages share lifting equipment on one mountain ledge."
+      },
+      {
+        "id": "broader-collection",
+        "title": "Other accounts of the refuge",
+        "description": "Explore procurement, observation, resources, ontology and change.",
+        "url": "https://lawrencerowland.github.io/gimmer-crag/app-index.html",
+        "project_id": "gimmer-broader",
+        "image": "/images/scenarios/gimmer-project-views.svg",
+        "image_alt": "The same refuge surrounded by procurement, observation and change views."
+      },
+      {
+        "id": "project-spines",
+        "title": "Schedule structure",
+        "description": "What do dependencies and simultaneous work reveal beyond dates?",
+        "url": "https://lawrencerowland.github.io/project-spines/",
+        "project_id": "project-spines",
+        "image": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG",
+        "image_alt": "A timber refuge on a mountain ledge, with small process and plan sketches."
+      },
+      {
+        "id": "compare-approaches",
+        "title": "Compare nine approaches",
+        "description": "Change one refuge brief and inspect nine different kinds of question.",
+        "url": "/gimmer-comparison/",
+        "image": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/input/processes%20to%20plans%20for%20Gimmer.PNG",
+        "image_alt": "A timber refuge on a mountain ledge, with small process and plan sketches."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gimmer: processes to plans",
+        "url": "https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html"
+      },
+      {
+        "title": "Gimmer: higher-autonomy experiments",
+        "url": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/"
+      },
+      {
+        "title": "Gimmer: broader collection",
+        "url": "https://lawrencerowland.github.io/gimmer-crag/app-index.html"
+      },
+      {
+        "title": "Project Spines",
+        "url": "https://lawrencerowland.github.io/project-spines/"
+      },
+      {
+        "title": "Gimmer comparison: method and evidence",
+        "url": "/gimmer-comparison/method.html"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "farm-track",
+    "title": "The farm track",
+    "description": "Deliver concrete while the farm carries on.",
+    "url": "/project-scenarios/farm-track/",
+    "image": "https://lawrencerowland.github.io/integrated_risks_tasks/assets/farm-track-hero.png",
+    "image_alt": "A concrete mixer waits at a farm gate while cows occupy the narrow lane to a foundation pour.",
+    "predicament": "The site needs concrete. The farmer needs to take cattle to market. Both plans depend on the same narrow lane, so work that makes sense on its own may have to wait.",
+    "motivation": "Follow the shared access through one process model, then ask what changes when the project and its surroundings are viewed together.",
+    "limitation": "Cattle passage is a selected toy scenario, not a probability forecast. The model makes the resource conflict explicit.",
+    "project_ids": [
+      "integrated-risks-tasks"
+    ],
+    "projects": [
+      {
+        "id": "integrated-risks",
+        "title": "Tasks, risks and shared access",
+        "description": "Try the lane and inspect why one process must wait for another.",
+        "url": "https://lawrencerowland.github.io/integrated_risks_tasks/",
+        "project_id": "integrated-risks-tasks",
+        "image": "https://lawrencerowland.github.io/integrated_risks_tasks/assets/farm-track-hero.png",
+        "image_alt": "A concrete mixer waits at a farm gate while cows occupy the narrow lane to a foundation pour."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Integrated risks & tasks",
+        "url": "https://lawrencerowland.github.io/integrated_risks_tasks/"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "wildlife-crossing",
+    "title": "A wildlife crossing",
+    "description": "Reconnect two habitats across a busy road.",
+    "url": "/project-scenarios/wildlife-crossing/",
+    "image": "/project-co-design/assets/wildlife-crossing-scene.svg",
+    "image_alt": "Deer on a green bridge, with guiding fences, a monitoring camera and a power cabinet.",
+    "predicament": "A bridge alone does not reconnect the habitats. Guiding fences, observation, construction access and monitoring power must also fit the promised crossing.",
+    "motivation": "Explore the finished configuration, the stages that deliver it, programme trade-offs and the work needed to support remote monitoring.",
+    "limitation": "The four enquiries use separate declared models. They are not numerically coupled into one delivery design.",
+    "project_ids": [
+      "wildlife-crossing"
+    ],
+    "projects": [
+      {
+        "id": "whole-crossing",
+        "title": "Compose the crossing",
+        "description": "Which combination of crossing, guidance and observation fits?",
+        "url": "/project-co-design/apps/wildlife-crossing.html",
+        "project_id": "wildlife-crossing",
+        "image": "/project-co-design/assets/wildlife-crossing-scene.svg",
+        "image_alt": "Deer on a green bridge, with guiding fences, a monitoring camera and a power cabinet."
+      },
+      {
+        "id": "delivery-path",
+        "title": "Construct a delivery path",
+        "description": "Can crews and access support a sequence that keeps the whole promise?",
+        "url": "/project-co-design/apps/staged-paths.html",
+        "project_id": "wildlife-crossing",
+        "image": "/project-co-design/assets/wildlife-crossing-scene.svg",
+        "image_alt": "Deer on a green bridge, with guiding fences, a monitoring camera and a power cabinet."
+      },
+      {
+        "id": "programmes",
+        "title": "Compare programmes",
+        "description": "Which resource and delivery trade-offs are worth making?",
+        "url": "/project-co-design/apps/programme-studio.html",
+        "project_id": "wildlife-crossing",
+        "image": "/project-co-design/assets/wildlife-crossing-scene.svg",
+        "image_alt": "Deer on a green bridge, with guiding fences, a monitoring camera and a power cabinet."
+      },
+      {
+        "id": "monitoring-power",
+        "title": "Power the monitoring",
+        "description": "Can the power installation also cover its own overhead?",
+        "url": "/project-co-design/apps/monitoring-power-loop.html",
+        "project_id": "wildlife-crossing",
+        "image": "/project-co-design/assets/wildlife-crossing-scene.svg",
+        "image_alt": "Deer on a green bridge, with guiding fences, a monitoring camera and a power cabinet."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Project Co-design",
+        "url": "/project-co-design/"
+      },
+      {
+        "title": "Wildlife scenario and method map",
+        "url": "/project-co-design/docs/wildlife-scenario.md"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "rotunda",
+    "title": "A brick rotunda",
+    "description": "Build a circular wall, course by course.",
+    "url": "/project-scenarios/rotunda/",
+    "image": "https://lawrencerowland.github.io/bricklaying-a-rotunda/dynamic%20project%20states%20project.png",
+    "image_alt": "A partially built circular brick wall with alternative routes through its construction.",
+    "predicament": "Two walls with the same amount of finished work may have different readiness, histories or available lifting capacity. Those differences can change the next useful move.",
+    "motivation": "Begin with choices and histories, then examine a finite construction in which two brick rings share hoists and obey explicit placement and curing rules.",
+    "limitation": "The simple primer and the later construction have different rules. Their results concern those toy rules, not a building forecast.",
+    "project_ids": [
+      "bricklaying-rotunda"
+    ],
+    "projects": [
+      {
+        "id": "choices",
+        "title": "Choices and histories",
+        "description": "Choose the next course and see the history your decisions create.",
+        "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/Possible-trajectories1.html#first-try",
+        "project_id": "bricklaying-rotunda",
+        "image": "https://lawrencerowland.github.io/bricklaying-a-rotunda/dynamic%20project%20states%20project.png",
+        "image_alt": "A partially built circular brick wall with alternative routes through its construction."
+      },
+      {
+        "id": "state",
+        "title": "What must a state remember?",
+        "description": "Share a hoist and inspect which distinctions preserve possible futures.",
+        "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/constructive-state/",
+        "project_id": "bricklaying-rotunda",
+        "image": "https://lawrencerowland.github.io/bricklaying-a-rotunda/dynamic%20project%20states%20project.png",
+        "image_alt": "A partially built circular brick wall with alternative routes through its construction."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bricklaying a Rotunda",
+        "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "tangled-triangle",
+    "title": "The Tangled Triangle",
+    "description": "Fit a control centre onto an awkward site.",
+    "url": "/project-scenarios/tangled-triangle/",
+    "image": "/images/scenarios/triangle.svg",
+    "image_alt": "A triangular control-centre site crossed by a road, canal and railway.",
+    "predicament": "A fictional control-centre site must contend with a canal, road, railway viaduct, overhead power line and old mine passage. Plans, sections and local constraints reveal different parts of the problem.",
+    "motivation": "The same site supports two enquiries: how AI interprets a brief, and whether declared local rules admit a shared candidate location.",
+    "limitation": "The interpretation variants are not a scored AI benchmark. The compatibility lab checks sampled locations under supplied rules, not real-site feasibility.",
+    "project_ids": [
+      "local-to-global"
+    ],
+    "projects": [
+      {
+        "id": "interpretations",
+        "title": "Interpret the site",
+        "description": "Compare six interpretations of its geometry, interfaces and architecture.",
+        "url": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/",
+        "project_id": "local-to-global",
+        "image": "/images/scenarios/triangle.svg",
+        "image_alt": "A triangular control-centre site crossed by a road, canal and railway."
+      },
+      {
+        "id": "compatibility",
+        "title": "Test the local rules",
+        "description": "Can one sampled location satisfy all five declared constraints?",
+        "url": "https://lawrencerowland.github.io/local-to-global/forays/003-tangled-triangle.html#first-try",
+        "project_id": "local-to-global",
+        "image": "/images/scenarios/triangle.svg",
+        "image_alt": "A triangular control-centre site crossed by a road, canal and railway."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Local to Global: one site, two enquiries",
+        "url": "https://lawrencerowland.github.io/local-to-global/"
+      },
+      {
+        "title": "The early Tangled Triangle interpretations",
+        "url": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "shared-waters",
+    "title": "Shared waters",
+    "description": "Connect an offshore depot and a power barge.",
+    "url": "/project-scenarios/shared-waters/",
+    "image": "https://lawrencerowland.github.io/shared-dynamics/assets/scenario.svg",
+    "image_alt": "An offshore depot and a floating power barge, linked to the customer, operator and marine provider.",
+    "predicament": "An offshore depot needs power. A floating barge could supply it, but the service also depends on access, information, resources and the organisations that provide them.",
+    "motivation": "Explore what becomes clearer when equipment and organisations expose explicit boundaries, handovers and shared observations.",
+    "limitation": "This fictional depot and SMR-barge setting motivates three small constructions; it does not establish engineering feasibility or a delivery plan.",
+    "project_ids": [
+      "shared-waters"
+    ],
+    "projects": [
+      {
+        "id": "compose",
+        "title": "Join at a boundary",
+        "description": "Identify the common handover and inspect the composed graph.",
+        "url": "https://lawrencerowland.github.io/shared-dynamics/compose.html",
+        "project_id": "shared-waters",
+        "image": "https://lawrencerowland.github.io/shared-dynamics/assets/scenario.svg",
+        "image_alt": "An offshore depot and a floating power barge, linked to the customer, operator and marine provider."
+      },
+      {
+        "id": "organisation",
+        "title": "Compare an organisation",
+        "description": "Separate what stays, changes and is added in an intended arrangement.",
+        "url": "https://lawrencerowland.github.io/shared-dynamics/compare.html",
+        "project_id": "shared-waters",
+        "image": "https://lawrencerowland.github.io/shared-dynamics/assets/scenario.svg",
+        "image_alt": "An offshore depot and a floating power barge, linked to the customer, operator and marine provider."
+      },
+      {
+        "id": "sharing",
+        "title": "Make sharing explicit",
+        "description": "Expose the observations and resource allocations behind an interface.",
+        "url": "https://lawrencerowland.github.io/shared-dynamics/interfaces.html",
+        "project_id": "shared-waters",
+        "image": "https://lawrencerowland.github.io/shared-dynamics/assets/scenario.svg",
+        "image_alt": "An offshore depot and a floating power barge, linked to the customer, operator and marine provider."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shared waters",
+        "url": "https://lawrencerowland.github.io/shared-dynamics/"
+      },
+      {
+        "title": "Sources and method",
+        "url": "https://lawrencerowland.github.io/shared-dynamics/sources.html"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "wall-and-roof",
+    "title": "A wall and its roof",
+    "description": "Build a wall that is ready for the next trade.",
+    "url": "/project-scenarios/wall-and-roof/",
+    "image": "/images/scenarios/wall.svg",
+    "image_alt": "A brick wall, pitched roof and scaffold showing the packages that must fit together.",
+    "predicament": "Brickwork needs materials, workers and access. The roof needs a wall with the right support and readiness. Connecting the packages must preserve those conditions.",
+    "motivation": "Follow the construction into reusable work blocks, the meanings of their wiring and the repeated work that grows a wall.",
+    "limitation": "A correctly connected diagram and a satisfied readiness condition are different checks. Each essay states the construction rules it actually tests.",
+    "project_ids": [
+      "building-wall"
+    ],
+    "projects": [
+      {
+        "id": "interfaces",
+        "title": "Keep the interfaces honest",
+        "description": "Open the wall module and follow workers, materials and returned access.",
+        "url": "https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/",
+        "project_id": "building-wall",
+        "image": "/images/scenarios/wall.svg",
+        "image_alt": "A brick wall, pitched roof and scaffold showing the packages that must fit together."
+      },
+      {
+        "id": "meanings",
+        "title": "One diagram, several meanings",
+        "description": "Inspect what the algebra supplies when two work packages connect.",
+        "url": "https://lawrencerowland.github.io/building_a_wall/apps/wiring-algebra/",
+        "project_id": "building-wall",
+        "image": "/images/scenarios/wall.svg",
+        "image_alt": "A brick wall, pitched roof and scaffold showing the packages that must fit together."
+      },
+      {
+        "id": "repeat",
+        "title": "How a course repeats",
+        "description": "Carry materials and a growing wall through repeated work.",
+        "url": "https://lawrencerowland.github.io/building_a_wall/apps/course-by-course/",
+        "project_id": "building-wall",
+        "image": "/images/scenarios/wall.svg",
+        "image_alt": "A brick wall, pitched roof and scaffold showing the packages that must fit together."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Building a Wall",
+        "url": "https://lawrencerowland.github.io/building_a_wall/"
+      },
+      {
+        "title": "Source workings and preservation map",
+        "url": "https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/source-map.html"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "solway-tunnel",
+    "title": "A tunnel beneath the Solway",
+    "description": "Find the work hidden behind a finished tunnel.",
+    "url": "/project-scenarios/solway-tunnel/",
+    "image": "/images/scenarios/tunnel.svg",
+    "image_alt": "An illustrative tunnel section beneath the Solway, with access shafts connecting two shores.",
+    "predicament": "A tunnel needs more than its permanent lining. Excavation, temporary access, support, installed systems and evidence of readiness each have a different part to play.",
+    "motivation": "Use the tunnel setting and smaller installation examples to distinguish the desired result from the work, temporary means and evidence it requires.",
+    "limitation": "The installation examples test selected distinctions. They do not provide a complete tunnel plan, and the retained Tokyo and HS2 ontology examples are separate cases.",
+    "project_ids": [
+      "solway-tunnel"
+    ],
+    "projects": [
+      {
+        "id": "semantic-planning",
+        "title": "From an outcome to its work",
+        "description": "Explore the handover game, required work and the broader tunnel ontology.",
+        "url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/",
+        "project_id": "solway-tunnel",
+        "image": "/images/scenarios/tunnel.svg",
+        "image_alt": "An illustrative tunnel section beneath the Solway, with access shafts connecting two shores."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Solway: semantic project planning",
+        "url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "museum-whale",
+    "title": "Moving the museum whale",
+    "description": "Move a whale exhibit before the gallery reopens.",
+    "url": "/project-scenarios/museum-whale/",
+    "image": "https://lawrencerowland.github.io/knowing-enough/assets/museum-whale.png",
+    "image_alt": "A large whale exhibit on a wheeled cradle while a surveyor, handler and curator consider the move.",
+    "predicament": "The survey team knows which passage is usable. The handlers must choose a route. Later, the curator must decide whether the move is complete and the gallery can reopen.",
+    "motivation": "Change the information arrangements and ask what each person must be able to distinguish to choose their part of the move.",
+    "limitation": "The museum, layouts and effort units are invented. The checker evaluates the stated information and decision rules.",
+    "project_ids": [
+      "knowing-enough"
+    ],
+    "projects": [
+      {
+        "id": "local-information",
+        "title": "Knowing enough to act together",
+        "description": "Compare cues, reports and inspections across different local views.",
+        "url": "https://lawrencerowland.github.io/knowing-enough/",
+        "project_id": "knowing-enough",
+        "image": "https://lawrencerowland.github.io/knowing-enough/assets/museum-whale.png",
+        "image_alt": "A large whale exhibit on a wheeled cradle while a surveyor, handler and curator consider the move."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Knowing enough: moving the whale",
+        "url": "https://lawrencerowland.github.io/knowing-enough/"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "bracken-vale",
+    "title": "Bracken Vale railway",
+    "description": "Renew a small railway while services keep running.",
+    "url": "/project-scenarios/bracken-vale/",
+    "image": "https://lawrencerowland.github.io/bracken-vale/assets/bracken-vale.png",
+    "image_alt": "A team discussing a tabletop railway with a junction, station, power upgrade and monitoring project.",
+    "predicament": "A railway infrastructure team must reconcile passenger and freight needs with access, uncertain condition and limited resources. Junction, station, power and monitoring projects raise different decisions.",
+    "motivation": "Try practical questions about relationships, planning, evidence, learning and project decisions in one shared fictional setting.",
+    "limitation": "Every project, figure and relationship is invented. Working examples make the interventions inspectable; human benefit remains to be tested.",
+    "project_ids": [
+      "bracken-vale"
+    ],
+    "projects": [
+      {
+        "id": "interventions",
+        "title": "Small interventions, useful questions",
+        "description": "Choose a question, change an input and judge what the extra structure adds.",
+        "url": "https://lawrencerowland.github.io/bracken-vale/",
+        "project_id": "bracken-vale",
+        "image": "https://lawrencerowland.github.io/bracken-vale/assets/bracken-vale.png",
+        "image_alt": "A team discussing a tabletop railway with a junction, station, power upgrade and monitoring project."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bracken Vale",
+        "url": "https://lawrencerowland.github.io/bracken-vale/"
+      }
+    ],
+    "sources_checked": "2026-10-03"
+  }
+]

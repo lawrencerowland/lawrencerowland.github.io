@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Programme Decision Sequences</title>
+  <desc id="description">A chosen sequence passes through successive branching decisions while future possibilities remain open.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path d="M199 202 545 63v274Z" fill="#dbe2d1"/>
+  <path class="ghost" d="M304 154 432 99l113-36M304 154l128 8 113-42M429 237l116 100m-116-100 116 43M432 162l113 40"/>
+  <path class="fine" d="M92 202h107l105-48m-105 48 105 56 125-21m-125 21 122 52"/>
+  <path class="warm" d="M92 202h107l105-48 128 8 113-42"/>
+  <circle class="leaf" cx="92" cy="202" r="19"/>
+  <path class="paper" d="m199 180 22 22-22 22-22-22Z"/><path class="ochre" d="m304 132 22 22-22 22-22-22Z"/><path class="paper" d="m432 140 22 22-22 22-22-22Z"/>
+  <circle class="pale" cx="304" cy="258" r="13"/><circle class="pale" cx="429" cy="237" r="13"/>
+  <path class="ghost" d="M199 93v221m105-229v231m128-240v251"/>
+</svg>

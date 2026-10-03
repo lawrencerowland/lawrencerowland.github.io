@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Knowing enough to act together</title>
+  <desc id="description">Two partial views reveal different portions of a shared choice, with information paths meeting at the decision.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path d="m128 200 160-116v232Z" fill="#dbe2d1"/><path d="m512 200-160-116v232Z" fill="#e5dac1"/>
+  <path class="ghost" d="M287 113h66m-66 174h66M288 84v232m64-232v232"/>
+  <path class="ink" d="M160 200h129m62 0h129M320 178v-65m0 109v65"/>
+  <path class="warm" d="M202 129h65v71h106v71h65"/>
+  <path class="paper" d="m320 174 26 26-26 26-26-26Z"/>
+  <g class="paper"><circle cx="128" cy="200" r="27"/><circle cx="512" cy="200" r="27"/></g>
+  <g class="leaf"><circle cx="128" cy="200" r="9"/><circle cx="512" cy="200" r="9"/></g>
+  <rect class="ochre" x="187" y="114" width="30" height="30" rx="5"/><rect class="ochre" x="423" y="256" width="30" height="30" rx="5"/>
+  <path class="fine" d="m307 126 13-13 13 13m-26 148 13 13 13-13"/>
+</svg>

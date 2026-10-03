@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Solway Tunnel Ontology</title>
+  <desc id="description">An upper hierarchy of concepts connects by separate links to a lower sequence of work packages.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path class="fine" d="M320 96v52H150v55m170-55v55m0-55h170v55"/>
+  <circle class="leaf" cx="320" cy="96" r="21"/>
+  <circle class="paper" cx="150" cy="202" r="21"/><circle class="paper" cx="320" cy="202" r="21"/><circle class="paper" cx="490" cy="202" r="21"/>
+  <path class="warm" d="m150 227 0 51m170-51-38 51m208-51 0 51"/>
+  <path class="ghost" d="M174 217 258 277M339 217l102 60"/>
+  <path class="ink" d="M87 300h466"/>
+  <rect class="pale" x="111" y="278" width="78" height="44" rx="5"/><rect class="ochre" x="243" y="278" width="78" height="44" rx="5"/><rect class="pale" x="374" y="278" width="78" height="44" rx="5"/><rect class="paper" x="469" y="278" width="61" height="44" rx="5"/>
+</svg>

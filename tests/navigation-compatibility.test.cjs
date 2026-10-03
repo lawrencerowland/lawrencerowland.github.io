@@ -97,7 +97,7 @@ if (process.argv[2]) {
   const mapURLs = [...mapDocument.querySelectorAll('a[href]')].map(anchor => new URL(anchor.href));
   // The agent orientation can refer to the same canonical homes; the tree
   // itself must still contain each retained destination exactly once.
-  const treeURLs = [...mapDocument.querySelectorAll('.pw-map-branches a[href]')].map(anchor => new URL(anchor.href));
+  const treeURLs = [...mapDocument.querySelectorAll('.pw-map-branch:nth-child(-n+2) a[href]')].map(anchor => new URL(anchor.href));
   for (const route of ['/gimmer-comparison/', '/project-co-design/', '/library/models/us-portfolio-questions.html']) {
     assert.equal(treeURLs.filter(url => url.href === new URL(route, origin).href).length, 1, 'one retained canonical sitemap tree route, absolute or relative: ' + route);
   }

@@ -718,3 +718,50 @@ body:has(.pw-home) { background: #f8f6ef; }
 @media(max-width:700px){.pw-three-doors{padding-top:28px}.pw-library-additional .pw-home-question-grid{grid-template-columns:1fr}.pw-map-branches{grid-template-columns:1fr;border-left:1px solid #92a396;margin-left:10px;gap:28px}.pw-map-branches::before,.pw-map-root::after{display:none}.pw-map-root{text-align:left;padding:6px 0 16px}.pw-map-branch{padding-left:22px}.pw-map-branch::before{left:0;top:16px;height:0;width:15px;border-top:1px solid #92a396}.pw-map-branch h2{text-align:left}}
 
 .pw-wider-gallery .pw-home-question-copy{padding-bottom:24px}.pw-wider-gallery .pw-home-question h2{font:400 26px/1.3 Georgia,serif;margin:0 0 14px}.pw-wider-gallery{padding-bottom:40px}
+
+/* Quiet picture-led entrances: one name and one prompt, shared by three routes. */
+.pw-picture-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:start; }
+.pw-picture-card { position:relative; min-width:0; margin:0; padding:0; border:0; background:transparent; }
+.pw-picture-card[hidden] { display:none; }
+.pw-picture-tile { display:block; position:relative; color:#294c40; text-decoration:none; border-radius:6px; }
+.pw-picture-image { display:block; aspect-ratio:8/5; overflow:hidden; border:1px solid #deded0; border-radius:6px; background:#eeede2; }
+.pw-picture-image img { display:block; width:100%; height:100%; object-fit:cover; }
+.pw-picture-tile.emblem .pw-picture-image img { object-fit:contain; background:#f8f6ef; }
+.pw-picture-caption { position:absolute; inset:auto 0 0; display:block; padding:15px 17px; background:#fffdf6f5; border-radius:0 0 6px 6px; opacity:0; transition:opacity .14s; pointer-events:none; font:13px/1.5 'Inter',Arial,sans-serif; }
+.pw-picture-caption strong { display:block; font-size:15px; line-height:1.4; margin-bottom:4px; color:#294c40; }
+.pw-picture-caption > span { display:block; color:#505c4d; }
+.pw-picture-tile:is(:hover,:focus-visible) .pw-picture-caption { opacity:1; }
+.pw-picture-tile:is(:hover,:focus-visible) { color:#294c40; text-decoration:none; }
+.pw-picture-tile:focus-visible { outline:3px solid #95632e; outline-offset:4px; }
+.pw-gallery-instruction { font:13px/1.6 'Inter',Arial,sans-serif; color:#586451; }
+.pw-gallery-touch { display:none; }
+.pw-gallery-notes { margin:28px 0; font:14px/1.65 'Inter',Arial,sans-serif; }
+.pw-gallery-notes > summary { cursor:pointer; color:#294c40; }
+.pw-gallery-notes h2 { font-size:21px; margin-top:28px; }
+.pw-gallery-notes p { max-width:76ch; }
+.pw-scenario-intro { max-width:76ch; margin:0 0 26px; }
+.pw-scenario-hero { margin:0 0 24px; }
+.pw-scenario-hero img { display:block; width:100%; max-height:460px; object-fit:cover; border-radius:6px; }
+.pw-picture-grid + .pw-library-additional { margin-top:36px; }
+@media(max-width:720px) { .pw-picture-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } }
+@media(hover:none), (pointer:coarse), (max-width:720px) {
+ .pw-picture-caption { position:static; opacity:1; padding:12px 3px; background:transparent; }
+ .pw-picture-caption strong { font-size:14px; }
+ .pw-picture-caption > span { font-size:12px; }
+ .pw-gallery-desktop { display:none; } .pw-gallery-touch { display:inline; }
+}
+@media(prefers-reduced-motion:reduce) { .pw-picture-caption { transition:none; } }
+
+.foray-directory .pw-picture-card { overflow:visible; box-shadow:none; border:0; border-radius:6px; }
+.foray-directory .foray-intro { display:block; border:0; padding-bottom:0; }
+.foray-directory .foray-intro h1 { font:400 clamp(36px,4vw,48px)/1.1 Georgia,serif; }
+.foray-directory .foray-sections { display:none; }
+.foray-directory .foray-intro .pw-gallery-instruction { margin-top:10px; font-size:13px; }
+.foray-directory .foray-browse-tools { margin:0 0 20px; }
+.foray-directory .foray-group { margin-top:20px; }
+
+.pw-scenario-introduction,.pw-scenario-notes { max-width:76ch; font:15px/1.7 'Inter',Arial,sans-serif; }
+.pw-scenario-notes { margin-top:30px; color:#586451; }
+.pw-scenario-hero img { height:auto; object-fit:contain; }
+.pw-scenario-hero figcaption { font:12px/1.5 'Inter',Arial,sans-serif; color:#64716a; margin-top:8px; }
+.pw-breadcrumb { font:13px/1.6 'Inter',Arial,sans-serif; margin-bottom:20px; }

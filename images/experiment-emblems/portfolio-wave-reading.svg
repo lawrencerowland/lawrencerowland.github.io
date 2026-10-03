@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Portfolio Wave reading map</title>
+  <desc id="description">Pages on the left connect through a middle layer of themes to project models on the right.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path class="fine" d="M165 110 318 127 482 106M165 110l153 145 164 40M165 203l153-76 164 83M165 203l153 52 164-149M165 296l153-169m0 128 164-45"/>
+  <g class="paper"><path d="M105 78h49l20 20v45h-69Zm49 0v20h20"/><path d="M105 171h49l20 20v45h-69Zm49 0v20h20"/><path d="M105 264h49l20 20v45h-69Zm49 0v20h20"/></g>
+  <g class="fine"><path d="M120 114h35m-35 94h35m-35 94h35"/></g>
+  <circle class="ochre" cx="318" cy="127" r="26"/><circle class="ochre" cx="318" cy="255" r="26"/>
+  <g class="pale"><rect x="462" y="79" width="72" height="54" rx="6"/><rect x="462" y="183" width="72" height="54" rx="6"/><rect x="462" y="268" width="72" height="54" rx="6"/></g>
+  <g class="ink"><path d="M478 118V95h40v23m-40 90h40m-20-12v24m-20 88 20-25 20 25"/></g>
+</svg>

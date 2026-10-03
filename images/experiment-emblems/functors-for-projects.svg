@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Functors for Projects</title>
+  <desc id="description">An open collection of different structural sketches: connected objects, overlapping views and composable interfaces.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path class="ghost" d="M106 319q108 22 206-5t222 5"/>
+  <g transform="rotate(-9 173 191)"><rect class="paper" x="92" y="98" width="161" height="195" rx="9"/>
+  <path class="ink" d="m126 153 47 41 46-41m-93 0 47 92 46-92"/><circle class="leaf" cx="126" cy="153" r="11"/><circle class="ochre" cx="173" cy="194" r="11"/><circle class="paper" cx="219" cy="153" r="11"/><circle class="paper" cx="173" cy="245" r="11"/></g>
+  <g transform="rotate(8 461 191)"><rect class="paper" x="380" y="98" width="161" height="195" rx="9"/>
+  <rect class="pale" x="404" y="139" width="40" height="79" rx="6"/><rect class="pale" x="478" y="172" width="40" height="79" rx="6"/><path class="ink" d="M444 163h16v63h18m-34-29h34"/><circle class="ochre" cx="460" cy="197" r="9"/></g>
+  <rect class="paper" x="234" y="121" width="172" height="190" rx="9"/>
+  <circle cx="297" cy="208" r="42" fill="#dbe2d1" stroke="#658777" stroke-width="3"/><circle cx="344" cy="208" r="42" fill="none" stroke="#294c40" stroke-width="4"/>
+  <path class="warm" d="M320 177v62"/>
+</svg>

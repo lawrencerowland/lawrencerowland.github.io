@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Project Spines</title>
+  <desc id="description">A dependency network highlights a long spine and a crosswise slice of tasks that can stand beside one another.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path d="M104 166h432v73H104Z" fill="#dbe2d1"/>
+  <path class="ghost" d="M97 202h446"/>
+  <path class="fine" d="M170 99 170 202 320 301M320 99l-150 103m150-103v103m150-103L320 202l150 99M470 99v103L320 301"/>
+  <path class="warm" d="M170 99 320 202 470 301"/>
+  <g class="paper"><circle cx="320" cy="99" r="18"/><circle cx="470" cy="99" r="18"/><circle cx="170" cy="202" r="18"/><circle cx="470" cy="202" r="18"/><circle cx="320" cy="301" r="18"/></g>
+  <g class="ochre"><circle cx="170" cy="99" r="20"/><circle cx="320" cy="202" r="20"/><circle cx="470" cy="301" r="20"/></g>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Bricklaying a Rotunda</title>
+  <desc id="description">A circular state space carries several possible trajectories, with successive project states marked along them.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<ellipse cx="321" cy="244" rx="172" ry="83" fill="#dbe2d1"/>
+  <ellipse class="ghost" cx="321" cy="244" rx="172" ry="83"/>
+  <path class="fine" d="M155 245q10-139 121-146t194 113M158 245q95 3 149-78t160-22M158 245q76 72 169 19t156-54"/>
+  <path class="warm" d="M158 245q99 34 150-78t159-22"/>
+  <circle class="paper" cx="158" cy="245" r="19"/><circle class="ochre" cx="308" cy="167" r="19"/><circle class="paper" cx="467" cy="145" r="19"/>
+  <circle class="pale" cx="276" cy="99" r="11"/><circle class="pale" cx="374" cy="247" r="11"/><circle class="pale" cx="470" cy="212" r="11"/>
+  <path class="ink" d="M228 312v-23m94 39v-27m94 3v-24"/>
+</svg>
