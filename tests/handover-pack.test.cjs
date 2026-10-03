@@ -87,6 +87,10 @@ test('actual browser handlers switch examples and invalidate a visible result wh
   $('handover-evidence').value+='edit';$('handover-evidence').dispatchEvent(new win.Event('input'));assert.match($('handover-status').textContent,/Inputs changed/);assert.equal($('handover-results').children.length,0);
   $('handover-run').click();await settle();assert.match($('handover-status').textContent,/checks fail/);
   $('handover-reset').click();await settle();assert.match($('handover-status').textContent,/checks pass/);
+  $('handover-example').value='duplicate';$('handover-example').dispatchEvent(new win.Event('change'));await settle();
+  $('handover-signer').value='second.reviewer@example.test';$('handover-signer').dispatchEvent(new win.Event('input'));$('handover-run').click();await settle();
+  assert.match($('handover-status').textContent,/checks pass/);assert.match($('handover-example-note').textContent,/edited the selected starting example/);assert.doesNotMatch($('handover-example-note').textContent,/now name the same signer/);
+  $('handover-reset').click();await settle();assert.match($('handover-example-note').textContent,/now name the same signer/);assert.match($('handover-status').textContent,/checks fail/);
 });
 test('an asynchronous old result cannot overwrite newer edited inputs',async t=>{
   let hold=false,release;const win=await ui(t,async(_algorithm,bytes)=>{if(hold){hold=false;await new Promise(resolve=>{release=resolve;});}return crypto.createHash('sha256').update(bytes).digest();});
@@ -115,7 +119,7 @@ test('exports persist for unchanged inputs and are revoked on edits, restore, ex
   for(const mutate of [()=>{$('handover-owner').value+='edit';$('handover-owner').dispatchEvent(new win.Event('input'));},()=>{$('handover-signer').value+='edit';$('handover-signer').dispatchEvent(new win.Event('input'));},()=>{$('handover-evidence').value+='edit';$('handover-evidence').dispatchEvent(new win.Event('input'));},()=>{$('handover-reset').click();},()=>{$('handover-example').value='missing';$('handover-example').dispatchEvent(new win.Event('change'));},()=>win.dispatchEvent(new win.Event('pagehide'))]){
     const old=$('handover-save-link').getAttribute('href');mutate();await settle();assert.ok(revoked.includes(old));assert.equal($('handover-save-link').hasAttribute('href'),false);assert.equal($('handover-save-link').hidden,true);assert.equal($('handover-export-fallback').hidden,true);assert.equal($('handover-export-json').value,'');assert.equal($('handover-download-note').textContent,'');$('handover-download').click();
   }
-  const old=$('handover-save-link').getAttribute('href');$('handover-download').click();assert.ok(revoked.includes(old));assert.notEqual($('handover-save-link').getAttribute('href'),old);
+  const old=$('handover-save-link').getAttribute('href');$('handover-download').click();assert.ok(revoked.includes(old));assert.notEqual($('handover-save-link').getAttribute('href'),old);assert.equal($('handover-save-link').getAttribute('href'),'blob:https://example.test/snapshot-'+next);assert.equal(revoked.length,next-1);
 });
 test('handover reading anchor is preserved without a false saved-scenario error',async t=>{
   const {JSDOM}=createRequire(path.join(root,'tools/library-apps/package.json'))('jsdom');

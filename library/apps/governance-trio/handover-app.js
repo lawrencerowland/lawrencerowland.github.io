@@ -21,6 +21,7 @@ function clearExport(){
   $('handover-download-note').textContent='';
 }
 function invalidate(){guard.change();clearExport();$('handover-results').replaceChildren();$('handover-status').textContent='Inputs changed. Run checks again; the previous result no longer applies.';renderRecord();}
+function edited(){invalidate();$('handover-example-note').textContent='You have edited the selected starting example. The next checks apply to your current inputs, not its original expected result.';}
 function fill(){
   $('handover-owner').value=pack.record.owner;
   $('handover-signer').value=pack.record.signoff[1].by;
@@ -71,9 +72,9 @@ async function start(){
     const [record,policy,digests,note,risk]=await Promise.all([get('handover.json'),get('policy.json'),get('digests.json'),get('evidence/concept-note.txt',false),get('evidence/risk-review.json',false)]);
     baseline={record,policy,digests,files:{'concept-note.txt':note,'risk-review.json':risk}};
     $('handover-example').addEventListener('change',loadExample);
-    $('handover-owner').addEventListener('input',()=>{pack.record.owner=$('handover-owner').value;invalidate();});
-    $('handover-signer').addEventListener('input',()=>{pack.record.signoff[1].by=$('handover-signer').value;invalidate();});
-    $('handover-evidence').addEventListener('input',()=>{pack.files['concept-note.txt']=$('handover-evidence').value;invalidate();});
+    $('handover-owner').addEventListener('input',()=>{pack.record.owner=$('handover-owner').value;edited();});
+    $('handover-signer').addEventListener('input',()=>{pack.record.signoff[1].by=$('handover-signer').value;edited();});
+    $('handover-evidence').addEventListener('input',()=>{pack.files['concept-note.txt']=$('handover-evidence').value;edited();});
     $('handover-run').addEventListener('click',run);
     $('handover-reset').addEventListener('click',loadExample);
     $('handover-download').addEventListener('click',download);
