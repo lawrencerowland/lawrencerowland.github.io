@@ -413,7 +413,7 @@ function showMovedAppFromQuery(specialists) {
   params.delete('app');
   const destination = new URL(item.url);
   destination.search = params.toString();
-  destination.hash = window.location.hash;
+  if (window.location.hash) destination.hash = window.location.hash;
 
   const notice = document.getElementById('moved-app-notice');
   const message = document.createElement('p');

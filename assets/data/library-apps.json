@@ -466,5 +466,44 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/contract-portfolio-board/",
     "home": "Library · Project states & relationships"
+  },
+  {
+    "#": "72",
+    "name": "waste-route-capacity-digital-twin",
+    "description": "Follow material through treatment, assay, storage and transport; compare capacity, outages, rework and queues.",
+    "origin": "User",
+    "model": "GPT-5.2-Codex",
+    "tags": "waste_management, simulation, queueing, decision_support, visualization",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/waste-route-capacity/",
+    "home": "Library · Delivery dynamics & feedback"
+  },
+  {
+    "#": "43",
+    "name": "project_time_exchange",
+    "description": "Explore how discrete task-acceleration choices change project duration, additional cost and the critical path.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "project_management, scheduling, optimization, visualization",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-time-exchange/",
+    "home": "Library · Delivery dynamics & feedback"
+  },
+  {
+    "#": "41",
+    "name": "scenario_barrier_proof_fca_lattice",
+    "description": "Group fictional go-live scenarios by shared control and evidence tags using Formal Concept Analysis.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "risk, fca, lattice, visualization, safety",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/scenario-control-lattice/",
+    "home": "Library · Data, evidence & assurance"
   }
 ]

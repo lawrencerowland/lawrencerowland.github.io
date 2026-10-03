@@ -10,6 +10,9 @@ if(process.argv[2])assert.ok(!page.includes('{%')&&!page.includes('{{'),'Liquid 
 const specialists=JSON.parse(fs.readFileSync(path.join(root,'assets/data/specialist-apps.json'),'utf8'));
 const retired=JSON.parse(fs.readFileSync(path.join(root,'assets/data/retired-apps.json'),'utf8'));
 const expected={
+ 'advanced_project_planning_ideas':'meta-project-innovation/',
+ 'hazard_morphospace':'library/apps/waste-route-capacity/#state-space',
+ 'project_time_exchange_explainer':'library/apps/project-time-exchange/#explainer',
  'what_AI_model_for_what':'library/apps/capabilities-wiring-diag/',
  'idea-notebook':'project_innovation_app/webapp/index.html',
  'pm_gap_map':'gap-map.html',
@@ -36,10 +39,10 @@ const expected={
 };
 const migratedLibrary=JSON.parse(fs.readFileSync(path.join(root,'_data/library_apps.json'),'utf8'));
 for(const app of migratedLibrary)expected[app.original_name||app.id]=app.url.slice(1);
-assert.equal(specialists.length,60);
-assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,60);
-assert.equal(new Set(specialists.map(x=>x.url)).size,56,'distinct maintained routes');
-assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,59,'unambiguous legacy query identities');
+assert.equal(specialists.length,66);
+assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,66);
+assert.equal(new Set(specialists.map(x=>x.url.split('#')[0])).size,60,'distinct maintained routes');
+assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,65,'unambiguous legacy query identities');
 assert.deepEqual(new Set(specialists.map(x=>x.name)),new Set(Object.keys(expected)));
 assert.equal(specialists.filter(x=>x.name==='project-controls-knowledge-graph').length,2,'two original source identities now share the consolidated graph');
 for(const row of specialists){
@@ -107,7 +110,7 @@ async function load(phase,query='',hash=''){
  return {cards,context,elements};
 }
 (async()=>{
- for(const phase of ['before','after','current-before','current-after','library-before','library-after','eight-before','eight-after','step-one-before','step-one-after']){
+ for(const phase of ['before','after','current-before','current-after','library-before','library-after','eight-before','eight-after','step-one-before','step-one-after','phase-two-before','phase-two-after']){
   const result=await load(phase);assert.equal(result.cards.filter(c=>c.classList.contains('highlight')).length,0);
   assert.equal(result.elements['moved-app-notice'].hidden,true,'ordinary browsing does not show a moved-app notice');
   result.context.filterCards('risk_management');assert.ok(result.cards.some(c=>c.style.display==='block'));assert.ok(result.cards.some(c=>c.style.display==='none'));
@@ -120,9 +123,10 @@ async function load(phase,query='',hash=''){
     assert.equal(notice.hidden,false,'an exact old query exposes its destination');assert.equal(notice.scrolled,1);
     assert.equal(links.length,1);assert.ok(links[0].textContent,'destination link remains understandable');
     const target=new URL(links[0].href);
-    assert.equal(target.origin+target.pathname,'https://lawrencerowland.github.io/'+destination);
+    const expectedTarget=new URL('https://lawrencerowland.github.io/'+destination);
+    assert.equal(target.origin+target.pathname,expectedTarget.origin+expectedTarget.pathname);
     assert.deepEqual([...target.searchParams],[...new URLSearchParams(extra.replace(/^&/,''))],'other parameters, including repeated and encoded values, reach the app');
-    assert.equal(target.hash,hash,'the app fragment survives');
+    assert.equal(target.hash,hash||expectedTarget.hash,'incoming fragment survives or the intended section is used');
     assert.ok(content.some(node=>node.tagName==='p'&&node.textContent.includes(specialists.find(item=>item.name===name).home)));
    }
   }
@@ -138,5 +142,5 @@ async function load(phase,query='',hash=''){
  for(const query of ['?app=does-not-exist','?app=decision-tree-extra','?app=https://example.org/','?app=%3Cscript%3E']){
   const absent=await load('current-after',query);assert.ok(absent.cards.every(c=>!c.classList.contains('highlight')));assert.equal(absent.elements['moved-app-notice'].hidden,true,'unknown selectors never become destination links');
  }
- console.log('PASS: 60 original app identities and one retirement absent from ordinary cards across ten source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
+ console.log('PASS: 66 original app identities and one retirement absent from ordinary cards across twelve source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
 })().catch(error=>{console.error(error);process.exitCode=1;});

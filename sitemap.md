@@ -11,6 +11,8 @@ tags: [KnowledgeManagement]
 
 [One refuge, nine ways to reason]({{ '/gimmer-comparison/' | relative_url }})
 
+[Meta Project Innovation]({{ '/meta-project-innovation/' | relative_url }})
+
 [Project Co-design]({{ '/project-co-design/' | relative_url }})
 
 <ul>

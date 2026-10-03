@@ -18,6 +18,7 @@ on:
       - 'library.md'
       - 'tools/library-apps/**'
       - 'library/apps/**'
+      - 'meta-project-innovation/**'
       - 'library/methods/**'
       - 'React_proj-apps/**'
       - '_data/library_*.json'
@@ -43,6 +44,7 @@ on:
       - 'tests/*migration*.cjs'
       - 'tests/eight-*.test.cjs'
       - 'tests/step-one-*.test.cjs'
+      - 'tests/phase-two-*.test.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -84,6 +86,7 @@ on:
       - 'library.md'
       - 'tools/library-apps/**'
       - 'library/apps/**'
+      - 'meta-project-innovation/**'
       - 'library/methods/**'
       - 'React_proj-apps/**'
       - '_data/library_*.json'
@@ -109,6 +112,7 @@ on:
       - 'tests/*migration*.cjs'
       - 'tests/eight-*.test.cjs'
       - 'tests/step-one-*.test.cjs'
+      - 'tests/phase-two-*.test.cjs'
       - 'library/articles/**'
       - 'library/models/**'
       - 'images/notebook-examples/**'
@@ -179,6 +183,10 @@ jobs:
         run: |
           node --test tests/step-one-gap-map.test.cjs tests/step-one-contract-board.test.cjs tests/step-one-graph-views.test.cjs
           node tests/step-one-library-migration.test.cjs
+      - name: Check phase-two models and their Library or foray homes
+        run: |
+          node --test tests/phase-two-frontier.test.cjs tests/phase-two-waste.test.cjs tests/phase-two-time.test.cjs tests/phase-two-fca.test.cjs
+          node tests/phase-two-library-migration.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
@@ -245,6 +253,7 @@ jobs:
         run: |
           node tests/eight-library-migration.test.cjs _site
           node tests/step-one-library-migration.test.cjs _site
+          node tests/phase-two-library-migration.test.cjs _site
       - name: Save the built site for preview
         uses: actions/upload-artifact@v4
         with:

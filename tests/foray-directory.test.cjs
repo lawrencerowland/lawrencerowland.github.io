@@ -27,8 +27,8 @@ for (const p of projects.filter(p => p.tile_image)) {
   assert.ok(fs.existsSync(p.tile_image.slice(1)), `${p.id}: local illustration exists`);
 }
 const collections = registry.filter(p => p.placement === 'library');
-assert.equal(registry.length, 17);
-assert.equal(projects.length, 16);
+assert.equal(registry.length, 18);
+assert.equal(projects.length, 17);
 assert.deepEqual(collections.map(p => p.id), ['project-web-apps']);
 assert.equal(new Set(registry.map(p => p.id)).size, registry.length);
 for (const project of registry) {
