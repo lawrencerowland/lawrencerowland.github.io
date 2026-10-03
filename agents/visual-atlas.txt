@@ -3,11 +3,11 @@ layout: null
 permalink: /agents/visual-atlas.md
 sitemap: false
 ---
-# Visual atlas — meanings and source views
+# Working views — meanings and source views
 
 [Agent welcome](https://lawrencerowland.github.io/sitemap.html#for-agents) · [Browse the pictures](https://lawrencerowland.github.io/explore-visually.html)
 
-Use a picture to choose a question, then read its caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model's claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
+Working views collects the nets, maps, matrices and screens used inside the examples, rather than project emblems or scene illustrations. Read the caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model’s claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
 
 Capture and check dates below describe the catalogue record. They do not claim that the live app was rechecked when this guide was generated. Use the image and the explanation together; read the original example for details beyond the depicted view.
 

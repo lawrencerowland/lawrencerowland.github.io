@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+<title id="title">A control centre on a triangular site</title>
+<desc id="desc">A modest control centre sits on a tight triangular plot between a curving canal, an access road and a railway carried on a viaduct. A narrow gate opens onto the road.</desc>
+<rect width="640" height="400" rx="24" fill="#f5f2e8"/>
+<defs><clipPath id="frame"><rect width="640" height="400" rx="24"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<path d="M0 117q106-55 195-27t181-21 264 36v295H0Z" fill="#dce4cf"/>
+<path d="M0 230q104-19 195 4t189-20 256 4v182H0Z" fill="#bfcda9"/>
+<path d="M-37 186Q83 187 189 86T333-25" fill="none" stroke="#9eae92" stroke-width="73"/>
+<path d="M-37 186Q83 187 189 86T333-25" fill="none" stroke="#9eb9b5" stroke-width="55"/>
+<path d="M-23 194Q90 190 196 91T340-17" fill="none" stroke="#c6d7cc" stroke-width="2"/>
+<path d="m43 177 24-4m46-30 21-15m83-77 16-17m-98 75 16-13" stroke="#d5e1d5" stroke-width="3" fill="none" stroke-linecap="round"/>
+<!-- Mooring bank and a small narrowboat. -->
+<path d="m88 156 52-34 12 13-52 34Z" fill="#596f62" stroke="#39594c" stroke-width="2"/>
+<path d="m96 150 36-23 8 7-36 25Z" fill="#c0965b"/>
+<path d="m102 146 22-14 7 7-22 14Z" fill="#e8d9b7"/>
+<path d="m107 145 5 3m3-8 5 3m3-8 5 3" stroke="#6c8b80" stroke-width="3"/>
+<path d="m146 154 9 4m-13-11 8 6" stroke="#8b8464" stroke-width="3"/>
+<!-- The fenced wedge follows the three physical boundaries. -->
+<path d="m158 274 178-169 171 194Z" fill="#d9d3ac" stroke="#a9b48e" stroke-width="3"/>
+<path d="m177 269 157-150 151 165Z" fill="#c6ceaa"/>
+<path d="m167 270 169-155 160 176-124-10m-42-3-163-8" stroke="#7b8b6d" stroke-width="2" fill="none"/>
+<path d="m167 270v-15m29-13v-16m29-12v-16m29-12v-16m29-12v-16m29-12v-16m24-6v-16m27 44v-17m30 50v-17m30 50v-17m30 50v-17m32 51v-16m-288-5v-15m34 17v-15m34 17v-15m126 23v-15m34 17v-15" stroke="#7b8b6d" stroke-width="3"/>
+<path d="m323 287-2-37 24-23 27 49" fill="#b8b598"/>
+<!-- Control building: brick base, broad windows and a shallow metal roof. -->
+<path d="m266 220 53-35 80 20v58l-52 25-81-22Z" fill="#d0a367" stroke="#6d7052" stroke-width="2"/>
+<path d="m347 240 52-35v58l-52 25Z" fill="#af8756" stroke="#6d7052" stroke-width="2"/>
+<path d="m258 219 59-41 91 23-61 42Z" fill="#708b77" stroke="#3d554c" stroke-width="2"/>
+<path d="m274 216 71 20 45-31m-97-2 71 20m-52-31 71 20" stroke="#91a188" stroke-width="2" fill="none"/>
+<path d="m277 238 57 15v-15l-57-15Z" fill="#a2beb5" stroke="#5c7160" stroke-width="2"/>
+<path d="m294 228v15m20-9v15" stroke="#e6d6ae" stroke-width="3"/>
+<path d="m358 243 29-20v20l-29 18Z" fill="#a2beb5" stroke="#5c7160" stroke-width="2"/>
+<path d="m371 234v19" stroke="#e6d6ae" stroke-width="3"/>
+<path d="m324 254 14 4v26l-14-4Z" fill="#6a806a"/>
+<circle cx="334" cy="271" r="1.5" fill="#e8d9b7"/>
+<path d="M325 191v-39m-11 10h22m-8-7h10" stroke="#637765" stroke-width="3"/><circle cx="325" cy="151" r="3" fill="#cf9b57"/>
+<path d="m233 231 19 5v20l-19-5Z" fill="#a9b89f" stroke="#6b7f66" stroke-width="2"/>
+<path d="m237 239 11 3m-11 4 11 3" stroke="#6b7f66" stroke-width="2"/>
+<!-- The access road curves past the single gate. -->
+<path d="M-22 290c137 3 274 52 402 37 114-13 182-9 282 26" stroke="#a9af9d" stroke-width="67" fill="none"/>
+<path d="M-22 290c137 3 274 52 402 37 114-13 182-9 282 26" stroke="#d8d6c5" stroke-width="51" fill="none"/>
+<path d="M-22 290c137 3 274 52 402 37 114-13 182-9 282 26" stroke="#f8f5e8" stroke-width="3" stroke-dasharray="18 17" fill="none"/>
+<path d="m333 309-3-30 42 2 14 36" fill="#d8d6c5"/>
+<path d="m329 281 0 21m43-19 15 15" fill="none" stroke="#5f7a62" stroke-width="3"/>
+<path d="m325 289 44 3" stroke="#aa7952" stroke-width="3"/>
+<path d="m82 286 31 6 16 14-10 10-41-10Z" fill="#8ca394" stroke="#496457" stroke-width="2"/>
+<path d="m87 287 23 5 9 8-29-7Z" fill="#dbe5d9"/>
+<circle cx="86" cy="305" r="5" fill="#4e6151"/><circle cx="117" cy="312" r="5" fill="#4e6151"/>
+<!-- Elevated railway with piers, parapet, rails and a short train. -->
+<path d="m396 148 0 62 17 11v-65m38 32v66l17 12v-68m39 31v69l17 12v-70m38 30v63l18 12v-61" fill="#a2aa93" stroke="#7b896f" stroke-width="2"/>
+<path d="m359 98 254 184v24L359 121Z" fill="#a7ad96" stroke="#7c8871" stroke-width="2"/>
+<path d="m350 91 15-10 262 190-14 11Z" fill="#d2c9ab" stroke="#7c8871" stroke-width="2"/>
+<path d="m356 91 261 189m-252-196 260 189" stroke="#53695a" stroke-width="2"/>
+<path d="m375 98-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8m25 5-8 8" stroke="#7e806a" stroke-width="2"/>
+<path d="m442 129 13-9 68 48-2 18-15 0-66-46Z" fill="#a66f50" stroke="#675f48" stroke-width="2"/>
+<path d="m442 129 14-9 64 46-12 9Z" fill="#bd9971"/>
+<path d="m448 136 53 37v9l-53-36Z" fill="#c8d8c9"/>
+<path d="m461 145v10m14 0v10m14 0v10" stroke="#715f49" stroke-width="3"/>
+<path d="m512 176 8-6-1 11-7 2Z" fill="#d8dfc8"/>
+<circle cx="453" cy="153" r="4" fill="#4e6151"/><circle cx="500" cy="186" r="4" fill="#4e6151"/>
+<g fill="#94ad89"><ellipse cx="67" cy="244" rx="23" ry="13"/><ellipse cx="46" cy="235" rx="18" ry="14"/><ellipse cx="543" cy="98" rx="26" ry="17"/><ellipse cx="567" cy="106" rx="22" ry="15"/></g>
+<path d="M51 242v23m503 116 9 11m-31-28v32" stroke="#798d6b" stroke-width="4"/>
+<path d="m219 365 5-10 6 11m226-7 7-11 5 10" stroke="#95a77e" stroke-width="3" fill="none" stroke-linecap="round"/>
+</g>
+</svg>

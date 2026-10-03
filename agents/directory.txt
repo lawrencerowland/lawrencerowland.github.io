@@ -14,8 +14,8 @@ Each project keeps its own question, scope and account of what its examples esta
 ## Three entrances
 
 - [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
-- [Library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
-- [Visual atlas](https://lawrencerowland.github.io/explore-visually.html): Pictures and explanations that lead into the same published work.
+- [Methods library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
+- [Project scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
 
 The question, scenario, approach and concept labels below follow the public catalogue. The short boundary notes are editorial orientation; the linked project owns its fuller scope. SMC means symmetric monoidal category; WBS means work breakdown structure. Each example explains how, and how far, it uses its named methods.
 
@@ -190,6 +190,19 @@ The question, scenario, approach and concept labels below follow the public cata
 - Scope and limits: Fictional project trials with inspectable inputs and results. First-version coverage does not establish adoption or practical human benefit.
 - [Open project](https://lawrencerowland.github.io/bracken-vale/) · [Public source](https://github.com/lawrencerowland/bracken-vale) · [Public End, Ways and Means](https://github.com/lawrencerowland/bracken-vale/blob/main/FORAY.md)
 
+## Project scenarios
+
+- [Gimmer refuge](https://lawrencerowland.github.io/project-scenarios/gimmer/): Build a small refuge halfway up a cliff. Enquiries: [Processes to plans](https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html); [Work packages and handovers](https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/); [Other accounts of the refuge](https://lawrencerowland.github.io/gimmer-crag/app-index.html); [Schedule structure](https://lawrencerowland.github.io/project-spines/); [Compare nine approaches](https://lawrencerowland.github.io/gimmer-comparison/).
+- [The farm track](https://lawrencerowland.github.io/project-scenarios/farm-track/): Deliver concrete while the farm carries on. Enquiries: [Tasks, risks and shared access](https://lawrencerowland.github.io/integrated_risks_tasks/).
+- [A wildlife crossing](https://lawrencerowland.github.io/project-scenarios/wildlife-crossing/): Reconnect two habitats across a busy road. Enquiries: [Compose the crossing](https://lawrencerowland.github.io/project-co-design/apps/wildlife-crossing.html); [Construct a delivery path](https://lawrencerowland.github.io/project-co-design/apps/staged-paths.html); [Compare programmes](https://lawrencerowland.github.io/project-co-design/apps/programme-studio.html); [Power the monitoring](https://lawrencerowland.github.io/project-co-design/apps/monitoring-power-loop.html).
+- [A brick rotunda](https://lawrencerowland.github.io/project-scenarios/rotunda/): Build a circular wall, course by course. Enquiries: [Choices and histories](https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/Possible-trajectories1.html#first-try); [What must a state remember?](https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/constructive-state/).
+- [The Tangled Triangle](https://lawrencerowland.github.io/project-scenarios/tangled-triangle/): Fit a control centre onto an awkward site. Enquiries: [Interpret the site](https://lawrencerowland.github.io/local-to-global/tangled-triangle/); [Test the local rules](https://lawrencerowland.github.io/local-to-global/forays/003-tangled-triangle.html#first-try).
+- [Shared waters](https://lawrencerowland.github.io/project-scenarios/shared-waters/): Connect an offshore depot and a power barge. Enquiries: [Join at a boundary](https://lawrencerowland.github.io/shared-dynamics/compose.html); [Compare an organisation](https://lawrencerowland.github.io/shared-dynamics/compare.html); [Make sharing explicit](https://lawrencerowland.github.io/shared-dynamics/interfaces.html).
+- [A wall and its roof](https://lawrencerowland.github.io/project-scenarios/wall-and-roof/): Build a wall that is ready for the next trade. Enquiries: [Keep the interfaces honest](https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/); [One diagram, several meanings](https://lawrencerowland.github.io/building_a_wall/apps/wiring-algebra/); [How a course repeats](https://lawrencerowland.github.io/building_a_wall/apps/course-by-course/).
+- [A tunnel beneath the Solway](https://lawrencerowland.github.io/project-scenarios/solway-tunnel/): Find the work hidden behind a finished tunnel. Enquiries: [From an outcome to its work](https://lawrencerowland.github.io/Solway_tunnel_ontology/).
+- [Moving the museum whale](https://lawrencerowland.github.io/project-scenarios/museum-whale/): Move a whale exhibit before the gallery reopens. Enquiries: [Knowing enough to act together](https://lawrencerowland.github.io/knowing-enough/).
+- [Bracken Vale railway](https://lawrencerowland.github.io/project-scenarios/bracken-vale/): Renew a small railway while services keep running. Enquiries: [Small interventions, useful questions](https://lawrencerowland.github.io/bracken-vale/).
+
 ## Library subjects and further shelves
 
 Library placement means a reusable or more established example has a home; it does not certify the method. A model check, a working interface, mathematical proof and demonstrated human benefit are different kinds of evidence. Read the selected example's assumptions, source uses and limits.
@@ -202,6 +215,7 @@ Library placement means a reusable or more established example has a home; it do
 - [Custom GPTs](https://lawrencerowland.github.io/gpt-links-page.html): coaches, co-pilots and agents for thinking through project work.
 - [Social Debt](https://lawrencerowland.github.io/library/apps/social-debt-explorer/): The code is ready. The team is waiting. Read a paper’s ontology through a software-team situation.
 - [Wider interest](https://lawrencerowland.github.io/wider-interest/): Books, journeys, shapes and small games.
+- [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps and diagrams you work with inside the examples.
 - [About](https://lawrencerowland.github.io/about_me.html): Lawrence Rowland and this collection.
 - [Sitemap](https://lawrencerowland.github.io/sitemap.html): Follow the branches from the front door.
 
@@ -218,6 +232,6 @@ Library placement means a reusable or more established example has a home; it do
 
 ## Reading the pictures
 
-Use a picture to choose a question, then read its caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model's claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
+Working views collects the nets, maps, matrices and screens used inside the examples, rather than project emblems or scene illustrations. Read the caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model’s claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
 
-[Visual atlas descriptions](https://lawrencerowland.github.io/agents/visual-atlas.md): captions, limits, depicted states and source images for 38 views.
+[Working view descriptions](https://lawrencerowland.github.io/agents/visual-atlas.md): captions, limits, depicted states and source images for 38 views.

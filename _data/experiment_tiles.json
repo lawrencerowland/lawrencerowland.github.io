@@ -1,0 +1,97 @@
+{
+  "gimmer-processes-plans": {
+    "image": "/images/experiment-emblems/gimmer-processes-plans.svg",
+    "title": "Gimmer: processes to plans",
+    "description": "Which plans are allowed by the way the work actually happens?"
+  },
+  "integrated-risks-tasks": {
+    "image": "/images/experiment-emblems/integrated-risks-tasks.svg",
+    "title": "Integrated risks & tasks",
+    "description": "Can tasks and threats be understood through one process model?"
+  },
+  "wildlife-crossing": {
+    "image": "/images/experiment-emblems/wildlife-crossing.svg",
+    "title": "Project Co-design",
+    "description": "Can a feasible finished system be delivered through acceptable stages?"
+  },
+  "bricklaying-rotunda": {
+    "image": "/images/experiment-emblems/bricklaying-rotunda.svg",
+    "title": "Bricklaying a Rotunda",
+    "description": "How can we explore changing project states?"
+  },
+  "local-to-global": {
+    "image": "/images/experiment-emblems/local-to-global.svg",
+    "title": "Local to Global",
+    "description": "When do local project views fit together?"
+  },
+  "shared-waters": {
+    "image": "/images/experiment-emblems/shared-waters.svg",
+    "title": "Shared waters: open systems",
+    "description": "What do open-system methods reveal about useful project chunks?"
+  },
+  "programme-decisions": {
+    "image": "/images/experiment-emblems/programme-decisions.svg",
+    "title": "Programme Decision Sequences",
+    "description": "How should a programme act as uncertainty unfolds?"
+  },
+  "gimmer-higher-autonomy": {
+    "image": "/images/experiment-emblems/gimmer-higher-autonomy.svg",
+    "title": "Gimmer: higher-autonomy experiments",
+    "description": "How far can repeated agent-led experiments advance the same aim?"
+  },
+  "project-spines": {
+    "image": "/images/experiment-emblems/project-spines.svg",
+    "title": "Project Spines",
+    "description": "What can schedule structure reveal beyond dates?"
+  },
+  "functors-for-projects": {
+    "image": "/images/experiment-emblems/functors-for-projects.svg",
+    "title": "Functors for Projects",
+    "description": "How might mathematical structures illuminate project work?"
+  },
+  "building-wall": {
+    "image": "/images/experiment-emblems/building-wall.svg",
+    "title": "Building a Wall",
+    "description": "Can explicit interfaces turn project work into reusable blocks?"
+  },
+  "gimmer-broader": {
+    "image": "/images/experiment-emblems/gimmer-broader.svg",
+    "title": "Gimmer: broader collection",
+    "description": "What else must we understand beyond a task list and dates?"
+  },
+  "solway-tunnel": {
+    "image": "/images/experiment-emblems/solway-tunnel.svg",
+    "title": "Solway Tunnel Ontology",
+    "description": "How can a project ontology connect to a plan?"
+  },
+  "portfolio-wave-reading": {
+    "image": "/images/experiment-emblems/portfolio-wave-reading.svg",
+    "title": "Portfolio Wave reading map",
+    "description": "How do sources, themes and projects connect?"
+  },
+  "tag-concurrence": {
+    "image": "/images/experiment-emblems/tag-concurrence.svg",
+    "title": "Tag Concurrence Graph",
+    "description": "Which concepts occur together in reading and app collections?"
+  },
+  "knowing-enough": {
+    "image": "/images/experiment-emblems/knowing-enough.svg",
+    "title": "Knowing enough to act together",
+    "description": "What must each crew know to choose its part of the move?"
+  },
+  "meta-project-innovation": {
+    "image": "/images/experiment-emblems/meta-project-innovation.svg",
+    "title": "Meta Project Innovation",
+    "description": "Which changes to planning could make the project itself better?"
+  },
+  "counterfactual-steering": {
+    "image": "/images/experiment-emblems/counterfactual-steering.svg",
+    "title": "Counterfactual programme steering",
+    "description": "What would change if we chose a different management policy?"
+  },
+  "bracken-vale": {
+    "image": "/images/experiment-emblems/bracken-vale.svg",
+    "title": "Bracken Vale: useful project interventions",
+    "description": "Which small interventions help project people see and do something useful?"
+  }
+}

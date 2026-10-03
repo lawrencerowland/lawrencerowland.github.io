@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Tag Concurrence Graph</title>
+  <desc id="description">Two overlapping constellations connect repeated concepts, with one central theme shared across the clusters.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<ellipse cx="231" cy="206" rx="144" ry="121" fill="#dbe2d1"/><ellipse cx="410" cy="206" rx="144" ry="121" fill="#e5dac1" opacity=".7"/>
+  <path class="fine" d="m135 219 72-102 102 39 11 105-128 40-57-82 174-63m-102-39-15 184m128-40 119 48 78-109-88-85-120 41m120-41 10 194m78-109-208-44m11 105 197-61"/>
+  <g class="paper"><circle cx="135" cy="219" r="15"/><circle cx="207" cy="117" r="19"/><circle cx="192" cy="301" r="15"/><circle cx="429" cy="115" r="15"/><circle cx="517" cy="200" r="20"/><circle cx="439" cy="309" r="15"/></g>
+  <circle class="leaf" cx="309" cy="156" r="23"/><circle class="ochre" cx="320" cy="261" r="27"/>
+</svg>

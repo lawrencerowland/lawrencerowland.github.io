@@ -4,31 +4,105 @@
   "scope": "Each project keeps its own question, scope and account of what its examples establish. An essay here is a trial; a useful result may be a limitation or a failed attempt. Scenarios help people think; future enquiries may change their setting or method. This guide describes the collection and leaves research direction with each project.",
   "evidence": "Library placement means a reusable or more established example has a home; it does not certify the method. A model check, a working interface, mathematical proof and demonstrated human benefit are different kinds of evidence. Read the selected example's assumptions, source uses and limits.",
   "entrances": [
-    {"title": "Experiments", "url": "/side-projects.html", "description": "Open enquiries and exploratory collections, each with its own question and scope."},
-    {"title": "Library", "url": "/library.html", "description": "Reusable methods, bounded worked examples and earlier material, organised by subject."},
-    {"title": "Visual atlas", "url": "/explore-visually.html", "description": "Pictures and explanations that lead into the same published work."}
+    {
+      "title": "Experiments",
+      "url": "/side-projects.html",
+      "description": "Open enquiries and exploratory collections, each with its own question and scope."
+    },
+    {
+      "title": "Methods library",
+      "url": "/library.html",
+      "description": "Reusable methods, bounded worked examples and earlier material, organised by subject."
+    },
+    {
+      "title": "Project scenarios",
+      "url": "/project-scenarios.html",
+      "description": "Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method."
+    }
   ],
-  "visual_guidance": "Use a picture to choose a question, then read its caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model's claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.",
+  "visual_guidance": "Working views collects the nets, maps, matrices and screens used inside the examples, rather than project emblems or scene illustrations. Read the caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model’s claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.",
   "terms": "SMC means symmetric monoidal category; WBS means work breakdown structure. Each example explains how, and how far, it uses its named methods.",
   "projects": {
-    "gimmer-processes-plans": {"limit": "Several process-to-plan constructions share this collection. Their assumptions and coverage differ; read the chosen construction's method and checks."},
-    "integrated-risks-tasks": {"limit": "Toy resource rules, not a probability forecast or a real schedule."},
-    "wildlife-crossing": {"limit": "Synthetic capacities and costs; the model does not predict animal use."},
-    "bricklaying-rotunda": {"limit": "An exploratory collection of dynamics, lenses and trajectories; the chosen model's assumptions define what its paths mean."},
-    "local-to-global": {"limit": "Early AI interpretations and later consistency checks are distinct lines of enquiry. A local-to-global result is tied to its stated model."},
-    "shared-waters": {"limit": "First constructions of boundaries, organisations and shared observations; their computed results concern the supplied examples."},
-    "programme-decisions": {"limit": "The collection distinguishes simulations, tutorials and historical reports. For example, its finite evidence model uses invented payoffs rather than forecasts."},
-    "gimmer-higher-autonomy": {"limit": "Exactness depends on the declared finite object and completed search. Illustrative durations are not verified construction methods.", "scope_links": [{"title": "Public scope and method boundaries", "url": "https://github.com/lawrencerowland/gimmer-crag-project-mountain-refuge/blob/main/README.md"}]},
-    "project-spines": {"limit": "Precedence structure and partition results do not by themselves establish a resource-feasible schedule."},
-    "functors-for-projects": {"limit": "An exploratory collection, not one bounded foray or a complete project-management system. Each construction has its own mathematical and practical limits.", "scope_links": [{"title": "Collection purpose and limits", "url": "https://github.com/lawrencerowland/functors-for_projects/blob/main/README.md"}]},
-    "building-wall": {"limit": "Readiness and interface checks concern the declared construction; they are not evidence of a completed real build."},
-    "gimmer-broader": {"limit": "A collection of different project questions, not one uniform planning model. Read the scope of the selected essay or app."},
-    "solway-tunnel": {"limit": "An ontology, a WBS and a knowledge-graph audit answer different questions; none alone establishes tunnel feasibility."},
-    "portfolio-wave-reading": {"limit": "A public source–project–topic projection. A link suggests a reading connection, not proof that the source establishes a project's claims."},
-    "tag-concurrence": {"limit": "Co-occurrence maps describe the indexed collection and its refresh state; an association is not a causal or semantic proof."},
-    "knowing-enough": {"limit": "The museum scene is provisional. Finite checks distinguish local choice from physical possibility; they do not settle the wider enquiry or demonstrate human benefit.", "scope_links": [{"title": "Public End, Ways and Means", "url": "https://github.com/lawrencerowland/knowing-enough/blob/main/FORAY.md"}]},
-    "meta-project-innovation": {"limit": "Frontier Lab is one early trial of five planning lenses; it does not define the wider foray. Their combined practical value remains open."},
-    "counterfactual-steering": {"limit": "A causal-graph explorer and a separate policy model. Supplied assumptions, fitted data and causal evidence must remain distinct."},
-    "bracken-vale": {"limit": "Fictional project trials with inspectable inputs and results. First-version coverage does not establish adoption or practical human benefit.", "scope_links": [{"title": "Public End, Ways and Means", "url": "https://github.com/lawrencerowland/bracken-vale/blob/main/FORAY.md"}]}
+    "gimmer-processes-plans": {
+      "limit": "Several process-to-plan constructions share this collection. Their assumptions and coverage differ; read the chosen construction's method and checks."
+    },
+    "integrated-risks-tasks": {
+      "limit": "Toy resource rules, not a probability forecast or a real schedule."
+    },
+    "wildlife-crossing": {
+      "limit": "Synthetic capacities and costs; the model does not predict animal use."
+    },
+    "bricklaying-rotunda": {
+      "limit": "An exploratory collection of dynamics, lenses and trajectories; the chosen model's assumptions define what its paths mean."
+    },
+    "local-to-global": {
+      "limit": "Early AI interpretations and later consistency checks are distinct lines of enquiry. A local-to-global result is tied to its stated model."
+    },
+    "shared-waters": {
+      "limit": "First constructions of boundaries, organisations and shared observations; their computed results concern the supplied examples."
+    },
+    "programme-decisions": {
+      "limit": "The collection distinguishes simulations, tutorials and historical reports. For example, its finite evidence model uses invented payoffs rather than forecasts."
+    },
+    "gimmer-higher-autonomy": {
+      "limit": "Exactness depends on the declared finite object and completed search. Illustrative durations are not verified construction methods.",
+      "scope_links": [
+        {
+          "title": "Public scope and method boundaries",
+          "url": "https://github.com/lawrencerowland/gimmer-crag-project-mountain-refuge/blob/main/README.md"
+        }
+      ]
+    },
+    "project-spines": {
+      "limit": "Precedence structure and partition results do not by themselves establish a resource-feasible schedule."
+    },
+    "functors-for-projects": {
+      "limit": "An exploratory collection, not one bounded foray or a complete project-management system. Each construction has its own mathematical and practical limits.",
+      "scope_links": [
+        {
+          "title": "Collection purpose and limits",
+          "url": "https://github.com/lawrencerowland/functors-for_projects/blob/main/README.md"
+        }
+      ]
+    },
+    "building-wall": {
+      "limit": "Readiness and interface checks concern the declared construction; they are not evidence of a completed real build."
+    },
+    "gimmer-broader": {
+      "limit": "A collection of different project questions, not one uniform planning model. Read the scope of the selected essay or app."
+    },
+    "solway-tunnel": {
+      "limit": "An ontology, a WBS and a knowledge-graph audit answer different questions; none alone establishes tunnel feasibility."
+    },
+    "portfolio-wave-reading": {
+      "limit": "A public source–project–topic projection. A link suggests a reading connection, not proof that the source establishes a project's claims."
+    },
+    "tag-concurrence": {
+      "limit": "Co-occurrence maps describe the indexed collection and its refresh state; an association is not a causal or semantic proof."
+    },
+    "knowing-enough": {
+      "limit": "The museum scene is provisional. Finite checks distinguish local choice from physical possibility; they do not settle the wider enquiry or demonstrate human benefit.",
+      "scope_links": [
+        {
+          "title": "Public End, Ways and Means",
+          "url": "https://github.com/lawrencerowland/knowing-enough/blob/main/FORAY.md"
+        }
+      ]
+    },
+    "meta-project-innovation": {
+      "limit": "Frontier Lab is one early trial of five planning lenses; it does not define the wider foray. Their combined practical value remains open."
+    },
+    "counterfactual-steering": {
+      "limit": "A causal-graph explorer and a separate policy model. Supplied assumptions, fitted data and causal evidence must remain distinct."
+    },
+    "bracken-vale": {
+      "limit": "Fictional project trials with inspectable inputs and results. First-version coverage does not establish adoption or practical human benefit.",
+      "scope_links": [
+        {
+          "title": "Public End, Ways and Means",
+          "url": "https://github.com/lawrencerowland/bracken-vale/blob/main/FORAY.md"
+        }
+      ]
+    }
   }
 }

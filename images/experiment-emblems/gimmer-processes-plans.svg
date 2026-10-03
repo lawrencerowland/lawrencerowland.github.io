@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Gimmer: processes to plans</title>
+  <desc id="description">A branching process with a shared token leads to several staggered rows of a possible plan.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path d="M70 284Q147 321 279 293T566 301" fill="none" stroke="#dbe2d1" stroke-width="28"/>
+  <g class="ink"><path d="M95 200h53m22-13 39-45m-39 71 39 45m22-116h51m-51 116h51m20-99 39 41m-39 44 39-44"/></g>
+  <circle class="paper" cx="95" cy="200" r="20"/><circle cx="95" cy="200" r="7" fill="#ad733e"/>
+  <rect class="leaf" x="148" y="177" width="23" height="46" rx="3"/>
+  <circle class="paper" cx="224" cy="132" r="20"/><circle class="paper" cx="224" cy="268" r="20"/>
+  <rect class="ochre" x="272" y="109" width="23" height="46" rx="3"/><rect class="leaf" x="272" y="245" width="23" height="46" rx="3"/>
+  <path class="warm" d="M334 200h43m-11-10 11 10-11 10"/>
+  <path class="ghost" d="M392 102v194M446 102v194M500 102v194M554 102v194"/>
+  <rect class="leaf" x="393" y="127" width="61" height="27" rx="4"/><rect class="pale" x="459" y="182" width="95" height="27" rx="4"/><rect class="ochre" x="422" y="237" width="98" height="27" rx="4"/>
+</svg>

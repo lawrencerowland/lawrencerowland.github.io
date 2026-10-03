@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+<title id="title">A brick wall and timber roof under construction</title>
+<desc id="desc">An unfinished brick building supports exposed timber roof trusses, with tiles covering part of the far roof. A scaffold and ladder provide access; a brick pallet, mortar tub and masonry tools occupy the foreground.</desc>
+<defs><clipPath id="frame"><rect width="640" height="400" rx="24"/></clipPath><pattern id="bricks" width="48" height="28" patternUnits="userSpaceOnUse"><rect width="48" height="28" fill="#b86f50"/><path d="M0 0h48M0 14h48M0 28h48M24 0v14M0 14v14M48 14v14" fill="none" stroke="#e3c5a3" stroke-width="2"/></pattern></defs>
+<g clip-path="url(#frame)"><rect width="640" height="400" fill="#f5f2e8"/>
+<circle cx="89" cy="71" r="28" fill="#cf9b57" opacity=".45"/>
+<path d="M0 182q51-24 104-12t110-5 158 2 136-15 132 9v132H0Z" fill="#b9c6aa" opacity=".6"/>
+<path d="M0 278q151-36 293-21t347-15v158H0Z" fill="#d8d1b7"/>
+<path d="M21 269v-57m40 55v-57m-53 16h69m-69 27h69m490-29h73m-61-12v65m45-65v65m-57-22h73" fill="none" stroke="#899879" stroke-width="3"/>
+<path d="m100 305 304 54 153-84-291-41Z" fill="#39594c" opacity=".1"/>
+<g stroke="#3d554c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="m179 214 280 4 87-45v115l-87 49-280-28Z" fill="#b86f50"/>
+<path d="m179 214 280 4v119l-280-28Z" fill="url(#bricks)"/>
+<path d="m459 218 87-45v115l-87 49Z" fill="#9c634b"/>
+<path d="m459 239 87-44m-87 64 87-45m-87 64 87-45m-87 63 87-44m-87 64 87-44m-61-62v20m-11 6v20m11-7v19m-11 6v20m11-7v19m33-127v20m-12 6v20m12-7v19m-12 6v20m12-7v19" fill="none" stroke="#d1aa84"/>
+<path d="M270 317v-85h67v91" fill="#596d5e"/>
+<path d="M346 248h72v49h-72Z" fill="#f5f2e8"/>
+<path d="M346 273h72m-36-25v49" fill="none" stroke="#cf9b57" stroke-width="5"/>
+<path d="M179 214v-20h68v9h26v11m149 4v-14h37" fill="url(#bricks)"/>
+<path d="m153 194 147-123 178 143m-300-8 279 12m-245-53 187 1m-99-95v143m-46-105 105 106m-102-10 89-87" fill="none" stroke="#9b744a" stroke-width="8"/>
+<path d="m199 174 147-123 177 143m-279-39L391 32l177 142m-268-103 91-39m87 182 90-40m-415 20 91-39m56-84 178 143" fill="none" stroke="#9b744a" stroke-width="7"/>
+<path d="m391 32 177 142-45 20L346 51Z" fill="#39594c"/>
+<path d="m381 39 177 143m-189-137 177 143m-185-113 46-20m-24 37 45-20m-23 38 44-20m-22 38 44-20m-22 38 44-20m-22 38 44-20" fill="none" stroke="#79917a" stroke-width="2"/>
+<path d="m169 218 284 5 1 12-287-7Z" fill="#cf9b57"/>
+<path d="m171 228 283 7m-268-25v133m245-127v136m-123-138v127m-139-101 288 9m-288 15 288 9m-283-2 122 80m-122 0 122-80m0 0 123 89m-123-9 123-80m-261 91h32m217 9h30m-151-8h30" fill="none" stroke="#708779" stroke-width="3"/>
+<path d="m477 337 59-123m-42 128 59-123m-66 103 18 5m-12-19 18 5m-11-19 18 5m-12-19 18 5m-11-19 18 5m-11-19 18 5m-12-19 18 5" fill="none" stroke="#cf9b57" stroke-width="4"/>
+<path d="m65 324 83-19 57 16-80 24Z" fill="#c0a179"/>
+<path d="m65 324 60 21 80-24v14l-80 25-60-23Z" fill="#a98b60"/>
+<path d="m76 325 1 14m24-7v17m44-10v16m30-25v16" fill="none"/>
+<path d="m80 296 73-18 40 13v30l-73 20-40-15Z" fill="#b86f50"/>
+<path d="m80 296 40 14 73-19m-73 19v31m-40-30 40 14 73-20m-94-31v16m49-20v15m25-21v15m-65 17v15m40-13v15m26-22v15" fill="none" stroke="#e3c5a3"/>
+<path d="M369 350h66l-8 27h-49Z" fill="#899879"/><ellipse cx="402" cy="350" rx="33" ry="9" fill="#a6aa96"/>
+<path d="m417 348 14-26m-42 28 4-15 10 14Z" fill="#d8d1b7"/>
+<path d="m273 355 46 9m-30-19 2 13-18-4 2-10Z" fill="#39594c"/>
+<path d="m319 363 17 5" fill="none" stroke="#cf9b57" stroke-width="6"/>
+</g>
+<g stroke="#899879" stroke-width="2" fill="none"><path d="m34 365 4-14m-3 13 10-7m528 9 4-14m-2 13 12-5m33-20-2-14m2 14 9-9"/></g>
+</g></svg>

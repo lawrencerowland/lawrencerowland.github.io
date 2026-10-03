@@ -9,16 +9,16 @@ Library placement means a reusable or more established example has a home; it do
 ## Three entrances
 
 - [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
-- [Library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
-- [Visual atlas](https://lawrencerowland.github.io/explore-visually.html): Pictures and explanations that lead into the same published work.
+- [Methods library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
+- [Project scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
 
 ## Orientation
 
 - [Agent welcome and sitemap](https://lawrencerowland.github.io/sitemap.html#for-agents): the human-facing guide and the tree of existing homes.
-- [Project and Library directory](https://lawrencerowland.github.io/agents/directory.md): 19 project entrances with questions, scenarios, concepts and limits; 5 Library subjects plus Custom GPTs and the further shelves. Follow each project’s public scope; some have their own End, Ways and Means.
-- [Visual atlas descriptions](https://lawrencerowland.github.io/agents/visual-atlas.md): 38 pictured views, with captions, what to look for, limits, depicted states, image URLs and canonical example URLs.
+- [Project and Library directory](https://lawrencerowland.github.io/agents/directory.md): 19 project entrances with questions, scenarios, concepts and limits; 10 concrete settings; 5 Library subjects plus Custom GPTs and the further shelves. Follow each project’s public scope; some have their own End, Ways and Means.
+- [Working view descriptions](https://lawrencerowland.github.io/agents/visual-atlas.md): 38 pictured views, with captions, what to look for, limits, depicted states, image URLs and canonical example URLs.
 
-Use a picture to choose a question, then read its caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model's claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
+Working views collects the nets, maps, matrices and screens used inside the examples, rather than project emblems or scene illustrations. Read the caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model’s claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
 
 ## Optional
 

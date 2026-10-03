@@ -4,7 +4,7 @@
     "title": "Social Debt",
     "url": "/library/apps/social-debt-explorer/",
     "image": "/library/apps/social-debt-explorer/assets/team-release-scene.jpg",
-    "description": "The code is ready. The team is waiting. Read a paper\u2019s ontology through a software-team situation."
+    "description": "The code is ready. The team is waiting. Read a paper’s ontology through a software-team situation."
   },
   {
     "id": "wider-interest",
@@ -12,6 +12,13 @@
     "url": "/wider-interest/",
     "image": "/images/navigation/wider-interest.svg",
     "description": "Books, journeys, shapes and small games."
+  },
+  {
+    "id": "working-views",
+    "title": "Working views",
+    "url": "/explore-visually.html",
+    "image": "/images/visual-explorer/boundary-net-thumb.webp",
+    "description": "The nets, maps and diagrams you work with inside the examples."
   },
   {
     "id": "about",

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Shared waters: open systems</title>
+  <desc id="description">Three separate system boundaries meet through explicit shared ports, while each keeps its internal structure.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<rect class="pale" x="77" y="99" width="149" height="202" rx="35"/>
+  <rect class="paper" x="246" y="99" width="149" height="202" rx="35"/>
+  <rect class="pale" x="415" y="99" width="149" height="202" rx="35"/>
+  <path class="ink" d="m111 234 46-85 69 51h60l35-51 34 51h60l60 41 55-88M321 149v108m154-16 12-91"/>
+  <g class="paper"><circle cx="111" cy="234" r="12"/><circle cx="157" cy="149" r="12"/><circle cx="321" cy="149" r="12"/><circle cx="321" cy="257" r="12"/><circle cx="475" cy="241" r="12"/><circle cx="530" cy="153" r="12"/></g>
+  <rect class="ochre" x="215" y="180" width="42" height="40" rx="8"/><rect class="ochre" x="384" y="180" width="42" height="40" rx="8"/>
+</svg>

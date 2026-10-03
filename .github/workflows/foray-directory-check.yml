@@ -11,6 +11,13 @@ on:
       - '_data/project_questions.yml'
       - '_data/worked_examples.yml'
       - 'images/scenarios/**'
+      - 'images/experiment-emblems/**'
+      - 'images/project-scenarios/**'
+      - '_data/experiment_tiles.json'
+      - '_data/project_scenarios.json'
+      - 'project-scenarios.md'
+      - 'project-scenarios/**'
+      - 'tests/scenario-entrances.test.cjs'
       - '_includes/**'
       - '_layouts/**'
       - 'side-projects.md'
@@ -107,6 +114,13 @@ on:
       - '_data/project_questions.yml'
       - '_data/worked_examples.yml'
       - 'images/scenarios/**'
+      - 'images/experiment-emblems/**'
+      - 'images/project-scenarios/**'
+      - '_data/experiment_tiles.json'
+      - '_data/project_scenarios.json'
+      - 'project-scenarios.md'
+      - 'project-scenarios/**'
+      - 'tests/scenario-entrances.test.cjs'
       - '_includes/**'
       - '_layouts/**'
       - 'side-projects.md'
@@ -218,6 +232,7 @@ jobs:
         run: |
           node tools/agent-orientation/generate.cjs --check
           node tests/agent-orientation.test.cjs
+          node tests/scenario-entrances.test.cjs
       - name: Check Library app preservation and legacy routes
         run: node tests/library-app-retirement.test.cjs
       - name: Check retained example and writing routes
@@ -339,7 +354,9 @@ jobs:
           node tests/legacy-app-routes.test.cjs _site
           node tests/handover-pack.test.cjs _site
       - name: Check the rendered agent entrance
-        run: node tests/agent-orientation.test.cjs _site
+        run: |
+          node tests/agent-orientation.test.cjs _site
+          node tests/scenario-entrances.test.cjs _site
       - name: Check the rendered visual explorer
         run: node tests/visual-explorer.test.cjs _site
       - name: Check rendered Library app routes

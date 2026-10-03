@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Project Co-design</title>
+  <desc id="description">A sequence of incomplete spans rises toward a complete bridge, with a second possible route of stages.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path class="ghost" d="M97 290h101l95-90 106 25 138-90"/>
+  <path class="warm" d="M97 290 215 236l104-54 99-52h119"/>
+  <g class="paper"><rect x="75" y="258" width="61" height="58" rx="5"/><rect x="184" y="207" width="61" height="58" rx="5"/><rect x="287" y="153" width="61" height="58" rx="5"/></g>
+  <g class="fine"><path d="M89 298v-25h18m94-23v-28h31v28m69-53v-30h33v30"/></g>
+  <circle class="pale" cx="294" cy="201" r="7"/><circle class="pale" cx="399" cy="225" r="11"/>
+  <path d="M395 270V141q74-116 154 0v129h-34V152q-41-65-87 0v118Z" fill="#dbe2d1" stroke="#294c40" stroke-width="4"/>
+  <path class="warm" d="M394 141q77-119 155 0"/><path class="ink" d="M381 270h61m59 0h61"/>
+</svg>

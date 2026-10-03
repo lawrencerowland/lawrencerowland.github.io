@@ -123,8 +123,8 @@ vm.runInNewContext(script, { document: { getElementById: () => null } });
 
 if (process.argv[2]) {
   const html = fs.readFileSync(process.argv[2], 'utf8');
-  assert.equal((html.match(/class="example-card foray-card"/g) || []).length, projects.length);
-  assert.equal((html.match(/class="foray-grid"/g) || []).length, 1);
+  assert.equal((html.match(/class="pw-picture-card foray-card"/g) || []).length, projects.length);
+  assert.equal((html.match(/class="pw-picture-grid"/g) || []).length, 1);
   assert.equal((html.match(/class="foray-group"/g) || []).length, 1);
   assert.equal((html.match(/class="foray-empty"/g) || []).length, 1);
   assert.match(html, directoryTitle);
@@ -135,7 +135,7 @@ if (process.argv[2]) {
     assert.ok(html.includes(`id="question-${q.id}"`));
   }
   assert.match(html, /<details class="foray-question-routes"/);
-  const renderedCards = [...html.matchAll(/<article class="example-card foray-card"[\s\S]*?<\/article>/g)].map(match => match[0]);
+  const renderedCards = [...html.matchAll(/<article class="pw-picture-card foray-card"[\s\S]*?<\/article>/g)].map(match => match[0]);
   assert.equal(renderedCards.length, projects.length);
   assert.ok(!html.includes('href="/library.html#earlier-app-collections"'), 'collections use their single Library home');
   for (const collection of collections) assert.ok(!renderedCards.some(card => card.includes(collection.path)), 'generic collections move out of the project grid');
@@ -145,22 +145,19 @@ if (process.argv[2]) {
     const card = renderedCards[index];
     assert.ok(card.includes(`id="${project.id}"`), `stable entry anchor: ${project.id}`);
     assert.ok(card.includes(`href="${escapeHTML(project.path)}"`), `missing rendered link: ${project.title}`);
-    assert.ok(card.includes(`src="${escapeHTML(project.tile_image || project.image)}"`), `missing image: ${project.title}`);
-    for (const field of ['title', 'scenario', 'question', 'description', 'action']) {
-      assert.ok(card.includes(escapeHTML(project[field])), `missing ${field}: ${project.title}`);
+    const tile = JSON.parse(fs.readFileSync('_data/experiment_tiles.json', 'utf8'))[project.id];
+    assert.ok(card.includes(`src="${tile.image}"`), `enquiry emblem: ${project.title}`);
+    assert.ok(card.includes(escapeHTML(tile.title)), `tile title: ${project.id}`);
+    assert.ok(card.includes(escapeHTML(tile.description)), `short question: ${project.id}`);
+    assert.ok(card.includes(`aria-describedby="${project.id}-description"`), `accessible one-line descriptor: ${project.id}`);
+    const notes = html.match(new RegExp(`<section id="notes-${project.id}">[\\s\\S]*?<\\/section>`))?.[0];
+    assert.ok(notes, 'preserved project notes: ' + project.id);
+    for (const field of ['title', 'scenario', 'question', 'description', 'entry_purpose', 'origin']) {
+      if (project[field]) assert.ok(notes.includes(escapeHTML(project[field])), `retained explanation ${field}: ${project.id}`);
     }
-    assert.ok(card.includes('<summary>About this project</summary>'), `missing disclosure: ${project.title}`);
-    const invitation = card.split('<details')[0];
-    const descriptionIds = `${project.id}-question${project.entry_purpose ? ` ${project.id}-purpose` : ''}`;
-    assert.ok(invitation.includes(`aria-describedby="${descriptionIds}"`), `link announces its question/purpose: ${project.id}`);
-    for (const id of descriptionIds.split(' ')) assert.ok(invitation.includes(`id="${id}"`), `description target: ${id}`);
-    assert.ok(invitation.includes(escapeHTML(project.entry_question || project.question)), `question visible before disclosure: ${project.id}`);
-    if (project.entry_purpose) assert.ok(invitation.includes(escapeHTML(project.entry_purpose)), `purpose visible before disclosure: ${project.id}`);
-    assert.equal((card.match(/class="foray-entry-question"/g) || []).length, 1, `one visible question: ${project.id}`);
-    if (project.origin) assert.ok(card.includes(escapeHTML(project.origin)), `missing origin: ${project.title}`);
     for (const link of project.related || []) {
-      assert.ok(card.includes(`href="${escapeHTML(link.path)}"`), `missing related route: ${project.title}`);
-      assert.ok(card.includes(escapeHTML(link.title)), `missing related title: ${project.title}`);
+      assert.ok(notes.includes(`href="${escapeHTML(link.path)}"`), `related route: ${project.id}`);
+      assert.ok(notes.includes(escapeHTML(link.title)), `related title: ${project.id}`);
     }
   }
   for (const id of ['gimmer-projects', 'featured-forays', 'playgrounds', 'other-projects']) {
@@ -179,7 +176,7 @@ if (process.argv[2]) {
   assert.deepEqual(topicOptions, expectedTags, 'filter offers only topics with a displayed project');
   if (process.argv[3]) {
     const library = fs.readFileSync(process.argv[3], 'utf8');
-    const keptCards = [...library.matchAll(/<article class="example-card foray-card"[\s\S]*?<\/article>/g)].map(m => m[0]);
+    const keptCards = [...library.matchAll(/<article class="pw-picture-card foray-card"[\s\S]*?<\/article>/g)].map(m => m[0]);
     assert.equal(keptCards.length, collections.length);
     for (const [i, project] of collections.entries()) {
       const card = keptCards[i];

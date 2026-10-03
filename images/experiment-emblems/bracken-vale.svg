@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Bracken Vale: useful project interventions</title>
+  <desc id="description">A small adjustable junction links an inspectable evidence card, a relationship map and a practical next move.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path class="ink" d="M98 277h425M98 297h425M297 277q30-58 73-90l119-83M312 297q33-63 72-91l119-83"/>
+  <path class="fine" d="M117 270v34m32-34v34m32-34v34m32-34v34m32-34v34m99-69 24 23m2-52 25 24m3-47 23 26m6-48 21 27m7-47 20 27m-94 120v34m32-34v34m32-34v34m32-34v34m32-34v34"/>
+  <path class="warm" d="m291 287 55-50"/><circle class="ochre" cx="291" cy="287" r="15"/>
+  <rect class="paper" x="113" y="85" width="112" height="105" rx="8"/><path class="fine" d="M135 109h65m-65 20h65m-65 20h39m-39 20h51"/>
+  <path class="ghost" d="m225 161 53 28 26 55"/>
+  <path class="fine" d="m284 101 47 30 22-58m-22 58 34 25"/>
+  <circle class="leaf" cx="284" cy="101" r="10"/><circle class="paper" cx="331" cy="131" r="13"/><circle class="ochre" cx="353" cy="73" r="10"/><circle class="paper" cx="365" cy="156" r="10"/>
+</svg>

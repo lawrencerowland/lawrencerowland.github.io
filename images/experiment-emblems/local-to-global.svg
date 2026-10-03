@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Local to Global</title>
+  <desc id="description">Three overlapping local frames share nodes and connections through their common region.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<rect x="107" y="82" width="230" height="180" rx="14" fill="#dbe2d1"/>
+  <rect x="303" y="82" width="230" height="180" rx="14" fill="#e5dac1"/>
+  <rect x="205" y="166" width="230" height="168" rx="14" fill="#fffaf0"/>
+  <g class="fine"><rect x="107" y="82" width="230" height="180" rx="14"/><rect x="303" y="82" width="230" height="180" rx="14"/><rect x="205" y="166" width="230" height="168" rx="14"/></g>
+  <path class="ink" d="M157 133 244 213 320 124 396 213 483 133M244 213l76 80 76-80M244 213h152M320 124v169"/>
+  <g class="paper"><circle cx="157" cy="133" r="13"/><circle cx="483" cy="133" r="13"/><circle cx="320" cy="293" r="13"/></g>
+  <g class="leaf"><circle cx="244" cy="213" r="15"/><circle cx="396" cy="213" r="15"/><circle cx="320" cy="124" r="15"/></g>
+  <circle class="ochre" cx="320" cy="213" r="22"/>
+</svg>

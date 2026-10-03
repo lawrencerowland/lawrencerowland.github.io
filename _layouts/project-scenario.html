@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{% assign scenario = site.data.project_scenarios | where: 'id', page.scenario_id | first %}
+<div class="pw-home pw-scenario" id="home-main" tabindex="-1">
+  <nav class="pw-breadcrumb" aria-label="Breadcrumb"><a href="{{ '/project-scenarios.html' | relative_url }}">Project scenarios</a> <span aria-hidden="true">/</span> <span>{{ scenario.title | escape }}</span></nav>
+  <header class="pw-page-heading">
+    <h1>{{ scenario.title | escape }}</h1>
+    <p>{{ scenario.description | escape }}</p>
+  </header>
+
+  <figure class="pw-scenario-hero">
+    <img src="{{ scenario.image | relative_url }}" alt="{{ scenario.image_alt | escape }}" decoding="async" fetchpriority="high">
+    <figcaption>Illustrative scene. The linked enquiries state their own models and assumptions.</figcaption>
+  </figure>
+
+  <div class="pw-scenario-introduction">
+    <p>{{ scenario.predicament | escape }}</p>
+    <p>{{ scenario.motivation | escape }}</p>
+  </div>
+
+  <section aria-labelledby="scenario-enquiries">
+    <h2 id="scenario-enquiries">Explore the questions</h2>
+    <p class="pw-gallery-instruction"><span class="pw-gallery-desktop">Hover over a tile for details. Click to enter.</span><span class="pw-gallery-touch">Tap a tile to enter.</span></p>
+    <div class="pw-picture-grid" aria-label="Enquiries using this scenario">
+      {% for project in scenario.projects %}
+        {% capture tile_id %}{{ scenario.id }}-{{ project.id }}{% endcapture %}
+        {% assign experiment_tile = site.data.experiment_tiles[project.project_id] %}
+        {% if experiment_tile %}
+          {% include picture-tile.html tile_id=tile_id title=project.title description=project.description url=project.url image=experiment_tile.image image_alt="" variant="emblem" %}
+        {% else %}
+          {% include picture-tile.html tile_id=tile_id title=project.title description=project.description url=project.url image=project.image image_alt=project.image_alt variant="scenario" %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="pw-scenario-notes">
+    <p>{{ scenario.limitation | escape }}</p>
+    <details>
+      <summary>Sources for this scenario</summary>
+      <ul>
+        {% for source in scenario.sources %}
+          <li><a href="{{ source.url | relative_url }}">{{ source.title | escape }}</a></li>
+        {% endfor %}
+      </ul>
+    </details>
+  </div>
+  <p class="pw-route-note"><a href="{{ '/project-scenarios.html' | relative_url }}">All project scenarios</a></p>
+</div>

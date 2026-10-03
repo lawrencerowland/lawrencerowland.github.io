@@ -1,0 +1,8 @@
+{% assign picture_id = include.tile_id | default: include.title | slugify %}
+<article class="pw-picture-card {{ include.card_class }}" id="{{ picture_id | escape }}"{% if include.tags %} data-tags="{{ include.tags | escape }}"{% endif %}>
+  {% if include.legacy_anchor and include.legacy_anchor != '' %}<span class="foray-legacy-anchor" id="{{ include.legacy_anchor | escape }}" aria-hidden="true"></span>{% endif %}
+  <a class="pw-picture-tile {{ include.variant }}" href="{{ include.url | relative_url }}" aria-labelledby="{{ picture_id }}-title" aria-describedby="{{ picture_id }}-description">
+    <span class="pw-picture-image"><img src="{{ include.image | relative_url }}" alt="" width="640" height="400" loading="lazy" decoding="async"></span>
+    <span class="pw-picture-caption"><strong id="{{ picture_id }}-title">{{ include.title | escape }}</strong><span id="{{ picture_id }}-description">{{ include.description | escape }}</span></span>
+  </a>
+</article>

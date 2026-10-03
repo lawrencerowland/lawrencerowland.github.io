@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Counterfactual programme steering</title>
+  <desc id="description">One starting state branches into two policy interventions and contrasting modelled outcome paths.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<path d="M274 82h271v112H274Zm0 145h271v112H274Z" fill="#dbe2d1"/>
+  <path class="ink" d="M100 200h100q43 0 69-57h61m-130 57q43 0 69 57h61"/>
+  <circle class="leaf" cx="100" cy="200" r="24"/>
+  <rect class="paper" x="300" y="115" width="58" height="58" rx="7"/><rect class="paper" x="300" y="228" width="58" height="58" rx="7"/>
+  <path class="fine" d="M316 143h26m-26 114h26"/><circle cx="323" cy="143" r="6" fill="#ad733e"/><circle cx="335" cy="257" r="6" fill="#ad733e"/>
+  <path class="warm" d="M359 143h30l35-30 34 10 43-31"/>
+  <path class="fine" d="M359 257h30l35 34 34-12 43 30"/>
+  <circle class="ochre" cx="501" cy="92" r="11"/><circle class="paper" cx="501" cy="309" r="11"/>
+  <path class="ghost" d="M388 143h125M388 257h125"/>
+</svg>

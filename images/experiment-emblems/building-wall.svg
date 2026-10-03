@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Building a Wall</title>
+  <desc id="description">Reusable modules connect through matching exposed ports; a lower module has the same interface ready for reuse.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<rect class="paper" x="93" y="111" width="167" height="134" rx="9"/><rect class="paper" x="379" y="111" width="167" height="134" rx="9"/>
+  <path class="fine" d="M116 156h119m-119 44h119m-90-66v22m59 0v44m-59 0v22M404 209v-36l58-35 58 35v36"/>
+  <path class="warm" d="M278 178h82"/>
+  <rect class="ochre" x="244" y="155" width="34" height="46" rx="5"/><rect class="ochre" x="360" y="155" width="34" height="46" rx="5"/>
+  <rect class="pale" x="236" y="283" width="167" height="44" rx="7"/><rect class="ochre" x="387" y="283" width="34" height="44" rx="5"/>
+  <path class="ghost" d="M422 305h60q42 0 42-38v-11"/>
+  <path class="fine" d="M257 305h109"/>
+</svg>

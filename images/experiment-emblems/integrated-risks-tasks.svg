@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title description">
+  <title id="title">Integrated risks &amp; tasks</title>
+  <desc id="description">Two distinct process routes converge on one shared resource gate before diverging again.</desc>
+  <style>
+    path,line,polyline,polygon,rect,circle,ellipse{stroke-linecap:round;stroke-linejoin:round}
+    .ink{fill:none;stroke:#294c40;stroke-width:4}
+    .fine{fill:none;stroke:#658777;stroke-width:3}
+    .paper{fill:#fffaf0;stroke:#294c40;stroke-width:4}
+    .leaf{fill:#658777;stroke:#294c40;stroke-width:4}
+    .pale{fill:#dbe2d1;stroke:#658777;stroke-width:3}
+    .ochre{fill:#c6a565;stroke:#294c40;stroke-width:4}
+    .warm{fill:none;stroke:#ad733e;stroke-width:5}
+    .ghost{fill:none;stroke:#9caa94;stroke-width:3;stroke-dasharray:7 9}
+  </style>
+  <rect width="640" height="400" fill="#eeeadd"/>
+<rect x="271" y="70" width="99" height="260" rx="48" fill="#dbe2d1"/>
+  <path class="ink" d="M94 117h92q45 0 80 48l34 35m40 0 34-35q35-48 80-48h92"/>
+  <path class="warm" d="M94 283h92q45 0 80-48l34-35m40 0 34 35q35 48 80 48h92"/>
+  <circle class="leaf" cx="101" cy="117" r="21"/><rect class="paper" x="175" y="98" width="40" height="38" rx="4"/>
+  <path class="ochre" d="m101 259 25 24-25 24-25-24Z"/><rect class="paper" x="175" y="264" width="40" height="38" rx="4"/>
+  <rect class="paper" x="295" y="153" width="50" height="94" rx="7"/><circle cx="320" cy="200" r="12" fill="#ad733e"/>
+  <rect class="leaf" x="424" y="98" width="40" height="38" rx="4"/><circle class="paper" cx="539" cy="117" r="21"/>
+  <rect class="ochre" x="424" y="264" width="40" height="38" rx="4"/><circle class="paper" cx="539" cy="283" r="21"/>
+</svg>

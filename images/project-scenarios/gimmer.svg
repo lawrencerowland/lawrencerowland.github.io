@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+<title id="title">A timber refuge on Gimmer Crag</title>
+<desc id="desc">A small timber refuge is taking shape on a narrow mountain ledge. A derrick lifts a bundle of boards from below while the unfinished roof frame stands against the distant fells.</desc>
+<rect width="640" height="400" rx="24" fill="#f5f2e8"/>
+<defs><clipPath id="frame"><rect width="640" height="400" rx="24"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<circle cx="503" cy="65" r="27" fill="#e1bd80" opacity=".6"/>
+<path d="M83 205 200 76l54 66 70-105 84 112 55-51 118 122 59-52v232H83Z" fill="#dce2d2"/>
+<path d="m278 153 46-116 84 112-63-42-25 31-20-14Z" fill="#eeeee3"/>
+<path d="m347 264 70-84 64 56 76-123 83 80v207H328Z" fill="#bbcbbb"/>
+<path d="m557 113-28 65 26-15 18 20 17-19Z" fill="#e5e8db"/>
+<path d="M0 22 72 0l70 65-24 60 73 85 55 31 94 12 57 13-56 50-64 11-44 73H0Z" fill="#a5ad96"/>
+<path d="m0 173 64-46 27 39 34-13 35 57 68 40-12 68-74 82H0Z" fill="#858f7c"/>
+<path d="m23 90 28 13 21 49m21-98-22 30 20 42m-62 93 42-23 21 21m-45 89 57-33 24 12m-80 66 49-21 22 7" fill="none" stroke="#6e806d" stroke-width="3" stroke-linejoin="round"/>
+<path d="m112 247 117-24 145 8 86 27-12 16-152 11-105-6-79-17Z" fill="#d3c6a5"/>
+<path d="m191 279 105 6 152-11-80 44-89 82H146l50-78Z" fill="#9ca48d"/>
+<path d="m258 301 23 29-29 45m71-70-30 47-2 42m-113-91 28 15-17 38" fill="none" stroke="#7d8c76" stroke-width="3"/>
+<!-- Refuge floor and timber skeleton. -->
+<path d="m209 233 67-28 133 24-65 33Z" fill="#9c784d" stroke="#685d42" stroke-width="2"/>
+<path d="m219 231 60-23 119 22-54 26Z" fill="#cfaa73"/>
+<path d="m231 228 116 22m-94-32 116 23m-92-32 115 22" stroke="#ad895b" stroke-width="2"/>
+<path d="M224 236v-87l61-28 111 26v90m-111-29v-87m59 136v-86" fill="none" stroke="#856641" stroke-width="8" stroke-linejoin="round"/>
+<path d="m217 153 64-66 123 61m-179-1 119 25 60-24m-60 24-63-85m-6 36 65 49m-11-61 41 51" fill="none" stroke="#c09357" stroke-width="7" stroke-linejoin="round"/>
+<path d="m283 86 38 19 62 57-38 9Z" fill="#6e8473"/>
+<path d="m300 98 61 62m-43-53 57 51" stroke="#8ba08a" stroke-width="2"/>
+<path d="m223 183 58-27v55l-58 25Z" fill="#cca16b" stroke="#856641" stroke-width="2"/>
+<path d="m230 191 45-20m-45 31 45-20m-45 31 45-20m-45 31 45-20" stroke="#a27a4d" stroke-width="2"/>
+<path d="m344 202 50-22v54l-50 24Z" fill="#d5b47e" stroke="#856641" stroke-width="2"/>
+<path d="m351 211 37-17m-37 29 37-18m-37 29 37-17" stroke="#ac8558" stroke-width="2"/>
+<!-- Hoist above the drop, with a suspended bundle. -->
+<path d="M439 265V112m-37 153 37-110 48 110m-70-141 80-29" fill="none" stroke="#685d42" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="m440 114 54-17m-55 55 57-53" stroke="#b18d59" stroke-width="3"/>
+<circle cx="493" cy="100" r="8" fill="#d3bf96" stroke="#4f5f50" stroke-width="3"/>
+<path d="M493 104v211m-4-211-47 110" fill="none" stroke="#596555" stroke-width="2"/>
+<circle cx="440" cy="216" r="11" fill="#d2af72" stroke="#596555" stroke-width="3"/>
+<path d="m437 216 12 5 6-5" fill="none" stroke="#596555" stroke-width="3"/>
+<path d="m493 315-27 19m27-19 37 17" fill="none" stroke="#596555" stroke-width="2"/>
+<path d="m456 331 72-7 7 18-72 7Z" fill="#bd925b" stroke="#7c6946" stroke-width="2"/>
+<path d="m460 337 70-7m-68 13 70-7m-58-8 5 19m30-23 6 20" stroke="#786449" stroke-width="2"/>
+<!-- Small human scale, supplies and mountain tufts. -->
+<circle cx="307" cy="186" r="6" fill="#9d7753"/><path d="M299 184a8 8 0 0 1 16 0Z" fill="#e2bc70"/>
+<path d="m302 194 12 1 4 23-17 1Z" fill="#526f60"/><path d="m304 219-3 19m12-19 5 15m-2-35 11-14" stroke="#3d554c" stroke-width="4" stroke-linecap="round"/>
+<path d="m158 247 34-6 10 6-34 7Z" fill="#d3ab70" stroke="#8f744f" stroke-width="2"/>
+<path d="m154 254 42-6 9 7-43 6Z" fill="#d3ab70" stroke="#8f744f" stroke-width="2"/>
+<path d="m140 231 4-10 6 8m-27 16 2-10 7 9m250 29 6-11 5 9" stroke="#627b5e" stroke-width="3" fill="none" stroke-linecap="round"/>
+</g>
+</svg>

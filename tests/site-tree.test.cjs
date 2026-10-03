@@ -16,10 +16,11 @@ const materials = json('_data/library_materials.json');
 const additional = json('_data/library_additional.json');
 const wider = json('_data/wider_interest.json');
 const atlas = json('_data/visualisations.json');
+const scenarios = json('_data/project_scenarios.json');
 const projects = yaml('_data/side_projects.yml').filter(item => item.placement === 'project').sort((a, b) => a.gallery_order - b.gallery_order);
 const worked = yaml('_data/worked_examples.yml');
 const articles = json('_data/historical_articles.yml');
-const entrances = [['Experiments', '/side-projects.html'], ['Library', '/library.html'], ['Visual atlas', '/explore-visually.html']];
+const entrances = [['Experiments', '/side-projects.html'], ['Methods library', '/library.html'], ['Project scenarios', '/project-scenarios.html']];
 const clean = value => value.replace(/\s+/g, ' ').trim();
 const sourceHref = value => value.replace(/\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}/, '$1');
 const sourceDocument = file => new JSDOM(read(file).replace(/^---\r?\n[\s\S]*?\r?\n---/, '')).window.document;
@@ -88,13 +89,14 @@ test('all eight Wider entries have a pictured home with their established destin
   assert.ok(!gallery.includes('More Project Apps'), 'the retired collection is not an additional gallery');
 });
 
-test('Library retains six subjects and four additional pictured tiles, with Sitemap last', () => {
+test('Library retains six subjects and five additional pictured tiles, with Sitemap last', () => {
   assert.equal(themes.length, 5);
   assert.equal(apps.length, 52);
   assert.equal(materials.length, 22);
   assert.deepEqual(additional.map(entry => [entry.id, entry.url]), [
     ['social-debt', '/library/apps/social-debt-explorer/'],
     ['wider-interest', '/wider-interest/'],
+    ['working-views', '/explore-visually.html'],
     ['about', '/about_me.html'],
     ['site-map', '/sitemap.html']
   ]);
@@ -111,7 +113,7 @@ test('the sitemap resolves project, Library and picture branches from current me
   const sitemap = read('sitemap.md'), resolver = read('_includes/site-map-entry.html');
   const d = sourceDocument('sitemap.md');
   assert.deepEqual([...d.querySelectorAll('.pw-map-branch > h2 > a')].map(a => [clean(a.textContent), sourceHref(a.getAttribute('href'))]), entrances);
-  for (const field of ['site.data.side_projects', "where: 'placement', 'project'", "sort: 'gallery_order'", 'project.related', 'site.data.library_themes', 'site.data.library_apps', 'site.data.library_materials', "where: 'theme', theme.id", "sort: 'order'", 'site.data.library_additional', 'site.data.wider_interest', 'site.data.visualisations']) assert.ok(sitemap.includes(field), 'sitemap is driven by ' + field);
+  for (const field of ['site.data.side_projects', "where: 'placement', 'project'", "sort: 'gallery_order'", 'project.related', 'site.data.library_themes', 'site.data.library_apps', 'site.data.library_materials', "where: 'theme', theme.id", "sort: 'order'", 'site.data.library_additional', 'site.data.wider_interest', 'site.data.visualisations', 'site.data.project_scenarios']) assert.ok(sitemap.includes(field), 'sitemap is driven by ' + field);
   assert.match(sitemap, /site\.data\.library_themes\s*\|\s*size\s*\|\s*plus:\s*1/, 'subject count follows the five subject records plus Custom GPTs');
   assert.ok(sitemap.includes('include site-map-entry.html entry=entry'));
   for (const field of ['site.data.worked_examples', 'worked.canonical_url', 'site.data.historical_articles', 'article.url']) assert.ok(resolver.includes(field), 'entry resolver uses ' + field);
@@ -145,11 +147,11 @@ if (process.argv[2]) {
   const picturedCards = (cards, records) => {
     assert.equal(cards.length, records.length);
     for (const [index, entry] of records.entries()) {
-      const card = cards[index], link = card.querySelector('a.pw-home-tile-link'), title = card.querySelector('h2'), img = card.querySelector('img');
+      const card = cards[index], link = card.querySelector('a'), title = card.querySelector('h2, .pw-picture-caption strong'), img = card.querySelector('img');
       assert.equal(clean(title.textContent), entry.title);
       assert.equal(link.href, absolute(entry.url));
       assert.equal(link.getAttribute('aria-labelledby'), title.id);
-      assert.equal(clean(card.querySelector('p').textContent), clean(entry.description));
+      assert.equal(clean(card.querySelector('p, .pw-picture-caption > span').textContent), clean(entry.description));
       assert.equal(img.getAttribute('src'), entry.image);
       assert.ok(img.hasAttribute('alt'));
       assert.ok(fs.readFileSync(path.join(built, entry.image)).equals(fs.readFileSync(path.join(root, entry.image))), entry.id + ': published picture is complete');
@@ -164,14 +166,14 @@ if (process.argv[2]) {
     const home = documentFor('index.html');
     assert.deepEqual([...home.querySelectorAll('.pw-home-question')].map(card => [clean(card.querySelector('h2').textContent), card.querySelector('a').getAttribute('href')]), entrances);
     const library = documentFor('library.html');
-    const subjects = [...library.querySelectorAll('.pw-library-subjects .pw-home-question')];
+    const subjects = [...library.querySelectorAll('.pw-library-subjects .pw-picture-card')];
     assert.equal(subjects.length, themes.length + 1);
     for (const [index, theme] of themes.entries()) {
-      assert.equal(clean(subjects[index].querySelector('h2').textContent), theme.title);
+      assert.equal(clean(subjects[index].querySelector('strong').textContent), theme.title);
       assert.equal(subjects[index].querySelector('a').getAttribute('href'), '/library/methods/' + theme.id + '.html');
     }
     assert.equal(subjects.at(-1).querySelector('a').getAttribute('href'), '/gpt-links-page.html');
-    picturedCards([...library.querySelectorAll('.pw-library-additional .pw-home-question')], additional);
+    picturedCards([...library.querySelectorAll('.pw-library-additional .pw-picture-card')], additional);
     const widerPage = documentFor('wider-interest/index.html');
     picturedCards([...widerPage.querySelectorAll('.pw-wider-gallery .pw-home-question')], wider);
   });
@@ -212,8 +214,12 @@ if (process.argv[2]) {
     const widerLinks = [...widerItem.querySelectorAll(':scope > details > ol > li > a')];
     assert.equal(widerLinks.length, wider.length);
     wider.forEach((entry, i) => assertLink(widerLinks[i], entry.title, entry.url));
-    assert.equal(clean(branches[2].querySelector('summary').textContent), atlas.length + ' pictures');
-    const atlasLinks = [...branches[2].querySelectorAll(':scope > details > ol > li > a')];
+    assert.equal(clean(branches[2].querySelector('summary').textContent), scenarios.length + ' scenarios');
+    const scenarioLinks = [...branches[2].querySelectorAll(':scope > details > ol > li > a')];
+    assert.equal(scenarioLinks.length, scenarios.length);
+    scenarios.forEach((entry, i) => assertLink(scenarioLinks[i], entry.title, entry.url));
+    const workItem = further[additional.findIndex(entry => entry.id === 'working-views')];
+    const atlasLinks = [...workItem.querySelectorAll(':scope > details > ol > li > a')];
     assert.equal(atlasLinks.length, atlas.length);
     atlas.forEach((entry, i) => assertLink(atlasLinks[i], entry.title, '/explore-visually.html?view=' + encodeURIComponent(entry.id)));
     for (const a of d.querySelectorAll('a[href]')) {
