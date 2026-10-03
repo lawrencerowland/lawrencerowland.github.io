@@ -340,3 +340,14 @@ The repairs make actual construction visible: schedule timing is separate from s
 Library apps47→50, peer entries69→72, source catalogue13→9. Bracken Vale receives one pictured Experiments entrance from its already-public site, bringing that directory18→19; its separate working files were not accessed or modified. Contract Portfolio Board remains retained. No new Library subject is added.
 
 Source revision7888f8a, all original hashes, the exact source catalogue delta and the nine receiving support assets are pinned in phase_six of the migration fixture. Merge and publish this receiver before the companion Project-web-apps retirement. Model and interaction checks are evidence of declared toy behaviour, separate from human-use validation.
+
+
+## 3 October 2026 — phase7 dated AI and project services
+
+Six source identities become four Library homes, with only two new peer cards. Market Timeline Explorer retains its original 23 quarters and six transitions and adds the twelve-snapshot Gemini and twenty-quarter Navigator stories. Their fictional archetypes, transitions and sixty strategic questions are retained as authored alternatives. Catalogue and story dates are explicitly separated where they disagreed; no original dated claim is silently promoted to an observed event.
+
+Project service design guide joins fifteen offer→artefact→measure options with twenty-three use-case questions across eight headings. Measures and scope are defined; product/version and performance assertions become design questions or documented corrections. This serves a different purpose from selecting a lead service (Service Trident) or assessing an organisation's P3M capabilities.
+
+What makes concurrent change costly? preserves the original five cubic values and incremental bars, while removing the unsupported Amazon three-layer threshold and spin-out explanation. Alternative cost assumptions and explicit cross-team pairs show when splitting work can cost more. It is an openly invented arithmetic lesson under Delivery dynamics & feedback. The corrected sixteen-label controls comparison sits inside PM Software Evolution; its authored dependency sketch and supply-form interpretation are separate from the existing sourced history.
+
+Source catalogue9→3; Library apps50→52 and flat peer cards72→74. No new subject or foray is created. Source revision459efda, source hashes and exact before/after CSV are pinned in `phase_seven` of the migration fixture. Six old HTML files become forwards; six inspected stale gallery screenshots and the old SVG retire. Receiving feature/claim dispositions document preserved content and corrections. The remaining three games/small models, unlisted examples and live source-data dependencies are separate closure work.

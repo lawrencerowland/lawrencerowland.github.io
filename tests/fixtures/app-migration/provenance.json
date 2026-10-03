@@ -377,5 +377,62 @@
       "pics/48.png": "2e77eb3433c19b8caca0565afa2f6522747124be803fda0da45210d5c584c1d4",
       "pics/50.png": "da9817d49d77bcd8a97d0453df47791d58357daeab3374b9eda737b5faf8e396"
     }
+  },
+  "phase_seven": {
+    "date": "2026-10-03",
+    "repository": "lawrencerowland/Project-web-apps",
+    "base_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+    "before_rows": 9,
+    "after_rows": 3,
+    "removed_names": [
+      "AI_timeline_from_Gemini_25",
+      "project-services-navigator",
+      "consulting_catalogue",
+      "project_use_case_tree",
+      "concurrent_change_levels_amazon",
+      "Project_Controls_2010-2025_Transformation"
+    ],
+    "destinations": {
+      "AI_timeline_from_Gemini_25": "https://lawrencerowland.github.io/library/apps/market_timeline_explorer/#gemini",
+      "project-services-navigator": "https://lawrencerowland.github.io/library/apps/market_timeline_explorer/#navigator",
+      "consulting_catalogue": "https://lawrencerowland.github.io/library/apps/project-services-guide/#offers",
+      "project_use_case_tree": "https://lawrencerowland.github.io/library/apps/project-services-guide/#questions",
+      "concurrent_change_levels_amazon": "https://lawrencerowland.github.io/library/apps/change-coordination/",
+      "Project_Controls_2010-2025_Transformation": "https://lawrencerowland.github.io/library/apps/pm-software-evolution/#controls-transformation"
+    },
+    "source_sha256": {
+      "AI_timeline_from_Gemini_25": "f9f157c04847d928741f1249e3a79412aba5b4108837325db25b18180dc4e7a5",
+      "project-services-navigator": "00f233d01f2c7689001112a1b17d87c69ec909b9c6b655affaddd03e256a3960",
+      "consulting_catalogue": "131b45f68ed390abaa94c391aee450ddab2f065f5cb83331fd98e489304bb013",
+      "project_use_case_tree": "2a9725bf7acda8af1b12eb035232d8d52aa4f51405572fb18dd4cb00e898ffd1",
+      "concurrent_change_levels_amazon": "446dbf1e42974acd6232a417d3d9a1b8ba6f7a3fdaf76142162387822adf884e",
+      "Project_Controls_2010-2025_Transformation": "d15ab8e78626e11f4973c18d275240449344f83ded748f4df76769ebfe407a66"
+    },
+    "source_files": {
+      "market_timeline_explorer": {
+        "web_apps/AI_timeline_from_Gemini_25.html": "f9f157c04847d928741f1249e3a79412aba5b4108837325db25b18180dc4e7a5",
+        "web_apps/project-services-navigator.html": "00f233d01f2c7689001112a1b17d87c69ec909b9c6b655affaddd03e256a3960"
+      },
+      "project-services-guide": {
+        "web_apps/consulting_catalogue.html": "131b45f68ed390abaa94c391aee450ddab2f065f5cb83331fd98e489304bb013",
+        "web_apps/project_use_case_tree.html": "2a9725bf7acda8af1b12eb035232d8d52aa4f51405572fb18dd4cb00e898ffd1"
+      },
+      "change-coordination": {
+        "web_apps/concurrent_change_levels_amazon.html": "446dbf1e42974acd6232a417d3d9a1b8ba6f7a3fdaf76142162387822adf884e"
+      },
+      "pm-software-evolution": {
+        "web_apps/Project_Controls_2010-2025_Transformation.html": "d15ab8e78626e11f4973c18d275240449344f83ded748f4df76769ebfe407a66",
+        "other_apps/Project_Controls_2010-2025_Transformation.svg": "b45ae4b985a08d3153a0a3de449fd9a538525c4419b6282814e19226eaeb8e5f"
+      }
+    },
+    "retired_support_files": {
+      "other_apps/Project_Controls_2010-2025_Transformation.svg": "b45ae4b985a08d3153a0a3de449fd9a538525c4419b6282814e19226eaeb8e5f",
+      "pics/11.png": "68874af3651fd1de2733bc95811374c01f20d5412c731589d96bfce65d708db8",
+      "pics/16.png": "dc58390cca184520ba23308c9c4fe99c65f7ec24aceab5f8f1331c1045a1cd49",
+      "pics/18.png": "ec80a1e75df0cd13cd808ab85ad0b8ab98fe554b7435252d1d9c1f6709bd6e33",
+      "pics/21.png": "c355241c41119228ba9421c266bbdbf15ddbd6807aae55c47e2257dd9871aafe",
+      "pics/22.png": "f1546e4accb684d4d5be570dd42d09bc89b36de2534bfeaeaedd7f20f6124c9b",
+      "pics/24.png": "59291082b1792e1cebd3427217cc7247cc8eaddb64ceb28c15298498cd75dbad"
+    }
   }
 }

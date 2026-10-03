@@ -50,6 +50,7 @@ on:
       - 'tests/phase-four-*.test.cjs'
       - 'tests/phase-five-*.test.cjs'
       - 'tests/phase-six-*.test.cjs'
+      - 'tests/phase-seven-*.test.cjs'
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
@@ -124,6 +125,7 @@ on:
       - 'tests/phase-four-*.test.cjs'
       - 'tests/phase-five-*.test.cjs'
       - 'tests/phase-six-*.test.cjs'
+      - 'tests/phase-seven-*.test.cjs'
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
@@ -215,6 +217,10 @@ jobs:
         run: |
           node --test library/apps/graph-transform-workbench/tests/*.cjs library/apps/portfolio-scenario-loom/tests/*.cjs library/apps/project-health-and-benefits/tests/*.cjs
           node tests/phase-six-library-migration.test.cjs
+      - name: Check dated scenarios and service-design models
+        run: |
+          node --test library/apps/change-coordination/tests/*.cjs library/apps/project-services-guide/guide.test.cjs
+          node tests/phase-seven-library-migration.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
@@ -286,6 +292,7 @@ jobs:
           node tests/phase-four-library-migration.test.cjs _site
           node tests/phase-five-library-migration.test.cjs _site
           node tests/phase-six-library-migration.test.cjs _site
+          node tests/phase-seven-library-migration.test.cjs _site
       - name: Save the built site for preview
         uses: actions/upload-artifact@v4
         with:

@@ -1,5 +1,5 @@
 import { expect, test, beforeAll } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import App from './App.tsx';
 beforeAll(() => {
   HTMLCanvasElement.prototype.getContext = () => ({ clearRect() {}, beginPath() {}, moveTo() {}, bezierCurveTo() {}, lineTo() {}, stroke() {}, setLineDash() {} });
@@ -18,4 +18,25 @@ test('keeps a 2004–2025 timeline, category filtering, keyboard details and cor
   fireEvent.click(screen.getByRole('button', { name: 'Trello (2011)' }));
   expect(screen.getByLabelText('Filter:')).toHaveValue('all');
   expect(screen.getByRole('button', { name: 'Trello, 2011' })).toHaveAttribute('aria-pressed', 'true');
+});
+
+
+test('keeps proposed arrow direction separate from the corrected milestone chronology', () => {
+  render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: 'ClickUp, 2017', exact: true }));
+  const incoming = screen.getByRole('heading', { name: 'Incoming proposed relationships:' }).nextElementSibling;
+  expect(within(incoming).getByRole('button', { name: 'Notion (2018)' })).toBeInTheDocument();
+  const lowCode = within(incoming).getByRole('button', { name: 'Low-Code PM (2019)' });
+  expect(lowCode).toBeInTheDocument();
+  expect(screen.getByText(/Arrow direction shows a proposed relationship, not chronological order/)).toBeInTheDocument();
+  expect(screen.queryByRole('heading', { name: /Related (earlier|later) entries/ })).not.toBeInTheDocument();
+
+  // Follow an incoming connection forward in calendar time, then its outgoing
+  // counterpart back to 2017: neither relationship label may imply chronology.
+  fireEvent.click(lowCode);
+  expect(screen.getByRole('heading', { name: 'Low-Code PM (2019)' })).toBeInTheDocument();
+  const outgoing = screen.getByRole('heading', { name: 'Outgoing proposed relationships:' }).nextElementSibling;
+  fireEvent.click(within(outgoing).getByRole('button', { name: 'ClickUp (2017)' }));
+  expect(screen.getByRole('heading', { name: 'ClickUp (2017)' })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'ClickUp, 2017', exact: true })).toHaveAttribute('aria-pressed', 'true');
 });

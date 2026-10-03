@@ -1,387 +1,128 @@
-import React, { useState, useMemo } from "react";
-import "./App.css";
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import React, { useEffect, useRef, useState } from 'react';
+import './App.css';
+import { archetypes, readSelection, selectionHash, stories } from './stories';
 
-// --- Data ------------------------------------------------------------------
-const slices = [
-  {
-    id: "2025Q2",
-    label: "Q2 2025",
-    winners: ["Accenture UKI", "Deloitte", "BAE AI"],
-    stable: ["PA Consulting"],
-    losers: ["WSP", "Mott MacDonald"],
-    coalitions: ["Gov‑Big 4 compute‑sandbox"],
-    summary:
-      "Big‑4 firms bundle GenAI copilots into Project‑Management‑as‑a‑Service offerings; government sandbox privileges incumbents while legacy infra‑PM players lag."
-  },
-  {
-    id: "2025Q3",
-    label: "Q3 2025",
-    winners: ["Monday.com/Asana‑OpenAI plugins", "Faculty (data‑ops)"],
-    stable: ["Accenture UKI", "Deloitte"],
-    losers: ["Tier‑2 QS firms"],
-    coalitions: ["PMI Knowledge‑Hub on GenAI"],
-    summary:
-      "Low‑code SaaS vendors ride SME demand; boutique data‑ops monetise model‑tuning; mid‑market quantity‑surveyors lose share."
-  },
-  {
-    id: "2025Q4",
-    label: "Q4 2025",
-    winners: ["Nvidia sovereign‑AI bidders", "BAE AI"],
-    stable: ["Big‑4 consultancies"],
-    losers: ["Freelance PM networks"],
-    coalitions: ["Drafting alliances for EU‑AI Act lobbying"],
-    summary:
-      "Hardware OEMs court Westminster for sovereign stack deals; compliance uncertainty squeezes independent PM networks."
-  },
-  {
-    id: "2026Q1",
-    label: "Q1 2026",
-    winners: ["AWS UK Regions", "Google Cloud UK"],
-    stable: ["Nvidia sovereign‑AI bidders"],
-    losers: ["On‑prem data centres"],
-    coalitions: ["Growth‑Zone pilot consortia"],
-    summary:
-      "Hyperscalers secure long‑term public contracts; Growth‑Zone pilots pool demand; local data‑centres struggle to match elasticity."
-  },
-  {
-    id: "2026Q2",
-    label: "Q2 2026",
-    winners: ["KPMG‑Microsoft Risk‑Tooling", "Accenture Safety‑Desk"],
-    stable: ["AWS UK Regions"],
-    losers: ["Independent PMO shops"],
-    coalitions: ["Compute Mutual buying‑club"],
-    summary:
-      "Joint ventures race to certify high‑risk AI use‑cases; compute co‑ops emerge among mid‑cap manufacturers."
-  },
-  {
-    id: "2026Q3",
-    label: "Q3 2026",
-    winners: ["Semiconductor brokers", "Accenture"],
-    stable: ["KPMG‑Microsoft"],
-    losers: ["Capital‑poor challengers"],
-    coalitions: ["Compute Mutual expands"],
-    summary:
-      "Brokerage houses arbitrage GPU supply; cash‑strapped challengers shelve pilots pending hardware."
-  },
-  {
-    id: "2026Q4",
-    label: "Q4 2026 (AGI)",
-    winners: ["UK‑AISI Stack", "EU‑Gaia‑Cloud", "US‑Frontier"],
-    stable: [],
-    losers: ["Services without privileged compute"],
-    coalitions: ["Sovereign stacks cross‑licence safety‑protocols"],
-    summary:
-      "AGI arrival crystallises power around three sovereign compute stacks; everyone else pays rent."
-  },
-  {
-    id: "2027Q1",
-    label: "Q1 2027",
-    winners: ["Big‑4 (post‑merger)", "Accenture‑UKI"],
-    stable: ["Semiconductor brokers"],
-    losers: ["Traditional scheduling software"],
-    coalitions: ["PMI Agent‑Supervisor board"],
-    summary:
-      "Consolidation wave absorbs mid‑tier boutiques; PMI launches Agent‑Supervisor accreditation."
-  },
-  {
-    id: "2027Q2",
-    label: "Q2 2027",
-    winners: ["ServiceNow Platform‑Orchestrator", "Jira‑Next"],
-    stable: ["Big‑4"],
-    losers: ["Body‑shopping IT staffing"],
-    coalitions: ["Safety‑Assurance consortium"],
-    summary:
-      "Platform orchestrators license AGI, automating project micro‑tasks; staffing firms lose relevance."
-  },
-  {
-    id: "2027Q3",
-    label: "Q3 2027",
-    winners: ["Palantir 'Iron Bridge'", "Accenture"],
-    stable: ["ServiceNow"],
-    losers: ["Body‑shopping IT staffing"],
-    coalitions: ["Iron Bridge secure‑compute corridor"],
-    summary:
-      "Secure‑compute corridors appeal to defence primes; further pressure on commodity labour sourcing."
-  },
-  {
-    id: "2027Q4",
-    label: "Q4 2027",
-    winners: ["Accenture 'Project‑Flight‑Control' desk"],
-    stable: ["Government demand plateau"],
-    losers: ["Chip rental brokers (peak rates)"],
-    coalitions: ["Insurance‑funded Safety Assurance consortium"],
-    summary:
-      "Project portfolio desks monetise orchestration; chip rental rates peak and brokers hit ceiling."
-  },
-  {
-    id: "2028Q1",
-    label: "Q1 2028",
-    winners: ["Private‑Equity roll‑ups", "Accenture‑backed niche shops"],
-    stable: ["Accenture"],
-    losers: ["Independent guilds"],
-    coalitions: ["Open‑Agent Framework (OASIS)"],
-    summary:
-      "PE capital aggregates niche engineering PM; open agent framework seeds community‑driven standards."
-  },
-  {
-    id: "2028Q2",
-    label: "Q2 2028",
-    winners: ["RegTech audit vendors"],
-    stable: ["PE roll‑ups"],
-    losers: ["Consultancies without compliance benches"],
-    coalitions: ["OASIS expands certification"],
-    summary:
-      "AI‑Act enforcement monetises audit tooling; compliance‑lite consultancies concede market."
-  },
-  {
-    id: "2028Q3",
-    label: "Q3 2028",
-    winners: ["Edge‑compute microgrids"],
-    stable: ["RegTech"],
-    losers: ["Late adopters"],
-    coalitions: ["Regional energy‑compute co‑ops"],
-    summary:
-      "Microgrid edge compute moderates GPU scarcity; margins stabilise across project‑services."
-  },
-  {
-    id: "2028Q4",
-    label: "Q4 2028",
-    winners: ["Quantum‑enhanced scheduling pilots"],
-    stable: [],
-    losers: ["Traditional PM platforms"],
-    coalitions: ["UK‑Japan green‑compute alliance"],
-    summary:
-      "Quantum pilots demonstrate 25 % schedule compression; UK‑Japan pact shares green compute IP."
-  },
-  {
-    id: "2029Q1",
-    label: "Q1 2029",
-    winners: ["Curation‑platforms"],
-    stable: ["Quantum pilots"],
-    losers: ["Compute brokers (over‑supplied)"],
-    coalitions: ["Human‑in‑Command standards drafting"],
-    summary:
-      "Value shifts from execution to goal brokerage; compute rental gluts drive prices down."
-  },
-  {
-    id: "2029Q2",
-    label: "Q2 2029 (ASI)",
-    winners: ["Universal open‑agency kernel"],
-    stable: [],
-    losers: ["Legacy hierarchies"],
-    coalitions: ["Human‑in‑Command standards board"],
-    summary:
-      "ASI yields abundance; open agency kernel commoditises task execution and rattles existing hierarchies."
-  },
-  {
-    id: "2029Q3",
-    label: "Q3 2029",
-    winners: ["Accenture‑UK Prime Integrator", "BAE‑Aegis Prime Integrator"],
-    stable: ["Guild clouds"],
-    losers: ["Compute monopolies"],
-    coalitions: ["Prime integrators + guilds"],
-    summary:
-      "Market coalesces around two UK prime integrators; specialist guilds orbit them on demand."
-  },
-  {
-    id: "2029Q4",
-    label: "Q4 2029",
-    winners: ["Cross‑jurisdiction arbitration services"],
-    stable: ["Prime integrators"],
-    losers: ["Traditional legal PM"],
-    coalitions: ["Inter‑jurisdiction arbitration network"],
-    summary:
-      "Autonomous project disputes create demand for rapid arbitration; classical legal PM shrinks."
-  },
-  {
-    id: "2030Q1",
-    label: "Q1 2030",
-    winners: ["Tokenised project‑capacity exchanges"],
-    stable: ["Prime integrators"],
-    losers: ["Hands‑on consultants"],
-    coalitions: ["Digital asset regulators"],
-    summary:
-      "Token markets let firms trade capacity; consultants reposition as portfolio designers."
-  },
-  {
-    id: "2030Q2",
-    label: "Q2 2030",
-    winners: ["ASI‑orchestrated Net‑Zero mega‑programmes"],
-    stable: [],
-    losers: ["Labour‑based PM"],
-    coalitions: ["Public‑sector mission boards"],
-    summary:
-      "ASI coordinates public Net‑Zero projects; manual PM labour mostly displaced."
-  },
-  {
-    id: "2030Q3",
-    label: "Q3 2030",
-    winners: ["Open‑standard coalition"],
-    stable: ["Token exchanges"],
-    losers: ["Proprietary protocol vendors"],
-    coalitions: ["Project‑Intent Protocol v3 working group"],
-    summary:
-      "Industry finalises interoperable intent protocol; proprietary vendors scramble to open source."
-  },
-  {
-    id: "2030Q4",
-    label: "Q4 2030",
-    winners: ["Orchestrators earning royalties on design IP"],
-    stable: ["Open‑standard coalition"],
-    losers: ["Monopoly rent seekers"],
-    coalitions: ["Commons‑based peer‑production"],
-    summary:
-      "Abundance equilibrium reached; orchestration IP yields royalties while monopoly rents disappear."
-  }
-];
-
-const transitions = [
-  {
-    from: "2025Q4",
-    to: "2026Q1",
-    label: "Reg‑quake",
-    description: "EU‑AI Act compliance tiers kick in, reshaping cost curves and elevating hyperscalers."
-  },
-  {
-    from: "2026Q3",
-    to: "2026Q4",
-    label: "Compute‑squeeze",
-    description: "GPU scarcity peaks; sovereignty stacks gain decisive bargaining power."
-  },
-  {
-    from: "2027Q2",
-    to: "2027Q3",
-    label: "Platform lock‑in",
-    description: "Network effects entrench AGI‑licensed platforms, squeezing labour‑based service models."
-  },
-  {
-    from: "2028Q1",
-    to: "2028Q2",
-    label: "Guild rebound",
-    description: "Excess compute rents trigger co‑operative guild structures to share compliance cost."
-  },
-  {
-    from: "2029Q2",
-    to: "2029Q3",
-    label: "Abundance inversion",
-    description: "ASI oversupply flips compute scarcity; advantage migrates to integrators curating project intent."
-  },
-  {
-    from: "2030Q3",
-    to: "2030Q4",
-    label: "Open‑standard flowering",
-    description: "Industry‑wide protocol standard dissolves proprietary moats, fostering commons‑based production."
-  }
-];
-
-// --- Components -------------------------------------------------------------
-function Section({ title, list, badgeColor }) {
-  if (!list || list.length === 0) return null;
-  const colorClass =
-    badgeColor === "green"
-      ? "bg-green-100 text-green-800"
-      : badgeColor === "blue"
-      ? "bg-blue-100 text-blue-800"
-      : badgeColor === "red"
-      ? "bg-red-100 text-red-800"
-      : "bg-purple-100 text-purple-800";
-  return (
-    <div className="space-y-1">
-      <h3 className="font-semibold mb-1">{title}</h3>
-      <div className="flex flex-wrap gap-2">
-        {list.map((item) => (
-          <Badge key={item} className={colorClass}>
-            {item}
-          </Badge>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Timeline({ index, setIndex }) {
-  return (
-    <div className="overflow-x-auto pb-2 pt-1 border-t">
-      <ul className="flex space-x-2 whitespace-nowrap">
-        {slices.map((s, i) => (
-          <li key={s.id}>
-            <Button
-              variant={i === index ? "secondary" : "outline"}
-              size="sm"
-              aria-pressed={i === index}
-              onClick={() => setIndex(i)}
-            >
-              {s.label}
-            </Button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+function StoryList({ title, items }) {
+  if (!items?.length) return null;
+  return <section className="story-list"><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item === 'N/A' ? 'Not assigned in this story' : item}</li>)}</ul></section>;
 }
 
 function MarketTimelineExplorer() {
-  const [index, setIndex] = useState(0);
-  const slice = slices[index];
-  const transition = useMemo(() => {
-    if (index === 0) return null;
-    const prevId = slices[index - 1].id;
-    return transitions.find((t) => t.from === prevId && t.to === slice.id);
-  }, [index]);
+  const [{ storyId, index }, setSelection] = useState(() => readSelection());
+  const [reflection, setReflection] = useState(null);
+  const periodButtons = useRef([]);
+  const story = stories[storyId];
+  const slice = story.periods[index];
+  const transition = index > 0 && story.transitions.find(t => t.from === story.periods[index - 1].id && t.to === slice.id);
+  const plotStep = story.plotStarts.findLastIndex(start => index >= start);
 
-  return (
-    <div className="market-explorer p-6 max-w-5xl mx-auto space-y-4 font-sans">
-      <h1>Project-services market: an imagined future</h1>
-      <p role="note"><strong>Speculative scenario, originally framed in 2025.</strong> Every quarter below is an invented scenario, including dates that have now passed. Named firms, alliances, market gains, legislation effects, AGI in 2026 and ASI in 2029 are story assumptions, not reported events, verified forecasts or investment guidance.</p>
-      <p>Explore who might gain or lose under this particular story. Use the arrows or select any quarter. The explorer does not assign probabilities or model alternative futures.</p>
-      <Card>
-        <CardHeader className="flex items-center justify-between">
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Previous quarter"
-            onClick={() => setIndex(Math.max(0, index - 1))}
-            disabled={index === 0}
-          >
-            <ChevronLeft />
-          </Button>
-          <CardTitle className="text-2xl">{slice.label}</CardTitle>
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Next quarter"
-            onClick={() => setIndex(Math.min(slices.length - 1, index + 1))}
-            disabled={index === slices.length - 1}
-          >
-            <ChevronRight />
-          </Button>
-        </CardHeader>
-        {transition && (
-          <div className="mx-6 mt-2 bg-yellow-50 p-3 rounded-lg flex items-start gap-2 border border-yellow-200">
-            <Sparkles className="mt-1 h-4 w-4" />
-            <div>
-              <p className="font-medium leading-tight">{transition.label}</p>
-              <p className="text-sm leading-snug">{transition.description}</p>
-            </div>
-          </div>
-        )}
-        <CardContent className="space-y-4">
-          <Section title="Hypothetical winners" list={slice.winners} badgeColor="green" />
-          <Section title="Holding Steady" list={slice.stable} badgeColor="blue" />
-          <Section title="Hypothetical losers" list={slice.losers} badgeColor="red" />
-          <Section title="Imagined coalitions" list={slice.coalitions} badgeColor="purple" />
-          <div className="prose max-w-none pt-2">
-            <p>{slice.summary}</p>
-          </div>
-        </CardContent>
-      </Card>
-      <Timeline index={index} setIndex={setIndex} />
-    </div>
-  );
+  useEffect(() => {
+    const onHash = () => {
+      if (window.location.hash === '#root') return; // The shared Library skip link must preserve the story.
+      setSelection(readSelection()); setReflection(null);
+    };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  function select(nextStory, nextIndex, focus = false) {
+    setSelection({ storyId: nextStory, index: nextIndex });
+    setReflection(null);
+    window.history.replaceState(null, '', selectionHash(nextStory, nextIndex));
+    if (focus) periodButtons.current[nextIndex]?.focus();
+    periodButtons.current[nextIndex]?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' });
+  }
+  function changeStory(nextStory) {
+    const matching = stories[nextStory].periods.findIndex(p => p.id === slice.id);
+    select(nextStory, Math.max(0, matching));
+  }
+  function timelineKeys(e, focusedIndex) {
+    let next;
+    if (e.key === 'ArrowLeft') next = Math.max(0, focusedIndex - 1);
+    if (e.key === 'ArrowRight') next = Math.min(story.periods.length - 1, focusedIndex + 1);
+    if (e.key === 'Home') next = 0;
+    if (e.key === 'End') next = story.periods.length - 1;
+    if (next !== undefined) { e.preventDefault(); select(storyId, next, true); }
+  }
+
+  return <div className="market-explorer">
+    <header className="market-intro">
+      <p className="eyebrow">Three authored futures · one question to explore</p>
+      <h1>Who holds power when project work changes?</h1>
+      <p>Imagine a project-services firm choosing between specialist expertise, platform access and trusted relationships. Explore how three stories change the value of those choices.</p>
+    </header>
+    <aside className="scenario-note" role="note">
+      <strong>Historical thought experiments, not forecasts.</strong>
+      <p>Every quarter below is an invented scenario, including dates that have now passed. All three stories assume AGI in Q4 2026 and ASI in Q2 2029. Organisations, market outcomes and abundance are plot assumptions, not reported events or present corporate evidence.</p>
+      <p>These narratives share a premise; they do not independently support it or assign probabilities.</p>
+    </aside>
+
+    <section className="story-picker" aria-labelledby="story-picker-title">
+      <h2 id="story-picker-title">Choose a story</h2>
+      <div className="story-options">{Object.entries(stories).map(([id, item]) => <button key={id} aria-pressed={storyId === id} onClick={() => changeStory(id)}>
+        <strong>{item.title}</strong><span>{item.subtitle}</span>
+      </button>)}</div>
+      <p>{story.description}</p>
+    </section>
+
+    <figure className="story-plot">
+      <figcaption><strong>This story’s imagined path</strong> · causal sketch, not a measured trend</figcaption>
+      <ol>{story.plot.map((stage, i) => <li key={stage} className={i === plotStep ? 'current' : ''} aria-current={i === plotStep ? 'step' : undefined}><span>{i + 1}</span>{stage}</li>)}</ol>
+      <p>The current period sits in the highlighted stage. Capability does not establish adoption, market power or human benefit; those connections are assumptions in these stories.</p>
+    </figure>
+
+    <section aria-labelledby="period-picker-title" className="period-picker">
+      <div className="period-label"><h2 id="period-picker-title">Choose a period</h2><span>{index + 1} of {story.periods.length} {storyId === 'gemini' ? 'snapshots' : 'quarters'}</span></div>
+      {storyId === 'gemini' && <p className="small-note">The plateau covers Q3 2027–Q1 2029 and the final snapshot covers all of 2030.</p>}
+      <div className="timeline" role="group" aria-label="Story periods">
+        {story.periods.map((p, i) => <button key={p.id} ref={el => { periodButtons.current[i] = el; }} aria-pressed={i === index} onKeyDown={e => timelineKeys(e, i)} onClick={() => select(storyId, i)}>
+          <span className="timeline-dot" aria-hidden="true" /><span>{p.label}</span>{p.assumption && <small>{p.assumption}</small>}
+        </button>)}
+      </div>
+      <p className="small-note">Select any period, or use Left / Right, Home / End while a period has focus.</p>
+    </section>
+
+    <article className="snapshot" aria-labelledby="snapshot-title">
+      <div className="snapshot-nav">
+        <button onClick={() => select(storyId, index - 1)} disabled={index === 0} aria-label="Previous quarter">← Previous</button>
+        <span aria-live="polite">{slice.label} · {story.title}</span>
+        <button onClick={() => select(storyId, index + 1)} disabled={index === story.periods.length - 1} aria-label="Next quarter">Next →</button>
+      </div>
+      <p className="eyebrow">Authored scenario snapshot {slice.assumption && `· ${slice.assumption}`}</p>
+      <h2 id="snapshot-title">{slice.title || slice.label}</h2>
+      <p className="snapshot-summary">{slice.summary}</p>
+      {transition && <aside className="transition"><h3>Imagined transition: {transition.label}</h3><p>{transition.description}</p></aside>}
+      <div className="snapshot-groups">
+        <StoryList title="Hypothetical winners" items={slice.winners} />
+        <StoryList title="Hypothetical losers" items={slice.losers} />
+        <StoryList title="Imagined coalitions" items={slice.coalitions} />
+        <StoryList title="Holding steady in this story" items={slice.stable} />
+      </div>
+      {slice.dynamics && <div className="story-forces">
+        <StoryList title="Imagined market dynamics" items={slice.dynamics} />
+        {slice.transition && <section><h3>Imagined transition force</h3><p>{slice.transition}</p></section>}
+      </div>}
+      {slice.questions && <section className="strategic-questions" aria-labelledby="questions-title">
+        <h3 id="questions-title">Three questions to carry back to your firm</h3>
+        <p>Original prompts, including their assumptions. Choose one to examine; none requires you to accept the story.</p>
+        <ol>{slice.questions.map((q, i) => <li key={q}><button aria-pressed={reflection === i} onClick={() => setReflection(reflection === i ? null : i)}>{q}</button></li>)}</ol>
+        {reflection !== null && <aside className="reflection" aria-live="polite"><strong>Test the premise</strong><p>{slice.questions[reflection]}</p><p>Which part assumes a capability, a date or a change in human behaviour? What evidence would make you revise it? What choice would still make sense if this story were wrong?</p></aside>}
+      </section>}
+    </article>
+
+    {storyId === 'gemini' && <section className="archetypes" aria-labelledby="archetypes-title"><h2 id="archetypes-title">Meet the fictional archetypes</h2><dl>{archetypes.map(([name, role]) => <div key={name}><dt>{name}</dt><dd>{role}</dd></div>)}</dl></section>}
+
+    <details className="source-details">
+      <summary>Read this story’s source, construction and limits</summary>
+      <dl>
+        <dt>Source</dt><dd><a href={story.sourceUrl}>{story.source}</a>. Generation labels are original catalogue metadata, not independent authorship verification. The original publication dates are not established here; the dates on the timeline belong to the imagined scenario. Migration reviewed 3 October 2026.</dd>
+        <dt>Concept</dt><dd>{story.lens}.</dd>
+        <dt>Construction</dt><dd>{story.construction} Wording is retained as authored scenario text; the path diagram and “Test the premise” questions are editorial reading aids added for this merged explorer.</dd>
+        <dt>Limits and corrections</dt><dd>No story supports a factual claim about current organisations, regulation, AGI or ASI. The two retired catalogue descriptions said “ASI in 2030”; both source timelines actually place it in Q2 2029. This explorer follows the source timelines and labels that date as an assumption. Post-scarcity, displacement percentages, 10× productivity and the existing story’s 25% schedule compression are unevidenced plot claims.</dd>
+      </dl>
+    </details>
+    <p className="share-note">The address records the selected story and period, so you can link to the same point in the discussion.</p>
+  </div>;
 }
 
 export default MarketTimelineExplorer;

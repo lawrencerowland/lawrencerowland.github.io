@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
+import ProjectControlsTransformation from './ProjectControlsTransformation';
 
 // Data type definitions for clarity
 interface Category { id: string; name: string; }
@@ -235,6 +236,8 @@ const PMSoftwareEvolution: React.FC = () => {
         </h1>
 
         <p className="p-4">An interpretive map of selected tools and trends, retained through 2025. Broad trend years are narrative markers, not product launch dates. Links describe proposed relationships rather than proven influence. Selected release corrections include primary sources in their detail cards; other historical claims remain unverified.</p>
+        <nav className="controls-view-links" aria-label="History views"><a href="#software-timeline">Software timeline</a><a href="#controls-transformation">Project controls transformation picture →</a></nav>
+        <h2 id="software-timeline" className="p-4">Selected tools and trends</h2>
         {/* Controls: filter dropdown and category toggle buttons */}
         <div className="px-4 py-2 border-b flex items-center bg-gray-50">
           <div className="mr-4">
@@ -405,7 +408,8 @@ const PMSoftwareEvolution: React.FC = () => {
             {selectedNode && (
               <div>
                 <div className="rounded border bg-white p-3">
-                  <h4 className="font-semibold border-b pb-1 mb-2">Related earlier entries:</h4>
+                  <p className="text-sm">Arrow direction shows a proposed relationship, not chronological order. Corrected milestone dates can run against the original arrows.</p>
+                  <h4 className="font-semibold border-b pb-1 mb-2">Incoming proposed relationships:</h4>
                   <ul className="text-sm">
                     {connections
                       .filter(conn => conn.target === selectedNode.id)
@@ -426,11 +430,11 @@ const PMSoftwareEvolution: React.FC = () => {
                         );
                       })}
                     {connections.filter(conn => conn.target === selectedNode.id).length === 0 && (
-                      <li className="text-gray-500 italic">No incoming influences</li>
+                      <li className="text-gray-500 italic">No incoming proposed relationships</li>
                     )}
                   </ul>
 
-                  <h4 className="font-semibold border-b pb-1 mt-4 mb-2">Related later entries:</h4>
+                  <h4 className="font-semibold border-b pb-1 mt-4 mb-2">Outgoing proposed relationships:</h4>
                   <ul className="text-sm">
                     {connections
                       .filter(conn => conn.source === selectedNode.id)
@@ -451,7 +455,7 @@ const PMSoftwareEvolution: React.FC = () => {
                         );
                       })}
                     {connections.filter(conn => conn.source === selectedNode.id).length === 0 && (
-                      <li className="text-gray-500 italic">No outgoing influences</li>
+                      <li className="text-gray-500 italic">No outgoing proposed relationships</li>
                     )}
                   </ul>
                 </div>
@@ -485,6 +489,7 @@ const PMSoftwareEvolution: React.FC = () => {
             </div>
           </div>
         </div>
+        <ProjectControlsTransformation />
       </div>
     </div>
   );

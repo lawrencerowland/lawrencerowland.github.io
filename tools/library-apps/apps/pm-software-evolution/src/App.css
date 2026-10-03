@@ -9,3 +9,28 @@
 .pmse-container [role="button"]:focus-visible, .pmse-container button:focus-visible, .pmse-container select:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
 .pmse-container details li { padding: .4rem 0; }
 @media (max-width: 650px) { .pmse-container .grid-cols-2 { grid-template-columns: 1fr; } .pmse-container > .flex > .flex { flex-wrap: wrap; } }
+
+/* The dated comparison is a quiet reading layer alongside the existing timeline. */
+.pmse-container .controls-view-links { display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; padding: 0 1rem 1rem; }
+.pmse-container .controls-transformation { margin-top: 2rem; padding: clamp(1rem, 3vw, 2rem); border-top: 1px solid #ccd5d0; color: #243342; line-height: 1.6; scroll-margin-top: 1rem; }
+.pmse-container .controls-transformation h2 { margin: .3rem 0 1rem; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.2; }
+.pmse-container .controls-transformation h3 { font-size: 1.12rem; line-height: 1.4; margin: .5rem 0; }
+.pmse-container .controls-kicker { color: #52615a; font-size: .86rem; margin: 0; }
+.pmse-container .controls-reading-guide, .pmse-container .controls-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.8rem; margin: 1.4rem 0; }
+.pmse-container .controls-reading-guide { background: #f5f6f3; border-radius: .4rem; padding: 1.2rem; }
+.pmse-container .controls-transformation figure { margin: 1.5rem 0; }
+.pmse-container .controls-diagram-scroll { overflow-x: auto; border: 1px solid #d8dfdd; border-radius: .4rem; }
+.pmse-container .controls-diagram-scroll img { display: block; width: 100%; min-width: 1000px; height: auto; max-width: none; }
+.pmse-container .controls-transformation figcaption { margin-top: .6rem; font-size: .9rem; color: #52615a; }
+.pmse-container .controls-transformation a { color: #205a68; text-decoration: underline; text-underline-offset: .16em; }
+.pmse-container .controls-transformation dt { font-weight: 650; margin-top: 1rem; }
+.pmse-container .controls-transformation dd { margin: .15rem 0 0; }
+.pmse-container .controls-corrections { border-top: 1px solid #d8dfdd; border-bottom: 1px solid #d8dfdd; padding: .9rem 0; margin: 1.5rem 0; }
+.pmse-container .controls-corrections summary { cursor: pointer; font-weight: 650; }
+.pmse-container .controls-transformation li { margin-bottom: .6rem; }
+.pmse-container .controls-takeaway { background: #f5f6f3; border-left: 3px solid #678274; padding: 1rem; margin: 1.5rem 0; }
+.pmse-container a:focus-visible, .pmse-container summary:focus-visible, .pmse-container [tabindex="0"]:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+@media (max-width: 720px) {
+  .pmse-container .controls-reading-guide, .pmse-container .controls-comparison { grid-template-columns: 1fr; gap: 1rem; }
+  .pmse-container .controls-transformation { padding: 1rem .25rem; }
+}
