@@ -19,12 +19,20 @@ home_front_door: true
       <div class="pw-home-question-copy"><h2 id="door-library">Methods library</h2></div>
     </a></article>
     <article class="pw-home-question"><a class="pw-home-tile-link" href="{{ '/project-scenarios.html' | relative_url }}" aria-labelledby="door-scenarios">
-      <div class="pw-home-question-visual"><img src="https://lawrencerowland.github.io/integrated_risks_tasks/assets/farm-track-hero.png" width="1672" height="941" alt=""></div>
+      <div class="pw-home-question-visual"><img src="{{ '/images/project-scenarios/farm-track.svg' | relative_url }}" width="640" height="400" alt=""></div>
       <div class="pw-home-question-copy"><h2 id="door-scenarios">Project scenarios</h2></div>
     </a></article>
   </div>
   <figure class="pw-home-field-notes">
     <div class="pw-field-notes-labels" aria-hidden="true"><span>Experiments</span><span>Methods library</span></div>
     <img src="{{ '/images/navigation/field-notes.svg' | relative_url }}" width="680" height="260" alt="Exploratory paths loop, branch and stop. One continues towards a shelf: some experiments become reusable Library methods; others remain open.">
+  </figure>
+  <figure class="pw-home-field-notes pw-home-field-overlay">
+    <figcaption class="pw-field-notes-labels">Project scenarios</figcaption>
+    <div class="pw-field-overlay-stage">
+      <img src="{{ '/images/navigation/field-overlay.svg' | relative_url }}" width="680" height="260" alt="A method diagram lies over a project setting. An ochre experimental path follows part of the method within that particular context.">
+      <span class="pw-field-overlay-method" aria-hidden="true">Method</span>
+      <span class="pw-field-overlay-experiment" aria-hidden="true">Experiment</span>
+    </div>
   </figure>
 </div>

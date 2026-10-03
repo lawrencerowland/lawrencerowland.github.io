@@ -15,7 +15,7 @@ Library placement means a reusable or more established example has a home; it do
 ## Orientation
 
 - [Agent welcome and sitemap](https://lawrencerowland.github.io/sitemap.html#for-agents): the human-facing guide and the tree of existing homes.
-- [Project and Library directory](https://lawrencerowland.github.io/agents/directory.md): 19 project entrances with questions, scenarios, concepts and limits; 10 concrete settings; 5 Library subjects plus Custom GPTs and the further shelves. Follow each project’s public scope; some have their own End, Ways and Means.
+- [Project and Library directory](https://lawrencerowland.github.io/agents/directory.md): 19 project entrances with questions, scenarios, concepts and limits; 12 concrete settings; 5 Library subjects plus Custom GPTs and the further shelves. Follow each project’s public scope; some have their own End, Ways and Means.
 - [Working view descriptions](https://lawrencerowland.github.io/agents/visual-atlas.md): 38 pictured views, with captions, what to look for, limits, depicted states, image URLs and canonical example URLs.
 
 Working views collects the nets, maps, matrices and screens used inside the examples, rather than project emblems or scene illustrations. Read the caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model’s claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.

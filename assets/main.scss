@@ -765,3 +765,14 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-scenario-hero img { height:auto; object-fit:contain; }
 .pw-scenario-hero figcaption { font:12px/1.5 'Inter',Arial,sans-serif; color:#64716a; margin-top:8px; }
 .pw-breadcrumb { font:13px/1.6 'Inter',Arial,sans-serif; margin-bottom:20px; }
+
+/* The selected companion drawing: a method tried inside its project setting. */
+.pw-home-field-overlay { margin-top:22px; }
+.pw-field-overlay-stage { position:relative; }
+.pw-field-overlay-method, .pw-field-overlay-experiment { position:absolute; color:#294c40; font:400 clamp(14px,2vw,20px)/1.3 Georgia,serif; }
+.pw-field-overlay-method { left:43%; top:35%; }
+.pw-field-overlay-experiment { left:67%; top:87%; }
+@media (max-width:460px) {
+  .pw-field-overlay-method { top:32%; }
+  .pw-field-overlay-experiment { left:62%; top:86%; }
+}

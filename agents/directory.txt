@@ -202,6 +202,8 @@ The question, scenario, approach and concept labels below follow the public cata
 - [A tunnel beneath the Solway](https://lawrencerowland.github.io/project-scenarios/solway-tunnel/): Find the work hidden behind a finished tunnel. Enquiries: [From an outcome to its work](https://lawrencerowland.github.io/Solway_tunnel_ontology/).
 - [Moving the museum whale](https://lawrencerowland.github.io/project-scenarios/museum-whale/): Move a whale exhibit before the gallery reopens. Enquiries: [Knowing enough to act together](https://lawrencerowland.github.io/knowing-enough/).
 - [Bracken Vale railway](https://lawrencerowland.github.io/project-scenarios/bracken-vale/): Renew a small railway while services keep running. Enquiries: [Small interventions, useful questions](https://lawrencerowland.github.io/bracken-vale/).
+- [The mountain-festival shuttle](https://lawrencerowland.github.io/project-scenarios/mountain-festival-shuttle/): Book the buses before the evidence is in. Enquiries: [Evidence before commitment](https://lawrencerowland.github.io/Programme-decision-sequences/).
+- [The Island Reading Room](https://lawrencerowland.github.io/project-scenarios/island-reading-room/): Get the books ashore while the jetty is closed. Enquiries: [Policies in conversation](https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/).
 
 ## Library subjects and further shelves
 

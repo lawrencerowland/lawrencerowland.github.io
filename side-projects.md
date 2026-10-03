@@ -15,21 +15,6 @@ home_front_door: true
 <p class="pw-gallery-instruction"><span class="pw-gallery-desktop">Hover over a tile for details. Click to enter.</span><span class="pw-gallery-touch">Tap a tile to enter.</span></p>
 </header>
 
-  <details class="foray-browse-tools pw-gallery-notes"><summary>Find by topic or question</summary>
-  <details class="foray-question-routes" id="start-with-a-question">
-    <summary>Start with a question</summary>
-    <ul class="foray-question-list">
-      {% for question in site.data.project_questions %}
-      <li class="foray-question-route" id="question-{{ question.id | escape }}">
-        <a class="foray-question-link" href="{{ question.path | escape }}">{{ question.question | escape }} <span aria-hidden="true">→</span></a>
-        <p class="foray-question-project">{{ question.project_label | escape }}</p>
-        <p class="foray-question-try">{{ question.try_this | escape }}</p>
-        <p class="foray-question-limit">{{ question.limitation | escape }} <a href="{{ question.source_url | escape }}">Inspect source</a></p>
-      </li>
-      {% endfor %}
-    </ul>
-  </details>
-
   {% assign projects = site.data.side_projects | where: 'placement', 'project' | sort: 'gallery_order' %}
   <div class="foray-filter" id="foray-filter" hidden>
     <label for="foray-topic">Filter by topic</label>
@@ -42,8 +27,6 @@ home_front_door: true
     </select>
     <p id="foray-count" role="status" aria-live="polite"></p>
   </div>
-
-  </details>
 
     <section class="foray-group" aria-label="Project gallery">
       <div class="pw-picture-grid">

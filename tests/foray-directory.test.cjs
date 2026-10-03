@@ -130,11 +130,8 @@ if (process.argv[2]) {
   assert.match(html, directoryTitle);
   assert.ok(!/Gimmer experiment suites|Featured projects|Playgrounds &amp; libraries|Other side projects/.test(html));
   const escapeHTML = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  for (const q of questions) {
-    for (const field of ['question','project_label','path','try_this','limitation','source_url']) assert.ok(html.includes(escapeHTML(q[field])), `rendered question ${q.id}: ${field}`);
-    assert.ok(html.includes(`id="question-${q.id}"`));
-  }
-  assert.match(html, /<details class="foray-question-routes"/);
+  assert.ok(!html.includes('start-with-a-question'), 'retired question dropdown is absent');
+  assert.ok(!html.includes('foray-browse-tools'), 'topic filter is directly available');
   const renderedCards = [...html.matchAll(/<article class="pw-picture-card foray-card"[\s\S]*?<\/article>/g)].map(match => match[0]);
   assert.equal(renderedCards.length, projects.length);
   assert.ok(!html.includes('href="/library.html#earlier-app-collections"'), 'collections use their single Library home');

@@ -90,7 +90,7 @@
     "title": "The farm track",
     "description": "Deliver concrete while the farm carries on.",
     "url": "/project-scenarios/farm-track/",
-    "image": "https://lawrencerowland.github.io/integrated_risks_tasks/assets/farm-track-hero.png",
+    "image": "/images/project-scenarios/farm-track.svg",
     "image_alt": "A concrete mixer waits at a farm gate while cows occupy the narrow lane to a foundation pour.",
     "predicament": "The site needs concrete. The farmer needs to take cattle to market. Both plans depend on the same narrow lane, so work that makes sense on its own may have to wait.",
     "motivation": "Follow the shared access through one process model, then ask what changes when the project and its surroundings are viewed together.",
@@ -411,7 +411,7 @@
     "title": "Moving the museum whale",
     "description": "Move a whale exhibit before the gallery reopens.",
     "url": "/project-scenarios/museum-whale/",
-    "image": "https://lawrencerowland.github.io/knowing-enough/assets/museum-whale.png",
+    "image": "/images/project-scenarios/museum-whale.svg",
     "image_alt": "A large whale exhibit on a wheeled cradle while a surveyor, handler and curator consider the move.",
     "predicament": "The survey team knows which passage is usable. The handlers must choose a route. Later, the curator must decide whether the move is complete and the gallery can reopen.",
     "motivation": "Change the information arrangements and ask what each person must be able to distinguish to choose their part of the move.",
@@ -443,7 +443,7 @@
     "title": "Bracken Vale railway",
     "description": "Renew a small railway while services keep running.",
     "url": "/project-scenarios/bracken-vale/",
-    "image": "https://lawrencerowland.github.io/bracken-vale/assets/bracken-vale.png",
+    "image": "/images/project-scenarios/bracken-vale.svg",
     "image_alt": "A team discussing a tabletop railway with a junction, station, power upgrade and monitoring project.",
     "predicament": "A railway infrastructure team must reconcile passenger and freight needs with access, uncertain condition and limited resources. Junction, station, power and monitoring projects raise different decisions.",
     "motivation": "Try practical questions about relationships, planning, evidence, learning and project decisions in one shared fictional setting.",
@@ -469,5 +469,69 @@
       }
     ],
     "sources_checked": "2026-10-03"
+  },
+  {
+    "id": "mountain-festival-shuttle",
+    "title": "The mountain-festival shuttle",
+    "description": "Book the buses before the evidence is in.",
+    "url": "/project-scenarios/mountain-festival-shuttle/",
+    "image": "/images/project-scenarios/mountain-festival-shuttle.svg",
+    "image_alt": "Two small buses wait below festival tents and a mountain trailhead, while an organiser consults a booking sheet.",
+    "predicament": "A mountain festival needs a shuttle from the village to the trailhead. Reserve one bus or three? Fresh booking counts may help, or a paid demand survey—but the bus-hire hold expires soon.",
+    "motivation": "Follow what each possible answer lets the organiser decide next. Compare evidence worth buying, evidence that changes nothing, and useful evidence that arrives too late.",
+    "limitation": "Invented service values support a finite decision model. It compares choices about evidence and commitment; it does not produce an operating timetable or a real transport recommendation.",
+    "project_ids": [
+      "programme-decisions"
+    ],
+    "projects": [
+      {
+        "id": "mountain-festival-shuttle",
+        "title": "Evidence before commitment",
+        "description": "When is learning enough to justify paying or waiting before booking?",
+        "url": "https://lawrencerowland.github.io/Programme-decision-sequences/",
+        "project_id": "programme-decisions",
+        "image": "/images/project-scenarios/mountain-festival-shuttle.svg",
+        "image_alt": "Two small buses wait below festival tents and a mountain trailhead, while an organiser consults a booking sheet."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Evidence before commitment",
+        "url": "https://lawrencerowland.github.io/Programme-decision-sequences/"
+      }
+    ],
+    "sources_checked": "2026-10-04"
+  },
+  {
+    "id": "island-reading-room",
+    "title": "The Island Reading Room",
+    "description": "Get the books ashore while the jetty is closed.",
+    "url": "/project-scenarios/island-reading-room/",
+    "image": "/images/project-scenarios/island-reading-room.svg",
+    "image_alt": "A boat holds boxes of books beside a closed jetty. A shore path leads to a little reading room, with a seal watching from a rock.",
+    "predicament": "A tiny island reading room needs shelves and books. The books are on the boat; the jetty is unavailable. A low-tide inspection may offer a shore path, but a fixed pallet and hand-carried boxes need different delivery arrangements.",
+    "motivation": "Follow two coordinators exchanging questions and replies. An answer becomes the other coordinator’s next input; hiding their internal exchange leaves the composed outside interface.",
+    "limitation": "These are authored routing policies in a finite Geometry of Interaction illustration. The policies do not learn; an inspection report must be supplied from outside. A proposed plan is not a completed or safe delivery.",
+    "project_ids": [
+      "functors-for-projects"
+    ],
+    "projects": [
+      {
+        "id": "island-reading-room",
+        "title": "Policies in conversation",
+        "description": "How does one coordinator’s answer shape the next exchange?",
+        "url": "https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/",
+        "project_id": "functors-for-projects",
+        "image": "/images/project-scenarios/island-reading-room.svg",
+        "image_alt": "A boat holds boxes of books beside a closed jetty. A shore path leads to a little reading room, with a seal watching from a rock."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Policies in conversation",
+        "url": "https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/"
+      }
+    ],
+    "sources_checked": "2026-10-04"
   }
 ]
