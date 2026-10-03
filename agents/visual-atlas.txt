@@ -256,6 +256,7 @@ Capture and check dates below describe the catalogue record. They do not claim t
 - Caption: This shared-lane Petri-net fragment makes two competing starts and the return of one reusable access token visible.
 - Look for: Trace each start, occupancy and finish, including the token’s return to Lane free.
 - Limit: This is a map of possible transitions, not a timed schedule or a probability model.
+- Depicted state: One token is at Lane free; Wagon on lane and Cattle on lane are empty. Either start can acquire that token, but both cannot hold the lane together.
 - Image description: This shared-lane Petri-net fragment makes two competing starts and the return of one reusable access token visible.
 - [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=farm-lane-net) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/farm-lane-net.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/farm-lane-net-thumb.webp) · [Original example](https://lawrencerowland.github.io/integrated_risks_tasks/#wiring)
 - Capture: Page screenshot; recorded check date: 2026-10-01
