@@ -14,7 +14,9 @@ const absolute = url => new URL(url, origin).href;
 const link = (title, url) => '[' + markdown(title) + '](' + absolute(url) + ')';
 function anchor(title, url) {
   const target = new URL(url, origin);
-  const href = target.origin === origin
+  // Preserve absolute catalogue URLs: sibling Pages projects share our host
+  // but are not part of a local build of this repository.
+  const href = String(url).startsWith('/') && !String(url).startsWith('//')
     ? "{{ '" + (target.pathname + target.search + target.hash).replace(/'/g, '%27') + "' | relative_url }}"
     : html(target.href);
   return '<a href="' + href + '">' + html(title) + '</a>';

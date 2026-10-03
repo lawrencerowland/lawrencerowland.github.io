@@ -68,6 +68,7 @@ test('every project retains its current identity, question, scenario, approach, 
     const row = rows[i], selected = data.projects.find(item => item.id === p.id);
     assert.equal(row.querySelector('th a').textContent, p.title);
     assert.equal(row.querySelector('th a').href, new URL(p.path, origin).href);
+    assert.equal(row.querySelector('th a').getAttribute('href'), p.path, 'sibling project routes stay absolute in local previews');
     assert.ok(row.textContent.includes(p.entry_question || p.question));
     assert.ok(row.textContent.includes(selected.scenario));
     assert.equal(row.querySelector('.pw-agent-approach').textContent, p.description);
@@ -130,7 +131,7 @@ test('metadata changes propagate to both representations with escaped HTML and p
   assert.ok(rendered.get('agents/visual-atlas.txt').includes(changed.views[0].limit));
   for (const a of guide.querySelectorAll('a[href]')) {
     assert.equal(new URL(a.href).protocol, 'https:');
-    if (new URL(a.href).origin === origin) assert.ok(read('_includes/agent-orientation.html').includes("{{ '" + new URL(a.href).pathname), 'HTML local routes remain local in previews');
+    if (a.getAttribute('href').startsWith('/')) assert.ok(read('_includes/agent-orientation.html').includes("{{ '" + new URL(a.href).pathname), 'HTML local routes remain local in previews');
   }
 });
 
