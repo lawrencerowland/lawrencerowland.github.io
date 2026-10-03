@@ -27,9 +27,9 @@ for (const p of projects.filter(p => p.tile_image)) {
   assert.ok(fs.existsSync(p.tile_image.slice(1)), `${p.id}: local illustration exists`);
 }
 const collections = registry.filter(p => p.placement === 'library');
-assert.equal(registry.length, 20);
+assert.equal(registry.length, 19);
 assert.equal(projects.length, 19);
-assert.deepEqual(collections.map(p => p.id), ['project-web-apps']);
+assert.deepEqual(collections.map(p => p.id), []);
 assert.equal(new Set(registry.map(p => p.id)).size, registry.length);
 const bracken=projects.find(p=>p.id==='bracken-vale');
 assert.ok(bracken,'published Bracken Vale has an Experiments entrance');
@@ -193,7 +193,7 @@ if (process.argv[2]) {
   assert.match(html, /src="\/assets\/forays\.js\?v=\d+"/);
   assert.ok(html.includes('id="foray-topic" autocomplete="off"'));
 }
-console.log(`PASS: ${projects.length} project cards, 1 retained collection record, one gallery, all topic filters, empty state, reset and optional rendered-page preservation checks.`);
+console.log(`PASS: ${projects.length} project cards, 0 retired collection cards, one gallery, all topic filters, empty state, reset and optional rendered-page preservation checks.`);
 
 assert.deepEqual(projects.filter(p => p.group === 'gimmer').map(p => p.path), [
   'https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html',

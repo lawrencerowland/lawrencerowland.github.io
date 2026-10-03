@@ -9,6 +9,8 @@ tags: [KnowledgeManagement]
 
 ## Pages
 
+[Door clearance experiment](/wider-interest/door-moisture-model/) · [Project Management Pong](/wider-interest/project-management-pong/) · [HS2 Elite](/wider-interest/hs2-elite/)
+
 [One refuge, nine ways to reason]({{ '/gimmer-comparison/' | relative_url }})
 
 [Meta Project Innovation]({{ '/meta-project-innovation/' | relative_url }})

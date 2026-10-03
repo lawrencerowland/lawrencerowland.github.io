@@ -325,7 +325,7 @@ function mergeApps(feeds,retired=[]){
   const blocked=new Set(retired.filter(r=>typeof r==='string'||(r&&typeof r.repo==='string'&&typeof r.name==='string')).map(r=>typeof r==='string'?r:identity(r)));
   const seenIds=new Set(),seenURLs=new Set(),out=[];
   for(const feed of feeds)for(const app of feed||[]){
-    if(!app||typeof app.name!=='string'||!app.name.trim())continue;
+    if(!app||typeof app.name!=='string'||!app.name.trim()||app.home==='Wider interest')continue;
     const id=identity(app),url=appURL(app),canon=canonicalURL(url);
     if(!url||blocked.has(id))continue;
     if(canon==='https://lawrencerowland.github.io/gap-map.html'){seenIds.add(id);seenURLs.add(canon);continue;}
@@ -362,18 +362,17 @@ async function loadCatalogues(fetcher,retired=[]){
   const feeds=[
     {name:'Library examples',url:'/assets/data/library-apps.json'},
     {name:'Specialist examples',url:'/assets/data/specialist-apps.json'},
-    {name:'Remaining Project Apps',url:'/Project-web-apps/app-index.csv',csv:true},
     {name:'Retirement list',url:'/assets/data/retired-apps.json',retirements:true}
   ];
   const results=await Promise.allSettled(feeds.map(async feed=>{
     const response=await fetcher(feed.url);if(!response.ok)throw new Error(feed.name+' unavailable');
-    const records=feed.csv?parseCSV(await response.text()).map(r=>({...r,repo:'Project-web-apps'})):await response.json();
+    const records=await response.json();
     if(!Array.isArray(records))throw new Error(feed.name+' invalid');
     if(feed.retirements&&records.some(r=>!r||typeof r!=='object'||typeof r.repo!=='string'||!r.repo.trim()||typeof r.name!=='string'||!r.name.trim()))throw new Error('Retirement list invalid');
     return records;
   }));
-  const registry=results[3].status==='fulfilled'?results[3].value:[];
-  return {apps:mergeApps(results.slice(0,3).map(r=>r.status==='fulfilled'?r.value:[]),[...retired,...registry]),failures:results.flatMap((r,i)=>r.status==='rejected'?[feeds[i].name]:[])};
+  const registry=results[2].status==='fulfilled'?results[2].value:[];
+  return {apps:mergeApps(results.slice(0,2).map(r=>r.status==='fulfilled'?r.value:[]),[...retired,...registry]),failures:results.flatMap((r,i)=>r.status==='rejected'?[feeds[i].name]:[])};
 }
 return {createData,parseCSV,safeURL,canonicalURL,identity,mergeApps,integrateApps,matches,graphData,loadCatalogues,domains};
 });

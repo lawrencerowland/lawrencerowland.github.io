@@ -84,7 +84,13 @@ nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150p
     <p>Toggle events on the left; the right‑hand artefacts update immediately: <span class="kbd">Scenario Log</span>, <span class="kbd">Rule Receipts</span>, and a <span class="kbd">Lineage Map</span>.</p>
   </header>
 
-  <section class="orientation"><p>A fictional team ingests data, builds a model, reviews it, approves it and publishes a report. Toggle the selected events and inspect the missing prerequisites.</p><p>The log and times are synthetic. Rules test event presence and a chosen role, not event chronology, real identities, reviewer independence or an external execution.</p><details><summary>How the example works and where it came from</summary><p>The event display always follows the same illustrative order. The scenario identifier is a simple non-cryptographic label; it is not a tamper-proof receipt. Sharing preserves selected events, role and seed in the URL fragment. No events are sent to a workflow system.</p><p>Adapted from Governance Trio at source revision 9d9c253, reviewed 2 October 2026. The original idea of generating replay records, rule receipts and lineage from real workflow evidence remains a future integration proposal.</p></details></section><main>
+  <section class="orientation"><p>A fictional team ingests data, builds a model, reviews it, approves it and publishes a report. Toggle the selected events and inspect the missing prerequisites.</p><p>The log and times are synthetic. Rules test event presence and a chosen role, not event chronology, real identities, reviewer independence or an external execution.</p><details><summary>How the example works and where it came from</summary><p>The event display always follows the same illustrative order. The scenario identifier is a simple non-cryptographic label; it is not a tamper-proof receipt. Sharing preserves selected events, role and seed in the URL fragment. No events are sent to a workflow system.</p><p>Adapted from Governance Trio at source revision 9d9c253, reviewed 2 October 2026. The original idea of generating replay records, rule receipts and lineage from real workflow evidence remains a future integration proposal.</p></details><details id="assurance-records"><summary>What would a real assurance record need?</summary>
+<p>The earlier Assurance Bundle sketch proposed three linked records. This example illustrates their questions; it does not collect evidence from a real workflow.</p>
+<ul><li><strong>Replay record:</strong> captured inputs, configuration and software/environment versions; stored external responses or nondeterministic choices; original and replay output hashes. Matching bytes test reproduction, not whether the result was right.</li>
+<li><strong>Rule receipt:</strong> rule ID and version, evaluation context, pass/fail/not-applicable result, rationale, time and the responsible policy. A tick cannot show that an untested rule was satisfied.</li>
+<li><strong>Lineage:</strong> run, step and attempt IDs, actor and approval references, input/output artefact references and typed links. Each event needs its own ID, type, timestamp and payload. An approval reference must lead to evidence; it is not created by drawing an arrow.</li></ul>
+<p>Keep failures and retries alongside successful attempts. A real variant comparison would count paths from an actual event log and state its population and time window. The old mock-up’s percentages and success claims were placeholders, so they are not carried forward as results.</p>
+<p>These are design considerations recovered from an earlier sketch, not a delivery plan or implemented controls.</p></details></section><main>
     <section class="left">
       <div class="card">
         <div class="cardTitle"><h2>Scenario: Workflow Events</h2><button class="iconBtn" type="button" data-help="scenario" aria-label="About workflow events" title="About this panel">?</button></div>
@@ -160,6 +166,6 @@ nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150p
     </section>
   </dialog>
 
-<script src="model.js"></script><script src="app.js"></script>
+<script src="model.js"></script><script src="app.js?v=20261003-final"></script>
 </body>
 </html>

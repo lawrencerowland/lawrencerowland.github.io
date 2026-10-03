@@ -49,6 +49,6 @@ const old='name,description\nintro_risk_matrix,old\ndoor-moisture-model,residual
 M.loadCatalogues(async url=>({ok:true,text:async()=>old,json:async()=>url.includes('library-apps.json')?manifest.filter(a=>a.name==='intro_risk_matrix'):[]})).then(({apps:received})=>{
  assert.equal(received.filter(a=>a.name==='intro_risk_matrix').length,1);
  assert.equal(received.find(a=>a.name==='intro_risk_matrix').url,manifest.find(a=>a.name==='intro_risk_matrix').url);
- assert.ok(received.some(a=>a.name==='door-moisture-model'));
+ assert.ok(!received.some(a=>a.name==='door-moisture-model'),'Wider interest games and physical toys are not project capability evidence');
  console.log('PASS: ten retained app identities, subjects, source hashes, dependencies, pictures and current catalogue deduplication'+(process.argv[2]?'; exact built site.':'.'));
 }).catch(error=>{console.error(error);process.exitCode=1});

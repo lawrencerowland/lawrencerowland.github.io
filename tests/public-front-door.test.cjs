@@ -18,7 +18,7 @@ assert.ok(!fs.existsSync('_includes/footer.html'), 'the duplicate shared footer 
 for (const file of fs.readdirSync('_layouts').filter(file => file.endsWith('.html'))) {
   assert.ok(!/include\s+footer\.html/.test(fs.readFileSync(path.join('_layouts', file), 'utf8')), file + ': no retired footer include');
 }
-for (const route of ['/graphs.html', '/Books.html', '/gap-map.html', '/all-project-apps.html']) {
+for (const route of ['/graphs.html', '/Books.html', '/gap-map.html']) {
   assert.ok(library.includes(route) || materialFor(route), `supporting destination remains reachable through Library subjects: ${route}`);
 }
 assert.ok(!library.includes('/project-examples.html'), 'the retired example index is not a second collection entrance');

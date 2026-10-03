@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102720">
+  <meta name="description" content="A small retro space-trading game: fly between six fictional outposts, dock, refuel and trade a cargo hold of construction supplies.">
+  <title>HS2 Elite · a small space-trading game</title>
+  <link rel="canonical" href="https://lawrencerowland.github.io/wider-interest/hs2-elite/">
+  <link rel="stylesheet" href="style.css">
+  <script src="model.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#cockpit">Skip to the cockpit</a>
+<header class="masthead"><a href="/wider-interest/">← Wider interest</a><span>A small diversion / 06 outposts</span></header>
+<main>
+  <section class="intro" aria-labelledby="title">
+    <div><p class="eyebrow">Construction supplies. The final frontier.</p><h1 id="title">HS2 <em>Elite</em></h1></div>
+    <div class="intro-copy"><p>One ship. Twenty cargo slots. An improbable line of outposts. Buy low, find your bearings, and see what the next station will pay.</p><p class="small">A fictional space game borrowing railway place names. Its map, markets and stations are invented; it makes no claims about real routes, services or project delivery.</p></div>
+  </section>
+
+  <section class="cockpit" id="cockpit" aria-label="Space trading cockpit">
+    <div class="instrument-bar">
+      <span class="call-sign">CMDR / PROJECT CONSULTANT</span>
+      <div class="actions"><button id="market-button" type="button" disabled>Market <kbd>M</kbd></button><button id="undock-button" type="button" disabled>Undock</button><button id="pause-button" type="button" aria-pressed="false" disabled>Pause <kbd>P</kbd></button></div>
+    </div>
+    <div class="readouts" aria-label="Ship instruments">
+      <div><span>Credits</span><strong id="credits">£10,000</strong></div>
+      <div><span>Cargo</span><strong id="cargo">0 / 20</strong></div>
+      <div><span>Fuel</span><strong id="fuel">100%</strong></div>
+      <div><span>Speed</span><strong id="speed">0 m/s</strong></div>
+      <div><span>Heading</span><strong id="heading">000°</strong></div>
+      <div><span>Drive</span><strong id="drive">Off</strong></div>
+    </div>
+    <div class="viewport">
+      <canvas id="flight" width="1000" height="500" tabindex="0" aria-label="Wireframe flight view. Focus here for keyboard flight controls." aria-describedby="flight-help flight-status">This game needs a browser with canvas support. Position, speed, heading and destination are also shown as text around this view.</canvas>
+      <div class="view-label"><span id="location">Docked at Euston</span><span id="visited">1 / 6 outposts visited</span></div>
+      <div id="pause-cover" hidden><strong>Flight paused</strong><span>Press P or Resume when you are ready.</span></div>
+      <div class="view-footer"><span id="flight-status">Docked. Fuel replenished. Visit the market or undock.</span><span class="reticle-key">Cyan + forward · amber ○ drift</span></div>
+    </div>
+    <div class="navigation">
+      <div class="destination"><label for="destination">Destination</label><select id="destination" disabled>
+        <option value="euston">Euston · terminus</option><option value="old-oak" selected>Old Oak Common · interchange</option><option value="west-ruislip">West Ruislip · tunnel portal</option><option value="chiltern">Chiltern Tunnel · TBM site</option><option value="birmingham">Birmingham Int. · station</option><option value="curzon">Curzon Street · terminus</option>
+      </select><button id="aim-button" type="button" disabled>Aim at destination</button></div>
+      <div class="mode"><label for="thrust-mode">Thrust</label><select id="thrust-mode" disabled><option value="fine">Fine</option><option value="normal" selected>Normal</option><option value="boost">Boost</option></select></div>
+      <p id="target-status">Old Oak Common · 344 m away</p>
+    </div>
+    <p id="message" role="status" aria-live="polite">Loading cockpit…</p>
+    <div class="flight-controls" aria-label="Hold buttons to fly">
+      <div class="steering"><span class="control-title">Aim · release thrust first</span><div class="button-row"><button type="button" data-hold="left" aria-label="Yaw left" disabled>← Left</button><button type="button" data-hold="up" aria-label="Pitch up" disabled>↑ Up</button><button type="button" data-hold="down" aria-label="Pitch down" disabled>↓ Down</button><button type="button" data-hold="right" aria-label="Yaw right" disabled>Right →</button></div><div class="button-row"><button type="button" data-hold="rollLeft" disabled>↶ Roll left</button><button type="button" data-hold="rollRight" disabled>Roll right ↷</button></div></div>
+      <div class="engine"><span class="control-title">Hold to thrust · release to coast</span><div class="button-row"><button type="button" class="throttle" data-hold="forward" disabled>Forward</button><button type="button" data-hold="reverse" disabled>Reverse</button><button type="button" data-hold="brake" disabled>Brake</button></div><p class="small">Mouse, touch or keyboard. Hold a focused control with Space or Enter.</p></div>
+    </div>
+    <noscript><p class="error">JavaScript is required to play. The instructions and fictional setting below remain readable.</p></noscript>
+  </section>
+
+  <section class="field-guide" aria-labelledby="guide-title">
+    <div><p class="eyebrow">A commander's pocket guide</p><h2 id="guide-title">A few good trades.<br>A graceful arrival.</h2><p>You start docked at Euston with £10,000 and an empty hold. There are no enemies and no clock to beat. Try visiting all six outposts and bringing home more than you started with.</p><p class="small">This is a session-only game. Reloading or starting again resets your ship, cargo and credits. No account, downloads or network connection are needed after the page loads.</p><div class="recovery"><button id="tow-button" type="button" disabled>Request a tow</button><button id="restart-button" type="button" disabled>Start again</button></div><p class="small">A tow takes you to the nearest outpost, keeps your cargo, and costs up to £250 of your remaining credits. It is a recovery option if you run out of fuel or get lost.</p></div>
+    <div id="flight-help">
+      <ol class="steps"><li><strong>Trade before departure.</strong> The market buys and sells one unit at a time. Each station keeps the same prices throughout your game. The same price applies in either direction, so profit comes from travelling.</li><li><strong>Undock, then aim.</strong> Select an outpost and use “Aim at destination”, or click/tap a point in the view. This turns the ship; it does not fly or stop for you. The cyan centre mark is where forward thrust points.</li><li><strong>Give the drive a short burst.</strong> Release to coast and steer. Fine thrust helps near a station; boost uses more fuel. The amber drift marker shows your actual movement, which can differ from your heading.</li><li><strong>Slow down to dock.</strong> Get within 50 fictional metres of an outpost at under 5 m/s. Brake assists slowing; reverse thrust pushes you backwards along your heading. Docking stops the ship and refills the tank for free.</li></ol>
+      <details><summary>Keyboard controls and cockpit notes</summary><p>Focus the flight view, then use <kbd>W</kbd>/<kbd>S</kbd> to pitch, <kbd>A</kbd>/<kbd>D</kbd> to yaw and <kbd>Q</kbd>/<kbd>E</kbd> to roll. Hold <kbd>Space</kbd> for forward thrust or <kbd>X</kbd> for reverse. Hold <kbd>Shift</kbd> for fine thrust or <kbd>Control</kbd> for boost; the thrust selector also works on touch screens. <kbd>B</kbd> applies braking assistance.</p><p><kbd>M</kbd> opens the market when docked. <kbd>P</kbd> pauses or resumes; <kbd>Escape</kbd> pauses flight or closes the market. Leaving the cockpit with the keyboard, switching tabs or switching windows pauses flight and clears held controls. Resume explicitly when you return.</p><p>The compass uses the game's own north and pitch, not a real-world map. Rotation is available with thrust released. Simulated drag gradually slows your ship; this is an arcade flight model. Pointer controls can be held together on a touch screen.</p><p>Text instruments and native buttons accompany the canvas. Flight still depends on understanding a changing spatial view; this is not a fully nonvisual game.</p></details>
+    </div>
+  </section>
+  <footer><a href="/wider-interest/">← More wider interests</a><p>Adapted from <em>HS2 Elite — Intuitive Thrust Edition</em>. An independent toy game, with no railway affiliation.</p></footer>
+</main>
+
+<dialog id="market-dialog" aria-labelledby="market-title" aria-describedby="market-note">
+  <div class="dialog-head"><div><p class="eyebrow">Station exchange</p><h2 id="market-title">Euston market</h2></div><button id="close-market" type="button" autofocus>Close</button></div>
+  <p id="market-note">One slot per unit. Prices stay fixed here for this game. Your ship is safely docked while you trade.</p>
+  <p class="market-totals"><strong id="market-credits">£10,000</strong><span id="market-cargo">0 / 20 cargo slots</span></p>
+  <div class="table-scroll"><table><caption>Buy or sell one unit</caption><thead><tr><th scope="col">Cargo</th><th scope="col">Price</th><th scope="col">Own</th><th scope="col">Trade</th></tr></thead><tbody id="market-rows"></tbody></table></div>
+  <p id="market-message" role="status" aria-live="polite">Ready to trade.</p>
+  <div class="dialog-actions"><button id="market-undock" type="button">Undock and fly</button><span>Escape closes the market.</span></div>
+</dialog>
+<dialog id="restart-dialog" aria-labelledby="restart-title"><h2 id="restart-title">Start a new game?</h2><p>This resets your credits, cargo, fuel and visits. A new set of station prices will be created.</p><div class="dialog-actions"><button id="cancel-restart" type="button" autofocus>Keep this game</button><button id="confirm-restart" type="button">Start again</button></div></dialog>
+<dialog id="tow-dialog" aria-labelledby="tow-title"><h2 id="tow-title">Request a station tow?</h2><p id="tow-description">A tow takes you to the nearest station and refills your tank.</p><div class="dialog-actions"><button id="cancel-tow" type="button" autofocus>Keep flying</button><button id="confirm-tow" type="button">Accept tow</button></div></dialog>
+</body>
+</html>

@@ -32,38 +32,10 @@ tags: [Projects, Examples, PortfolioManagement, Library]
     </div>
   </section>
 
-  <section class="pw-retained-collections" id="earlier-app-collections" aria-labelledby="collections-title">
-    <h2 id="collections-title">Earlier app collections</h2>
-    <p>The collections keep the apps still waiting for a clearer home. As examples move into named projects or Library subjects, their old listings are removed; saved links still lead to their destinations.</p>
-    <details>
-      <summary>Browse the remaining collections</summary>
-      <div class="foray-grid">
-      {% assign collections = site.data.side_projects | where: 'placement', 'library' %}
-      {% for project in collections %}
-        <article class="example-card foray-card" id="{{ project.id | escape }}">
-          <a class="foray-tile-link" href="{{ project.path | escape }}" aria-label="{{ project.action | escape }}: {{ project.title | escape }}">
-            <span class="foray-scenario-image"><img src="{{ project.image | escape }}" alt="" width="640" height="400" loading="lazy" decoding="async"></span>
-            <div class="foray-tile-body">
-              <h3>{{ project.title | escape }}</h3>
-              <p class="foray-scenario-caption">{{ project.scenario | escape }}</p>
-              <span class="foray-action">{{ project.action | escape }} <span aria-hidden="true">→</span></span>
-            </div>
-          </a>
-          <details class="foray-details">
-            <summary>About this collection</summary>
-            <div class="foray-detail-body">
-              <p class="foray-question">{{ project.question | escape }}</p>
-              <p>{{ project.description | escape }}</p>
-              {% if project.origin %}<p class="foray-origin">Origin: {{ project.origin | escape }}</p>{% endif %}
-              <ul class="foray-tags" aria-label="Topics">{% for tag in project.tags %}<li>{{ tag | replace: '-', ' ' | escape }}</li>{% endfor %}</ul>
-              {% if project.related %}<ul class="foray-related">{% for link in project.related %}<li><a href="{{ link.path | escape }}">{{ link.title | escape }}</a></li>{% endfor %}</ul>{% endif %}
-            </div>
-          </details>
-        </article>
-      {% endfor %}
-      </div>
+  <section class="pw-retained-collections" id="earlier-app-collections">
+    <details><summary>Earlier examples still awaiting a home</summary>
+      <p><a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a> retains the remaining collection. Examples already placed in Library subjects or experiments have one maintained home.</p>
     </details>
-    <p><a href="{{ '/all-project-apps.html' | relative_url }}">Browse the combined app catalogue</a> · <a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a></p>
   </section>
 
   <nav class="pw-library-utilities" aria-label="About and site index"><a href="{{ '/about_me.html' | relative_url }}">About</a><a href="{{ '/sitemap.html' | relative_url }}">Sitemap</a></nav>

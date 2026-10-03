@@ -49,6 +49,6 @@ const old='name,description\nprobecrafter,old\ndoor-moisture-model,residual\n';
 M.loadCatalogues(async url=>({ok:true,text:async()=>old,json:async()=>url.includes('library-apps.json')?manifest.filter(a=>a.name==='probecrafter'):[]})).then(({apps:received})=>{
  assert.equal(received.filter(a=>a.name==='probecrafter').length,1);
  assert.equal(received.find(a=>a.name==='probecrafter').url,manifest.find(a=>a.name==='probecrafter').url);
- assert.ok(received.some(a=>a.name==='door-moisture-model'));
+ assert.ok(!received.some(a=>a.name==='door-moisture-model'),'Wider interest games and physical toys are not project capability evidence');
  console.log('PASS: eight retained app identities, subjects, source hashes, dependencies, pictures and current catalogue deduplication'+(process.argv[2]?'; exact built site.':'.'));
 }).catch(error=>{console.error(error);process.exitCode=1});

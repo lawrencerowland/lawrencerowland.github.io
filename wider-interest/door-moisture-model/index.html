@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A small door-clearance experiment: vary assumed timber moisture and frame movement, then see how a simple gap budget changes.">
+  <meta name="theme-color" content="#f5f0e6">
+  <title>A door, a frame, a little room to move | Wider interest</title>
+  <link rel="canonical" href="https://lawrencerowland.github.io/wider-interest/door-moisture-model/">
+  <link rel="stylesheet" href="style.css">
+  <script src="model.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#experiment">Skip to the experiment</a>
+<header class="masthead"><a href="/wider-interest/">← Wider interest</a><span>A small physical model · 01</span></header>
+<main>
+  <section class="intro" aria-labelledby="title">
+    <p class="eyebrow">Everyday things / room to move</p>
+    <h1 id="title">A door, a frame,<br>a little room to <em>move.</em></h1>
+    <p class="lead">Imagine a timber door in an old stone building. A few millimetres separate its edge from the frame. If the timber gets wetter, how quickly could that little reserve disappear?</p>
+    <p class="scope">Explore a simple clearance budget. The numbers are illustrative assumptions, not measurements of a particular door.</p>
+  </section>
+  <noscript><style>#load-status{display:none}</style><p class="notice">JavaScript is needed for the controls. The starting example leaves 2.70 mm: 3.00 mm of clearance minus 0.30 mm of assumed frame movement. The formula, assumptions and source below remain readable.</p></noscript>
+  <p id="load-status" class="notice" role="status">Loading the experiment… If the controls stay unavailable, reload this page.</p>
+  <section id="experiment" class="experiment" aria-label="Door clearance experiment">
+    <div class="control-panel">
+      <p class="eyebrow">01 / Change the assumptions</p>
+      <h2>How much room remains?</h2>
+      <fieldset id="controls" disabled>
+        <legend class="sr-only">Moisture and clearance controls</legend>
+        <div class="control">
+          <label for="door">Door moisture content <output id="door-value" for="door">12.0%</output></label>
+          <input id="door" type="range" min="6" max="28" step="0.1" value="12" aria-describedby="moisture-help">
+          <div class="endpoints" aria-hidden="true"><span>6%</span><span>28%</span></div>
+        </div>
+        <div class="control">
+          <label for="jamb">Jamb moisture content <output id="jamb-value" for="jamb">12.0%</output></label>
+          <input id="jamb" type="range" min="6" max="28" step="0.1" value="12" aria-describedby="moisture-help jamb-help">
+          <div class="endpoints" aria-hidden="true"><span>6%</span><span>28%</span></div>
+          <p id="jamb-help" class="hint">The jamb is the upright part of the door frame.</p>
+        </div>
+        <p id="moisture-help" class="hint">Wood moisture content, not air humidity. Both timbers start at the assumed 12% reference.</p>
+        <div class="control">
+          <label for="wall">Wall / frame movement factor <output id="wall-value" for="wall">0.20</output></label>
+          <input id="wall" type="range" min="0" max="1" step="0.01" value="0.2" aria-describedby="wall-help">
+          <div class="endpoints" aria-hidden="true"><span>0 · no shift</span><span>1 · 1.50 mm inward</span></div>
+          <p id="wall-help" class="hint">An assumed inward shift, independent of timber moisture. This is not a stone-moisture measurement.</p>
+        </div>
+        <div class="control">
+          <label for="clearance">Reference clearance <output id="clearance-value" for="clearance">3.0 mm</output></label>
+          <input id="clearance" type="range" min="0" max="10" step="0.1" value="3" aria-describedby="clearance-help">
+          <div class="endpoints" aria-hidden="true"><span>0 mm</span><span>10 mm</span></div>
+          <p id="clearance-help" class="hint">The gap at 12% moisture in both timbers and zero frame shift.</p>
+        </div>
+        <div class="examples" aria-label="Illustrative settings">
+          <button type="button" data-example="dry">Drier timbers</button>
+          <button type="button" data-example="contact">First contact</button>
+          <button type="button" data-example="wet">Wetter timbers</button>
+          <button type="button" data-example="original">Reset example</button>
+        </div>
+      </fieldset>
+      <p class="hint">Use the arrow keys on a slider for small changes. Home and End reach its limits.</p>
+    </div>
+    <div class="result-panel">
+      <div id="result" class="result" data-state="gap" aria-live="polite" aria-atomic="true">
+        <p class="eyebrow">Calculated clearance</p>
+        <p class="gap"><span id="gap-value">2.70</span><span class="unit">mm</span></p>
+        <h2 id="gap-status">A gap remains in this model</h2>
+        <p id="gap-explanation">A positive number describes this one edge. It does not establish that a real door opens freely.</p>
+      </div>
+      <figure class="door-figure">
+        <svg id="door-diagram" viewBox="0 0 640 280" role="img" aria-labelledby="diagram-title diagram-desc">
+          <title id="diagram-title">A magnified view across the door edge</title>
+          <desc id="diagram-desc">The starting example has a 2.70 millimetre gap between the door and jamb.</desc>
+          <defs>
+            <pattern id="wood" patternUnits="userSpaceOnUse" width="38" height="180"><rect width="38" height="180" fill="#815536"/><path d="M8 0Q21 48 9 94T12 180M29 0Q16 65 28 122T27 180" fill="none" stroke="#ad8159" stroke-width="1.5"/></pattern>
+            <pattern id="overlap-pattern" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" fill="#f4d5c7"/><path d="M0 0V7" stroke="#9e4029" stroke-width="3"/></pattern>
+          </defs>
+          <text x="60" y="30" class="svg-heading">DOOR LEAF</text><text x="490" y="30" class="svg-heading">JAMB</text>
+          <rect x="48" y="55" width="552" height="150" rx="3" fill="#e5e9df"/>
+          <rect id="door-block" x="48" y="55" width="202" height="150" fill="url(#wood)"/>
+          <rect id="jamb-block" x="304" y="55" width="296" height="150" fill="#aaa18d"/>
+          <path d="M552 55V205M576 55V205" stroke="#867e6f" fill="none"/>
+          <path id="reference-guides" d="M250 45V217M310 45V217" stroke="#424e48" stroke-width="1" stroke-dasharray="4 5"/>
+          <rect id="overlap-block" x="250" y="55" width="0" height="150" fill="url(#overlap-pattern)"/>
+          <path id="edge-lines" d="M250 55V205M304 55V205" stroke="#283c31" stroke-width="3"/>
+          <path id="dimension-line" d="M250 229H304M250 223V235M304 223V235" stroke="#283c31" stroke-width="1.5" fill="none"/>
+          <text id="dimension-label" x="277" y="259" text-anchor="middle" class="svg-measure">2.70 mm gap</text>
+          <path d="M530 235H550M530 231V239M550 231V239" stroke="#515a4f" fill="none"/><text x="540" y="259" text-anchor="middle" class="svg-small">1 mm</text>
+        </svg>
+        <figcaption id="diagram-caption">Movement is magnified. Dashed lines mark the reference edges; timber widths are schematic.</figcaption>
+      </figure>
+      <table class="budget">
+        <caption>Where the millimetres go</caption>
+        <thead><tr><th scope="col">Contribution to the gap</th><th scope="col">mm</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Reference clearance</th><td id="budget-clearance">+3.00</td></tr>
+          <tr><th scope="row">Door moisture change</th><td id="budget-door">0.00</td></tr>
+          <tr><th scope="row">Jamb moisture change</th><td id="budget-jamb">0.00</td></tr>
+          <tr><th scope="row">Wall / frame shift</th><td id="budget-wall">−0.30</td></tr>
+        </tbody>
+        <tfoot><tr><th scope="row">Remaining clearance</th><td id="budget-gap">+2.70</td></tr></tfoot>
+      </table>
+      <p class="hint">Positive contributions open the gap; negative contributions close it. Display precision is arithmetic precision, not measurement accuracy.</p>
+    </div>
+  </section>
+  <section class="sensitivity" aria-labelledby="sensitivity-title">
+    <div><p class="eyebrow">02 / Follow one variable</p><h2 id="sensitivity-title">If only the door gets wetter…</h2><p>The line holds your jamb moisture, frame movement and reference clearance fixed. The dot marks your current door setting.</p><p id="contact-note" class="contact-note">At these settings, the model reaches contact at 22.8% door moisture.</p></div>
+    <figure>
+      <svg id="sweep-diagram" viewBox="0 0 640 280" role="img" aria-labelledby="sweep-title sweep-desc">
+        <title id="sweep-title">Clearance as door moisture changes</title><desc id="sweep-desc">With the other settings fixed, each additional percentage point of door moisture reduces the assumed gap by 0.25 millimetres.</desc>
+        <rect x="65" y="35" width="540" height="180" fill="#fffdf8"/>
+        <path d="M65 65H605M65 140H605M65 215H605" stroke="#d5d6ca" fill="none"/>
+        <path d="M65 140H605" stroke="#8c7767" stroke-dasharray="4 4"/>
+        <text x="52" y="70" text-anchor="end" class="svg-small">10</text><text x="52" y="145" text-anchor="end" class="svg-small">0</text><text x="52" y="220" text-anchor="end" class="svg-small">−10</text>
+        <text x="65" y="20" class="svg-small">Clearance (mm)</text><text x="65" y="239" text-anchor="middle" class="svg-small">6</text><text x="212.3" y="239" text-anchor="middle" class="svg-small">12</text><text x="408.6" y="239" text-anchor="middle" class="svg-small">20</text><text x="605" y="239" text-anchor="middle" class="svg-small">28</text><text x="335" y="268" text-anchor="middle" class="svg-small">Door moisture content (%)</text>
+        <path id="sweep-line" d="M65 108.5L605 149.75" stroke="#3b6250" stroke-width="3" fill="none"/>
+        <circle id="sweep-dot" cx="212.3" cy="119.75" r="6" fill="#9e4029" stroke="#fffdf8" stroke-width="2"/>
+      </svg>
+      <figcaption>The zero line marks contact in this one-dimensional model. Values below it show additional clearance demand.</figcaption>
+    </figure>
+  </section>
+  <section class="explanation" aria-labelledby="model-title">
+    <p class="eyebrow">03 / Read the model</p><h2 id="model-title">A small equation, with large assumptions.</h2>
+    <p class="equation">Gap = reference clearance − door change − jamb change − frame shift</p>
+    <div class="notes-grid">
+      <div><h3>The arithmetic</h3><p>Door change = <strong>0.25 × (door MC − 12)</strong> mm.<br>Jamb change = <strong>0.20 × (jamb MC − 12)</strong> mm.<br>Frame shift = <strong>1.50 × movement factor</strong> mm.</p><p>The timber coefficients are millimetres per <strong>percentage point</strong> of moisture content. A move from 12% to 16% is four percentage points. Below 12%, the assumed timber movement reverses and opens the gap.</p><p>These are assumed changes at the gap edge. Their values already stand in for the missing timber dimensions, grain direction and restraint. The jamb is assumed to move inward as it swells; a real frame’s geometry may behave differently.</p></div>
+      <div><h3>The boundary</h3><p>The 12% reference and all three coefficients come from the original experiment. They have not been calibrated to a building, species, sandstone type, climate or historic period.</p><p>The original title imagined a seventeenth-century Cumbrian door. That remains a motivating scene, not evidence for these numbers. The wall factor is simply an independent inward-displacement assumption.</p><p>A negative answer is an overlap in the unconstrained arithmetic. A real contact problem would require deformation and force calculations. Hinges, warping, uneven moisture, friction and the rest of the opening are outside this model.</p></div>
+    </div>
+    <details><summary>Moisture terminology and the source</summary><p>Moisture content (MC) is water mass as a percentage of oven-dry wood mass. Equilibrium moisture content (EMC) describes the condition at which wood neither gains nor loses moisture; it depends on the surrounding conditions. These sliders set assumed MC directly, without modelling humidity or drying time.</p><p>Wood movement varies with grain direction and species. Swelling and shrinkage mainly occur below fibre saturation, whose moisture level varies. Keeping the original 6–28% slider range does not validate a linear law throughout it for a particular timber.</p><p>Background: Glass &amp; Zelinka, <a href="https://research.fs.usda.gov/treesearch/62243"><cite>Wood Handbook</cite>, Chapter 4 (2021)</a>, pp. 4–1, 4–3, 4–7 and 4–10. <a href="https://research.fs.usda.gov/download/treesearch/62243.pdf">Read the chapter (PDF)</a>. This source supports the terminology and limits, not this toy’s coefficients.</p></details>
+  </section>
+</main>
+<footer><a href="/wider-interest/">← Return to Wider interest</a><span>A sensitivity experiment · rebuilt October 2026</span></footer>
+</body>
+</html>

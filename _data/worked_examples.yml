@@ -2,7 +2,7 @@
   role: bounded-worked-example
   title: "Find the feedback groups."
   topic: "Dependencies & process design"
-  canonical_url: "https://lawrencerowland.github.io/Project-web-apps/web_apps/frobenius-dsm-explorer.html"
+  canonical_url: "https://lawrencerowland.github.io/library/apps/frobenius-dsm-explorer/"
   image: "/images/scenarios/feedback-groups.svg"
   image_alt: "Six design activities, with a feedback loop linking the load model, frame design and foundation design"
   problem: "Which activities depend on one another in a loop? Reorder a six-activity matrix to expose the coupled groups while keeping every dependency."
@@ -23,7 +23,7 @@
   role: bounded-worked-example
   title: "What does another day of buffer buy?"
   topic: "Schedule & risk assumptions"
-  canonical_url: "https://lawrencerowland.github.io/Project-web-apps/web_apps/project-risk-gradient.html"
+  canonical_url: "https://lawrencerowland.github.io/library/apps/project-risk-gradient/"
   image: "/images/scenarios/buffer-day.svg"
   image_alt: "A seven-task software project branches through development and testing, and documentation and training, before deployment; buffer is shown beside two tasks"
   problem: "Allocate protective buffer across a seven-task software project. Compare the reduction in its illustrative risk index with the effect on the commitment date."
