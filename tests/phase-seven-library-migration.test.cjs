@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const root=path.resolve(__dirname,'..'),site=process.argv[2]?path.resolve(process.argv[2]):root,read=p=>fs.readFileSync(path.join(root,p),'utf8'),json=p=>JSON.parse(read(p));
 const apps=json('_data/library_apps.json'),listing=json('assets/data/library-apps.json'),specialists=json('assets/data/specialist-apps.json'),p=json('tests/fixtures/app-migration/provenance.json').phase_seven;
 assert.equal(apps.length,52);assert.equal(listing.length,52);assert.equal(apps.length+json('_data/library_materials.json').length,74);
-assert.equal(specialists.length,91);assert.ok(apps.some(a=>a.id==='contract-portfolio-board'));assert.equal(p.base_revision,'459efda24b673a1e50b33cfd4347ffa5928817d9');
+assert.equal(specialists.length,101);assert.ok(apps.some(a=>a.id==='contract-portfolio-board'));assert.equal(p.base_revision,'459efda24b673a1e50b33cfd4347ffa5928817d9');
 const expected={'market_timeline_explorer':['AI_timeline_from_Gemini_25','project-services-navigator'],'project-services-guide':['consulting_catalogue','project_use_case_tree'],'change-coordination':['concurrent_change_levels_amazon'],'pm-software-evolution':['Project_Controls_2010-2025_Transformation']};
 for(const[id,names]of Object.entries(expected)){
  const a=apps.find(x=>x.id===id);assert.ok(a);assert.equal(a.theme,id==='change-coordination'?'delivery-dynamics':'capabilities-and-futures');assert.equal(apps.filter(x=>x.url===a.url).length,1);assert.equal(listing.filter(x=>x.url.split('#')[0]==='https://lawrencerowland.github.io'+a.url).length,1,'one primary listing per home');

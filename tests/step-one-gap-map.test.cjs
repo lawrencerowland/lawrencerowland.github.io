@@ -60,13 +60,13 @@ function feedFetcher(failed=[]){return async url=>{
   const rows=url.includes('retired')?[{repo:'Project-web-apps',name:'3D_Construction_Workflow'}]:url.includes('specialist')?[{name:'special',repo:'Project-web-apps',url:'/special/'}]:[{name:'old',repo:'Project-web-apps',url:'/library/apps/old/'}];
   return {ok:true,json:async()=>rows};
 };}
-test('each feed recovers independently and retirement filtering precedes graph integration',async()=>{
-  let result=await M.loadCatalogues(feedFetcher());assert.deepEqual(result.apps.map(a=>a.name),['old','special','residual']);assert.deepEqual(result.failures,[]);
-  result=await M.loadCatalogues(feedFetcher(['app-index']));assert.deepEqual(result.apps.map(a=>a.name),['old','special']);
-  result=await M.loadCatalogues(feedFetcher(['library-apps']));assert.deepEqual(result.apps.map(a=>a.name),['special','old','residual']);
-  result=await M.loadCatalogues(feedFetcher(['specialist']));assert.deepEqual(result.apps.map(a=>a.name),['old','residual']);
-  result=await M.loadCatalogues(feedFetcher(['retired']));assert.ok(result.apps.some(a=>a.name==='residual'));assert.deepEqual(result.failures,['Retirement list']);
-  result=await M.loadCatalogues(async()=>({ok:false}));assert.equal(result.apps.length,0);assert.equal(result.failures.length,4);
+test('maintained feeds recover independently without the retired CSV',async()=>{
+  let result=await M.loadCatalogues(feedFetcher());assert.deepEqual(result.apps.map(a=>a.name),['old','special']);assert.deepEqual(result.failures,[]);
+  result=await M.loadCatalogues(feedFetcher(['library-apps']));assert.deepEqual(result.apps.map(a=>a.name),['special']);
+  result=await M.loadCatalogues(feedFetcher(['specialist']));assert.deepEqual(result.apps.map(a=>a.name),['old']);
+  result=await M.loadCatalogues(feedFetcher(['retired']));assert.deepEqual(result.failures,['Retirement list']);
+  result=await M.loadCatalogues(async()=>({ok:false}));assert.equal(result.apps.length,0);assert.equal(result.failures.length,3);
+  const seen=[];await M.loadCatalogues(async url=>{seen.push(url);return feedFetcher()(url)});assert.ok(seen.every(url=>!url.includes('app-index')));
 });
 async function pageFixture(t,{deferFeeds=false,d3=false,fail=[]}={}){
   const dom=new JSDOM(read('gap-map.md').replace(/^---[\s\S]*?---\n/,''),{url:'https://example.test/gap-map.html',runScripts:'outside-only',pretendToBeVisual:true});t.after(()=>{dom.window.dispatchEvent(new dom.window.Event('pagehide'));dom.window.close();});
@@ -88,7 +88,7 @@ test('clear resets domains as promised; empty state and feed/library failures re
   const p=await pageFixture(t,{fail:['library-apps']});assert.match(p.doc.getElementById('loadStatus').textContent,/Library examples/);
   p.doc.getElementById('noDomains').click();assert.match(p.doc.getElementById('listView').textContent,/No matching/);
   p.doc.getElementById('clearSelectionBtn').click();assert.equal(p.doc.querySelectorAll('#listView .item').length,13);
-  p.doc.getElementById('btnR').click();assert.ok(p.doc.getElementById('listView').textContent.includes('residual'));
+  p.doc.getElementById('btnR').click();assert.ok(p.doc.getElementById('listView').textContent.includes('special'));
   assert.equal(p.doc.getElementById('toggleGraph').disabled,true);
 });
 test('all help dialogs close by backdrop/Escape and restore focus to the opener',async t=>{
@@ -122,8 +122,10 @@ test('untrusted catalogue property names cannot access inherited mapping objects
 test('malformed retirement rows fail only their feed; stale conflicts preserve higher-priority homes',async()=>{
   const ordinary=feedFetcher();
   const result=await M.loadCatalogues(async url=>url.includes('retired')?{ok:true,json:async()=>[null]}:ordinary(url));
-  assert.deepEqual(result.failures,['Retirement list']);assert.ok(result.apps.some(a=>a.name==='residual'));assert.ok(result.apps.some(a=>a.name==='special'));
+  assert.deepEqual(result.failures,['Retirement list']);assert.ok(result.apps.some(a=>a.name==='special'));assert.ok(result.apps.some(a=>a.name==='special'));
   assert.doesNotThrow(()=>M.mergeApps([[{name:'A',url:'/one/'}]],[null,{},23]));
   const homes=M.mergeApps([[{name:'A',url:'/one/'},{name:'B',url:'/two/'}],[{name:'A',url:'/two/'}]]);
   assert.deepEqual(homes.map(a=>[a.name,a.url]),[['A','/one/'],['B','/two/']]);
 });
+
+ test('Wider interest toys are not promoted as project capability resources',()=>{const rows=M.mergeApps([[{repo:'Project-web-apps',name:'HS2-elite',url:'/wider-interest/hs2-elite/',home:'Wider interest',tags:'learning'},{repo:'Project-web-apps',name:'retained',url:'/library/apps/retained/',home:'Library'}]]);assert.deepEqual(rows.map(x=>x.name),['retained']);});

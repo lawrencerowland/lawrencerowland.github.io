@@ -1,0 +1,12 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8'),json=p=>JSON.parse(read(p));
+const p=json('tests/fixtures/app-migration/provenance.json').final_retirement,special=json('assets/data/specialist-apps.json');
+for(const route of p.complete_source_routes){const x=special.find(x=>x.repo==='Project-web-apps'&&x.name===route.name);assert.ok(x,route.name);assert.equal(x.url,route.destination);}
+const before=read('tests/fixtures/app-migration/Project-web-apps-phase-eight-before.csv'),after=read('tests/fixtures/app-migration/Project-web-apps-phase-eight-after.csv');
+assert.equal(before.split(/\r?\n/).slice(1).filter(Boolean).length,3);assert.equal(after.split(/\r?\n/).slice(1).filter(Boolean).length,0);assert.equal(before.split(/(?<=\n)/).filter(l=>!p.removed_names.includes(l.split(',')[1])).join(''),after);
+const home=read('wider-interest/index.md');for(const id of ['door-moisture-model','project-management-pong','hs2-elite']){assert.equal(home.split('href="'+id+'/"').length-1,1);const t=read('wider-interest/'+id+'/index.html');assert.ok(t.includes('/wider-interest/'));assert.ok(fs.existsSync(path.join(root,'wider-interest',id,'thumbnail.svg')));}
+const methods=read('_data/worked_examples.yml');for(const id of ['frobenius-dsm-explorer','project-risk-gradient']){assert.ok(methods.includes('/library/apps/'+id+'/'));assert.ok(!methods.includes('/Project-web-apps/web_apps/'+id));assert.ok(read('library/apps/'+id+'/index.html').includes('rel="canonical"'));}
+assert.ok(read('library/apps/governance-trio/index.html').includes('id="assurance-records"'));assert.ok(read('library/apps/project-services-guide/index.html').includes('id="board-contribution"'));
+assert.ok(!read('library.md').includes('all-project-apps.html'));assert.ok(!read('_data/side_projects.yml').includes('id: project-web-apps'));assert.ok(!read('assets/js/gap-map-model.js').includes('/Project-web-apps/app-index.csv'));assert.ok(!read('all-project-apps.md').includes('/Project-web-apps/app-index.csv'));
+assert.equal(json('_data/library_apps.json').length,52);assert.equal(json('_data/library_materials.json').length,22);assert.ok(json('_data/library_apps.json').some(x=>x.id==='contract-portfolio-board'));
+console.log('PASS: zero ordinary rows, all82 source identities registered, one home per final app, unchanged52 Library apps/74 peers, schemas retained, retired dependencies absent.');

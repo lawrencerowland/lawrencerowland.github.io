@@ -204,7 +204,7 @@
     "explainer post": "",
     "notes": "",
     "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/project-risk-gradient.html",
+    "url": "https://lawrencerowland.github.io/library/apps/project-risk-gradient/",
     "home": "Library · schedule and risk"
   },
   {
@@ -230,7 +230,7 @@
     "explainer post": "",
     "notes": "",
     "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/frobenius-dsm-explorer.html",
+    "url": "https://lawrencerowland.github.io/library/apps/frobenius-dsm-explorer/",
     "home": "Library · feedback groups"
   },
   {
@@ -1181,5 +1181,85 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/pm-software-evolution/#controls-transformation",
     "home": "Library · Follow the changing project-tool landscape"
+  },
+  {
+    "name": "door-moisture-model",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/wider-interest/door-moisture-model/",
+    "home": "Wider interest",
+    "description": "Door clearance sensitivity",
+    "tags": "physics, everyday"
+  },
+  {
+    "name": "project-management-pong",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/wider-interest/project-management-pong/",
+    "home": "Wider interest",
+    "description": "Project management Pong",
+    "tags": "gamification, learning"
+  },
+  {
+    "name": "HS2-elite",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/wider-interest/hs2-elite/",
+    "home": "Wider interest",
+    "description": "HS2 Elite",
+    "tags": "gamification, rail"
+  },
+  {
+    "name": "assurance_bundle_prototype",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/governance-trio/#assurance-records",
+    "home": "Library · Data and assurance",
+    "description": "What would a real assurance record need?",
+    "tags": "assurance, evidence"
+  },
+  {
+    "name": "simplicial_project_mgmt",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/functors-for_projects/apps/simplicial-project-management/",
+    "home": "Functors for Projects",
+    "description": "Earlier named example, retained at its maintained destination.",
+    "tags": "projects, modelling"
+  },
+  {
+    "name": "animal_crossing_codesign",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/project-co-design/apps/wildlife-crossing.html",
+    "home": "Maintained example",
+    "description": "Earlier named example, retained at its maintained destination.",
+    "tags": "projects, modelling"
+  },
+  {
+    "name": "monotone-codesign-rail-transit",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/project-co-design/apps/transit-tradeoffs.html",
+    "home": "Maintained example",
+    "description": "Earlier named example, retained at its maintained destination.",
+    "tags": "projects, modelling"
+  },
+  {
+    "name": "monotone_codesign_rail",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/project-co-design/apps/rail-simulator.html",
+    "home": "Maintained example",
+    "description": "Earlier named example, retained at its maintained destination.",
+    "tags": "projects, modelling"
+  },
+  {
+    "name": "monotone_codesign_rail_upgrade",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/project-co-design/apps/incremental-upgrade.html",
+    "home": "Maintained example",
+    "description": "Earlier named example, retained at its maintained destination.",
+    "tags": "projects, modelling"
+  },
+  {
+    "name": "rail-staged-codesign",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/project-co-design/apps/staged-paths.html",
+    "home": "Maintained example",
+    "description": "Earlier named example, retained at its maintained destination.",
+    "tags": "projects, modelling"
   }
 ]

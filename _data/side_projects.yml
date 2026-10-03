@@ -241,21 +241,6 @@
   action: "Browse collection"
   related: [{"title":"Open the kglab ontology audit","path":"https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/kglab-ontology-audit/"}]
 
-- title: "Project Web Apps"
-  id: project-web-apps
-  role: earlier-collection
-  placement: library
-  source_url: https://github.com/lawrencerowland/Project-web-apps
-  image: "https://lawrencerowland.github.io/images/scenarios/library.svg"
-  image_alt: "A workbench comparing task dependencies and connected resources"
-  scenario: "Try a small project before relying on a big model."
-  group: "library"
-  question: "Which small tool helps explain a project problem?"
-  description: "The general collection of standalone project-management tools and interactive examples."
-  tags: ["project-management","tools"]
-  path: "https://lawrencerowland.github.io/Project-web-apps/"
-  action: "Browse collection"
-
 - title: "Tag Concurrence Graph"
   id: tag-concurrence
   gallery_order: 15

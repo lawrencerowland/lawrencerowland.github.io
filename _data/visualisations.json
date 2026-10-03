@@ -158,8 +158,8 @@
   {
     "id": "dependency-matrix",
     "title": "Find the feedback group",
-    "home": "Project Apps · dependency matrix",
-    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/frobenius-dsm-explorer.html#output-matrix",
+    "home": "Library · dependency matrix",
+    "url": "https://lawrencerowland.github.io/library/apps/frobenius-dsm-explorer/#output-matrix",
     "topics": [
       "relationships",
       "processes"
@@ -299,8 +299,8 @@
   {
     "id": "buffer-response",
     "title": "What does one more buffer day buy?",
-    "home": "Project Apps · risk gradient",
-    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/project-risk-gradient.html#risk-chart",
+    "home": "Library · risk gradient",
+    "url": "https://lawrencerowland.github.io/library/apps/project-risk-gradient/#risk-chart",
     "topics": [
       "uncertainty",
       "choices"
@@ -630,8 +630,8 @@
   {
     "id": "dependency-groups",
     "title": "Collapse a feedback loop into one group",
-    "home": "Project Apps · dependency matrix",
-    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/frobenius-dsm-explorer.html#graph",
+    "home": "Library · dependency matrix",
+    "url": "https://lawrencerowland.github.io/library/apps/frobenius-dsm-explorer/#graph",
     "topics": [
       "relationships",
       "processes"
@@ -868,8 +868,8 @@
   {
     "id": "buffer-network",
     "title": "See which branch has room to move",
-    "home": "Project Apps · risk gradient",
-    "url": "https://lawrencerowland.github.io/Project-web-apps/web_apps/project-risk-gradient.html",
+    "home": "Library · risk gradient",
+    "url": "https://lawrencerowland.github.io/library/apps/project-risk-gradient/",
     "topics": [
       "resources",
       "processes",

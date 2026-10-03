@@ -51,6 +51,8 @@ on:
       - 'tests/phase-five-*.test.cjs'
       - 'tests/phase-six-*.test.cjs'
       - 'tests/phase-seven-*.test.cjs'
+      - 'tests/final-*.test.cjs'
+      - 'tests/frobenius-dsm.test.cjs'
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
@@ -126,6 +128,8 @@ on:
       - 'tests/phase-five-*.test.cjs'
       - 'tests/phase-six-*.test.cjs'
       - 'tests/phase-seven-*.test.cjs'
+      - 'tests/final-*.test.cjs'
+      - 'tests/frobenius-dsm.test.cjs'
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
@@ -221,6 +225,10 @@ jobs:
         run: |
           node --test library/apps/change-coordination/tests/*.cjs library/apps/project-services-guide/guide.test.cjs
           node tests/phase-seven-library-migration.test.cjs
+      - name: Check final app homes and collection closure
+        run: |
+          node --test tests/final-*.test.cjs
+          node tests/frobenius-dsm.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
