@@ -1,12 +1,14 @@
 # Concept triad builder
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/concept-triad-builder).
+
 Reviewed and adapted for the Library, 2 October 2026. Subject: Decisions & trade-offs.
 
 ## Provenance
 
 - Original ID 20, `interactive-concept-map`, in Project-web-apps at revision `9d9c253f9c203441be1fd301bcb9a6b976b85d4f`.
-- [HTML wrapper](https://github.com/lawrencerowland/Project-web-apps/blob/9d9c253f9c203441be1fd301bcb9a6b976b85d4f/web_apps/interactive-concept-map.html), SHA-256 `097fce2ae5192d3e18a3fdb86cef494fdb98cbed18213fdeb3bfb48fd1d890fe`.
-- [Full TSX implementation](https://github.com/lawrencerowland/Project-web-apps/blob/9d9c253f9c203441be1fd301bcb9a6b976b85d4f/tsx_apps/interactive-concept-map.tsx), SHA-256 `5d6d3d90b6ca2656f32c35ef76c2c4aed35a8763625e63d9a74cfc2b3d65e975`.
+- `lawrencerowland/Project-web-apps@9d9c253f9c203441be1fd301bcb9a6b976b85d4f:web_apps/interactive-concept-map.html`, SHA-256 `097fce2ae5192d3e18a3fdb86cef494fdb98cbed18213fdeb3bfb48fd1d890fe`.
+- `lawrencerowland/Project-web-apps@9d9c253f9c203441be1fd301bcb9a6b976b85d4f:tsx_apps/interactive-concept-map.tsx`, SHA-256 `5d6d3d90b6ca2656f32c35ef76c2c4aed35a8763625e63d9a74cfc2b3d65e975`.
 
 ## Retained and corrected
 

@@ -1,12 +1,14 @@
 # Explore project states and possible traps
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-viability-navigator).
+
 A bounded, fictional state-graph method in **Project states & relationships**. Open `index.html` directly or through the site. There is no build, server, network request, automatic storage or real-project data. D3 is included locally; if it cannot load, the complete state/transition tables and model controls still work.
 
 The practical question is: **under these explicitly supplied assumptions, which project situations have routes out, and which closed groups can a walk reach?** The steel-mill example is a thinking aid. It does not establish project viability, causal effects, safety, an optimal policy, actual probabilities, or a forecast.
 
 ## Pinned provenance
 
-- Original: [`web_apps/project_viability_state_space_navigator_plus.html`](https://github.com/lawrencerowland/Project-web-apps/blob/cd0528939fd0e1f5de1df7cda9930785349e4946/web_apps/project_viability_state_space_navigator_plus.html), source repository commit `cd0528939fd0e1f5de1df7cda9930785349e4946`.
+- Original: `lawrencerowland/Project-web-apps@cd0528939fd0e1f5de1df7cda9930785349e4946:web_apps/project_viability_state_space_navigator_plus.html`, source repository commit `cd0528939fd0e1f5de1df7cda9930785349e4946`.
 - Original HTML SHA-256: `007068f1be681fa6696deca22b687e4eef5adace26eea28c6589409726d1bee0`.
 - The five states and seven transitions, including IDs, labels, notes, viability scores, weights and impacts, are retained verbatim. Their independent extraction fixture is `tests/fixtures/phase-three-viability-baseline.json`, SHA-256 `69ffa256f47d1dafd8014fc9d940026acc82f026bfa73fa4d2d71c6263628d96`.
 - D3 7.9.0: local `vendor/d3.v7.9.0.min.js`, copied from the repository's installed `d3` package; SHA-256 `f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539`. Its ISC license is retained in `vendor/D3-LICENSE` (SHA-256 `3e6849627f74ff73c257a3ae1efb574015d94fc1035c05ec3c15805165efcbc4`). The original loaded the same D3 version from unpkg.

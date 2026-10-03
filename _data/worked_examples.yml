@@ -14,10 +14,12 @@
   date: "2026-09-20"
   revision_context: "The app explicitly records a revision on 20 September 2026, correcting an earlier comparison from June 2025. This is the app's revision date, not a claim about later use."
   source_commit: "0877b95801274a740cf3b1e59533fbaf95b2670b"
-  source_url: "https://github.com/lawrencerowland/Project-web-apps/blob/0877b95801274a740cf3b1e59533fbaf95b2670b/web_apps/frobenius-dsm-explorer.html#L18"
-  source_label: "Source at the recorded revision"
-  checks_url: "https://github.com/lawrencerowland/Project-web-apps/blob/0877b95801274a740cf3b1e59533fbaf95b2670b/tests/frobenius-dsm.cjs"
-  checks_label: "Model checks and their scope"
+  historical_source: "lawrencerowland/Project-web-apps:web_apps/frobenius-dsm-explorer.html"
+  source_sha256: "5863feaa2293505df2c2475f1291a26f54e624603305507db6f39466babdb6b7"
+  source_url: "https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/library/apps/frobenius-dsm-explorer/index.html"
+  source_label: "Maintained source; original revision recorded"
+  checks_url: "https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/tests/frobenius-dsm.test.cjs"
+  checks_label: "Current model checks and their scope"
 
 - id: buffer-day
   role: bounded-worked-example
@@ -33,7 +35,9 @@
   limitation: "This is an uncalibrated teaching model. Risk follows a supplied exponential formula with fixed baseline weights and slack. Finish-date effects are calculated separately; the ranking does not establish real risk reduction or an optimal allocation."
   date_kind: source_commit
   date: "2026-07-10"
-  revision_context: "The linked source was added on 10 July 2026. That is a source-commit date; the app does not state a separate capture or review date."
+  revision_context: "The original source was added on 10 July 2026. That is a source-commit date; the app does not state a separate capture or review date."
   source_commit: "3228f1badb656be3d37ba8d00ca4b7af5907e996"
-  source_url: "https://github.com/lawrencerowland/Project-web-apps/blob/3228f1badb656be3d37ba8d00ca4b7af5907e996/web_apps/project-risk-gradient.html#L633"
-  source_label: "Source and declared formulas"
+  historical_source: "lawrencerowland/Project-web-apps:web_apps/project-risk-gradient.html"
+  source_sha256: "8c67552d5593cffcd18190c4aeb8abe020e7670c03fd59f4eaa2c90169e7797f"
+  source_url: "https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/library/apps/project-risk-gradient/index.html"
+  source_label: "Maintained source and declared formulas"

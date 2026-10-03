@@ -1,0 +1,8 @@
+{
+  "example_only": true,
+  "review_id": "crag-concept-risk-example",
+  "status": "not_assessed",
+  "scope": ["access", "fall protection", "evacuation", "environment"],
+  "findings": [],
+  "interpretation": "No assessment was performed. An empty findings array is not evidence of no hazards."
+}

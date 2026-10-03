@@ -74,6 +74,7 @@ nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150p
 .iconBtn{background:#e5eadc;color:#173b2a;border-color:#bacbb5}.iconBtn:hover{background:#d2ddc8;color:#173b2a;border-color:#477956}
 </style>
 <link rel="canonical" href="https://lawrencerowland.github.io/library/apps/governance-trio/">
+<link rel="stylesheet" href="handover.css">
 </head>
 <body><noscript><p>This interactive example needs JavaScript. The explanation and Library links remain available.</p></noscript>
   <nav aria-label="Library"><a href="/library/methods/data-and-assurance.html">Data and assurance</a> · <a href="/library.html">Library</a></nav><header>
@@ -82,6 +83,7 @@ nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150p
       <button class="iconBtn" type="button" data-help="overview" aria-label="What is this and how do I use it?" title="What is this?">?</button>
     </div>
     <p>Toggle events on the left; the right‑hand artefacts update immediately: <span class="kbd">Scenario Log</span>, <span class="kbd">Rule Receipts</span>, and a <span class="kbd">Lineage Map</span>.</p>
+    <p><a href="#handover">Try a handover package: check the record and its evidence bytes.</a></p>
   </header>
 
   <section class="orientation"><p>A fictional team ingests data, builds a model, reviews it, approves it and publishes a report. Toggle the selected events and inspect the missing prerequisites.</p><p>The log and times are synthetic. Rules test event presence and a chosen role, not event chronology, real identities, reviewer independence or an external execution.</p><details><summary>How the example works and where it came from</summary><p>The event display always follows the same illustrative order. The scenario identifier is a simple non-cryptographic label; it is not a tamper-proof receipt. Sharing preserves selected events, role and seed in the URL fragment. No events are sent to a workflow system.</p><p>Adapted from Governance Trio at source revision 9d9c253, reviewed 2 October 2026. The original idea of generating replay records, rule receipts and lineage from real workflow evidence remains a future integration proposal.</p></details><details id="assurance-records"><summary>What would a real assurance record need?</summary>
@@ -157,6 +159,50 @@ nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150p
     </div>
   </div>
 
+  <section class="card" id="handover" aria-labelledby="handover-title">
+    <h2 id="handover-title">What survives a project handover?</h2>
+    <p>A fictional refuge team hands over a concept record, two declared reviews and two evidence files. Check whether the package is complete enough for this toy rule and whether its evidence still matches the recorded bytes. Then break one thing at a time.</p>
+    <p><strong>These checks concern a package, not acceptance of the refuge.</strong> The reviewers, site and documents are invented. No engineering assessment was performed. Signatures, identity and real provenance are unverified.</p>
+    <ol class="handover-sequence" aria-label="Four distinct questions"><li><strong>1 · Record</strong><span>Are the fields usable?</span></li><li><strong>2 · Declared policy</strong><span>Do the stated roles and names meet the toy rule?</span></li><li><strong>3 · Evidence bytes</strong><span>Do current files match declared hashes?</span></li><li><strong>4 · Acceptance</strong><span>Still unknown: truth, authority and engineering.</span></li></ol>
+    <div class="handover-grid">
+      <div>
+        <label for="handover-example">Choose an example</label>
+        <select id="handover-example" disabled>
+          <option value="complete">Consistent package — acceptance unknown</option>
+          <option value="changed">Changed evidence — hash mismatch</option>
+          <option value="missing">Missing evidence file</option>
+          <option value="duplicate">Same signer in both roles</option>
+          <option value="malformed">Malformed record — blank owner</option>
+          <option value="wrapped">Wrong digest-map structure</option>
+          <option value="unavailable">Hash check unavailable</option>
+        </select>
+        <p id="handover-example-note" class="subtle"></p>
+        <label for="handover-owner">Declared owner</label><input id="handover-owner" disabled>
+        <label for="handover-signer">Declared signer for Safety &amp; Access</label><input id="handover-signer" disabled>
+        <label for="handover-evidence">Concept note — editable evidence text</label><textarea id="handover-evidence" spellcheck="false" disabled></textarea>
+        <p class="subtle">Editing text changes its UTF-8 bytes. The declared hashes stay fixed, so an edit invalidates the previous result. Inputs stay in this page; they are not added to the workflow sharing link. Reloading, restoring or choosing another example discards your edits. Download current inputs first if you want to keep them.</p>
+        <div class="handover-actions"><button id="handover-run" disabled>Run checks</button><button id="handover-reset" disabled>Restore selected example</button></div>
+      </div>
+      <div>
+        <h3>Check receipts</h3>
+        <p id="handover-status" role="status" aria-live="polite">Loading the fictional package…</p>
+        <ul id="handover-results" aria-label="Handover check results"></ul>
+      </div>
+    </div>
+    <details><summary>Inspect the record, flat digest map and toy policy</summary><pre id="handover-record"></pre><p>The structure check asks whether fields are usable. The policy separately asks for two distinct declared signer names in the two required roles. Neither authenticates those people. A hash compares exact bytes against a declared baseline; the person who changes a file can also replace its digest.</p></details>
+    <details><summary>Take the package away and check it again</summary>
+      <p>Download and unzip the sample pack. With Node 22 or later, run <code>node check.cjs</code> inside its folder. It reads the current files and recomputes their hashes on every run. No package installation is needed. The included schema, policy, checker and workflow example explain the boundary.</p>
+      <div class="handover-actions"><a href="handover-pack.zip" download>Download checker and sample pack (.zip)</a><button id="handover-download" disabled>Download current inputs</button></div>
+      <p>To check your edited browser inputs, save the JSON alongside the unpacked checker and run <code>node check.cjs handover-inputs.json</code>. The download contains inputs, not a trusted receipt. Hashing unavailable in this browser can still work locally.</p>
+      <p id="handover-download-note" role="status"></p>
+    </details>
+    <details><summary>Source and corrected failure modes</summary>
+      <p>Adapted from the mountain-refuge handover prototype, historical repository <code>lawrencerowland/more-project-apps</code>, revision <code>f7f084a</code>. Its useful idea was to join responsibility, review declarations and evidence in a stage handover. The <a href="handover-pack/PROVENANCE.md">maintained provenance receipt</a> records its source and corrections.</p>
+      <p>The original pipeline could hide a failed policy command, reuse stale results, and look for digests at the wrong level. Its purported PDF was text, its scan had no assessment, and its separate attestation check did not bind the package to a trusted project. This exercise uses explicit results and fresh byte checks, replaces those artifacts with clearly unassessed examples, and claims no verified attestation.</p>
+      <p>See the <a href="handover-pack/PROVENANCE.md">provenance and correction receipt</a> and <a href="handover-pack/README.md">local checking instructions</a>. This is a bounded Library example, not a planning method or an engineering approval process.</p>
+    </details>
+  </section>
+
   <dialog class="modalOverlay" id="helpOverlay">
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle" aria-describedby="helpBody">
       <button class="iconBtn close" id="helpClose" type="button" aria-label="Close help" title="Close">x</button>
@@ -167,5 +213,6 @@ nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150p
   </dialog>
 
 <script src="model.js"></script><script src="app.js?v=20261003-final"></script>
+<script src="handover-model.js"></script><script src="handover-app.js"></script>
 </body>
 </html>

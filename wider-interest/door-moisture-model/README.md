@@ -1,12 +1,14 @@
 # Door moisture sensitivity experiment
 
+Source identities below are historical. [Maintained source and tests](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/wider-interest/door-moisture-model) remain available.
+
 A bounded Wider interest toy at `/wider-interest/door-moisture-model/`. The page illustrates an assumed one-dimensional gap budget. It is not a calibrated timber, masonry, historic-building or door-operability assessment.
 
 ## Source and provenance
 
-- Original repository: [lawrencerowland/Project-web-apps](https://github.com/lawrencerowland/Project-web-apps).
+- Original repository: `lawrencerowland/Project-web-apps` (historical repository).
 - Source revision inspected: `5c22c99719ea0a7940aac47574fd0cb8511a4b79`.
-- Source file: [`web_apps/door-moisture-model.html`](https://github.com/lawrencerowland/Project-web-apps/blob/5c22c99719ea0a7940aac47574fd0cb8511a4b79/web_apps/door-moisture-model.html).
+- Source file: `lawrencerowland/Project-web-apps@5c22c99719ea0a7940aac47574fd0cb8511a4b79:web_apps/door-moisture-model.html`.
 - SHA-256 of the complete original file: `7da9f517f6667542b538d1836d99c1a345c13d4736a2abda77d607f5b5193c30`.
 - Reviewed in full: all 70 lines, including the four controls, constants, update function, copy and return link.
 - Replacement prepared: 3 October 2026. This note establishes source review and local verification; publication and source retirement belong to the parent migration receipt.

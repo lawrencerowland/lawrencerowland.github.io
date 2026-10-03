@@ -1,0 +1,13 @@
+# Example for a repository containing this unzipped pack at its root.
+# Copy to .github/workflows/validate.yml. No signing credentials are needed.
+name: Check fictional handover package
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Check record and evidence bytes on every run
+        run: node check.cjs

@@ -21,6 +21,6 @@ test('interpretation pairs display stance in text and colour; inspector retains 
  const social=[...d.querySelectorAll('#intention-graph .pair')].find(p=>p.querySelector('button').textContent.startsWith('social_01 · '));social.querySelector('button').click();const detail=d.querySelector('#record-detail').textContent;
  assert.match(detail,/Recorded polarity: 0.303/);assert.match(detail,/Recorded subjectivity: 0.712/);assert.match(detail,/Recorded lexicon score: 1/);assert.match(detail,/Legacy sentiment: positive/);
  const styles=fs.readFileSync(dir+'/style.css','utf8');for(const stance of ['Supporter','Opponent','Neutral'])assert.ok(styles.includes('[data-stance="'+stance+'"]'));
- const readme=fs.readFileSync(dir+'/README.md','utf8');for(const name of ['grounded-theory-approach.html','legends_tower_sentiment_report.html'])assert.ok(readme.includes('https://github.com/lawrencerowland/Project-web-apps/blob/cd0528939fd0e1f5de1df7cda9930785349e4946/web_apps/'+name));
+ const readme=fs.readFileSync(dir+'/README.md','utf8');for(const name of ['grounded-theory-approach.html','legends_tower_sentiment_report.html'])assert.ok(readme.includes('lawrencerowland/Project-web-apps@cd0528939fd0e1f5de1df7cda9930785349e4946:web_apps/'+name));assert.ok(readme.includes('https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/reading-project-evidence'));assert.ok(!readme.includes('](https://github.com/lawrencerowland/Project-web-apps'));
  dom.window.close();
 });

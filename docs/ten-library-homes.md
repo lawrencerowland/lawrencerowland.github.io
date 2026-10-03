@@ -1,13 +1,13 @@
 # Ten reviewed apps receive Library homes
 
 Prepared 2 October 2026. This is the receiving record for ten repaired Project Apps examples and their five existing Library subjects.
-Receiving change: [website PR175](https://github.com/lawrencerowland/lawrencerowland.github.io/pull/175). Paired retirement: [Project Apps PR149](https://github.com/lawrencerowland/Project-web-apps/pull/149). Both are proposed changes; publication remains pending.
+Receiving change: [website PR175](https://github.com/lawrencerowland/lawrencerowland.github.io/pull/175). Paired retirement: `lawrencerowland/Project-web-apps PR #149` (historical reference). Both are proposed changes; publication remains pending.
 
 ## Source and identities
 
-Original implementations were reviewed at [`fa5a4a4819c8c5d25b413c7d1f3219aac2e81fc2`](https://github.com/lawrencerowland/Project-web-apps/tree/fa5a4a4819c8c5d25b413c7d1f3219aac2e81fc2/web_apps).
+Original implementations were reviewed at `lawrencerowland/Project-web-apps@fa5a4a4819c8c5d25b413c7d1f3219aac2e81fc2:web_apps`.
 The receiving `_data/library_apps.json` records each original catalogue ID, name, path, full source revision and SHA-256, alongside its maintained source directory.
-These identities and hashes were independently checked against that revision; Git retains the full original source.
+These identities and hashes were independently checked against that revision. They record the compared inputs; the maintained source directories contain the current implementations and tests.
 
 All old files below are under `Project-web-apps/web_apps/`; all destinations are under the website’s `/library/apps/`.
 
@@ -49,7 +49,7 @@ Independent execution of that stale-catalogue case produced 76 distinct identiti
 
 Only the ten old working implementations and their ten unused catalogue thumbnails are retired by this change.
 Each old HTML route becomes a tiny canonical bookmark forward that preserves query strings and fragments; it contains no duplicate app implementation.
-Prior move records remain unchanged, and source history remains available at the pinned revision.
+Prior move records retain historical identities and comparison hashes; they do not promise continued access to the former repository history.
 The static receiving apps are excluded from the earlier bundled-app rebuild loop so it cannot overwrite their maintained files.
 
 ## Checks and evidence boundary

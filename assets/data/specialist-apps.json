@@ -665,7 +665,7 @@
   {
     "#": "76",
     "name": "governance-trio-replay-rules-lineage",
-    "description": "Compare a simulated event log, prerequisite checks and artifact lineage in the same scenario.",
+    "description": "Inspect a simulated governance trail, then check the records and evidence in a fictional mountain-refuge handover.",
     "origin": "User",
     "model": "GPT-5.3-Codex",
     "tags": "governance, assurance, lineage, replay, controls, visualization",

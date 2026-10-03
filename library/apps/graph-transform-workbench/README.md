@@ -1,5 +1,7 @@
 # Graph-change workbench
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/graph-transform-workbench).
+
 Maintained Library home: **Project states & relationships**. Canonical route: `/library/apps/graph-transform-workbench/`. The return link is `/library/methods/states-and-relationships.html`.
 
 A fictional installation moves from concept freeze to handover. This workbench asks what happens to dates and dependencies when graph data or its representation changes. It is a corrected teaching construction, not a new foray, operational scheduler or formal graph-rewriting framework.
@@ -8,7 +10,7 @@ Open `index.html` directly or serve the folder. `index.html`, `style.css`, `app.
 
 ## Source → construction → limitation
 
-Source: [`Project-web-apps@7888f8a85aa9121e99190d392a622a4ee0cd4a7e`](https://github.com/lawrencerowland/Project-web-apps/tree/7888f8a85aa9121e99190d392a622a4ee0cd4a7e), principally `web_apps/living-graph-transform-system.html`. `source-manifest.json` records SHA-256 of that file, the old roadmap/agent note, and all six input/expected Graphviz files, with separate hashes for maintained samples. The Git revision identifies recoverable historical sources; these hashes identify exact compared bytes.
+Source: `lawrencerowland/Project-web-apps@7888f8a85aa9121e99190d392a622a4ee0cd4a7e`, principally `web_apps/living-graph-transform-system.html`. `source-manifest.json` records SHA-256 of that file, the old roadmap/agent note, and all six input/expected Graphviz files, with separate hashes for maintained samples. The revision identifies the historical comparison; these hashes identify the compared bytes. The old implementation and working notes are not retained as a separate archive. The preserved ideas, corrections, samples and verification live here.
 
 | Source idea | Actual maintained construction | Limit |
 |---|---|---|

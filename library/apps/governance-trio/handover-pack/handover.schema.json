@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fictional refuge handover record",
+  "description": "Documented structure of this bounded teaching example. check.cjs implements these record checks directly; it is not a general JSON Schema validator. Approval policy and evidence hashing are separate checks.",
+  "type": "object",
+  "required": ["handover_id", "example_only", "project", "owner", "signoff", "evidence", "provenance", "handover_notes"],
+  "$defs": {"nonblank": {"type": "string", "pattern": "\\S"}},
+  "properties": {
+    "handover_id": {"$ref": "#/$defs/nonblank"},
+    "example_only": {"const": true},
+    "owner": {"$ref": "#/$defs/nonblank"},
+    "project": {"type": "object", "required": ["name", "stage", "location"], "properties": {"name": {"$ref": "#/$defs/nonblank"}, "stage": {"$ref": "#/$defs/nonblank"}, "location": {"$ref": "#/$defs/nonblank"}}},
+    "signoff": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["role", "by", "at"], "properties": {"role": {"$ref": "#/$defs/nonblank"}, "by": {"$ref": "#/$defs/nonblank"}, "at": {"type": "string", "format": "date-time", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"}}}},
+    "evidence": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["name", "digest_ref", "description"], "properties": {"name": {"type": "string", "pattern": "^(?!.*\\.\\.)[a-z0-9][a-z0-9._-]*$"}, "digest_ref": {"type": "string", "pattern": "^(?!.*\\.\\.)[a-z0-9][a-z0-9._-]*\\.sha256$"}, "description": {"$ref": "#/$defs/nonblank"}}}},
+    "provenance": {"type": "object", "required": ["status", "note"], "properties": {"status": {"const": "not_verified"}, "note": {"$ref": "#/$defs/nonblank"}}},
+    "handover_notes": {"type": "array", "items": {"$ref": "#/$defs/nonblank"}}
+  }
+}

@@ -1,6 +1,6 @@
 import { marketSlices, marketTransitions, geminiSnapshots, navigatorQuarters } from './narratives';
 
-const sourceRepo = 'https://github.com/lawrencerowland/Project-web-apps/blob/459efda24b673a1e50b33cfd4347ffa5928817d9/web_apps/';
+const sourceRecord = 'https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/tools/library-apps/apps/market_timeline_explorer/MIGRATION.md#sources-and-identity';
 const quarterId = label => label.replace(/\s/g, '').replace(/Q([1-4])(\d{4})/, '$2Q$1');
 export const archetypes = [
   ['Goliath Consulting', 'Major incumbent'],
@@ -15,7 +15,7 @@ export const stories = {
     subtitle: '23 quarters · Q2 2025–Q4 2030',
     description: 'Follow a story about compute, coalitions and the balance of power. Real company names stand in for imagined market roles.',
     source: 'Market Timeline Explorer · ChatGPT o3 Pro in the original catalogue',
-    sourceUrl: 'https://github.com/lawrencerowland/React_proj-apps/tree/338469d49e7c706adc70d7b1542957371d47161b/apps/market_timeline_explorer',
+    sourceUrl: sourceRecord,
     lens: 'Named organisations and changing coalitions',
     construction: '23 authored quarterly snapshots and six transition explanations. The existing story remains intact, including its “holding steady” category.',
     plot: ['Compute scarcity', 'Sovereign stacks', 'Intent brokerage', 'Open commons'],
@@ -28,7 +28,7 @@ export const stories = {
     subtitle: '12 snapshots · Q3 2025–2030',
     description: 'Follow Goliath, Nimble, CodeCrafters and the independents through a platform-capture story. All five archetypes are fictional.',
     source: 'AI_timeline_from_Gemini_25 · Gemini Pro 2.5 in the original catalogue',
-    sourceUrl: sourceRepo + 'AI_timeline_from_Gemini_25.html',
+    sourceUrl: sourceRecord,
     lens: 'Scale, specialist expertise and proprietary platform access',
     construction: '12 authored snapshots. The “Uneven Plateau” covers Q3 2027–Q1 2029; the final snapshot covers 2030. These are not equally spaced quarters.',
     plot: ['Scale & expertise', 'Athena access', 'Two-tier market', 'Market dissolution'],
@@ -51,7 +51,7 @@ export const stories = {
     subtitle: '20 quarters · Q1 2026–Q4 2030',
     description: 'Use a quarterly story to question your firm’s assumptions about access, outcomes, trust and purpose. Each period keeps its three original prompts.',
     source: 'Project Services Navigator · Claude Opus 4 in the original catalogue',
-    sourceUrl: sourceRepo + 'project-services-navigator.html',
+    sourceUrl: sourceRecord,
     lens: 'Business-model choices under an assumed discontinuity',
     construction: '20 authored quarters, each retaining its phase, winners, losers, coalitions, three dynamics, transition force and three strategic questions.',
     plot: ['Billable hours', 'AGI access', 'Trust & experience', 'Purpose & abundance'],

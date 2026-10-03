@@ -59,8 +59,14 @@
   "unpublished_branch": {
     "ref": "origin/codex/create-handover-pack-for-mountain-refuge-project",
     "revision": "f7f084a00cce265589554dd8bc94058f4d39a3ba",
-    "status": "Eight unique prototype handover files; not on published main, left untouched. Placeholder evidence is not verified design assurance."
+    "status": "At the Social Debt migration, these eight unique prototype files were not on published main and were left untouched. Their useful contribution is now retained as the corrected Governance Trio handover exercise; the predecessor branch is a historical source identity, not a required archive.",
+    "maintained_contribution": "/library/apps/governance-trio/#handover",
+    "provenance_record": "/library/apps/governance-trio/handover-pack/PROVENANCE.md",
+    "disposition": "Manifest, policy and evidence-link ideas retained. Fake report/scan evidence and the fragile external checker replaced by explicit structure, policy and fresh SHA-256 checks. Real acceptance remains unverified.",
+    "retirement_condition": "Publish and verify the maintained contribution before removing the source branch as part of repository retirement."
   },
   "embedded_graph_sha256": "2ce042e54e0efd269e7e948d5e369382505969c8d08b13714464442d3327c015",
-  "original_runtime_sha256": "fa8c17ae56301eca40e62a1beabffbada5b52a8fb80afb274a06d5cdc6a21080"
+  "original_runtime_sha256": "fa8c17ae56301eca40e62a1beabffbada5b52a8fb80afb274a06d5cdc6a21080",
+  "source_repository_status": "Historical attribution only; predecessor repository availability is not required. Original revisions and hashes identify the compared inputs.",
+  "maintained_source": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/social-debt-explorer"
 }

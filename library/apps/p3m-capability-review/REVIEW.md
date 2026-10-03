@@ -1,12 +1,14 @@
 # Portfolio-office capability review
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/p3m-capability-review).
+
 Reviewed and adapted for the Library, 2 October 2026. Subject: Capabilities & futures.
 
 ## Provenance
 
 - Original ID 14, `p3m-capability-tool`, in Project-web-apps at revision `9d9c253f9c203441be1fd301bcb9a6b976b85d4f`.
-- [HTML wrapper](https://github.com/lawrencerowland/Project-web-apps/blob/9d9c253f9c203441be1fd301bcb9a6b976b85d4f/web_apps/p3m-capability-tool.html), SHA-256 `8db9afaae6451269bd06799b7a4960ef2f744fd14b36f05cf1db43939ce71c44`.
-- [Full TSX implementation](https://github.com/lawrencerowland/Project-web-apps/blob/9d9c253f9c203441be1fd301bcb9a6b976b85d4f/tsx_apps/p3m-capability-tool.tsx), SHA-256 `70248bc7d39c231fc5ea83906d7bab8b3441243b93b25bc1cc994cc471458c65`.
+- `lawrencerowland/Project-web-apps@9d9c253f9c203441be1fd301bcb9a6b976b85d4f:web_apps/p3m-capability-tool.html`, SHA-256 `8db9afaae6451269bd06799b7a4960ef2f744fd14b36f05cf1db43939ce71c44`.
+- `lawrencerowland/Project-web-apps@9d9c253f9c203441be1fd301bcb9a6b976b85d4f:tsx_apps/p3m-capability-tool.tsx`, SHA-256 `70248bc7d39c231fc5ea83906d7bab8b3441243b93b25bc1cc994cc471458c65`.
 - The authored inventory and starting assessments are preserved in `example.js`: four categories, 21 subcategories and 110 individual capabilities. They are a supplied taxonomy and fictional example, not population-level maturity evidence.
 
 ## Retained and corrected
