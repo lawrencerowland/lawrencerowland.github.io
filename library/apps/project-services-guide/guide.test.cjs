@@ -56,6 +56,18 @@ test('deep links clear restrictive search and open ancestors without removing su
  d.window.location.hash='questions';await wait();assert.equal(doc.activeElement.id,'questions-heading');
  d.window.location.hash='%E0%A4%A';await wait();d.window.close();
 });
+test('board contribution links open and focus the disclosure on arrival and after restrictive filters',async()=>{
+ const d=dom('#board-contribution'),doc=d.window.document,disclosure=doc.querySelector('#board-contribution>details'),summary=disclosure.querySelector('summary');
+ assert.ok(disclosure.open);assert.equal(doc.activeElement,summary);assert.notEqual(summary.getAttribute('tabindex'),'-1');
+ const input=doc.getElementById('search'),type=doc.getElementById('type');
+ input.value='no-match-98123';input.dispatchEvent(new d.window.Event('input'));
+ type.value='automation';type.dispatchEvent(new d.window.Event('change'));disclosure.open=false;
+ d.window.location.hash='board-contribution-extra';await wait();
+ assert.equal(disclosure.open,false);assert.equal(input.value,'no-match-98123');assert.equal(type.value,'automation');
+ d.window.location.hash='board-contribution';await wait();
+ assert.ok(disclosure.open);assert.equal(doc.activeElement,summary);assert.equal(input.value,'');assert.equal(type.value,'all');
+ assert.equal(doc.getElementById('empty').hidden,true);assert.equal(doc.querySelectorAll('[data-record]:not([hidden])').length,38);d.window.close();
+});
 test('former routes resolve and unsupported claims are absent from reader content',()=>{
  assert.equal(M.target('offers').section,'offers');assert.equal(M.target('questions').section,'questions');assert.equal(M.target('unknown'),null);
  assert.doesNotMatch(html,/HoloLens|DoWhy\+\+|DiffRL|ELLY|80\s*%|sub.hourly retraining|GA\s*\(2023\)|100k.run|GPT.4o|forecast burnout risk weeks/i);

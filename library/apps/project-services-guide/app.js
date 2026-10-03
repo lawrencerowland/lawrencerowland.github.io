@@ -32,8 +32,9 @@
     const target=M.target(id);if(!target)return;
     resetFilters();
     if(target.group)$(target.group).open=true;
-    const el=$(target.id);if(el.tagName==='DETAILS')el.open=true;
-    const focus=el.tagName==='DETAILS'?el.querySelector('summary'):el.querySelector('h2');
+    const el=$(target.id),content=target.disclosure?el.querySelector('details'):el;
+    if(content.tagName==='DETAILS')content.open=true;
+    const focus=content.tagName==='DETAILS'?content.querySelector('summary'):content.querySelector('h2');
     if(focus)focus.focus({preventScroll:true});
     el.scrollIntoView?.({block:'start'});
   }

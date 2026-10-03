@@ -15,6 +15,7 @@
     if(record)return {id:record.id,group:record.group,section:record.type==='question'?'questions':'offers'};
     if(data.groups.some(x=>x.id===id))return {id,group:id,section:'questions'};
     if(['offers','questions'].includes(id))return {id,group:null,section:id};
+    if(id==='board-contribution')return {id,group:null,section:id,disclosure:true};
     return null;
   }
   return {records,filter,target};
