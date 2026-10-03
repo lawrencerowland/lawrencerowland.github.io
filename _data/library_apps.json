@@ -951,7 +951,7 @@
     "id": "digital-construction-ontology",
     "theme": "states-and-relationships",
     "title": "Read a construction ontology",
-    "description": "Explore modules, a fictional stadium and dated HS2 appointments as three different kinds of graph.",
+    "description": "Explore modules, an illustrative stadium model and dated HS2 appointments as three different kinds of graph.",
     "try_this": "Switch cases, follow an arrow, and compare its meaning with its source and exported triples.",
     "limitation": "Versioned ontology terms, illustrative mappings and historical appointments have different evidence boundaries.",
     "url": "/library/apps/digital-construction-ontology/",

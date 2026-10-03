@@ -860,7 +860,7 @@
   {
     "#": "62",
     "name": "dico_module_map_d3",
-    "description": "Explore modules, a fictional stadium and dated HS2 appointments as three different kinds of graph.",
+    "description": "Explore modules, an illustrative stadium model and dated HS2 appointments as three different kinds of graph.",
     "origin": "ChatGPT",
     "model": "GPT-5.2-Codex",
     "tags": "ontology, construction, knowledge_graph, visualization, interactive",
@@ -873,7 +873,7 @@
   {
     "#": "66",
     "name": "tokyo_stadium_dicon_graph",
-    "description": "Explore modules, a fictional stadium and dated HS2 appointments as three different kinds of graph.",
+    "description": "Explore modules, an illustrative stadium model and dated HS2 appointments as three different kinds of graph.",
     "origin": "ChatGPT",
     "model": "GPT-5.2-Codex",
     "tags": "knowledge_graph, visualization, architecture, infrastructure, interactive",
@@ -886,7 +886,7 @@
   {
     "#": "67",
     "name": "hs2_stakeholders_network",
-    "description": "Explore modules, a fictional stadium and dated HS2 appointments as three different kinds of graph.",
+    "description": "Explore modules, an illustrative stadium model and dated HS2 appointments as three different kinds of graph.",
     "origin": "User",
     "model": "GPT-5.2-Codex",
     "tags": "hs2, stakeholders, network, knowledge_graph, ontology, visualization",
