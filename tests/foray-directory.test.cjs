@@ -27,10 +27,16 @@ for (const p of projects.filter(p => p.tile_image)) {
   assert.ok(fs.existsSync(p.tile_image.slice(1)), `${p.id}: local illustration exists`);
 }
 const collections = registry.filter(p => p.placement === 'library');
-assert.equal(registry.length, 19);
-assert.equal(projects.length, 18);
+assert.equal(registry.length, 20);
+assert.equal(projects.length, 19);
 assert.deepEqual(collections.map(p => p.id), ['project-web-apps']);
 assert.equal(new Set(registry.map(p => p.id)).size, registry.length);
+const bracken=projects.find(p=>p.id==='bracken-vale');
+assert.ok(bracken,'published Bracken Vale has an Experiments entrance');
+assert.equal(bracken.path,'https://lawrencerowland.github.io/bracken-vale/');
+assert.equal(bracken.role,'open-enquiry');
+assert.ok(bracken.scenario&&bracken.entry_question&&bracken.entry_purpose&&bracken.image_alt);
+assert.ok(!collections.some(p=>p.id==='bracken-vale'),'one enquiry home');
 for (const project of registry) {
   assert.match(project.id, /^[a-z][a-z0-9-]+$/);
   assert.ok(['open-enquiry', 'reference', 'earlier-collection'].includes(project.role));

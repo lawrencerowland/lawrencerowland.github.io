@@ -1,0 +1,22 @@
+{
+  "name": "Regulatory Benefits PMO Studio seed model",
+  "version": "0.1",
+  "benefits": [
+    {"id": "b1", "name": "Hazard reduction", "owner": "Safety case", "current": 0.68, "target": 0.78},
+    {"id": "b2", "name": "Throughput reliability", "owner": "Operations", "current": 0.63, "target": 0.74},
+    {"id": "b3", "name": "Regulatory confidence", "owner": "Assurance", "current": 0.59, "target": 0.76},
+    {"id": "b4", "name": "Public value", "owner": "Community", "current": 0.55, "target": 0.70},
+    {"id": "b5", "name": "Cost predictability", "owner": "Finance", "current": 0.61, "target": 0.75},
+    {"id": "b6", "name": "Schedule resilience", "owner": "Controls", "current": 0.57, "target": 0.73}
+  ],
+  "source_apps": [
+    "Project_Health_Atlas",
+    "regulatory-negotiation-rehearsal-board",
+    "governance-trio-replay-rules-lineage",
+    "scenario_barrier_proof_fca_lattice",
+    "portfolio_loom",
+    "counterfactual_programme_steering",
+    "intent_field_navigator",
+    "interface_maturity_simulator"
+  ]
+}

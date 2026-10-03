@@ -1,0 +1,5 @@
+digraph G {
+  node [shape=box];
+  A -> B; B -> C; C -> T;
+  // Removed: A->D, D->E, X->Y
+}

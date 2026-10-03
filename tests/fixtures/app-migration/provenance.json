@@ -247,5 +247,135 @@
         "theme": "delivery-dynamics"
       }
     }
+  },
+  "phase_six": {
+    "date": "2026-10-03",
+    "repository": "lawrencerowland/Project-web-apps",
+    "base_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+    "before_rows": 13,
+    "after_rows": 9,
+    "removed_names": [
+      "living-graph-transform-system",
+      "portfolio_loom",
+      "Project_Health_Atlas",
+      "regulatory-benefits-pmo"
+    ],
+    "source_sha256": {
+      "living-graph-transform-system": "97b8b3ab7563ea047f3cd84d186eac20012791437ac37d8f07f6b4e193cea848",
+      "portfolio_loom": "a2ed9793665e223e132496f3d63e510c5124d1b6283bcb61b5d35c17cee1631d",
+      "Project_Health_Atlas": "6b841f99f8b834118dbc3e57940536edd815a3a1ae936fdc62a5ba62c92dfedd",
+      "regulatory-benefits-pmo": "754b7ead6e61849e58e3c224a1871bbd5b8ae82941774c6394c32d7df1c8e34d"
+    },
+    "source_files": {
+      "graph-transform-workbench": {
+        "web_apps/living-graph-transform-system.html": "97b8b3ab7563ea047f3cd84d186eac20012791437ac37d8f07f6b4e193cea848",
+        "docs/living-graph-transform-roadmap.md": "c89c85c14bb1fe960c97602080824741cae84aa7568735acb4c7fdcd0d4e53f7",
+        ".ai/agent-notes.md": "9ad40000278afd7c4caca5483ca87ff126679eacc589dcf6b862c43b05d0567f",
+        "samples/dependency-pruning/input.gv": "bc10f83086c153bb937d61fdf11e26d65d5c0f026140f8a55700457ad9cf10f0",
+        "samples/dependency-pruning/expected.gv": "bccadc765f7d4b0e74e8b3e46b76f1a998479041830f6ca9e163c5c5d556517c",
+        "samples/interface-braiding/input.gv": "88ce6ae365aa1b7361cfff25e094810277216f0eb64248d51fd71c2b02cceadf",
+        "samples/interface-braiding/expected.gv": "0df379c1d22931bca7c013897900f956113644c49882a2f2111f32855446746f",
+        "samples/variance-aware-critical-path/input.gv": "f05ab9ea8b562a60103c06fa52153c3359c969e7c40ff42f2da7a700d3d4b822",
+        "samples/variance-aware-critical-path/expected.gv": "5708ca97901587fe9cfd27fa9463537ccd3b3a09fa98832b39c5b91af702f7a7"
+      },
+      "portfolio-scenario-loom": {
+        "web_apps/portfolio_loom.html": "a2ed9793665e223e132496f3d63e510c5124d1b6283bcb61b5d35c17cee1631d"
+      },
+      "project-health-and-benefits": {
+        "web_apps/Project_Health_Atlas.html": "6b841f99f8b834118dbc3e57940536edd815a3a1ae936fdc62a5ba62c92dfedd",
+        "docs/project-health-atlas-roadmap.md": "1d392dbdef5c0200613baf24cc9e21ac99ead7462e2facf500a4d4c775bc96f2",
+        "web_apps/regulatory-benefits-pmo.html": "754b7ead6e61849e58e3c224a1871bbd5b8ae82941774c6394c32d7df1c8e34d",
+        "web_apps/regulatory-benefits-pmo/README.md": "991a00a374ad7f4a85ad2bd2fad4a915849a587686a355c5c70d62ba4831b335",
+        "web_apps/regulatory-benefits-pmo/data/benefits.csv": "51f9d3b5dbdfcca032c44d30d8bf9204722b55b2e2ce6e050978a6acd4843700",
+        "web_apps/regulatory-benefits-pmo/data/evidence-register.csv": "4b74e5eb6e11fa632c7005cbc99318bcbe1bc73f5f62752f2c59f289e962d97a",
+        "web_apps/regulatory-benefits-pmo/data/programme-model.json": "d0769e49c97b27eb2f045f608089c81041cc6eee139014f508b0df70215b2e3c",
+        "web_apps/regulatory-benefits-pmo/index.html": "eacb5ed16a8c788c844f2dca1f0af39d02648fdac592848052d212d55bdb6688",
+        "web_apps/regulatory-benefits-pmo/modules/source-app-map.md": "c295cedeff937db27f8a2e3e39316174930936e5d8b426f38ed928a84e1ec8ba"
+      }
+    },
+    "destinations": {
+      "living-graph-transform-system": "https://lawrencerowland.github.io/library/apps/graph-transform-workbench/",
+      "portfolio_loom": "https://lawrencerowland.github.io/library/apps/portfolio-scenario-loom/",
+      "Project_Health_Atlas": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#gaps",
+      "regulatory-benefits-pmo": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#benefits"
+    },
+    "placement": {
+      "graph-transform-workbench": {
+        "theme": "states-and-relationships"
+      },
+      "portfolio-scenario-loom": {
+        "theme": "capabilities-and-futures"
+      },
+      "project-health-and-benefits": {
+        "theme": "data-and-assurance"
+      }
+    },
+    "maintained_support_files": {
+      "samples/dependency-pruning/input.gv": {
+        "path": "library/apps/graph-transform-workbench/samples/dependency-pruning/input.gv",
+        "sha256": "bc10f83086c153bb937d61fdf11e26d65d5c0f026140f8a55700457ad9cf10f0",
+        "change": "exact copy"
+      },
+      "samples/dependency-pruning/expected.gv": {
+        "path": "library/apps/graph-transform-workbench/samples/dependency-pruning/expected.gv",
+        "sha256": "bccadc765f7d4b0e74e8b3e46b76f1a998479041830f6ca9e163c5c5d556517c",
+        "change": "exact copy"
+      },
+      "samples/interface-braiding/input.gv": {
+        "path": "library/apps/graph-transform-workbench/samples/interface-braiding/input.gv",
+        "sha256": "49535529bedcc6ceff33368d9622fabe0299327b10e3c30bce25d2701f48d70c",
+        "change": "comment-only correction"
+      },
+      "samples/interface-braiding/expected.gv": {
+        "path": "library/apps/graph-transform-workbench/samples/interface-braiding/expected.gv",
+        "sha256": "6e756e93ac5bd4bf769a3835e31cac15cf76796c1d2e3c98c12dd8098b6ba035",
+        "change": "comment-only correction"
+      },
+      "samples/variance-aware-critical-path/input.gv": {
+        "path": "library/apps/graph-transform-workbench/samples/variance-aware-critical-path/input.gv",
+        "sha256": "f05ab9ea8b562a60103c06fa52153c3359c969e7c40ff42f2da7a700d3d4b822",
+        "change": "exact copy"
+      },
+      "samples/variance-aware-critical-path/expected.gv": {
+        "path": "library/apps/graph-transform-workbench/samples/variance-aware-critical-path/expected.gv",
+        "sha256": "5e9f64e5670ffb4ff609a856a4e6b2907f0065187ba0958c4fcd68cb5528e545",
+        "change": "comment-only correction"
+      },
+      "web_apps/regulatory-benefits-pmo/data/benefits.csv": {
+        "path": "library/apps/project-health-and-benefits/data/benefits.csv",
+        "sha256": "51f9d3b5dbdfcca032c44d30d8bf9204722b55b2e2ce6e050978a6acd4843700",
+        "change": "exact copy"
+      },
+      "web_apps/regulatory-benefits-pmo/data/evidence-register.csv": {
+        "path": "library/apps/project-health-and-benefits/data/evidence-register.csv",
+        "sha256": "4b74e5eb6e11fa632c7005cbc99318bcbe1bc73f5f62752f2c59f289e962d97a",
+        "change": "exact copy"
+      },
+      "web_apps/regulatory-benefits-pmo/data/programme-model.json": {
+        "path": "library/apps/project-health-and-benefits/data/programme-model.json",
+        "sha256": "d0769e49c97b27eb2f045f608089c81041cc6eee139014f508b0df70215b2e3c",
+        "change": "exact copy"
+      }
+    },
+    "retired_support_files": {
+      "docs/living-graph-transform-roadmap.md": "c89c85c14bb1fe960c97602080824741cae84aa7568735acb4c7fdcd0d4e53f7",
+      ".ai/agent-notes.md": "9ad40000278afd7c4caca5483ca87ff126679eacc589dcf6b862c43b05d0567f",
+      "samples/dependency-pruning/input.gv": "bc10f83086c153bb937d61fdf11e26d65d5c0f026140f8a55700457ad9cf10f0",
+      "samples/dependency-pruning/expected.gv": "bccadc765f7d4b0e74e8b3e46b76f1a998479041830f6ca9e163c5c5d556517c",
+      "samples/interface-braiding/input.gv": "88ce6ae365aa1b7361cfff25e094810277216f0eb64248d51fd71c2b02cceadf",
+      "samples/interface-braiding/expected.gv": "0df379c1d22931bca7c013897900f956113644c49882a2f2111f32855446746f",
+      "samples/variance-aware-critical-path/input.gv": "f05ab9ea8b562a60103c06fa52153c3359c969e7c40ff42f2da7a700d3d4b822",
+      "samples/variance-aware-critical-path/expected.gv": "5708ca97901587fe9cfd27fa9463537ccd3b3a09fa98832b39c5b91af702f7a7",
+      "docs/project-health-atlas-roadmap.md": "1d392dbdef5c0200613baf24cc9e21ac99ead7462e2facf500a4d4c775bc96f2",
+      "web_apps/regulatory-benefits-pmo/README.md": "991a00a374ad7f4a85ad2bd2fad4a915849a587686a355c5c70d62ba4831b335",
+      "web_apps/regulatory-benefits-pmo/data/benefits.csv": "51f9d3b5dbdfcca032c44d30d8bf9204722b55b2e2ce6e050978a6acd4843700",
+      "web_apps/regulatory-benefits-pmo/data/evidence-register.csv": "4b74e5eb6e11fa632c7005cbc99318bcbe1bc73f5f62752f2c59f289e962d97a",
+      "web_apps/regulatory-benefits-pmo/data/programme-model.json": "d0769e49c97b27eb2f045f608089c81041cc6eee139014f508b0df70215b2e3c",
+      "web_apps/regulatory-benefits-pmo/modules/source-app-map.md": "c295cedeff937db27f8a2e3e39316174930936e5d8b426f38ed928a84e1ec8ba",
+      "roadmaps.html": "d082e6b7b8abc23024269c29c270f8ae038f5b27e1bfc4e71e538c8802a75e76",
+      "pics/46.png": "51bdc57ba3a2ec8ae4546b6b2beda5e6bd4028fd4e241f4ddff39791df3ca8c1",
+      "pics/48.png": "2e77eb3433c19b8caca0565afa2f6522747124be803fda0da45210d5c584c1d4",
+      "pics/50.png": "da9817d49d77bcd8a97d0453df47791d58357daeab3374b9eda737b5faf8e396"
+    }
   }
 }

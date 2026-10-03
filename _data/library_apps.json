@@ -1159,5 +1159,115 @@
     "source_files": {
       "web_apps/project-dependency-atlas.html": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1"
     }
+  },
+  {
+    "id": "graph-transform-workbench",
+    "theme": "states-and-relationships",
+    "title": "Inspect what a graph change preserves",
+    "description": "Change a dependency model, compare grouped views and interface transformations, and inspect what each representation keeps or loses.",
+    "try_this": "Insert interfaces along separate edges, then contrast a shared interface and inspect the added dependencies or cycle.",
+    "limitation": "A supplied dependency model and bounded transformation checks; not a general fibration construction, resource scheduler or verified planning-system integration.",
+    "url": "/library/apps/graph-transform-workbench/",
+    "image": "/library/apps/graph-transform-workbench/thumbnail.svg",
+    "image_alt": "Inspect what a graph change preserves diagram",
+    "original_id": "46",
+    "original_name": "living-graph-transform-system",
+    "original_names": [
+      "living-graph-transform-system"
+    ],
+    "tags": "project_management, scheduling, graph, visualization, simulation",
+    "origin": "ChatGPT",
+    "original_model": "GPT-5.2-Codex",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "order": 1000,
+    "kind": "app",
+    "build": "static",
+    "source_repository": "Project-web-apps",
+    "source_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+    "source_sha256": "97b8b3ab7563ea047f3cd84d186eac20012791437ac37d8f07f6b4e193cea848",
+    "source_files": {
+      "web_apps/living-graph-transform-system.html": "97b8b3ab7563ea047f3cd84d186eac20012791437ac37d8f07f6b4e193cea848",
+      "docs/living-graph-transform-roadmap.md": "c89c85c14bb1fe960c97602080824741cae84aa7568735acb4c7fdcd0d4e53f7",
+      ".ai/agent-notes.md": "9ad40000278afd7c4caca5483ca87ff126679eacc589dcf6b862c43b05d0567f",
+      "samples/dependency-pruning/input.gv": "bc10f83086c153bb937d61fdf11e26d65d5c0f026140f8a55700457ad9cf10f0",
+      "samples/dependency-pruning/expected.gv": "bccadc765f7d4b0e74e8b3e46b76f1a998479041830f6ca9e163c5c5d556517c",
+      "samples/interface-braiding/input.gv": "88ce6ae365aa1b7361cfff25e094810277216f0eb64248d51fd71c2b02cceadf",
+      "samples/interface-braiding/expected.gv": "0df379c1d22931bca7c013897900f956113644c49882a2f2111f32855446746f",
+      "samples/variance-aware-critical-path/input.gv": "f05ab9ea8b562a60103c06fa52153c3359c969e7c40ff42f2da7a700d3d4b822",
+      "samples/variance-aware-critical-path/expected.gv": "5708ca97901587fe9cfd27fa9463537ccd3b3a09fa98832b39c5b91af702f7a7"
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/graph-transform-workbench"
+  },
+  {
+    "id": "portfolio-scenario-loom",
+    "theme": "capabilities-and-futures",
+    "title": "Compare overlapping scenario pressures",
+    "description": "Place authored policy, market and technology scenarios across time and inspect their signed effects on project constraints.",
+    "try_this": "Shift a scenario window and compare pressure at a milestone; inspect the opposing effects behind a small net value.",
+    "limitation": "Authored triangular activations and signed effects, not probabilities, calibrated forecasts or a robust optimisation method.",
+    "url": "/library/apps/portfolio-scenario-loom/",
+    "image": "/library/apps/portfolio-scenario-loom/thumbnail.svg",
+    "image_alt": "Compare overlapping scenario pressures diagram",
+    "original_id": "48",
+    "original_name": "portfolio_loom",
+    "original_names": [
+      "portfolio_loom"
+    ],
+    "tags": "portfolio_management, risk, simulation, visualization, decision_support",
+    "origin": "ChatGPT",
+    "original_model": "GPT-5.2-Codex",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "order": 1020,
+    "kind": "app",
+    "build": "static",
+    "source_repository": "Project-web-apps",
+    "source_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+    "source_sha256": "a2ed9793665e223e132496f3d63e510c5124d1b6283bcb61b5d35c17cee1631d",
+    "source_files": {
+      "web_apps/portfolio_loom.html": "a2ed9793665e223e132496f3d63e510c5124d1b6283bcb61b5d35c17cee1631d"
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/portfolio-scenario-loom"
+  },
+  {
+    "id": "project-health-and-benefits",
+    "theme": "data-and-assurance",
+    "title": "Read project health and benefit assumptions",
+    "description": "Inspect six project gap profiles, or explore a separate fictional programme’s benefit, consent, evidence and interface assumptions.",
+    "try_this": "Explain a health tile from its three gap values, then switch to the independent benefits rehearsal and inspect a saved scenario.",
+    "limitation": "Two distinct teaching models. The gaps and heuristic scores are supplied judgements; a scenario snapshot is not evidence of approval, verified assurance or realised benefits.",
+    "url": "/library/apps/project-health-and-benefits/",
+    "image": "/library/apps/project-health-and-benefits/thumbnail.svg",
+    "image_alt": "Read project health and benefit assumptions diagram",
+    "original_id": "50",
+    "original_name": "Project_Health_Atlas",
+    "original_names": [
+      "Project_Health_Atlas",
+      "regulatory-benefits-pmo"
+    ],
+    "tags": "visualization, portfolio_management, health, dashboard, decision_support",
+    "origin": "ChatGPT",
+    "original_model": "GPT-5.2-Codex",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "order": 1040,
+    "kind": "app",
+    "build": "static",
+    "source_repository": "Project-web-apps",
+    "source_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+    "source_sha256": "6b841f99f8b834118dbc3e57940536edd815a3a1ae936fdc62a5ba62c92dfedd",
+    "source_files": {
+      "web_apps/Project_Health_Atlas.html": "6b841f99f8b834118dbc3e57940536edd815a3a1ae936fdc62a5ba62c92dfedd",
+      "docs/project-health-atlas-roadmap.md": "1d392dbdef5c0200613baf24cc9e21ac99ead7462e2facf500a4d4c775bc96f2",
+      "web_apps/regulatory-benefits-pmo.html": "754b7ead6e61849e58e3c224a1871bbd5b8ae82941774c6394c32d7df1c8e34d",
+      "web_apps/regulatory-benefits-pmo/README.md": "991a00a374ad7f4a85ad2bd2fad4a915849a587686a355c5c70d62ba4831b335",
+      "web_apps/regulatory-benefits-pmo/data/benefits.csv": "51f9d3b5dbdfcca032c44d30d8bf9204722b55b2e2ce6e050978a6acd4843700",
+      "web_apps/regulatory-benefits-pmo/data/evidence-register.csv": "4b74e5eb6e11fa632c7005cbc99318bcbe1bc73f5f62752f2c59f289e962d97a",
+      "web_apps/regulatory-benefits-pmo/data/programme-model.json": "d0769e49c97b27eb2f045f608089c81041cc6eee139014f508b0df70215b2e3c",
+      "web_apps/regulatory-benefits-pmo/index.html": "eacb5ed16a8c788c844f2dca1f0af39d02648fdac592848052d212d55bdb6688",
+      "web_apps/regulatory-benefits-pmo/modules/source-app-map.md": "c295cedeff937db27f8a2e3e39316174930936e5d8b426f38ed928a84e1ec8ba"
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-health-and-benefits"
   }
 ]

@@ -15,6 +15,8 @@ tags: [KnowledgeManagement]
 
 [Counterfactual programme steering]({{ '/counterfactuals/' | relative_url }})
 
+[Bracken Vale: useful project interventions](https://lawrencerowland.github.io/bracken-vale/)
+
 [Project Co-design]({{ '/project-co-design/' | relative_url }})
 
 <ul>

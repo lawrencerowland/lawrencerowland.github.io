@@ -1051,5 +1051,57 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/project-dependency-atlas/",
     "home": "Library · Delivery dynamics & feedback"
+  },
+  {
+    "#": "46",
+    "name": "living-graph-transform-system",
+    "description": "Change a dependency model, compare grouped views and interface transformations, and inspect what each representation keeps or loses.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "project_management, scheduling, graph, visualization, simulation",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/graph-transform-workbench/",
+    "home": "Library · Project states & relationships"
+  },
+  {
+    "#": "48",
+    "name": "portfolio_loom",
+    "description": "Place authored policy, market and technology scenarios across time and inspect their signed effects on project constraints.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "portfolio_management, risk, simulation, visualization, decision_support",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/portfolio-scenario-loom/",
+    "home": "Library · Capabilities & futures"
+  },
+  {
+    "#": "50",
+    "name": "Project_Health_Atlas",
+    "description": "Inspect six project gap profiles, or explore a separate fictional programme’s benefit, consent, evidence and interface assumptions.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "visualization, portfolio_management, health, dashboard, decision_support",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#gaps",
+    "home": "Library · Data, evidence & assurance"
+  },
+  {
+    "#": "77",
+    "name": "regulatory-benefits-pmo",
+    "description": "Inspect six project gap profiles, or explore a separate fictional programme’s benefit, consent, evidence and interface assumptions.",
+    "origin": "User",
+    "model": "GPT-5.3-Codex",
+    "tags": "regulatory, benefits, PMO, assurance, simulation, decision_support, visualization",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#benefits",
+    "home": "Library · Data, evidence & assurance"
   }
 ]
