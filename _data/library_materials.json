@@ -71,7 +71,7 @@
     "kind": "material",
     "title": "Following questions through a US IT portfolio",
     "url": "/library/models/us-portfolio-questions.html",
-    "image": "https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/fa79aed9e5e7a83391de3b65c7067d5c4a13bb23/Example_0_a_thousand_US_projects/images1/IBM_supplier.png",
+    "image": "/images/library-originals/us-portfolio-ibm-suppliers.png",
     "image_alt": "Original graph: purple supplier records connect to green investments and orange organisational nodes.",
     "description": "Original pictures connect suppliers, delivery work and measures, with dated reading guidance. Follow a management question through the connected records, then check what was counted.",
     "label": "Historical case study · September 2020",

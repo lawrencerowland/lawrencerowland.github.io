@@ -272,7 +272,7 @@ Capture and check dates below describe the catalogue record. They do not claim t
 - Image description: Strategy, Product, Portfolio and Operations describe the same imagined company through different kinds of objects.
 - [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=four-directors) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/four-directors.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/four-directors-thumb.webp) · [Original example](https://lawrencerowland.github.io/Portfolio-data-model.html#four-directors-one-roadmap)
 - Capture: Published diagram; recorded check date: 2026-10-01
-- [Original source image](https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/master/Example%2012%20Business%20four-way/4-facet-business-model.png)
+- [Original source image](https://lawrencerowland.github.io/images/library-originals/four-directors.png)
 
 ## Which distinctions do your coding choices remove?
 
@@ -312,7 +312,7 @@ Capture and check dates below describe the catalogue record. They do not claim t
 - Image description: A waste-removal job is drawn as tasks, the conditions those tasks achieve, and the roles allocated to them.
 - [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=tasks-states) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/tasks-states.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/tasks-states-thumb.webp) · [Original example](https://lawrencerowland.github.io/project-model-comparison.html#one-small-job)
 - Capture: Published diagram; recorded check date: 2026-10-01
-- [Original source image](https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20Tasks%20and%20states%20and%20resources%20LR.png)
+- [Original source image](https://lawrencerowland.github.io/images/library-originals/waste-tasks-states-resources.png)
 
 ## Collapse a feedback loop into one group
 
@@ -443,7 +443,7 @@ Capture and check dates below describe the catalogue record. They do not claim t
 - Image description: The first two waste-removal tasks become transitions, with states and roles represented as places carrying token properties.
 - [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=early-petri) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/early-petri.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/early-petri-thumb.webp) · [Original example](https://lawrencerowland.github.io/project-model-comparison.html#petri-limits)
 - Capture: Published diagram; recorded check date: 2026-10-01
-- [Original source image](https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20petri%20net%20tasks%20LR.png)
+- [Original source image](https://lawrencerowland.github.io/images/library-originals/waste-petri-fragment.png)
 
 ## Connect software tools with possible data
 
@@ -471,7 +471,7 @@ Capture and check dates below describe the catalogue record. They do not claim t
 - Image description: Identify waste, prepare the extraction plan, commission suppliers and remove waste appear as a simple task sequence.
 - [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=tasks-only) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/tasks-only.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/tasks-only-thumb.webp) · [Original example](https://lawrencerowland.github.io/project-model-comparison.html#what-disappears)
 - Capture: Published diagram; recorded check date: 2026-10-01
-- [Original source image](https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20tasks%20without%20states%20LR.png)
+- [Original source image](https://lawrencerowland.github.io/images/library-originals/waste-tasks.png)
 
 ## Choose the practices a portfolio needs
 

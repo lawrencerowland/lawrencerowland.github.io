@@ -10,6 +10,7 @@ This is a growing selection from the side projects and Library. It is not an inv
 - Interactive views are browser screenshots of the published page in the state recorded by `state`. Following a link opens the original page; it does not promise to restore every pictured control setting.
 - `farm-context.svg` is the unmodified published diagram. Small original notebook images retain their original resolution rather than inventing detail.
 - `source_sha256` is the hash of the original image or screenshot before preview compression, not the hash of the WebP derivative.
+- Ten original Library PNGs are also retained unmodified in `images/library-originals/` so their display and full-size links work independently of source repository visibility. `_data/library_image_sources.json` records each original repository, pinned commit, path and SHA-256. The corresponding gallery `source_image` values point to the public full-size copies; their source hashes and existing compressed previews are unchanged.
 - The DisCoPy and Py3Plex examples retain their explanatory guides and [upstream attribution notices](../notebook-examples/README.md).
 
 ## Adding a view
