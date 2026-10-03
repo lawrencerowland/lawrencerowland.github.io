@@ -44,4 +44,5 @@ home_front_door: true
     <p class="pw-map-note">The representations used inside the examples.</p>
   </section>
 </div>
+<p class="pw-map-note"><a href="{{ '/about_me.html' | relative_url }}">About Lawrence and this collection</a></p>
 </div>

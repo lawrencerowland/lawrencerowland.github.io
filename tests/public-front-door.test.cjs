@@ -51,13 +51,15 @@ assert.match(library, /<h1\b[^>]*>Methods library<\/h1>/, 'Library has a concise
 assert.match(library, /<p\b[^>]*>A home for more established methods\.<\/p>/, 'Library has the requested subtitle');
 assert.ok(!/bounded problem|not all received a new technical review|Looking for the open enquiries|Some work asks an open question/.test(library), 'the former Library introduction is retired');
 for (const route of ['/explore-visually.html', '/side-projects.html']) assert.ok(!library.includes(route), 'peer pages are reached through the main navigation: ' + route);
-for (const [route, label] of [['/about_me.html', 'About'], ['/sitemap.html', 'Sitemap']]) {
+for (const [route, label] of [['/sitemap.html', 'Sitemap']]) {
   const entries = additional.filter(entry => entry.url === route);
   assert.equal(entries.length, 1, 'one Library utility tile: ' + label);
   assert.equal(entries[0].title, label);
 }
 assert.ok(library.includes('for entry in site.data.library_additional'), 'the utility tiles are rendered from their shared metadata');
 assert.ok(!library.includes('/about_the_site.html'), 'About has one canonical entrance');
+assert.ok(!additional.some(entry => entry.url === '/about_me.html'), 'About is below the sitemap, not a Library tile');
+assert.ok(fs.readFileSync('sitemap.md', 'utf8').includes('>About Lawrence and this collection</a>'));
 for (const source of [home, library]) {
   assert.equal((source.match(/<h1\b/g) || []).length, 1);
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');

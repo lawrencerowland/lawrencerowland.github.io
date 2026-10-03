@@ -90,19 +90,17 @@ test('all eight Wider entries have a pictured home with their established destin
   assert.ok(!gallery.includes('More Project Apps'), 'the retired collection is not an additional gallery');
 });
 
-test('Library retains six subjects and four additional pictured tiles, with Sitemap last', () => {
+test('Library retains six subjects and two additional pictured tiles, with Sitemap last', () => {
   assert.equal(themes.length, 5);
   assert.equal(apps.length, 52);
-  assert.equal(materials.length, 22);
+  assert.equal(materials.length, 23);
   assert.deepEqual(additional.map(entry => [entry.id, entry.url]), [
-    ['social-debt', '/library/apps/social-debt-explorer/'],
     ['wider-interest', '/wider-interest/'],
-    ['about', '/about_me.html'],
     ['site-map', '/sitemap.html']
   ]);
   assertPicturedRecords(additional);
   assert.equal(additional.at(-1).title, 'Sitemap');
-  assert.ok(![...apps, ...materials].some(entry => entry.id === 'social-debt' || entry.id === 'social-debt-explorer'), 'Social Debt has one bottom tile, not a duplicate subject card');
+  assert.equal(materials.find(entry => entry.id === 'social-debt').theme, 'states-and-relationships', 'Social Debt has one subject card');
   const library = read('library.md');
   assert.ok(library.indexOf('site.data.library_additional') > library.indexOf('id="custom-gpts"'), 'the additional tiles follow the established subjects');
   assert.ok(library.includes('id="earlier-app-collections"'), 'saved collection fragment remains at the replacement tiles');
@@ -168,6 +166,8 @@ if (process.argv[2]) {
     const home = documentFor('index.html');
     assert.deepEqual([...home.querySelectorAll('.pw-home-question')].map(card => [clean(card.querySelector('h2').textContent), card.querySelector('a').getAttribute('href')]), homeEntrances);
     const library = documentFor('library.html');
+    assert.equal(library.querySelectorAll('.pw-library-additional a[href="/about_me.html"]').length, 0);
+    assertLink(documentFor('sitemap.html').querySelector('.pw-site-map > .pw-map-note a'), 'About Lawrence and this collection', '/about_me.html');
     const subjects = [...library.querySelectorAll('.pw-library-subjects .pw-picture-card')];
     assert.equal(subjects.length, themes.length + 1);
     for (const [index, theme] of themes.entries()) {

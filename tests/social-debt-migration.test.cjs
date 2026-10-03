@@ -69,7 +69,7 @@ test('original projection, runtime, image and provenance survive the move', () =
   }
   const dom = new JSDOM(html), d = dom.window.document;
   assert.equal(d.querySelector('link[rel=canonical]').href, canonical);
-  assert.ok(d.querySelector('nav[aria-label=Library] a[href="/library.html#social-debt"]'));
+  assert.ok(d.querySelector('nav[aria-label=Library] a[href="/library/methods/states-and-relationships.html#social-debt"]'));
   assert.ok(d.querySelector('noscript'));
   assert.match(d.body.textContent, /not a case study from the paper/);
   assert.match(d.body.textContent, /does not assess the full study/);

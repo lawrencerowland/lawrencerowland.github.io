@@ -122,9 +122,9 @@ test('the entrance redesign preserves all Library and Working views catalogue co
     library_materials: '25069450e689810a694fad1c48369743d1823e3cdf1f69f19b64cef3623cf360',
     visualisations: '6289a8756bc42568e5da2135b21da627ec208dc52f7c33c91dc65697a7fb6d42'
   };
-  for (const [name, expected] of Object.entries(snapshots)) assert.equal(createHash('sha256').update(JSON.stringify(json(name))).digest('hex'), expected, name + ': preserve pre-redesign content');
+  for (const [name, expected] of Object.entries(snapshots)) assert.equal(createHash('sha256').update(JSON.stringify(name === 'library_materials' ? json(name).filter(entry => entry.id !== 'social-debt') : json(name))).digest('hex'), expected, name + ': preserve pre-redesign content');
   assert.equal(themes.length + 1, 6, 'five subjects plus Custom GPTs');
-  assert.equal(entries.length, 74);
+  assert.equal(entries.length, 75);
   assert.equal(views.length, 38);
   assert.equal(json('library_additional').filter(e => e.url === '/explore-visually.html').length, 0, 'Working views has its own tab, not a duplicate Library tile');
 });
@@ -217,7 +217,7 @@ if (built) {
       const d = document('library/methods/' + theme.id + '.html');
       for (const e of entries.filter(e => e.theme === theme.id)) { assert.ok(d.getElementById(e.id), e.id + ': retained Library card'); count++; }
     }
-    assert.equal(count, 74);
+    assert.equal(count, 75);
     const atlas = document('explore-visually.html');
     assert.equal(atlas.querySelector('h1').textContent, 'Working views');
     assert.equal(atlas.querySelectorAll('.viz-tile').length, 38);
