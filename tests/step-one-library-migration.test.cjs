@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,'..'),built=process.argv[2]&&path.resolve(proc
 const read=p=>fs.readFileSync(path.join(root,p),'utf8'),json=p=>JSON.parse(read(p));
 const apps=json('_data/library_apps.json'),materials=json('_data/library_materials.json'),specialists=json('assets/data/specialist-apps.json');
 const p=json('tests/fixtures/app-migration/provenance.json').step_one;
-assert.equal(apps.length,36);assert.equal(apps.length+materials.length,58);
+assert.equal(apps.length,40);assert.equal(apps.length+materials.length,62);
 const expected={'project-graph-views':'data-and-assurance','contract-portfolio-board':'states-and-relationships'};
 for(const [id,theme] of Object.entries(expected)){
  const a=apps.find(x=>x.id===id);assert.ok(a);assert.equal(a.theme,theme);assert.equal(a.build,'static');

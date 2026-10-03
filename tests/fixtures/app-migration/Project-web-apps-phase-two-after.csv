@@ -1,0 +1,40 @@
+#,name,description,origin,model,tags,explainer post,notes
+1,door-moisture-model,when does my door get stuck,ChatGPT,o3,"physics, everyday",,
+2,grounded-theory-approach,Analysis of all my LI posts,Claude,Opus4,"qualitative_research, social_science, AI_adoption",,
+5,hs2-decision-graph,HS2 Supply Chain Risk and Value Decision Making Knowledge Graph,Claude,Sonnet3.7,"knowledge_graph, ontology, risk, value, rail, decision, hs2",,
+11,Project_Controls_2010-2025_Transformation,A Wardley map showing what has changed in the Controls value chain ,Claude,Sonnet3.7,"svg, project_controls, Wardley_map, business_model",,
+13,interactive-nec-contract-journey,Each card represents a key section of the NEC contract related to an example project (HVAC installation) scope.,Claude,Cant remember,"tsx, learning, contract_management, procurement",,
+15,project-management-pong,"Pong re-imagined for project interactions with the programme manager, and how progress is handled within companies",Claude,Cant remember,"gamification, learning, scope, culture",,
+16,concurrent_change_levels_amazon,How many levels of change running at the same time so you think organisations can cope with,ChatGPT,o3,"change_management, Viable_systems_model, Ashbys_law, TOM, PMO",,
+18,project_use_case_tree,a progressive search tree of use cases that can be implemented for the project profession. use cases that are only feasible in the last three years.,ChatGPT,o3,"use_cases, project_management, AI_adoption, classification_tree, knowledge_graph",,
+19,hs2-contract-game,"an interactive game that teaches them the rudiments of co-operative game theory relevant to multi-turn interactions between supplier and client in individual packages of work,",Claude,Sonnet3.7,"gamification, negotiation, contract_management, hs2, tsx",,
+21,AI_timeline_from_Gemini_25,"An AI timeline of competition in the project services market, assuming AGI in 2026 and ASI in 2030",Gemini,Pro2.5,"business_model, AI_adoption, AGI, behaviour, social_science",,
+22,consulting_catalogue,what project consulting offerings may look like with the current AI capabilities,ChatGPT,o3 Pro,"business_model, AI_adoption, consulting, use_cases",,
+23,HS2-elite,space exploration game based on HS2 stations,Claude,Opus4,"gamification, rail",,
+24,project-services-navigator,"An AI timeline of competition in the project services market, assuming AGI in 2026 and ASI in 2030",Claude,Opus4,"business_model, AI_adoption, AGI, behaviour, social_science",,
+36,SMR_governance_simulator,"a playable governance simulatora sandbox where players navigate ONR design?assessment loops, financing triggers (RAB/GBE?N), and local engagement to reach Final Investment Decision and first power.",ChatGPT,GPT5.1_Pro,"governance, design, simulator, gates",,
+37,pm_causal_playground,"PM causal DAG playground for back-door paths, colliders, and adjustment sets",ChatGPT,GPT5,"causal, visualization, project_management, education",,
+
+40,project_viability_state_space_navigator_plus,"State-space navigator for project viability, safe-to-fail probes, and walk-based diagnostics.",ChatGPT,GPT-5.2-Codex,"viability, systems, simulation, visualization",,
+44,counterfactual_programme_steering,"Interactive counterfactual program steering dashboard with SCM-based policy simulation and influence diagram explainers.",ChatGPT,GPT-5.2-Codex,"causal, simulation, decision_support, visualization",,
+46,living-graph-transform-system,"Living graph-transform rescheduler with rewrite rules, ES/EF scheduling, and Cytoscape-based propagation log.",ChatGPT,GPT-5.2-Codex,"project_management, scheduling, graph, visualization, simulation",,
+
+
+48,portfolio_loom,Chrono-speculative portfolio loom for weaving scenario fibres into temporal resilience fields.,ChatGPT,GPT-5.2-Codex,"portfolio_management, risk, simulation, visualization, decision_support",,
+50,Project_Health_Atlas,"Project health atlas with deforming tiles, mini DAGs, and explainers.",ChatGPT,GPT-5.2-Codex,"visualization, portfolio_management, health, dashboard, decision_support",,
+51,lower_thames_crossing_geo_kg,"Lower Thames Crossing geo-framed knowledge graph with map + network filters.",ChatGPT,GPT-5.2-Codex,"knowledge_graph, mapping, visualization, procurement",,
+
+
+
+62,dico_module_map_d3,"Interactive module map of the Digital Construction Ontologies suite with draggable nodes and module details.",ChatGPT,GPT-5.2-Codex,"ontology, construction, knowledge_graph, visualization, interactive",,
+63,legends_tower_sentiment_report,"Stakeholder sentiment report for Legends Tower with tables, charts, and an intention network graph.",ChatGPT,GPT-5.2-Codex,"sentiment, stakeholders, visualization, data_analysis, knowledge_graph",,
+66,tokyo_stadium_dicon_graph,"DiCon knowledge graph explorer for the Tokyo Olympic Stadium project.",ChatGPT,GPT-5.2-Codex,"knowledge_graph, visualization, architecture, infrastructure, interactive",,
+67,hs2_stakeholders_network,"HS2 stakeholders and delivery partners network graph with an embedded agent/role ontology.",User,GPT-5.2-Codex,"hs2, stakeholders, network, knowledge_graph, ontology, visualization",,
+
+
+
+
+74,regulatory-negotiation-rehearsal-board,"Guided regulatory negotiation rehearsal board with deal posture, levers, Shapley pivotality, constraint heatmap, synergies, clause library, and audit receipts.",User,GPT-5.2-Codex,"regulatory, negotiation, contracts, simulation, decision_support, visualization",,
+
+77,regulatory-benefits-pmo,"Integrated regulatory benefits PMO studio for benefit sensitivity, assurance evidence, regulatory rehearsal, causal steering, and interface maturity.",User,GPT-5.3-Codex,"regulatory, benefits, PMO, assurance, simulation, decision_support, visualization",,
+79,project-dependency-atlas,"Project Dependency Atlas: trace phase- and gate-bundled dependencies and compare faceted programme timelines.",User,GPT-5.2-Codex,"project_management, dependencies, scheduling, edge_bundling, timelines, visualization, programme_controls",,

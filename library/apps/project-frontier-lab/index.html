@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Frontier Lab · Library</title>
+  <meta name="description" content="Use five independent planning lenses on one fictional cloud migration: challenge scope, inspect evidence, allocate expertise, examine dependencies and compare scheduling policies.">
+  <link rel="canonical" href="https://lawrencerowland.github.io/library/apps/project-frontier-lab/">
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>.panel[hidden]{display:block;margin-top:18px}.tabs,.controls,.snapshot{display:none}</style></noscript>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the worked example</a>
+  <header class="hero">
+    <nav class="library-nav" aria-label="Library"><a href="/library.html">← Library</a><a href="/library/methods/decisions-and-trade-offs.html">Decisions &amp; trade-offs</a></nav>
+    <p class="eyebrow">Interactive worked case · Project Frontier Lab</p>
+    <h1>Project Frontier Lab</h1>
+    <p class="hero-copy">A team is moving its customer data to the cloud. It has inherited too much scope, incomplete evidence and limited specialist time. Explore five ways to improve the project before optimising its plan.</p>
+    <div class="hero-meta">
+      <span>One illustrative cloud-migration case</span>
+      <span>Five independent planning experiments</span>
+      <span>No live data or hidden AI scoring</span>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <noscript><p class="notice">JavaScript is needed for the interactive controls. This case compares scope choices, evidence chains, whole-package allocation, typed graph reachability and schedule heuristics. Its values are fictional; each lens is a separate experiment. Read the method and limits below.</p></noscript>
+    <aside class="notice">
+      <strong>Try this:</strong> choose “Challenge harder”, then compare schedule policies with one and two workstreams. The lenses share a case and a ledger; edits in one lens do not change another lens’s inputs. All figures are invented. Evidence-chain acceptance remains separate from a gate authority’s decision.
+    </aside>
+    <details class="snapshot">
+      <summary>Keep or restore your experiment</summary>
+      <p>Export the current settings as JSON, then copy the text somewhere safe. Paste it back to restore all five lenses and the selected view. Nothing is stored automatically. Outputs are recalculated from the settings; notes, files and operational data are not included.</p>
+      <div class="controls"><button class="action" id="state-export">Export settings to text</button><button class="action secondary" id="state-import">Load pasted settings</button><button class="action secondary" id="state-reset">Restore original example</button></div>
+      <label for="state-json">Scenario settings (JSON, maximum 20,000 characters)</label>
+      <textarea id="state-json" rows="7" spellcheck="false" maxlength="20000"></textarea>
+      <p id="state-status" role="status"></p>
+    </details>
+
+    <nav class="tabs" role="tablist" aria-label="Project planning lenses">
+      <button class="tab" id="tab-demand" role="tab" aria-selected="true" aria-controls="panel-demand"><span>01 · Scope</span>Challenge demand</button>
+      <button class="tab" id="tab-assurance" role="tab" aria-selected="false" aria-controls="panel-assurance"><span>02 · Evidence</span>Test plan claims</button>
+      <button class="tab" id="tab-scarcity" role="tab" aria-selected="false" aria-controls="panel-scarcity"><span>03 · Attention</span>Allocate scarcity</button>
+      <button class="tab" id="tab-topology" role="tab" aria-selected="false" aria-controls="panel-topology"><span>04 · Structure</span>Inspect dependencies</button>
+      <button class="tab" id="tab-planners" role="tab" aria-selected="false" aria-controls="panel-planners"><span>05 · Policy</span>Run planner tournament</button>
+    </nav>
+
+    <section class="panel" id="panel-demand" role="tabpanel" aria-labelledby="tab-demand">
+      <div class="panel-head">
+        <div>
+          <h2>Challenge the demand</h2>
+          <p>Before scheduling inherited scope, decide what should disappear, shrink, change form, become a standard, be automated, be tested cheaply, or genuinely proceed.</p>
+        </div>
+        <p class="method-note">Effort points are relative workload units, not cost or duration. A fixed illustrative multiplier estimates immediate commitment. Later test or replacement work is not costed. Mandatory obligations stay visible when their proposed solution changes.</p>
+      </div>
+      <div class="layout">
+        <div>
+          <div class="controls">
+            <button class="action secondary" id="demand-conservative">Keep more scope</button>
+            <button class="action secondary" id="demand-challenge">Challenge harder</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Demand</th><th>Why it exists</th><th>Effort</th><th>Disposition</th></tr></thead>
+              <tbody id="demand-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <aside>
+          <div class="metrics">
+            <div class="metric"><span>Baseline effort</span><strong id="demand-baseline">0</strong></div>
+            <div class="metric"><span>Committed now</span><strong id="demand-residual">0</strong></div>
+            <div class="metric"><span>Avoided / displaced</span><strong id="demand-avoided">0</strong></div>
+            <div class="metric"><span>Open tests</span><strong id="demand-tests">0</strong></div>
+          </div>
+          <div class="output" id="demand-output" aria-live="polite"></div>
+        </aside>
+      </div>
+      <details><summary>See the relative effort assumptions</summary><p>Delete × 0; shrink × 0.45; substitute × 0.35; standardise × 0.55; automate × 0.65; test first × 0.20; proceed × 1. These are invented multipliers, not measured savings. A lower commitment does not demonstrate that the need or obligation has been met.</p></details>
+    </section>
+
+    <section class="panel" id="panel-assurance" role="tabpanel" aria-labelledby="tab-assurance" hidden>
+      <div class="panel-head">
+        <div>
+          <h2>Make plan claims testable</h2>
+          <p>A completed activity is not the same as current evidence; evidence is not the same as a supported claim; and a supported claim is not an approved gate.</p>
+        </div>
+        <p class="method-note">The checker reports the weakest link in each chain. It does not certify GDPR compliance, safety, operational readiness or any other external standard.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Claim and sensor</th><th>Activity done</th><th>Evidence</th><th>Threshold met</th><th>Reviewer accepts</th><th>Chain state</th></tr></thead>
+          <tbody id="assurance-body"></tbody>
+        </table>
+      </div>
+      <div class="layout" style="margin-top:18px">
+        <div class="output" id="assurance-detail" aria-live="polite"></div>
+        <aside>
+          <div class="metric"><span>Illustrative gate state</span><strong id="assurance-gate">Hold</strong></div>
+          <button class="action" id="assurance-check" style="margin-top:10px">Recheck evidence chains</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-scarcity" role="tabpanel" aria-labelledby="tab-scarcity" hidden>
+      <div class="panel-head">
+        <div>
+          <h2>Allocate scarce expertise in whole packages</h2>
+          <p>Teams disclose the outcome unlocked, cost of waiting, confidence in that claim, minimum useful package and a credible alternative. The protocol allocates days, not fictional money.</p>
+        </div>
+        <p class="method-note">A greedy heuristic ranks a score per day, then funds each whole package that fits. It can leave a better combination unfunded; it does not find a general optimum. The weights are invented scenario choices.</p>
+      </div>
+      <div class="controls">
+        <label class="field">Architect-days available
+          <input type="number" id="scarcity-pool" min="0" max="12" step="1" value="6" aria-describedby="scarcity-validation">
+        </label>
+        <button class="action" id="scarcity-run">Allocate useful packages</button>
+      </div>
+      <p id="scarcity-validation" class="validation" role="status"></p>
+      <div class="layout">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Demand</th><th>Delay cost<br>1–10</th><th>Evidence<br>0–100%</th><th>Minimum days</th><th>Alternative</th></tr></thead>
+            <tbody id="scarcity-body"></tbody>
+          </table>
+        </div>
+        <aside>
+          <div class="output" id="scarcity-output" aria-live="polite"></div>
+        </aside>
+      </div>
+      <details><summary>See the allocation rule</summary><p>Score per day = (delay cost × confidence / 100 × alternative factor + reuse × 0.55) / minimum days. The alternative factor is 1.15 for none, 1 for partial and 0.82 for yes. Fixed reuse points: S1 = 4, S2 = 2, S3 = 3, S4 = 5. Ties retain S1–S4 order. A skipped package does not consume capacity. Zero confidence removes the delay term but leaves the assumed reuse term.</p><p>For example, with 4 days, a 3-day package scoring 3 per day is picked before two 2-day packages scoring 2.5 each: its total score is 9, while the pair would score 10. A ranking is a discussion aid, not a proof of the best allocation.</p></details>
+    </section>
+
+    <section class="panel" id="panel-topology" role="tabpanel" aria-labelledby="tab-topology" hidden>
+      <div class="panel-head">
+        <div>
+          <h2>Inspect typed, directed dependencies</h2>
+          <p>Precedence, evidence, approval and feedback links mean different things. A directed precedence cycle makes a schedule infeasible; a feedback loop may be useful learning; a second evidence path may be resilience.</p>
+        </div>
+        <p class="method-note">These are structural path checks, with the unavailable node removed. A path does not establish that all prerequisites, evidence or approvals are satisfied. The schedule in the next lens uses a separate fixed graph.</p>
+      </div>
+      <div class="controls">
+        <label class="field">Simulate one unavailable node
+          <select id="topology-failure"></select>
+        </label>
+        <button class="action" id="topology-analyse">Analyse consequences</button>
+      </div>
+      <div class="layout">
+        <div>
+          <svg class="network" id="network" viewBox="0 0 680 340" role="img" aria-labelledby="network-title network-desc">
+            <title id="network-title">Typed dependency network</title>
+            <desc id="network-desc">A directed network from legacy profiling to a release decision, with precedence, evidence, approval and feedback links.</desc>
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="context-stroke"></path></marker>
+            </defs>
+            <g id="network-edges"></g>
+            <g id="network-nodes"></g>
+          </svg>
+          <div class="legend">
+            <span><i></i>Precedence</span><span><i class="e"></i>Evidence</span><span><i class="a"></i>Approval</span><span><i class="f"></i>Feedback</span>
+          </div>
+        </div>
+        <aside>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Link</th><th>Type</th><th>Active</th></tr></thead>
+              <tbody id="topology-body"></tbody>
+            </table>
+          </div>
+          <div class="output" id="topology-output" style="margin-top:12px" aria-live="polite"></div>
+        </aside>
+      </div>
+      <details><summary>Read the network without the diagram</summary><div id="topology-text"></div><p>Path tests include only their stated types. Feedback links are excluded from release paths and precedence-cycle checks. Each link can be enabled or disabled independently above.</p></details>
+    </section>
+
+    <section class="panel" id="panel-planners" role="tabpanel" aria-labelledby="tab-planners" hidden>
+      <div class="panel-head">
+        <div>
+          <h2>Run a transparent planner tournament</h2>
+          <p>Five declared heuristics schedule eight dependency-constrained tasks under a base case and two duration stresses. Each task uses one workstream until it finishes. The app compares the resulting schedules.</p>
+        </div>
+        <p class="method-note">Lower regret is better under this invented score. Regret compares only these five heuristics in each scenario, then averages the three differences equally. “Balanced” is a weighted priority rule; no robust optimisation or calibrated forecast is implemented.</p>
+      </div>
+      <div class="controls">
+        <label class="field">Parallel work capacity
+          <select id="planner-capacity"><option value="1">1 workstream</option><option value="2" selected>2 workstreams</option><option value="3">3 workstreams</option></select>
+        </label>
+        <label class="field">Inspect policy
+          <select id="planner-policy"></select>
+        </label>
+        <label class="field">Inspect duration scenario
+          <select id="planner-scenario"><option value="base">Base case</option><option value="data">Data stress</option><option value="security">Access-control stress</option></select>
+        </label>
+        <button class="action" id="planner-run">Run tournament</button>
+      </div>
+      <div class="table-wrap">
+        <table class="policy-table">
+          <thead><tr><th>Policy</th><th>Average regret</th><th>Base finish</th><th>Base first assumed outcome</th><th>Base unresolved uncertainty at week 6</th><th>Base reuse by week 6</th></tr></thead>
+          <tbody id="policy-body"></tbody>
+        </table>
+      </div>
+      <div class="layout" style="margin-top:18px">
+        <div>
+          <h3 id="schedule-title">Base-scenario schedule</h3>
+          <div class="schedule" id="schedule"></div>
+        </div>
+        <aside class="output" id="planner-output"></aside>
+      </div>
+      <details>
+        <summary>See the policy rules and scenario changes</summary>
+        <p>At each finish time, all completed tasks release capacity; eligible tasks are ranked using their scenario duration. Ties use task ID order. Tasks are indivisible, never pre-empted and start as soon as capacity and all predecessors allow. A task marked “outcome” is assumed to yield its outcome when finished; the app does not test actual validation.</p>
+        <ul><li>Risk-first: 2 × risk + uncertainty − 0.2 × duration.</li><li>Value-first: 2 × value + 0.4 × risk − 0.2 × duration.</li><li>Learning-first: 2 × uncertainty + 0.5 × risk − 0.2 × duration.</li><li>Reuse-first: 2 × reuse + 0.4 × value − 0.2 × duration.</li><li>Balanced heuristic (formerly “Robust balance”): risk + value + uncertainty + reuse − 0.45 × duration.</li></ul>
+        <p>Scenario score = 2 × finish week + 3 × first outcome week + 1.2 × unresolved uncertainty at week 6 + 0.18 × Σ(risk × task finish week) − 0.65 × reuse completed by week 6. All weights and task points are synthetic. Uncertainty is the sum of points on all unfinished tasks, not a critical-path measure; reuse is credited only on completion.</p>
+        <p>Data stress adds 2 weeks to P1 and 1 week to P3. Access-control stress adds 2 weeks to P2 and 1 week to P7. These changes are known to the scheduling rule before it starts; this is not adaptive replanning after a surprise.</p>
+        <div class="table-wrap"><table><caption>The eight fixed tasks (duration in weeks; other numbers are scenario points)</caption><thead><tr><th>Task</th><th>Predecessors</th><th>Duration</th><th>Risk</th><th>Value</th><th>Uncertainty</th><th>Reuse</th><th>Outcome</th></tr></thead><tbody id="task-inputs"></tbody></table></div>
+      </details>
+    </section>
+
+    <section class="ledger" aria-labelledby="ledger-title">
+      <h2 id="ledger-title">Current decision ledger</h2>
+      <p>A current summary of each independent lens, its assumptions and next decision trigger. This is recalculated output, not an immutable audit log or a single coupled plan.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Lens</th><th>Current reading</th><th>Evidence basis</th><th>Remaining uncertainty / next trigger</th></tr></thead>
+          <tbody id="ledger-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>A fictional Portfolio Wave worked case. Originally rebuilt 11 July 2026; reviewed for the Library 3 October 2026. Outputs are not forecasts, legal assurance, resource approvals or permission to pass a delivery gate.</p><p>Continue with <a href="/library/apps/governance-trio/">evidence and decision authority</a>, <a href="/library/apps/wbs-rewriter/">work structure and scheduling</a> or <a href="/library/apps/intent-field-navigator/">work and intent</a>. <a href="README.md">Source and review notes</a>.</p></footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
