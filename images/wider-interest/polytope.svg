@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc"><title id="title">A tesseract and its diagonal slices</title><desc id="desc">Sixteen connected vertices project a four-dimensional cube. Beside it, exact sections show a tetrahedron, a uniform truncated tetrahedron and an octahedron.</desc><defs><radialGradient id="glow"><stop stop-color="#203e52"/><stop offset="1" stop-color="#0b0d12"/></radialGradient></defs><rect width="960" height="540" fill="url(#glow)"/><path d="M495 65V475" stroke="#495363" stroke-width="1"/><g fill="#c0cddd" font-family="system-ui,sans-serif" font-size="19" letter-spacing="3"><text x="65" y="63">4D PROJECTION</text><text x="548" y="63">DIAGONAL SLICES</text></g>
+<path d="M177.6 322.0L122.9 345.1" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M177.6 322.0L237.6 362.8" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M177.6 322.0L177.6 207.2" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M177.6 322.0L292.4 322.0" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M122.9 345.1L220.4 411.5" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M122.9 345.1L122.9 158.5" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M122.9 345.1L309.6 345.1" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M237.6 362.8L220.4 411.5" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M237.6 362.8L237.6 248.0" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M237.6 362.8L352.4 362.8" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M220.4 411.5L220.4 224.9" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M220.4 411.5L407.1 411.5" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M177.6 207.2L122.9 158.5" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M177.6 207.2L237.6 248.0" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M177.6 207.2L292.4 207.2" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M122.9 158.5L220.4 224.9" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M122.9 158.5L309.6 158.5" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M237.6 248.0L220.4 224.9" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M237.6 248.0L352.4 248.0" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M220.4 224.9L407.1 224.9" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M292.4 322.0L309.6 345.1" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M292.4 322.0L352.4 362.8" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M292.4 322.0L292.4 207.2" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M309.6 345.1L407.1 411.5" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M309.6 345.1L309.6 158.5" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M352.4 362.8L407.1 411.5" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M352.4 362.8L352.4 248.0" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M407.1 411.5L407.1 224.9" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M292.4 207.2L309.6 158.5" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M292.4 207.2L352.4 248.0" fill="none" stroke="#8395ad" stroke-width="3"/>
+<path d="M309.6 158.5L407.1 224.9" fill="none" stroke="#7ed7ef" stroke-width="3"/>
+<path d="M352.4 248.0L407.1 224.9" fill="none" stroke="#8395ad" stroke-width="3"/>
+<circle cx="177.6" cy="322.0" r="4" fill="#f2f8ff"/>
+<circle cx="122.9" cy="345.1" r="4" fill="#f2f8ff"/>
+<circle cx="237.6" cy="362.8" r="4" fill="#f2f8ff"/>
+<circle cx="220.4" cy="411.5" r="4" fill="#f2f8ff"/>
+<circle cx="177.6" cy="207.2" r="4" fill="#f2f8ff"/>
+<circle cx="122.9" cy="158.5" r="4" fill="#f2f8ff"/>
+<circle cx="237.6" cy="248.0" r="4" fill="#f2f8ff"/>
+<circle cx="220.4" cy="224.9" r="4" fill="#f2f8ff"/>
+<circle cx="292.4" cy="322.0" r="4" fill="#f2f8ff"/>
+<circle cx="309.6" cy="345.1" r="4" fill="#f2f8ff"/>
+<circle cx="352.4" cy="362.8" r="4" fill="#f2f8ff"/>
+<circle cx="407.1" cy="411.5" r="4" fill="#f2f8ff"/>
+<circle cx="292.4" cy="207.2" r="4" fill="#f2f8ff"/>
+<circle cx="309.6" cy="158.5" r="4" fill="#f2f8ff"/>
+<circle cx="352.4" cy="248.0" r="4" fill="#f2f8ff"/>
+<circle cx="407.1" cy="224.9" r="4" fill="#f2f8ff"/>
+<path d="M708.0 142.9L620.3 151.9" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M708.0 142.9L666.6 233.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M708.0 142.9L625.1 167.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M620.3 151.9L666.6 233.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M620.3 151.9L625.1 167.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M666.6 233.6L625.1 167.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<circle cx="708.0" cy="142.9" r="3.4" fill="#fff5d5"/>
+<circle cx="620.3" cy="151.9" r="3.4" fill="#fff5d5"/>
+<circle cx="666.6" cy="233.6" r="3.4" fill="#fff5d5"/>
+<circle cx="625.1" cy="167.6" r="3.4" fill="#fff5d5"/>
+<text x="655" y="263" text-anchor="middle" fill="#d3dded" font-family="system-ui,sans-serif" font-size="19">t = 1</text>
+<path d="M793.7 270.6L747.1 284.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M793.7 270.6L770.4 321.7" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M793.7 270.6L843.2 265.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M845.9 362.6L799.2 376.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M845.9 362.6L869.2 311.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M845.9 362.6L796.5 367.7" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M799.2 288.3L845.9 274.4" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M799.2 288.3L775.9 339.3" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M799.2 288.3L749.8 293.3" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M747.1 284.5L770.4 321.7" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M747.1 284.5L749.8 293.3" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M799.2 376.5L775.9 339.3" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M799.2 376.5L796.5 367.7" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M845.9 274.4L869.2 311.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M845.9 274.4L843.2 265.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M770.4 321.7L796.5 367.7" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M775.9 339.3L749.8 293.3" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M869.2 311.5L843.2 265.6" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<circle cx="793.7" cy="270.6" r="3.4" fill="#fff5d5"/>
+<circle cx="845.9" cy="362.6" r="3.4" fill="#fff5d5"/>
+<circle cx="799.2" cy="288.3" r="3.4" fill="#fff5d5"/>
+<circle cx="747.1" cy="284.5" r="3.4" fill="#fff5d5"/>
+<circle cx="799.2" cy="376.5" r="3.4" fill="#fff5d5"/>
+<circle cx="845.9" cy="274.4" r="3.4" fill="#fff5d5"/>
+<circle cx="770.4" cy="321.7" r="3.4" fill="#fff5d5"/>
+<circle cx="775.9" cy="339.3" r="3.4" fill="#fff5d5"/>
+<circle cx="869.2" cy="311.5" r="3.4" fill="#fff5d5"/>
+<circle cx="796.5" cy="367.7" r="3.4" fill="#fff5d5"/>
+<circle cx="749.8" cy="293.3" r="3.4" fill="#fff5d5"/>
+<circle cx="843.2" cy="265.6" r="3.4" fill="#fff5d5"/>
+<text x="803" y="402" text-anchor="middle" fill="#d3dded" font-family="system-ui,sans-serif" font-size="19">t = 1.5</text>
+<path d="M644.6 366.1L694.1 453.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M644.6 366.1L600.2 463.1" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M644.6 366.1L649.8 382.9" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M644.6 366.1L555.9 392.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M694.1 453.5L600.2 463.1" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M694.1 453.5L649.8 382.9" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M694.1 453.5L605.4 479.9" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M600.2 463.1L555.9 392.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M600.2 463.1L605.4 479.9" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M649.8 382.9L555.9 392.5" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M649.8 382.9L605.4 479.9" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<path d="M555.9 392.5L605.4 479.9" fill="none" stroke="#93e1ed" stroke-width="2.5"/>
+<circle cx="644.6" cy="366.1" r="3.4" fill="#fff5d5"/>
+<circle cx="694.1" cy="453.5" r="3.4" fill="#fff5d5"/>
+<circle cx="600.2" cy="463.1" r="3.4" fill="#fff5d5"/>
+<circle cx="649.8" cy="382.9" r="3.4" fill="#fff5d5"/>
+<circle cx="555.9" cy="392.5" r="3.4" fill="#fff5d5"/>
+<circle cx="605.4" cy="479.9" r="3.4" fill="#fff5d5"/>
+<text x="625" y="512" text-anchor="middle" fill="#d3dded" font-family="system-ui,sans-serif" font-size="19">t = 2</text>
+</svg>

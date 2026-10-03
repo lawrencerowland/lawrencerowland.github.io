@@ -23,7 +23,10 @@ on:
       - 'library/methods/**'
       - 'React_proj-apps/**'
       - '_data/library_*.json'
+      - '_data/wider_interest.json'
       - 'images/library-apps/**'
+      - 'images/navigation/**'
+      - 'images/wider-interest/**'
       - 'tests/library-app-retirement.test.cjs'
       - 'gap-map.md'
       - 'explore-visually.md'
@@ -71,6 +74,10 @@ on:
       - 'tests/library-flat-subjects.test.cjs'
       - '_config.yml'
       - 'tests/public-front-door.test.cjs'
+      - 'tests/site-tree.test.cjs'
+      - 'tests/social-debt-migration.test.cjs'
+      - 'tests/wider-history.test.cjs'
+      - 'tests/wider-math-play.test.cjs'
       - 'assets/**'
       - 'tests/foray-directory.test.cjs'
       - 'all-project-apps.md'
@@ -100,7 +107,10 @@ on:
       - 'library/methods/**'
       - 'React_proj-apps/**'
       - '_data/library_*.json'
+      - '_data/wider_interest.json'
       - 'images/library-apps/**'
+      - 'images/navigation/**'
+      - 'images/wider-interest/**'
       - 'tests/library-app-retirement.test.cjs'
       - 'gap-map.md'
       - 'explore-visually.md'
@@ -148,6 +158,10 @@ on:
       - 'tests/library-flat-subjects.test.cjs'
       - '_config.yml'
       - 'tests/public-front-door.test.cjs'
+      - 'tests/site-tree.test.cjs'
+      - 'tests/social-debt-migration.test.cjs'
+      - 'tests/wider-history.test.cjs'
+      - 'tests/wider-math-play.test.cjs'
       - 'assets/**'
       - 'tests/foray-directory.test.cjs'
       - 'all-project-apps.md'
@@ -235,6 +249,8 @@ jobs:
         run: |
           node tests/public-front-door.test.cjs
           node tests/navigation-compatibility.test.cjs
+      - name: Check site tree, Social Debt and all wider-interest app repairs
+        run: node --test tests/site-tree.test.cjs tests/social-debt-migration.test.cjs tests/wider-history.test.cjs tests/wider-math-play.test.cjs
       - name: Check visual explorer catalogue and discovery
         run: node tests/visual-explorer.test.cjs
       - name: Check nine Gimmer models and comparison contracts
@@ -285,6 +301,8 @@ jobs:
         run: |
           node tests/public-front-door.test.cjs _site
           node tests/navigation-compatibility.test.cjs _site
+          node tests/site-tree.test.cjs _site
+          node tests/wider-history.test.cjs _site
       - name: Check the rendered visual explorer
         run: node tests/visual-explorer.test.cjs _site
       - name: Check rendered Library app routes

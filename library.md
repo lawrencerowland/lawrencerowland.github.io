@@ -32,13 +32,17 @@ tags: [Projects, Examples, PortfolioManagement, Library]
     </div>
   </section>
 
-  <section class="pw-retained-collections" id="earlier-app-collections">
-    <details><summary>Earlier examples still awaiting a home</summary>
-      <p><a href="https://lawrencerowland.github.io/more-project-apps/">More Project Apps</a> retains the remaining collection. Examples already placed in Library subjects or experiments have one maintained home.</p>
-    </details>
+  <section class="pw-library-additional" aria-label="Further reading and site information">
+    <span id="earlier-app-collections"></span>
+    <div class="pw-home-question-grid">
+    {% for entry in site.data.library_additional %}
+      <article class="pw-home-question" id="{{ entry.id }}"><a class="pw-home-tile-link" href="{{ entry.url | relative_url }}" aria-labelledby="additional-{{ entry.id }}">
+        <div class="pw-home-question-visual"><img src="{{ entry.image | relative_url }}" alt="" width="800" height="500" loading="lazy"></div>
+        <div class="pw-home-question-copy"><h2 id="additional-{{ entry.id }}">{{ entry.title | escape }}</h2><p>{{ entry.description | escape }}</p></div>
+      </a></article>
+    {% endfor %}
+    </div>
   </section>
-
-  <nav class="pw-library-utilities" aria-label="About and site index"><a href="{{ '/about_me.html' | relative_url }}">About</a><a href="{{ '/sitemap.html' | relative_url }}">Sitemap</a></nav>
 
   {% for route in site.data.library_redirects %}
   <p class="pw-library-legacy-route" id="{{ route.id }}">This entry is now in <a data-library-destination href="{{ route.url | relative_url }}">{{ route.title | escape }} →</a></p>

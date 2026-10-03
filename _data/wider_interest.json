@@ -1,0 +1,58 @@
+[
+  {
+    "id": "door-moisture-model",
+    "title": "A little room to move",
+    "url": "/wider-interest/door-moisture-model/",
+    "image": "/wider-interest/door-moisture-model/thumbnail.svg",
+    "description": "Change the moisture assumptions around an old timber door. Watch a few millimetres of clearance disappear."
+  },
+  {
+    "id": "project-management-pong",
+    "title": "Project Management Pong",
+    "url": "/wider-interest/project-management-pong/",
+    "image": "/wider-interest/project-management-pong/thumbnail.svg",
+    "description": "Pass scope between two managers. A playful game with some deliberately awkward incentives."
+  },
+  {
+    "id": "hs2-elite",
+    "title": "HS2 Elite",
+    "url": "/wider-interest/hs2-elite/",
+    "image": "/wider-interest/hs2-elite/thumbnail.svg",
+    "description": "Fly, dock and trade between six fictional outposts. Railway names become a tiny space adventure."
+  },
+  {
+    "id": "john-burnet",
+    "title": "John Burnet of Barns: a journey",
+    "url": "/wider-interest/john-burnet-of-barns-journey.html",
+    "image": "/images/wider-interest/john-burnet.svg",
+    "description": "Follow a literary journey through the Border country, with a map and room for uncertainty."
+  },
+  {
+    "id": "johnsons-dictionary",
+    "title": "Johnson’s Dictionary",
+    "url": "/wider-interest/johnsons-dictionary-project.html",
+    "image": "/images/wider-interest/johnsons-dictionary.svg",
+    "description": "A great book as a working project: people, money, promises and nine years of words."
+  },
+  {
+    "id": "caesar-rivers",
+    "title": "Caesar’s rivers",
+    "url": "/wider-interest/caesars_gallic_wars_rivers.html",
+    "image": "/images/wider-interest/caesar-rivers.svg",
+    "description": "Follow selected passages from the Gallic War through the rivers that shape them."
+  },
+  {
+    "id": "polytope",
+    "title": "A fourth dimension",
+    "url": "/wider-interest/polytope.html",
+    "image": "/images/wider-interest/polytope.svg",
+    "description": "Move a slice through a four-dimensional shape. See what appears in three dimensions."
+  },
+  {
+    "id": "conker-season",
+    "title": "Until the conkers ran out",
+    "url": "/wider-interest/conker-season.html",
+    "image": "/images/wider-interest/conker-season.svg",
+    "description": "A playground autumn: choose a conker, take your chances, and see how long it lasts."
+  }
+]

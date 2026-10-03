@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Seeing the fourth dimension inside the third</title>
+  <meta name="description" content="Rotate a tesseract, follow its eight cubic cells, and explore exact diagonal slices from tetrahedra to an octahedron.">
+  <link rel="canonical" href="https://lawrencerowland.github.io/wider-interest/polytope.html">
   <script type="importmap">
     {
       "imports": {
@@ -14,13 +16,17 @@
   </script>
   <style>
     html, body { height: 100%; margin: 0; background: #0b0d12; color: #e9ecf1; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    #c { display: block; width: 100vw; height: 100vh; }
-    #overlay {
-      position: fixed; inset: 0;
-      pointer-events: none;
-    }
+    * { box-sizing: border-box; }
+    body { height: 100svh; display: grid; grid-template-rows: auto minmax(260px, 1fr) auto; }
+    #c { display: block; grid-row: 2; width: 100%; height: 100%; min-height: 0; touch-action: none; }
+    #overlay { display: contents; }
+    :focus-visible { outline: 3px solid #ffc97d; outline-offset: 3px; }
+    .btn:disabled { opacity: .45; cursor: default; }
+    #sliceStops { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    #sliceStops[hidden] { display: none; }
+    #viewHelp { font-size: 12px; color: #bdc7d6; margin: 6px 0 0; }
     #topbar {
-      position: absolute; top: 10px; left: 10px; right: 10px;
+      grid-row: 1; padding: 10px;
       display: flex; flex-wrap: wrap; gap: 8px;
       align-items: center;
       pointer-events: auto;
@@ -34,7 +40,8 @@
       border-radius: 10px;
       cursor: pointer;
       font-size: 13px;
-      line-height: 1;
+      line-height: 1.2;
+      min-height: 40px;
     }
     .btn:hover { background: rgba(255,255,255,0.10); }
     .btn.active { background: rgba(110,210,255,0.18); border-color: rgba(110,210,255,0.45); }
@@ -47,40 +54,25 @@
     }
     input[type="range"] { width: min(340px, 48vw); }
     #hud {
-      position: absolute; bottom: 12px; left: 12px;
+      grid-row: 3; margin: 8px 12px;
       padding: 10px 12px;
       background: rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 12px;
       font-size: 12px;
-      max-width: min(520px, 92vw);
+      max-width: 900px;
       pointer-events: auto;
       backdrop-filter: blur(6px);
     }
     #hud code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 11px; }
-    #modalBack {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.55);
-      display: none;
-      pointer-events: auto;
-    }
     #modal {
-      position: fixed; inset: 0;
-      display: none;
-      place-items: center;
-      pointer-events: none;
-    }
-    #modalCard {
-      width: min(920px, 92vw);
-      max-height: min(86vh, 860px);
-      overflow: auto;
-      background: rgba(10,12,18,0.92);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 16px;
-      padding: 16px 16px 12px 16px;
+      width: min(920px, 94vw); max-height: 88svh; padding: 0;
+      color: #e9ecf1; background: #0a0c12;
+      border: 1px solid #687181; border-radius: 16px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.45);
-      pointer-events: auto;
     }
+    #modal::backdrop { background: rgba(0,0,0,0.7); }
+    #modalCard { padding: 20px; }
     #modalCard h2 { margin: 0 0 8px 0; font-size: 16px; }
     #modalCard p { margin: 8px 0; font-size: 13px; line-height: 1.35; color: rgba(233,236,241,0.92); }
     #modalCard li { font-size: 13px; line-height: 1.35; margin: 6px 0; color: rgba(233,236,241,0.92); }
@@ -98,24 +90,35 @@
       font-size: 12px;
       line-height: 1.35;
     }
+    @media (max-width: 600px) { .spacer { display: none; } #topbar { gap: 6px; } .btn { font-size: 12px; } }
   </style>
 </head>
 <body>
-  <canvas id="c" aria-label="3D canvas"></canvas>
-
   <div id="overlay">
     <div id="topbar">
-      <button class="btn active" id="btnProjection" title="Rotating 4D→3D projection">Projection</button>
-      <button class="btn" id="btnSlice" title="A 3D polytope appears as you slice the 4D cube diagonally">Diagonal slice</button>
+      <button class="btn active" id="btnProjection" aria-pressed="true" title="Rotating 4D→3D projection">Projection</button>
+      <button class="btn" id="btnSlice" aria-pressed="false" title="A 3D polytope appears as you slice the 4D cube diagonally">Diagonal slice</button>
 
       <button class="btn" id="btnPlayPause" title="Pause / resume time">Pause</button>
 
-      <span class="label" id="paramLabel">4D speed</span>
+      <label class="label" id="paramLabel" for="paramSlider">4D speed</label>
       <input id="paramSlider" type="range" min="0" max="200" value="90" />
 
-      <button class="btn" id="btnCycleCells" title="Highlight the 8 cubic cells (3D 'faces') of the tesseract">Cycle cells</button>
-      <a class="btn" href="index.html" title="Back to wider interest">Wider interest</a>
+      <button class="btn" id="btnCycleCells" aria-pressed="false" title="Highlight the 8 cubic cells (3D 'faces') of the tesseract">Cycle cells</button>
+      <button class="btn" id="btnNextCell" title="Highlight the next cubic cell, including while paused">Next cell</button>
+      <button class="btn" id="btnResetView">Reset view</button>
+      <a class="btn" href="./" title="Back to wider interest">Wider interest</a>
 
+      <div id="sliceStops" hidden aria-label="Exact slice positions">
+        <span class="label">Visit a slice:</span>
+        <button class="btn" data-slice="0">Point</button>
+        <button class="btn" data-slice="1">Tetrahedron</button>
+        <button class="btn" data-slice="1.5">Uniform truncation</button>
+        <button class="btn" data-slice="2">Octahedron</button>
+        <button class="btn" data-slice="2.5">Uniform truncation II</button>
+        <button class="btn" data-slice="3">Tetrahedron II</button>
+        <button class="btn" data-slice="4">Final point</button>
+      </div>
       <span class="spacer"></span>
 
       <button class="btn" id="btnPrompt">Prompt</button>
@@ -126,9 +129,12 @@
       <button class="btn" id="btnExplain5">Why two modes?</button>
     </div>
 
+    <canvas id="c" tabindex="0" aria-label="Interactive tesseract view" aria-describedby="viewHelp">A tesseract has 16 vertices, 32 edges and 8 cubic cells. The diagonal slice is an octahedron at t = 2.</canvas>
+
     <div id="hud">
       <div><strong id="hudTitle">Projection mode</strong> <span id="hudSub" style="opacity:0.82"></span></div>
       <div id="hudLines" style="margin-top:6px"></div>
+      <p id="viewHelp">Drag to orbit; scroll or pinch to zoom; right-drag or two-finger drag to pan. Keyboard: focus the view, use arrows to orbit, Shift + arrows to pan, + / − to zoom, Home to reset.</p>
       <div class="warn" id="moduleWarn">
         If you see a blank screen: some browsers block ES-module imports for local files.
         Fix: run a tiny local server in this folder (e.g. <span class="mono">python -m http.server 8000</span>)
@@ -137,16 +143,15 @@
     </div>
   </div>
 
-  <div id="modalBack"></div>
-  <div id="modal">
+  <dialog id="modal" aria-labelledby="modalTitle">
     <div id="modalCard">
-      <h2 id="modalTitle">Title</h2>
+      <h2 id="modalTitle" tabindex="-1">Title</h2>
       <div id="modalBody"></div>
       <div id="modalCloseRow">
         <button class="btn" id="modalClose">Close</button>
       </div>
     </div>
-  </div>
+  </dialog>
 
   <script type="module">
     // --- DOM -----------------------------------------------------------------
@@ -155,6 +160,8 @@
     const btnSlice = document.getElementById("btnSlice");
     const btnPlayPause = document.getElementById("btnPlayPause");
     const btnCycleCells = document.getElementById("btnCycleCells");
+    const btnNextCell = document.getElementById("btnNextCell");
+    const sliceStops = document.getElementById("sliceStops");
 
     const paramLabel = document.getElementById("paramLabel");
     const paramSlider = document.getElementById("paramSlider");
@@ -164,7 +171,6 @@
     const hudLines = document.getElementById("hudLines");
     const moduleWarn = document.getElementById("moduleWarn");
 
-    const modalBack = document.getElementById("modalBack");
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modalTitle");
     const modalBody = document.getElementById("modalBody");
@@ -218,17 +224,48 @@
     // --- Renderer / Scene / Camera ------------------------------------------
     const renderer = new THREE.WebGLRenderer({ canvas, context: gl, antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x0b0d12);
 
-    const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 0.01, 200);
+    const camera = new THREE.PerspectiveCamera(48, canvas.clientWidth / canvas.clientHeight, 0.01, 200);
     camera.position.set(4.2, 3.4, 6.8);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
+    controls.minDistance = 2;
+    controls.maxDistance = 40;
+    controls.saveState();
+    document.getElementById("btnResetView").addEventListener("click", () => controls.reset());
+    canvas.addEventListener("keydown", (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      const arrows = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
+      if (![...arrows, "+", "=", "-", "_", "Home"].includes(event.key)) return;
+      event.preventDefault();
+      if (event.key === "Home") { controls.reset(); return; }
+      const offset = camera.position.clone().sub(controls.target);
+      if (event.shiftKey && arrows.includes(event.key)) {
+        const movement = new THREE.Vector3();
+        const axis = event.key === "ArrowLeft" || event.key === "ArrowRight" ? 0 : 1;
+        const direction = event.key === "ArrowLeft" || event.key === "ArrowDown" ? -1 : 1;
+        movement.setFromMatrixColumn(camera.matrix, axis).multiplyScalar(direction * offset.length() * 0.04);
+        controls.target.add(movement); camera.position.add(movement);
+      } else {
+        const spherical = new THREE.Spherical().setFromVector3(offset);
+        if (event.key === "ArrowLeft") spherical.theta -= 0.12;
+        if (event.key === "ArrowRight") spherical.theta += 0.12;
+        if (event.key === "ArrowUp") spherical.phi -= 0.12;
+        if (event.key === "ArrowDown") spherical.phi += 0.12;
+        if (event.key === "+" || event.key === "=") spherical.radius /= 1.12;
+        if (event.key === "-" || event.key === "_") spherical.radius *= 1.12;
+        spherical.radius = Math.max(controls.minDistance, Math.min(controls.maxDistance, spherical.radius));
+        spherical.makeSafe();
+        camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(spherical));
+      }
+      controls.update();
+    });
 
     // Lights (mostly for the slice mesh)
     scene.add(new THREE.AmbientLight(0xffffff, 0.55));
@@ -298,7 +335,8 @@
 
     // --- Mode state ----------------------------------------------------------
     let mode = "projection"; // "projection" | "slice"
-    let playing = true;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let playing = !reducedMotion.matches;
 
     // Projection mode parameters
     let speed4D = 0.9;       // 0..2
@@ -310,7 +348,6 @@
     let tSlice = 2.0;        // 0..4
     let sliceDir = 1;        // for ping-pong animation
     let sliceSpeed = 0.35;   // units of t per second (scaled)
-    let lastSliderSetByUser = false;
 
     // --- Build the tesseract (4D hypercube) ---------------------------------
     // Vertices are all sign combinations of (±1,±1,±1,±1)
@@ -456,16 +493,17 @@
       // Combinatorial type changes at integer thresholds.
       // We gently "snap" close values for readability.
       const snap = (x) => {
-        for (const k of [0,1,2,3,4]) if (Math.abs(x-k) < 1e-3) return k;
+        for (const k of [0,1,1.5,2,2.5,3,4]) if (Math.abs(x-k) < 1e-8) return k;
         return x;
       };
       const s = snap(t);
       if (s === 0 || s === 4) return "degenerate (a point)";
       if (s > 0 && s < 1) return "tetrahedron (growing)";
       if (s === 1) return "tetrahedron (Δ(4,1))";
-      if (s > 1 && s < 2) return "truncated tetrahedron (affine)";
+      if (s === 1.5 || s === 2.5) return "uniform truncated tetrahedron";
+      if (s > 1 && s < 2) return "truncated tetrahedron (varying edge lengths)";
       if (s === 2) return "octahedron (Δ(4,2))";
-      if (s > 2 && s < 3) return "truncated tetrahedron (affine)";
+      if (s > 2 && s < 3) return "truncated tetrahedron (varying edge lengths)";
       if (s === 3) return "tetrahedron (Δ(4,3))";
       if (s > 3 && s < 4) return "tetrahedron (shrinking)";
       return "slice polytope";
@@ -476,7 +514,7 @@
       const pts3 = pts4.map(p => projectSlicePointTo3D(p, t));
 
       // Scale a little so the slice "reads" similarly across t.
-      // (Affine changes in the slice are real; this just keeps it on-screen.)
+      // This fixed display scale preserves the relative sizes of successive slices.
       const scale = 2.2;
       for (const v of pts3) v.multiplyScalar(scale);
 
@@ -486,10 +524,15 @@
       if (sliceEdgeLines) groupSlice.remove(sliceEdgeLines);
       if (slicePointCloud) groupSlice.remove(slicePointCloud);
 
-      if (pts3.length < 4) {
-        sliceMesh = null; sliceEdgeLines = null; slicePointCloud = null;
-        return;
-      }
+      sliceMesh = null; sliceEdgeLines = null; slicePointCloud = null;
+      // Even the degenerate endpoint is a visible point, not a blank canvas.
+      const pgeom = new THREE.BufferGeometry().setFromPoints(pts3);
+      slicePointCloud = new THREE.Points(
+        pgeom,
+        new THREE.PointsMaterial({ color: 0xffffff, size: 0.08, sizeAttenuation: true })
+      );
+      groupSlice.add(slicePointCloud);
+      if (pts3.length < 4) return;
 
       const geom = new ConvexGeometry(pts3);
       const mat = new THREE.MeshStandardMaterial({
@@ -510,12 +553,6 @@
       );
       groupSlice.add(sliceEdgeLines);
 
-      const pgeom = new THREE.BufferGeometry().setFromPoints(pts3);
-      slicePointCloud = new THREE.Points(
-        pgeom,
-        new THREE.PointsMaterial({ color: 0xffffff, size: 0.06, sizeAttenuation: true })
-      );
-      groupSlice.add(slicePointCloud);
     }
 
     // --- Update projection geometry -----------------------------------------
@@ -582,6 +619,11 @@
 
       btnProjection.classList.toggle("active", isProj);
       btnSlice.classList.toggle("active", !isProj);
+      btnProjection.setAttribute("aria-pressed", String(isProj));
+      btnSlice.setAttribute("aria-pressed", String(!isProj));
+      btnCycleCells.disabled = !isProj;
+      btnNextCell.disabled = !isProj;
+      sliceStops.hidden = isProj;
 
       groupProjection.visible = isProj;
       groupSlice.visible = !isProj;
@@ -607,13 +649,13 @@
     }
 
     function updateHud() {
+      paramSlider.setAttribute("aria-valuetext", mode === "projection" ? `${speed4D.toFixed(2)} times rotation speed` : `t = ${tSlice.toFixed(2)}, ${sliceName(tSlice)}`);
       if (mode === "projection") {
         const cellText = cellCycling ? describeCell(cellSpecs[cellIndex]) : "(cell highlighting off)";
         hudLines.innerHTML = `
           <div>Wireframe is the 1-skeleton (vertices+edges) of the tesseract.</div>
           <div>Time animates a rotation in 4D planes (e.g. <code>(x,w)</code>, <code>(z,w)</code>), then projects to 3D.</div>
           <div style="margin-top:6px; opacity:0.92"><strong>Cell:</strong> ${cellText}</div>
-          <div style="opacity:0.80">Drag to orbit; scroll to zoom; right-drag to pan.</div>
         `;
       } else {
         const name = sliceName(tSlice);
@@ -636,14 +678,18 @@
     function showModal(title, html) {
       modalTitle.textContent = title;
       modalBody.innerHTML = html;
-      modalBack.style.display = "block";
-      modal.style.display = "grid";
+      modal.showModal();
+      modalTitle.focus();
     }
     function hideModal() {
-      modalBack.style.display = "none";
-      modal.style.display = "none";
+      modal.close();
     }
-    modalBack.addEventListener("click", hideModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        const bounds = modal.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) hideModal();
+      }
+    });
     modalClose.addEventListener("click", hideModal);
 
     promptBtn.addEventListener("click", () => showModal(
@@ -667,7 +713,7 @@
         </p>
         <ul>
           <li><strong>Projection mode</strong>: rotate in 4D, then map (x,y,z,w) → (x,y,z) with a perspective factor depending on w. You’ll often see the classic “cube inside a cube” picture, but it deforms as we rotate in mixed 4D planes.</li>
-          <li><strong>Diagonal slice mode</strong>: intersect the unit 4-cube [0,1]^4 with the hyperplane x+y+z+w = t. As t runs from 0 to 4, the intersection is a family of 3D polytopes: tetrahedron → (affine) truncated tetrahedron → octahedron → truncated tetrahedron → tetrahedron → point.</li>
+          <li><strong>Diagonal slice mode</strong>: intersect the unit 4-cube [0,1]^4 with the hyperplane x+y+z+w = t. As t runs from 0 to 4, the intersection is a family of 3D polytopes: point → tetrahedron → truncated tetrahedron → octahedron → truncated tetrahedron → tetrahedron → point.</li>
         </ul>
         <p>
           If you want a clean mental model: projection is “<em>all of the tesseract at once, but distorted</em>”; slicing is “<em>a true 3D polytope, but only one layer at a time</em>.”
@@ -688,7 +734,7 @@
         <ul>
           <li>The solid mesh is the actual 3D polytope <em>inside the slicing hyperplane</em>; its vertices come from intersecting the hyperplane with edges of the 4-cube.</li>
           <li>At <code>t=1</code> and <code>t=3</code> you get tetrahedra (the “one-hot” and “three-hot” layers of {0,1}^4). At <code>t=2</code> you get the octahedron (the “two-hot” layer).</li>
-          <li>Between these integer layers the combinatorics stabilizes as a truncated tetrahedron; it’s “affine” because the slice inherits the cube’s coordinate geometry, not a uniform truncation metric.</li>
+          <li>Between 1 and 2, and between 2 and 3, there are four triangular and four hexagonal faces: a truncated tetrahedron. It is the uniform Archimedean solid exactly at <code>t=1.5</code> and <code>t=2.5</code>. Elsewhere its edge lengths vary. Between 0 and 1, and between 3 and 4, the slice is a tetrahedron.</li>
         </ul>
       `
     ));
@@ -708,8 +754,8 @@
         <p><strong>5) Hypersimplices</strong>: at integer t=k, the slice is the (4,k)-hypersimplex Δ(4,k), the convex hull of 0–1 vectors with k ones (so Δ(4,1) is a tetrahedron and Δ(4,2) is an octahedron).</p>
         <p style="margin-top:10px; opacity:0.92"><strong>Further reading</strong></p>
         <ul>
-          <li>Thomas Banchoff’s classic tour of projection and slicing (search “Banchoff Hypercube: Projections &amp; Slicing”).</li>
-          <li>Look up “hypersimplex” and “Schlegel diagram” for the combinatorics behind the “tetrahedron–octahedron” story.</li>
+          <li>Thomas Banchoff, <a href="https://www.math.brown.edu/tbanchof/Beyond3d/chapter3/section03.html">Slicing the Hypercube</a>: the geometric sequence and uniform truncation three-eighths of the way through.</li>
+          <li>Banchoff, <a href="https://www.math.brown.edu/tbanchof/Beyond3d/chapter8/section04.html">Coordinates for Hypercube Slices</a>: sums of coordinates and the middle octahedron.</li>
         </ul>
       `
     ));
@@ -729,7 +775,10 @@
           <li>Open the file in a modern browser.</li>
           <li>If you get a blank canvas, run a local server in that folder (e.g. <span class="mono">python -m http.server 8000</span>)
           and open <span class="mono">http://localhost:8000/</span> (the HUD warns you when you’re on <span class="mono">file://</span>).</li>
-          <li>Use Projection vs Diagonal slice buttons; Pause to inspect; Cycle cells to highlight the 8 cubic cells one-by-one.</li>
+          <li>Use Projection or Diagonal slice; Pause to inspect. Moving the slice slider or choosing an exact slice pauses the animation; Play resumes it.</li>
+          <li>Cycle cells highlights all eight cubic cells in turn. Next cell steps through them even while paused. These controls apply to Projection mode.</li>
+          <li>Drag or use the focused view’s arrow keys to orbit. Shift + arrows pans; + / − zooms; Home or Reset view restores the starting camera. Touch: one finger orbits; two fingers pan or pinch to zoom.</li>
+          <li>Reduced-motion preferences start the animation paused. You can still choose Play.</li>
         </ul>
       `
     ));
@@ -753,9 +802,9 @@
         </p>
         <p>
           Between <span class="mono">t=1</span> and <span class="mono">t=2</span> (and symmetrically between 2 and 3), the slice has 12 vertices and 8 faces
-          that group as 4 triangles + 4 hexagons—combinatorially a truncated tetrahedron—but it’s affine rather than the uniform
-          Archimedean solid unless you tune the metric; the code computes this slice by intersecting the slicing plane with all 32 edges
-          of the 4-cube and taking the convex hull in the slicing hyperplane.
+          that group as 4 triangles + 4 hexagons—combinatorially a truncated tetrahedron. The slice is uniform at <code>t=1.5</code>
+          and <code>t=2.5</code>; no change of metric is needed. The two edge-length families are √2(t−1) and √2(2−t) on the first interval,
+          so they agree at its midpoint. The app intersects the hyperplane with the cube’s 32 edges and takes the convex hull within that hyperplane.
         </p>
         <p><strong>Why these two modes complement each other</strong></p>
         <ul>
@@ -763,22 +812,14 @@
           <li><strong>Slicing</strong> is like CT: every frame is a legitimate 3D polytope, and time is the parameter that lets you watch birth/death of vertices at the integer “Hamming layers,” with the octahedron sitting at the central weight layer <span class="mono">k=2</span>.</li>
         </ul>
         <p>
-          A small historical aside that helps people stop expecting a “perfect” 3D picture: Charles Howard Hinton coined the term “tesseract”
-          in <em>A New Era of Thought</em>, and his whole rhetorical strategy was already to trade direct visualization for systems of analogy
-          (nets, projections, slicing)—what we’d now call a choice of functor from 4D geometry to 3D perceptual invariants.
+          The projection uses the cube [−1,1]<sup>4</sup>; the slice uses its translated and rescaled copy [0,1]<sup>4</sup>.
+          This changes the coordinate labels and display size, not the underlying cube. The orthonormal basis used for the slice preserves
+          its angles and relative lengths; the subsequent screen view adds ordinary 3D perspective.
         </p>
         <p>
-          If you want a canonical “serious but visual” guide in the same spirit, Thomas Banchoff explicitly frames hypercubes by alternating
-          projection and slicing rather than chasing a single privileged picture.
-        </p>
-        <p>
-          If you want the combinatorial rabbit hole behind the slice mode, the hypersimplex literature (e.g. Günter M. Ziegler’s notes
-          orbiting the “hypersimplex” family) is where the tesseract stops being a curiosity and becomes a gateway into matroid polytopes,
-          triangulations, and enumerative invariants.
-        </p>
-        <p>
-          Try swapping the diagonal slice <span class="mono">x+y+z+w=t</span> for the “balanced” slice <span class="mono">x+y=z+w</span> and see which
-          symmetry you feel more sharply in the resulting 3D polytope family.
+          For a source-backed visual account, read Thomas Banchoff’s <a href="https://www.math.brown.edu/tbanchof/Beyond3d/chapter3/section03.html">Slicing the Hypercube</a>
+          and <a href="https://www.math.brown.edu/tbanchof/Beyond3d/chapter8/section04.html">coordinate explanation</a>.
+          Other slicing directions produce other families. This app keeps the diagonal direction fixed so the relationship between these two views remains easy to follow.
         </p>
       `
     ));
@@ -787,14 +828,37 @@
     btnProjection.addEventListener("click", () => setMode("projection"));
     btnSlice.addEventListener("click", () => setMode("slice"));
 
-    btnPlayPause.addEventListener("click", () => {
-      playing = !playing;
+    function setPlaying(value) {
+      playing = value;
       btnPlayPause.textContent = playing ? "Pause" : "Play";
+    }
+    btnPlayPause.addEventListener("click", () => setPlaying(!playing));
+    reducedMotion.addEventListener("change", (event) => { if (event.matches) setPlaying(false); });
+    setPlaying(playing);
+
+    function selectSlice(value) {
+      setPlaying(false);
+      tSlice = clamp(value, 0, 4);
+      paramSlider.value = String(Math.round(tSlice * 100));
+      rebuildSliceMesh(tSlice);
+      updateHud();
+    }
+    sliceStops.querySelectorAll("[data-slice]").forEach(button => {
+      button.addEventListener("click", () => selectSlice(Number(button.dataset.slice)));
+    });
+    btnNextCell.addEventListener("click", () => {
+      cellIndex = cellCycling ? (cellIndex + 1) % cellSpecs.length : 0;
+      cellCycling = true;
+      cellClock = 0;
+      btnCycleCells.classList.add("active");
+      btnCycleCells.setAttribute("aria-pressed", "true");
+      updateHud();
     });
 
     btnCycleCells.addEventListener("click", () => {
       cellCycling = !cellCycling;
       btnCycleCells.classList.toggle("active", cellCycling);
+      btnCycleCells.setAttribute("aria-pressed", String(cellCycling));
       if (!cellCycling) {
         cellClock = 0;
       }
@@ -803,20 +867,18 @@
 
     paramSlider.addEventListener("input", () => {
       if (mode === "projection") {
-        speed4D = clamp(parseInt(paramSlider.value, 10) / 100, 0, 2);
-      } else {
-        tSlice = clamp(parseInt(paramSlider.value, 10) / 100, 0, 4);
-        lastSliderSetByUser = true;
-        rebuildSliceMesh(tSlice);
+        speed4D = clamp(Number(paramSlider.value) / 100, 0, 2);
         updateHud();
+      } else {
+        selectSlice(Number(paramSlider.value) / 100);
       }
     });
 
-    window.addEventListener("resize", () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
+    new ResizeObserver(() => {
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
       camera.updateProjectionMatrix();
-    });
+    }).observe(canvas);
 
     // --- Initial build -------------------------------------------------------
     setMode("projection");
@@ -829,7 +891,7 @@
       last = now;
 
       if (mode === "projection") {
-        if (playing) {
+        if (playing && !modal.open) {
           // update rotation angles
           const s = speed4D;
           aXY += dt * 0.35 * s;
@@ -849,7 +911,7 @@
         }
         updateProjectionGeometry();
       } else {
-        if (playing && !lastSliderSetByUser) {
+        if (playing && !modal.open) {
           // Ping-pong t in [0,4]
           const speedFactor = lerp(0.08, 1.0, clamp(speed4D / 2, 0, 1)); // reuse speed slider feel
           const v = sliceSpeed * speedFactor;
@@ -859,8 +921,6 @@
           paramSlider.value = String(Math.round(tSlice * 100));
           rebuildSliceMesh(tSlice);
           updateHud();
-        } else if (!playing) {
-          lastSliderSetByUser = false;
         }
       }
 

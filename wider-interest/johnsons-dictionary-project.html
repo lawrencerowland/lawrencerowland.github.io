@@ -1,211 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Project Management Demo: Johnson’s Dictionary</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Johnson’s Dictionary through a project lens: documented milestones, an illustrative work plan, and a modern risk discussion.">
+<title>Johnson’s Dictionary — a project perspective</title>
 <style>
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    margin: 20px;
-    background: #f9f9f9;
-}
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-.section {
-    margin-bottom: 20px;
-}
-#gantt {
-    display: grid;
-    /* first column is for labels, followed by one column per year */
-    grid-template-columns: 200px repeat(10, 1fr);
-    grid-auto-rows: 40px;
-    border: 1px solid #ccc;
-    background: #fff;
-    width: 100%;
-}
-/* Header cells for each year */
-.header {
-    background: #f0f0f0;
-    text-align: center;
-    line-height: 40px;
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-}
-/* Task labels */
-.label {
-    padding: 10px;
-    background: #fafafa;
-    border-right: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-}
-/* Bars representing activities */
-.bar {
-    height: 20px;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-/* Colour classes for different tasks */
-.bar.research {
-    background-color: #87CEEB; /* sky blue */
-}
-.bar.writing {
-    background-color: #FFA07A; /* salmon */
-}
-.bar.editing {
-    background-color: #90EE90; /* light green */
-}
-.bar.printing {
-    background-color: #9370DB; /* medium purple */
-}
-.bar.event {
-    background-color: #FF6F61; /* red for event */
-}
-/* Risk matrix styling */
-.risk-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-.risk-table th,
-.risk-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
-}
-.risk-table th {
-    background: #eee;
-}
-/* Colour coding for risk cells */
-.risk-low {
-    background-color: #d1e7dd;
-}
-.risk-med {
-    background-color: #fff3cd;
-}
-.risk-high {
-    background-color: #f8d7da;
-}
-.footnotes {
-    font-size: 0.8em;
-}
-.footnotes ol {
-    padding-left: 20px;
-}
+:root{color-scheme:light;--ink:#253b38;--paper:#faf7ef;--line:#d8d4c7;--accent:#2c675d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:28px 24px 50px}a{color:#215b8b}a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #9a5820;outline-offset:4px}header{max-width:850px}h1,h2{font-family:Georgia,serif;line-height:1.15}h1{font-size:clamp(2rem,5vw,3.4rem);margin:.45em 0}h2{font-size:1.7rem;margin-top:1.6em}.eyebrow{font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:.8rem;color:var(--accent)}.lede{font-size:1.15rem}.note{border-left:4px solid #b78342;background:#f0eadb;padding:12px 16px}.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:9px;background:white}table{width:100%;border-collapse:collapse}caption{text-align:left;padding:14px;font-weight:700}th,td{padding:12px;border:1px solid var(--line);text-align:left;vertical-align:top}thead th{background:#e9eee7}.timeline{min-width:780px;table-layout:fixed}.timeline th:first-child{width:220px}.timeline td{padding:10px 3px;text-align:center}.timeline thead th{font-size:.83rem;padding:8px 3px;text-align:center}.milestone{color:#204d44;background:#d9ece3;font-weight:700}.personal{background:#eee4ed;color:#533c55}.phase{background:#e6dfc5;border-top:5px solid white;border-bottom:5px solid white;font-size:.85rem}.toggle{display:block;margin:15px 0}.toggle input{width:19px;height:19px;vertical-align:middle;margin-right:8px}.risk-table{min-width:700px}.risk-table th{width:20%}.risk-table td{width:26.6%}.risk-low{background:#edf3e9}.risk-med{background:#faf1d7}.risk-high{background:#f5e1d7}details{padding:14px 18px;background:#fff;border:1px solid var(--line);border-radius:8px;margin:15px 0}summary{font-weight:700;cursor:pointer}.sources li{margin-bottom:9px}.small{font-size:.9rem;color:#52635c}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:600px){main{padding:20px 16px}th,td{padding:8px}.lede{font-size:1.03rem}}@media print{body{background:white}.toggle{display:none}main{max-width:none}.table-scroll{overflow:visible}a{color:inherit}}
 </style>
 </head>
-<body>
-<h1>Samuel Johnson’s Dictionary: A Project Management Perspective</h1>
-
-<div class="section">
-<p>In June 1746, a nearly unknown writer named Samuel Johnson signed a contract with a consortium of London booksellers to produce a comprehensive English dictionary within three years�.  The 1,500‑guinea advance allowed him to rent a house and hire assistants, but the task proved Herculean: Johnson worked largely alone and repeatedly abandoned and restarted procedures�.  The work took nine years and was finally published on 15 April 1755�, and along the way his wife Tetty died in March 1952�.</p>
-</div>
-
-<div class="section">
-<h2>Gantt Chart of the Dictionary Project (1746–1755)</h2>
-<div id="gantt">
-    <!-- Empty cell in top left corner -->
-    <div class="header"></div>
-    <div class="header">1746</div>
-    <div class="header">1747</div>
-    <div class="header">1748</div>
-    <div class="header">1749</div>
-    <div class="header">1750</div>
-    <div class="header">1751</div>
-    <div class="header">1752</div>
-    <div class="header">1753</div>
-    <div class="header">1754</div>
-    <div class="header">1755</div>
-
-    <!-- Row: Contract & Planning -->
-    <div class="label">Contract &amp; Planning</div>
-    <div class="bar" style="grid-column:2/span 1; background-color:#FFC107; height:20px; margin-top:10px;"></div>
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-
-    <!-- Row: Lexical Research & Reading -->
-    <div class="label">Lexical Research &amp; Reading</div>
-    <div class="bar research" style="grid-column:2/span 4;"></div>
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-
-    <!-- Row: Writing Definitions & Quoting -->
-    <div class="label">Writing Definitions &amp; Quoting</div>
-    <div class="bar"></div>
-    <div class="bar writing" style="grid-column:3/span 8;"></div>
-
-    <!-- Row: Copying & Editing -->
-    <div class="label">Copying &amp; Editing</div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar editing" style="grid-column:6/span 6;"></div>
-
-    <!-- Row: Printing & Publication -->
-    <div class="label">Printing &amp; Publication</div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar printing" style="grid-column:10/span 2;"></div>
-
-    <!-- Row: Personal Event -->
-    <div class="label">Personal Event: Tetty’s death</div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar event" style="grid-column:8/span 1;"></div>
-</div>
-<p>This simplified Gantt chart maps major activities and events across the ten‑year span of Johnson’s project.  Tasks overlap substantially; lexical research continued as he wrote definitions and gathered quotations, while copying and editing overlapped with the final printing stages.  The single red bar marks the death of his wife, a personal tragedy that disrupted the schedule and reveals how personal risk events can affect project timelines.</p>
-</div>
-
-<div class="section">
-<h2>Risk Matrix for the Dictionary Project</h2>
-<table class="risk-table">
-<tr>
-<th>Probability/Impact</th>
-<th>Low Impact</th>
-<th>Medium Impact</th>
-<th>High Impact</th>
-</tr>
-<tr>
-<th>Low Probability</th>
-<td class="risk-low">Sponsorship dispute with publishers</td>
-<td class="risk-med">Discovery of lexical duplicates</td>
-<td class="risk-high">Political censorship</td>
-</tr>
-<tr>
-<th>Medium Probability</th>
-<td class="risk-med">Assistants’ turnover</td>
-<td class="risk-med">Cost overruns (materials &amp; printing)</td>
-<td class="risk-high">Schedule slippage (three‑year plan proving unrealistic)</td>
-</tr>
-<tr>
-<th>High Probability</th>
-<td class="risk-med">Quality variance in definitions</td>
-<td class="risk-high">Expansion of scope (adding quotations and etymologies)</td>
-<td class="risk-high">Personal health &amp; life events (Tetty’s death, illness)</td>
-</tr>
-</table>
-<p>The risk matrix frames uncertainties Johnson faced.  His contract promised completion within three years�, making schedule slippage a high‑impact risk; adding thousands of literary quotations expanded the project’s scope, and both risks were realised.  Financial and human‑resource risks were moderate but persistent, as he quarrelled with publishers and relied on a small team of copyists�.  The death of his wife mid‑project exemplifies high‑probability, high‑impact personal risk that modern project managers often overlook.</p>
-</div>
-
-<div class="section footnotes">
-<h2>Footnotes</h2>
-<ol>
-<li>In June 1746 Johnson signed a contract with booksellers for 1,500 guineas; this allowed him to rent a house and hire assistants, but his wife Tetty died in 1752�.</li>
-<li>Johnson promised to deliver his dictionary in three years but worked almost alone and repeatedly restarted his processes; completing the dictionary took nine years from the signing of the contract in 1746 to publication in 1755�.</li>
-<li>The dictionary was published on 15 April 1755 in two volumes with roughly 43,000 entries�.</li>
-<li>Elizabeth “Tetty” Johnson died on 17 March 1752�.</li>
+<body><main>
+<nav aria-label="Breadcrumb"><a href="/wider-interest/">← Wider interest</a></nav>
+<header>
+<p class="eyebrow">Literature · work · uncertainty</p>
+<h1>Johnson’s Dictionary</h1>
+<p class="lede">A three-year promise became a nine-year undertaking. What can a modern project lens reveal about the work—and where does that lens mislead?</p>
+<p>Johnson signed a contract with London booksellers on <strong>18 June 1746</strong>, for 1,500 guineas, with a three-year ambition. The Dictionary appeared on <strong>15 April 1755</strong>. He did not work entirely alone: assistants copied the quotations he selected from books. His wife Elizabeth “Tetty” Johnson died in <strong>1752</strong>. <a href="#sources">Sources and reading ↓</a></p>
+<p>The published Dictionary filled <strong>two folio volumes</strong> and contained roughly <strong>43,000 entries</strong>. Each entry could bring together several meanings and literary examples: the scale lay in those editorial decisions as well as the word count.</p>
+<p class="note"><strong>Two kinds of evidence:</strong> the dated milestones below are historical. The workstream bars and risk matrix are modern teaching interpretations; no surviving project schedule or contemporary probability assessment is claimed.</p>
+</header>
+<section aria-labelledby="timeline-title">
+<h2 id="timeline-title">A promise and a longer reality</h2>
+<p>Read the fixed dates first. Then reveal the illustrative workstreams to think about overlapping research, writing, copying and production.</p>
+<label class="toggle"><input id="show-phases" type="checkbox"> Show illustrative workstreams</label>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Dictionary timeline; scroll horizontally on narrow screens">
+<table class="timeline">
+<caption>Documented milestones, 1746–1755</caption>
+<thead><tr><th scope="col">Milestone / activity</th><th scope="col">1746</th><th scope="col">1747</th><th scope="col">1748</th><th scope="col">1749</th><th scope="col">1750</th><th scope="col">1751</th><th scope="col">1752</th><th scope="col">1753</th><th scope="col">1754</th><th scope="col">1755</th></tr></thead>
+<tbody>
+<tr><th scope="row">Contract</th><td class="milestone">18 Jun</td><td colspan="9"></td></tr>
+<tr><th scope="row">Original three-year ambition</th><td colspan="3"></td><td class="milestone">1749</td><td colspan="6"></td></tr>
+<tr><th scope="row">Tetty’s death</th><td colspan="6"></td><td class="milestone personal">1752</td><td colspan="3"></td></tr>
+<tr><th scope="row">Publication</th><td colspan="9"></td><td class="milestone">15 Apr</td></tr>
+</tbody>
+<tbody id="phases" hidden>
+<tr><th scope="row">Research &amp; reading <span class="small">(illustration)</span></th><td colspan="9" class="phase">Gather words and literary evidence</td><td></td></tr>
+<tr><th scope="row">Definitions &amp; quotations <span class="small">(illustration)</span></th><td></td><td colspan="9" class="phase">Select, explain, revise</td></tr>
+<tr><th scope="row">Copying &amp; editing <span class="small">(illustration)</span></th><td colspan="2"></td><td colspan="8" class="phase">Prepare and organise copy</td></tr>
+<tr><th scope="row">Printing &amp; publication <span class="small">(illustration)</span></th><td colspan="8"></td><td colspan="2" class="phase">Production</td></tr>
+</tbody></table></div>
+<p class="small">Ten labelled calendar years contain about nine elapsed years. Workstream start and end positions are schematic, not measured dates. The timing of bereavement alone does not establish how much delay it caused.</p>
+<noscript><p>The milestone table is available without JavaScript. The optional workstream overlay needs JavaScript.</p></noscript>
+</section>
+<section aria-labelledby="risk-title">
+<h2 id="risk-title">A risk matrix to argue with</h2>
+<p>Imagine planning a similarly ambitious reference work today. These are <strong>illustrative placements for discussion</strong>, not estimates of what was likely in Johnson’s life. “Impact” means an effect on the hypothetical delivery, cost or quality objective.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Illustrative risk matrix; scroll horizontally on narrow screens">
+<table class="risk-table"><caption>Modern exercise: which assumptions would you challenge?</caption>
+<thead><tr><th scope="col">Assumed likelihood</th><th scope="col">Low impact</th><th scope="col">Medium impact</th><th scope="col">High impact</th></tr></thead><tbody>
+<tr><th scope="row">Low</th><td class="risk-low">Minor supplier dispute</td><td class="risk-med">Copy must be reformatted</td><td class="risk-high">Publication is prevented</td></tr>
+<tr><th scope="row">Medium</th><td class="risk-low">Some duplicate quotations</td><td class="risk-med">An assistant leaves</td><td class="risk-high">A key contributor becomes unavailable</td></tr>
+<tr><th scope="row">High</th><td class="risk-med">Individual definitions need revision</td><td class="risk-med">Selection takes longer than expected</td><td class="risk-high">The initial completion promise proves unrealistic</td></tr>
+</tbody></table></div>
+<details open><summary>What the historical example can—and cannot—teach</summary>
+<p><strong>Estimation:</strong> the contract-to-publication gap is documented. Calling it “scope creep” would need evidence about what was agreed and subsequently changed. Quotations were part of the dictionary’s design; their presence alone does not prove uncontrolled expansion.</p>
+<p><strong>Collaboration:</strong> assistants’ copying and organising work matters, even where Johnson retained editorial responsibility. “One man did it all” hides that work.</p>
+<p><strong>Resources and scope:</strong> a modern team would need a budget for research, assistants, materials and printing, alongside an agreement about which costs the author or publisher pays. A longer schedule can strain that budget even when the intended scope stays the same. The team would also need to decide which words, meanings and examples belong in the work, and how proposed additions will be assessed. These are planning questions for a present-day analogue, not evidence of particular overruns in Johnson’s project.</p>
+<p><strong>Human circumstances:</strong> bereavement belongs in an account of a life. A death is not evidence that it was a “high-probability risk”, and a retrospective matrix cannot recover contemporary expectations.</p>
+</details>
+</section>
+<section id="sources" aria-labelledby="source-title"><h2 id="source-title">Sources and reading</h2>
+<ol class="sources">
+<li><a href="https://www.drjohnsonshouse.org/johnsons-dictionary">Dr Johnson’s House: Johnson’s Dictionary</a> — contract, fee, three-year ambition, nine-year undertaking and working method.</li>
+<li><a href="https://samueljohnsonbirthplace.org.uk/how-johnson-created-his-dictionary-the-important-role-of-his-amanuenses/">Samuel Johnson Museum: the amanuenses</a> — the contribution of his assistants.</li>
+<li><a href="https://samueljohnsonbirthplace.org.uk/miniature-dictionaries/">Samuel Johnson Museum: “Miniature Dictionaries”, 15 April 2023</a> — publication date and the two-volume first edition.</li>
+<li><a href="https://johnsonsdictionaryonline.com/blog/passion-makes-tedious-work-enjoyable/">Johnson’s Dictionary Online: “Passion makes tedious work enjoyable”</a> — the first edition’s 42,773 entries; <a href="https://johnsonsdictionaryonline.com/blog/guide-to-dictionary/">the project’s guide</a> explains the entries and editions.</li>
+<li><a href="https://samueljohnsonbirthplace.org.uk/women-in-the-birthplace-collection/">Samuel Johnson Museum: women in the collection</a> — Tetty and her death in 1752.</li>
 </ol>
-</div>
-
-</body>
-</html>
+<p class="small">Reviewed 3 October 2026. The modern project interpretation is the author’s, not a claim made by these sources.</p></section>
+</main>
+<script>
+'use strict';
+document.getElementById('show-phases').addEventListener('change', function () {
+  document.getElementById('phases').hidden = !this.checked;
+});
+</script>
+</body></html>

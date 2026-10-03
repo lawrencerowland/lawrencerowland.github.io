@@ -1,0 +1,66 @@
+{
+  "source_repository": "https://github.com/lawrencerowland/more-project-apps",
+  "source_revision": "cc0f6c3e0ce68d85ce5a2aac9904e70f956dc8d0",
+  "canonical_url": "https://lawrencerowland.github.io/library/apps/social-debt-explorer/",
+  "migration_date": "2026-10-03",
+  "source_files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 66,
+      "sha256": "1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b"
+    },
+    {
+      "path": ".nojekyll",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2837,
+      "sha256": "3aa58ffaa73e952f2e51f36c1415f5106e36a31e0b630a1e6a630b930ddb81f8"
+    },
+    {
+      "path": "app-index.csv",
+      "bytes": 436,
+      "sha256": "fb753f0951ccb62c88838eafd7902df551dc0105b4c7e5413477066b9ce28404"
+    },
+    {
+      "path": "assets/social-debt/team-release-scene.jpg",
+      "bytes": 650360,
+      "sha256": "4069e80cdee55573a556bd1c335bb20324c876cd8daf625054d1b4e0c938e6be"
+    },
+    {
+      "path": "assets/social-debt/visual-notes.md",
+      "bytes": 2948,
+      "sha256": "138beaaee305ade314ba0ccd2e0d4655d7f54138b1f5e9a33d0fe3a22db5bc8d"
+    },
+    {
+      "path": "index.html",
+      "bytes": 6066,
+      "sha256": "15f0d078d3dcc0c07cc2eb911c9b5c84a0f3a2118b4a2e636b5469c5c7051cd0"
+    },
+    {
+      "path": "web_apps/social-debt-explorer.html",
+      "bytes": 1626365,
+      "sha256": "056bb20ce5e0adcc946a21ebeaafd4edc1cd584ed6951388dde9259a36ed9611"
+    }
+  ],
+  "preserved_files": {
+    "assets/social-debt/team-release-scene.jpg": "assets/team-release-scene.jpg",
+    "assets/social-debt/visual-notes.md": "provenance/original-visual-notes.md",
+    "README.md": "provenance/original-readme.md"
+  },
+  "app_changes": [
+    "Canonical URL and Library navigation",
+    "Local D3 v7.9.0 dependency, same major-version runtime as before",
+    "Dated public-access check refreshed after reading Springer preview and Zenodo API",
+    "No-script guidance; complete source projection, story and functions retained"
+  ],
+  "unpublished_branch": {
+    "ref": "origin/codex/create-handover-pack-for-mountain-refuge-project",
+    "revision": "f7f084a00cce265589554dd8bc94058f4d39a3ba",
+    "status": "Eight unique prototype handover files; not on published main, left untouched. Placeholder evidence is not verified design assurance."
+  },
+  "embedded_graph_sha256": "2ce042e54e0efd269e7e948d5e369382505969c8d08b13714464442d3327c015",
+  "original_runtime_sha256": "fa8c17ae56301eca40e62a1beabffbada5b52a8fb80afb274a06d5cdc6a21080"
+}

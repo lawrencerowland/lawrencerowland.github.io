@@ -1,0 +1,30 @@
+[
+  {
+    "id": "social-debt",
+    "title": "Social Debt",
+    "url": "/library/apps/social-debt-explorer/",
+    "image": "/library/apps/social-debt-explorer/assets/team-release-scene.jpg",
+    "description": "The code is ready. The team is waiting. Read a paper\u2019s ontology through a software-team situation."
+  },
+  {
+    "id": "wider-interest",
+    "title": "Wider interest",
+    "url": "/wider-interest/",
+    "image": "/images/navigation/wider-interest.svg",
+    "description": "Books, journeys, shapes and small games."
+  },
+  {
+    "id": "about",
+    "title": "About",
+    "url": "/about_me.html",
+    "image": "/images/navigation/about.svg",
+    "description": "Lawrence Rowland and this collection."
+  },
+  {
+    "id": "site-map",
+    "title": "Sitemap",
+    "url": "/sitemap.html",
+    "image": "/images/navigation/site-map.svg",
+    "description": "Follow the branches from the front door."
+  }
+]

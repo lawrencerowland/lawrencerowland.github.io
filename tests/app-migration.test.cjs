@@ -28,7 +28,7 @@ const expected={
  'decision-tree':'examples/decision-tree.html',
  'project-risk-gradient':'library/apps/project-risk-gradient/',
  'frobenius-dsm-explorer':'library/apps/frobenius-dsm-explorer/',
- 'social-debt-explorer':'more-project-apps/web_apps/social-debt-explorer.html'
+ 'social-debt-explorer':'library/apps/social-debt-explorer/'
 };
 Object.assign(expected,{"dico_module_map_d3": "Solway_tunnel_ontology/apps/digital-construction-ontology/#modules", "tokyo_stadium_dicon_graph": "Solway_tunnel_ontology/apps/digital-construction-ontology/#tokyo", "hs2_stakeholders_network": "Solway_tunnel_ontology/apps/digital-construction-ontology/#hs2", "hs2-decision-graph": "library/apps/project-decision-graph/", "lower_thames_crossing_geo_kg": "library/apps/crossing-project-map/", "project_viability_state_space_navigator_plus": "library/apps/project-viability-navigator/", "grounded-theory-approach": "library/apps/reading-project-evidence/#coding", "legends_tower_sentiment_report": "library/apps/reading-project-evidence/#stance"});
 Object.assign(expected,{"pm_causal_playground": "counterfactuals/#paths", "counterfactual_programme_steering": "counterfactuals/#policies", "SMR_governance_simulator": "library/apps/signed-feedback-lab/", "project-dependency-atlas": "library/apps/project-dependency-atlas/"});

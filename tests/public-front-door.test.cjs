@@ -8,9 +8,10 @@ const home = fs.readFileSync('index.md', 'utf8');
 const library = fs.readFileSync('library.md', 'utf8');
 const materials = JSON.parse(fs.readFileSync('_data/library_materials.json', 'utf8'));
 const themes = JSON.parse(fs.readFileSync('_data/library_themes.json', 'utf8'));
+const additional = JSON.parse(fs.readFileSync('_data/library_additional.json', 'utf8'));
 const themeLayout = fs.readFileSync('_layouts/library-theme.html', 'utf8');
 const materialFor = url => materials.find(item => item.url === url || item.url?.split('#')[0] === url);
-assert.deepEqual([...nav.matchAll(/>(Experiments|Library|Visual atlas|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Library', 'Visual atlas', 'Wider interest']);
+assert.deepEqual([...nav.matchAll(/>(Experiments|Library|Visual atlas|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Library', 'Visual atlas']);
 assert.match(nav, /<span>Lawrence Rowland<\/span><small>Project Experiments in AI<\/small>/, 'the top brand keeps the name and requested subtitle');
 assert.ok(!nav.includes('Independent project experiments'), 'the former brand subtitle is retired');
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
@@ -51,16 +52,19 @@ assert.match(library, /<p\b[^>]*>A home for more established methods\.<\/p>/, 'L
 assert.ok(!/bounded problem|not all received a new technical review|Looking for the open enquiries|Some work asks an open question/.test(library), 'the former Library introduction is retired');
 for (const route of ['/explore-visually.html', '/side-projects.html']) assert.ok(!library.includes(route), 'peer pages are reached through the main navigation: ' + route);
 for (const [route, label] of [['/about_me.html', 'About'], ['/sitemap.html', 'Sitemap']]) {
-  assert.equal(library.split(route).length - 1, 1, 'one Library utility link: ' + label);
-  assert.match(library, new RegExp('>' + label + '<\\/a>'));
+  const entries = additional.filter(entry => entry.url === route);
+  assert.equal(entries.length, 1, 'one Library utility tile: ' + label);
+  assert.equal(entries[0].title, label);
 }
+assert.ok(library.includes('for entry in site.data.library_additional'), 'the utility tiles are rendered from their shared metadata');
 assert.ok(!library.includes('/about_the_site.html'), 'About has one canonical entrance');
 for (const source of [home, library]) {
   assert.equal((source.match(/<h1\b/g) || []).length, 1);
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');
   for (const img of source.matchAll(/<img\b[^>]*>/g)) assert.match(img[0], /\balt="[^"]*"/, 'images expose an accessible description or are decorative');
 }
-assert.match(home, /href="https:\/\/lawrencerowland.github.io\/gimmer-crag\/petri-smc-wbs.html" aria-labelledby="gimmer-question-title"/, 'general process-to-plan question leads to the main collection');
+assert.deepEqual([...home.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Experiments', 'Library', 'Visual atlas'], 'the front door presents the three entrances');
+assert.ok(home.includes('/side-projects.html'), 'project-specific questions remain under the Experiments entrance');
 
 // Exercise the real navigation script: disclosure, Escape, link selection and
 // resizing must keep the announced state and displayed state in agreement.

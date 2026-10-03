@@ -124,7 +124,11 @@ for (const redirect of redirects) {
 const librarySource = read('library.md');
 for (const id of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts']) assert.ok(ids(librarySource).has(id), 'Library retains generic index fragment ' + id);
 for (const id of ['library-data-models', 'library-frameworks', 'library-methods']) assert.ok(libraryRedirects.some(item => item.id === id), 'Library retains a forwarding entrance for migrated index fragment ' + id);
-assert.ok(read('sitemap.md').includes('page.legacy_redirect'), 'human sitemap excludes compatibility pages');
+const humanMapSource = read('sitemap.md');
+assert.ok(humanMapSource.includes('site.data.library_materials') && humanMapSource.includes('include site-map-entry.html'), 'human sitemap resolves the established Library inventory');
+assert.ok(read('_includes/site-map-entry.html').includes('site.data.historical_articles'), 'historical sitemap entries use their canonical article metadata');
+assert.ok(!humanMapSource.includes('site.pages'), 'compatibility pages cannot reappear through an unfiltered page inventory');
+for (const redirect of redirects) assert.ok(!humanMapSource.includes(redirect.old) && !records.some(record => record.url === redirect.old), 'human sitemap excludes the compatibility route ' + redirect.old);
 assert.ok(!read('sitemap.md').includes('site.posts'), 'no empty Posts section');
 assert.ok(!read('_includes/nav.html').includes('/feed.xml') && !librarySource.includes('/feed.xml'), 'empty historical feed is not advertised');
 assert.ok(!read('_includes/head.html').includes('feed_meta'), 'no empty-feed autodiscovery');

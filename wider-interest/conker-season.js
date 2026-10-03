@@ -45,7 +45,7 @@ function showAct(index, focusTab = false) {
  $$('.season-tabs button').forEach((b,i) => {b.setAttribute('aria-selected',String(i === act)); b.tabIndex = i === act ? 0 : -1;});
  $('#previous-act').disabled = act === 0; $('#next-act').disabled = act === 5;
  $('#act-counter').textContent = `${act+1} of 6`;
- if(focusTab) $(`#tab-${act}`).focus();
+ if(focusTab || document.activeElement === $('#previous-act') && act === 0 || document.activeElement === $('#next-act') && act === 5) $(`#tab-${act}`).focus();
 }
 $$('[data-act]').forEach(b => {b.addEventListener('click',() => showAct(Number(b.dataset.act))); b.addEventListener('keydown',e => {let n = act; if(e.key==='ArrowRight') n=(act+1)%6; else if(e.key==='ArrowLeft') n=(act+5)%6; else if(e.key==='Home') n=0; else if(e.key==='End') n=5; else return; e.preventDefault(); showAct(n,true);});});
 $$('[data-reset-season]').forEach(a=>a.addEventListener('click',()=>showAct(0)));
@@ -61,7 +61,7 @@ function renderWords() {
  $('#word-grid').innerHTML = shown.length ? shown.map(w => `<article class="word-card" data-evidence="${w.evidence}"><span class="provenance">${evidenceNames[w.evidence]}</span><h3>${esc(w.term)}</h3><div class="meta">${esc(w.place)}<br>${esc(w.date)}</div><p>${esc(w.definition)} ${sources(w.refs)}</p><details><summary>Meaning, limits &amp; related words</summary><p>${esc(w.note)}</p><p class="meta">Also search: ${esc(w.aliases)}</p></details><div class="card-tags">${w.tags.map(t=>`<button type="button" data-tag="${t}">#${t}</button>`).join('')}</div></article>`).join('') : '<p class="empty-results">No matching word. Try a broader spelling, choose “All tags”, or add your own memory below.</p>';
  more.hidden = shown.length === matching.length; more.textContent = `Open all ${matching.length} words ↓`;
 }
-more.addEventListener('click',() => {expanded=true;renderWords();});
+more.addEventListener('click',() => {expanded=true;renderWords();const firstDetail=$('#word-grid summary');if(firstDetail)firstDetail.focus({preventScroll:true});});
 ['word-search','tag-filter','evidence-filter'].forEach(id => $(`#${id}`).addEventListener('input',renderWords));
 $('#word-grid').addEventListener('click',e => {const b=e.target.closest('[data-tag]');if(!b)return;$('#tag-filter').value=b.dataset.tag;$('#word-search').value='';$('#evidence-filter').value='all';renderWords();$('#word-search').focus({preventScroll:true});$('#words').scrollIntoView();});
 $$('[data-word]').forEach(b => b.addEventListener('click',() => {$('#word-search').value=b.dataset.word;$('#tag-filter').value='all';$('#evidence-filter').value='all';renderWords();$('#words').scrollIntoView();$('#word-search').focus({preventScroll:true});}));
@@ -97,18 +97,22 @@ function takeNut() {
 }
 function beginBout(){game.opponent={...rivals[game.rival],max:rivals[game.rival].hp};game.phase='strike';log(`Challenger ${game.rival+1} brings a ${rank(game.opponent.score)}. Your ${game.current.name} is a ${rank(game.current.score)}. You have first strike.`);renderGame();}
 function renderGame(){
+ const active=document.activeElement;
  const g=game,c=g.current,o=g.opponent;
  const remaining=3-g.used.length+(c&&c.hp>0?1:0);
  $('#game-stats').innerHTML=`<span><b>${g.started?remaining:3}</b>playable nuts left</span><span><b>${Math.max(0,5-g.rival)}</b>challengers remaining</span><span><b>${c?rank(c.score):'none-er'}</b>${c?`${c.wins} actual win${c.wins===1?'':'s'} with this nut`:'current rank'}</span>`;
  $('#your-wear').max=c?c.max:14;$('#your-wear').value=c?Math.max(0,c.hp):14;$('#their-wear').max=o?o.max:4;$('#their-wear').value=o?Math.max(0,o.hp):4;
+ $('#your-wear').setAttribute('aria-valuetext',c?`${Math.max(0,c.hp)} of ${c.max} invented condition points`:'No nut chosen yet');
+ $('#their-wear').setAttribute('aria-valuetext',o?`${Math.max(0,o.hp)} of ${o.max} invented condition points`:'No challenger yet');
  $('#your-pendulum .nut').classList.toggle('cracked',Boolean(c&&c.hp<c.max*.65));$('#their-pendulum .nut').classList.toggle('cracked',Boolean(o&&o.hp<o.max*.65));
  $('#your-pendulum').style.opacity=c&&c.hp<=0?'.25':'1';$('#their-pendulum').style.opacity=o&&o.hp<=0?'.25':'1';
  const labels={ready:'Thread it & start',strike:'Take a careful swing',receive:'Hold it still',between:'Find the next opponent',spare:'Thread the next conker',slipped:'Re-thread the same nut',ended:'The season is over'};
  $('#game-main').textContent=labels[g.phase];$('#game-main').disabled=g.phase==='ended';$('#game-hard').hidden=g.phase!=='strike';$('#game-maintain').hidden=g.phase!=='between';$('#game-maintain').disabled=g.checked;
+ if(active && [$('#game-main'),$('#game-hard'),$('#game-maintain')].includes(active) && (active.hidden || active.disabled)) (g.phase==='ended'?$('#game-reset'):$('#game-main')).focus({preventScroll:true});
  $('#game-care').textContent=g.phase==='ended'?g.history.join(' · '):g.phase==='between'?(g.checked?'Knot checked. No damage repaired; no score changed.':'Between games: inspect the chip, check the knot, wind in the loose lace. The wear stays.'):'One attempt per turn. A miss adds no score. Hard swings also wear your own nut.';
 }
-function endSeason(reason){game.phase='ended';$('#game-nut').disabled=true;$('#game-rule').disabled=true;const c=game.current;
- if(c&&c.hp>0){game.history.push(`${c.name}: ${rank(c.score)}, kept`);log(`${reason} Your ${c.name} is still a ${rank(c.score)}, with ${c.wins} actual ${c.wins===1?'victory':'victories'}. But no one else brings a conker out to play. Put it in the drawer. Somewhere on the playground, a different game has started.`);}else{log(`${reason} The last fragment goes into the leaves. ${game.totalWins} games won across your conkers; now a different game has started. There is no final to wait for.`);}renderGame();}
+function endSeason(reason, lastBout=''){game.phase='ended';$('#game-nut').disabled=true;$('#game-rule').disabled=true;const c=game.current;
+ if(c&&c.hp>0){game.history.push(`${c.name}: ${rank(c.score)}, kept`);log(`${lastBout} ${reason} Your ${c.name} is still a ${rank(c.score)}, with ${c.wins} actual ${c.wins===1?'victory':'victories'}. But no one else brings a conker out to play. Put it in the drawer. Somewhere on the playground, a different game has started.`);}else{log(`${lastBout} ${reason} The last fragment goes into the leaves. ${game.totalWins} games won across your conkers; now a different game has started. There is no final to wait for.`);}renderGame();}
 function settle(text){
  const c=game.current,o=game.opponent;
  if(c.hp>0 && o.hp>0)return false;
@@ -116,8 +120,8 @@ function settle(text){
  if(won){c.wins++;game.totalWins++;c.score+=1+(game.rule==='inherit'?o.score:0);text+=` Their conker breaks. Yours is now a ${rank(c.score)} (${c.wins} actual ${c.wins===1?'win':'wins'}).`;}
  else{game.history.push(`${c.name}: ${rank(c.score)}, broken`);text+=o.hp<=0?' Both nuts break: no winner in this demonstration.':' Your conker breaks. This nut’s career is over.';}
  game.rival++;game.checked=false;
- if(game.rival>=rivals.length){endSeason('The fifth challenger has gone, and the collecting spots are picked over.');return true;}
- if(!won&&game.used.length===nutSpecs.length){endSeason('All three of your conkers are gone.');return true;}
+ if(game.rival>=rivals.length){endSeason('The fifth challenger has gone, and the collecting spots are picked over.',text);return true;}
+ if(!won&&game.used.length===nutSpecs.length){endSeason('All three of your conkers are gone.',text);return true;}
  if(won){game.phase='between';text+=' Check it between games; it will carry this damage into the next one.';}
  else{game.phase='spare';$('#game-nut').disabled=false;const next=nutSpecs.findIndex((_,i)=>!game.used.includes(i));$('#game-nut').value=String(next);text+=' Choose a spare from the remaining pocketful. It starts at zero.';}
  log(text);renderGame();return true;
