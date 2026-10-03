@@ -321,3 +321,10 @@ Digital Construction ontology has its sole primary home in Solway as **Ontology 
 Three remaining general apps become two pictured Decisions & trade-offs entries: **Explore a project agreement** (separate NEC and bargaining lessons) and **Rehearse a regulatory negotiation**. Source count 20→17; maintained Library apps 44−1+2=45; peer cards 67. No new subject or foray was needed for the finite commercial exercises. Contract Portfolio Board remains retained. Exact sources, changes and verification are documented beside each model; source commit 676cbc7 and CSV preservation are pinned in phase_four of the migration fixture.
 
 Merge Solway PR39 first, then this website change, then the Project-web-apps retirement; verify each receiving deployment before switching its source routes. Model tests are bounded evidence, separate from legal advice, regulator behaviour or human-use validation.
+
+
+## 3 October 2026 — phase5 cause, feedback and changing plans
+
+Four former source identities receive three homes in the existing subjects: **Ask what a project change would cause** (distinct DAG/adjustment and assumed-SCM policy modes) under Decisions & trade-offs; **See when feedback settles or grows** and **Trace dependencies across phases and time** under Delivery dynamics & feedback. Library apps45→48 and flat peer entries67→70; old catalogue17→13. No new subject or foray. The small feedback model's earlier SMR/governance label did not reflect its actual mathematics. The ontology relocation remains in Solway and Contract Portfolio Board remains retained.
+
+Source revision8221f32 and exact source hashes, before/after CSV and destination identities are pinned in phase_five of the migration fixture. Numerical/model limits and retention are documented alongside each receiving app. Source retirement is a companion PR to merge only after these receiving routes publish and are verified.

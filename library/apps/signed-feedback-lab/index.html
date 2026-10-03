@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trace a signed feedback loop · Library · Lawrence Rowland</title>
+  <meta name="description" content="Follow review, rework and evidence through a three-state linear feedback example. Edit signed gains, trace contributions and distinguish loop polarity from stability.">
+  <link rel="canonical" href="https://lawrencerowland.github.io/library/apps/signed-feedback-lab/">
+  <link rel="stylesheet" href="styles.css">
+  <script src="model.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#example">Skip to the example</a>
+<header>
+  <nav aria-label="Library"><a href="/library.html">← Library</a> / <a href="/library/methods/delivery-dynamics.html">Delivery dynamics &amp; feedback</a></nav>
+  <p class="eyebrow">A small model for thinking about delivery</p>
+  <h1>Trace a signed feedback loop</h1>
+  <p class="standfirst">A review asks for rework. Rework relieves review pressure, but can reveal more evidence gaps. Follow each contribution around the loop, then change its strength.</p>
+</header>
+<main id="example" tabindex="-1">
+  <section class="panel introduction" aria-labelledby="scenario-title">
+    <div><h2 id="scenario-title">One review cycle, three signals</h2>
+    <p>Imagine a team preparing a small project for its next review. The numbers are signed, dimensionless deviations from a baseline: a negative value means below that baseline. The links and gains are assumptions for this toy, not measurements of delivery performance.</p></div>
+    <div class="try"><strong>Try this</strong><p>Step through the small cycle. Then choose “Growing oscillation” and run it. The negative two-link loop remains negative, yet the oscillation grows.</p></div>
+  </section>
+  <div class="toolbar">
+    <label for="preset">Example</label><select id="preset"><option value="delivery">Small review cycle</option><option value="growing">Growing oscillation</option><option value="boundary">Boundary oscillation</option><option value="original">Original governance labels</option></select>
+    <button id="step" type="button">Step one tick</button><button id="run" type="button">Run</button><button id="pause" type="button" disabled>Pause</button>
+    <button id="restart" type="button">Restart current model</button><button id="restore" type="button">Restore example</button>
+  </div>
+  <p id="status" role="status" aria-live="polite">Ready at tick 0.</p><p id="error" class="error" role="alert" hidden></p>
+  <div class="metrics" aria-label="Current results"><div><span>Tick</span><strong id="tick">0</strong></div><div><span>Spectral radius ρ(W)</span><strong id="rho">—</strong></div><div><span>Largest signal |x|</span><strong id="max-state">—</strong></div><div class="stability"><span>Long-run behaviour</span><strong id="stability">—</strong></div></div>
+  <p id="stability-note" class="note"></p>
+  <div class="workspace">
+    <section class="panel controls" aria-labelledby="controls-title"><h2 id="controls-title">Change the assumptions</h2>
+      <p class="note">Edit gains and starting signals, then apply. Applying pauses and restarts at tick 0 so each run uses one fixed matrix.</p>
+      <form id="parameters"><fieldset><legend>Starting signals</legend><div id="initial-inputs"></div></fieldset><fieldset><legend>Signed link gains</legend><div id="gain-inputs"></div></fieldset><button type="submit">Apply changes &amp; restart</button></form>
+      <p class="note">Positive gain: same-direction effect. Negative gain: opposite-direction effect. Zero switches the link off. “Good” and “bad” are not encoded.</p>
+      <p class="note">Restart retains your applied gains and starting signals. Restore returns to the selected example’s supplied values. Both pause the run.</p>
+    </section>
+    <section class="panel graph-panel" aria-labelledby="graph-title"><h2 id="graph-title">See what enters the next tick</h2>
+      <p id="flow-timing" class="note"></p>
+      <div class="graph-scroll" tabindex="0" role="region" aria-label="Feedback diagram; scroll horizontally on narrow screens. Equivalent values appear in the table below."><svg id="graph" viewBox="0 0 960 480" role="img" aria-labelledby="diagram-title diagram-description"><title id="diagram-title">Three signals and four intermediate contributions</title><desc id="diagram-description">Each arrow passes through an activity box. The box multiplies the source signal by a signed gain. The destination receives the sum of its incoming contributions on the next tick.</desc></svg></div>
+      <div class="legend"><span>○ Signal</span><span>▭ Activity / contribution</span><span class="positive">+ Same direction</span><span class="negative">− Opposite direction</span></div>
+      <div class="scroll"><table><caption>Algebraic contributions for the next tick; these are not extra dynamic states.</caption><thead><tr><th scope="col">Link / activity</th><th scope="col">Gain</th><th scope="col">Source now</th><th scope="col">Contribution</th></tr></thead><tbody id="contributions"></tbody></table></div>
+    </section>
+  </div>
+  <div class="grid">
+    <section class="panel"><h2>Two loops, one coupled system</h2><div id="loops"></div><p class="note">A loop’s sign is the product of its link signs; its numeric gain is their product. These paths take two and three ticks respectively. A cycle product is not an eigenvalue or the spectral radius of the coupled matrix.</p></section>
+    <section class="panel"><h2>How the next state is calculated</h2><p><code>x(t + 1) = W x(t)</code>. Each next signal replaces its previous value with the sum of incoming contributions. There is no extra <code>+ x(t)</code> term.</p><div class="scroll"><table id="matrix"><caption>W: rows receive, columns send.</caption></table></div><p id="eigenvalues" class="note"></p></section>
+  </div>
+  <section class="panel"><h2>Watch the trajectory</h2><p class="note">One tick is an abstract model interval, not a day. The vertical scale adapts to the visible run; compare the numbers as well as the shape.</p><svg id="history-chart" viewBox="0 0 1000 280" role="img" aria-label="Signal history since the last restart"></svg><div id="history-legend" class="legend"></div><details><summary>Read the last 12 states</summary><div class="scroll"><table id="history-table"></table></div></details><button id="download-csv" type="button">Download full history CSV</button></section>
+  <details class="panel"><summary>Save or load a model · Graphviz report</summary>
+    <p>JSON preserves node labels, starting signals and all four link gains and activity labels. Loading starts a new paused run at tick 0; it does not resume a previous trajectory. Export CSV separately to retain that history. All processing stays in this browser.</p>
+    <div class="toolbar"><button id="show-json" type="button">Show model JSON</button><button id="download-json" type="button">Download model JSON</button><button id="apply-json" type="button">Load JSON below</button><button id="download-dot" type="button">Download current Graphviz DOT</button></div>
+    <label for="model-json">Model JSON</label><textarea id="model-json" rows="14" spellcheck="false" aria-describedby="json-help"></textarea><p id="json-help" class="note">Use the exported template. The topology stays fixed at three states and four links. Labels accept up to 100 characters; gains and initial signals must be finite and within ±1,000,000.</p>
+    <p>The current DOT represents the displayed state and contributions for its next tick. Its first arrow applies the gain; its second passes the contribution through with gain 1. <a href="original-governance-av.dot" download>Download the original static governance DOT</a> for comparison. That historical file labels both parts of each link with the same gain; it is a visual report, not a second executable model.</p>
+  </details>
+  <details class="panel"><summary>What this model can—and cannot—say</summary>
+    <p>This is a discrete-time, autonomous linear map with three states and four links. It does not integrate a continuous-time differential equation. The source used “accountability vectors” (AV) for the intermediate nodes. Here they make the activity and its contribution visible: <code>c(A→B, t) = gain × x(A, t)</code>, and <code>x(B, t+1) = Σ incoming c(t)</code>. They have no memory, separate update or extra delay; naming an activity does not establish an accountable owner.</p>
+    <p>For fixed W, all starting states approach zero exactly when every eigenvalue has magnitude below 1. The displayed spectral radius is the largest of those magnitudes. When it exceeds 1, there is a growing mode; a special starting state may avoid it, and the largest signal need not grow on every tick. Values within 10⁻⁹ of 1 are labelled “Boundary”: this numerical cue does not certify marginal stability. Repeated unit-magnitude eigenvalues can require further analysis. See <a href="https://ee263.stanford.edu/archive/eig.pdf">Stephen Boyd’s discrete-time stability notes, slide 11–34</a>.</p>
+    <p>Link signs describe same- or opposite-direction effects; whole-loop polarity depends on all its signs. That convention is explained in <a href="https://doi.org/10.1002/sdr.1641">David Ford’s system dynamics glossary</a>. Polarity alone does not decide this model’s stability.</p>
+    <p>The delivery scenario is an illustrative interpretation of the original topology and numbers. It has no fitted parameters, persistent stocks, nonlinear saturation, measured time delays, external shocks, costs, capacity constraints or validation against project outcomes. The alternative “Original governance labels” restores Regulator, Operator and Oversight with their original activities and numerical values. Those labels do not make this a nuclear safety, licensing or governance simulator.</p>
+    <p>Runs stop at 500 ticks or before a signal exceeds 10¹², retaining the last finite state. Arithmetic is floating point; very large gain ratios, repeated roots and values near the stability boundary require care. The full three-root calculation replaces the source’s unreliable real power-iteration estimate.</p>
+  </details>
+</main>
+<footer><a href="/library/methods/delivery-dynamics.html">More delivery dynamics &amp; feedback →</a><p>Reviewed 3 October 2026. Reworked from the earlier SMR governance example. <a href="README.md">Provenance, corrections and verification</a> · <a href="https://github.com/lawrencerowland/Project-web-apps/blob/8221f32b398d582801e639b5460aa674805f1671/web_apps/SMR_governance_simulator.html">Pinned original source</a>.</p></footer>
+<noscript><p>This example needs JavaScript for controls and calculations. Its scenario and model limitations remain readable above.</p></noscript>
+</body></html>
