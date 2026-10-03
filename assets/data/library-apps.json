@@ -505,5 +505,70 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/scenario-control-lattice/",
     "home": "Library · Data, evidence & assurance"
+  },
+  {
+    "#": "62",
+    "name": "dico_module_map_d3",
+    "description": "Explore modules, a fictional stadium and dated HS2 appointments as three different kinds of graph.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "ontology, construction, knowledge_graph, visualization, interactive",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/",
+    "home": "Library · Project states & relationships"
+  },
+  {
+    "#": "5",
+    "name": "hs2-decision-graph",
+    "description": "Trace quality, risk, action and value in a fictional viaduct supply-chain scenario.",
+    "origin": "Claude",
+    "model": "Sonnet3.7",
+    "tags": "knowledge_graph, ontology, risk, value, rail, decision, hs2",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-decision-graph/",
+    "home": "Library · Decisions & trade-offs"
+  },
+  {
+    "#": "51",
+    "name": "lower_thames_crossing_geo_kg",
+    "description": "Connect project concepts, organisations, approximate locations and dated procurement notices.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "knowledge_graph, mapping, visualization, procurement",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/crossing-project-map/",
+    "home": "Library · Data, evidence & assurance"
+  },
+  {
+    "#": "40",
+    "name": "project_viability_state_space_navigator_plus",
+    "description": "Edit a fictional state graph, inspect closed classes and compare seeded weighted walks.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "viability, systems, simulation, visualization",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-viability-navigator/",
+    "home": "Library · Project states & relationships"
+  },
+  {
+    "#": "2",
+    "name": "grounded-theory-approach",
+    "description": "Inspect the step from draft annotations and selected statements to themes, stance and intention.",
+    "origin": "Claude",
+    "model": "Opus4",
+    "tags": "qualitative_research, social_science, AI_adoption",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/",
+    "home": "Library · Data, evidence & assurance"
   }
 ]

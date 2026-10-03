@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "title": "Steel-mill-esque toy model",
+    "start": "S1"
+  },
+  "states": [
+    {
+      "id": "S1",
+      "label": "Baseline Ops",
+      "viability": 0.72,
+      "notes": "Normal throughput; manageable variance."
+    },
+    {
+      "id": "S2",
+      "label": "New Vendor",
+      "viability": 0.55,
+      "notes": "Interface churn; paperwork + integration debt."
+    },
+    {
+      "id": "S3",
+      "label": "Automation",
+      "viability": 0.83,
+      "notes": "Higher throughput; brittleness if skills decay."
+    },
+    {
+      "id": "S4",
+      "label": "Industrial Action",
+      "viability": 0.32,
+      "notes": "Coordination cost spikes; governance stress."
+    },
+    {
+      "id": "S5",
+      "label": "Market Shock",
+      "viability": 0.18,
+      "notes": "Demand collapse; cash constraints dominate."
+    }
+  ],
+  "transitions": [
+    {
+      "from": "S1",
+      "to": "S2",
+      "p": 0.35,
+      "dv": -0.02,
+      "label": "vendor swap"
+    },
+    {
+      "from": "S2",
+      "to": "S3",
+      "p": 0.55,
+      "dv": 0.04,
+      "label": "stabilise + automate"
+    },
+    {
+      "from": "S1",
+      "to": "S4",
+      "p": 0.15,
+      "dv": -0.08,
+      "label": "labour dispute"
+    },
+    {
+      "from": "S4",
+      "to": "S5",
+      "p": 0.6,
+      "dv": -0.1,
+      "label": "strike + shock"
+    },
+    {
+      "from": "S3",
+      "to": "S5",
+      "p": 0.1,
+      "dv": -0.12,
+      "label": "automation backlash"
+    },
+    {
+      "from": "S5",
+      "to": "S1",
+      "p": 0.25,
+      "dv": 0.06,
+      "label": "restructure"
+    },
+    {
+      "from": "S3",
+      "to": "S1",
+      "p": 0.3,
+      "dv": -0.03,
+      "label": "reversion"
+    }
+  ]
+}

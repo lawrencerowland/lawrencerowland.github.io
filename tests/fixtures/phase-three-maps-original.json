@@ -1,0 +1,1319 @@
+{
+  "decision": {
+    "nodes": [
+      {
+        "id": "constructionManager",
+        "name": "HS2 Construction Manager",
+        "type": "Agent",
+        "group": "Agent",
+        "description": "Project manager responsible for the viaduct construction",
+        "category": "RiskSubject ValueSubject"
+      },
+      {
+        "id": "qualityControlTeam",
+        "name": "Quality Control Team",
+        "type": "Agent",
+        "group": "Agent",
+        "description": "Team that evaluates material quality and adherence to standards",
+        "category": "ValueAssessor RiskAssessor"
+      },
+      {
+        "id": "concreteSuppplier",
+        "name": "Concrete Supplier",
+        "type": "Agent",
+        "group": "Agent",
+        "description": "Current supplier providing concrete with quality issues",
+        "category": "ThreatAgent"
+      },
+      {
+        "id": "alternativeSupplier",
+        "name": "Alternative Supplier",
+        "type": "Agent",
+        "group": "Agent",
+        "description": "Potential replacement supplier with higher quality standards",
+        "category": "ValueEnabler"
+      },
+      {
+        "id": "chilternViaduct",
+        "name": "Chiltern Viaduct",
+        "type": "Object",
+        "group": "Object",
+        "description": "Critical infrastructure component requiring high-quality concrete",
+        "category": "ObjectAtRisk ValueObject"
+      },
+      {
+        "id": "concreteDelivery",
+        "name": "Concrete Delivery",
+        "type": "Object",
+        "group": "Object",
+        "description": "The material deliveries for viaduct construction",
+        "category": "ThreatObject"
+      },
+      {
+        "id": "materialQualityVariance",
+        "name": "Material Quality Variance",
+        "type": "Vulnerability",
+        "group": "Aspect",
+        "description": "Inconsistent concrete mix strength representing construction vulnerability",
+        "category": "Vulnerability"
+      },
+      {
+        "id": "productionControlIssues",
+        "name": "Production Control Issues",
+        "type": "Capability",
+        "group": "Aspect",
+        "description": "Supplier's production control limitations affecting consistency",
+        "category": "ThreatCapability"
+      },
+      {
+        "id": "timelineAdherence",
+        "name": "Timeline Adherence",
+        "type": "Intention",
+        "group": "Aspect",
+        "description": "Intention to complete the viaduct construction on schedule",
+        "category": "Intention"
+      },
+      {
+        "id": "qualityStandardsCompliance",
+        "name": "Quality Standards Compliance",
+        "type": "Intention",
+        "group": "Aspect",
+        "description": "Intention to ensure all materials meet quality standards",
+        "category": "Intention"
+      },
+      {
+        "id": "structuralReliability",
+        "name": "Structural Reliability",
+        "type": "Quality",
+        "group": "Aspect",
+        "description": "Long-term structural performance of the viaduct",
+        "category": "Value"
+      },
+      {
+        "id": "structuralIntegrityRisk",
+        "name": "Structural Integrity Risk",
+        "type": "Quality",
+        "group": "Aspect",
+        "description": "Risk of compromised structural integrity due to material issues",
+        "category": "Risk"
+      },
+      {
+        "id": "qualityFailureLikelihood",
+        "name": "Quality Failure Likelihood",
+        "type": "Likelihood",
+        "group": "Aspect",
+        "description": "Probability of concrete failing to meet specifications",
+        "category": "TriggeringLikelihood"
+      },
+      {
+        "id": "concreteQualityFailure",
+        "name": "Concrete Quality Failure",
+        "type": "Event",
+        "group": "Event",
+        "description": "Event where concrete fails to meet required specifications",
+        "category": "ThreatEvent"
+      },
+      {
+        "id": "constructionDelay",
+        "name": "Construction Delay",
+        "type": "Event",
+        "group": "Event",
+        "description": "Delay in construction timeline due to material issues",
+        "category": "LossEvent"
+      },
+      {
+        "id": "supplierReplacement",
+        "name": "Supplier Replacement",
+        "type": "Event",
+        "group": "Event",
+        "description": "Decision event to replace current supplier",
+        "category": "Action"
+      },
+      {
+        "id": "projectTimelineSlippage",
+        "name": "Project Timeline Slippage",
+        "type": "Situation",
+        "group": "Situation",
+        "description": "Situation where project timeline is extended",
+        "category": "LossSituation"
+      },
+      {
+        "id": "materialQualityUncertainty",
+        "name": "Material Quality Uncertainty",
+        "type": "Situation",
+        "group": "Situation",
+        "description": "Uncertain situation regarding concrete quality",
+        "category": "HazardousSituation"
+      },
+      {
+        "id": "concreteQualityAssessment",
+        "name": "Concrete Quality Assessment",
+        "type": "Relator",
+        "group": "Relator",
+        "description": "Evaluation of concrete quality and its implications",
+        "category": "ObjectRiskAssess"
+      },
+      {
+        "id": "scheduleImpactAssessment",
+        "name": "Schedule Impact Assessment",
+        "type": "Relator",
+        "group": "Relator",
+        "description": "Assessment of how quality issues might impact schedule",
+        "category": "ExperienceRiskAssess"
+      },
+      {
+        "id": "supplierReliabilityValuation",
+        "name": "Supplier Reliability Valuation",
+        "type": "Relator",
+        "group": "Relator",
+        "description": "Evaluation of supplier reliability importance",
+        "category": "ObjectValueAsc"
+      },
+      {
+        "id": "longTermReliabilityValuation",
+        "name": "Long-term Reliability Valuation",
+        "type": "Relator",
+        "group": "Relator",
+        "description": "Valuation of long-term structural reliability over schedule",
+        "category": "ValueAscription"
+      }
+    ],
+    "links": [
+      {
+        "source": "constructionManager",
+        "target": "timelineAdherence",
+        "type": "inheresIn"
+      },
+      {
+        "source": "constructionManager",
+        "target": "qualityStandardsCompliance",
+        "type": "inheresIn"
+      },
+      {
+        "source": "materialQualityVariance",
+        "target": "chilternViaduct",
+        "type": "inheresIn"
+      },
+      {
+        "source": "materialQualityVariance",
+        "target": "concreteQualityFailure",
+        "type": "manifestedIn"
+      },
+      {
+        "source": "productionControlIssues",
+        "target": "concreteSuppplier",
+        "type": "inheresIn"
+      },
+      {
+        "source": "productionControlIssues",
+        "target": "concreteQualityFailure",
+        "type": "manifestedIn"
+      },
+      {
+        "source": "concreteQualityFailure",
+        "target": "constructionDelay",
+        "type": "historicallyDependsOn"
+      },
+      {
+        "source": "concreteQualityFailure",
+        "target": "materialQualityUncertainty",
+        "type": "contributedToTrigger"
+      },
+      {
+        "source": "constructionDelay",
+        "target": "projectTimelineSlippage",
+        "type": "broughtAbout"
+      },
+      {
+        "source": "constructionDelay",
+        "target": "timelineAdherence",
+        "type": "impacts"
+      },
+      {
+        "source": "projectTimelineSlippage",
+        "target": "timelineAdherence",
+        "type": "impacts"
+      },
+      {
+        "source": "structuralIntegrityRisk",
+        "target": "concreteQualityAssessment",
+        "type": "inheresIn"
+      },
+      {
+        "source": "structuralReliability",
+        "target": "longTermReliabilityValuation",
+        "type": "inheresIn"
+      },
+      {
+        "source": "concreteQualityAssessment",
+        "target": "qualityControlTeam",
+        "type": "mediates"
+      },
+      {
+        "source": "concreteQualityAssessment",
+        "target": "chilternViaduct",
+        "type": "mediates"
+      },
+      {
+        "source": "scheduleImpactAssessment",
+        "target": "constructionManager",
+        "type": "mediates"
+      },
+      {
+        "source": "longTermReliabilityValuation",
+        "target": "qualityControlTeam",
+        "type": "mediates"
+      },
+      {
+        "source": "supplierReliabilityValuation",
+        "target": "alternativeSupplier",
+        "type": "mediates"
+      },
+      {
+        "source": "concreteQualityAssessment",
+        "target": "structuralIntegrityRisk",
+        "type": "identifies"
+      },
+      {
+        "source": "scheduleImpactAssessment",
+        "target": "concreteQualityFailure",
+        "type": "evaluates"
+      },
+      {
+        "source": "longTermReliabilityValuation",
+        "target": "supplierReplacement",
+        "type": "influences"
+      },
+      {
+        "source": "supplierReplacement",
+        "target": "constructionDelay",
+        "type": "mitigates"
+      },
+      {
+        "source": "concreteSuppplier",
+        "target": "concreteDelivery",
+        "type": "provides"
+      },
+      {
+        "source": "alternativeSupplier",
+        "target": "structuralReliability",
+        "type": "enables"
+      },
+      {
+        "source": "qualityFailureLikelihood",
+        "target": "concreteQualityFailure",
+        "type": "quantifies"
+      }
+    ]
+  },
+  "crossing": {
+    "nodes": [
+      {
+        "id": "proj_ltc",
+        "label": "Lower Thames Crossing",
+        "type": "Project",
+        "url": "https://www.contractsfinder.service.gov.uk/Search?text=Lower%20Thames%20Crossing",
+        "meta": {
+          "note": "Project wrapper node; in a full pipeline you would key this to an internal project ID + scope."
+        }
+      },
+      {
+        "id": "site_ltc",
+        "label": "Lower Thames Crossing (Site)",
+        "type": "Site",
+        "lat": 51.4667,
+        "lon": 0.3,
+        "url": "https://www.contractsfinder.service.gov.uk/Search?text=Lower%20Thames%20Crossing",
+        "meta": {
+          "note": "Coordinate is an approximate centroid for the proposed crossing corridor."
+        }
+      },
+      {
+        "id": "loc_b4_6ga",
+        "label": "B4 6GA (Birmingham)",
+        "type": "Location",
+        "lat": 52.484141,
+        "lon": -1.898832,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_b1_1rn",
+        "label": "B1 1RN (Birmingham)",
+        "type": "Location",
+        "lat": 52.474879,
+        "lon": -1.907009,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_ls11_9at",
+        "label": "LS11 9AT (Leeds)",
+        "type": "Location",
+        "lat": 53.788422,
+        "lon": -1.547728,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_w6_7ef",
+        "label": "W6 7EF (London)",
+        "type": "Location",
+        "lat": 51.494254,
+        "lon": -0.216116,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_kt18_5bw",
+        "label": "KT18 5BW (Epsom)",
+        "type": "Location",
+        "lat": 51.324978,
+        "lon": -0.266524,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_ec3r_5bu",
+        "label": "EC3R 5BU (City of London)",
+        "type": "Location",
+        "lat": 51.510702,
+        "lon": -0.083834,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_ec2a_4ne",
+        "label": "EC2A 4NE (London)",
+        "type": "Location",
+        "lat": 51.526546,
+        "lon": -0.082236,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_cv8_1ed",
+        "label": "CV8 1ED (Kenilworth)",
+        "type": "Location",
+        "lat": 52.34399,
+        "lon": -1.580993,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_mk9_1aa",
+        "label": "MK9 1AA (Milton Keynes)",
+        "type": "Location",
+        "lat": 52.037233,
+        "lon": -0.770255,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_rg21_7aa",
+        "label": "RG21 7AA (Basingstoke)",
+        "type": "Location",
+        "lat": 51.266339,
+        "lon": -1.08472,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_rg41_5tu",
+        "label": "RG41 5TU (Winnersh/Wokingham)",
+        "type": "Location",
+        "lat": 51.439302,
+        "lon": -0.881626,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_gu1_4lz",
+        "label": "GU1 4LZ (Guildford)",
+        "type": "Location",
+        "lat": 51.236553,
+        "lon": -0.579128,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_cb2_1tn",
+        "label": "CB2 1TN (Cambridge)",
+        "type": "Location",
+        "lat": 52.205118,
+        "lon": 0.116208,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_sw1a_1aa",
+        "label": "SW1A 1AA (London centre)",
+        "type": "Location",
+        "lat": 51.50101,
+        "lon": -0.141563,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "loc_ne1_7al",
+        "label": "NE1 7AL (Newcastle upon Tyne)",
+        "type": "Location",
+        "lat": 54.974306,
+        "lon": -1.612894,
+        "meta": {
+          "kind": "postcode"
+        }
+      },
+      {
+        "id": "org_nh_ltd",
+        "label": "National Highways Limited",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "buyer"
+          ],
+          "address": "Three Snowhill, Snow Hill Queensway, Birmingham B4 6GA"
+        }
+      },
+      {
+        "id": "org_nh",
+        "label": "National Highways",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "buyer"
+          ],
+          "address": "The Cube, Birmingham B1 1RN"
+        }
+      },
+      {
+        "id": "org_highways_agency",
+        "label": "Highways Agency",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "buyer"
+          ],
+          "address": "Lateral, 8 City Walk, Leeds LS11 9AT"
+        }
+      },
+      {
+        "id": "org_highways_england",
+        "label": "Highways England",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "buyer"
+          ],
+          "address": "The Cube, Birmingham B1 1RN"
+        }
+      },
+      {
+        "id": "org_dft",
+        "label": "Department for Transport",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "buyer"
+          ],
+          "address": "(notice lists Highways England Company Ltd address in Guildford GU1 4LZ)"
+        }
+      },
+      {
+        "id": "org_he_company",
+        "label": "Highways England Company Ltd",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "buyer"
+          ],
+          "address": "Bridge House, 1 Walnut Tree Close, Guildford GU1 4LZ"
+        }
+      },
+      {
+        "id": "org_atkinsrealis_pps",
+        "label": "AtkinsRealis PPS Limited",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "43 Epsom Gateway, Epsom KT18 5BW"
+        }
+      },
+      {
+        "id": "org_marsh",
+        "label": "Marsh Limited",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "1 Tower Place East, London EC3R 5BU"
+        }
+      },
+      {
+        "id": "org_ve3",
+        "label": "VE3 Global Ltd",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "86–90 Paul Street, London EC2A 4NE"
+        }
+      },
+      {
+        "id": "org_dentons",
+        "label": "Dentons UK & Middle East LLP",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "London (postcode not given in notice)"
+        }
+      },
+      {
+        "id": "org_deloitte",
+        "label": "Deloitte LLP",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "Milton Keynes (postcode not given in notice)"
+        }
+      },
+      {
+        "id": "org_orange",
+        "label": "The Orange Partnership Limited",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "Kenilworth (postcode not given in notice)"
+        }
+      },
+      {
+        "id": "org_futran",
+        "label": "FUTRAN",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "Wokingham (postcode not given in notice)"
+        }
+      },
+      {
+        "id": "org_wsp",
+        "label": "WSP UK Ltd",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "Basingstoke (postcode not given in notice)"
+        }
+      },
+      {
+        "id": "org_cmp_jv",
+        "label": "CMP JV (CH2m Hill, Mace Limited and PWC)",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "Elms House, 43 Brook Green, London W6 7EF"
+        }
+      },
+      {
+        "id": "org_jacobs",
+        "label": "Jacobs UK Ltd",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "1180 Eskdale Road, Winnersh, Wokingham RG41 5TU"
+        }
+      },
+      {
+        "id": "org_arup",
+        "label": "Ove Arup & Partners Limited",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "supplier"
+          ],
+          "address": "Newcastle upon Tyne (postcode not given in notice)"
+        }
+      },
+      {
+        "id": "org_turner_townsend",
+        "label": "Turner & Townsend",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "stakeholder"
+          ],
+          "note": "Named in audit scope as commercial partner contract holder."
+        }
+      },
+      {
+        "id": "org_cascade_jv",
+        "label": "Cascade JV (Arcadis / Jacobs / COWI)",
+        "type": "Organisation",
+        "meta": {
+          "role": [
+            "stakeholder"
+          ],
+          "note": "Named in audit scope as technical partner contract holder."
+        }
+      },
+      {
+        "id": "fw_rm6323",
+        "label": "CCS RM6323 (Insurance & Related Services)",
+        "type": "Framework",
+        "meta": {
+          "note": "Referenced as the framework route for the insurance advisor notice."
+        }
+      },
+      {
+        "id": "fw_faf",
+        "label": "National Highways Forensic Audit Framework",
+        "type": "Framework",
+        "meta": {
+          "note": "Referenced across several audit call-offs."
+        }
+      },
+      {
+        "id": "fw_spats2",
+        "label": "SPaTS 2 (framework)",
+        "type": "Framework",
+        "meta": {
+          "note": "Appears in email/attachments labels on several notices; included here as a lightweight node."
+        }
+      },
+      {
+        "id": "c_gantries_2026",
+        "label": "Architectural Gantries — Detailed Design (Phase 2)",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/b5c40d07-3e8d-49eb-a731-d748d6f25255",
+        "meta": {
+          "noticeId": "b5c40d07-3e8d-49eb-a731-d748d6f25255",
+          "awardDate": "2026-01-14",
+          "start": "2025-12-20",
+          "end": "2028-05-31",
+          "valueGBP": 2968831,
+          "location": "London",
+          "cpv": "71240000",
+          "buyer": "National Highways Limited"
+        }
+      },
+      {
+        "id": "c_insurance_2026",
+        "label": "LTC — Insurance Advisor",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/a1cf1439-908c-45e5-8c06-08f5712e5e6e",
+        "meta": {
+          "noticeId": "a1cf1439-908c-45e5-8c06-08f5712e5e6e",
+          "awardDate": "2025-12-11",
+          "start": "2025-12-12",
+          "end": "2030-12-11",
+          "valueGBP": 500000,
+          "location": "B4 6GA",
+          "cpv": "66510000",
+          "buyer": "National Highways Limited",
+          "framework": "RM6323 (Lot 1)"
+        }
+      },
+      {
+        "id": "c_finance_erp_2026",
+        "label": "LTC — Finance ERP (selection/implementation/support)",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/975ba958-45ec-4907-a3b2-d731ec8dc7cb",
+        "meta": {
+          "noticeId": "975ba958-45ec-4907-a3b2-d731ec8dc7cb",
+          "awardDate": "2026-01-07",
+          "start": "2026-01-06",
+          "end": "2031-09-30",
+          "valueGBP": 2000000,
+          "location": "East of England, London",
+          "cpv": "72212000",
+          "buyer": "National Highways Limited"
+        }
+      },
+      {
+        "id": "c_dco_2024",
+        "label": "DCO — legal advisory & representation (LTC 2024–2026)",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/36569c5d-a7e9-45fd-b6e3-9c3e14aac44b",
+        "meta": {
+          "noticeId": "36569c5d-a7e9-45fd-b6e3-9c3e14aac44b",
+          "awardDate": "2024-05-17",
+          "start": "2024-06-04",
+          "end": "2026-06-03",
+          "valueGBP": 426000,
+          "location": "Any region",
+          "cpv": "79110000",
+          "buyer": "National Highways"
+        }
+      },
+      {
+        "id": "c_f0030_2024",
+        "label": "F0030 — Commercial Partner Contract Audit",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/12929928-f207-4b04-8650-466fbeeee25b",
+        "meta": {
+          "noticeId": "12929928-f207-4b04-8650-466fbeeee25b",
+          "awardDate": "2024-12-03",
+          "start": "2024-12-03",
+          "end": "2025-02-04",
+          "valueGBP": 43875,
+          "location": "Any region",
+          "cpv": "79212000",
+          "buyer": "National Highways",
+          "auditTarget": "Commercial Partner Contract (Turner & Townsend)"
+        }
+      },
+      {
+        "id": "c_f0031_2024",
+        "label": "F0031 — Technical Partner Contract Audit",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/e372beb0-cfef-45ed-a1c0-ce37abac65bc",
+        "meta": {
+          "noticeId": "e372beb0-cfef-45ed-a1c0-ce37abac65bc",
+          "awardDate": "2024-12-11",
+          "start": "2024-12-10",
+          "end": "2025-01-31",
+          "valueGBP": 33472.6,
+          "location": "Any region",
+          "cpv": "79212000",
+          "buyer": "National Highways",
+          "auditTarget": "Technical Partner Contract (Cascade JV)"
+        }
+      },
+      {
+        "id": "c_f0022_2024",
+        "label": "F0022 — Audit services for DA2 contract",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/ac00d743-798c-4d77-8e88-008ad8e60e38",
+        "meta": {
+          "noticeId": "ac00d743-798c-4d77-8e88-008ad8e60e38",
+          "awardDate": "2024-04-15",
+          "start": "2024-04-15",
+          "end": "2024-05-17",
+          "valueGBP": 60664.96,
+          "location": "Any region",
+          "cpv": "79212100",
+          "buyer": "National Highways",
+          "auditTarget": "Pre-enabling Works Delivery Agreement 2 (DA2)"
+        }
+      },
+      {
+        "id": "c_t0635_2025",
+        "label": "T0635 — SES Structures Lead Advisor",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/43744d20-b898-4487-9fa6-34dce974d648",
+        "meta": {
+          "noticeId": "43744d20-b898-4487-9fa6-34dce974d648",
+          "awardDate": "2025-01-21",
+          "start": "2025-01-21",
+          "end": "2025-03-31",
+          "valueGBP": 98768.74,
+          "location": "Any region",
+          "cpv": "73220000",
+          "buyer": "National Highways"
+        }
+      },
+      {
+        "id": "c_t0344_2022",
+        "label": "T0344 — Strategic Cycle Routes (feasibility)",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/67c1de3f-1b0f-47bf-bb25-b151a8148243",
+        "meta": {
+          "noticeId": "67c1de3f-1b0f-47bf-bb25-b151a8148243",
+          "awardDate": "2022-08-23",
+          "start": "2022-08-23",
+          "end": "2023-03-31",
+          "valueGBP": 189610.7,
+          "location": "South East",
+          "cpv": "73000000",
+          "buyer": "Highways England"
+        }
+      },
+      {
+        "id": "c_task17a_2016",
+        "label": "Task Order 17A — Lower Thames Crossing",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/d3d75c8d-3159-4673-886b-d81ecbf5ccda",
+        "meta": {
+          "noticeId": "d3d75c8d-3159-4673-886b-d81ecbf5ccda",
+          "awardDate": "2016-01-06",
+          "start": "2015-12-01",
+          "end": "2015-12-31",
+          "valueGBP": 130227.73,
+          "location": "Any region",
+          "cpv": "79000000",
+          "buyer": "Highways Agency"
+        }
+      },
+      {
+        "id": "c_projdir_2020",
+        "label": "Project Director (STA)",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/notice/26a72d13-b737-4fbb-a890-97f883aa9dd4",
+        "meta": {
+          "noticeId": "26a72d13-b737-4fbb-a890-97f883aa9dd4",
+          "awardDate": "2020-07-01",
+          "start": "2020-07-01",
+          "end": "2020-07-17",
+          "valueGBP": 20930,
+          "location": "London",
+          "cpv": "71311210",
+          "buyer": "Department for Transport"
+        }
+      },
+      {
+        "id": "c_hydrogen_2024",
+        "label": "P0021 — Hydrogen Expertise",
+        "type": "Contract",
+        "url": "https://www.contractsfinder.service.gov.uk/Notice/a4996afe-09ae-49d1-af0c-2d4193d2338d",
+        "meta": {
+          "noticeId": "a4996afe-09ae-49d1-af0c-2d4193d2338d",
+          "awardDate": "2024-02-12",
+          "start": "2024-02-01",
+          "end": "2024-03-29",
+          "valueGBP": 38750,
+          "location": "Any region",
+          "cpv": "71311200",
+          "buyer": "National Highways",
+          "note": "Notice lists supplier Ove Arup & Partners Limited (Newcastle upon Tyne)."
+        }
+      },
+      {
+        "id": "c_under_commercial_partner",
+        "label": "Commercial Partner Contract (under audit)",
+        "type": "Contract",
+        "meta": {
+          "note": "Referenced in F0030 audit scope (Turner & Townsend)."
+        }
+      },
+      {
+        "id": "c_under_technical_partner",
+        "label": "Technical Partner Contract (under audit)",
+        "type": "Contract",
+        "meta": {
+          "note": "Referenced in F0031 audit scope (Cascade JV)."
+        }
+      },
+      {
+        "id": "c_under_da2",
+        "label": "Pre-enabling Works DA2 (under audit)",
+        "type": "Contract",
+        "meta": {
+          "note": "Referenced in F0022 audit scope."
+        }
+      }
+    ],
+    "links": [
+      {
+        "source": "proj_ltc",
+        "target": "site_ltc",
+        "type": "SCOPED_TO"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_gantries_2026",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_insurance_2026",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_finance_erp_2026",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_dco_2024",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_f0030_2024",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_f0031_2024",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_f0022_2024",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_t0635_2025",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_t0344_2022",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_task17a_2016",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_projdir_2020",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "proj_ltc",
+        "target": "c_hydrogen_2024",
+        "type": "HAS_CONTRACT"
+      },
+      {
+        "source": "c_gantries_2026",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_insurance_2026",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_finance_erp_2026",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_dco_2024",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_f0030_2024",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_f0031_2024",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_f0022_2024",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_t0635_2025",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_t0344_2022",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_task17a_2016",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_projdir_2020",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_hydrogen_2024",
+        "target": "site_ltc",
+        "type": "DELIVERS_TO"
+      },
+      {
+        "source": "c_gantries_2026",
+        "target": "org_nh_ltd",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_insurance_2026",
+        "target": "org_nh_ltd",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_finance_erp_2026",
+        "target": "org_nh_ltd",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_dco_2024",
+        "target": "org_nh",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_f0030_2024",
+        "target": "org_nh",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_f0031_2024",
+        "target": "org_nh",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_f0022_2024",
+        "target": "org_nh",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_t0635_2025",
+        "target": "org_nh",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_t0344_2022",
+        "target": "org_highways_england",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_task17a_2016",
+        "target": "org_highways_agency",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_projdir_2020",
+        "target": "org_dft",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_hydrogen_2024",
+        "target": "org_nh",
+        "type": "BUYER"
+      },
+      {
+        "source": "c_gantries_2026",
+        "target": "org_atkinsrealis_pps",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_insurance_2026",
+        "target": "org_marsh",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_finance_erp_2026",
+        "target": "org_ve3",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_dco_2024",
+        "target": "org_dentons",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_f0030_2024",
+        "target": "org_deloitte",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_f0031_2024",
+        "target": "org_orange",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_f0022_2024",
+        "target": "org_orange",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_t0635_2025",
+        "target": "org_futran",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_t0344_2022",
+        "target": "org_wsp",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_task17a_2016",
+        "target": "org_cmp_jv",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_projdir_2020",
+        "target": "org_jacobs",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "c_hydrogen_2024",
+        "target": "org_arup",
+        "type": "SUPPLIES"
+      },
+      {
+        "source": "org_nh_ltd",
+        "target": "loc_b4_6ga",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_nh",
+        "target": "loc_b1_1rn",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_highways_agency",
+        "target": "loc_ls11_9at",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_highways_england",
+        "target": "loc_b1_1rn",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_he_company",
+        "target": "loc_gu1_4lz",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_atkinsrealis_pps",
+        "target": "loc_kt18_5bw",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_marsh",
+        "target": "loc_ec3r_5bu",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_ve3",
+        "target": "loc_ec2a_4ne",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_cmp_jv",
+        "target": "loc_w6_7ef",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_jacobs",
+        "target": "loc_rg41_5tu",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_dentons",
+        "target": "loc_sw1a_1aa",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_deloitte",
+        "target": "loc_mk9_1aa",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_orange",
+        "target": "loc_cv8_1ed",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_futran",
+        "target": "loc_rg41_5tu",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_wsp",
+        "target": "loc_rg21_7aa",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "org_arup",
+        "target": "loc_ne1_7al",
+        "type": "BASED_IN"
+      },
+      {
+        "source": "c_insurance_2026",
+        "target": "fw_rm6323",
+        "type": "CALL_OFF"
+      },
+      {
+        "source": "c_f0030_2024",
+        "target": "fw_faf",
+        "type": "CALL_OFF"
+      },
+      {
+        "source": "c_f0031_2024",
+        "target": "fw_faf",
+        "type": "CALL_OFF"
+      },
+      {
+        "source": "c_f0022_2024",
+        "target": "fw_faf",
+        "type": "CALL_OFF"
+      },
+      {
+        "source": "c_t0344_2022",
+        "target": "fw_spats2",
+        "type": "CALL_OFF"
+      },
+      {
+        "source": "c_t0635_2025",
+        "target": "fw_spats2",
+        "type": "CALL_OFF"
+      },
+      {
+        "source": "c_f0030_2024",
+        "target": "c_under_commercial_partner",
+        "type": "AUDITS"
+      },
+      {
+        "source": "c_f0031_2024",
+        "target": "c_under_technical_partner",
+        "type": "AUDITS"
+      },
+      {
+        "source": "c_f0022_2024",
+        "target": "c_under_da2",
+        "type": "AUDITS"
+      },
+      {
+        "source": "c_under_commercial_partner",
+        "target": "org_turner_townsend",
+        "type": "HELD_BY"
+      },
+      {
+        "source": "c_under_technical_partner",
+        "target": "org_cascade_jv",
+        "type": "HELD_BY"
+      }
+    ]
+  }
+}
