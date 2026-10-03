@@ -78,7 +78,7 @@ The two retained notebooks explore a much smaller idea: random choices between *
 [Original note and clarifications](/library/sources/monthly-portfolio-review/2020-12-reinforcement-learning-for-project-portfolios.html) · [Back to the Library]({{ '/library/methods/decisions-and-trade-offs.html#monthly-portfolio-decisions' | relative_url }})
 
 # Code and library base
-If you wish to go straight to the code and document libraries, start [here](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios)
+The guides and selected files above remain readable here. The [broader GitHub repository](https://github.com/lawrencerowland/Machine-learning-for-project-portfolios) contains other source material and may require access.
 
 # Use cases for machine learning in managing projects. 
 

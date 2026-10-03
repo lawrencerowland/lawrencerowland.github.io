@@ -12,6 +12,8 @@ public_reading: true
 </div>
 
 {% raw %}
+# Typical Portfolio challenges manufacturing
+
 | Themes                               | Sub-theme                      | Perceived client need                                                | Label                            | Example             |
 | ------------------------------------ | ------------------------------ | -------------------------------------------------------------------- | -------------------------------- | ------------------- |
 | Change Management                    | Co-operation on projects       | We don't apply our own portfolio processes                           | Unused processes                 | Premium Manufacture |

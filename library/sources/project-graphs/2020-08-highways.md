@@ -6,7 +6,7 @@ public_reading: true
 ---
 
 <div class="public-reading">
-<p class="reading-return"><a href="/project-model-comparison.html">← Return to the example</a> · <a href="/library/sources/project-graphs/">Supporting files</a></p>
+<p class="reading-return"><a href="/ML-for-portfolios.html#highways-delay-notebook">← Return to the example</a> · <a href="/library/sources/project-graphs/">Supporting files</a></p>
 <aside class="reading-provenance"><p><strong>Public reading copy · captured 3 October 2026.</strong> Retained 2020 graph-construction examples and a separate Highways prediction exploration. Neither has been rerun here. Original wording and saved results are retained; relative links are adapted for this site. This copy does not update itself when the source changes. Links to GitHub may require repository access.</p>
 <p><a href="/library/sources/project-graphs/files/2020%2008%20Highways.ipynb" download="2020 08 Highways.ipynb">Download original notebook</a> · <a href="https://github.com/lawrencerowland/project-scheduling-with-Neo4j/blob/a1aba1c37c53374f1255225b02e09b1fbfb61e5b/2020%2008%20Highways.ipynb">GitHub source at a1aba1c (may require access)</a></p></aside>
 </div>

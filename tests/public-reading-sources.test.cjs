@@ -73,10 +73,11 @@ if (build) test('all preserved reading routes, images, downloads and local fragm
   const documents = new Map();
   function readDoc(p) { if (!documents.has(p)) documents.set(p, document(p)); return documents.get(p); }
   let links = 0;
+  const missing = [];
   for (const route of [...readers,...indexes,...entrances]) {
     const from = builtPath(route); assert.ok(fs.existsSync(from), route);
     const doc = readDoc(from);
-    if (readers.includes(route)) assert.ok(doc.querySelector('h1'), route + ': rendered Markdown heading');
+    if (readers.includes(route) && !doc.querySelector('h1')) missing.push(route + ': rendered Markdown heading');
     for (const node of doc.querySelectorAll('main a[href], main img[src]')) {
       const raw = node.getAttribute(node.hasAttribute('href') ? 'href' : 'src');
       if (!raw || raw.startsWith('data:')) continue;
@@ -84,10 +85,11 @@ if (build) test('all preserved reading routes, images, downloads and local fragm
       const u = new URL(raw, origin + route);
       if (u.origin !== origin || raw.startsWith('http')) continue; // sibling Pages sites are checked separately
       const target = builtPath(u.pathname);
-      assert.ok(fs.existsSync(target), route + ' → ' + raw);
-      if (u.hash && target.endsWith('.html')) assert.ok(readDoc(target).getElementById(decodeURIComponent(u.hash.slice(1))), route + ': fragment ' + raw);
+      if (!fs.existsSync(target)) { missing.push(route + ' → ' + raw); continue; }
+      if (u.hash && target.endsWith('.html') && !readDoc(target).getElementById(decodeURIComponent(u.hash.slice(1)))) missing.push(route + ': fragment ' + raw);
       links++;
     }
   }
+  assert.deepEqual(missing, [], 'all public reading routes and fragments resolve');
   assert.ok(links > 400, 'substantial reader route coverage');
 });

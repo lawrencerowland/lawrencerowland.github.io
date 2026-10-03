@@ -7,7 +7,7 @@ public_reading: true
 
 <div class="public-reading">
 <p class="reading-return"><a href="/ML-for-portfolios.html#orange-project-ratings">← Return to the example</a> · <a href="/library/sources/orange-project-ratings/">Supporting files</a></p>
-<aside class="reading-provenance"><p><strong>Public reading copy · captured 3 October 2026.</strong> The 2019 exploration and its later illustrated reading guide. The workbook is absent and the displayed accuracy has not been reproduced. Original wording and saved results are retained; relative links are adapted for this site. This copy does not update itself when the source changes. Links to GitHub may require repository access.</p>
+<aside class="reading-provenance"><p><strong>Public reading copy · captured 3 October 2026.</strong> The 2019 exploration and its later illustrated reading guide. The workbook is absent and the displayed accuracy has not been reproduced. Original wording and saved results are retained; links and download guidance are adapted for this site. This copy does not update itself when the source changes. Links to GitHub may require repository access.</p>
 <p><a href="/library/sources/orange-project-ratings/files/project-success-prediction/READme.md.txt" download="READme.md">Download original file</a> · <a href="https://github.com/lawrencerowland/Machine-learning-for-project-portfolios/blob/5ad536cf615ecdf491476b40bb918201b2ea793e/project-success-prediction/READme.md">GitHub source at 5ad536c (may require access)</a></p></aside>
 </div>
 

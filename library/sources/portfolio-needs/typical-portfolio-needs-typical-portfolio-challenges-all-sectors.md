@@ -12,6 +12,8 @@ public_reading: true
 </div>
 
 {% raw %}
+# Typical Portfolio challenges all sectors
+
 
 
 - No coherent drive towards business drivers

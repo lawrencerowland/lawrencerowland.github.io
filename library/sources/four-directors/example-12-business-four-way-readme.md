@@ -7,18 +7,18 @@ public_reading: true
 
 <div class="public-reading">
 <p class="reading-return"><a href="/Portfolio-data-model.html#four-directors-one-roadmap">← Return to the example</a> · <a href="/library/sources/four-directors/">Supporting files</a></p>
-<aside class="reading-provenance"><p><strong>Public reading copy · captured 3 October 2026.</strong> An earlier shared business-plan drawing and its explanation. Original wording and saved results are retained; relative links are adapted for this site. This copy does not update itself when the source changes. Links to GitHub may require repository access.</p>
+<aside class="reading-provenance"><p><strong>Public reading copy · captured 3 October 2026.</strong> An earlier shared business-plan drawing and its explanation. Original wording and saved results are retained; relative links and the broken contents markup are adapted for this site. This copy does not update itself when the source changes. Links to GitHub may require repository access.</p>
 <p><a href="/library/sources/four-directors/files/Example%2012%20Business%20four-way/READme.md.txt" download="READme.md">Download original file</a> · <a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/01b04839ec24fbff82ffd3ec33fb0de125eacb2c/Example%2012%20Business%20four-way/READme.md">GitHub source at 01b0483 (may require access)</a></p></aside>
 </div>
 
 {% raw %}
 
 
-<img src="/images/library-originals/four-directors.png" width="100%">
+<img src="/images/library-originals/four-directors.png" width="100%" alt="Four grouped business views: Strategy, Portfolio, Product and Operations.">
 
 # Example 12: One business model as seen by 4 directors including Product
 
-**[Purpose](#Purpose)** | **[Why](#Why** |
+**[Purpose](#purpose)** | **[Why](#why)**
 
 # Purpose
 
