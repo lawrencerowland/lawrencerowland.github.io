@@ -1,0 +1,10 @@
+digraph G {
+  // Durations (mean, variance). Use attrs: mean, var
+  A [mean=2, var=0.2]; 
+  B [mean=4, var=1.4];
+  C [mean=3, var=0.3];
+  D [mean=1, var=0.1];
+  T [mean=0, var=0.0, shape=doublecircle];
+
+  A -> B; A -> C; B -> D; C -> D; D -> T;
+}

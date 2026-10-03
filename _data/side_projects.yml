@@ -324,3 +324,21 @@
   tags: ["causality", "counterfactuals", "decisions", "simulation"]
   path: "https://lawrencerowland.github.io/counterfactuals/"
   action: "Explore the first trial"
+
+- title: "Bracken Vale: useful project interventions"
+  id: bracken-vale
+  gallery_order: 19
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/bracken-vale
+  image: "https://lawrencerowland.github.io/bracken-vale/assets/bracken-vale.png"
+  image_alt: "A project team beside a model railway with a station, junction, depot and freight line"
+  scenario: "A small railway has renewals to plan, decisions waiting and several accounts of what matters."
+  group: "other"
+  entry_question: "Which small interventions help project people see and do something useful?"
+  entry_purpose: "Try eight editable models against an ordinary checklist, table or workshop diagram."
+  question: "Which small interventions help project people see and do something useful?"
+  description: "Eight independent trials explore gates, waiting, dependencies, stakeholder outcomes, delivery choices, adoption, problem–solution relationships and measures. Their shared fictional setting supports the enquiry; practical human benefit remains to be tested."
+  tags: ["project-management", "decisions", "evidence", "relationships"]
+  path: "https://lawrencerowland.github.io/bracken-vale/"
+  action: "Explore Bracken Vale"

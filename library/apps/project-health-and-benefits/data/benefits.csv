@@ -1,0 +1,7 @@
+benefit_id,name,owner,current,target,primary_variation_driver
+b1,Hazard reduction,Safety case,0.68,0.78,regulatoryPressure
+b2,Throughput reliability,Operations,0.63,0.74,interfaceDrag
+b3,Regulatory confidence,Assurance,0.59,0.76,evidenceConfidence
+b4,Public value,Community,0.55,0.70,benefitVolatility
+b5,Cost predictability,Finance,0.61,0.75,fundingTension
+b6,Schedule resilience,Controls,0.57,0.73,deliveryAcceleration

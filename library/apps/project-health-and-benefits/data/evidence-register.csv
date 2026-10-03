@@ -1,0 +1,8 @@
+risk_id,scenario,barrier,proof,status,owner
+r1,Safety case assumption drift,Independent hazard close-out board,Signed close-out register,covered,ONR
+r2,Benefits erode after permit changes,Benefits change-control threshold,Draft threshold only,evidence-only,Benefits lead
+r3,Interface lateness shifts benefit date,Interface control room,Decision log and ageing report,covered,Operator
+r4,Community objection delays gate,Benefits deed,Stakeholder commitments register,covered,Local stakeholders
+r5,Funding release outruns assurance evidence,,Portfolio finance pack,evidence-only,Funding authority
+r6,Supplier acceleration creates latent rework,Assurance hold-points,,no-proof,Delivery partners
+r7,Environmental monitoring threshold disputed,,,unassessed,EA

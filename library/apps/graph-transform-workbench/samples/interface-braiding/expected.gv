@@ -1,0 +1,15 @@
+digraph G {
+  // Subdivide cross-lane edges using one interface per edge.
+  // This preserves reachability; it does not establish reduced coordination work.
+  subgraph cluster_Eng { label="Eng"; A; B; C; }
+  subgraph cluster_Ops { label="Ops"; D; E; }
+  subgraph cluster_Fin { label="Finance"; F; }
+
+  A -> B; B -> C;
+  // Introduce braided interface nodes (type=handoff, type=cost)
+  I1 [shape=diamond, label="interface: handoff"];
+  I2 [shape=diamond, label="interface: cost"];
+
+  C -> I1; I1 -> D;
+  E -> I2; I2 -> F;
+}

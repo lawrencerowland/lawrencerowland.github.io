@@ -1,0 +1,11 @@
+digraph G {
+  // Teams (owner groups; no fibration asserted): Eng:{A,B,C}, Ops:{D,E}, Finance:{F}
+  // Cross-lane edges are declared handoffs.
+  subgraph cluster_Eng { label="Eng"; A; B; C; }
+  subgraph cluster_Ops { label="Ops"; D; E; }
+  subgraph cluster_Fin { label="Finance"; F; }
+
+  A -> B; B -> C;           // intra-lane
+  C -> D [label="handoff"]; // cross-lane
+  D -> E; E -> F [label="cost"]; // cross-lane
+}

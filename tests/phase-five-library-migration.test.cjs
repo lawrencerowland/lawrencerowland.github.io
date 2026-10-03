@@ -4,8 +4,8 @@ const root=path.resolve(__dirname,'..'),site=process.argv[2]?path.resolve(proces
 const read=p=>fs.readFileSync(path.join(root,p),'utf8'),json=p=>JSON.parse(read(p));
 const {JSDOM}=require('../tools/library-apps/node_modules/jsdom');
 const apps=json('_data/library_apps.json'),listing=json('assets/data/library-apps.json'),specialists=json('assets/data/specialist-apps.json'),p=json('tests/fixtures/app-migration/provenance.json').phase_five;
-assert.equal(apps.length,47);assert.equal(listing.length,47);assert.equal(apps.length+json('_data/library_materials.json').length,69);
-assert.equal(new Set(apps.map(a=>a.id)).size,47);assert.ok(apps.some(a=>a.id==='contract-portfolio-board'));
+assert.equal(apps.length,50);assert.equal(listing.length,50);assert.equal(apps.length+json('_data/library_materials.json').length,72);
+assert.equal(new Set(apps.map(a=>a.id)).size,50);assert.ok(apps.some(a=>a.id==='contract-portfolio-board'));
 assert.equal(p.base_revision,'8221f32b398d582801e639b5460aa674805f1671');
 const origin='https://lawrencerowland.github.io';
 function checkPage(id,url,returnPath){
@@ -71,4 +71,4 @@ const before=read('tests/fixtures/app-migration/Project-web-apps-phase-five-befo
 assert.equal(before.split(/\r?\n/).slice(1).filter(Boolean).length,17);assert.equal(after.split(/\r?\n/).slice(1).filter(Boolean).length,13);
 assert.equal(before.split(/(?<=\n)/).filter(l=>!p.removed_names.includes(l.split(',')[1])).join(''),after,'exactly four selected CSV rows retired');
 assert.deepEqual(new Set(p.removed_names),new Set([...causalNames,...Object.values(expected).flatMap(x=>x.names)]));
-console.log('PASS: one pictured causal enquiry with two modes, two pictured Library homes, four exact source identities, preserved DOT, 47 apps / 69 peer cards, 17 → 13 catalogue rows.');
+console.log('PASS: one pictured causal enquiry with two modes, two pictured Library homes, four exact source identities, preserved DOT, 50 apps / 72 peer cards, 17 → 13 catalogue rows.');
