@@ -112,11 +112,11 @@ test('the entrance redesign preserves all Library and Working views catalogue co
   // Canonical JSON hashes of origin/master before the entrance redesign: this
   // guards titles, destinations, limitations, source provenance and ordering,
   // not merely counts. The 3 October image relocation updates only the five
-  // image URL fields; all captions, model limits, source hashes and ordering survive.
+  // image URL fields, then eight obsolete source-code folder URLs; all captions, model limits, source hashes and ordering survive.
   // Intentional catalogue edits must update these snapshots.
   const snapshots = {
     library_themes: 'b30d2b8aca4ebc03a0bcb0200c7dbf314bdf57cfa2f4ac961c0a0036802c96b6',
-    library_apps: '0555f0a4896547aab1ac4a395e72a2bb2709b64253f31635db2b58b8db7ad3f6',
+    library_apps: 'cad2994d291bf9cca37e85aa6e8266083ddd387442ecccc5a91156df653aae2c',
     library_materials: '25069450e689810a694fad1c48369743d1823e3cdf1f69f19b64cef3623cf360',
     visualisations: '6289a8756bc42568e5da2135b21da627ec208dc52f7c33c91dc65697a7fb6d42'
   };

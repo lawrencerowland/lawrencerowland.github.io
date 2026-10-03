@@ -1,0 +1,37 @@
+digraph G {
+    bgcolor=transparent
+  subgraph cluster_0 {
+     Re_engineer; Accountability_overlay; Up_and_running;
+    label = "*Aspiration*";
+  }
+  subgraph cluster_1 {
+    Complicated;Partial_framework; Tidy_silos:New_or_ad_hoc;
+    label = "*Data_&_Accountability_landscape*";
+  }
+  
+    subgraph cluster_3 {
+    Corporate ;SME; small
+    label = "*Size*";
+  }
+  subgraph cluster_4 {
+    node [style=filled];
+    Drive_change ;Balanced; Iterate
+    label = "*Approach*";
+  }
+  subgraph cluster_9 {
+    node [style=filled];
+    Data_tool->Database->Final_Database->Visuals_and_Analytics;
+    label = "*Tool_choice*";
+  }
+  subgraph cluster_10 {
+    node [style=filled];
+    Informatica->SQL->SQL_->Tableau;
+    label = "*Tool_selected*";
+  }
+  Select_with_client ->Re_engineer;
+  Re_engineer->Complicated;
+  Complicated-> Corporate;
+  Corporate->Drive_change;
+  Drive_change->Data_tool;
+  Drive_change ->Informatica;
+}

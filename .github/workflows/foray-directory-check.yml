@@ -72,6 +72,9 @@ on:
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
+      - 'library/sources/**'
+      - '_data/public_reading_sources.json'
+      - 'tests/public-reading-sources.test.cjs'
       - 'images/notebook-examples/**'
       - 'Portfolio-data-model.md'
       - 'ML-for-portfolios.md'
@@ -175,6 +178,9 @@ on:
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
+      - 'library/sources/**'
+      - '_data/public_reading_sources.json'
+      - 'tests/public-reading-sources.test.cjs'
       - 'images/notebook-examples/**'
       - 'Portfolio-data-model.md'
       - 'ML-for-portfolios.md'
@@ -334,6 +340,8 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Check public reading copies and preserved downloads
+        run: node tests/public-reading-sources.test.cjs _site
       - name: Check the rendered Library and writing routes
         run: |
           node tests/library-housekeeping.test.cjs _site

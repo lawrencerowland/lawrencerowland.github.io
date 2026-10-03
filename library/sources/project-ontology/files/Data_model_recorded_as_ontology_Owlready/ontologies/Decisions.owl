@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Decision "http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#"
+     xml:base="http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Decision="http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://pszwed.kis.agh.edu.pl/ontologies//Decision.owl">
+        <rdfs:comment>Decision ontology - draft. P.Szwed 2010</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#cancels -->
+
+    <owl:ObjectProperty rdf:about="&Decision;cancels">
+        <rdfs:comment>Decyzja może unieważniac inne, wczesniejsze decyzje.
+W praktycznej sytuacji - unieważnia to przez co decyzja jest widoczna, czyli DecisionArtifact</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#communicatesDecision -->
+
+    <owl:ObjectProperty rdf:about="&Decision;communicatesDecision"/>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#concerns -->
+
+    <owl:ObjectProperty rdf:about="&Decision;concerns">
+        <rdfs:comment>Obiekt, którego decyzja dotyczy</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;DecisionObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#consistOf -->
+
+    <owl:ObjectProperty rdf:about="&Decision;consistOf">
+        <rdfs:comment>Decyzja może składać się z decyzji niższego poziomu</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#hasArtifact -->
+
+    <owl:ObjectProperty rdf:about="&Decision;hasArtifact">
+        <rdfs:comment>Artefakt, który służy do opublikowania decyzji</rdfs:comment>
+        <owl:inverseOf rdf:resource="&Decision;communicatesDecision"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#hasConstraint -->
+
+    <owl:ObjectProperty rdf:about="&Decision;hasConstraint">
+        <rdfs:comment>Ograniczenia, którym podlega decyzja</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#hasContext -->
+
+    <owl:ObjectProperty rdf:about="&Decision;hasContext">
+        <rdfs:comment>Dlaczego jest podjemowana decyzja?</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#hasParty -->
+
+    <owl:ObjectProperty rdf:about="&Decision;hasParty">
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;Party"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#hasStatement -->
+
+    <owl:ObjectProperty rdf:about="&Decision;hasStatement">
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;DecisionStatement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#isEffective -->
+
+    <owl:ObjectProperty rdf:about="&Decision;isEffective">
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;DecisionEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#isMadeAt -->
+
+    <owl:ObjectProperty rdf:about="&Decision;isMadeAt">
+        <rdfs:comment>Określa, kiedy deczyja jets podejmowana</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;DecisionEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#isMadeBy -->
+
+    <owl:ObjectProperty rdf:about="&Decision;isMadeBy">
+        <rdfs:comment>określa decydenta</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;DecisionMaker"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#isSupportedBy -->
+
+    <owl:ObjectProperty rdf:about="&Decision;isSupportedBy">
+        <rdfs:comment>Udziałowiec procesu deczyjnego, ale nie decydent</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#recipient -->
+
+    <owl:ObjectProperty rdf:about="&Decision;recipient">
+        <rdfs:comment>Odbiorca decyzji (rola)</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;Party"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#resultsFrom -->
+
+    <owl:ObjectProperty rdf:about="&Decision;resultsFrom">
+        <rdfs:comment>powiązanie z procesem decyzyjnym</rdfs:comment>
+        <rdfs:domain rdf:resource="&Decision;Decision"/>
+        <rdfs:range rdf:resource="&Decision;DecisionProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#ComplexDecision -->
+
+    <owl:Class rdf:about="&Decision;ComplexDecision">
+        <rdfs:subClassOf rdf:resource="&Decision;Decision"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;consistOf"/>
+                <owl:onClass rdf:resource="&Decision;SubsidiaryDecision"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Consultant -->
+
+    <owl:Class rdf:about="&Decision;Consultant">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProcessParticipant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Decision -->
+
+    <owl:Class rdf:about="&Decision;Decision">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;hasContext"/>
+                <owl:someValuesFrom rdf:resource="&Decision;DecisionContext"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;isMadeBy"/>
+                <owl:someValuesFrom rdf:resource="&Decision;DecisionMaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;hasConstraint"/>
+                <owl:someValuesFrom rdf:resource="&Decision;DecisionConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;resultsFrom"/>
+                <owl:someValuesFrom rdf:resource="&Decision;DecisionProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="&Decision;DecisionArtifact"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;concerns"/>
+                <owl:someValuesFrom rdf:resource="&Decision;DecisionObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;isMadeAt"/>
+                <owl:onClass rdf:resource="&Decision;DecisionEvent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;hasParty"/>
+                <owl:onClass rdf:resource="&Decision;Party"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;isSupportedBy"/>
+                <owl:onClass rdf:resource="&Decision;DecisionProcessParticipant"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;isEffective"/>
+                <owl:onClass rdf:resource="&Decision;DecisionEvent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Axiom>
+        <rdfs:comment>relates to a decision or to a decision process?</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&Decision;Decision"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;isSupportedBy"/>
+                <owl:onClass rdf:resource="&Decision;DecisionProcessParticipant"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+    </owl:Axiom>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionArtifact -->
+
+    <owl:Class rdf:about="&Decision;DecisionArtifact">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;cancels"/>
+                <owl:onClass rdf:resource="&Decision;DecisionArtifact"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;recipient"/>
+                <owl:someValuesFrom rdf:resource="&Decision;Party"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>document reflecting or publishing the decision</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionConstraint -->
+
+    <owl:Class rdf:about="&Decision;DecisionConstraint">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProperty"/>
+        <rdfs:comment>constraints under which the decision is made,e.g. the decident choses between A and B or all decisions must satisfy a predicate</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionContext -->
+
+    <owl:Class rdf:about="&Decision;DecisionContext">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProperty"/>
+        <rdfs:comment>conditions under which the decision is made, eg. the waepon may be used under the threat to life conditions</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionEvent -->
+
+    <owl:Class rdf:about="&Decision;DecisionEvent">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProperty"/>
+        <rdfs:comment>when the decision is made or when is effective</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionMaker -->
+
+    <owl:Class rdf:about="&Decision;DecisionMaker">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProcessParticipant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionObject -->
+
+    <owl:Class rdf:about="&Decision;DecisionObject">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProperty"/>
+        <rdfs:comment>the object influenced by the decision</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionProcess -->
+
+    <owl:Class rdf:about="&Decision;DecisionProcess"/>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionProcessParticipant -->
+
+    <owl:Class rdf:about="&Decision;DecisionProcessParticipant"/>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionProperty -->
+
+    <owl:Class rdf:about="&Decision;DecisionProperty"/>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#DecisionStatement -->
+
+    <owl:Class rdf:about="&Decision;DecisionStatement">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProperty"/>
+        <rdfs:comment>statement: yes or no, accept, reject, neutral, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Expert -->
+
+    <owl:Class rdf:about="&Decision;Expert">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProcessParticipant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Party -->
+
+    <owl:Class rdf:about="&Decision;Party">
+        <rdfs:subClassOf rdf:resource="&Decision;DecisionProcessParticipant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#StatementDecision -->
+
+    <owl:Class rdf:about="&Decision;StatementDecision">
+        <rdfs:subClassOf rdf:resource="&Decision;Decision"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Decision;hasStatement"/>
+                <owl:onClass rdf:resource="&Decision;DecisionStatement"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#SubsidiaryDecision -->
+
+    <owl:Class rdf:about="&Decision;SubsidiaryDecision">
+        <rdfs:subClassOf rdf:resource="&Decision;Decision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Accept -->
+
+    <owl:Thing rdf:about="&Decision;Accept">
+        <rdf:type rdf:resource="&Decision;DecisionStatement"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Deffer -->
+
+    <owl:Thing rdf:about="&Decision;Deffer">
+        <rdf:type rdf:resource="&Decision;DecisionStatement"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Neutral -->
+
+    <owl:Thing rdf:about="&Decision;Neutral">
+        <rdf:type rdf:resource="&Decision;DecisionStatement"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://pszwed.ia.agh.edu.pl/ontologies/2010/Decision.owl#Reject -->
+
+    <owl:Thing rdf:about="&Decision;Reject">
+        <rdf:type rdf:resource="&Decision;DecisionStatement"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

@@ -78,7 +78,10 @@ test('every project retains its current identity, question, scenario, approach, 
     assert.ok(directory.includes('](' + new URL(p.path, origin).href + ')'));
   });
   assert.match(data.projects.find(p => p.id === 'functors-for-projects').limit, /exploratory collection, not one bounded foray/);
-  for (const repo of ['knowing-enough', 'bracken-vale']) assert.ok(directory.includes('https://github.com/lawrencerowland/' + repo + '/blob/main/FORAY.md'));
+  assert.ok(directory.includes('https://lawrencerowland.github.io/knowing-enough/FORAY.md'));
+  assert.ok(directory.includes('https://lawrencerowland.github.io/library/sources/bracken-vale/foray.html'));
+  assert.ok(directory.includes('3 October 2026 copy'), 'dated scope snapshots are explicit');
+  assert.ok(directory.includes('may require access'), 'source repositories are distinguished from public reading routes');
   for (const text of [body, directory, guide.body.textContent]) {
     assert.ok(text.includes(data.copy.scope));
     assert.ok(text.includes(data.copy.evidence));

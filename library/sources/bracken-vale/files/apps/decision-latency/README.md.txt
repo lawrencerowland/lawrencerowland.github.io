@@ -1,0 +1,11 @@
+# Decision latency — experiment 8.2
+
+Forty invented decisions span four project contexts. Each record has request, readiness, target and resolution dates; owner; waiting reason; dependency references; and explicit purposeful-information intervals. Dates, owners and reasons can remain unknown. Add decisions, edit records, add/replace/remove purposeful waits and maintain an acyclic dependency list. Project/status filters and a selectable record keep the queue usable.
+
+The reporting date yields open observations, resolved records or not-yet-requested records. Age ends at the earlier of resolution and reporting date. Half-open UTC date intervals include their start and exclude their end. Choose calendar days or Monday–Friday counts with **no holiday calendar**. Preparation runs to a known readiness date. If readiness is unknown, all elapsed observation days stay explicitly unclassified; they are not assumed to be preparation or ready waiting. Purposeful waits must lie in the ready period, cannot overlap, and must end by resolution. Remaining ready-period time is reported as other ready waiting. The component graphic is explicitly a composition bar, not chronological interval placement. Rows and a table provide text alternatives.
+
+Reference case: request 1 September 2026, ready 4 September, purposeful wait 5–8 September, report 13 September: 12 calendar days = 3 preparation + 3 purposeful + 6 other ready waiting. Weekday result: 9 = 3 + 1 + 5. An unresolved decision never becomes a zero-duration completed event. Future resolution remains open at an earlier reporting date.
+
+Dependency cycles are rejected and unresolved predecessors are exposed, but dependency references do not prohibit recording a resolution. There are no notifications, real owners, individual rankings, decision-quality scores or multi-user services. Dates and review examples are fictional. State is independent of the other tools; shared-shell controls provide save/load/reset/import/export.
+
+Compared with a plain decision log, this makes the day convention and purposeful waits explicit. Tests: `node --test apps/decision-latency/app.test.mjs` cover hand-calculated reference dates, open/closed/future observations, weekday boundaries, component conservation, malformed imports, overlaps, cycles, atomic failure and escaping.

@@ -57,7 +57,7 @@ tags: [ProjectFrameworks, PortfolioManagement, NaturalLanguageProcessing]
     </figure>
 
     <span id="markdown-toc-code-and-library-base"></span><h2 id="code-and-library-base">Code and library base</h2>
-    <p>The <a href="https://github.com/lawrencerowland/Data-Model-for-Project-Frameworks">public repository outline</a> records the earlier work areas: modular practices, taxonomy/Neo4j exploration, Orange and Python text analysis, and expert discussion. Its README explains the intentional removal of the working files. Use it as a record of the structure, not as a download for a runnable toolkit.</p>
+    <p>The <a href="/library/sources/framework-outline/readme.html">preserved repository outline</a> records the earlier work areas: modular practices, taxonomy/Neo4j exploration, Orange and Python text analysis, and expert discussion. Its README explains the intentional removal of the working files. Use it as a record of the structure, not as a download for a runnable toolkit.</p>
 
     <span id="markdown-toc-use-case-1-adopt-a-framework"></span><h2 id="use-case-1-adopt-a-framework">Use case 1: Adopt a framework</h2>
     <p>The earlier framework was assembled from experience across portfolios. Its modular idea was to select the practices needed, rather than deploy every module. The retained overview separates governance, reporting and control measures, and delivery support.</p>

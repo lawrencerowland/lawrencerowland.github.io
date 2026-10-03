@@ -1,0 +1,40 @@
+digraph G {
+    
+    bgcolor = transparent;
+    
+  subgraph cluster_0 {
+     Re_engineer; Accountability_overlay; Up_and_running;
+    label = "*Aspiration*";
+  }
+  subgraph cluster_1 {
+    Complicated;Partial_framework; Tidy_silos:New_or_ad_hoc;
+    label = "*Data_&_Accountability_landscape*";
+  }
+  
+    subgraph cluster_3 {
+    Corporate ;SME; small
+    label = "*Size*";
+  }
+  subgraph cluster_4 {
+    node [style=filled];
+    Drive_change ;Balanced; Iterate
+    label = "*Approach*";
+  }
+  subgraph cluster_9 {
+    node [style=filled];
+    Data_tool->Database->Final_Database->Visuals_and_Analytics;
+    label = "*Tool_choice*";
+  }
+  subgraph cluster_10 {
+    node [style=filled];
+    Quantum_harvester->SQL->SQL_->Chase_MIS_Platform;
+    Quantum_harvester->Graph_database->SQL_
+    label = "*Tool_selected*";
+  }
+  Select_with_client ->Accountability_overlay;
+  Accountability_overlay->Partial_framework;
+  Partial_framework-> SME;
+  SME->Iterate;
+  Iterate->Data_tool;
+  Iterate ->Quantum_harvester;
+}

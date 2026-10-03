@@ -1,0 +1,1460 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.tuwien.ac.at/itpm.owl#"
+     xml:base="http://www.tuwien.ac.at/itpm.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.tuwien.ac.at/itpm.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#approvedInto -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#approvedInto">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Issue"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#WorkPackage"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#assigned -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#assigned">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#assigned"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#childPhase -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#childPhase"/>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#childPhaseParent -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#childPhaseParent">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Originally, association was named &quot;childPhase&quot;.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#childPhase"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#define -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#define">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#define"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#epicOrStory -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#epicOrStory">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#epicOrStory"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Issue"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#feature -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#feature">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#feature"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Issue"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#hasProjectProjectPhaseComposition -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#hasProjectProjectPhaseComposition">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Has been defined as a composition relation.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#involve -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#involve">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#involve"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectTemplate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Collaborator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#issueCategorize -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#issueCategorize">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#issueCategorize"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#WorkPackageCategory"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#previousPhaseParent -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#previousPhaseParent">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Originally, association was named &quot;previousPhase&quot;.</rdfs:comment>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#produceArtifact -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#produceArtifact">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#produceArtifact"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Artifact"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#reqCategorize -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#reqCategorize">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#reqCategorize"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#RequirementCategory"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#responsibility -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#responsibility">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#responsibility"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Collaborator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#scrumTranslation -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#scrumTranslation">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Has been defined as a composition relation.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#scrumTranslation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#stakeholderCategorize -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#stakeholderCategorize">
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#stakeholderCategorize"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderCategory"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#techTranslation -->
+
+    <owl:ObjectProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#techTranslation">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Has been defined as a composition relation.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#techTranslation"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#UseCase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemDescription">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemIsActive -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemIsActive">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemIsCompleted -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemIsCompleted">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemPriority -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemPriority">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryDescription">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ArtifactDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ArtifactDescription">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Artifact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ArtifactId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ArtifactId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Artifact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#CollaboratorId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#CollaboratorId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Collaborator"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProductBacklogItemStoryPoint -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItemStoryPoint">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectEndDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectEndDate">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Project"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectPhaseEndDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseEndDate">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectPhaseId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectPhaseName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectPhaseStartDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseStartDate">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectStartDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectStartDate">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Project"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectTemplateDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectTemplateDescription">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectTemplateId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectTemplateId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectTemplateName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectTemplateName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeDescription">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeType">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#SprintBacklogDueDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#SprintBacklogDueDate">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#SprintBacklogId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#SprintBacklogId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#SprintBacklogName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#SprintBacklogName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#SprintBacklogStartDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#SprintBacklogStartDate">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#StakeholderExpectations -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderExpectations">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#StakeholderId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#StakeholderImpact -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderImpact">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#StakeholderInfluence -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderInfluence">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#StakeholderName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#UseCaseDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#UseCaseDescription">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#UseCaseDiagram -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#UseCaseDiagram">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#UseCaseId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#UseCaseId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#UseCaseName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#UseCaseName">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#WorkPackageDueDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#WorkPackageDueDate">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#WorkPackage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#WorkPackageEffort -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tuwien.ac.at/itpm.owl#WorkPackageEffort">
+        <rdfs:domain rdf:resource="http://www.tuwien.ac.at/itpm.owl#WorkPackage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemPriority"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemIsCompleted"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemIsActive"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:160</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:1240</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Consider actions/activities
+/history?</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class has been marked as abstract in UML.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItemId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Abstract_Category -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_Category">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:740</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:540</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class has been marked as abstract in UML.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#Abstract_CategoryId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Artifact -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Artifact">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ArtifactId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ArtifactDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:700</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:1380</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ArtifactId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Collaborator -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Collaborator">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#involve"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#CollaboratorId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:160</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:240</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Can be internal or external, natural or a business unit, e.g. sales unit. Natural persons are preferable.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#CollaboratorId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Issue -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Issue">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#epicOrStory"/>
+                                <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#epicOrStory"/>
+                                <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#epicOrStory"/>
+                        <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#approvedInto"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#WorkPackage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:200</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:680</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">watchPeople+votePeople can be reflected within the priority. The affected versions, components and the fixed versions may be put on several levels (the problem is that
+openengsb development basically is a CI-process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Product -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Product">
+        <rdfs:subClassOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#Artifact"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:900</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:1440</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItemStoryPoint"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:280</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:420</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItemStoryPoint"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Project -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Project">
+        <rdfs:subClassOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectStartDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#hasProjectProjectPhaseComposition"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectEndDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:460</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:20</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectPhase -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhase">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#previousPhaseParent"/>
+                                <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#previousPhaseParent"/>
+                                <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#previousPhaseParent"/>
+                        <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#childPhaseParent"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseStartDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseEndDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:700</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:100</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectPhaseId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ProjectTemplate -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectTemplate">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplateName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplateId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProjectTemplateDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:160</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:20</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ProjectTemplateId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Report -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Report">
+        <rdfs:subClassOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#Artifact"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:900</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:1320</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Requirement -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Requirement">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#techTranslation"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#produceArtifact"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#Artifact"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#scrumTranslation"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#ProductBacklogItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#define"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#reqCategorize"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#RequirementCategory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#feature"/>
+                                <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#Issue"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#feature"/>
+                                <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#Issue"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#feature"/>
+                        <owl:onClass rdf:resource="http://www.tuwien.ac.at/itpm.owl#Issue"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:540</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:540</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#RequirementCategory -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#RequirementCategory">
+        <rdfs:subClassOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_Category"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:440</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:1020</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#ResponsibilityType -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#assigned"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#responsibility"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#Collaborator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:20</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:940</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resolved association class.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#ResponsibilityTypeId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#SprintBacklog -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#SprintBacklog">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklogDueDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklogStartDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklogName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#SprintBacklogId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:880</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:540</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The roles for
+managing SCRUM
+have been neglected.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#SprintBacklogId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#Stakeholder -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#Stakeholder">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#StakeholderInfluence"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#stakeholderCategorize"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#StakeholderCategory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#StakeholderName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#StakeholderImpact"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#StakeholderExpectations"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#StakeholderId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:780</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:940</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Endusers, inernal or external managers, companies, ...</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stakholders are created per project. Although some data may be reused in new projects thias has to be done by copying and reassessing. Reason: Evaluation of influence, etc per project. Changes may affect hidden projects.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#StakeholderCategory -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#StakeholderCategory">
+        <rdfs:subClassOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_Category"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:860</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:660</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#UseCase -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#UseCase">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCaseDiagram"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCaseName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCaseDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#UseCaseId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:320</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:760</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tuwien.ac.at/itpm.owl#UseCaseId"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#WorkPackage -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#WorkPackage">
+        <rdfs:subClassOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#WorkPackageDueDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#WorkPackageEffort"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:480</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:1360</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tuwien.ac.at/itpm.owl#WorkPackageCategory -->
+
+    <owl:Class rdf:about="http://www.tuwien.ac.at/itpm.owl#WorkPackageCategory">
+        <rdfs:subClassOf rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_Category"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tuwien.ac.at/itpm.owl#issueCategorize"/>
+                <owl:someValuesFrom rdf:resource="http://www.tuwien.ac.at/itpm.owl#Abstract_BacklogItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@left:680</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">@internal:@top:1140</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.3-SNAPSHOT) http://owlapi.sourceforge.net -->
+

@@ -23,7 +23,7 @@ Start with one of these earlier examples. The explanations and pictures can be r
     <a href="{{ '/images/library-originals/four-directors.png' | relative_url }}"><img src="{{ '/images/library-originals/four-directors.png' | relative_url }}" width="667" height="671" loading="lazy" alt="Four grouped views, Strategy, P3M, Product and Operations, connect through business outcomes, outputs, services or products, and features."></a>
     <figcaption>The original four-view diagram. Select it to inspect the labels at full size.</figcaption>
   </figure>
-  <p><a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Example%2012%20Business%20four-way/READme.md">Read the explanation</a> · <a href="{{ '/images/library-originals/four-directors.png' | relative_url }}">Inspect the diagram (PNG)</a> · <a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Example%2012%20Business%20four-way/4-facet-business-model.graphml">Editable model (GraphML; needs graph software)</a></p>
+  <p><a href="/library/sources/four-directors/example-12-business-four-way-readme.html">Read the explanation</a> · <a href="{{ '/images/library-originals/four-directors.png' | relative_url }}">Inspect the diagram (PNG)</a> · <a href="/library/sources/four-directors/files/Example%2012%20Business%20four-way/4-facet-business-model.graphml">Editable model (GraphML; needs graph software)</a></p>
 
   <h2 id="one-job-seven-models">One job, seven graph models</h2>
   <p>A small waste-removal project makes the differences between tasks, states, resources and a Petri-net fragment visible. Compare what each earlier representation retains or loses, with original pictures and direct links to the seven source variants.</p>
@@ -43,20 +43,20 @@ Start with one of these earlier examples. The explanations and pictures can be r
 
   <h2 id="other-model-reading-routes">Three more reading routes</h2>
   <dl>
-    <dt><strong>One programme, two levels of detail</strong></dt>
+    <dt><strong>One programme, alternative schemas</strong></dt>
     <dd>
-      <p>Compare a general schema with a more organisation-specific version of a digital-transformation programme. The toy example draws on public university material and includes guessed details.</p>
-      <p><a href="https://github.com/lawrencerowland/Data-models-for-programmes/blob/master/READmeForprogrammegraphs.md">Read the explanation</a> · <a href="{{ '/images/Portfolio-data-model/Digital_Programme_simplified_graph_schema.jpg' | relative_url }}">Inspect the overview diagram</a> · Editable models: <a href="https://github.com/lawrencerowland/Data-models-for-programmes/blob/master/graph_models/Digital%20Transformation%20Programme%20schema%20only-Option-1.graphml">general schema</a> / <a href="https://github.com/lawrencerowland/Data-models-for-programmes/blob/master/graph_models/Digital-Transformation-Programme-schema-only-Option-2.graphml">organisation-specific schema</a> (GraphML; needs graph software).</p>
+      <p>Compare two schemas that retain different entity types, relationship labels and group boundaries in a digital-transformation programme. The toy example draws on public university material and includes guessed details.</p>
+      <p><a href="/library/sources/programme-models/readmeforprogrammegraphs.html">Read the explanation</a> · <a href="{{ '/images/Portfolio-data-model/Digital_Programme_simplified_graph_schema.jpg' | relative_url }}">Inspect the overview diagram</a> · Editable models: <a href="/library/sources/programme-models/files/graph_models/Digital%20Transformation%20Programme%20schema%20only-Option-1.graphml">Option 1: more distinctions</a> / <a href="/library/sources/programme-models/files/graph_models/Digital-Transformation-Programme-schema-only-Option-2.graphml">Option 2: a smaller grouped picture</a> (GraphML; needs graph software).</p>
     </dd>
     <dt><strong>Start from the portfolio's needs</strong></dt>
     <dd>
       <p>Seven working notes describe different portfolio pressures. Start with the cross-organisation example: when might supporting existing stakeholder meetings work better than creating a new portfolio office?</p>
-      <p><a href="https://github.com/lawrencerowland/Data-models-for-portfolios/blob/master/Typical-portfolio-needs/Portfolio%20mgt%20challenges%20when%20bridging%20across%20organisations.md">Read the cross-organisation note</a> · <a href="https://github.com/lawrencerowland/Data-models-for-portfolios/tree/master/Typical-portfolio-needs">Browse all seven notes</a>. These are earlier discussion material, rather than a validated service specification.</p>
+      <p><a href="/library/sources/portfolio-needs/typical-portfolio-needs-portfolio-mgt-challenges-when-bridging-across-organisations.html">Read the cross-organisation note</a> · <a href="/library/sources/portfolio-needs/">Browse all seven notes</a>. These are earlier discussion material, rather than a validated service specification.</p>
     </dd>
     <dt><strong>Projects, tasks and artefacts as an ontology</strong></dt>
     <dd>
       <p>An earlier Owlready/Gist experiment creates project, task and artefact instances and explores their relationships. The notebook is unfinished and contains machine-specific paths.</p>
-      <p><a href="https://github.com/lawrencerowland/Data-models-for-projects/blob/master/Data_model_recorded_as_ontology_Owlready/2021_project_ontology_in_Gistv1.ipynb">Read the notebook on GitHub</a> · <a href="https://github.com/lawrencerowland/Data-models-for-projects/tree/master/Data_model_recorded_as_ontology_Owlready">Inspect the supporting source files</a>. Editing or running it needs Python/Jupyter and its libraries; the source has not been rerun for this guide.</p>
+      <p><a href="/library/sources/project-ontology/data-model-recorded-as-ontology-owlready-2021-project-ontology-in-gistv1.html">Read the notebook</a> · <a href="/library/sources/project-ontology/">Inspect the supporting source files</a>. Editing or running it needs Python/Jupyter and its libraries; the source has not been rerun for this guide.</p>
     </dd>
   </dl>
 </div>
@@ -71,13 +71,13 @@ These repositories use freely available graph-database technology to manage proj
 ![](/images/Portfolio-data-model/Digital-Transformation-Programme-Education-pared-back-ego-graph.jpg)
 
 # Code and library base
-To skip this guidance, go straight to these code and document libraries:
+The worked examples and selected files above can be read on this site. The broader source repositories below may require GitHub access:
 
-- **at portfolio level** [here](https://github.com/lawrencerowland/Data-models-for-portfolios)
+- **at portfolio level** [GitHub repository](https://github.com/lawrencerowland/Data-models-for-portfolios)
 
-- **at programme level** [here](https://github.com/lawrencerowland/Data-models-for-programmes)
+- **at programme level** [GitHub repository](https://github.com/lawrencerowland/Data-models-for-programmes)
 
-- **at project level** [here](https://github.com/lawrencerowland/Data-models-for-projects)
+- **at project level** [GitHub repository](https://github.com/lawrencerowland/Data-models-for-projects)
 
 
 # Benefits
@@ -140,13 +140,13 @@ Options:
 1. **Project level**. There are a number of mature project data models available, and at the project level it often makes the most sense to stick with the implied data model your team already uses for projects. i.e. the data model often 'comes with' the enterprise project management system you are using, whether an in-house system or Jira/Asana etc. There is probably no need for a graph database data model at project level unless your team is handling projects that have unique business contexts. However, a graph-based data model can be run in parallel if you are looking for additional insight in visualising the ways your projects fit together. 
 
 # Summary of start-up steps for application
-To get started, go to the relevant code and document library, which will have the appropriate steps.
+Start with the worked-model guides above. The broader source repositories may require GitHub access; the historical steps below still need checking against the chosen tools and data.
 
-- **at portfolio level** [here](https://github.com/lawrencerowland/Data-models-for-portfolios)
+- **at portfolio level** [GitHub repository](https://github.com/lawrencerowland/Data-models-for-portfolios)
 
-- **at programme level** [here](https://github.com/lawrencerowland/Data-models-for-programmes)
+- **at programme level** [GitHub repository](https://github.com/lawrencerowland/Data-models-for-programmes)
 
-- **at project level** [here](https://github.com/lawrencerowland/Data-models-for-projects)
+- **at project level** [GitHub repository](https://github.com/lawrencerowland/Data-models-for-projects)
 
 ***Summary of steps***
 1. Get an idea of the possible by looking at the examples provided

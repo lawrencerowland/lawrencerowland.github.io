@@ -985,7 +985,8 @@
     "source_sha256": "c0df5196d63783d2a1e4ab3895b0ea47a8700306ca90102a9ca18643d0857306",
     "source_files": {
       "web_apps/hs2-decision-graph.html": "c0df5196d63783d2a1e4ab3895b0ea47a8700306ca90102a9ca18643d0857306"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-decision-graph"
   },
   {
     "id": "crossing-project-map",
@@ -1011,7 +1012,8 @@
     "source_sha256": "3efc41b26b20a27af56d6575cd3031d20814bef7732a1cca7e1ee690036944a7",
     "source_files": {
       "web_apps/lower_thames_crossing_geo_kg.html": "3efc41b26b20a27af56d6575cd3031d20814bef7732a1cca7e1ee690036944a7"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/crossing-project-map"
   },
   {
     "id": "project-viability-navigator",
@@ -1037,7 +1039,8 @@
     "source_sha256": "007068f1be681fa6696deca22b687e4eef5adace26eea28c6589409726d1bee0",
     "source_files": {
       "web_apps/project_viability_state_space_navigator_plus.html": "007068f1be681fa6696deca22b687e4eef5adace26eea28c6589409726d1bee0"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-viability-navigator"
   },
   {
     "id": "reading-project-evidence",
@@ -1064,7 +1067,8 @@
     "source_files": {
       "web_apps/grounded-theory-approach.html": "2c0a689f5f8fd8a30df1045eb27072452b9448fff4966fadb2fe777551b5aecd",
       "web_apps/legends_tower_sentiment_report.html": "af49f45e50a1de174715eb71397accffeedc4f4ec6e9bf99ba992f7d4b254ef1"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/reading-project-evidence"
   },
   {
     "id": "project-contract-lab",
@@ -1093,7 +1097,8 @@
       "tsx_apps/interactive-nec-contract-journey.tsx": "c0b13972219bb017f3e9308d9600defb18f06fbd43aee37049a6b623f44e7ecf",
       "web_apps/hs2-contract-game.html": "177b7f8dcc6900e1ed527cb950067f7be1bb7a5d746c0b2f4f823fb700048f9a",
       "tsx_apps/hs2-contract-game.tsx": "5cb51eaeea3d4343c0fe82d595354eaa8f8c410552c55721f81e8c55510d1ae4"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-contract-lab"
   },
   {
     "id": "regulatory-rehearsal",
@@ -1119,7 +1124,8 @@
     "source_sha256": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21",
     "source_files": {
       "web_apps/regulatory-negotiation-rehearsal-board.html": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/regulatory-rehearsal"
   },
   {
     "id": "signed-feedback-lab",
@@ -1146,7 +1152,8 @@
     "source_files": {
       "web_apps/SMR_governance_simulator.html": "1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654",
       "web_apps/SMR_governance_simulator_av.dot": "9ed272b8d9d47fbeae74cbb12375d886a546ecc5c681b6f0adcfb1f5953048a6"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/signed-feedback-lab"
   },
   {
     "id": "project-dependency-atlas",
@@ -1172,7 +1179,8 @@
     "source_sha256": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1",
     "source_files": {
       "web_apps/project-dependency-atlas.html": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1"
-    }
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-dependency-atlas"
   },
   {
     "id": "graph-transform-workbench",
