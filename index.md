@@ -30,8 +30,8 @@ home_front_door: true
   <figure class="pw-home-field-notes pw-home-field-overlay">
     <figcaption class="pw-field-notes-labels">Project scenarios</figcaption>
     <div class="pw-field-overlay-stage">
-      <img src="{{ '/images/navigation/field-overlay.svg' | relative_url }}" width="680" height="260" alt="A method diagram lies over a project setting. An ochre experimental path follows part of the method within that particular context.">
-      <span class="pw-field-overlay-method" aria-hidden="true">Method</span>
+      <img src="{{ '/images/navigation/field-overlay.svg' | relative_url }}" width="680" height="260" alt="A working view lies over a project setting. An ochre experimental path follows part of the diagram within that particular context.">
+      <span class="pw-field-overlay-method" aria-hidden="true">Working view</span>
       <span class="pw-field-overlay-experiment" aria-hidden="true">Experiment</span>
     </div>
   </figure>
