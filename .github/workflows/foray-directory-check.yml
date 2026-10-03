@@ -73,6 +73,12 @@ on:
       - '_data/historical_articles.yml'
       - 'tests/fixtures/historical-articles.json'
       - 'sitemap.md'
+      - 'agents/**'
+      - 'llms.txt'
+      - 'LLMs.txt'
+      - '_data/agent_orientation.json'
+      - 'tools/agent-orientation/**'
+      - 'tests/agent-orientation.test.cjs'
       - 'deep-research/**'
       - 'examples/hs2-decision-graph.html'
       - 'tests/hs2-route.test.cjs'
@@ -163,6 +169,12 @@ on:
       - '_data/historical_articles.yml'
       - 'tests/fixtures/historical-articles.json'
       - 'sitemap.md'
+      - 'agents/**'
+      - 'llms.txt'
+      - 'LLMs.txt'
+      - '_data/agent_orientation.json'
+      - 'tools/agent-orientation/**'
+      - 'tests/agent-orientation.test.cjs'
       - 'deep-research/**'
       - 'examples/hs2-decision-graph.html'
       - 'tests/hs2-route.test.cjs'
@@ -202,6 +214,10 @@ jobs:
           npm test
           npm run build
           git diff --exit-code -- ../../library/apps
+      - name: Check agent orientation and generated directories
+        run: |
+          node tools/agent-orientation/generate.cjs --check
+          node tests/agent-orientation.test.cjs
       - name: Check Library app preservation and legacy routes
         run: node tests/library-app-retirement.test.cjs
       - name: Check retained example and writing routes
@@ -322,6 +338,8 @@ jobs:
           node tests/social-debt-migration.test.cjs _site
           node tests/legacy-app-routes.test.cjs _site
           node tests/handover-pack.test.cjs _site
+      - name: Check the rendered agent entrance
+        run: node tests/agent-orientation.test.cjs _site
       - name: Check the rendered visual explorer
         run: node tests/visual-explorer.test.cjs _site
       - name: Check rendered Library app routes

@@ -8,6 +8,7 @@ home_front_door: true
 
 <div class="pw-home pw-site-map" id="home-main" tabindex="-1">
 <header class="pw-page-heading"><h1>Sitemap</h1><p>Follow a branch. Open a heading to see what sits beneath it.</p></header>
+{% include agent-orientation.html %}
 <div class="pw-map-root"><a href="{{ '/' | relative_url }}">Home</a></div>
 <div class="pw-map-branches">
   {% assign projects = site.data.side_projects | where: 'placement', 'project' | sort: 'gallery_order' %}

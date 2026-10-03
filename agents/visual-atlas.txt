@@ -1,0 +1,515 @@
+---
+layout: null
+permalink: /agents/visual-atlas.md
+sitemap: false
+---
+# Visual atlas — meanings and source views
+
+[Agent welcome](https://lawrencerowland.github.io/sitemap.html#for-agents) · [Browse the pictures](https://lawrencerowland.github.io/explore-visually.html)
+
+Use a picture to choose a question, then read its caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model's claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
+
+Capture and check dates below describe the catalogue record. They do not claim that the live app was rechecked when this guide was generated. Use the image and the explanation together; read the original example for details beyond the depicted view.
+
+## When can the next task start?
+
+- View ID: boundary-net
+- Home: Gimmer · boundary contracts
+- Kind and catalogue status: interactive; Experiment
+- Caption: A connected Petri net makes a lifting resource and the installed roof explicit. Tokens determine which selected work events can start.
+- Look for: Follow the release event into the shared resource place, then inspect the roof event.
+- Limit: A finite, once-only construction; this is not a complete engineering or scheduling model.
+- Depicted state: Default example: A blocked method becomes possible; nothing completed.
+- Image description: A connected Petri net makes a lifting resource and the installed roof explicit. Tokens determine which selected work events can start.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=boundary-net) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/boundary-net.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/boundary-net-thumb.webp) · [Original example](https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/apps/boundary-contract-lab/#panel-steps)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Which chain crosses every work layer?
+
+- View ID: shed-spine
+- Home: Project Spines · mountain refuge shed
+- Kind and catalogue status: interactive; Experiment
+- Caption: Fourteen shed tasks form eight precedence layers. The highlighted chain meets each displayed layer exactly once.
+- Look for: Follow the red tasks through the coloured layers, then compare the three partitions in the source.
+- Limit: Logical independence does not guarantee simultaneous work. This finite example checks three particular minimum partitions, not arbitrary task groups.
+- Depicted state: Earliest Feasible Layers; Show Spine on. The selected 17-day chain differs from the 19-day CPM path, which is also a spine.
+- Image description: Fourteen shed tasks form eight precedence layers. The highlighted chain meets each displayed layer exactly once.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=shed-spine) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/shed-spine.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/shed-spine.svg) · [Original example](https://lawrencerowland.github.io/project-spines/experiments/shed-spine-construction.html#graph)
+- Capture: Rendered SVG from the published page; recorded check date: 2026-10-01
+
+## Can all five local rules agree?
+
+- View ID: triangle-compatibility
+- Home: Local to Global
+- Kind and catalogue status: interactive; Experiment
+- Caption: Five specialist exclusion rules overlap on a triangular site. Filled dots satisfy them all at the same sampled location.
+- Look for: Compare Balanced with No global fit, then select a dot to inspect its five margins.
+- Limit: A finite sampling toy. Zero passing samples does not prove that every point between samples is impossible.
+- Depicted state: Balanced preset: 91 passing samples.
+- Image description: Five specialist exclusion rules overlap on a triangular site. Filled dots satisfy them all at the same sampled location.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=triangle-compatibility) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/triangle-compatibility.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/triangle-compatibility-thumb.webp) · [Original example](https://lawrencerowland.github.io/local-to-global/forays/003-tangled-triangle.html#first-try)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Can evidence change the choice before it closes?
+
+- View ID: festival-evidence
+- Home: Programme Decision Sequences · festival shuttle
+- Kind and catalogue status: interactive; Experiment
+- Caption: A demand survey leads to two possible later reservations. Each signal updates the demand belief before the bus-hire deadline.
+- Look for: Follow the high and low signals into different fleet choices. Signal probabilities are not chances that a booking succeeds.
+- Limit: A fictional binary-demand model with declared payoffs and independent signals. The values are service-value points, not a transport budget or forecast.
+- Depicted state: Worth buying preset; review 0. Prior 0.5, survey accuracy 0.8, routine accuracy 0.5, survey cost 4, waiting cost 3, deadline 2, survey latency 1.
+- Image description: A fresh demand survey branches into two equally likely signals: high updates belief to 80% and reserves three buses; low updates belief to 20% and reserves one bus.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=festival-evidence) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/festival-evidence.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/festival-evidence-thumb.webp) · [Original example](https://lawrencerowland.github.io/Programme-decision-sequences/evidence.html#visual-title)
+- Capture: Page screenshot; recorded check date: 2026-10-02
+
+## When does an answer become the next question?
+
+- View ID: island-feedback
+- Home: Functors for Projects · Island Reading Room
+- Kind and catalogue status: interactive; Experiment
+- Caption: Landing and delivery coordinators exchange offers and requests through a shared interface. External reports and project requests remain visible at the edges.
+- Look for: Follow the two crossing B wires in opposite directions. Their crossing is not a junction.
+- Limit: Authored routing policies in a finite model, not full game strategies. A proposed delivery plan establishes no physical delivery or safe passage.
+- Depicted state: Initial request; shore path allowed; fixed pallet; full conversation shown; external report selected but not supplied.
+- Image description: Landing and delivery coordinators exchange offers and requests through a shared interface. External reports and project requests remain visible at the edges.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=island-feedback) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/island-feedback.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/island-feedback.svg) · [Original example](https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/index.html#experiment)
+- Capture: Rendered SVG from the published page; recorded check date: 2026-10-01
+
+## Is a way of moving the same as a path?
+
+- View ID: rotunda-trajectory
+- Home: Bricklaying a Rotunda · continuous dynamics
+- Kind and catalogue status: interactive; Experiment
+- Caption: Teal arrows sample a rule of motion across the state cylinder. One gold trajectory follows that rule, with the same history unwrapped alongside it.
+- Look for: Compare the field with the single history. Cylinder height is completed work, not physical tower height. Replay time and explanation layer are temporary source controls.
+- Limit: A separate smooth toy that omits bricks, curing and shared hoists. The full tangent bundle is four-dimensional; the displayed planes are samples. No link to the finite brick model is proved.
+- Depicted state: Steady work; initial angle 30°, angular rate 0.8, work rate 0.1. Trajectory layer; replay t = 5.00, completed work w = 0.5, angle θ = 259.2°.
+- Image description: Teal direction arrows and sample tangent planes on a work-state cylinder, with one gold trajectory and its matching unwrapped coordinate history shown alongside.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=rotunda-trajectory) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/rotunda-trajectory.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/rotunda-trajectory-thumb.webp) · [Original example](https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/constructive-state/index.html#continuous)
+- Capture: Rendered SVG from the published page; recorded check date: 2026-10-02
+
+## Find the feedback group
+
+- View ID: dependency-matrix
+- Home: Library · dependency matrix
+- Kind and catalogue status: interactive; Worked example
+- Caption: Reordering the same six activities brings their mutually dependent group into one block of the matrix.
+- Look for: Compare the collected and partitioned orders. A row receives information from a column.
+- Limit: The matrix records information dependencies, not durations, resource capacity or iteration counts.
+- Depicted state: Reorder activities tab; One feedback group.
+- Image description: Reordering the same six activities brings their mutually dependent group into one block of the matrix.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=dependency-matrix) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/dependency-matrix.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/dependency-matrix-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/apps/frobenius-dsm-explorer/#output-matrix)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Keep three kinds of thing distinct
+
+- View ID: rail-layers
+- Home: Py3Plex rail notebook
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Objectives, stakeholders and scope occupy separate layers while links connect them across a rail-project example.
+- Look for: Read the layer names, then follow the guide’s new track → carbon ambition → town council chain.
+- Limit: Nodes are unlabelled in this overview. The source does not define weights as probabilities or causal influence.
+- Depicted state: Original saved three-layer overview.
+- Image description: Objectives, stakeholders and scope occupy separate layers while links connect them across a rail-project example.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=rail-layers) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/rail-layers.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/rail-layers-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/models/rail-stakeholders-objectives-scope.html#three-kinds-of-information)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/notebook-examples/rail-three-layers.png)
+
+## See a complete crossing choice
+
+- View ID: wildlife-configuration
+- Home: Project Co-design
+- Kind and catalogue status: interactive; Experiment
+- Caption: The selected implementation becomes two crossing sites, guide fencing and observation points in an invented landscape.
+- Look for: Change the brief or select another compatible choice, and compare the displayed resources.
+- Limit: The picture is not to scale; capacities and costs are declared assumptions, not predictions of animal use.
+- Depicted state: Default 110 model-crossings/day brief; 30 m + 50 m bundle.
+- Image description: The selected implementation becomes two crossing sites, guide fencing and observation points in an invented landscape.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=wildlife-configuration) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/wildlife-configuration.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/wildlife-configuration-thumb.webp) · [Original example](https://lawrencerowland.github.io/project-co-design/apps/wildlife-crossing.html)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Where does the scaffolding go next?
+
+- View ID: shell-resources
+- Home: Building a Wall · wider shell
+- Kind and catalogue status: diagram; Experiment
+- Caption: The shell’s wiring returns the excavator and threads the supplied scaffolding through walling, roofing and return. Two work branches meet at inspection.
+- Look for: Trace the scaffolding wire, then follow the separate Roofing and Fitting branches into inspection.
+- Limit: An architectural study, not an executed extension of the controls. Labour, physics, durations and inspection criteria remain unspecified; connections do not certify a building.
+- Depicted state: Published wider-shell study; 28 connections.
+- Image description: The shell’s wiring returns the excavator and threads the supplied scaffolding through walling, roofing and return. Two work branches meet at inspection.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=shell-resources) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/shell-resources.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/shell-resources.svg) · [Original example](https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/index.html#wider-shell)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/wider-shell.svg)
+
+## Put the project inside its context
+
+- View ID: farm-context
+- Home: Integrated risks & tasks
+- Kind and catalogue status: diagram; Experiment
+- Caption: A context comb keeps project processes and surrounding activity in one picture, with an explicit exchange between them.
+- Look for: Follow the wires left to right through setup, project/context actions, exchange and assessment.
+- Limit: One generic interaction round. This diagram does not by itself implement an optic or feedback controller.
+- Image description: A context comb keeps project processes and surrounding activity in one picture, with an explicit exchange between them.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=farm-context) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/farm-context.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/farm-context.svg) · [Original example](https://lawrencerowland.github.io/integrated_risks_tasks/#context-comb)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/integrated_risks_tasks/assets/context-comb.svg)
+
+## What does one more buffer day buy?
+
+- View ID: buffer-response
+- Home: Library · risk gradient
+- Kind and catalogue status: interactive; Worked example
+- Caption: The blue curve shows the model’s risk index as Development receives buffer; the bars show the next day’s marginal reduction.
+- Look for: Compare the steep first reduction with the diminishing reductions later on.
+- Limit: An uncalibrated teaching formula. The percentages are not a measured probability of project failure.
+- Depicted state: Reset scenario; Development selected; zero buffer.
+- Image description: The blue curve shows the model’s risk index as Development receives buffer; the bars show the next day’s marginal reduction.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=buffer-response) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/buffer-response.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/buffer-response-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/apps/project-risk-gradient/#risk-chart)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Join two modules at one handover
+
+- View ID: shared-boundaries
+- Home: Shared waters
+- Kind and catalogue status: interactive; Experiment
+- Caption: Barge-service planning and depot-receiving planning expose the same draft-offer interface at their boundaries.
+- Look for: Change Separate modules to Joined graph: the two B vertices become one.
+- Limit: Boundary identity is declared. Matching the graph does not establish staffing, agreement or compatible histories.
+- Depicted state: Separate modules; coordination summary off; matching interface.
+- Image description: Barge-service planning and depot-receiving planning expose the same draft-offer interface at their boundaries.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=shared-boundaries) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/shared-boundaries.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/shared-boundaries-thumb.webp) · [Original example](https://lawrencerowland.github.io/shared-dynamics/compose.html#compose-diagram)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Can everyone agree and still double-book the team?
+
+- View ID: shared-capacity
+- Home: Shared waters · shared observations and capacity
+- Kind and catalogue status: interactive; Experiment
+- Caption: Three processes agree on version A of one power-link specification, yet design and installation both request the same integration team.
+- Look for: Separate the solid specification-observation wires from the dashed capacity requests. In the source, also select Installation requests the team to reproduce this conflict.
+- Limit: A finite candidate snapshot with equality and one supplied same-slot capacity rule. It is not an execution trace or schedule; agreement establishes neither approval nor truth.
+- Depicted state: All three version observations A; Design and Installation both request the team. Two reservations for capacity one.
+- Image description: Three version A observations connect to one agreed power-link specification; separate dashed requests from design and installation show two reservations for one integration team.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=shared-capacity) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/shared-capacity.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/shared-capacity-thumb.webp) · [Original example](https://lawrencerowland.github.io/shared-dynamics/interfaces.html#interfaces-diagram)
+- Capture: Rendered SVG from the published page; recorded check date: 2026-10-02
+
+## What must travel back across an interface?
+
+- View ID: lens-directions
+- Home: Bricklaying a Rotunda · wiring and lenses
+- Kind and catalogue status: diagram; Experiment
+- Caption: A lens pairs a forward map with a backward map that may also depend on the forward-side value.
+- Look for: In section 2 of the source, compare f with f♯: the backward map has both A⁺ and B⁻ as inputs.
+- Limit: A diagram of the lens interface, not an executed rotunda trajectory or a physical feedback controller.
+- Depicted state: Source section 2, Lenses: forward + backward; original dark palette.
+- Image description: A lens pairs a forward map with a backward map that may also depend on the forward-side value.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=lens-directions) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/lens-directions.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/lens-directions.svg) · [Original example](https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/wiring_lens_explainer.html)
+- Capture: Published inline SVG with its source styling; recorded check date: 2026-10-01
+
+## Compose two mobilisation processes
+
+- View ID: mobilising
+- Home: DisCoPy mobilisation notebook
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Two mobilisation boxes each produce a team and a blueprint. A swap brings like outputs to their separate merge boxes.
+- Look for: The crossing changes wire order; the boxes below it perform the proposed merges.
+- Limit: Symbolic typed composition does not establish that actual teams or blueprints can be combined.
+- Depicted state: Original saved diagram.
+- Image description: Two mobilisation boxes each produce a team and a blueprint. A swap brings like outputs to their separate merge boxes.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=mobilising) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/mobilising.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/mobilising-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/models/mobilising-two-projects.html#follow-the-wires)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/notebook-examples/mobilising-two-projects.png)
+
+## Look at one project through fourteen views
+
+- View ID: project-views
+- Home: Functors for Projects
+- Kind and catalogue status: interactive; Experiment
+- Caption: A microsite project is grouped into task, schedule, cost, resource and other views. Connections distinguish relations from proposed mappings.
+- Look for: Hide a view or select a red connection marker to read what a link means.
+- Limit: A relationship sketch. The coloured regions are not verified categories, and functor laws are not checked.
+- Depicted state: Separated layout; all views and connections visible.
+- Image description: A microsite project is grouped into task, schedule, cost, resource and other views. Connections distinguish relations from proposed mappings.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=project-views) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/project-views.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/project-views-thumb.webp) · [Original example](https://lawrencerowland.github.io/functors-for_projects/apps/functor-atlas-project-example/index.html)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Do three pairwise links make a joint decision?
+
+- View ID: joint-relationships
+- Home: Functors for Projects · three-way relationships
+- Kind and catalogue status: interactive; Experiment
+- Caption: Filled triangles record explicitly declared three-way relationships. Outlines retain the pairwise links without that additional joint relationship.
+- Look for: Compare the selected scope–schedule–resources face with an outlined triangle.
+- Limit: Illustrative choices: a filled face proves neither agreement nor feasibility. No cost, schedule, risk or topology analysis is computed.
+- Depicted state: Default Scope · Schedule · Resources case selected.
+- Image description: Filled triangles record explicitly declared three-way relationships. Outlines retain the pairwise links without that additional joint relationship.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=joint-relationships) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/joint-relationships.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/joint-relationships.svg) · [Original example](https://lawrencerowland.github.io/functors-for_projects/apps/simplicial-project-management/index.html#diagram)
+- Capture: Rendered SVG from the published page; recorded check date: 2026-10-01
+
+## Make competition for the lane visible
+
+- View ID: farm-lane-net
+- Home: Integrated risks & tasks
+- Kind and catalogue status: diagram; Experiment
+- Caption: This shared-lane Petri-net fragment makes two competing starts and the return of one reusable access token visible.
+- Look for: Trace each start, occupancy and finish, including the token’s return to Lane free.
+- Limit: This is a map of possible transitions, not a timed schedule or a probability model.
+- Depicted state: One token is at Lane free; Wagon on lane and Cattle on lane are empty. Either start can acquire that token, but both cannot hold the lane together.
+- Image description: This shared-lane Petri-net fragment makes two competing starts and the return of one reusable access token visible.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=farm-lane-net) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/farm-lane-net.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/farm-lane-net-thumb.webp) · [Original example](https://lawrencerowland.github.io/integrated_risks_tasks/#wiring)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Reconcile four directors’ views
+
+- View ID: four-directors
+- Home: Portfolio data models
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Strategy, Product, Portfolio and Operations describe the same imagined company through different kinds of objects.
+- Look for: Follow outcomes, outputs, features and services across the four grouped views.
+- Limit: The cross-view relationships are proposed assumptions for the example, not a universal business schema.
+- Image description: Strategy, Product, Portfolio and Operations describe the same imagined company through different kinds of objects.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=four-directors) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/four-directors.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/four-directors-thumb.webp) · [Original example](https://lawrencerowland.github.io/Portfolio-data-model.html#four-directors-one-roadmap)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://raw.githubusercontent.com/lawrencerowland/Data-models-for-portfolios/master/Example%2012%20Business%20four-way/4-facet-business-model.png)
+
+## Which distinctions do your coding choices remove?
+
+- View ID: incident-quotient
+- Home: Functors for Projects · finite colimit
+- Kind and catalogue status: interactive; Experiment
+- Caption: Two chosen same-code identifications put incidents I1, I2 and I3 into one quotient class, while I4 remains separate.
+- Look for: Follow the identification links across the top, then the incident-to-class lines below.
+- Limit: An equality-only coding analogy. The model neither analyses incident meaning nor discovers a core theory.
+- Depicted state: Four incidents; identifications I1 → I2 and I2 → I3; two quotient classes. No coding test run.
+- Image description: Two chosen same-code identifications put incidents I1, I2 and I3 into one quotient class, while I4 remains separate.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=incident-quotient) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/incident-quotient.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/incident-quotient.svg) · [Original example](https://lawrencerowland.github.io/functors-for_projects/apps/grounded-theory-colimit/index.html#build-title)
+- Capture: Rendered SVG from the published page; recorded check date: 2026-10-01
+
+## Keep plans attached to their assumptions
+
+- View ID: milestone-context
+- Home: Functors for Projects · milestones
+- Kind and catalogue status: interactive; Experiment
+- Caption: Regional plans are grouped by their shared context. A comparison points back towards the baseline with fewer constraints.
+- Look for: Turn on the Asian privacy observation, then read the projection arrows and the direction of the context comparison.
+- Limit: A fibration candidate and supplied-rule explorer; no cartesian lifting property or real acceptance is established.
+- Depicted state: Asian privacy change on; other constraints off; shared contract authorised in the toy.
+- Image description: Regional plans are grouped by their shared context. A comparison points back towards the baseline with fewer constraints.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=milestone-context) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/milestone-context.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/milestone-context-thumb.webp) · [Original example](https://lawrencerowland.github.io/functors-for_projects/apps/fibration-milestone-linking/index.html#contexts-heading)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Separate doing from becoming true
+
+- View ID: tasks-states
+- Home: One job, seven graph models
+- Kind and catalogue status: diagram; Earlier example
+- Caption: A waste-removal job is drawn as tasks, the conditions those tasks achieve, and the roles allocated to them.
+- Look for: Compare Prepare Waste extraction plan with Plan agreed; one is work, the other its assumed result.
+- Limit: Allocation edges do not check resource availability; preparing a plan is assumed to achieve agreement.
+- Depicted state: Original task/state/resource graph.
+- Image description: A waste-removal job is drawn as tasks, the conditions those tasks achieve, and the roles allocated to them.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=tasks-states) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/tasks-states.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/tasks-states-thumb.webp) · [Original example](https://lawrencerowland.github.io/project-model-comparison.html#one-small-job)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20Tasks%20and%20states%20and%20resources%20LR.png)
+
+## Collapse a feedback loop into one group
+
+- View ID: dependency-groups
+- Home: Library · dependency matrix
+- Kind and catalogue status: interactive; Worked example
+- Caption: The condensed graph treats the mutually connected Load model, Frame design and Foundation design as one component.
+- Look for: Compare this chain with the matrix tile: it keeps inter-group order while hiding internal detail.
+- Limit: Grouping does not remove iteration or supply a feasible project schedule.
+- Depicted state: Reorder activities tab; One feedback group.
+- Image description: The condensed graph treats the mutually connected Load model, Frame design and Foundation design as one component.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=dependency-groups) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/dependency-groups.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/dependency-groups-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/apps/frobenius-dsm-explorer/#graph)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## See what abstraction forgets
+
+- View ID: shared-abstraction
+- Home: Shared waters
+- Kind and catalogue status: diagram; Experiment
+- Caption: Two detailed preparation routes map to a single abstract route while their input and output boundaries remain.
+- Look for: Notice that route identity disappears even though endpoints and boundary types survive.
+- Limit: This is a graph map, not evidence that the routes take equal time or can substitute in practice.
+- Image description: Two detailed preparation routes map to a single abstract route while their input and output boundaries remain.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=shared-abstraction) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/shared-abstraction.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/shared-abstraction-thumb.webp) · [Original example](https://lawrencerowland.github.io/shared-dynamics/compose.html#map-diagram)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## The plan before the cows
+
+- View ID: farm-before
+- Home: Integrated risks & tasks · original sketch
+- Kind and catalogue status: diagram; Earlier example
+- Caption: The original whiteboard connects moving and pouring concrete with wagon, workers and shuttering inside a chosen scope.
+- Look for: Notice the access assumption left outside this project-only picture; compare the companion cow sketch.
+- Limit: No cattle in this branch does not mean no risk. The original handwriting and image quality are retained.
+- Image description: The original whiteboard connects moving and pouring concrete with wagon, workers and shuttering inside a chosen scope.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=farm-before) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/farm-before.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/farm-before-thumb.webp) · [Original example](https://lawrencerowland.github.io/integrated_risks_tasks/#sketches)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/integrated_risks_tasks/assets/original-baseline.jpg)
+
+## Let an outside process into the plan
+
+- View ID: farm-after
+- Home: Integrated risks & tasks · original sketch
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Cattle-to-market and weather enter the original sketch. The road is shared, and the concrete move is crossed out.
+- Look for: Read the crossed-out move as temporarily disabled while access is occupied, then compare the explicit lane net.
+- Limit: The sketch motivates the corrected model; it is not itself a fully specified executable process.
+- Image description: Cattle-to-market and weather enter the original sketch. The road is shared, and the concrete move is crossed out.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=farm-after) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/farm-after.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/farm-after-thumb.webp) · [Original example](https://lawrencerowland.github.io/integrated_risks_tasks/#sketches)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/integrated_risks_tasks/assets/original-cattle.jpg)
+
+## Read joint work as a composed arrow
+
+- View ID: boundary-composition
+- Home: Gimmer · boundary contracts
+- Kind and catalogue status: interactive; Experiment
+- Caption: With two independently supplied lifts, the frame and roof task arrows can appear alongside one another in one admitted step.
+- Look for: Choose Show two independent lifts, then Lift frame + Lift roof in Inspect a possible step.
+- Limit: Tensor notation alone does not guarantee joint starts: the input-token check is retained separately.
+- Depicted state: Two independent lifts; joint step inspected, not executed.
+- Image description: With two independently supplied lifts, the frame and roof task arrows can appear alongside one another in one admitted step.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=boundary-composition) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/boundary-composition.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/boundary-composition-thumb.webp) · [Original example](https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/apps/boundary-contract-lab/#monoidal-title)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Does more capacity remove the wait?
+
+- View ID: gimmer-hidden-order
+- Home: Gimmer · processes to plans
+- Kind and catalogue status: interactive; Experiment
+- Caption: Two models that shared a baseline plan respond differently to doubled resources: one overlaps wall and roof work; the other retains a required handoff.
+- Look for: Compare the wall and roof bars on their shared day 18–27 scale. In the source, choose More resources; compare Same plan to see what the baseline concealed.
+- Limit: Fixed toy durations and a chosen-execution projection. This does not validate real construction sequencing, resource estimates, safety or a mathematical functor.
+- Depicted state: More resources, step 2: two crew, two tool and two lift tokens; walls-first priority; fixed durations. Timeline excerpts from the 14-task plans.
+- Image description: Two wall-and-roof timelines on the same day 18–27 scale: shared-resource model A overlaps both tasks and finishes on day 31; required-order model B puts roof after walls and finishes on day 34.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=gimmer-hidden-order) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/gimmer-hidden-order.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/gimmer-hidden-order-thumb.webp) · [Original example](https://lawrencerowland.github.io/gimmer-crag/apps/mountain-refuge-petri-wbs-demo/index.html?view=comparison#same-plan-witness)
+- Capture: Page screenshot; recorded check date: 2026-10-02
+
+## Narrow the view and notice what disappears
+
+- View ID: rail-neighbours
+- Home: Py3Plex rail notebook
+- Kind and catalogue status: diagram; Earlier example
+- Caption: The carbon objective and its two immediate outgoing objective neighbours form a small, readable neighbourhood.
+- Look for: Compare this close-up with the three-layer overview: no scope or stakeholder links remain here.
+- Limit: This is objective-only, not a whole-network neighbourhood. Some original labels are clipped; the guide names them.
+- Depicted state: Original saved ego view.
+- Image description: The carbon objective and its two immediate outgoing objective neighbours form a small, readable neighbourhood.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=rail-neighbours) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/rail-neighbours.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/rail-neighbours-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/models/rail-stakeholders-objectives-scope.html#narrow-the-view)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/notebook-examples/carbon-objective-neighbours.png)
+
+## Connect strategy to delivery and operations
+
+- View ID: programme-schema
+- Home: Portfolio data models
+- Kind and catalogue status: diagram; Earlier example
+- Caption: A programme schema connects strategic objectives, programme outcomes, programmes, projects, work packages, services and consumers.
+- Look for: Follow the links crossing between the strategic, delivery and operational parts of the drawing.
+- Limit: An earlier toy schema, drawing on public university material and guessed details; not an adopted organisational model.
+- Image description: Strategy, Projects and Operations are grouped around Programme Outcomes, with links between strategic objectives, delivery work, services and consumers.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=programme-schema) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/programme-schema.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/programme-schema-thumb.webp) · [Original example](https://lawrencerowland.github.io/Portfolio-data-model.html#other-model-reading-routes)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/Portfolio-data-model/Digital_Programme_simplified_graph_schema.jpg)
+
+## See which branch has room to move
+
+- View ID: buffer-network
+- Home: Library · risk gradient
+- Kind and catalogue status: interactive; Worked example
+- Caption: A seven-task dependency network shows the critical branch and the float on documentation and training.
+- Look for: Select Show network; compare a buffer day on Development with one on Documentation.
+- Limit: The declared network is small and fixed. Timing is separate from the illustrative risk-response formula.
+- Depicted state: Reset scenario; Show network; no buffers.
+- Image description: A seven-task dependency network shows the critical branch and the float on documentation and training.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=buffer-network) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/buffer-network.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/buffer-network-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/apps/project-risk-gradient/)
+- Capture: Page screenshot; recorded check date: 2026-10-01
+
+## Inspect an early task-to-token translation
+
+- View ID: early-petri
+- Home: One job, seven graph models
+- Kind and catalogue status: diagram; Earlier example
+- Caption: The first two waste-removal tasks become transitions, with states and roles represented as places carrying token properties.
+- Look for: Read the guide’s qualifications about initial tokens, zero consumption and roles that are not returned.
+- Limit: An incomplete source fragment with unresolved token meanings and no firing engine.
+- Depicted state: Original Neo4j Place/Transition graph.
+- Image description: The first two waste-removal tasks become transitions, with states and roles represented as places carrying token properties.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=early-petri) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/early-petri.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/early-petri-thumb.webp) · [Original example](https://lawrencerowland.github.io/project-model-comparison.html#petri-limits)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20petri%20net%20tasks%20LR.png)
+
+## Connect software tools with possible data
+
+- View ID: methods-data
+- Home: Earlier methods
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Software libraries and platforms are linked to particular datasets proposed for exploration.
+- Look for: Follow a tool-to-dataset link and consider what question that pairing might help investigate.
+- Limit: Historical possibilities, not a validated method-selection rule or current performance claim.
+- Depicted state: Original software-tools-to-data sketch.
+- Image description: Two columns headed Code Libraries and Data connect tools such as Python spaCy, Keras and Orange to named datasets.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=methods-data) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/methods-data.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/methods-data-thumb.webp) · [Original example](https://lawrencerowland.github.io/library/articles/choosing-a-machine-learning-approach.html)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/2020-05-08-Applying-appropriate-machine-learning-approach/2020-02-subgraph-ML-model-to-data.png)
+
+## Read just the task chain
+
+- View ID: tasks-only
+- Home: One job, seven graph models
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Identify waste, prepare the extraction plan, commission suppliers and remove waste appear as a simple task sequence.
+- Look for: Compare with the combined task/state/resource view to see what the simpler chain leaves implicit.
+- Limit: A stored order of actions; no schedule calculation or resource check.
+- Depicted state: Original task-only graph.
+- Image description: Identify waste, prepare the extraction plan, commission suppliers and remove waste appear as a simple task sequence.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=tasks-only) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/tasks-only.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/tasks-only-thumb.webp) · [Original example](https://lawrencerowland.github.io/project-model-comparison.html#what-disappears)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://raw.githubusercontent.com/lawrencerowland/project-scheduling-with-Neo4j/aa6e8102bd5ff5fe14a05380895ce0bfcfc65351/images/2020%2002%20tasks%20without%20states%20LR.png)
+
+## Choose the practices a portfolio needs
+
+- View ID: portfolio-framework
+- Home: Portfolio frameworks
+- Kind and catalogue status: diagram; Earlier example
+- Caption: The framework groups portfolio work into governance, reporting and control, and programme/project delivery support.
+- Look for: Use the three branches to orient the practices being discussed in the framework guide.
+- Limit: An earlier organising framework, not a complete retained toolkit or proof of organisational effectiveness.
+- Image description: The framework groups portfolio work into governance, reporting and control, and programme/project delivery support.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=portfolio-framework) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/portfolio-framework.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/portfolio-framework-thumb.webp) · [Original example](https://lawrencerowland.github.io/Portfolio-frameworks.html)
+- Capture: Published diagram; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/Portfolio-frameworks/portfolio-tier1.png)
+
+## Turn project records into a question worth testing
+
+- View ID: orange-workflow
+- Home: Library · Orange project ratings
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Data preparation branches into model comparison, visual exploration and an intended prediction route.
+- Look for: Follow Extract to Sample data, then the lower branch into Test possible supervised models.
+- Limit: The target is IEG Bank Performance, not general project success. The workbook is absent; this is not a reproduced early forecast or working deployment.
+- Depicted state: Original saved Orange workflow screenshot.
+- Image description: An Orange workflow connects data preparation to model comparisons, visual exploration and an intended runtime prediction branch.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=orange-workflow) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/orange-workflow.webp) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/orange-workflow-thumb.webp) · [Original example](https://lawrencerowland.github.io/ML-for-portfolios.html#orange-project-ratings)
+- Capture: Published workflow screenshot; recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/ML-for-portfolios/orange-project-ratings-workflow.png)
+
+## Decide now—or find out more first?
+
+- View ID: monthly-decisions
+- Home: Library · monthly portfolio review
+- Kind and catalogue status: diagram; Earlier example
+- Caption: Today’s state and decision lead through progress and new information into the next review.
+- Look for: Follow S₀ and x₀ through W₁ to the updated state and next decision.
+- Limit: A 2026 reading diagram of a December 2020 question. The retained notebooks do not learn a policy, consume new evidence or model assurance.
+- Depicted state: Reading diagram, not a computed policy.
+- Image description: The current review’s state and decision connect through progress and new information to the next review’s updated state and decision.
+- [Preview this view](https://lawrencerowland.github.io/explore-visually.html?view=monthly-decisions) · [Full image](https://lawrencerowland.github.io/images/visual-explorer/monthly-decisions.svg) · [Thumbnail](https://lawrencerowland.github.io/images/visual-explorer/monthly-decisions.svg) · [Original example](https://lawrencerowland.github.io/ML-for-portfolios.html#monthly-portfolio-decisions)
+- Capture: Published reading diagram (2026); recorded check date: 2026-10-01
+- [Original source image](https://lawrencerowland.github.io/images/ML-for-portfolios/monthly-portfolio-review.svg)

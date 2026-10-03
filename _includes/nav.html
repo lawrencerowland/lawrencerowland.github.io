@@ -1,7 +1,10 @@
 {% if page.home_front_door %}<a class="pw-skip-link" href="#home-main">Skip to content</a>{% endif %}
 <nav class="navbar pw-navigation" aria-label="Main navigation">
   <div class="nav-container">
-    <a class="logo pw-site-brand" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}><span>Lawrence Rowland</span><small>Project Experiments in AI</small></a>
+    <div class="pw-brand-block">
+      <a class="logo pw-site-brand" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}><span>Lawrence Rowland</span><small>Project Experiments in AI</small></a>
+      <a class="pw-agent-link" href="{{ '/sitemap.html#for-agents' | relative_url }}">AI agents: start here</a>
+    </div>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav-links" hidden><span>Menu</span><span class="pw-menu-icon" aria-hidden="true"></span></button>
     <ul class="nav-links" id="main-nav-links">
       <li><a href="{{ '/side-projects.html' | relative_url }}" {% if page.url == '/side-projects.html' %}class="active" aria-current="page"{% endif %}>Experiments</a></li>
