@@ -6,3 +6,11 @@
 
 /* Keep the game within easy reach when the navigation is compact. */
 @media(max-width:620px){.masthead nav a:last-child{display:none}.masthead nav a:nth-child(3){display:inline}}
+
+/* Keep every source and fieldbook section reachable on small screens. */
+@media(max-width:620px){
+ .masthead .wrap{flex-wrap:wrap;gap:8px;padding-top:12px;padding-bottom:12px}
+ .masthead nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+ .masthead nav a,.masthead nav a:not(:last-child),.masthead nav a:last-child{display:inline-block;padding:4px 0}
+ .scorecard output{font-size:clamp(1.5rem,7vw,2.5rem);overflow-wrap:anywhere}
+}

@@ -1,0 +1,3 @@
+{% assign node = include.entry %}{% assign node_title = node.title %}{% assign node_url = node.url %}
+{% if node.kind == 'worked-example' %}{% assign worked = site.data.worked_examples | where: 'id', node.id | first %}{% assign node_title = worked.title %}{% assign node_url = worked.canonical_url %}{% elsif node.kind == 'article' %}{% assign article = site.data.historical_articles | where: 'url', node.historical_url | first %}{% assign node_title = article.title %}{% assign node_url = article.url %}{% endif %}
+<li data-map-entry="{{ node.id | escape }}"><a href="{{ node_url | relative_url }}">{{ node_title | escape }}</a></li>

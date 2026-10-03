@@ -210,15 +210,15 @@
   {
     "#": "80",
     "name": "social-debt-explorer",
-    "description": "Social Debt: from technical debt to the hidden coordination costs of software teamwork. Illustrated situations and an ontology explorer in More Project Apps.",
+    "description": "An illustrated software-team situation leads into the public Social Debt Ontology, with guided readings, source evidence and explicit limits.",
     "origin": "User",
     "model": "Codex",
     "tags": "social_debt, teamwork, ontology, knowledge_graph, visualization",
     "explainer post": "",
-    "notes": "Canonical app is in more-project-apps; this gallery entry redirects there.",
+    "notes": "Moved from more-project-apps to the Library on 3 October 2026; original source attribution, illustration and ontology projection preserved.",
     "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/more-project-apps/web_apps/social-debt-explorer.html",
-    "home": "More Project Apps · Social Debt"
+    "url": "https://lawrencerowland.github.io/library/apps/social-debt-explorer/",
+    "home": "Library · Social Debt"
   },
   {
     "#": "81",

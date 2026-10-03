@@ -90,7 +90,8 @@ assert.ok(!library.includes('/explore-visually.html'), 'Visual atlas is a peer p
 assert.ok(!library.includes('/project-examples.html'), 'unique earlier examples now have direct subject homes');
 assert.ok(library.includes('id="custom-gpts"') && library.includes('/gpt-links-page.html'), 'Custom GPTs has a direct sixth entrance');
 assert.ok(!allItems.some(item => item.id === 'custom-gpts'), 'Custom GPTs does not create artificial subject metadata');
-assert.ok(library.includes('id="earlier-app-collections"') && library.includes('<details>'), 'remaining collections retain their native disclosure');
+assert.ok(library.includes('id="earlier-app-collections"') && library.includes('site.data.library_additional'), 'the former collection fragment remains at the additional Library tiles');
+assert.ok(!library.includes('/more-project-apps/') && !library.includes('/Project-web-apps/'), 'retired collections no longer form a second discovery route');
 assert.ok(library.includes('site.data.library_redirects') && library.includes('/assets/js/library-routes.js'), 'legacy fragments have rendered links and a forwarding script');
 
 // The script is exercised below against every saved fragment, separately from
@@ -149,7 +150,9 @@ if (process.argv[2]) {
   const built = path.resolve(process.argv[2]);
   const builtRead = file => fs.readFileSync(path.join(built, file), 'utf8');
   const libraryHTML = builtRead('library.html');
-  const rootCards = [...libraryHTML.matchAll(/<article class="pw-home-question"[\s\S]*?<\/article>/g)].map(match => match[0]);
+  const subjectSection = libraryHTML.match(/<section\b[^>]*class="[^"]*pw-library-subjects[^"]*"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(subjectSection, 'the six subject entrances remain a distinct first group');
+  const rootCards = [...subjectSection.matchAll(/<article class="pw-home-question"[\s\S]*?<\/article>/g)].map(match => match[0]);
   assert.equal(rootCards.length, 6, 'the Library presents five subject cards and Custom GPTs');
   const customGPTCards = rootCards.filter(card => card.includes('href="/gpt-links-page.html"'));
   assert.equal(customGPTCards.length, 1, 'one direct Custom GPTs entrance');

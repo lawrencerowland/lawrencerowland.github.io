@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+<title id="title">John Burnet’s literary journey through the Scottish hills</title><desc id="desc">A schematic map of hills, a winding river and a dotted journey connecting Barns, Glasgow and the Cor Water. It is an illustration rather than a geographic map.</desc>
+<rect width="900" height="560" fill="#e9ebdc"/><path d="M0 155Q150 45 290 190T575 155T900 190V560H0Z" fill="#d0dbc3"/><path d="M0 270Q155 145 315 300T620 285T900 225V560H0Z" fill="#b4c8ad"/><path d="M0 480Q170 295 325 425T615 420T900 345V560H0Z" fill="#8ba890"/>
+<g fill="none" stroke="#6c8f78" stroke-width="2" opacity=".4"><path d="M45 310Q180 200 310 328T630 327T855 282"/><path d="M30 328Q180 218 310 346T630 345T870 300"/><path d="M15 346Q180 236 310 364T630 363T885 318"/></g>
+<path d="M550 35C430 130 650 190 565 285S300 280 350 420S235 485 220 560" fill="none" stroke="#e7f1e5" stroke-width="20"/><path d="M550 35C430 130 650 190 565 285S300 280 350 420S235 485 220 560" fill="none" stroke="#6e9b9a" stroke-width="8"/>
+<path d="M174 196L600 210L510 364L405 439" fill="none" stroke="#fbf7e7" stroke-width="9" stroke-linecap="round"/><path d="M174 196L600 210L510 364L405 439" fill="none" stroke="#ae5338" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 12"/>
+<g fill="#fbf7e7" stroke="#8e412b" stroke-width="4"><circle cx="174" cy="196" r="12"/><circle cx="600" cy="210" r="12"/><circle cx="510" cy="364" r="10"/><circle cx="405" cy="439" r="12"/></g>
+<g font-family="Georgia,serif" font-size="28" fill="#29473b"><text x="95" y="163">Glasgow</text><text x="625" y="206">Barns</text><text x="432" y="475">Cor Water</text></g>
+<rect x="43" y="35" width="290" height="53" rx="8" fill="#faf7e8"/><text x="62" y="69" font-family="system-ui,sans-serif" font-size="21" letter-spacing="2" fill="#365541">A LITERARY JOURNEY</text>
+<g transform="translate(712 379) rotate(9)"><path d="M0 4Q45 -12 82 8Q122 -11 160 5V119Q118 104 82 125Q40 104 0 119Z" fill="#faf4dc" stroke="#5f735c" stroke-width="4"/><path d="M82 8V125" stroke="#a6a98e" stroke-width="3"/><g stroke="#b8baa2" stroke-width="3"><path d="M15 30H63M15 44H65M15 58H58M15 72H62M99 30H145M99 44H145M99 58H137M99 72H144"/></g></g>
+</svg>
