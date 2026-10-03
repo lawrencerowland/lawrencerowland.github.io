@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 910" role="img" aria-labelledby="title desc">
+  <title id="title">Project Controls 2010–2025 Transformation — corrected discussion picture</title>
+  <desc id="desc">An authored comparison of the 2010s and 2025. Project and document software, an AI risk product and digital-twin platform building blocks are product examples. Metered cloud storage is a utility example in both periods. Ten broad components remain unplaced. Visibility is a relative discussion layout, with no verified dependency links. Evolution is not time and there is no blanket transformation arrow.</desc>
+  <style>text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#243342;font-size:16px}.small{font-size:14px}.heading{font-size:24px;font-weight:650}.label{font-weight:650}.muted{fill:#53616a}.earlier{fill:#e8f0f7;stroke:#356286}.later{fill:#f9ede4;stroke:#9a552a}</style>
+  <rect width="1200" height="910" fill="#fff"/>
+  <text x="34" y="42" class="heading">Project controls: 2010s–2025</text>
+  <text x="34" y="70" class="muted">Corrected authored interpretation · example supply forms, not measured market positions</text>
+  <circle cx="42" cy="108" r="7" fill="#356286"/><text x="59" y="114">2010s emphasis</text>
+  <rect x="247" y="101" width="14" height="14" fill="#9a552a"/><text x="274" y="114">2025 emphasis</text>
+  <text x="572" y="114" class="muted">Discussion need: a controls lead needs a credible delivery forecast</text>
+  <rect x="155" y="160" width="990" height="440" fill="#fafbf9" stroke="#d8dfdd"/>
+  <path d="M402.5 160V600 M650 160V600 M897.5 160V600" stroke="#d8dfdd" stroke-dasharray="4 5"/>
+  <path d="M155 160V600H1145" fill="none" stroke="#78857f" stroke-width="2"/>
+  <text x="31" y="195" class="small">More visible</text><text x="31" y="214" class="small">to the user</text>
+  <text x="31" y="551" class="small">Supporting</text><text x="31" y="570" class="small">infrastructure</text>
+  <text x="139" y="450" transform="rotate(-90 139 450)" class="label">Visibility / dependency context</text>
+  <text x="279" y="628" text-anchor="middle">Genesis</text><text x="526" y="628" text-anchor="middle">Custom-built</text>
+  <text x="774" y="628" text-anchor="middle">Product / rental</text><text x="1021" y="628" text-anchor="middle">Commodity / utility</text>
+  <text x="650" y="659" text-anchor="middle" class="label">Evolution →  (not time)</text>
+  <text x="184" y="213" class="muted">No automatic “new = genesis” placement.</text>
+  <text x="184" y="243" class="small muted">A local project model or integration may be custom.</text>
+  <text x="184" y="267" class="small muted">Specify the component before assigning a stage.</text>
+  <rect x="662" y="184" width="225" height="64" rx="5" class="earlier"/><circle cx="678" cy="204" r="6" fill="#356286"/>
+  <text x="691" y="208" class="small label">Project Management</text><text x="674" y="225" class="small label">Software</text><text x="674" y="241" class="small">Example: Microsoft Project</text>
+  <rect x="662" y="253" width="225" height="55" rx="5" class="earlier"/><circle cx="678" cy="273" r="6" fill="#356286"/>
+  <text x="691" y="277" class="label">Document Management</text><text x="674" y="297" class="small">Example: SharePoint</text>
+  <rect x="662" y="330" width="225" height="55" rx="5" class="later"/><rect x="672" y="344" width="12" height="12" fill="#9a552a"/>
+  <text x="692" y="355" class="label">AI-Powered Platforms</text><text x="674" y="375" class="small">Example: nPlan product</text>
+  <rect x="662" y="400" width="225" height="74" rx="5" class="later"/><rect x="672" y="414" width="12" height="12" fill="#9a552a"/>
+  <text x="692" y="425" class="label">Digital Project Twins</text><text x="674" y="446" class="small">Platform building blocks only;</text><text x="674" y="465" class="small">a local model is separate.</text>
+  <rect x="909" y="487" width="225" height="45" rx="5" class="earlier"/><circle cx="925" cy="505" r="6" fill="#356286"/>
+  <text x="938" y="510" class="small label">Basic Cloud Infrastructure</text><text x="921" y="525" class="small">Example: metered storage</text>
+  <rect x="909" y="545" width="225" height="45" rx="5" class="later"/><rect x="919" y="557" width="12" height="12" fill="#9a552a"/>
+  <text x="940" y="569" class="label">Cloud Services</text><text x="921" y="584" class="small">Example: metered storage</text>
+  <text x="183" y="352" class="muted">The two dates mark a change in emphasis.</text>
+  <text x="183" y="378" class="muted">They do not describe one replacement chain.</text>
+  <text x="183" y="429" class="small muted">No dependency lines: links were not established</text>
+  <text x="183" y="450" class="small muted">in the source. Heights are schematic grouping.</text>
+  <rect x="34" y="694" width="1111" height="190" rx="6" fill="#f5f6f3" stroke="#d8dfdd"/>
+  <text x="52" y="723" class="label">Retained, with evolution stage unassigned</text>
+  <text x="52" y="748" class="small muted">These functions and local arrangements need a specific service context; their labels do not establish maturity.</text>
+  <circle cx="58" cy="777" r="6" fill="#356286"/><text x="74" y="782" class="small label">2010s</text>
+  <text x="137" y="782">Schedule Management · Cost Management · Risk Registers · Manual Progress Reporting</text>
+  <text x="137" y="810">Siloed Data Storage · Basic Analytics · Manual Integration</text>
+  <rect x="52" y="834" width="12" height="12" fill="#9a552a"/><text x="74" y="846" class="small label">2025</text>
+  <text x="137" y="846">Automated Risk Management · Real-time Monitoring (IoT, Drones) · Unified Data Platform</text>
+</svg>

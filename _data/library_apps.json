@@ -269,8 +269,8 @@
     "id": "pm-software-evolution",
     "theme": "capabilities-and-futures",
     "title": "Follow the changing project-tool landscape",
-    "description": "Read a sourced timeline alongside an interpretation of software branches and convergences.",
-    "try_this": "Explore a branch or milestone, compare its description, and distinguish dated product events from broader trends.",
+    "description": "Read a sourced software timeline and a corrected 2010–2025 controls comparison, separating interpretation from evidence.",
+    "try_this": "Trace a milestone, then compare the controls diagram and inspect its placement assumptions.",
     "limitation": "Selected events and an interpretive arrangement; connections are not evidence of product inheritance or a forecast.",
     "url": "/library/apps/pm-software-evolution/",
     "image": "/images/library-apps/pm-software-evolution.jpg",
@@ -280,17 +280,24 @@
     "origin": "Claude",
     "original_model": "Sonnet 3.7",
     "original_notes": "",
-    "reviewed": "2 October 2026",
+    "reviewed": "3 October 2026",
     "order": 60,
-    "kind": "app"
+    "kind": "app",
+    "additional_sources": {
+      "revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+      "files": {
+        "web_apps/Project_Controls_2010-2025_Transformation.html": "d15ab8e78626e11f4973c18d275240449344f83ded748f4df76769ebfe407a66",
+        "other_apps/Project_Controls_2010-2025_Transformation.svg": "b45ae4b985a08d3153a0a3de449fd9a538525c4419b6282814e19226eaeb8e5f"
+      }
+    }
   },
   {
     "id": "market_timeline_explorer",
     "theme": "capabilities-and-futures",
     "title": "Imagine different project-services markets",
-    "description": "Explore a speculative scenario for how capabilities and business models could change.",
-    "try_this": "Move along the timeline and compare the market, services and implications at each imagined stage.",
-    "limitation": "Hypothetical future milestones and dates, not forecasts of AGI, ASI or market demand.",
+    "description": "Compare three dated, authored stories about project-services markets, including their fictional archetypes and strategic questions.",
+    "try_this": "Choose a story, move through its periods, and compare its assumptions with the alternatives.",
+    "limitation": "Preserved authored scenario narratives, not forecasts or evidence that a dated AGI, ASI or market event happened.",
     "url": "/library/apps/market_timeline_explorer/",
     "image": "/images/library-apps/market_timeline_explorer.jpg",
     "image_alt": "View of the imagine different project-services markets example",
@@ -299,9 +306,16 @@
     "origin": "ChatGPT",
     "original_model": "o3 Pro",
     "original_notes": "",
-    "reviewed": "2 October 2026",
+    "reviewed": "3 October 2026",
     "order": 70,
-    "kind": "app"
+    "kind": "app",
+    "additional_sources": {
+      "revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+      "files": {
+        "web_apps/AI_timeline_from_Gemini_25.html": "f9f157c04847d928741f1249e3a79412aba5b4108837325db25b18180dc4e7a5",
+        "web_apps/project-services-navigator.html": "00f233d01f2c7689001112a1b17d87c69ec909b9c6b655affaddd03e256a3960"
+      }
+    }
   },
   {
     "id": "risk-matrix",
@@ -1269,5 +1283,69 @@
       "web_apps/regulatory-benefits-pmo/modules/source-app-map.md": "c295cedeff937db27f8a2e3e39316174930936e5d8b426f38ed928a84e1ec8ba"
     },
     "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-health-and-benefits"
+  },
+  {
+    "id": "project-services-guide",
+    "theme": "capabilities-and-futures",
+    "title": "Shape a useful project service",
+    "description": "Turn a service option or use-case question into a scoped artefact, a human review and a testable measure.",
+    "try_this": "Compare an ordinary offer with an AI-assisted option, then inspect the evidence needed to know whether either helps.",
+    "limitation": "Design prompts and candidate measures, not a vendor catalogue, delivered capability or demonstrated performance.",
+    "order": 1060,
+    "url": "/library/apps/project-services-guide/",
+    "image": "/library/apps/project-services-guide/thumbnail.svg",
+    "image_alt": "Shape a useful project service diagram",
+    "original_id": "22",
+    "original_name": "consulting_catalogue",
+    "original_names": [
+      "consulting_catalogue",
+      "project_use_case_tree"
+    ],
+    "tags": "business_model, AI_adoption, consulting, use_cases",
+    "origin": "ChatGPT",
+    "original_model": "o3 Pro",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "kind": "app",
+    "build": "static",
+    "source_repository": "Project-web-apps",
+    "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+    "source_sha256": "131b45f68ed390abaa94c391aee450ddab2f065f5cb83331fd98e489304bb013",
+    "source_files": {
+      "web_apps/consulting_catalogue.html": "131b45f68ed390abaa94c391aee450ddab2f065f5cb83331fd98e489304bb013",
+      "web_apps/project_use_case_tree.html": "2a9725bf7acda8af1b12eb035232d8d52aa4f51405572fb18dd4cb00e898ffd1"
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-services-guide"
+  },
+  {
+    "id": "change-coordination",
+    "theme": "delivery-dynamics",
+    "title": "What makes concurrent change costly?",
+    "description": "Change the assumed cost curve, split the same work between teams, and count the interfaces that remain.",
+    "try_this": "Use three areas and three teams; increase the cost per cross-team pair until splitting costs more.",
+    "limitation": "Invented cost functions and equal-weight areas; no empirical capacity threshold or calibrated organisational model.",
+    "order": 1080,
+    "url": "/library/apps/change-coordination/",
+    "image": "/library/apps/change-coordination/thumbnail.svg",
+    "image_alt": "What makes concurrent change costly? diagram",
+    "original_id": "16",
+    "original_name": "concurrent_change_levels_amazon",
+    "original_names": [
+      "concurrent_change_levels_amazon"
+    ],
+    "tags": "change_management, Viable_systems_model, Ashbys_law, TOM, PMO",
+    "origin": "ChatGPT",
+    "original_model": "o3",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "kind": "app",
+    "build": "static",
+    "source_repository": "Project-web-apps",
+    "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+    "source_sha256": "446dbf1e42974acd6232a417d3d9a1b8ba6f7a3fdaf76142162387822adf884e",
+    "source_files": {
+      "web_apps/concurrent_change_levels_amazon.html": "446dbf1e42974acd6232a417d3d9a1b8ba6f7a3fdaf76142162387822adf884e"
+    },
+    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/change-coordination"
   }
 ]

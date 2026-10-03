@@ -418,7 +418,7 @@
   {
     "#": "15",
     "name": "pm-software-evolution",
-    "description": "Read a sourced timeline alongside an interpretation of software branches and convergences.",
+    "description": "Read a sourced software timeline and a corrected 2010–2025 controls comparison, separating interpretation from evidence.",
     "origin": "Claude",
     "model": "Sonnet 3.7",
     "tags": "timeline, knowledge_graph_dependencies, roadmap",
@@ -431,7 +431,7 @@
   {
     "#": "8",
     "name": "market_timeline_explorer",
-    "description": "Explore a speculative scenario for how capabilities and business models could change.",
+    "description": "Compare three dated, authored stories about project-services markets, including their fictional archetypes and strategic questions.",
     "origin": "ChatGPT",
     "model": "o3 Pro",
     "tags": "business_model, AI_adoption",
@@ -1103,5 +1103,83 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#benefits",
     "home": "Library · Data, evidence & assurance"
+  },
+  {
+    "#": "21",
+    "name": "AI_timeline_from_Gemini_25",
+    "description": "Compare three dated, authored stories about project-services markets, including their fictional archetypes and strategic questions.",
+    "origin": "Gemini",
+    "model": "Pro2.5",
+    "tags": "business_model, AI_adoption, AGI, behaviour, social_science",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/market_timeline_explorer/#gemini",
+    "home": "Library · Imagine different project-services markets"
+  },
+  {
+    "#": "24",
+    "name": "project-services-navigator",
+    "description": "Compare three dated, authored stories about project-services markets, including their fictional archetypes and strategic questions.",
+    "origin": "Claude",
+    "model": "Opus4",
+    "tags": "business_model, AI_adoption, AGI, behaviour, social_science",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/market_timeline_explorer/#navigator",
+    "home": "Library · Imagine different project-services markets"
+  },
+  {
+    "#": "22",
+    "name": "consulting_catalogue",
+    "description": "Turn a service option or use-case question into a scoped artefact, a human review and a testable measure.",
+    "origin": "ChatGPT",
+    "model": "o3 Pro",
+    "tags": "business_model, AI_adoption, consulting, use_cases",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-services-guide/#offers",
+    "home": "Library · Shape a useful project service"
+  },
+  {
+    "#": "18",
+    "name": "project_use_case_tree",
+    "description": "Turn a service option or use-case question into a scoped artefact, a human review and a testable measure.",
+    "origin": "ChatGPT",
+    "model": "o3",
+    "tags": "use_cases, project_management, AI_adoption, classification_tree, knowledge_graph",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-services-guide/#questions",
+    "home": "Library · Shape a useful project service"
+  },
+  {
+    "#": "16",
+    "name": "concurrent_change_levels_amazon",
+    "description": "Change the assumed cost curve, split the same work between teams, and count the interfaces that remain.",
+    "origin": "ChatGPT",
+    "model": "o3",
+    "tags": "change_management, Viable_systems_model, Ashbys_law, TOM, PMO",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/change-coordination/",
+    "home": "Library · What makes concurrent change costly?"
+  },
+  {
+    "#": "11",
+    "name": "Project_Controls_2010-2025_Transformation",
+    "description": "Read a sourced software timeline and a corrected 2010–2025 controls comparison, separating interpretation from evidence.",
+    "origin": "Claude",
+    "model": "Sonnet3.7",
+    "tags": "svg, project_controls, Wardley_map, business_model",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/pm-software-evolution/#controls-transformation",
+    "home": "Library · Follow the changing project-tool landscape"
   }
 ]
