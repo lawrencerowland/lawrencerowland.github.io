@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{JSDOM}=require('../tools/library-apps/node_modules/jsdom');
 const root=path.resolve(__dirname,'..'),site=process.argv[2]?path.resolve(process.argv[2]):root,read=p=>fs.readFileSync(path.join(root,p),'utf8'),json=p=>JSON.parse(read(p));
 const apps=json('_data/library_apps.json'),listing=json('assets/data/library-apps.json'),specialists=json('assets/data/specialist-apps.json'),p=json('tests/fixtures/app-migration/provenance.json').phase_seven;
-assert.equal(apps.length,52);assert.equal(listing.length,52);assert.equal(apps.length+json('_data/library_materials.json').length,74);
+assert.equal(apps.length,52);assert.equal(listing.length,52);assert.equal(apps.length+json('_data/library_materials.json').length,75);
 assert.equal(specialists.length,101);assert.ok(apps.some(a=>a.id==='contract-portfolio-board'));assert.equal(p.base_revision,'459efda24b673a1e50b33cfd4347ffa5928817d9');
 const expected={'market_timeline_explorer':['AI_timeline_from_Gemini_25','project-services-navigator'],'project-services-guide':['consulting_catalogue','project_use_case_tree'],'change-coordination':['concurrent_change_levels_amazon'],'pm-software-evolution':['Project_Controls_2010-2025_Transformation']};
 for(const[id,names]of Object.entries(expected)){
@@ -17,4 +17,4 @@ for(const[id,names]of Object.entries(expected)){
 }
 const before=read('tests/fixtures/app-migration/Project-web-apps-phase-seven-before.csv'),after=read('tests/fixtures/app-migration/Project-web-apps-phase-seven-after.csv');assert.equal(before.split(/\r?\n/).slice(1).filter(Boolean).length,9);assert.equal(after.split(/\r?\n/).slice(1).filter(Boolean).length,3);assert.equal(before.split(/(?<=\n)/).filter(line=>!p.removed_names.includes(line.split(',')[1])).join(''),after);
 assert.deepEqual(new Set(p.removed_names),new Set(Object.values(expected).flat()));
-console.log('PASS: six source identities in four homes; two new pictured cards, two enriched existing examples;52 Library apps /74 peers; exact9→3 retirement'+(process.argv[2]?'; rendered links.':'.'));
+console.log('PASS: six source identities in four homes; two new pictured cards, two enriched existing examples;52 Library apps /75 peers; exact9→3 retirement'+(process.argv[2]?'; rendered links.':'.'));
