@@ -55,12 +55,10 @@ APP=pm-software-evolution node node_modules/vite/bin/vite.js build
 
 Passed both meaningful interaction tests: the existing test covers keyboard milestone detail/source, mobile-category filtering, clearing stale details, and cross-category linked selection restoring the visible node. A regression additionally follows ClickUp (2017) ↔ Low-Code PM (2019), with Notion (2018) also incoming, to ensure directed relationship labels do not misstate calendar order. The former “Related earlier/later entries” headings now read “Incoming/outgoing proposed relationships”, with a visible explanation that direction is not chronology. The comparison adds native links and disclosure, not a new simulated model or stateful interaction.
 
-Isolated headless Chrome reviewed the generated production output on 3 October 2026:
+Integration browser review used the Codex in-app browser on the production output:
 
-- Keyboard selects Jira Agile details, filters to Mobile PM, follows Trello and restores All Categories.
-- Keyboard jump reaches `#controls-transformation`; disclosure opens with Enter.
-- All sixteen component labels appear in the text equivalent; readable SVG opens successfully.
-- Desktop SVG was visually inspected and label/axis collisions repaired.
-- At 390 px the document width remains 390 px; the diagram scrolls within its 348 px region, with all content also available in text. No page JavaScript errors.
-
-Temporary local evidence: `/private/tmp/phase7-history-browser.json`, `/private/tmp/phase7-history-diagram.png`, `/private/tmp/phase7-history-mobile.png`. The temporary browser harness is `/private/tmp/phase7-history-browser.cjs`. These checks establish rendering and interaction, not historical/empirical validation. Deployment is checked by the root task after integration.
+- Milestone selection exposes Jira Agile's source and related entries; category filtering leaves the four Agile entries and restores the full timeline.
+- Related-entry navigation follows Jira Agile back to Jira (Early).
+- The named comparison link reaches the corrected picture and its complete sixteen-component text equivalent.
+- At 390 px the document width remains 390 px. The 1000 px diagram pans inside its 348 px region; a text alternative and standalone SVG link remain available.
+- No page JavaScript errors were reported. Rendering and interaction checks do not establish historical/empirical validation or deployment; the final PR build and publication are separate checks.
