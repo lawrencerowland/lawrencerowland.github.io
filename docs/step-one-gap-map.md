@@ -6,8 +6,8 @@ Reviewed 2 October 2026. Receiving route: `/gap-map.html`, Library **Capabilitie
 
 The two original implementations are pinned to Project-web-apps revision `72e90ed92af79205776ceac87b1d81136f85e4ec`:
 
-- [pm_gap_map.html](https://github.com/lawrencerowland/Project-web-apps/blob/72e90ed92af79205776ceac87b1d81136f85e4ec/web_apps/pm_gap_map.html): simple nested reading list, domain selection, 13 gaps / 18 capabilities / 15 placeholder resources.
-- [gap_map_gemini.html](https://github.com/lawrencerowland/Project-web-apps/blob/72e90ed92af79205776ceac87b1d81136f85e4ec/web_apps/gap_map_gemini.html): richer descriptions, three categories, keyword/domain filters, nested links, selectable/draggable graph and help.
+- `lawrencerowland/Project-web-apps@72e90ed92af79205776ceac87b1d81136f85e4ec:web_apps/pm_gap_map.html`: simple nested reading list, domain selection, 13 gaps / 18 capabilities / 15 placeholder resources.
+- `lawrencerowland/Project-web-apps@72e90ed92af79205776ceac87b1d81136f85e4ec:web_apps/gap_map_gemini.html`: richer descriptions, three categories, keyword/domain filters, nested links, selectable/draggable graph and help.
 - Receiving baseline: website `e159c23f26941f86167b3e28ebe7b8a7e5d37e63`, already including framing/history concepts, hypothesis generation/testing, zoom, selection, dynamic app resources and the background article.
 
 The result has **13 gaps, 23 capabilities, 18 guidance resources**, 47 gap→capability and 42 static capability→resource relationships. Dynamic catalogue examples add resources and suggested relationships; their count changes with the maintained feeds. No browser data is read or written.

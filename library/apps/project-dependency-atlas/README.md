@@ -1,19 +1,21 @@
 # Project Dependency Atlas
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-dependency-atlas).
+
 A bounded Library worked example in **Delivery dynamics & feedback**. A hypothetical viaduct team traces handoffs between phases; a hypothetical portfolio team compares dates across programmes. Phase/gate edge bundles and faceted timelines answer different questions. The app does not join the two datasets into a scheduling model.
 
 Open `index.html` directly or serve this folder. There is no build step, font service, CDN, runtime package or third-party chart dependency. The pictured entrance is `thumbnail.svg`, drawn from the retained Pennine graph and portfolio timeline data.
 
 ## Pinned source and complete retention
 
-- Repository: [Project-web-apps](https://github.com/lawrencerowland/Project-web-apps).
+- Repository: `lawrencerowland/Project-web-apps` (historical repository).
 - Source commit: `8221f32b398d582801e639b5460aa674805f1671`.
-- Source file: [`web_apps/project-dependency-atlas.html`](https://github.com/lawrencerowland/Project-web-apps/blob/8221f32b398d582801e639b5460aa674805f1671/web_apps/project-dependency-atlas.html).
+- Source file: `lawrencerowland/Project-web-apps@8221f32b398d582801e639b5460aa674805f1671:web_apps/project-dependency-atlas.html`.
 - Git blob: `abe993f88bdc34492f67cbcc50f96f0652ae9d7b`.
 - Original file SHA-256: `b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1`.
 - Canonical retained-data SHA-256: `761d351004ed7824bc875e556460ce4c704adee2fde931171f5d88656f6964f7`. This hashes UTF-8 `JSON.stringify({bundles: SCENARIOS, timelines: TIMELINE_SCENARIOS, sourceDate: "2026-03-25"})`, independently evaluated from the pinned source.
 - No matching TSX was found in the source or receiver checkout, or the available React retirement checkout. This migration's source is the HTML app.
-- Original repository license: [CC0 1.0](https://github.com/lawrencerowland/Project-web-apps/blob/8221f32b398d582801e639b5460aa674805f1671/LICENSE). No D3 code or other dependency has been vendored.
+- Original repository license: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), recorded from `Project-web-apps@8221f32b398d582801e639b5460aa674805f1671:LICENSE`. No D3 code or other dependency has been vendored.
 
 `data.js` preserves both source objects, including every node, hierarchy group, directed edge, original phase colour, timeline facet, task, date, status, milestone, metadata label and insight text. The display palette changes for the light Library design; original colours remain in data and the reference export. All names are historical toy-scenario names, including real organisation/programme names. They are not claims about real project activity in March 2026 or today.
 

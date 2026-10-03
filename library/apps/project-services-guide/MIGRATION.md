@@ -1,5 +1,7 @@
 # Project service design guide — migration record
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-services-guide).
+
 Reviewed 3 October 2026. One home in **Capabilities & futures**. This guide asks what a service could produce and how a bounded trial could be judged. The options are editorial proposals, not a supplier catalogue or claims of current delivery.
 
 ## Sources and route map
@@ -11,7 +13,7 @@ Both source HTML files were read in full at Project-web-apps revision `459efda24
 | `web_apps/consulting_catalogue.html` (catalogue ID 22) | `131b45f68ed390abaa94c391aee450ddab2f065f5cb83331fd98e489304bb013` | `/library/apps/project-services-guide/#offers` |
 | `web_apps/project_use_case_tree.html` (catalogue ID 18) | `2a9725bf7acda8af1b12eb035232d8d52aa4f51405572fb18dd4cb00e898ffd1` | `/library/apps/project-services-guide/#questions` |
 
-Pinned originals: [catalogue](https://github.com/lawrencerowland/Project-web-apps/blob/459efda24b673a1e50b33cfd4347ffa5928817d9/web_apps/consulting_catalogue.html), [tree](https://github.com/lawrencerowland/Project-web-apps/blob/459efda24b673a1e50b33cfd4347ffa5928817d9/web_apps/project_use_case_tree.html). Source-repository retirement and redirects are managed by the parent integration task; this record does not independently establish their publication.
+Historical source identities: `lawrencerowland/Project-web-apps@459efda24b673a1e50b33cfd4347ffa5928817d9:web_apps/consulting_catalogue.html`, `lawrencerowland/Project-web-apps@459efda24b673a1e50b33cfd4347ffa5928817d9:web_apps/project_use_case_tree.html`. Source-repository retirement and redirects are managed by the parent integration task; this record does not independently establish their publication.
 
 The source catalogue has seven typical and eight AI-enabled offerings. The tree has eight headings with 4, 3, 3, 3, 3, 3, 2 and 2 ideas, totalling 23. All 15 options, eight headings and 23 idea identities have a maintained equivalent. Editorial reframing is explicit below.
 

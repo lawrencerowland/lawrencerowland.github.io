@@ -1,5 +1,7 @@
 # Find the queue in a waste route
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/waste-route-capacity).
+
 Reviewed 3 October 2026. Library subject: **Delivery dynamics**. Canonical route: `/library/apps/waste-route-capacity/`.
 
 This is a fictional capacity and queue experiment. It is not a digital twin, facility model, waste-acceptance assessment, hazard forecast or operational recommendation. No measured input is supplied. Open `index.html`; it has no external scripts, build step, storage, network requests or export/import state to migrate.
@@ -45,7 +47,7 @@ The base seed is an unsigned 32-bit integer, using a fixed Mulberry32-style PRNG
 
 ## Historical inventory example disposition
 
-The old SIXEP/2X26 preset and its README mixed a claimed 38 m³/year inventory figure with fictional capacities. The exact inventory edition, page and conversion basis were not verified for this migration. **No historical quantity, route permission, waste-acceptance claim, site capacity or calibration is retained as fact.** The new small-flow preset is wholly fictional and deliberately uses simple rounded values. The original claim remains inspectable only in the pinned predecessor source below; it is not evidence for this app.
+The old SIXEP/2X26 preset and its README mixed a claimed 38 m³/year inventory figure with fictional capacities. The exact inventory edition, page and conversion basis were not verified for this migration. **No historical quantity, route permission, waste-acceptance claim, site capacity or calibration is retained as fact.** The new small-flow preset is wholly fictional and deliberately uses simple rounded values. The historical source identity is recorded below, and this disposition records why the claim was removed; it is not evidence for this app.
 
 ## Hazard Morphospace disposition
 
@@ -59,8 +61,8 @@ The replacement preserves the three distinct dimensions, the need to interpret d
 
 Read-only predecessor revision: `9eb0973712a2d096c0642754ab238f7be7af41b1` in `lawrencerowland/Project-web-apps`:
 
-- [Waste Route & Capacity Digital Twin HTML](https://github.com/lawrencerowland/Project-web-apps/blob/9eb0973712a2d096c0642754ab238f7be7af41b1/web_apps/waste-route-capacity-digital-twin.html)
-- [Its README and inventory claim](https://github.com/lawrencerowland/Project-web-apps/blob/9eb0973712a2d096c0642754ab238f7be7af41b1/web_apps/waste-route-capacity-digital-twin.README.md)
-- [Hazard Morphospace HTML](https://github.com/lawrencerowland/Project-web-apps/blob/9eb0973712a2d096c0642754ab238f7be7af41b1/web_apps/hazard_morphospace.html)
+- `lawrencerowland/Project-web-apps@9eb0973712a2d096c0642754ab238f7be7af41b1:web_apps/waste-route-capacity-digital-twin.html`
+- `lawrencerowland/Project-web-apps@9eb0973712a2d096c0642754ab238f7be7af41b1:web_apps/waste-route-capacity-digital-twin.README.md`
+- `lawrencerowland/Project-web-apps@9eb0973712a2d096c0642754ab238f7be7af41b1:web_apps/hazard_morphospace.html`
 
 This migration follows sections 4 and 12 of the 2 October 2026 planning/state-space audit. It rewrites the executable and preserves useful mechanisms, not unsupported claims. `model.js` contains the inspectable queue model; `app.js` provides the controls/charts; `tests/phase-two-waste.test.cjs` checks conservation, empty cases, rework accounting, FIFO, outages, reproducibility, bounds and UI behavior. Browser/deployment evidence belongs in the parent migration receipt; these files alone do not claim deployment or human validation.

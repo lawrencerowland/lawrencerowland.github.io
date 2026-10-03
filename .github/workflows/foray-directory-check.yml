@@ -22,6 +22,12 @@ on:
       - 'counterfactuals/**'
       - 'library/methods/**'
       - 'React_proj-apps/**'
+      - 'Project-web-apps/**'
+      - 'more-project-apps/**'
+      - 'tools/legacy-apps/**'
+      - '_data/legacy_app_routes.json'
+      - 'tests/legacy-app-routes.test.cjs'
+      - 'tests/handover-pack.test.cjs'
       - '_data/library_*.json'
       - '_data/wider_interest.json'
       - 'images/library-apps/**'
@@ -106,6 +112,12 @@ on:
       - 'counterfactuals/**'
       - 'library/methods/**'
       - 'React_proj-apps/**'
+      - 'Project-web-apps/**'
+      - 'more-project-apps/**'
+      - 'tools/legacy-apps/**'
+      - '_data/legacy_app_routes.json'
+      - 'tests/legacy-app-routes.test.cjs'
+      - 'tests/handover-pack.test.cjs'
       - '_data/library_*.json'
       - '_data/wider_interest.json'
       - 'images/library-apps/**'
@@ -251,6 +263,10 @@ jobs:
           node tests/navigation-compatibility.test.cjs
       - name: Check site tree, Social Debt and all wider-interest app repairs
         run: node --test tests/site-tree.test.cjs tests/social-debt-migration.test.cjs tests/wider-history.test.cjs tests/wider-math-play.test.cjs
+      - name: Check the handover pack and central bookmark routes
+        run: |
+          node --test tests/handover-pack.test.cjs tests/legacy-app-routes.test.cjs
+          node tools/legacy-apps/generate.cjs --check
       - name: Check visual explorer catalogue and discovery
         run: node tests/visual-explorer.test.cjs
       - name: Check nine Gimmer models and comparison contracts
@@ -304,6 +320,8 @@ jobs:
           node tests/site-tree.test.cjs _site
           node tests/wider-history.test.cjs _site
           node tests/social-debt-migration.test.cjs _site
+          node tests/legacy-app-routes.test.cjs _site
+          node tests/handover-pack.test.cjs _site
       - name: Check the rendered visual explorer
         run: node tests/visual-explorer.test.cjs _site
       - name: Check rendered Library app routes

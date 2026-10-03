@@ -1,0 +1,13 @@
+FICTIONAL TEACHING EVIDENCE — NO ENGINEERING VERIFICATION PERFORMED
+Crag Ridge Mountain Refuge, Stage 1 concept exercise
+Version: 0.1; illustrative date: 2026-02-01
+
+The invented concept is a small refuge at North Spur Crag.
+Structural loads, ground conditions, access and evacuation remain unverified.
+Snow-load assumptions need local data and competent engineering review.
+Helicopter component limits need an agreed aircraft and operator assessment.
+Any proposed fixed-line access anchors need a site survey and design review.
+Environmental effects and permissions have not been assessed.
+
+This file tests whether bytes match a recorded SHA-256 digest. Its presence
+and its hash do not turn these open questions into completed checks.

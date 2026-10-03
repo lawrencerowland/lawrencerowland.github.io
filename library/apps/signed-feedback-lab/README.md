@@ -1,17 +1,19 @@
 # Signed feedback lab
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/signed-feedback-lab).
+
 A bounded Library example for **Delivery dynamics & feedback** (`delivery-dynamics`). Open `index.html`; it uses local HTML, CSS and JavaScript with no runtime dependency or build step. The diagram and thumbnail are native SVG.
 
 The entrance is a small, explicitly assumed project scenario: review pressure requests rework; correction reduces review pressure; rework reveals evidence gaps; those gaps trigger further review. Signals are dimensionless deviations from a baseline, not quantities of actual work. This is not a calibrated project or nuclear governance simulator.
 
 ## Source and preservation
 
-Reviewed source: [`lawrencerowland/Project-web-apps` at `8221f32b398d582801e639b5460aa674805f1671`](https://github.com/lawrencerowland/Project-web-apps/tree/8221f32b398d582801e639b5460aa674805f1671), 3 October 2026. The source repository's `LICENSE` is CC0 1.0 Universal. No matching TSX/JSX version was present.
+Reviewed source: `lawrencerowland/Project-web-apps@8221f32b398d582801e639b5460aa674805f1671`, 3 October 2026. The source repository's `LICENSE` is CC0 1.0 Universal. No matching TSX/JSX version was present.
 
 | Original | SHA-256 | Receiving treatment |
 | --- | --- | --- |
-| [`web_apps/SMR_governance_simulator.html`](https://github.com/lawrencerowland/Project-web-apps/blob/8221f32b398d582801e639b5460aa674805f1671/web_apps/SMR_governance_simulator.html) | `1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654` | Three-state/four-link model and useful interactions reimplemented here; original HTML remains available at its pinned source, not as a duplicate runtime. |
-| [`web_apps/SMR_governance_simulator_av.dot`](https://github.com/lawrencerowland/Project-web-apps/blob/8221f32b398d582801e639b5460aa674805f1671/web_apps/SMR_governance_simulator_av.dot) | `9ed272b8d9d47fbeae74cbb12375d886a546ecc5c681b6f0adcfb1f5953048a6` | Preserved byte-for-byte as [`original-governance-av.dot`](original-governance-av.dot), linked for download. |
+| `lawrencerowland/Project-web-apps@8221f32b398d582801e639b5460aa674805f1671:web_apps/SMR_governance_simulator.html` | `1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654` | Three-state/four-link model and useful interactions reimplemented here; the historical identity and hash record the reviewed HTML; no duplicate runtime or predecessor archive is retained. |
+| `lawrencerowland/Project-web-apps@8221f32b398d582801e639b5460aa674805f1671:web_apps/SMR_governance_simulator_av.dot` | `9ed272b8d9d47fbeae74cbb12375d886a546ecc5c681b6f0adcfb1f5953048a6` | Preserved byte-for-byte as [`original-governance-av.dot`](original-governance-av.dot), linked for download. |
 
 The “Original governance labels” preset retains Regulator, Operator, Oversight; initial values `[1, 0.2, 0]`; gains `[0.35, -0.25, 0.20, 0.30]`; and Licence conditions, Incident reports, Parliamentary pressure, Transparency metrics. The default delivery preset changes labels only. Node IDs (`Reg`, `Op`, `Ov`) and link IDs remain stable for data interchange.
 

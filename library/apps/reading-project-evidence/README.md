@@ -1,5 +1,7 @@
 # Reading claims from project text
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/reading-project-evidence).
+
 Reviewed 3 October 2026. Library home: **Data, evidence & assurance**.
 
 Two historical examples share a methodological question: what justifies the step from text to a theme, stance or intention? Their separate datasets are not pooled into a research finding. Neither supplies a new foray End; both are useful worked examples for inspecting interpretations and their limits.
@@ -25,8 +27,8 @@ Both originals: `lawrencerowland/Project-web-apps`, revision `cd0528939fd0e1f5de
 
 | Original file | SHA-256 |
 |---|---|
-| [grounded-theory-approach.html](https://github.com/lawrencerowland/Project-web-apps/blob/cd0528939fd0e1f5de1df7cda9930785349e4946/web_apps/grounded-theory-approach.html) | `2c0a689f5f8fd8a30df1045eb27072452b9448fff4966fadb2fe777551b5aecd` |
-| [legends_tower_sentiment_report.html](https://github.com/lawrencerowland/Project-web-apps/blob/cd0528939fd0e1f5de1df7cda9930785349e4946/web_apps/legends_tower_sentiment_report.html) | `af49f45e50a1de174715eb71397accffeedc4f4ec6e9bf99ba992f7d4b254ef1` |
+| `lawrencerowland/Project-web-apps@cd0528939fd0e1f5de1df7cda9930785349e4946:web_apps/grounded-theory-approach.html` | `2c0a689f5f8fd8a30df1045eb27072452b9448fff4966fadb2fe777551b5aecd` |
+| `lawrencerowland/Project-web-apps@cd0528939fd0e1f5de1df7cda9930785349e4946:web_apps/legends_tower_sentiment_report.html` | `af49f45e50a1de174715eb71397accffeedc4f4ec6e9bf99ba992f7d4b254ef1` |
 
 Method references: [Diehl et al., *Studying Visualization Guidelines According to Grounded Theory* (2020)](https://arxiv.org/abs/2010.09040), an example of an explicit research process rather than a claim that this prototype followed it; [TextBlob sentiment documentation](https://textblob.readthedocs.io/en/stable/quickstart.html#sentiment-analysis), distinguishing polarity and subjectivity. No additional private corpus was accessed or published.
 

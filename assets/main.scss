@@ -668,6 +668,9 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-three-doors { padding-top:60px; padding-bottom:60px; }
 .pw-three-doors .pw-home-question-copy { padding:22px 25px 27px; }
 .pw-three-doors .pw-home-question h2 { margin:0; font-size:30px; }
+.pw-home .pw-home-field-notes { max-width:680px; margin:44px auto 0; background:#f8f6ef; border-radius:6px; }
+.pw-field-notes-labels { display:flex; justify-content:space-between; padding:14px 6% 0; color:#294c40; font:400 clamp(18px,2vw,22px)/1.4 Georgia,serif; }
+.pw-home-field-notes img { display:block; width:100%; height:auto; }
 .pw-atlas-mosaic { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:18px; }
 .pw-atlas-mosaic img { position:static; min-height:0; max-height:100%; background:#fffdf8; }
 .pw-library-additional { border-top:1px solid var(--pw-line); padding-top:34px; margin:48px 0 28px; }

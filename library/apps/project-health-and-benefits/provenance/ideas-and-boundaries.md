@@ -10,7 +10,7 @@ The three gap definitions remain distinct. Capability concerns resources, skills
 
 ## A record is not the evidence it names
 
-The historical [Health Atlas roadmap](https://github.com/lawrencerowland/Project-web-apps/blob/7888f8a85aa9121e99190d392a622a4ee0cd4a7e/docs/project-health-atlas-roadmap.md) proposed a “proof bundle” with three useful ingredients:
+The historical `lawrencerowland/Project-web-apps@7888f8a85aa9121e99190d392a622a4ee0cd4a7e:docs/project-health-atlas-roadmap.md` proposed a “proof bundle” with three useful ingredients:
 
 - **Acceptance artifact:** a retained result of a specified check, together with what that check did and did not establish.
 - **Rule receipt:** a record of declared rules, inputs, versions and results, including conditions that were not met.
@@ -20,7 +20,7 @@ Those ideas do not make a bundle proof of a decision’s quality. A hash identif
 
 As an external conceptual reference, [W3C’s PROV overview](https://www.w3.org/TR/prov-overview/) describes provenance through the entities, activities and people involved in producing something, and identifies interoperable representations of that information. This app does not implement PROV. Its versioned snapshots preserve toy inputs and recomputable results, not verified documents, an immutable ledger, a signature or a provenance graph.
 
-The roadmap also favoured keeping the visual front door simple and detailed explanations inspectable on demand. Those choices are retained. Its proposed rule engines, automatic evidence collection, signed bundles, governance roll-ups, exports to enterprise systems and phased delivery commitments were never implemented in either source app. They are not imposed as a new research or product roadmap. The original specification remains recoverable at the pinned Git link.
+The roadmap also favoured keeping the visual front door simple and detailed explanations inspectable on demand. Those choices are retained. Its proposed rule engines, automatic evidence collection, signed bundles, governance roll-ups, exports to enterprise systems and phased delivery commitments were never implemented in either source app. They are not imposed as a new research or product roadmap. The predecessor revision and hash are recorded in the [README](../README.md); this note retains the useful ideas and their limits without keeping the obsolete specification.
 
 ## Eight source lenses, without an integration claim
 
@@ -35,7 +35,7 @@ The roadmap also favoured keeping the visual front door simple and detailed expl
 | Intent field navigator | Ask how benefits relate to intentions | A live CSV intent-mapping pipeline |
 | Interface maturity simulator | Ask about interfaces separately | Coupled propagation between interface states |
 
-The original PMO README and source-app map used broader language such as integration, instantiation and spillover. The live source-lens view provides current links and the narrower, implemented relationship. The full original wording is recoverable from the source identities in the [README](../README.md). The three original seed files remain exact downloads; they were never runtime inputs to the source page.
+The original PMO README and source-app map used broader language such as integration, instantiation and spillover. The live source-lens view provides current links and the narrower, implemented relationship. The historical source identities and hashes remain in the [README](../README.md); the correction ledger describes what was retained and retired. The three original seed files remain exact downloads; they were never runtime inputs to the source page.
 
 ## What this example can and cannot answer
 

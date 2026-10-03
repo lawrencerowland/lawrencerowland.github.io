@@ -1,10 +1,12 @@
 # Regulatory Negotiation Rehearsal
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/regulatory-rehearsal).
+
 A bounded coalition and attribution example for **Decisions & trade-offs**. Seven parties explore a hypothetical nuclear-site work package in England. Switching levers changes four outcome scores, which define coalition worth. Exact Shapley contributions, a coalition-core diagnostic, an illustrative consent index and a separate working-group comparison answer different questions. None determines a consent, permit, agreed payment, safety conclusion or legal position.
 
 ## Provenance and preservation
 
-Reviewed and rebuilt 3 October 2026 from [Project-web-apps, `regulatory-negotiation-rehearsal-board.html`, commit `676cbc7`](https://github.com/lawrencerowland/Project-web-apps/blob/676cbc7/web_apps/regulatory-negotiation-rehearsal-board.html). Original packaged file SHA-256: `3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21`. The gzip single-file wrapper was decoded and the complete 1,522-line HTML inspected, including data, numerical functions, rendering and handlers. This successor uses local HTML, CSS and JavaScript with no runtime package or network dependency and no decompression requirement. Source data are in `data.js`, mathematical rules in `model.js`, browser interaction in `app.js`.
+Reviewed and rebuilt 3 October 2026 from `lawrencerowland/Project-web-apps@676cbc7:web_apps/regulatory-negotiation-rehearsal-board.html`. Original packaged file SHA-256: `3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21`. The gzip single-file wrapper was decoded and the complete 1,522-line HTML inspected, including data, numerical functions, rendering and handlers. This successor uses local HTML, CSS and JavaScript with no runtime package or network dependency and no decompression requirement. Source data are in `data.js`, mathematical rules in `model.js`, browser interaction in `app.js`.
 
 The original had **no localStorage/sessionStorage keys**, no remote calls and no external runtime dependencies. Its import/export JSON is the compatibility surface.
 

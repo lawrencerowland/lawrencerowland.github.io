@@ -1,5 +1,7 @@
 # Portfolio scenario loom
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/portfolio-scenario-loom).
+
 A maintained Library example in **Capabilities & futures**. A fictional technology portfolio considers an architecture freeze, pilot launch and scale decision while authored policy, market and technology assumptions overlap. The app exposes the assumptions' signed effects at each milestone and compares a changed scenario selection.
 
 Open `index.html` directly or serve this directory. It uses local HTML, CSS, JavaScript and SVG, with no build, runtime package, external font or network request. Canonical home: `https://lawrencerowland.github.io/library/apps/portfolio-scenario-loom/`. Its return route is `/library/methods/capabilities-and-futures.html`.
@@ -8,11 +10,11 @@ The indices are dimensionless. They are **not probabilities, money, schedule for
 
 ## Source and retention
 
-Source: [`lawrencerowland/Project-web-apps`, revision `7888f8a85aa9121e99190d392a622a4ee0cd4a7e`](https://github.com/lawrencerowland/Project-web-apps/tree/7888f8a85aa9121e99190d392a622a4ee0cd4a7e), [`web_apps/portfolio_loom.html`](https://github.com/lawrencerowland/Project-web-apps/blob/7888f8a85aa9121e99190d392a622a4ee0cd4a7e/web_apps/portfolio_loom.html).
+Source: `lawrencerowland/Project-web-apps@7888f8a85aa9121e99190d392a622a4ee0cd4a7e`, `lawrencerowland/Project-web-apps@7888f8a85aa9121e99190d392a622a4ee0cd4a7e:web_apps/portfolio_loom.html`.
 
 Original HTML SHA-256: `a2ed9793665e223e132496f3d63e510c5124d1b6283bcb61b5d35c17cee1631d`.
 
-The entire HTML, including its calculations, interaction handlers and three explainers, was read. `data.js` retains all **12 scenario names and IDs, types, base window dates, strength values, six signed effects, three declared lagged links, default weights, original four-item selection, three milestone offsets and 12 prompt rules**. The original source remains recoverable from its pinned Git revision.
+The entire HTML, including its calculations, interaction handlers and three explainers, was read. `data.js` retains all **12 scenario names and IDs, types, base window dates, strength values, six signed effects, three declared lagged links, default weights, original four-item selection, three milestone offsets and 12 prompt rules**. The original revision and hashes record that comparison; this maintained data and the correction ledger are the retained evidence.
 
 An independent execution of the original seed and rule declarations in UTC produces the same retained-data SHA-256 as `JSON.stringify({library:seed.library,selected:seed.selected,milestones:seed.milestones,rules})`: `ce5f632f17d7d9ad5ad6c6d62893cd0ed812e16366a7acf644593b79b85d1c41`. Random original milestone IDs are normalised to `m1`, `m2`, `m3` for this comparison. The source's intended calendar offsets are retained; accidental timezone-dependent shifts from mixing local setters and UTC serialisation are corrected.
 

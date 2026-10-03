@@ -1,0 +1,1152 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "repository": "Project-web-apps",
+      "revision": "1198cadebe04b2f2b21ac1f226c22ff987df55b7",
+      "html_files": 85
+    },
+    {
+      "repository": "more-project-apps",
+      "revision": "25f3957dd779d9633d7cf839bce3b85a72e1ff2c",
+      "html_files": 2
+    }
+  ],
+  "routes": [
+    {
+      "path": "/Project-web-apps/index.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "ea073b01574c31cb44e1a5e870e20a887b4a5d5955327f388aece1a46bb19ac6",
+      "title": "Project apps have moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library.html",
+      "query_destination": "https://lawrencerowland.github.io/all-project-apps.html"
+    },
+    {
+      "path": "/Project-web-apps/web_apps/3D_Construction_Workflow.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "7d11720112fdde8c48808bcea60b56090bf8a014ec6073b25b0e1c9a4e644a1b",
+      "title": "Construction animation — retired",
+      "kind": "retired",
+      "name": "3D_Construction_Workflow",
+      "destination": "https://lawrencerowland.github.io/library/methods/delivery-dynamics.html",
+      "reason": "The moving shapes did not model the construction or resource relationships its controls implied. The animation was retired rather than presented as a working project model.",
+      "registry_metadata": {
+        "reason": "Retired: the animated display did not model the construction or resource relationships its controls implied."
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/AI_timeline_from_Gemini_25.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "a6f718d18aa3f02124411280b4ec11a6ab612d3c4ea94fa5271a989c55e96839",
+      "title": "Imagine different project-services markets",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/market_timeline_explorer/#gemini",
+      "name": "AI_timeline_from_Gemini_25",
+      "registry_metadata": {
+        "home": "Library · Imagine different project-services markets",
+        "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+        "source_sha256": "f9f157c04847d928741f1249e3a79412aba5b4108837325db25b18180dc4e7a5"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/Graph to sharp.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "b788d5ac60672d7d4461df0f7ea28c679515898041fda52c6a83766afb201c6f",
+      "title": "Graph to sharp — moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-graph-views/",
+      "name": "Graph to sharp",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/Graph-sharp1.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "3c5cfff646197d4990f99fe8d76792ca6d7b627875c4e9a7af523b514611f8f0",
+      "title": "Graph-sharp1 — moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-graph-views/",
+      "name": "Graph-sharp1",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/HS2-elite.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "1a0368dbfb9723eadea4ce578de60fc16c940514e22646de63900845a3ee6acf",
+      "title": "HS2 Elite",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/wider-interest/hs2-elite/",
+      "name": "HS2-elite",
+      "registry_metadata": {
+        "home": "Wider interest",
+        "source_revision": "5c22c99719ea0a7940aac47574fd0cb8511a4b79",
+        "source_sha256": "fe7f0568c39e97407dd360d77d78d555abe23b19d38e9cd99576dc704630a2b3"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/Project_Controls_2010-2025_Transformation.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "d3db7661f6fade614df011877dd2ac73e323233aa7693689ce5787e6513f0d84",
+      "title": "Follow the changing project-tool landscape",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/pm-software-evolution/#controls-transformation",
+      "name": "Project_Controls_2010-2025_Transformation",
+      "registry_metadata": {
+        "home": "Library · Follow the changing project-tool landscape",
+        "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+        "source_sha256": "d15ab8e78626e11f4973c18d275240449344f83ded748f4df76769ebfe407a66"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/Project_Data_standard_example.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "21b97e4cd73c3500299c1a0fadc4df82912f93112a11ab8330b89f95068a3d0a",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-data-standard/",
+      "name": "Project_Data_standard_example",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/Project_Decision_Framing_Tool.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "39e30ef47f9dd8203d4e3c787d236ba7da32aaf329bd7c6271930288daa1bad1",
+      "title": "Project_Decision_Framing_Tool — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/Programme-decision-sequences/apps/project-framing/",
+      "name": "Project_Decision_Framing_Tool",
+      "registry_metadata": {
+        "home": "Programme Decision Sequences"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/Project_Health_Atlas.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "76472fffa2c6d47a2f084117daeb73f8f92d18003aa8195925b2e1d170d0cfc7",
+      "title": "Read project health and benefit assumptions",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#gaps",
+      "name": "Project_Health_Atlas",
+      "registry_metadata": {
+        "home": "Library · Read project health and benefit assumptions",
+        "source_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+        "source_sha256": "6b841f99f8b834118dbc3e57940536edd815a3a1ae936fdc62a5ba62c92dfedd"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/SMR_governance_simulator.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "9a195f47d6a12cd665a442d9bb7d2775700467abc82447b707110e7c1eb1aa4c",
+      "title": "Signed Feedback Lab",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/signed-feedback-lab/",
+      "name": "SMR_governance_simulator",
+      "registry_metadata": {
+        "source_revision": "8221f32b398d582801e639b5460aa674805f1671",
+        "source_sha256": "1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/Sequential decisions.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "3703dd82c8f4351ce2dd6af54ad8361549c90b7cfac3115108fbead4c45444b9",
+      "title": "Sequential decisions — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/Programme-decision-sequences/apps/climate-policy-simulator/",
+      "name": "Sequential decisions",
+      "registry_metadata": {
+        "home": "Programme Decision Sequences"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/WBS_rewrite.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "e33296d8f948872d08d4e22d458cace6b783229cf7f4f84a9617e8f4986ebce5",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/wbs-rewriter/",
+      "name": "WBS_rewrite",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/advanced_project_planning_ideas.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "901568f3021f10c114db8965f098d5ce76e36bf7970cdab5df093dafe81b440a",
+      "title": "Moved to Meta Project Innovation",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/meta-project-innovation/",
+      "name": "advanced_project_planning_ideas",
+      "registry_metadata": {
+        "home": "Experiments · Meta Project Innovation"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/animal_crossing_codesign.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "0ac63277b16e5b704cb1c815cd08c950883d20eb6d64daa1e441b740452df5ad",
+      "title": "Moved to Project Co-design",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/project-co-design/apps/wildlife-crossing.html",
+      "name": "animal_crossing_codesign",
+      "registry_metadata": {
+        "home": "Maintained example",
+        "registered_during": "final compatibility audit"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/assurance_bundle_prototype/index.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "4f1e5b43d5ca98091c837a6bda64bd35af244086597a04ff321bc7177deb965f",
+      "title": "What would a real assurance record need?",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/governance-trio/#assurance-records",
+      "name": "assurance_bundle_prototype",
+      "registry_metadata": {
+        "home": "Library · Data and assurance",
+        "source_revision": "5c22c99719ea0a7940aac47574fd0cb8511a4b79",
+        "source_sha256": "28435295c142b88b457184ee72fa170f809337cbd993747705503881ac258a3c"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/climate-sequential-decision-paths.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "ba8346732471ceab04794aea2aec1e5a2b786d471fb2ce6f02c21db5fdddfc92",
+      "title": "climate-sequential-decision-paths — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/Programme-decision-sequences/apps/climate-decision-paths/",
+      "name": "climate-sequential-decision-paths",
+      "registry_metadata": {
+        "home": "Programme Decision Sequences"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/climate_megaproject_sdam.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "6b9a506847b417b36f60e66bfbd26445bee4fb97fac54ab7421863d090c4af9f",
+      "title": "climate_megaproject_sdam — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/Programme-decision-sequences/apps/climate-sdam-report/",
+      "name": "climate_megaproject_sdam",
+      "registry_metadata": {
+        "home": "Programme Decision Sequences"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/concurrent_change_levels_amazon.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "4c456d85192d97aa600e5409db8d661d55c725ea8f367bb0fb2d395d5081cdba",
+      "title": "What makes concurrent change costly?",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/change-coordination/",
+      "name": "concurrent_change_levels_amazon",
+      "registry_metadata": {
+        "home": "Library · What makes concurrent change costly?",
+        "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+        "source_sha256": "446dbf1e42974acd6232a417d3d9a1b8ba6f7a3fdaf76142162387822adf884e"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/consulting_catalogue.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "5ee404604ef646eb1027f77029dd7fd5c7de703c3d6a300d9a02d20888d6155c",
+      "title": "Shape a useful project service",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-services-guide/#offers",
+      "name": "consulting_catalogue",
+      "registry_metadata": {
+        "home": "Library · Shape a useful project service",
+        "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+        "source_sha256": "131b45f68ed390abaa94c391aee450ddab2f065f5cb83331fd98e489304bb013"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/contract-portfolio-board.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "f02273fcde2e42331b082a2a986483035d137a9ee91f283b32efc169893de639",
+      "title": "contract-portfolio-board — moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/contract-portfolio-board/",
+      "name": "contract-portfolio-board",
+      "registry_metadata": {
+        "home": "Library · Project states & relationships"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/counterfactual_programme_steering.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "b4ee248a23f7f78ea057e374e2d5d7ab06df069a1611ce00b4ded04ff7b36b24",
+      "title": "Counterfactual programme steering — assumed policy model",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/counterfactuals/#policies",
+      "name": "counterfactual_programme_steering",
+      "registry_metadata": {
+        "source_revision": "8221f32b398d582801e639b5460aa674805f1671",
+        "source_sha256": "2276c0445e8150ca39f13b356f22a795c3d39b7481d3403c32686786b9597022"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/critical-path-spotter.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "2f0d8c05d63f8cc8fc892e18169e5387988b72303c81570a171ddd07a105b57a",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/critical-path-spotter/",
+      "name": "critical-path-spotter",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/date-defence-kit.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "731754f10edabf5387277fec9e91a2f5f15e2b7c4a8f59ac0f066a465e76d445",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/date-defence-kit/",
+      "name": "date-defence-kit",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/decision-latency.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "9078bb18c1004ad6824754664a129dfe865fb30876d372ae0f19e30f5a3fbb12",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/decision-latency/",
+      "name": "decision-latency",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/decision-tree.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "beee4fa07c1547de9de7b5518a05f849a2c9ab4a3b36806b4ac7d8a28b9ccefe",
+      "title": "What do your decision weights imply? — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/examples/decision-tree.html",
+      "name": "decision-tree",
+      "registry_metadata": {
+        "home": "Maintained example",
+        "registered_during": "final compatibility audit"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/dico_module_map_d3.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "ba69b05da97883704b16cf6b9c4d416d59834c48928fc48b0f933abf6ed3622c",
+      "title": "Ontology before work · Solway",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#modules",
+      "name": "dico_module_map_d3",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "56f386d262078cc5f292ec83680c1e1b5688f5271aa1ee7c823557337963de0a"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/door-moisture-model.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "e3b1ce5312ab19c86997899a4a77828b4cdda3d3a08fc32937e45f425ce36956",
+      "title": "Door clearance sensitivity",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/wider-interest/door-moisture-model/",
+      "name": "door-moisture-model",
+      "registry_metadata": {
+        "home": "Wider interest",
+        "source_revision": "5c22c99719ea0a7940aac47574fd0cb8511a4b79",
+        "source_sha256": "7da9f517f6667542b538d1836d99c1a345c13d4736a2abda77d607f5b5193c30"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/eisenhower-matrix.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "0130ec8cb643e6d7e46b33b98611c5c14c157e876e92c98f1f8a7fa7a47dbe22",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/eisenhower-matrix/",
+      "name": "eisenhower-matrix",
+      "registry_metadata": {
+        "home": "Library · Decisions & trade-offs"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/frobenius-dsm-explorer.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "b36dfba67cd68d608033f03e945747865b6d4561e69785171442874a19d25f3c",
+      "title": "Frobenius and DSM",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/frobenius-dsm-explorer/",
+      "name": "frobenius-dsm-explorer",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics",
+        "source_revision": "5c22c99719ea0a7940aac47574fd0cb8511a4b79",
+        "source_sha256": "5863feaa2293505df2c2475f1291a26f54e624603305507db6f39466babdb6b7"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/gap_map_gemini.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "62fc17e52722a05d707c66b039aee2864206417ad459eb5aeff0c4ac90112762",
+      "title": "gap map gemini — moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/gap-map.html",
+      "name": "gap_map_gemini",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/governance-trio-replay-rules-lineage.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "abca86466ab3b1c088d32e935e738a7dd3b8cab4c57239a2f06e18860108b9b4",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/governance-trio/",
+      "name": "governance-trio-replay-rules-lineage",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/grounded-theory-approach.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "bc43d1eb695a80328869c10717ee034f7cb3e398b91ef1ebd314415e0dffee1d",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/#coding",
+      "name": "grounded-theory-approach",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "2c0a689f5f8fd8a30df1045eb27072452b9448fff4966fadb2fe777551b5aecd"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/grounded-theory-colimit.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "65b9a2d64cd0bb75dcd1c38fae8e14e799450f12a9e3a620f5114dc304f2f4eb",
+      "title": "grounded-theory-colimit — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/functors-for_projects/apps/grounded-theory-colimit/",
+      "name": "grounded-theory-colimit",
+      "registry_metadata": {
+        "home": "Functors for Projects"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/hazard_morphospace.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "4eaaf698232f60872ccb2ba6c75c79eacb4b9352bdae0935510d1dc61c906f3f",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/waste-route-capacity/#state-space",
+      "name": "hazard_morphospace",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/hs2-contract-game.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "dec502836ab510aeccbfa0d1870083e3759cf1ac349e65121cb9213cc891b736",
+      "title": "Explore a project agreement",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-contract-lab/#bargaining",
+      "name": "hs2-contract-game",
+      "registry_metadata": {
+        "source_revision": "676cbc7417d58ec9dd2d6fa751a54bd1000bc03a",
+        "source_sha256": "177b7f8dcc6900e1ed527cb950067f7be1bb7a5d746c0b2f4f823fb700048f9a"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/hs2-decision-graph.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "21d21dcac7915da52ebe2763dbcf3aab4f37da2ad9e19533c8a618ec8c15faa3",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-decision-graph/",
+      "name": "hs2-decision-graph",
+      "registry_metadata": {
+        "home": "Library · Decisions & trade-offs",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "c0df5196d63783d2a1e4ab3895b0ea47a8700306ca90102a9ca18643d0857306"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/hs2_WBS_to_PBS.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "590ae57c39ffffbd914de8dc9efc1455dc5fa5420d72e1fb196f66d889d4475c",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/wbs-to-pbs/",
+      "name": "hs2_WBS_to_PBS",
+      "registry_metadata": {
+        "home": "Library · Project states & relationships"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/hs2_stakeholders_network.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "2e8e87527b527dd1f187264c331e2eef7e4520014c2f2ece291a13cdb0346495",
+      "title": "Ontology before work · Solway",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#hs2",
+      "name": "hs2_stakeholders_network",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "54f38cc7c70954eb6e481148e5d1ea582e41bb2c7626951b9d81806d6357f3a1"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/idea-notebook.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "3b12379483cf2d78c5d68f3b8d1681ce6dc969f2076a732b3a438f118c95d228",
+      "title": "idea-notebook — moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/project_innovation_app/webapp/index.html",
+      "name": "idea-notebook",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/intent_field_navigator.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "51d116dc2e0ea0066324b8c1db129219d014038ace6b704f8dc4178fb0165016",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/intent-field-navigator/",
+      "name": "intent_field_navigator",
+      "registry_metadata": {
+        "home": "Library · Decisions & trade-offs"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/interactive-concept-map.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "49affc7a1f12a0eeb7a65c0cdbf04cc564673d75d3138320cdbc88cd1ff3d70c",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/concept-triad-builder/",
+      "name": "interactive-concept-map",
+      "registry_metadata": {
+        "home": "Library · Decisions & trade-offs"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/interactive-nec-contract-journey.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "4c32963c02bf25f6fe184a30dfc571bf5da5f61f81ca4efb4652adfd645a584d",
+      "title": "Explore a project agreement",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-contract-lab/#nec",
+      "name": "interactive-nec-contract-journey",
+      "registry_metadata": {
+        "source_revision": "676cbc7417d58ec9dd2d6fa751a54bd1000bc03a",
+        "source_sha256": "b6f0390a4d1de64a61272b94496942a7f4d52489bb909d21581669da3d593374"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/interface_maturity_simulator.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "e2b1dd94329e849f8e1fa2f8775370833f027799376d3e721d4bf03edfdf1da4",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/interface-maturity/",
+      "name": "interface_maturity_simulator",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/interface_topology_sketch_v0.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "cd3a5dedf3ee8fac27f23800a0ee997b88528d38f5f7dc0178d8bbf3ef2ae8e0",
+      "title": "interface_topology_sketch_v0 — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/interface_topology_sketch_v0.html",
+      "name": "interface_topology_sketch_v0",
+      "registry_metadata": {
+        "home": "Local to Global · AI interpretation"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/intro_risk_matrix.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "d21f5d6dc9636dabf714dfbd9d8165ec53058ce5856bf5e01d96bc8d5ed71ab4",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/risk-matrix/",
+      "name": "intro_risk_matrix",
+      "registry_metadata": {
+        "home": "Library · Decisions & trade-offs"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/legends_tower_sentiment_report.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "542fdf33f377ba8a0ee554dda73b976cb9066071471d4235e66f368e6a2a93fc",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/#stance",
+      "name": "legends_tower_sentiment_report",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "af49f45e50a1de174715eb71397accffeedc4f4ec6e9bf99ba992f7d4b254ef1"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/living-graph-transform-system.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "90fb1792fa26ee53aba64c483b12fb064954576ac38f6dd34a044d3c4e8e5b9c",
+      "title": "Inspect what a graph change preserves",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/graph-transform-workbench/",
+      "name": "living-graph-transform-system",
+      "registry_metadata": {
+        "home": "Library · Inspect what a graph change preserves",
+        "source_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+        "source_sha256": "97b8b3ab7563ea047f3cd84d186eac20012791437ac37d8f07f6b4e193cea848"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/lower_thames_crossing_geo_kg.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "0e0f34dfada5078cf640c383c6dbb95695284e6485f15eea3294dcc26d63f6a0",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/crossing-project-map/",
+      "name": "lower_thames_crossing_geo_kg",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "3efc41b26b20a27af56d6575cd3031d20814bef7732a1cca7e1ee690036944a7"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/monotone-codesign-rail-transit.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "bb1aa7992c910a875d5bd1f9617df1b7143872adfb33491d688476c512945ca6",
+      "title": "Moved to Project Co-design",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/project-co-design/apps/transit-tradeoffs.html",
+      "name": "monotone-codesign-rail-transit",
+      "registry_metadata": {
+        "home": "Maintained example",
+        "registered_during": "final compatibility audit"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/monotone_codesign_rail.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "1c2ee465da8ebd244884975201fa1d3c7114529236d20192486e4bc1262bf209",
+      "title": "Moved to Project Co-design",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/project-co-design/apps/rail-simulator.html",
+      "name": "monotone_codesign_rail",
+      "registry_metadata": {
+        "home": "Maintained example",
+        "registered_during": "final compatibility audit"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/monotone_codesign_rail_upgrade.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "8929ef670d9de9bb4f59f84918d218f9bf258aa3d79f9ca98b0ba7d9296b9fd3",
+      "title": "Moved to Project Co-design",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/project-co-design/apps/incremental-upgrade.html",
+      "name": "monotone_codesign_rail_upgrade",
+      "registry_metadata": {
+        "home": "Maintained example",
+        "registered_during": "final compatibility audit"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/p3m-capability-tool.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "24b638a8f52bd5407b2107de6d70caf4790d3396adb862e4925c83ddda29d54f",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/p3m-capability-review/",
+      "name": "p3m-capability-tool",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/pm_causal_playground.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "8ac7e96c3ebcf0d0f95a19ca6d32793e09b32a2947ada39e812009088d393638",
+      "title": "Counterfactual programme steering — paths and adjustment",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/counterfactuals/#paths",
+      "name": "pm_causal_playground",
+      "registry_metadata": {
+        "source_revision": "8221f32b398d582801e639b5460aa674805f1671",
+        "source_sha256": "a2e291100c6714965e04420d8b627f5d3e6198f74d13f9a206e97233d9ed4480"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/pm_gap_map.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "75312b8793d819f58f66daa914c2737ae5eb2b2239b896318997cb30de7e7cf9",
+      "title": "pm gap map — moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/gap-map.html",
+      "name": "pm_gap_map",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/portfolio_loom.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "cd17cd9e197a362e0a2958f509b36a8f778330c517bfd92cf07b35dc454d3173",
+      "title": "Compare overlapping scenario pressures",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/portfolio-scenario-loom/",
+      "name": "portfolio_loom",
+      "registry_metadata": {
+        "home": "Library · Compare overlapping scenario pressures",
+        "source_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+        "source_sha256": "a2ed9793665e223e132496f3d63e510c5124d1b6283bcb61b5d35c17cee1631d"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/probecrafter.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "cef81189685c0a96f9cc48ae9f9fff819b3f9605cbe2d49e7dd7f9232e315631",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/probecrafter/",
+      "name": "probecrafter",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project-controls-knowledge-graph.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "60e0607275593f515a44d82fd7eeaa0815f06154456733a217e24b205eee2215",
+      "title": "Project Controls Knowledge Graph — Library home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-controls-knowledge-graph/",
+      "name": "project-controls-knowledge-graph",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project-dependency-atlas.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "441423d39097561ee8223b3c9c51523e68645c569a828e28e2241312bc8ab20b",
+      "title": "Project Dependency Atlas",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-dependency-atlas/",
+      "name": "project-dependency-atlas",
+      "registry_metadata": {
+        "source_revision": "8221f32b398d582801e639b5460aa674805f1671",
+        "source_sha256": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project-management-pong.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "8f57fcfa30c4547b2aa43792324f8cf754a2e2e2b9dcfb60b87cad276e52ea51",
+      "title": "Project management Pong",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/wider-interest/project-management-pong/",
+      "name": "project-management-pong",
+      "registry_metadata": {
+        "home": "Wider interest",
+        "source_revision": "5c22c99719ea0a7940aac47574fd0cb8511a4b79",
+        "source_sha256": "a532bd66c209b0c153059b6ed8917c4aaa366c97c0a71b121896d9f5ba81330f"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project-risk-gradient.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "c75e8c529a1b0390769aa3a3bf4f383c904ab1f714f5000d862ab879230421ee",
+      "title": "Project Risk Gradient",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-risk-gradient/",
+      "name": "project-risk-gradient",
+      "registry_metadata": {
+        "home": "Library · Decisions and trade-offs",
+        "source_revision": "5c22c99719ea0a7940aac47574fd0cb8511a4b79",
+        "source_sha256": "8c67552d5593cffcd18190c4aeb8abe020e7670c03fd59f4eaa2c90169e7797f"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project-services-navigator.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "8717d31f240fa40a13856b9253fe6692dce1853e27620904900a4b49edf662ee",
+      "title": "Imagine different project-services markets",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/market_timeline_explorer/#navigator",
+      "name": "project-services-navigator",
+      "registry_metadata": {
+        "home": "Library · Imagine different project-services markets",
+        "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+        "source_sha256": "00f233d01f2c7689001112a1b17d87c69ec909b9c6b655affaddd03e256a3960"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project_time_exchange.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "36743d24a44676d0a1755d6a6d05580b3f13d2b252648252b20221c3e7b34853",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-time-exchange/",
+      "name": "project_time_exchange",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project_time_exchange_explainer.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "40b7be2be363df6657f604ddfe8116f81f3f1194f6ee94a7c1e440d9db8353b7",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-time-exchange/#explainer",
+      "name": "project_time_exchange_explainer",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project_use_case_tree.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "2fcfea5eb4dbdcce2064e17c75337dab89cab1605e436f961d8d264b6def8f93",
+      "title": "Shape a useful project service",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-services-guide/#questions",
+      "name": "project_use_case_tree",
+      "registry_metadata": {
+        "home": "Library · Shape a useful project service",
+        "source_revision": "459efda24b673a1e50b33cfd4347ffa5928817d9",
+        "source_sha256": "2a9725bf7acda8af1b12eb035232d8d52aa4f51405572fb18dd4cb00e898ffd1"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/project_viability_state_space_navigator_plus.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "2e4841722f877927ab5927e9f01b1ca3a7fa7ede78ee96da2079317af4d4c891",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-viability-navigator/",
+      "name": "project_viability_state_space_navigator_plus",
+      "registry_metadata": {
+        "home": "Library · Project states & relationships",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "007068f1be681fa6696deca22b687e4eef5adace26eea28c6589409726d1bee0"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/rail-staged-codesign.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "96d2d269266bdfa1845139dfdba699239579dc60975a5de7a76e19e96d503d54",
+      "title": "Moved to Project Co-design",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/project-co-design/apps/staged-paths.html",
+      "name": "rail-staged-codesign",
+      "registry_metadata": {
+        "home": "Maintained example",
+        "registered_during": "final compatibility audit"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/regional-signalling-control-centre-architecture-v0.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "43e1fd0dda6d46506b48e0939ae5bad3e228b6134f37be1a3e615f7b787a737f",
+      "title": "regional-signalling-control-centre-architecture-v0 — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/regional-signalling-control-centre-architecture-v0.html",
+      "name": "regional-signalling-control-centre-architecture-v0",
+      "registry_metadata": {
+        "home": "Local to Global · AI interpretation"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/regional-signalling-control-centre-site-geometry-topology.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "28627251e1eb3f4f2781b8beac20aa9dc65aaec9ffbb32a5a756c0f816ddc536",
+      "title": "regional-signalling-control-centre-site-geometry-topology — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/regional-signalling-control-centre-site-geometry-topology.html",
+      "name": "regional-signalling-control-centre-site-geometry-topology",
+      "registry_metadata": {
+        "home": "Local to Global · AI interpretation"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/regional-signalling-control-centre.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "d09f83682aa5da4bdaf981df70088653a0f3b8e59487a5fe65a90cd14eb94db6",
+      "title": "regional-signalling-control-centre — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/regional-signalling-control-centre.html",
+      "name": "regional-signalling-control-centre",
+      "registry_metadata": {
+        "home": "Local to Global · AI interpretation"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/regulatory-benefits-pmo/index.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "0be2fd63dfeeea933556f7fe2de228b0a5e6a6b13ff47edd215eda8dee8110c5",
+      "title": "Read project health and benefit assumptions",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#benefits",
+      "alias_of": "/Project-web-apps/web_apps/regulatory-benefits-pmo.html"
+    },
+    {
+      "path": "/Project-web-apps/web_apps/regulatory-benefits-pmo.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "0be2fd63dfeeea933556f7fe2de228b0a5e6a6b13ff47edd215eda8dee8110c5",
+      "title": "Read project health and benefit assumptions",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/project-health-and-benefits/#benefits",
+      "name": "regulatory-benefits-pmo",
+      "registry_metadata": {
+        "home": "Library · Read project health and benefit assumptions",
+        "source_revision": "7888f8a85aa9121e99190d392a622a4ee0cd4a7e",
+        "source_sha256": "754b7ead6e61849e58e3c224a1871bbd5b8ae82941774c6394c32d7df1c8e34d",
+        "alias_paths": [
+          "web_apps/regulatory-benefits-pmo/index.html"
+        ]
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/regulatory-negotiation-rehearsal-board.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "b7bba636edc351b915a2f3893143d9694098457e313558b0852f239922456da2",
+      "title": "Rehearse a regulatory negotiation",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/regulatory-rehearsal/",
+      "name": "regulatory-negotiation-rehearsal-board",
+      "registry_metadata": {
+        "source_revision": "676cbc7417d58ec9dd2d6fa751a54bd1000bc03a",
+        "source_sha256": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/scenario_barrier_proof_fca_lattice.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "e64801dd0c8a6c1002986b9e33031911f95df949aec993681dbf9c33c2744337",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/scenario-control-lattice/",
+      "name": "scenario_barrier_proof_fca_lattice",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/service_trident.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "3fbf89313d0c182866c7ed4e44b945ad15b89d654e696b74f967df8c95c65e56",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/service-trident/",
+      "name": "service_trident",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/simplicial_project_mgmt.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "23b924d5d84be2eeb3f4cfc6ea7257f4bb5397733f890307d40818e34bff6655",
+      "title": "simplicial-project-management — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/functors-for_projects/apps/simplicial-project-management/",
+      "name": "simplicial_project_mgmt",
+      "registry_metadata": {
+        "home": "Functors for Projects"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/social-debt-explorer.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "d41a151f0cb5b6b62e53332fee7585183034d4b00c675fef06dbbc06814f54bb",
+      "title": "Social Debt — More Project Apps",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/social-debt-explorer/",
+      "name": "social-debt-explorer",
+      "registry_metadata": {
+        "home": "Maintained example",
+        "registered_during": "final compatibility audit"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/stakeholder-mapper.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "24b0147bf4fe3f05872e4957568b12417ea9615ed9037bb264eeb8e30e482936",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/stakeholder-mapper/",
+      "name": "stakeholder-mapper",
+      "registry_metadata": {
+        "home": "Library · Project states & relationships"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/tangled-triangle-concept-geometry-sketch-plan-section.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "9e23ca19f85c0e4de3597f1e5ba9d88d256cc92854b359adf09d600d0fd0e353",
+      "title": "tangled-triangle-concept-geometry-sketch-plan-section — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/tangled-triangle-concept-geometry-sketch-plan-section.html",
+      "name": "tangled-triangle-concept-geometry-sketch-plan-section",
+      "registry_metadata": {
+        "home": "Local to Global · AI interpretation"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/tangled_triangle_conceptual_plan_section.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "11a1db22bb8efcadafac99c96f7c06084eb2924efa9ba1b00f025e4ae3fd9e04",
+      "title": "tangled_triangle_conceptual_plan_section — new home",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/tangled_triangle_conceptual_plan_section.html",
+      "name": "tangled_triangle_conceptual_plan_section",
+      "registry_metadata": {
+        "home": "Local to Global · AI interpretation"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/tokyo_stadium_dicon_graph.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "892b1cfc48d6c219ce3a4df86477741b0b593234dabfc642a9714c07d0d81a12",
+      "title": "Ontology before work · Solway",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#tokyo",
+      "name": "tokyo_stadium_dicon_graph",
+      "registry_metadata": {
+        "home": "Library · Data, evidence & assurance",
+        "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+        "source_sha256": "54a68482f80e0838fcc82f551a3e07e2b68d67eed23a801b985ec74228aa2c10"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/waste-route-capacity-digital-twin.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "72f11a5460194a5908f9b26880fe9d181a52e803042d1f4d4c398397eaded5de",
+      "title": "Moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/waste-route-capacity/",
+      "name": "waste-route-capacity-digital-twin",
+      "registry_metadata": {
+        "home": "Library · Delivery dynamics & feedback"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/weighted-decision-matrix.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "b56276b85d1670cc5249a625f2e8da426df337db10c17527ea986e5314a0d47c",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/weighted-decision-matrix/",
+      "name": "weighted-decision-matrix",
+      "registry_metadata": {
+        "home": "Library · Decisions & trade-offs"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/what_AI_model_for_what.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "7522c4b7db0596a2e096966a56305ac8241b83018610f3c614e95ae98da7daa2",
+      "title": "what AI model for what — moved",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/capabilities-wiring-diag/",
+      "name": "what_AI_model_for_what",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/Project-web-apps/web_apps/white_space_analysis.html",
+      "source_repository": "Project-web-apps",
+      "source_stub_sha256": "6f8725413a5862eb90f968489e330564838354b30e3dc68f80d94b2139e4cbe7",
+      "title": "This example has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/white-space-analysis/",
+      "name": "white_space_analysis",
+      "registry_metadata": {
+        "home": "Library · Capabilities & futures"
+      }
+    },
+    {
+      "path": "/more-project-apps/index.html",
+      "source_repository": "more-project-apps",
+      "source_stub_sha256": "16367d88c20cec1ca572c6c12fb21b8e4ebf04466bfba4f24d4df90b32f1ce4a",
+      "title": "Social Debt has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/social-debt-explorer/"
+    },
+    {
+      "path": "/more-project-apps/web_apps/social-debt-explorer.html",
+      "source_repository": "more-project-apps",
+      "source_stub_sha256": "cff4317dea84730b99a4a58f6cd6a138723d547506d990aef036bcab96baf697",
+      "title": "Social Debt has moved to the Library",
+      "kind": "redirect",
+      "destination": "https://lawrencerowland.github.io/library/apps/social-debt-explorer/"
+    }
+  ],
+  "text_responses": [
+    {
+      "path": "/Project-web-apps/app-index.csv",
+      "content": "#,name,description,origin,model,tags,explainer post,notes\n"
+    },
+    {
+      "path": "/more-project-apps/app-index.csv",
+      "content": "#,name,description,origin,model,tags,explainer post,notes\n"
+    },
+    {
+      "path": "/more-project-apps/assets/social-debt/visual-notes.md",
+      "content": "# Illustration notes have moved\n\nThe original generation prompt and notes are preserved unchanged in the [Social Debt Library home](https://lawrencerowland.github.io/library/apps/social-debt-explorer/provenance/original-visual-notes.md).\n\nThe neighbouring JPEG remains here only to preserve existing image embeds.\n"
+    }
+  ],
+  "build_aliases": [
+    {
+      "path": "/more-project-apps/assets/social-debt/visual-notes.html",
+      "source": "/more-project-apps/assets/social-debt/visual-notes.md"
+    }
+  ],
+  "registry_responses": [
+    {
+      "path": "/Project-web-apps/moved-apps.json",
+      "kind": "moved",
+      "source_repository": "Project-web-apps"
+    },
+    {
+      "path": "/Project-web-apps/retired-apps.json",
+      "kind": "retired",
+      "source_repository": "Project-web-apps"
+    }
+  ],
+  "assets": [
+    {
+      "path": "/more-project-apps/assets/social-debt/team-release-scene.jpg",
+      "source": "library/apps/social-debt-explorer/assets/team-release-scene.jpg",
+      "sha256": "4069e80cdee55573a556bd1c335bb20324c876cd8daf625054d1b4e0c938e6be"
+    }
+  ]
+}

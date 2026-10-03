@@ -1,0 +1,6 @@
+{
+  "id": "refuge-record-v1",
+  "minimum_signoffs": 2,
+  "required_roles": ["Project Architect", "Safety & Access"],
+  "description": "Toy record policy: nonblank owner; distinct declared signer names after trimming/case folding; both named roles; unique evidence names and digest references. Identities, authority and reviewer independence are not verified."
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" role="img" aria-labelledby="title description">
+  <title id="title">From experiments to the Library</title>
+  <desc id="description">Exploratory paths loop, branch and stop. One crosses a small bridge and reaches a shelf of reusable methods. Some experiments may become useful Library entries; others remain open.</desc>
+  <style>
+    path,rect{stroke-linecap:round;stroke-linejoin:round}
+    .sketch{stroke:#9caa94;stroke-width:2;fill:none;stroke-dasharray:4 7}
+    .chosen{stroke:#ad733e;stroke-width:4;fill:none}
+    .bridge{stroke:#294c40;stroke-width:2;fill:none}
+    .collection{stroke:#294c40;stroke-width:3;fill:#f8f6ef}
+  </style>
+  <rect width="680" height="260" rx="6" fill="#f8f6ef"/>
+  <g>
+    <path d="M15 230Q50 130 140 185T270 160T410 190T660 175" fill="#abbca5" opacity=".18"/>
+    <g class="sketch"><path d="M43 180Q82 127 117 172T170 141Q203 103 233 146T297 161"/><path d="M50 181Q74 221 111 210T167 222"/><path d="M111 161Q104 94 157 75T238 96Q259 118 222 125T188 93"/><path d="M158 175Q192 175 207 206T244 225"/></g>
+    <path d="M43 180Q82 127 117 172T170 141Q203 103 233 146T297 161L366 159Q424 152 449 123T505 103" class="chosen"/>
+    <g class="bridge"><path d="m287 155 90-2m-88 18 90-2M293 148v31m17-32v31m17-31v31m17-32v31m17-31v31m17-32v31"/></g>
+    <g class="collection"><rect x="507" y="63" width="119" height="144" rx="5"/><path d="M516 109h101m-101 48h101"/><path d="M529 77v24m19-26v26m21-21v21m21-27v27M529 120v29m22-26v26m28-28v28M530 170v24m18-27v27m26-23v23m21-26v26"/></g>
+    <circle cx="43" cy="180" r="7" fill="#ad733e"/>
+  </g>
+</svg>

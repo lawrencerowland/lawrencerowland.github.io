@@ -1,10 +1,12 @@
 # Contract Portfolio Board
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/contract-portfolio-board).
+
 A small scope and ownership thinking board. Three proposed contract packages sit beside an unassigned pool; Context, Internal ownership and Concept of operations keep different kinds of material visible. This is a planning arrangement, not a contractual allocation, approval, procurement recommendation or completeness assessment.
 
 ## Source and review
 
-Reviewed and rebuilt on 2 October 2026 from [`Project-web-apps/web_apps/contract-portfolio-board.html`](https://github.com/lawrencerowland/Project-web-apps/blob/72e90ed92af79205776ceac87b1d81136f85e4ec/web_apps/contract-portfolio-board.html).
+Reviewed and rebuilt on 2 October 2026 from `lawrencerowland/Project-web-apps@72e90ed92af79205776ceac87b1d81136f85e4ec:web_apps/contract-portfolio-board.html`.
 
 The original supplied the three-contract layout, Digital Strategy workstream, four candidate artefacts, unassigned pool and explanation of context, internal ownership and operating concepts. It also presented controls/styles for filtering, splitting, ordering, ticks and import/export. Its executable only seeded cards, toggled a few information panels and removed a clicked unassigned card. This successor implements the useful intended workflow rather than presenting those controls as previously working features.
 

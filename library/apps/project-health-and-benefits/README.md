@@ -1,5 +1,7 @@
 # Project health & benefits
 
+Historical source names, revisions and hashes below identify the reviewed inputs; they are not retrieval links. [Maintained source and verification files](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-health-and-benefits).
+
 One Library home in **Data, evidence & assurance**, containing two explicitly independent examples:
 
 - `#gaps`: the six-project Health Atlas capability / maturity / performance triad.
@@ -11,7 +13,7 @@ The reader’s shared task—asking what deserves a closer look at a project rev
 
 ## Source identity and exact retention
 
-Original public repository: [lawrencerowland/Project-web-apps](https://github.com/lawrencerowland/Project-web-apps/tree/7888f8a85aa9121e99190d392a622a4ee0cd4a7e). Migration base: **`7888f8a85aa9121e99190d392a622a4ee0cd4a7e`**. Source was read in full, including the six PMO files, the root forwarding page, Health Atlas and its supporting roadmap. No corresponding TSX implementation was found. The original source repository is CC0-1.0; the receiving implementation uses no external runtime dependencies.
+Original public repository: `lawrencerowland/Project-web-apps@7888f8a85aa9121e99190d392a622a4ee0cd4a7e`. Migration base: **`7888f8a85aa9121e99190d392a622a4ee0cd4a7e`**. Source was read in full, including the six PMO files, the root forwarding page, Health Atlas and its supporting roadmap. No corresponding TSX implementation was found. The original source repository is CC0-1.0; the receiving implementation uses no external runtime dependencies.
 
 | Original path | SHA-256 | Git blob |
 |---|---|---|
@@ -48,11 +50,11 @@ Original public repository: [lawrencerowland/Project-web-apps](https://github.co
 | Decision queue / obligations | Recast as questions about target gaps, party shortfalls, release evidence and ownership. Inactive-lever comparison actually recomputes each one-step score difference. No “highest leverage” or optimisation assertion |
 | Evidence / proof view | All seven scenario/barrier/evidence/status/owner rows retained; score follows explicitly declared status. Added status editing. Missing descriptions and original ambiguous `r2` status remain visible |
 | Interface view | Five starting values, weights, positions and illustrative proximity links retained; independent formulas explicitly distinguished from propagation |
-| Source lenses / source-app map / original PMO README | All eight original runtime source descriptions retained; current canonical routes plus accurate boundaries in the Source lenses view. Useful supporting ideas consolidated into one note; redundant working copies removed, original versions recoverable in pinned Git history |
+| Source lenses / source-app map / original PMO README | All eight original runtime source descriptions retained; current canonical routes plus accurate boundaries in the Source lenses view. Useful supporting ideas consolidated into one note; redundant working copies removed; original identities and hashes retained as historical records |
 | PMO receipt commit / list / clear | Versioned snapshots with inspect and restore, individual removal, no silent 20-record truncation. At 100 records, adding fails with an explicit export/remove message. Reset preserves them |
 | Export / editable JSON / local storage | Complete new-state roundtrip; original complete PMO models and exports with actual receipts supported. Atomic validation before replacement; explicit browser save/load, startup read without writes, storage errors visible; editor drafts survive other controls |
 | Original PMO root forwarding HTML | Incoming source route forwards to the new independent benefits mode through the retirement integration |
-| Health proof-bundle roadmap | Acceptance artifacts, rule receipts, lineage and simple-front-door ideas preserved in the compact note and evidence disclosure. Unimplemented signatures, rule engine, governance roll-ups and phased delivery aspirations remain in pinned Git history, not a new development plan |
+| Health proof-bundle roadmap | Acceptance artifacts, rule receipts, lineage and simple-front-door ideas preserved in the compact note and evidence disclosure. Unimplemented signatures, rule engine, governance roll-ups and phased delivery aspirations are retired; their useful distinction from implemented behavior is recorded in the compact note |
 
 ## Calculations and corrections
 

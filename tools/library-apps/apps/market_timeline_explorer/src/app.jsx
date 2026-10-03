@@ -115,7 +115,7 @@ function MarketTimelineExplorer() {
     <details className="source-details">
       <summary>Read this story’s source, construction and limits</summary>
       <dl>
-        <dt>Source</dt><dd><a href={story.sourceUrl}>{story.source}</a>. Generation labels are original catalogue metadata, not independent authorship verification. The original publication dates are not established here; the dates on the timeline belong to the imagined scenario. Migration reviewed 3 October 2026.</dd>
+        <dt>Source</dt><dd>{story.source}. <a href={story.sourceUrl}>Historical identities and maintained source record</a>. Generation labels are original catalogue metadata, not independent authorship verification. The original publication dates are not established here; the dates on the timeline belong to the imagined scenario. Migration reviewed 3 October 2026.</dd>
         <dt>Concept</dt><dd>{story.lens}.</dd>
         <dt>Construction</dt><dd>{story.construction} Wording is retained as authored scenario text; the path diagram and “Test the premise” questions are editorial reading aids added for this merged explorer.</dd>
         <dt>Limits and corrections</dt><dd>No story supports a factual claim about current organisations, regulation, AGI or ASI. The two retired catalogue descriptions said “ASI in 2030”; both source timelines actually place it in Q2 2029. This explorer follows the source timelines and labels that date as an assumption. Post-scarcity, displacement percentages, 10× productivity and the existing story’s 25% schedule compression are unevidenced plot claims.</dd>

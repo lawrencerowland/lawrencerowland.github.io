@@ -1,0 +1,24 @@
+{
+  "handover_id": "crag-refuge-stage1-001",
+  "example_only": true,
+  "project": {
+    "name": "Crag Ridge Mountain Refuge (fictional)",
+    "stage": "Stage 1 — Concept and site feasibility exercise",
+    "location": "North Spur Crag (invented site)"
+  },
+  "owner": "lead.designer@alpineshelter.example",
+  "signoff": [
+    {"role": "Project Architect", "by": "lead.designer@alpineshelter.example", "at": "2026-02-01T12:10:00Z"},
+    {"role": "Safety & Access", "by": "safety.lead@alpineshelter.example", "at": "2026-02-02T09:40:00Z"}
+  ],
+  "evidence": [
+    {"name": "concept-note.txt", "digest_ref": "concept-note.txt.sha256", "description": "Fictional concept assumptions; no verification work performed."},
+    {"name": "risk-review.json", "digest_ref": "risk-review.json.sha256", "description": "An explicitly unassessed review record, not a completed risk scan."}
+  ],
+  "provenance": {"status": "not_verified", "note": "No signed artifact, authenticated reviewer or trusted build attestation is supplied."},
+  "handover_notes": [
+    "The signoff entries are invented declarations for this exercise.",
+    "Snow loading, component lift limits, access anchors and evacuation arrangements need site-specific evidence and competent review.",
+    "A passing package check does not approve construction or operation."
+  ]
+}

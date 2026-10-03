@@ -23,4 +23,8 @@ home_front_door: true
       <div class="pw-home-question-copy"><h2 id="door-atlas">Visual atlas</h2></div>
     </a></article>
   </div>
+  <figure class="pw-home-field-notes">
+    <div class="pw-field-notes-labels" aria-hidden="true"><span>Experiments</span><span>Library</span></div>
+    <img src="{{ '/images/navigation/field-notes.svg' | relative_url }}" width="680" height="260" alt="Exploratory paths loop, branch and stop. One crosses a small bridge to a shelf: some experiments become reusable Library methods; others remain open.">
+  </figure>
 </div>

@@ -10,7 +10,7 @@ The present construction is an **early, incomplete trial**: five inspectable len
 
 ## Provenance
 
-Migrated from [`Project-web-apps/web_apps/advanced_project_planning_ideas.html`](https://github.com/lawrencerowland/Project-web-apps/blob/9eb0973712a2d096c0642754ab238f7be7af41b1/web_apps/advanced_project_planning_ideas.html), source repository revision `9eb0973712a2d096c0642754ab238f7be7af41b1`. The model review used that pinned original. Compatibility routing is handled separately from the retained source history.
+Migrated from `lawrencerowland/Project-web-apps@9eb0973712a2d096c0642754ab238f7be7af41b1:web_apps/advanced_project_planning_ideas.html`, source repository revision `9eb0973712a2d096c0642754ab238f7be7af41b1`. The model review used that pinned original. The revision and hash record that comparison. The maintained model, tests and regression fixture below provide the current verification; no separate predecessor archive is promised.
 
 - Original HTML SHA-256: `d8c7afd31179c7c431839dfe4e4346bc0b68d43f789c199598cd7a60fb82e4cb`.
 - `tests/fixtures/phase-two-frontier-schedules.json` SHA-256: `3fd3e399bcf40ac537d878906c2cd1a81d8319d133459372f24a2fc6ef30273f`.
