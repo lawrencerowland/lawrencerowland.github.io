@@ -57,7 +57,8 @@ if(process.argv[2]){
  const directory=new JSDOM(fs.readFileSync(path.join(site,'side-projects.html'),'utf8'),{url:origin+'/side-projects.html'}).window.document;
  assert.equal(directory.querySelectorAll('article#counterfactual-steering').length,1,'one rendered enquiry card');
  const card=directory.querySelector('article#counterfactual-steering');assert.ok(card.querySelector('img'));assert.ok([...card.querySelectorAll('a')].some(a=>a.href===project.path));
- assert.equal(card.querySelector('img').getAttribute('src'),project.tile_image||project.image,'preserved pictured entrance');
+ assert.equal(card.querySelector('img').getAttribute('src'),JSON.parse(fs.readFileSync(path.join(root,'_data/experiment_tiles.json'),'utf8'))[project.id].image,'current experiment emblem');
+ assert.ok(fs.existsSync(path.join(site,project.tile_image||project.image)),'original pictured app entrance remains available');
  for(const theme of json('_data/library_themes.json')){
   const subject=new JSDOM(fs.readFileSync(path.join(site,'library/methods/'+theme.id+'.html'),'utf8'),{url:origin}).window.document;
   assert.ok(!subject.getElementById('project-causal-lab'),'former causal subject card is absent');
