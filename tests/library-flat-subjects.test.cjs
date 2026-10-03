@@ -78,12 +78,13 @@ const expectedRedirects = {
   'library-maps-title': '/library/methods/states-and-relationships.html#graphs-and-connections',
   'library-reading': '/library/methods/capabilities-and-futures.html#deep-research',
   'social-debt': '/library/methods/states-and-relationships.html#social-debt',
-  'about': '/about_me.html'
+  'about': '/about_me.html',
+  'working-views': '/explore-visually.html'
 };
 assert.equal(new Set(redirects.map(item => item.id)).size, redirects.length, 'legacy fragments are unambiguous');
 for (const [id, url] of Object.entries(expectedRedirects)) assert.equal(redirects.find(item => item.id === id)?.url, url, id + ': forwards to the precise replacement card');
 for (const redirect of redirects) {
-  if (redirect.id === 'about') assert.ok(fs.existsSync(path.join(root, 'about_me.md')), 'About remains at its canonical page');
+  if (redirect.id === 'about' || redirect.id === 'working-views') assert.ok(fs.existsSync(path.join(root, redirect.url.replace(/\.html$/, '.md'))), redirect.id + ': canonical page retained');
   else assert.ok(allItems.some(item => themeRoute(item) === redirect.url), redirect.id + ': replacement is an existing peer card');
 }
 const library = read('library.md');

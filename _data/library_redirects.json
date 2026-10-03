@@ -48,5 +48,10 @@
     "id": "about",
     "url": "/about_me.html",
     "title": "About"
+  },
+  {
+    "id": "working-views",
+    "url": "/explore-visually.html",
+    "title": "Working views"
   }
 ]

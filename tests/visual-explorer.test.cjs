@@ -74,7 +74,9 @@ if (process.argv[2]) {
   assert.deepEqual(JSON.parse(embedded[1]), items, 'Jekyll publishes the exact checked catalogue');
   assert.equal([...html.matchAll(/class="viz-tile"/g)].length, items.length);
   assert.ok(!html.includes('{%') && !html.includes('{{'), 'all Liquid is rendered');
-  assert.equal((library.match(/href="\/explore-visually.html"/g) || []).length, 1, 'the shared tab is the single Working views link on Library');
+  const libraryDOM = new (require('../tools/library-apps/node_modules/jsdom').JSDOM)(library).window.document;
+  assert.equal(libraryDOM.querySelectorAll('#main-nav-links a[href="/explore-visually.html"]').length, 1, 'one shared Working views tab');
+  assert.equal(libraryDOM.querySelectorAll('.pw-library-additional a[href="/explore-visually.html"]').length, 0, 'no duplicate Library tile');
   assert.match(html, /<h1>Working views<\/h1>/);
   assert.ok(!html.includes('Back to Library'));
   for (const file of assetPaths) assert.ok(fs.existsSync(path.join(dir, file)), `${file} is included in the built site`);
