@@ -468,19 +468,6 @@
     "home": "Library · Project states & relationships"
   },
   {
-    "#": "39",
-    "name": "advanced_project_planning_ideas",
-    "description": "Explore a cloud migration through demand, evidence gates, scarce capacity, dependencies and scheduling policies.",
-    "origin": "User",
-    "model": "GPT-5.3-Codex",
-    "tags": "project_management, demand_management, assurance, resource_allocation, dependencies, portfolio_management, decision_support, visualization",
-    "explainer post": "",
-    "notes": "",
-    "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/library/apps/project-frontier-lab/",
-    "home": "Library · Decisions & trade-offs"
-  },
-  {
     "#": "72",
     "name": "waste-route-capacity-digital-twin",
     "description": "Follow material through treatment, assay, storage and transport; compare capacity, outages, rework and queues.",

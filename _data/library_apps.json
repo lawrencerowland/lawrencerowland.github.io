@@ -858,35 +858,6 @@
     "reviewed": "2 October 2026"
   },
   {
-    "id": "project-frontier-lab",
-    "theme": "decisions-and-trade-offs",
-    "order": 35,
-    "kind": "app",
-    "build": "static",
-    "title": "Project Frontier Lab",
-    "description": "Explore a cloud migration through demand, evidence gates, scarce capacity, dependencies and scheduling policies.",
-    "try_this": "Switch between the five lenses, adjust a constraint and compare the assumptions behind each result.",
-    "limitation": "Five views of one fictional case. Greedy allocation and weighted schedule scores do not establish an optimum or project assurance.",
-    "url": "/library/apps/project-frontier-lab/",
-    "image": "/images/library-apps/project-frontier-lab.jpg",
-    "image_alt": "Project Frontier Lab showing its worked example",
-    "original_id": "39",
-    "original_name": "advanced_project_planning_ideas",
-    "source_repository": "Project-web-apps",
-    "original_path": "web_apps/advanced_project_planning_ideas.html",
-    "source_revision": "9eb0973712a2d096c0642754ab238f7be7af41b1",
-    "source_sha256": "d8c7afd31179c7c431839dfe4e4346bc0b68d43f789c199598cd7a60fb82e4cb",
-    "source_files": {
-      "web_apps/advanced_project_planning_ideas.html": "d8c7afd31179c7c431839dfe4e4346bc0b68d43f789c199598cd7a60fb82e4cb"
-    },
-    "source_url": "https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/library/apps/project-frontier-lab",
-    "tags": "project_management, demand_management, assurance, resource_allocation, dependencies, portfolio_management, decision_support, visualization",
-    "origin": "User",
-    "original_model": "GPT-5.3-Codex",
-    "original_notes": "",
-    "reviewed": "3 October 2026"
-  },
-  {
     "id": "waste-route-capacity",
     "theme": "delivery-dynamics",
     "order": 35,

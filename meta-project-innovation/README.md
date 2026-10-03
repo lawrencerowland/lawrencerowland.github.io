@@ -1,10 +1,16 @@
 # Project Frontier Lab
 
-One fictional cloud-migration case viewed through five independent planning experiments. Maintained home: **Decisions & trade-offs** at `/library/apps/project-frontier-lab/`. Reviewed 3 October 2026; the original describes itself as rebuilt 11 July 2026.
+One fictional cloud-migration case viewed through five independent planning experiments. Its home is **Experiments → Meta Project Innovation**, at `/meta-project-innovation/`. **Foray-ID: `FORAY-META-PROJECT-INNOVATION` · Foray 240.** Reviewed and placed here 3 October 2026; the original describes itself as rebuilt 11 July 2026.
+
+## Enquiry and status
+
+Meta Project Innovation seeks higher-order ideas that improve project planning and delivery along value, feasibility, surprise and innovation. The existing `240 Meta project innovation/FORAY_PROMPT.md` names **Project Demand Destruction Engine** and **Truth-Sensor Planning** among its first-run candidates. Frontier's demand-challenge and evidence-sensor lenses share those questions. This establishes a conceptual reason for the placement; it does not establish that the original app was historically derived from that prompt.
+
+The present construction is an **early, incomplete trial**: five inspectable lenses around a fictional cloud migration, with checked calculations and a current decision ledger. It has teaching value, but it has not demonstrated a better project choice, a delivery benefit or a higher-order advance against the foray's existing candidates. Its wider ambition remains open. This placement does not prescribe a new research programme or imply that combining the lenses into one planner would fulfil that ambition.
 
 ## Provenance
 
-Migrated from [`Project-web-apps/web_apps/advanced_project_planning_ideas.html`](https://github.com/lawrencerowland/Project-web-apps/blob/9eb0973712a2d096c0642754ab238f7be7af41b1/web_apps/advanced_project_planning_ideas.html), source repository revision `9eb0973712a2d096c0642754ab238f7be7af41b1`. The source was read, not modified, during this implementation.
+Migrated from [`Project-web-apps/web_apps/advanced_project_planning_ideas.html`](https://github.com/lawrencerowland/Project-web-apps/blob/9eb0973712a2d096c0642754ab238f7be7af41b1/web_apps/advanced_project_planning_ideas.html), source repository revision `9eb0973712a2d096c0642754ab238f7be7af41b1`. The model review used that pinned original. Compatibility routing is handled separately from the retained source history.
 
 - Original HTML SHA-256: `d8c7afd31179c7c431839dfe4e4346bc0b68d43f789c199598cd7a60fb82e4cb`.
 - `tests/fixtures/phase-two-frontier-schedules.json` SHA-256: `3fd3e399bcf40ac537d878906c2cd1a81d8319d133459372f24a2fc6ef30273f`.
@@ -29,7 +35,7 @@ The previous read-only audit identified the useful whole case, verified 45 bound
 - Evidence changes update badges and output in place, preserving the focused checkbox/select. Tab navigation uses one tab stop plus Left/Right/Home/End; active panels are focusable. Checkbox labels provide larger click/touch areas.
 - Topology output distinguishes local evidence-to-release paths from upstream reachability and explicitly avoids implying AND-prerequisite satisfaction or an authorised release. Unavailable feedback edges are excluded from the available-link count. Full node names and active typed links have a text equivalent; graph lines end at node borders so their arrowheads remain visible.
 - Schedule stress cases can now be inspected individually. Priority formulas, score weights, stress increments and every fixed task input are visible. “First validated outcome” becomes **first assumed outcome** and “critical uncertainty” becomes **unresolved uncertainty**, matching what is actually calculated. All original schedule results remain unchanged. Lowest-regret ties are named instead of silently choosing the first tied policy.
-- Native HTML/CSS/JS, no external runtime or network data, a canonical Library route, subject navigation, a skip link, mobile table labels, visible focus, and readable method content without JavaScript.
+- Native HTML/CSS/JS, no external runtime or network data, a canonical experiment route, Experiments navigation, a visible End/concept/construction/limit bridge, a skip link, mobile table labels, visible focus, and readable method content without JavaScript.
 - Portable version-1 JSON snapshots cover all editable settings plus selected lens, policy and scenario. Export writes selectable text; import validates the complete bounded schema before any change. Duplicate/missing IDs, unknown fields, invalid scalar values and oversized text are rejected. Restoring the original example resets all lens settings. Nothing is saved to browser storage and no original persisted state existed to migrate.
 
 ## Scope and limitations
@@ -53,6 +59,6 @@ Run `node --test tests/phase-two-frontier.test.cjs` after installing the existin
 - Feedback versus precedence cycles, outages and the distinction between local evidence paths and upstream reachability.
 - All 45 policy/scenario/capacity combinations through actual change handlers, including stress-schedule output and regret arithmetic.
 - Complete export/reset/import through the UI; atomic rejection of malformed/oversized/unsupported snapshots; canonical ordering of IDs.
-- Keyboard tab navigation, control labels, mobile table labels and canonical/noscript scaffolding.
+- Keyboard tab navigation, control labels, mobile table labels, canonical/noscript scaffolding and the explicit early-foray framing.
 
 DOM tests use jsdom and do not establish visual layout or a human-use outcome. Parent integration performs the real-browser desktop/mobile journeys and overall site checks. This implementation itself does not claim publication or deployment.

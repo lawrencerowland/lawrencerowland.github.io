@@ -18,7 +18,7 @@ The original fictional A–G network, all discrete menus, and baseline of 25 wee
 - Finish-to-start, zero-lag CPM, earliest/latest times, float, critical sets and baseline/chosen Gantts, including disconnected tasks and zero-duration milestones.
 - Explicit per-task duration/cost menus and exhaustive bounded enumeration; full cost/makespan Pareto frontier, affordable knee heuristic, declared linear value-of-time objective, and manual frontier choice.
 - JSON editors, input/result import, example reset, baseline recomputation, input/result JSON download, schedules/frontier CSV, calculation log and a selectable result text fallback.
-- The original explanation's whole-network complementarity, floors, credible menus, hidden resource/calendar coupling, audit/rebaseline, value assumptions, scaling and pilot concepts. Procurement/incentives remain a clearly separated proposal.
+- The original explanation's whole-network complementarity, floors, credible menus, hidden resource/calendar coupling, audit/rebaseline, value assumptions, scaling and pilot concepts. Procurement/incentives remain a clearly separated proposal. The disclosure explicitly retains “Buying project time” as a possible future foray; this Library placement applies to the checked calculator, not a claim that the wider idea is settled.
 
 ## Deliberate corrections
 

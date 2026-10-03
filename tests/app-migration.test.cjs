@@ -10,6 +10,7 @@ if(process.argv[2])assert.ok(!page.includes('{%')&&!page.includes('{{'),'Liquid 
 const specialists=JSON.parse(fs.readFileSync(path.join(root,'assets/data/specialist-apps.json'),'utf8'));
 const retired=JSON.parse(fs.readFileSync(path.join(root,'assets/data/retired-apps.json'),'utf8'));
 const expected={
+ 'advanced_project_planning_ideas':'meta-project-innovation/',
  'hazard_morphospace':'library/apps/waste-route-capacity/#state-space',
  'project_time_exchange_explainer':'library/apps/project-time-exchange/#explainer',
  'what_AI_model_for_what':'library/apps/capabilities-wiring-diag/',

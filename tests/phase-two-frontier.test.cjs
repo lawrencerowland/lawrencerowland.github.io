@@ -5,11 +5,11 @@ const path = require('node:path');
 const {createRequire} = require('node:module');
 const root = path.resolve(__dirname, '..');
 const {JSDOM} = createRequire(path.join(root, 'tools/library-apps/package.json'))('jsdom');
-const folder = path.join(root, 'library/apps/project-frontier-lab');
+const folder = path.join(root, 'meta-project-innovation');
 const clone = value => JSON.parse(JSON.stringify(value));
 const close = (a,b) => assert.ok(Math.abs(a-b) < 1e-9, `${a} != ${b}`);
 function ui(t) {
-  const dom = new JSDOM(fs.readFileSync(path.join(folder, 'index.html'), 'utf8'), {url:'https://example.test/library/apps/project-frontier-lab/',runScripts:'outside-only'});
+  const dom = new JSDOM(fs.readFileSync(path.join(folder, 'index.html'), 'utf8'), {url:'https://example.test/meta-project-innovation/',runScripts:'outside-only'});
   dom.window.eval(fs.readFileSync(path.join(folder, 'app.js'), 'utf8'));
   t.after(() => dom.window.close());
   const d = dom.window.document;
@@ -204,5 +204,10 @@ test('tabs have one tab stop, arrow/Home/End navigation, focusable panels, label
   for(const panel of d.querySelectorAll('[role="tabpanel"]'))assert.equal(panel.tabIndex,0);
   for(const input of d.querySelectorAll('input,select,textarea'))assert.ok(input.getAttribute('aria-label')||input.closest('label')||d.querySelector(`label[for="${input.id}"]`),input.outerHTML);
   for(const cell of d.querySelectorAll('tbody td'))assert.ok(cell.dataset.label,cell.outerHTML);
-  assert.ok(d.querySelector('noscript'));assert.equal(d.querySelector('link[rel="canonical"]').href,'https://lawrencerowland.github.io/library/apps/project-frontier-lab/');
+  assert.ok(d.querySelector('noscript'));assert.equal(d.querySelector('link[rel="canonical"]').href,'https://lawrencerowland.github.io/meta-project-innovation/');
+  assert.equal(d.querySelector('h1').textContent,'Project Frontier Lab');
+  assert.equal(d.querySelector('header nav a').getAttribute('href'),'/side-projects.html');
+  const bridge=d.querySelector('[data-foray-id="FORAY-META-PROJECT-INNOVATION"]');
+  assert.ok(bridge);assert.match(bridge.textContent,/value, feasibility, surprise and innovation/);
+  assert.match(bridge.textContent,/Five independent lenses/);assert.match(bridge.textContent,/wider foray ambition remains unfinished/);
 });

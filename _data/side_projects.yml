@@ -289,3 +289,21 @@
   tags: ["knowledge","coordination","project-state"]
   path: "https://lawrencerowland.github.io/knowing-enough/"
   action: "Explore the whale move"
+
+- title: "Meta Project Innovation"
+  id: meta-project-innovation
+  gallery_order: 17
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/meta-project-innovation
+  image: "/images/scenarios/project-frontier-lab.jpg"
+  image_alt: "Frontier Lab's cloud-migration case with demand choices and planning lenses"
+  scenario: "Move customer data to the cloud, questioning the inherited scope."
+  group: "other"
+  entry_question: "Could we improve the project before optimising its plan?"
+  entry_purpose: "An early trial of demand challenge, evidence and planning choices."
+  question: "Which changes to planning could make the project itself better?"
+  description: "Frontier Lab explores five independent lenses on one case. Demand challenge and evidence sensors connect to this foray's original candidates; their combined practical value remains open."
+  tags: ["project-management", "planning", "evidence", "innovation"]
+  path: "https://lawrencerowland.github.io/meta-project-innovation/"
+  action: "Explore Frontier Lab"
