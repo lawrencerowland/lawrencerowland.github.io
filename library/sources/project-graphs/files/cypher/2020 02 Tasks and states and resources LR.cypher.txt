@@ -1,0 +1,21 @@
+CREATE CONSTRAINT ON (node:`UNIQUE IMPORT LABEL`) ASSERT (node.`UNIQUE IMPORT ID`) IS UNIQUE;
+UNWIND [{_id:46, properties:{name:"Identify waste"}}, {_id:47, properties:{name:"Remove waste"}}, {_id:48, properties:{name:"Prepare Waste extraction plan"}}, {_id:49, properties:{name:"Commission suppliers"}}] AS row
+CREATE (n:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row._id}) SET n += row.properties SET n:Task;
+UNWIND [{_id:50, properties:{name:"No waste left on site"}}, {_id:51, properties:{name:"Waste understood"}}, {_id:52, properties:{name:"Plan agreed"}}, {_id:53, properties:{name:"Suppliers ready"}}] AS row
+CREATE (n:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row._id}) SET n += row.properties SET n:State;
+UNWIND [{_id:66, properties:{role:"Engineer"}}, {_id:67, properties:{role:"Project_manager"}}, {_id:68, properties:{role:"Supplier"}}, {_id:69, properties:{role:"Operator"}}] AS row
+CREATE (n:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row._id}) SET n += row.properties SET n:Resource;
+UNWIND [{start: {_id:67}, end: {_id:49}, properties:{}}, {start: {_id:68}, end: {_id:49}, properties:{}}, {start: {_id:66}, end: {_id:48}, properties:{}}, {start: {_id:68}, end: {_id:47}, properties:{}}, {start: {_id:69}, end: {_id:46}, properties:{}}] AS row
+MATCH (start:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row.start._id})
+MATCH (end:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row.end._id})
+CREATE (start)-[r:allocated_to]->(end) SET r += row.properties;
+UNWIND [{start: {_id:52}, end: {_id:49}, properties:{}}, {start: {_id:51}, end: {_id:48}, properties:{}}, {start: {_id:53}, end: {_id:47}, properties:{}}] AS row
+MATCH (start:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row.start._id})
+MATCH (end:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row.end._id})
+CREATE (start)-[r:permits]->(end) SET r += row.properties;
+UNWIND [{start: {_id:47}, end: {_id:50}, properties:{}}, {start: {_id:48}, end: {_id:52}, properties:{}}, {start: {_id:49}, end: {_id:53}, properties:{}}, {start: {_id:46}, end: {_id:51}, properties:{}}] AS row
+MATCH (start:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row.start._id})
+MATCH (end:`UNIQUE IMPORT LABEL`{`UNIQUE IMPORT ID`: row.end._id})
+CREATE (start)-[r:causes]->(end) SET r += row.properties;
+MATCH (n:`UNIQUE IMPORT LABEL`)  WITH n LIMIT 20000 REMOVE n:`UNIQUE IMPORT LABEL` REMOVE n.`UNIQUE IMPORT ID`;
+DROP CONSTRAINT ON (node:`UNIQUE IMPORT LABEL`) ASSERT (node.`UNIQUE IMPORT ID`) IS UNIQUE;
