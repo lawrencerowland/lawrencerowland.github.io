@@ -1,7 +1,7 @@
 {
   "gimmer-processes-plans": {
     "image": "/images/experiment-emblems/gimmer-processes-plans.svg",
-    "title": "Gimmer: processes to plans",
+    "title": "Processes to plans",
     "description": "Which plans are allowed by the way the work actually happens?"
   },
   "integrated-risks-tasks": {
@@ -16,7 +16,7 @@
   },
   "bricklaying-rotunda": {
     "image": "/images/experiment-emblems/bricklaying-rotunda.svg",
-    "title": "Bricklaying a Rotunda",
+    "title": "Changing project states",
     "description": "How can we explore changing project states?"
   },
   "local-to-global": {
@@ -26,7 +26,7 @@
   },
   "shared-waters": {
     "image": "/images/experiment-emblems/shared-waters.svg",
-    "title": "Shared waters: open systems",
+    "title": "Composing open systems",
     "description": "What do open-system methods reveal about useful project chunks?"
   },
   "programme-decisions": {
@@ -36,7 +36,7 @@
   },
   "gimmer-higher-autonomy": {
     "image": "/images/experiment-emblems/gimmer-higher-autonomy.svg",
-    "title": "Gimmer: higher-autonomy experiments",
+    "title": "Higher-autonomy experiments",
     "description": "How far can repeated agent-led experiments advance the same aim?"
   },
   "project-spines": {
@@ -51,17 +51,17 @@
   },
   "building-wall": {
     "image": "/images/experiment-emblems/building-wall.svg",
-    "title": "Building a Wall",
+    "title": "Composing work packages",
     "description": "Can explicit interfaces turn project work into reusable blocks?"
   },
   "gimmer-broader": {
     "image": "/images/experiment-emblems/gimmer-broader.svg",
-    "title": "Gimmer: broader collection",
+    "title": "Project models in use",
     "description": "What else must we understand beyond a task list and dates?"
   },
   "solway-tunnel": {
     "image": "/images/experiment-emblems/solway-tunnel.svg",
-    "title": "Solway Tunnel Ontology",
+    "title": "Semantic project planning",
     "description": "How can a project ontology connect to a plan?"
   },
   "portfolio-wave-reading": {
@@ -77,7 +77,7 @@
   "knowing-enough": {
     "image": "/images/experiment-emblems/knowing-enough.svg",
     "title": "Knowing enough to act together",
-    "description": "What must each crew know to choose its part of the move?"
+    "description": "What must each participant know to act together?"
   },
   "meta-project-innovation": {
     "image": "/images/experiment-emblems/meta-project-innovation.svg",
@@ -91,7 +91,7 @@
   },
   "bracken-vale": {
     "image": "/images/experiment-emblems/bracken-vale.svg",
-    "title": "Bracken Vale: useful project interventions",
+    "title": "Useful project interventions",
     "description": "Which small interventions help project people see and do something useful?"
   }
 }

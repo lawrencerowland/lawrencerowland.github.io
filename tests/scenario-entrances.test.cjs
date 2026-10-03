@@ -31,7 +31,9 @@ const expectedScenarios = {
   'wall-and-roof': ['building_a_wall/apps/wall-roof-wiring-smc/', 'building_a_wall/apps/wiring-algebra/', 'building_a_wall/apps/course-by-course/'],
   'solway-tunnel': ['Solway_tunnel_ontology/'],
   'museum-whale': ['knowing-enough/'],
-  'bracken-vale': ['bracken-vale/']
+  'bracken-vale': ['bracken-vale/'],
+  'mountain-festival-shuttle': ['Programme-decision-sequences/'],
+  'island-reading-room': ['functors-for_projects/apps/geometry-of-interaction/']
 };
 const absolute = route => route.startsWith('/') ? route : origin + '/' + route;
 const expectedProjects = [
@@ -56,9 +58,9 @@ const expectedProjects = [
   ['bracken-vale', 'bracken-vale/', 'bracken-vale']
 ];
 
-test('ten concrete scenarios retain their reviewed enquiry mappings and separate boundaries', () => {
+test('twelve concrete scenarios retain their reviewed enquiry mappings and separate boundaries', () => {
   assert.deepEqual(scenarios.map(s => s.id), Object.keys(expectedScenarios));
-  assert.equal(new Set(scenarios.map(s => s.url)).size, 10);
+  assert.equal(new Set(scenarios.map(s => s.url)).size, 12);
   for (const s of scenarios) {
     assert.equal(s.url, '/project-scenarios/' + s.id + '/');
     assert.deepEqual(s.projects.map(p => p.url), expectedScenarios[s.id].map(absolute), s.id + ': reviewed destinations');
@@ -89,7 +91,7 @@ test('ten concrete scenarios retain their reviewed enquiry mappings and separate
     assert.ok(page.includes('permalink: ' + s.url + '\n'));
     assert.ok(page.includes('home_front_door: true'), s.id + ': skip navigation supported');
   }
-  assert.equal(fs.readdirSync(path.join(root, 'project-scenarios')).filter(f => f.endsWith('.md')).length, 10);
+  assert.equal(fs.readdirSync(path.join(root, 'project-scenarios')).filter(f => f.endsWith('.md')).length, 12);
 });
 
 test('nineteen enquiry identities, public homes and source repositories survive the new emblems', () => {
@@ -137,7 +139,7 @@ test('agent orientation is regenerated from the current three routes and scenari
     assert.ok(directory.includes('[' + s.title + '](' + origin + s.url + ')'));
     for (const p of s.projects) assert.ok(directory.includes('[' + p.title + '](' + new URL(p.url, origin).href + ')'));
   }
-  assert.ok(read('LLMs.txt').includes('10 concrete settings'));
+  assert.ok(read('LLMs.txt').includes('12 concrete settings'));
   assert.ok(read('agents/visual-atlas.txt').includes('# Working views'));
 });
 
@@ -180,7 +182,7 @@ if (built) {
       assert.ok(!builtRead(route).includes('{%') && !builtRead(route).includes('{{'), route + ': fully rendered');
     }
     const gallery = document('project-scenarios.html');
-    assert.equal(gallery.querySelectorAll('.pw-picture-card').length, 10);
+    assert.equal(gallery.querySelectorAll('.pw-picture-card').length, 12);
     for (const s of scenarios) {
       const tile = gallery.getElementById(s.id).querySelector('a');
       assert.equal(tile.getAttribute('href'), s.url);

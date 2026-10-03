@@ -41,12 +41,41 @@
   $('delete-edge').addEventListener('click',()=>mutate(()=>state.edges.splice(Number($('edge-delete').value),1)));
   $('delete-node').addEventListener('click',()=>mutate(()=>{const id=$('node-delete').value;state.nodes=state.nodes.filter(n=>n.id!==id);state.edges=state.edges.filter(e=>!e.includes(id));}));
   $('load-example').addEventListener('click',()=>mutate(()=>{state=M.example($('graph-example').value);conditioned=[];}));
+  function loadArrowStory(keep) {
+    mutate(()=>{
+      state=M.example('confounding');conditioned=[];
+      if(!keep)state.edges=state.edges.filter(([a,b])=>!(a==='Team Capacity'&&b==='Automation'));
+      $('graph-example').value='confounding';
+    });
+  }
+  $('arrow-keep').addEventListener('click',()=>loadArrowStory(true));
+  $('arrow-challenge').addEventListener('click',()=>loadArrowStory(false));
+  function showArrowStory(g,sets,chosen) {
+    const example=M.example('confounding'),arrow=JSON.stringify(['Team Capacity','Automation']);
+    const expected=new Set(example.edges.map(e=>JSON.stringify(e)));
+    const edges=g?g.edges.map(e=>JSON.stringify(e)):[];
+    const exact=g&&state.x===example.x&&state.y===example.y&&g.nodes.length===3&&
+      example.nodes.every(n=>g.nodes.some(v=>v.id===n.id))&&
+      edges.every(e=>expected.has(e))&&[...expected].filter(e=>e!==arrow).every(e=>edges.includes(e));
+    const keep=exact&&edges.includes(arrow);
+    $('arrow-keep').setAttribute('aria-pressed',String(Boolean(keep)));
+    $('arrow-challenge').setAttribute('aria-pressed',String(Boolean(exact&&!keep)));
+    if(!exact) {
+      $('arrow-result').textContent='The editor currently shows another graph or question. Choose a story above to compare this one arrow; the editor’s own analysis remains below.';
+      return;
+    }
+    const capacity=g.nodes.find(n=>n.id==='Team Capacity');
+    const path=keep?'The path Automation ← Team Capacity → Throughput '+(conditioned.includes('Team Capacity')?'is blocked by conditioning on capacity.':'is open without conditioning on capacity.'):'Removing Capacity → Automation removes that back-door path in this graph.';
+    const result=sets.length?'Inclusion-minimal observed adjustment set: '+sets.map(setLabel).join(' or ')+'.':'No observed set passes this sufficient criterion: capacity is unmeasured.';
+    $('arrow-result').textContent=(keep?'Arrow kept. ':'Arrow removed. ')+path+' '+result+' Selected set '+setLabel(conditioned)+(chosen.valid?' passes.':' does not pass.')+(keep&&!capacity.observed?' Measuring capacity would make adjustment available under these assumptions.':'')+' The main diagram and analysis below use this same graph. No effect size has been calculated.';
+  }
   $('clear-graph').addEventListener('click',()=>mutate(()=>{state={nodes:[],edges:[],x:'',y:''};conditioned=[];}));
   for(const id of ['cause','outcome']) $(id).addEventListener('change',()=>{state.x=$('cause').value;state.y=$('outcome').value;selectors();analyse();});
   $('analyse').addEventListener('click',analyse);
   function analyse() {
-    if(!state.x||!state.y||state.x===state.y) {$('graph-result').textContent='Choose two different variables as cause and outcome.';marks={items:[]};$('path-list').replaceChildren();drawGraph();return;}
+    if(!state.x||!state.y||state.x===state.y) {showArrowStory(null);$('graph-result').textContent='Choose two different variables as cause and outcome.';marks={items:[]};$('path-list').replaceChildren();drawGraph();return;}
     const g=graph(),sets=M.adjustmentSets(g,state.x,state.y),chosen=M.backdoor(g,state.x,state.y,conditioned);marks=M.paths(g,state.x,state.y,conditioned);
+    showArrowStory(g,sets,chosen);
     $('graph-result').innerHTML='<h3>'+esc(state.x)+' → '+esc(state.y)+'</h3><p><strong>'+ (chosen.valid?'Selected set passes the back-door criterion.':'Selected set does not pass the back-door criterion.')+'</strong> '+esc(setLabel(conditioned))+'</p>'+chosen.reasons.map(r=>'<p>'+esc(r)+'</p>').join('')+'<p><strong>Inclusion-minimal observed sets</strong></p>'+(sets.length?'<div class="set-options">'+sets.map((z,i)=>'<button data-set="'+i+'">Use '+esc(setLabel(z))+'</button>').join('')+'</div>':'<p>No observed set passes this sufficient criterion for the assumed graph.</p>')+'<p class="note">This checks a graphical condition for estimating the total effect, not an effect size. The cause and outcome are treated as observed. '+(marks.truncated?'Only the first 200 paths are displayed below; the adjustment calculation still tests the whole graph.':'All '+marks.items.length+' connecting paths are listed below.')+'</p>';
     $('graph-result').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>{conditioned=[...sets[Number(b.dataset.set)]];selectors();analyse();}));
     $('path-list').innerHTML=marks.items.length?'<ol>'+marks.items.map(p=>'<li><strong>'+esc(p.kind)+' · '+(p.open?'open':'blocked')+'</strong><br><span class="path-text">'+p.nodes.map((n,i)=>esc(n)+(i<p.nodes.length-1?(g.edges.some(([a,b])=>a===n&&b===p.nodes[i+1])?' → ':' ← '):'')).join('')+'</span>'+(p.colliders.length?'<br><small>Collider on this path: '+esc(p.colliders.join(', '))+'</small>':'')+'</li>').join('')+'</ol>':'<p>No connecting path.</p>';

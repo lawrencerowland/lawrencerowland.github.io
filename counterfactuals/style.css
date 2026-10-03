@@ -2,3 +2,6 @@
 /* Grid items must shrink around their internally scrolling tables and code. */
 .split>*,.cards>*,.hero>*,.panel{min-width:0}
 @media(max-width:650px){.diagram-panel{overflow-x:auto}.diagram-panel svg{min-width:620px}}
+
+/* The worked assumption comparison is local to Causal Lab. */
+.arrow-lesson>summary{font:1.35rem/1.4 Georgia,serif}.arrow-result{background:#edf2e6;border-left:3px solid #537565;padding:.8rem 1rem;margin:.7rem 0 1rem;max-width:95ch}.arrow-lesson button[aria-pressed="true"]{background:#285d4a;color:white;border-color:#285d4a}.arrow-lesson .toolbar{margin-top:.7rem}

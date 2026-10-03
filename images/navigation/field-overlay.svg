@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="260" viewBox="0 0 680 260" role="img" aria-labelledby="field-overlay-title field-overlay-desc">
+            <title id="field-overlay-title">Field overlay</title>
+            <desc id="field-overlay-desc">A project setting has routes, milestones and surrounding constraints. A translucent method diagram sits within the setting. An orange experimental path follows part of that method in this particular context.</desc><style>path,rect,circle{stroke-linecap:round;stroke-linejoin:round}.field{fill:#f8f6ef}.wash{fill:#39594c;opacity:.06}.paper{fill:#fffdf8}.ghost{stroke:#39594c;stroke-width:1.6;fill:none;opacity:.23}.method{stroke:#39594c;stroke-width:2.4;fill:none;opacity:.7}.node{stroke:#39594c;stroke-width:2.2;fill:#fffdf8}.trial{stroke:#b68142;stroke-width:4;fill:none}.trial-dot{fill:#b68142}</style>
+            <rect width="680" height="260" rx="6" class="field"/>
+            <path d="M24 216Q104 128 174 163T329 193T489 160T657 197L657 239H24Z" class="wash"/>
+            <g class="ghost"><path d="M28 97Q97 65 157 92T277 93M461 71Q533 51 655 99M37 230Q95 178 193 208M488 224Q560 197 649 224"/><path d="M52 179h67v-68H52ZM52 135h67M73 111v68M95 111v68M579 95h49v74h-49ZM579 120h49m-25-25v74"/><path d="M117 179Q159 126 203 152T261 152M530 161Q557 178 592 169M126 75l27-22 29 22M153 53v49"/></g>
+            <path d="M187 99 484 66 529 197 220 229Z" class="paper" opacity=".8"/>
+            <path d="M187 99 484 66 529 197 220 229Z" class="method" opacity=".35"/>
+            <g class="method"><path d="m240 165 89-33 91 31 63-47M329 132l31 64 60-33M420 163l49 40"/></g>
+            <path d="M123 178Q160 167 181 174T240 165L329 132 420 163 483 116" class="trial"/>
+            <g class="node"><circle cx="240" cy="165" r="6"/><circle cx="329" cy="132" r="6"/><circle cx="420" cy="163" r="6"/><circle cx="483" cy="116" r="6"/><circle cx="360" cy="196" r="5"/><circle cx="469" cy="203" r="5"/></g>
+            <circle cx="123" cy="178" r="6" class="trial-dot"/>
+          </svg>
