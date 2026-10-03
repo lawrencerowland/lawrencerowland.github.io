@@ -767,7 +767,7 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-breadcrumb { font:13px/1.6 'Inter',Arial,sans-serif; margin-bottom:20px; }
 
 /* The selected companion drawing: a method tried inside its project setting. */
-.pw-home-field-overlay { margin-top:22px; }
+.pw-home .pw-home-field-overlay { margin-top:22px; }
 .pw-field-overlay-stage { position:relative; }
 .pw-field-overlay-method, .pw-field-overlay-experiment { position:absolute; color:#294c40; font:400 clamp(14px,2vw,20px)/1.3 Georgia,serif; }
 .pw-field-overlay-method { left:43%; top:35%; }
