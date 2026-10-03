@@ -35,7 +35,7 @@ The original name was *Project Success Prediction*. The actual target is **IEG B
 
 ## Resources
 
-- [Original demonstration film — about 4 minutes 38 seconds](/library/sources/orange-project-ratings/files/project-success-prediction/Project-Success-prediction-ML-LR.mov). Use GitHub's download control if it does not play in the preview.
+- [Original demonstration film — about 4 minutes 38 seconds](/library/sources/orange-project-ratings/files/project-success-prediction/Project-Success-prediction-ML-LR.mov). Download the MOV file if your browser does not play it.
 - [One-page demonstration script — July 2019 (PDF)](/library/sources/orange-project-ratings/files/project-success-prediction/Storyline-for-demonstration.pdf).
 - [Saved Orange workflow (.ows)](/library/sources/orange-project-ratings/files/project-success-prediction/Project-Success-prediction.ows).
 - [Orange downloads](https://orangedatamining.com/download/) and [widget documentation](https://orangedatamining.com/widget-catalog/).

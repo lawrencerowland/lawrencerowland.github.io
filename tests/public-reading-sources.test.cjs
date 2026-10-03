@@ -56,6 +56,9 @@ test('seven notebook readers preserve every code cell and every saved output', (
 });
 
 test('source links point to actual authoring folders, and access is labelled', () => {
+  const orange = fs.readFileSync(path.join(root,'library/sources/orange-project-ratings/project-success-prediction-readme.md'),'utf8');
+  assert.ok(orange.includes('Download the MOV file if your browser does not play it.'));
+  assert.ok(!orange.includes('download control'), 'the public film route does not direct readers to a GitHub-only control');
   const apps = JSON.parse(fs.readFileSync(path.join(root, '_data/library_apps.json')));
   for (const app of apps) {
     const url = app.source_url || origin.replace('https://lawrencerowland.github.io','https://github.com/lawrencerowland/lawrencerowland.github.io') + '/tree/master/tools/library-apps/apps/' + app.id;
