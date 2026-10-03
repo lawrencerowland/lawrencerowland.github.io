@@ -140,8 +140,8 @@
       align-items:center;
     }
     .recommendation strong{display:block;font-size:17px;margin-bottom:4px}
-    .recommendation p{margin:0;color:#d6deeb}
-    .recommendation .tag{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:white}
+    .recommendation p{margin:0;color:var(--ink)}
+    .recommendation .tag{background:var(--panel);border-color:var(--line);color:var(--ink)}
     .lever-grid{
       display:grid;
       grid-template-columns:1fr;
