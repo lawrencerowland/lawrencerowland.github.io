@@ -1,3 +1,8 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
 # Project Experiments in AI — agent welcome
 
 > Lawrence Rowland explores project work through small scenarios, executable models, diagrams and source-backed explanations. This guide helps people and agents find their way through the published collection.

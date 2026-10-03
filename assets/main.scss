@@ -312,6 +312,9 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-navigation { margin: 0; background: var(--pw-paper); color: var(--pw-ink); border-bottom: 1px solid var(--pw-line); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 .pw-navigation .nav-container { box-sizing: border-box; max-width: 1280px; min-height: 100px; padding: 23px 40px; margin: 0 auto; gap: 32px; }
 .pw-navigation .pw-site-brand { color: var(--pw-ink); text-decoration: none; flex: none; }
+.pw-navigation .pw-brand-block { display: flex; flex-direction: column; align-items: flex-start; flex: none; }
+.pw-navigation .pw-agent-link { display: inline-block; margin-top: 5px; padding: 4px 0; min-height: 24px; box-sizing: border-box; color: var(--pw-green); font: 500 12px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-decoration: underline; text-underline-offset: 3px; }
+.pw-navigation .pw-agent-link:hover { color: var(--pw-ink); }
 .pw-navigation .pw-site-brand > span { display: block; font: 400 23px/1.2 Georgia, 'Times New Roman', serif; letter-spacing: -.025em; }
 .pw-navigation .pw-site-brand small { display: block; margin-top: 7px; color: var(--pw-muted); font: 500 9px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-transform: uppercase; letter-spacing: .14em; }
 .pw-navigation .nav-links { flex: initial; gap: 30px; align-items: center; justify-content: flex-end; }
@@ -694,6 +697,24 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-map-branch .pw-map-note { margin:18px 0; color:var(--pw-muted); }
 .pw-map-branch .pw-map-further { margin-top:24px; }
 .pw-site-map { padding-bottom:30px; }
+#for-agents { scroll-margin-top: 24px; margin: 0 0 38px; padding: 24px; border: 1px solid var(--pw-line); border-left: 4px solid var(--pw-green); border-radius: 4px; background: #fffef8; overflow-wrap: anywhere; }
+#for-agents h2 { margin: 0 0 12px; padding: 0; border: 0; font: 400 27px/1.2 Georgia, 'Times New Roman', serif; }
+#for-agents h3 { margin: 18px 0 8px; font-size: 17px; }
+#for-agents p, #for-agents li, #for-agents td, #for-agents th, #for-agents summary { font-size: 14px; line-height: 1.6; }
+#for-agents p { max-width: 82ch; }
+#for-agents a { color: var(--pw-green); text-underline-offset: 3px; }
+#for-agents a:focus-visible, #for-agents summary:focus-visible { outline: 3px solid var(--pw-ochre); outline-offset: 4px; }
+#for-agents details { margin-top: 16px; border-top: 1px solid var(--pw-line); padding-top: 8px; }
+#for-agents summary { cursor: pointer; padding: 8px 0; color: var(--pw-ink); font-weight: 600; }
+#for-agents table { width: 100%; margin: 12px 0; border-collapse: collapse; }
+#for-agents th, #for-agents td { text-align: left; vertical-align: top; border: 1px solid var(--pw-line); padding: 10px; }
+#for-agents th { background: #edf1e8; }
+#for-agents .pw-agent-table-wrap { max-width: 100%; overflow-x: auto; margin-top: 12px; }
+#for-agents .pw-agent-table-wrap:focus-visible { outline: 3px solid var(--pw-ochre); outline-offset: 3px; }
+#for-agents .pw-agent-project-table { min-width: 820px; }
+#for-agents caption { text-align: left; padding: 0 0 8px; color: var(--pw-muted); font-size: 13px; }
+#for-agents .pw-agent-formats { display: flex; flex-wrap: wrap; gap: 6px; }
+@media(max-width:700px) { #for-agents { padding: 18px; } #for-agents th, #for-agents td { padding: 8px; font-size: 13px; } }
 @media(max-width:700px){.pw-three-doors{padding-top:28px}.pw-library-additional .pw-home-question-grid{grid-template-columns:1fr}.pw-map-branches{grid-template-columns:1fr;border-left:1px solid #92a396;margin-left:10px;gap:28px}.pw-map-branches::before,.pw-map-root::after{display:none}.pw-map-root{text-align:left;padding:6px 0 16px}.pw-map-branch{padding-left:22px}.pw-map-branch::before{left:0;top:16px;height:0;width:15px;border-top:1px solid #92a396}.pw-map-branch h2{text-align:left}}
 
 .pw-wider-gallery .pw-home-question-copy{padding-bottom:24px}.pw-wider-gallery .pw-home-question h2{font:400 26px/1.3 Georgia,serif;margin:0 0 14px}.pw-wider-gallery{padding-bottom:40px}

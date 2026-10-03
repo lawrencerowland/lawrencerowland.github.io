@@ -1,0 +1,223 @@
+---
+layout: null
+permalink: /agents/directory.md
+sitemap: false
+---
+# Project and Library directory
+
+[Agent welcome](https://lawrencerowland.github.io/sitemap.html#for-agents) · [Compact Markdown guide](https://lawrencerowland.github.io/llms.txt)
+
+Lawrence Rowland explores project work through small scenarios, executable models, diagrams and source-backed explanations. This guide helps people and agents find their way through the published collection.
+
+Each project keeps its own question, scope and account of what its examples establish. An essay here is a trial; a useful result may be a limitation or a failed attempt. Scenarios help people think; future enquiries may change their setting or method. This guide describes the collection and leaves research direction with each project.
+
+## Three entrances
+
+- [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
+- [Library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
+- [Visual atlas](https://lawrencerowland.github.io/explore-visually.html): Pictures and explanations that lead into the same published work.
+
+The question, scenario, approach and concept labels below follow the public catalogue. The short boundary notes are editorial orientation; the linked project owns its fuller scope. SMC means symmetric monoidal category; WBS means work breakdown structure. Each example explains how, and how far, it uses its named methods.
+
+## Gimmer: processes to plans
+
+- Question: Which plans are allowed by the way the work actually happens?
+- Scenario: Build a small refuge halfway up a cliff.
+- Approach: Lawrence’s main Petri → SMC → WBS collection: related models, generators and explanations, including earlier experiments.
+- Concepts: processes, WBS, schedule.
+- Scope and limits: Several process-to-plan constructions share this collection. Their assumptions and coverage differ; read the chosen construction's method and checks.
+- [Open project](https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html) · [Public source](https://github.com/lawrencerowland/gimmer-crag)
+
+## Integrated risks & tasks
+
+- Question: Can tasks and threats be understood through one process model?
+- Scenario: Pour the foundations before the cows take the lane.
+- Approach: Cows, concrete and shared access: compare original sketches, corrected wiring, process sets and alternative executions of a small resource model.
+- Concepts: processes, risk, composition, category theory.
+- Scope and limits: Toy resource rules, not a probability forecast or a real schedule.
+- [Open project](https://lawrencerowland.github.io/integrated_risks_tasks/) · [Public source](https://github.com/lawrencerowland/integrated_risks_tasks)
+
+## Project Co-design
+
+- Question: Can a feasible finished system be delivered through acceptable stages?
+- Scenario: Reconnect two habitats across a busy road.
+- Approach: Four wildlife-crossing essais: compose a complete crossing, construct a delivery path, compare programmes and size remote monitoring power.
+- Concepts: co design, trade offs, staging, category theory.
+- Scope and limits: Synthetic capacities and costs; the model does not predict animal use.
+- [Open project](https://lawrencerowland.github.io/project-co-design/) · [Public source](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/project-co-design)
+
+## Bricklaying a Rotunda
+
+- Question: How can we explore changing project states?
+- Scenario: Build a circular brick wall, course by course.
+- Approach: A collection of experiments around project dynamics, lenses and trajectories.
+- Concepts: dynamics, models, category theory.
+- Scope and limits: An exploratory collection of dynamics, lenses and trajectories; the chosen model's assumptions define what its paths mean.
+- [Open project](https://lawrencerowland.github.io/bricklaying-a-rotunda/) · [Public source](https://github.com/lawrencerowland/bricklaying-a-rotunda)
+
+## Local to Global
+
+- Question: When do local project views fit together?
+- Scenario: Fit a control centre onto the Tangled Triangle.
+- Approach: Two lines of enquiry: early Tangled Triangle sketches ask how AI interprets interfaces, topology and system architecture; later experiments test local-to-global consistency.
+- Concepts: consistency, WBS, category theory.
+- Scope and limits: Early AI interpretations and later consistency checks are distinct lines of enquiry. A local-to-global result is tied to its stated model.
+- [Open project](https://lawrencerowland.github.io/local-to-global/) · [Public source](https://github.com/lawrencerowland/local-to-global)
+
+## Shared waters: open systems
+
+- Question: What do open-system methods help us understand about useful project chunks?
+- Scenario: Connect an offshore depot, a power barge and their organisations.
+- Approach: Three corrected first attempts from the original GraphML sketches: boundary composition, organisational comparison, and explicit shared observations and capacity.
+- Concepts: open systems, composition, dynamics, category theory.
+- Scope and limits: First constructions of boundaries, organisations and shared observations; their computed results concern the supplied examples.
+- [Open project](https://lawrencerowland.github.io/shared-dynamics/) · [Public source](https://github.com/lawrencerowland/shared-dynamics)
+
+## Programme Decision Sequences
+
+- Question: How should a programme act as uncertainty unfolds?
+- Scenario: Choose now; learn more before the next decision.
+- Approach: Models, worksheets, worked paths and IT decision games for acting under uncertainty. The experiments catalogue distinguishes live simulations, tutorials and historical reports.
+- Concepts: decisions, uncertainty, programmes.
+- Scope and limits: The collection distinguishes simulations, tutorials and historical reports. For example, its finite evidence model uses invented payoffs rather than forecasts.
+- [Open project](https://lawrencerowland.github.io/Programme-decision-sequences/) · [Public source](https://github.com/lawrencerowland/Programme-decision-sequences)
+
+## Gimmer: higher-autonomy experiments
+
+- Question: Can work packages share resources without hiding valid ways to build?
+- Scenario: The same refuge, with the awkward handovers left in.
+- Approach: A parallel Petri → SMC → WBS investigation. Agents choose bounded next steps and repeat build, test and review loops as compute permits.
+- Concepts: processes, WBS, higher autonomy.
+- Scope and limits: Exactness depends on the declared finite object and completed search. Illustrative durations are not verified construction methods.
+- [Open project](https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/) · [Public source](https://github.com/lawrencerowland/gimmer-crag-project-mountain-refuge) · [Public scope and method boundaries](https://github.com/lawrencerowland/gimmer-crag-project-mountain-refuge/blob/main/README.md)
+
+## Project Spines
+
+- Question: What can schedule structure reveal beyond dates?
+- Scenario: Build a mountain-refuge shed, one dependency at a time.
+- Approach: Six tabs on schedule spines, antichain slices, finite shed construction, review loops, vacillation boundaries and project-controls interpretation.
+- Concepts: schedule, project controls, posets, antichains.
+- Scope and limits: Precedence structure and partition results do not by themselves establish a resource-feasible schedule.
+- [Open project](https://lawrencerowland.github.io/project-spines/) · [Public source](https://github.com/lawrencerowland/project-spines)
+
+## Functors for Projects
+
+- Question: How might mathematical structures illuminate project work?
+- Scenario: Describe one project in more than one useful way.
+- Approach: Browse experiments in functors, adjoints, sheaves, wiring diagrams and finite colimits, including the grounded-theory coding illustration.
+- Concepts: category theory, models, project management.
+- Scope and limits: An exploratory collection, not one bounded foray or a complete project-management system. Each construction has its own mathematical and practical limits.
+- [Open project](https://lawrencerowland.github.io/functors-for_projects/) · [Public source](https://github.com/lawrencerowland/functors-for_projects) · [Collection purpose and limits](https://github.com/lawrencerowland/functors-for_projects/blob/main/README.md)
+
+## Building a Wall
+
+- Question: Can explicit interfaces turn project work into reusable blocks?
+- Scenario: Build a wall that is ready to receive a roof.
+- Approach: Project wiring diagrams, beginning with a construction essay on readiness, reusable modules and computed checks, alongside eight earlier explorations.
+- Concepts: wiring diagrams, composition, readiness, category theory.
+- Scope and limits: Readiness and interface checks concern the declared construction; they are not evidence of a completed real build.
+- [Open project](https://lawrencerowland.github.io/building_a_wall/) · [Public source](https://github.com/lawrencerowland/building_a_wall)
+
+## Gimmer: broader collection
+
+- Question: What else must we understand beyond a task list and dates?
+- Scenario: Deliver the refuge—and keep its different accounts connected.
+- Approach: Observation, binding, procurement, ontology and change experiments outside the Petri → SMC → WBS collection and higher-autonomy work.
+- Concepts: observation, procurement, ontology, change.
+- Scope and limits: A collection of different project questions, not one uniform planning model. Read the scope of the selected essay or app.
+- [Open project](https://lawrencerowland.github.io/gimmer-crag/app-index.html) · [Public source](https://github.com/lawrencerowland/gimmer-crag)
+
+## Solway Tunnel Ontology
+
+- Question: How can a project ontology connect to a plan?
+- Scenario: Imagine delivering a tunnel beneath the Solway.
+- Approach: Ontology and WBS experiments using a tunnel scenario, with a separate knowledge-graph audit.
+- Concepts: ontology, WBS, knowledge graphs.
+- Scope and limits: An ontology, a WBS and a knowledge-graph audit answer different questions; none alone establishes tunnel feasibility.
+- [Open project](https://lawrencerowland.github.io/Solway_tunnel_ontology/) · [Public source](https://github.com/lawrencerowland/Solway_tunnel_ontology)
+
+## Portfolio Wave reading map
+
+- Question: How do sources, themes and projects connect?
+- Scenario: Follow a reading idea into a project experiment.
+- Approach: Explore the public source–project–topic projection through the Portfolio Wave view of the concepts graph.
+- Concepts: knowledge graphs, sources, projects.
+- Scope and limits: A public source–project–topic projection. A link suggests a reading connection, not proof that the source establishes a project's claims.
+- [Open project](https://lawrencerowland.github.io/Tag_Concurrence_Graph/pw_best.html) · [Public source](https://github.com/lawrencerowland/Tag_Concurrence_Graph)
+
+## Tag Concurrence Graph
+
+- Question: Which concepts occur together in reading and app collections?
+- Scenario: Find connections in a shelf of tagged reading.
+- Approach: Concepts-graph views for reading collections and a dated React app-catalogue tag map, with explicit source and refresh information.
+- Concepts: knowledge graphs, sources.
+- Scope and limits: Co-occurrence maps describe the indexed collection and its refresh state; an association is not a causal or semantic proof.
+- [Open project](https://lawrencerowland.github.io/Tag_Concurrence_Graph/) · [Public source](https://github.com/lawrencerowland/Tag_Concurrence_Graph)
+
+## Knowing enough to act together
+
+- Question: What must each crew know to choose its part of the move?
+- Scenario: Move an oversized whale exhibit through a museum.
+- Approach: Compare route cues, completion reports and direct inspections. Discover which information arrangements let the handlers choose a passage and the curator decide whether to reopen.
+- Concepts: knowledge, coordination, project state.
+- Scope and limits: The museum scene is provisional. Finite checks distinguish local choice from physical possibility; they do not settle the wider enquiry or demonstrate human benefit.
+- [Open project](https://lawrencerowland.github.io/knowing-enough/) · [Public source](https://github.com/lawrencerowland/knowing-enough) · [Public End, Ways and Means](https://github.com/lawrencerowland/knowing-enough/blob/main/FORAY.md)
+
+## Meta Project Innovation
+
+- Question: Could we improve the project before optimising its plan?
+- Scenario: Move customer data to the cloud, questioning the inherited scope.
+- Approach: Frontier Lab explores five independent lenses on one case. Demand challenge and evidence sensors connect to this foray's original candidates; their combined practical value remains open.
+- Concepts: project management, planning, evidence, innovation.
+- Scope and limits: Frontier Lab is one early trial of five planning lenses; it does not define the wider foray. Their combined practical value remains open.
+- [Open project](https://lawrencerowland.github.io/meta-project-innovation/) · [Public source](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/meta-project-innovation)
+
+## Counterfactual programme steering
+
+- Question: What would change if we chose a different management policy?
+- Scenario: A delivery team considers more automation, extra staff or a lower WIP limit.
+- Approach: Project Causal Lab pairs a causal-graph explorer with a separate programme-policy model. An early Counterfactuals trial, with the boundary between assumptions, fitted data and causal evidence made explicit.
+- Concepts: causality, counterfactuals, decisions, simulation.
+- Scope and limits: A causal-graph explorer and a separate policy model. Supplied assumptions, fitted data and causal evidence must remain distinct.
+- [Open project](https://lawrencerowland.github.io/counterfactuals/) · [Public source](https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/counterfactuals)
+
+## Bracken Vale: useful project interventions
+
+- Question: Which small interventions help project people see and do something useful?
+- Scenario: A small railway has renewals to plan, decisions waiting and several accounts of what matters.
+- Approach: Practical trials explore project decisions, relationships, measures and evidence-linked drafts in a fictional railway. Inputs and results stay inspectable; practical human benefit remains to be tested.
+- Concepts: project management, decisions, evidence, relationships.
+- Scope and limits: Fictional project trials with inspectable inputs and results. First-version coverage does not establish adoption or practical human benefit.
+- [Open project](https://lawrencerowland.github.io/bracken-vale/) · [Public source](https://github.com/lawrencerowland/bracken-vale) · [Public End, Ways and Means](https://github.com/lawrencerowland/bracken-vale/blob/main/FORAY.md)
+
+## Library subjects and further shelves
+
+Library placement means a reusable or more established example has a home; it does not certify the method. A model check, a working interface, mathematical proof and demonstrated human benefit are different kinds of evidence. Read the selected example's assumptions, source uses and limits.
+
+- [Project states & relationships](https://lawrencerowland.github.io/library/methods/states-and-relationships.html): Connect tasks, states, people and resources. Explore shared project models, process diagrams and the relationships behind a portfolio. (17 entries.)
+- [Decisions & trade-offs](https://lawrencerowland.github.io/library/methods/decisions-and-trade-offs.html): Frame a decision, compare competing objectives, and inspect what buffer, delay assumptions and new information change. (14 entries.)
+- [Delivery dynamics & feedback](https://lawrencerowland.github.io/library/methods/delivery-dynamics.html): Explore dependency loops, learning, rework, reviews and site occupancy through deliberately small models. (14 entries.)
+- [Data, evidence & assurance](https://lawrencerowland.github.io/library/methods/data-and-assurance.html): Match methods to the available information. Examine data maturity, project controls and what earlier prediction experiments could establish. (13 entries.)
+- [Capabilities & futures](https://lawrencerowland.github.io/library/methods/capabilities-and-futures.html): Explore the practices, capabilities and tools a portfolio might need, with earlier reading, framework guides and clearly labelled future scenarios. (16 entries.)
+- [Custom GPTs](https://lawrencerowland.github.io/gpt-links-page.html): coaches, co-pilots and agents for thinking through project work.
+- [Social Debt](https://lawrencerowland.github.io/library/apps/social-debt-explorer/): The code is ready. The team is waiting. Read a paper’s ontology through a software-team situation.
+- [Wider interest](https://lawrencerowland.github.io/wider-interest/): Books, journeys, shapes and small games.
+- [About](https://lawrencerowland.github.io/about_me.html): Lawrence Rowland and this collection.
+- [Sitemap](https://lawrencerowland.github.io/sitemap.html): Follow the branches from the front door.
+
+## Wider interest
+
+- [A little room to move](https://lawrencerowland.github.io/wider-interest/door-moisture-model/): Change the moisture assumptions around an old timber door. Watch a few millimetres of clearance disappear.
+- [Project Management Pong](https://lawrencerowland.github.io/wider-interest/project-management-pong/): Pass scope between two managers. A playful game with some deliberately awkward incentives.
+- [HS2 Elite](https://lawrencerowland.github.io/wider-interest/hs2-elite/): Fly, dock and trade between six fictional outposts. Railway names become a tiny space adventure.
+- [John Burnet of Barns: a journey](https://lawrencerowland.github.io/wider-interest/john-burnet-of-barns-journey.html): Follow a literary journey through the Border country, with a map and room for uncertainty.
+- [Johnson’s Dictionary](https://lawrencerowland.github.io/wider-interest/johnsons-dictionary-project.html): A great book as a working project: people, money, promises and nine years of words.
+- [Caesar’s rivers](https://lawrencerowland.github.io/wider-interest/caesars_gallic_wars_rivers.html): Follow selected passages from the Gallic War through the rivers that shape them.
+- [A fourth dimension](https://lawrencerowland.github.io/wider-interest/polytope.html): Move a slice through a four-dimensional shape. See what appears in three dimensions.
+- [Until the conkers ran out](https://lawrencerowland.github.io/wider-interest/conker-season.html): A playground autumn: choose a conker, take your chances, and see how long it lasts.
+
+## Reading the pictures
+
+Use a picture to choose a question, then read its caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model's claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.
+
+[Visual atlas descriptions](https://lawrencerowland.github.io/agents/visual-atlas.md): captions, limits, depicted states and source images for 38 views.
