@@ -303,6 +303,7 @@ jobs:
           node tests/navigation-compatibility.test.cjs _site
           node tests/site-tree.test.cjs _site
           node tests/wider-history.test.cjs _site
+          node tests/social-debt-migration.test.cjs _site
       - name: Check the rendered visual explorer
         run: node tests/visual-explorer.test.cjs _site
       - name: Check rendered Library app routes
@@ -320,6 +321,7 @@ jobs:
           node tests/phase-six-library-migration.test.cjs _site
           node tests/phase-seven-library-migration.test.cjs _site
       - name: Save the built site for preview
+        if: ${{ always() && hashFiles('_site/index.html') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: public-site-preview

@@ -213,3 +213,18 @@ test('map-loading failure leaves the story, cards and credits usable', async () 
   assert.deepEqual(errors, []);
   w.close();
 });
+
+if (process.argv[2]) {
+  test('built Social Debt app, illustration, provenance and local graph dependencies are complete and byte-identical', () => {
+    const builtApp = path.resolve(process.argv[2], 'library/apps/social-debt-explorer');
+    for (const file of [
+      'index.html', 'assets/team-release-scene.jpg',
+      'provenance/migration.json', 'provenance/original-readme.md', 'provenance/original-visual-notes.md',
+      'vendor/d3.v7.9.0.min.js', 'vendor/D3-LICENSE'
+    ]) {
+      const published = path.join(builtApp, file);
+      assert.ok(fs.existsSync(published), file + ': present in the built site');
+      assert.ok(fs.readFileSync(published).equals(fs.readFileSync(path.join(app, file))), file + ': complete published bytes match the verified source');
+    }
+  });
+}

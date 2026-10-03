@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const { JSDOM } = require('../tools/library-apps/node_modules/jsdom');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const origin = 'https://lawrencerowland.github.io';
@@ -92,8 +93,10 @@ if (process.argv[2]) {
   const builtRead = file => fs.readFileSync(path.join(built, file), 'utf8');
   const merged = builtRead('about_me.html');
   const siteMap = builtRead('sitemap.xml'), humanMap = builtRead('sitemap.html');
+  const mapDocument = new JSDOM(humanMap, {url: origin + '/sitemap.html'}).window.document;
+  const mapURLs = [...mapDocument.querySelectorAll('a[href]')].map(anchor => new URL(anchor.href));
   for (const route of ['/gimmer-comparison/', '/project-co-design/', '/library/models/us-portfolio-questions.html']) {
-    assert.equal(humanMap.split('href="' + route + '"').length - 1, 1, 'one retained sitemap route: ' + route);
+    assert.equal(mapURLs.filter(url => url.href === new URL(route, origin).href).length, 1, 'one retained canonical sitemap route, absolute or relative: ' + route);
   }
   for (const id of aboutSections) assert.ok(ids(merged).includes(id), 'published About section ' + id);
   assert.equal(new Set(ids(merged)).size, ids(merged).length, 'published About fragment targets are unique');
@@ -105,7 +108,7 @@ if (process.argv[2]) {
     assert.match(html, /<meta name="robots" content="noindex, follow">/);
     assert.ok(html.includes('rel="canonical" href="' + new URL(item.target, origin).href.split('#')[0] + '"'));
     assert.ok(!siteMap.includes('<loc>' + origin + '/' + file + '</loc>'), file + ': absent from machine sitemap');
-    assert.ok(!humanMap.includes('href="/' + file + '"'), file + ': absent from human sitemap');
+    assert.ok(!mapURLs.some(url => url.origin === origin && url.pathname === '/' + file), file + ': absent from human sitemap, including absolute and stateful links');
     exerciseRedirect(item, html, new URL(fallback[1], origin).href);
   }
   const subjects = builtRead('library.html');
