@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regulatory Negotiation Rehearsal Board</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://lawrencerowland.github.io/library/apps/regulatory-rehearsal/">
+  <meta name="description" content="Rehearse a hypothetical regulatory and delivery package, inspect exact Shapley allocations, and compare coalition objections with a separate consent sketch.">
+  <script defer src="data.js"></script><script defer src="model.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to rehearsal</a>
+  <div class="app">
+    <nav class="library-nav" aria-label="Library"><a href="/library.html">← Library</a> / <a href="/library/methods/decisions-and-trade-offs.html">Decisions &amp; trade-offs</a></nav>
+<header class="topbar">
+      <div>
+        <p class="eyebrow">Coalitions · attribution · assumptions</p><h1>Regulatory Negotiation Rehearsal</h1>
+        <div class="subtitle">Seven parties are planning a hypothetical nuclear-site work package in England. Try inspection, clearer guidance, schedule buffer and information sharing: whose participation changes the model’s worth, and what remains unresolved?</div>
+      </div>
+      <div class="toolbar" aria-label="Scenario actions">
+        <button class="btn" id="resetBtn" type="button">Reset example</button><button class="btn" id="undoBtn" disabled type="button">Undo / redo last change</button><button class="btn" id="saveBtn" type="button">Save locally</button><button class="btn" id="loadBtn" type="button">Load saved</button>
+        <button class="btn" id="exportBtn" type="button">Export scenario</button>
+        
+        <button class="btn" id="importBtn" type="button">Import scenario</button>
+      </div>
+    </header>
+
+    <section class="intro"><p><strong>Three different questions.</strong> Coalition worth and the Shapley allocation describe contribution to an invented game. A separate consent index sketches reactions to a package. Neither is a consent decision, a payment agreement, or evidence that a real project can proceed.</p><p>Start by switching <strong>guideline clarity</strong> off and on. Inspect the paired inspection effect, then open <strong>Scenario lab</strong> to see every party’s signed contribution and any coalition objection. Change the selected gate parties under Parties. All scenario coefficients export with the versioned calculation rules.</p></section>
+    <p id="status" role="status" aria-live="polite"></p><p id="error" role="alert"></p>
+    <nav class="tabs" aria-label="Views">
+      <button class="tab active" aria-pressed="true" data-view="briefing" type="button">Briefing</button>
+      <button class="tab" aria-pressed="false" data-view="lab" type="button">Scenario lab</button>
+      <button class="tab" aria-pressed="false" data-view="parties" type="button">Parties</button>
+      <button class="tab" aria-pressed="false" data-view="clauses" type="button">Clauses</button>
+      <button class="tab" aria-pressed="false" data-view="audit" type="button">Audit</button>
+      <button class="tab" aria-pressed="false" data-view="model" type="button">Model notes</button>
+    </nav>
+
+    <main id="workspace" tabindex="-1">
+      <section id="view-briefing" class="view active">
+        <div class="briefing-grid" id="postureCards" aria-label="Current deal posture"></div>
+
+        <div class="recommendation" id="recommendation"></div>
+
+        <div class="main-grid">
+          <aside>
+            <section class="section">
+              <div class="section-head">
+                <div>
+                  <h2>Negotiation levers</h2>
+                  <div class="hint">Switch levers on and off to see what becomes pivotal.</div>
+                </div>
+                <span class="tag teal" id="activeLeverCount"></span>
+              </div>
+              <div class="lever-grid" id="leverGrid"></div>
+            </section>
+
+            <section class="section short">
+              <div class="section-head">
+                <div>
+                  <h2>Sequence rehearsal</h2>
+                  <div class="hint">Four abstract sequence presets add assumed outcome and surprise modifiers.</div>
+                </div>
+              </div>
+              <div class="sequence-row" id="sequenceButtons"></div><p class="hint" id="sequenceDetail"></p>
+            </section>
+          </aside>
+
+          <div>
+            <div class="viz-grid">
+              <section class="surface">
+                <div class="section-head">
+                  <div>
+                    <h2>Party map</h2>
+                    <div class="hint">Node area shows absolute Shapley contribution. Red means negative contribution; dark rings mark hypothetical gates. Exact signed values are in Scenario lab.</div>
+                  </div>
+                </div>
+                <div class="party-map-wrap" id="partyMap"></div>
+                <div class="legend-row">
+                  <span class="tag green">Nonnegative contribution</span>
+                  
+                  <span class="tag red">Negative contribution</span>
+                </div>
+              </section>
+
+              <section class="surface">
+                <div class="section-head">
+                  <div>
+                    <h2>Constraint heatmap</h2>
+                    <div class="hint">Illustrative pressure scores select discussion prompts. They do not assess a safety case or permit.</div>
+                  </div>
+                </div>
+                <div class="constraint-grid" id="constraintGrid"></div>
+              </section>
+
+              <section class="surface wide">
+                <div class="section-head">
+                  <div>
+                    <h2>Deal patterns</h2>
+                    <div class="hint">Discussion prompts selected by this run’s invented scores. They are not drafting advice or agreed clauses.</div>
+                  </div>
+                </div>
+                <div class="deal-list" id="dealList"></div>
+              </section>
+
+              <section class="surface wide">
+                <div class="section-head">
+                  <div>
+                    <h2>Synergy radar</h2>
+                    <div class="hint">Shows which lever pairs are creating extra value, and which hidden combinations are one move away.</div>
+                  </div>
+                </div>
+                <div class="synergy-list" id="synergyList"></div>
+              </section>
+
+              <section class="surface wide">
+                <div class="section-head">
+                  <div>
+                    <h2>Consent and reputation indices</h2>
+                    <div class="hint">An assumed reputation update repeated for 12 rounds; no forecast or calibrated likelihood.</div>
+                  </div>
+                  <span class="tag" id="timelineCaption"></span>
+                </div>
+                <div class="timeline-wrap" id="timeline"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-lab" class="view">
+        <section class="section"><p class="eyebrow">An exact allocation in an invented game</p><h2>Who contributes to coalition worth?</h2><p>Grand coalition worth: <strong id="grandWorth"></strong> model units. <span id="efficiency"></span></p><div class="table-scroll"><table><thead><tr><th>Party</th><th>Signed Shapley φ</th><th>φ / grand worth</th><th>Consent index, round 1</th><th>Utility</th></tr></thead><tbody id="allocationBody"></tbody></table></div><p class="hint">Negative contributions stay negative. Ratios can exceed 100% or be negative in nonmonotone games; no ratio is shown when total worth is near zero. These are allocations of mathematical worth, not charges or agreed shares.</p><h3>Does this allocation satisfy every coalition?</h3><p id="coreSummary"></p><div id="coreWitness"></div><details><summary>All 128 coalitions and their shortfalls</summary><p>Shortfall = v(S) − Σ φᵢ for i in S. The gate filter below affects only the ranked explorer; attribution and this diagnostic always use the full game.</p><div class="table-scroll" id="allCoalitions"></div></details></section>
+
+        <div class="lab-grid">
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <h2>Coalition explorer</h2>
+                <div class="hint">Enumerates the most valuable working sets under the current levers.</div>
+              </div>
+              <label class="tag"><input id="mandatoryGate" type="checkbox"> Selected-party gate filter</label>
+            </div>
+            <div id="coalitionList"></div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <h2>Stability readout</h2>
+                <div class="hint">Compares a party’s utility under two frozen group averages. All gains are shown before the tolerance test.</div>
+              </div>
+            </div>
+            <div id="stabilityPanel"></div>
+          </section>
+        </div>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>Advanced scenario parameters</h2>
+              <div class="hint">Useful for stress-testing, hidden by default from the director briefing.</div>
+            </div>
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label for="epsilon">Stability tolerance</label>
+              <input id="epsilon" type="range" min="0.01" max="0.20" step="0.01">
+              <span class="hint" id="epsilonOut"></span>
+            </div>
+            <div class="field">
+              <label for="platformEffect">Coalition platform effect</label>
+              <input id="platformEffect" type="range" min="0.00" max="0.14" step="0.01">
+              <span class="hint" id="platformOut"></span>
+            </div>
+            <div class="field">
+              <label for="surprisePenalty">Surprise penalty</label>
+              <input id="surprisePenalty" type="range" min="0.00" max="0.16" step="0.01">
+              <span class="hint" id="surpriseOut"></span>
+            </div>
+            <div class="field">
+              <label for="topK">Coalitions to show</label>
+              <input id="topK" type="number" min="3" max="15" step="1">
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-parties" class="view">
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>Party settings</h2>
+              <div class="hint">Tune hypothetical gates, concession costs, thresholds and utility weights. Weights are normalised; all-zero weights become equal weights. Regulatory authority and obligations do not change when these controls change.</div>
+            </div>
+          </div>
+          <div style="overflow:auto">
+            <table id="partyTable">
+              <thead>
+                <tr>
+                  <th>Party</th>
+                  <th>Role</th>
+                  <th>Gate</th>
+                  <th>Threshold</th>
+                  <th>Concession cost</th>
+                  <th>Risk</th>
+                  <th>Schedule</th>
+                  <th>Cost</th>
+                  <th>Public</th>
+                </tr>
+              </thead>
+              <tbody id="partyBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-clauses" class="view">
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>Contract clause library</h2>
+              <div class="hint">Original rehearsal prompts retained as fictional primary positions, fallbacks and red-line questions. A rule highlights them; it does not validate or recommend contractual terms.</div>
+            </div>
+            <span class="tag teal" id="clauseSummary"></span>
+          </div>
+          <div class="clause-grid" id="clauseLibrary"></div>
+        </section>
+      </section>
+
+      <section id="view-audit" class="view">
+        <div class="lab-grid">
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <h2>Commit a rule receipt</h2>
+                <div class="hint">Captures who, why, every model input, constants, version and computed result. The timestamp is local recordkeeping, not a verified signature.</div>
+              </div>
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="actor">Who</label>
+                <input id="actor" placeholder="e.g. Project Director">
+              </div>
+              <div class="field">
+                <label for="eventName">Event</label>
+                <input id="eventName" placeholder="e.g. commercial package update">
+              </div>
+              <div class="field" style="grid-column:1 / -1">
+                <label for="rationale">Why</label>
+                <textarea id="rationale" placeholder="What changed in the negotiation logic?"></textarea>
+              </div>
+            </div>
+            <div class="toolbar" style="justify-content:flex-start;margin-top:12px">
+              <button class="btn primary" id="commitBtn" type="button">Commit snapshot</button>
+              <button class="btn" id="exportReceiptsBtn" type="button">Export receipts</button>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <h2>Receipt log</h2>
+                <div class="hint">Newest first. New receipts are reproducible model records, not approvals. Older incomplete receipts are retained.</div>
+              </div>
+            </div>
+            <div class="receipt-list" id="receiptList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="view-model" class="view">
+        <section class="section"><h2>Formal structure you can inspect</h2><div class="formal-grid"><article><h3>1 · Build outcomes</h3><p class="formula">o(S) = clip₀¹(b + sequence + Σ active owned levers + Σ included pair effects)</p><p>Four coordinates: risk control, schedule confidence, cost certainty, public confidence. Base b = (0.46, 0.42, 0.43, 0.45). Pair effects apply only when both levers and their owners are present.</p></article><article><h3>2 · Define worth</h3><p class="formula">H(o) = ∏ₖ max(0.005, oₖ − 0.20)<br>v(S) = max(0, H(o(S)) − H(o(∅)))</p><p>The floor and clipping are original modelling choices. v(∅) = 0. Negative worth is clipped in this scenario, but a party’s marginal contribution can still be negative. Concession costs and gate flags do not change v.</p></article><article><h3>3 · Attribute contribution</h3><p class="formula">φᵢ = Σₛ |S|!(n−|S|−1)! / n! × [v(S∪{i}) − v(S)]</p><p>Sum over coalitions excluding i. Seven parties give 128 coalitions. This exact weighted-subset calculation equals averaging all 5,040 arrival orders. Efficiency, symmetry and the dummy property concern this specified game.</p></article><article><h3>4 · Check allocation objections</h3><p class="formula">Σᵢ φᵢ = v(N)<br>Σᵢ∈ₛ φᵢ ≥ v(S) for every S</p><p>These are the core conditions tested here with numerical tolerance 10⁻¹⁰. Failure means the Shapley vector is outside the core; it does not prove that no other allocation lies in the core.</p></article></div><details><summary>Consent, reputation and fixed-split rules</summary><p>Utility is normalised weighted outcomes minus active costs: each active lever charges its owner’s concession cost plus the lever’s listed costs. A logistic response combines α × (utility − threshold), β × (reputation − base reputation), and the influence-weighted deviations of other indices from 0.5.</p><p>Indices start at 0.52 and update 34 times using 0.62 × old + 0.38 × logistic response. There is no convergence guarantee or probability calibration. With gates enabled, the project index is the product of selected gate indices times 1 − product(1 − optional index). Without gates it is 1 − product(1 − every index). No optional parties means optional factor 1; no mandatory parties means mandatory factor 1.</p><p>Each round: reputation target = clip(base reputation + 0.30 if utility ≥ threshold, otherwise −0.12, minus 0.55 × total surprise). Next reputation = 0.84 × current + 0.16 × target. Total surprise is the selected preset plus the slider. The timeline shows 12 rounds with no time units.</p><p>Working-split utility = party utility + platform effect × (group mean utility − 0.5). The group averages remain fixed during the comparison. All gains, including negative gains, are recorded before testing ε.</p><p>Clause priority is active linked-lever count + 2 if linked to the top pressure + 1 if owned by the largest attributed contributor. A score of at least 2 highlights a clause. The full pressure formulas, coefficients and narrative inputs are preserved in <a href="model.js">model.js</a> and <a href="data.js">data.js</a> ; all numerical scenario inputs and coefficients export with each scenario. The calculation rules remain in this versioned model file.</p></details></section>
+        <section class="section"><h2>Evidence and the boundary of the example</h2><p>The <a href="https://www.rand.org/pubs/research_memoranda/RM0670.html">original Shapley memorandum (1951)</a> supplies the mathematical attribution idea. The outcome coefficients, influence matrix, trust rules and clause-selection heuristics here are invented demonstration inputs, not results from that paper.</p><p><a href="https://www.onr.org.uk/our-work/how-we-regulate/nuclear-site-licensing">ONR’s licensing account</a> describes statutory nuclear site licensing. The <a href="https://www.gov.uk/guidance/nuclear-sites-rsr-environmental-permits">Environment Agency’s nuclear-site permit guidance</a> applies to England. Those processes are distinct from the voluntary coalition game and its scores. Changing an in-app gate or agreeing a commercial package cannot grant a licence or permit.</p><p>Primary sources checked 3 October 2026. The original UK-wide framing is narrowed to a hypothetical England setting because EA is the named environmental regulator. NDA, councils, operator, contractor and insurer roles here are broad scenario shorthand.</p><p><a href="README.md">Preservation inventory, provenance and verification</a>. This bounded example belongs with Decisions &amp; trade-offs: how contribution, coalition objections and an agreement differ. It does not establish a new research result.</p></section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>Director-level explanations</h2>
+              <div class="hint">Plain-language handles for the mechanics under the board.</div>
+            </div>
+            <button class="btn small" id="runChecksBtn" type="button">Run checks</button>
+          </div>
+          <div class="explain-grid">
+            <div class="explain-item">
+              <h3>Shapley contribution</h3>
+              <p>Attribution asks: across every arrival order, what is each party’s average marginal contribution? Signed contributions sum to the grand coalition worth; they do not determine payment or bargaining power.</p>
+            </div>
+            <div class="explain-item">
+              <h3>Consent gate</h3>
+              <p>ONR and EA start as selected gate parties in this fictional example. The product of their indices is multiplied by “at least one optional party” under an independence-shaped formula. These are coupled scores, so that expression is not a calibrated project probability.</p>
+            </div>
+            <div class="explain-item">
+              <h3>Reputation stock</h3>
+              <p>The toy rule moves reputation toward a target depending on whether utility meets a threshold, minus a surprise penalty. This is an assumption to inspect, not a measured account of trust.</p>
+            </div>
+            <div class="explain-item">
+              <h3>Coalition stability</h3>
+              <p>The retained heuristic compares fixed assurance and delivery group averages. Stable means max positive gain ≤ ε/2; At risk means ε/2 &lt; gain ≤ ε; Unstable means gain &gt; ε. It does not model a move or the ensuing group response.</p>
+            </div>
+            <div class="explain-item">
+              <h3>Constraint-first negotiation</h3>
+              <p>The largest illustrative pressure score chooses the first discussion prompt. Question the score, omitted constraints and any proposed clause before using the prompt.</p>
+            </div>
+            <div class="explain-item">
+              <h3>Model caveat</h3>
+              <p>The numbers are demonstration coefficients. Use them to rehearse judgment, not to decide statutory, engineering, or legal questions.</p>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <h2>Check output</h2>
+          <div class="check-output" id="checkOutput">No checks run yet.</div>
+        </section>
+      </section>
+    </main><footer><a href="/library/methods/decisions-and-trade-offs.html">More decisions and trade-offs →</a><p>Only explicit Save writes to this browser. Reset, imports and receipts remain in this tab until saved or exported. Browser storage is not a shared or cross-device backup. <a href="README.md">Model review</a> · <a href="https://github.com/lawrencerowland/Project-web-apps/blob/676cbc7/web_apps/regulatory-negotiation-rehearsal-board.html">Original source</a></p></footer>
+    <dialog id="transfer" aria-labelledby="transferTitle"><h2 id="transferTitle"></h2><p>Scenario exports include all inputs and freshly computed outputs. Legacy v1 files are accepted; their recorded outputs are retained as historical data and current results are recomputed.</p><label id="fileLabel">Choose JSON file<input id="importFile" type="file" accept="application/json,.json"></label><label for="json">Scenario or receipt JSON</label><textarea id="json" rows="18" spellcheck="false"></textarea><p id="transferError" role="alert"></p><div class="toolbar"><button class="btn primary" id="applyImport">Import this scenario</button><button class="btn" id="downloadJson">Download JSON</button><button class="btn" id="closeTransfer">Close</button></div></dialog><noscript><style>.view{display:block}</style><p>The model explanations and evidence links remain readable above. JavaScript is needed to explore the package or save scenarios.</p></noscript>
+  </div>
+
+</body>
+</html>

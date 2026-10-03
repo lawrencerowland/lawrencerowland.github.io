@@ -507,19 +507,6 @@
     "home": "Library · Data, evidence & assurance"
   },
   {
-    "#": "62",
-    "name": "dico_module_map_d3",
-    "description": "Explore modules, an illustrative stadium model and dated HS2 appointments as three different kinds of graph.",
-    "origin": "ChatGPT",
-    "model": "GPT-5.2-Codex",
-    "tags": "ontology, construction, knowledge_graph, visualization, interactive",
-    "explainer post": "",
-    "notes": "",
-    "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/",
-    "home": "Library · Project states & relationships"
-  },
-  {
     "#": "5",
     "name": "hs2-decision-graph",
     "description": "Trace quality, risk, action and value in a fictional viaduct supply-chain scenario.",
@@ -570,5 +557,31 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/",
     "home": "Library · Data, evidence & assurance"
+  },
+  {
+    "#": "13",
+    "name": "interactive-nec-contract-journey",
+    "description": "Follow a seven-part NEC lesson, then bargain over five illustrative rail packages.",
+    "origin": "Claude",
+    "model": "Cant remember",
+    "tags": "tsx, learning, contract_management, procurement",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-contract-lab/",
+    "home": "Library · Decisions & trade-offs"
+  },
+  {
+    "#": "74",
+    "name": "regulatory-negotiation-rehearsal-board",
+    "description": "Explore how a fictional package of commitments affects joint value, coalition contributions and consent scores.",
+    "origin": "User",
+    "model": "GPT-5.2-Codex",
+    "tags": "regulatory, negotiation, contracts, simulation, decision_support, visualization",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/regulatory-rehearsal/",
+    "home": "Library · Decisions & trade-offs"
   }
 ]
