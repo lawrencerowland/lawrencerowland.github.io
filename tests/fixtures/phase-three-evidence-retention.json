@@ -1,0 +1,651 @@
+{
+  "sourceRevision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+  "codes": [
+    {
+      "label": "AI-Augmented Professional Practice",
+      "annotation": "Setting up project environments within ChatGPT Team for regulatory review and proposal generation is popular and straightforward."
+    },
+    {
+      "label": "Properties",
+      "annotation": "These are the key characteristics we observed across the posts"
+    },
+    {
+      "label": "Temporal Evolution: AI-curious (2021-2022) → AI-integrated (2023-2025)",
+      "annotation": "Last week, the model underlying Operator agent was upgraded to o3. Watch Operator and Codex agents work together to improve a website."
+    },
+    {
+      "label": "Implementation Depth: Surface experimentation → Deep workflow integration",
+      "annotation": "I've built five project agents: a scope writer, a business case analyst, a portfolio analyst..."
+    },
+    {
+      "label": "Accessibility Focus: Democratizing AI for small companies",
+      "annotation": "Speak to us and you can have it working well within your small company next month, even if you are not yet using ChatGPT Team."
+    },
+    {
+      "label": "Dimensional Ranges",
+      "annotation": ""
+    },
+    {
+      "label": "Experimental ← → Operational",
+      "annotation": "I'm slowly scaling up my experiments using OpenAI assistants as research assistants, as time permits."
+    },
+    {
+      "label": "Individual ← → Organizational",
+      "annotation": "you can talk to ScopeGOAT on your smartphone app while you are out and about - no hands. Now you can plan a project on the train."
+    },
+    {
+      "label": "Technical ← → Strategic",
+      "annotation": "Writing your project AI strategy"
+    },
+    {
+      "label": "Subcategories",
+      "annotation": ""
+    },
+    {
+      "label": "Tool Adoption Patterns",
+      "annotation": "OpenAI have released a helpful short guide for getting the most out of ChatGPT."
+    },
+    {
+      "label": "ChatGPT Team environments",
+      "annotation": "Setting up project environments within ChatGPT Team for regulatory review and proposal generation"
+    },
+    {
+      "label": "AI agents (Operator, Codex)",
+      "annotation": "here's a good GPT agent from Grace Lungu. It's called ChatCody and it goes out and back to your github repositories"
+    },
+    {
+      "label": "Model evolution (GPT-3.5 → GPT-4 → Claude)",
+      "annotation": "addressing the general confusion around Gemini Advanced and other models - it's not just you, it's all of us"
+    },
+    {
+      "label": "Integration Contexts",
+      "annotation": "Here are ten interactive project Artifacts I created last month using Claude Sonnet"
+    },
+    {
+      "label": "Project management enhancement",
+      "annotation": "o1 PRO recommends the following for better project risk management, in this order: 1. option-based stages"
+    },
+    {
+      "label": "Document generation and review",
+      "annotation": "I asked Claude Sonnet to mock up a better project stakeholder dashboard, fit for the 2020s"
+    },
+    {
+      "label": "Stakeholder communication",
+      "annotation": "Draw from both decks every day. When you get a match, pass it onto your team, and keep playing."
+    },
+    {
+      "label": "Risk analysis and planning",
+      "annotation": "GPT4 has constructed a schedule estimate for me, and tested its sensitivity with CPA, PERT and MonteCarlo"
+    },
+    {
+      "label": "Human-AI Identity Negotiation",
+      "annotation": "Now is a good time to start writing about projects and technology and work in interesting ways. Start now and people will come to recognise your voice."
+    },
+    {
+      "label": "Properties",
+      "annotation": ""
+    },
+    {
+      "label": "Authenticity Preservation: Maintaining distinctive human voice",
+      "annotation": "Start much later, and people may just assume that your distinctive voice and opinions is that of an ai."
+    },
+    {
+      "label": "Role Redefinition: From doer to orchestrator/validator",
+      "annotation": "Don't solve your thorniest business problems. Defer them to an AI."
+    },
+    {
+      "label": "Skill Evolution: Technical skills + AI collaboration skills",
+      "annotation": "the one-deckers in the office may be smarter than you, but you have two decks"
+    },
+    {
+      "label": "Dimensional Ranges",
+      "annotation": ""
+    },
+    {
+      "label": "Replacement Fear ← → Augmentation Embrace",
+      "annotation": "Sam Altman having fun. But if it had been the real flare going up, would you have been ready?"
+    },
+    {
+      "label": "Passive User ← → Active Collaborator",
+      "annotation": "hopefully you have the frequent experience of successfully finishing something off before you leave the office"
+    },
+    {
+      "label": "Loss of Control ← → Enhanced Capability",
+      "annotation": "this does get us closer to having well-specified prompts available for the non-expert."
+    },
+    {
+      "label": "Subcategories",
+      "annotation": ""
+    },
+    {
+      "label": "Voice Preservation Strategies",
+      "annotation": "if it sounds like an ai could have written it? Don't post it, that's my advice."
+    },
+    {
+      "label": "\"Start writing now before people assume it's AI\"",
+      "annotation": "Start now and people will come to recognise your voice. Start much later, and people may just assume that your distinctive voice and opinions is that of an ai."
+    },
+    {
+      "label": "Emphasis on personal experience",
+      "annotation": "Videos, apps, reports, demos, pics - it doesn't just have to be words."
+    },
+    {
+      "label": "Transparent AI disclosure",
+      "annotation": "Used an ai to help? No problem, but tell us what is you and what is the ai."
+    },
+    {
+      "label": "Professional Repositioning",
+      "annotation": "Paying attention yet?"
+    },
+    {
+      "label": "Task executor → AI conductor",
+      "annotation": "1. Operator tests my website 2. Operator writes a spec 3. I give the spec to Codex 4. Codex improves 5. I approve"
+    },
+    {
+      "label": "Focus on uniquely human contributions",
+      "annotation": "Some of us draw cartoons when given access to a whiteboard. That's our superpower."
+    },
+    {
+      "label": "AI-enhanced service offerings",
+      "annotation": "We do bread and butter stuff like this, and we understand projects and consulting"
+    },
+    {
+      "label": "Knowledge Ecosystem Transformation",
+      "annotation": "i will start a weekly link post of new project writing and include your post. lets call it *shout out sunday*."
+    },
+    {
+      "label": "Properties",
+      "annotation": ""
+    },
+    {
+      "label": "Sharing Mechanisms: Structured knowledge transfer",
+      "annotation": "I suggest either posting on Substack or on here."
+    },
+    {
+      "label": "Community Building: Active practitioner networks",
+      "annotation": "Cc me on (only) your first couple of posts so I find you."
+    },
+    {
+      "label": "Learning Velocity: Accelerated skill cycles",
+      "annotation": "the technology companies have been racing each other and confusing us all"
+    },
+    {
+      "label": "Dimensional Ranges",
+      "annotation": ""
+    },
+    {
+      "label": "Individual Learning ← → Collective Intelligence",
+      "annotation": "Britain! Let's go."
+    },
+    {
+      "label": "Formal Training ← → Peer-to-Peer Exchange",
+      "annotation": "I'm sharing these to inspire you to create your own"
+    },
+    {
+      "label": "Static Knowledge ← → Dynamic Co-creation",
+      "annotation": "Today Ive brought across 115 of my most important files on pm and business strategy"
+    },
+    {
+      "label": "Subcategories",
+      "annotation": ""
+    },
+    {
+      "label": "Structured Knowledge Initiatives",
+      "annotation": "reducing positive lag"
+    },
+    {
+      "label": "\"Shout Out Sunday\" highlights",
+      "annotation": "i will start a weekly link post of new project writing and include your post. lets call it *shout out sunday*"
+    },
+    {
+      "label": "Regular posting schedules",
+      "annotation": "Post 10 Final post. In yesterday's post we started to look at schedule integrity."
+    },
+    {
+      "label": "Cross-platform presence",
+      "annotation": "details in comments"
+    },
+    {
+      "label": "Democratization Efforts",
+      "annotation": "and we understand projects and consulting and how to coach small teams in the practical details of everyday usage"
+    },
+    {
+      "label": "AI access for small companies",
+      "annotation": "you can have it working well within your small company next month"
+    },
+    {
+      "label": "Practical implementation guides",
+      "annotation": "One big barrier to entry people starting out have is the last mile of knowing how to easily have a website"
+    },
+    {
+      "label": "\"Bread and butter\" consulting",
+      "annotation": "We do bread and butter stuff like this"
+    },
+    {
+      "label": "Practice Evolution Trajectory",
+      "annotation": "Blockchains are making progress in the physical world - here coordinating a 5G network"
+    },
+    {
+      "label": "Properties",
+      "annotation": ""
+    },
+    {
+      "label": "Transformation Stages: Traditional → Hybrid → AI-Native",
+      "annotation": "It's been 3 months since OpenAI's Dev day, and I've built five project agents."
+    },
+    {
+      "label": "Change Velocity: Accelerating adoption curves",
+      "annotation": "Kinda important.. (images we see in our head can now be reconstructed by looking at MRI scan)"
+    },
+    {
+      "label": "Impact Scope: Individual → Team → Organizational",
+      "annotation": "Plan projects on the go"
+    },
+    {
+      "label": "Dimensional Ranges",
+      "annotation": ""
+    },
+    {
+      "label": "Incremental Change ← → Fundamental Transformation",
+      "annotation": "Sora just rolled out to the UK"
+    },
+    {
+      "label": "Tool Addition ← → Paradigm Shift",
+      "annotation": "AI #meme #vibe #strategy #project"
+    },
+    {
+      "label": "Optional Enhancement ← → Competitive Necessity",
+      "annotation": "Boom! o1 PRO recommends the following for better project risk management"
+    },
+    {
+      "label": "Subcategories",
+      "annotation": ""
+    },
+    {
+      "label": "Workflow Transformation",
+      "annotation": "Now we construct and publish a CPM Schedule using Microsoft Project"
+    },
+    {
+      "label": "AI-first project scoping",
+      "annotation": "1. Operator tests 2. Operator writes spec 3. I give spec to Codex 4. Codex improves 5. I approve"
+    },
+    {
+      "label": "Automated artifact generation",
+      "annotation": "GPT4 has constructed a schedule estimate for me"
+    },
+    {
+      "label": "Human-in-the-loop validation",
+      "annotation": "I approve the changes in Github"
+    },
+    {
+      "label": "Value Proposition Evolution",
+      "annotation": "better website."
+    },
+    {
+      "label": "Speed and scale advantages",
+      "annotation": "you can plan a project on the train"
+    },
+    {
+      "label": "Enhanced analytical capabilities",
+      "annotation": "tested its sensitivity with CPA, PERT and MonteCarlo"
+    },
+    {
+      "label": "New AI-enabled services",
+      "annotation": "five project agents: a scope writer, a business case analyst, a portfolio analyst"
+    }
+  ],
+  "records": [
+    {
+      "id": "news_01",
+      "source_type": "news",
+      "source_label": "NonDoc",
+      "date": "2024-04-11",
+      "url": "https://nondoc.com/2024/04/11/okc-planning-commission-advances-massive-legends-tower-proposed-jail-site/",
+      "stakeholder": "Mark Zitzow (Johnson & Associates)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Support removing height cap / advance the SPUD for Legends Tower",
+      "text": "This SPUD is identical to one approved several years ago, except for building height and signage.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": 1
+    },
+    {
+      "id": "news_02",
+      "source_type": "news",
+      "source_label": "NonDoc",
+      "date": "2024-04-11",
+      "url": "https://nondoc.com/2024/04/11/okc-planning-commission-advances-massive-legends-tower-proposed-jail-site/",
+      "stakeholder": "Rob Budetti (AO Architects)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Argue demand exists and proceed with phased development",
+      "text": "We have seen demand. There is a little bit of a ‘build it and they will come’ philosophy.",
+      "polarity": -0.1875,
+      "subjectivity": 0.5,
+      "sentiment": "negative",
+      "lex_score": 1
+    },
+    {
+      "id": "news_03",
+      "source_type": "news",
+      "source_label": "The Journal Record",
+      "date": "2024-06-04",
+      "url": "https://journalrecord.com/2024/06/04/okc-council-approves-rezoning-for-1907-foot-legends-tower/",
+      "stakeholder": "James Cooper (OKC City Council, Ward 2)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Oppose rezoning / scrutinize affordable-housing + case-management commitments",
+      "text": "That does not inspire confidence in me. I just worry that the commitment that you all have made is not going to find itself fulfilled.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": -9
+    },
+    {
+      "id": "news_04",
+      "source_type": "news",
+      "source_label": "The Journal Record",
+      "date": "2024-06-04",
+      "url": "https://journalrecord.com/2024/06/04/okc-council-approves-rezoning-for-1907-foot-legends-tower/",
+      "stakeholder": "Nikki Nice (OKC City Council, Ward 7)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Support rezoning and exploring maximum tower height",
+      "text": "This is the moment we have all been waiting for, to see how tall we can get.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": 0
+    },
+    {
+      "id": "news_05",
+      "source_type": "news",
+      "source_label": "Finance & Commerce",
+      "date": "2024-03-18",
+      "url": "https://finance-commerce.com/2024/03/developer-of-1907-foot-oklahoma-tower-has-secured-financing/",
+      "stakeholder": "Scot Matteson (Matteson Capital)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Win approvals for the tower; revert to earlier plan if tower not approved",
+      "text": "Matteson said they’re seeking approval for the tower and would revert to the already-approved plan if the tower isn’t approved.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": 2
+    },
+    {
+      "id": "news_06",
+      "source_type": "news",
+      "source_label": "Finance & Commerce",
+      "date": "2024-03-18",
+      "url": "https://finance-commerce.com/2024/03/developer-of-1907-foot-oklahoma-tower-has-secured-financing/",
+      "stakeholder": "Randy Hogan (Local development partner)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Promote the project and downtown density benefits",
+      "text": "Everybody’s got an opinion. I think everybody’s very excited about the density that Scot anticipates creating in downtown.",
+      "polarity": 0.48750000000000004,
+      "subjectivity": 0.9750000000000001,
+      "sentiment": "positive",
+      "lex_score": 2
+    },
+    {
+      "id": "news_07",
+      "source_type": "news",
+      "source_label": "Architectural Record",
+      "date": "2024-06-17",
+      "url": "https://www.architecturalrecord.com/articles/16968-oklahoma-citys-legends-tower-could-be-the-tallest-in-us-following-city-council-approval",
+      "stakeholder": "Rob Budetti (AO Architects)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Justify the project as part of wider entertainment-district investment",
+      "text": "The city has invested a lot of money into this entertainment district, and Boardwalk at Bricktown is another piece of that puzzle.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": 1
+    },
+    {
+      "id": "news_08",
+      "source_type": "news",
+      "source_label": "Pager Power",
+      "date": "2024-09-13",
+      "url": "https://pagerpower.com/news/legends-tower-would-be-hazard-to-air-navigation-faa/",
+      "stakeholder": "Julie Morgan (FAA Obstruction Evaluation Manager)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Flag the tower as a hazard to air navigation",
+      "text": "The proposed Legends Tower would be a hazard to air navigation.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": -3
+    },
+    {
+      "id": "news_09",
+      "source_type": "news",
+      "source_label": "Pager Power",
+      "date": "2024-09-13",
+      "url": "https://pagerpower.com/news/legends-tower-would-be-hazard-to-air-navigation-faa/",
+      "stakeholder": "Jeff Mulder (Wiley Post Airport Director)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Raise aviation-safety concerns and request FAA review",
+      "text": "Mulder sent a letter expressing concerns over the height, citing potentially increased travel times and safety issues.",
+      "polarity": 0,
+      "subjectivity": 1,
+      "sentiment": "neutral",
+      "lex_score": -1
+    },
+    {
+      "id": "news_10",
+      "source_type": "news",
+      "source_label": "Tortoise Media",
+      "date": "2024-12-18",
+      "url": "https://www.tortoisemedia.com/2024/12/18/americas-tallest-skyscraper-could-be-a-little-shorter/",
+      "stakeholder": "Scot Matteson (Matteson Capital)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Remain flexible on height to secure approval",
+      "text": "The tallest skyscraper in America could be a ‘little shorter’ if needed.",
+      "polarity": -0.1875,
+      "subjectivity": 0.5,
+      "sentiment": "negative",
+      "lex_score": 0
+    },
+    {
+      "id": "social_01",
+      "source_type": "social",
+      "source_label": "Reddit r/skyscrapers",
+      "date": null,
+      "url": "https://www.reddit.com/r/skyscrapers/comments/1gz3vv8/thoughts_on_the_legends_tower/",
+      "stakeholder": "Reddit user (post author)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Express support / excitement for the project",
+      "text": "I think its pretty cool even if its a little impractical lol.",
+      "polarity": 0.303125,
+      "subjectivity": 0.7124999999999999,
+      "sentiment": "positive",
+      "lex_score": 1
+    },
+    {
+      "id": "social_02",
+      "source_type": "social",
+      "source_label": "Reddit r/skyscrapers",
+      "date": null,
+      "url": "https://www.reddit.com/r/skyscrapers/comments/1gz3vv8/thoughts_on_the_legends_tower/",
+      "stakeholder": "Reddit user (commenter)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Reinforce belief the project is funded",
+      "text": "It’s funded now.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": 1
+    },
+    {
+      "id": "social_03",
+      "source_type": "social",
+      "source_label": "Reddit r/skyscrapers",
+      "date": null,
+      "url": "https://www.reddit.com/r/skyscrapers/comments/1gz3vv8/thoughts_on_the_legends_tower/",
+      "stakeholder": "Reddit user (commenter)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Doubt feasibility; question developer track record",
+      "text": "As someone from Oklahoma City doubt it’s happening, maybe the 3 smaller towers will but the people behind the project already have a suspicious track record.",
+      "polarity": -0.2,
+      "subjectivity": 0.6,
+      "sentiment": "negative",
+      "lex_score": -4
+    },
+    {
+      "id": "social_04",
+      "source_type": "social",
+      "source_label": "Reddit r/skyscrapers",
+      "date": null,
+      "url": "https://www.reddit.com/r/skyscrapers/comments/1gz3vv8/thoughts_on_the_legends_tower/",
+      "stakeholder": "Reddit user (commenter)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Support building even if tower is reduced in height",
+      "text": "They claim the whole thing has been funded. The development team said that even if they have to shrink it, they will still build it.",
+      "polarity": 0.2,
+      "subjectivity": 0.4,
+      "sentiment": "positive",
+      "lex_score": 1
+    },
+    {
+      "id": "social_05",
+      "source_type": "social",
+      "source_label": "Reddit r/skyscrapers",
+      "date": null,
+      "url": "https://www.reddit.com/r/skyscrapers/comments/1gz3vv8/thoughts_on_the_legends_tower/",
+      "stakeholder": "Reddit user (commenter)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Neutral",
+      "intention": "Note lack of clear construction timeline",
+      "text": "Last Ive heard it was approved but no construction timeline has been laid out yet.",
+      "polarity": 0,
+      "subjectivity": 0.06666666666666667,
+      "sentiment": "neutral",
+      "lex_score": 0
+    },
+    {
+      "id": "social_06",
+      "source_type": "social",
+      "source_label": "Reddit r/skyscrapers",
+      "date": null,
+      "url": "https://www.reddit.com/r/skyscrapers/comments/1m4sixx/anyone_know_whats_going_on_with_this/",
+      "stakeholder": "Reddit user (commenter)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Dismiss project status; express skepticism",
+      "text": "absofuckinglutey nothing.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": -2
+    },
+    {
+      "id": "social_07",
+      "source_type": "social",
+      "source_label": "Reddit r/skyscrapers",
+      "date": null,
+      "url": "https://www.reddit.com/r/skyscrapers/comments/1dhut99/the_legends_towerwhat_is_the_purpose_of_this/",
+      "stakeholder": "Reddit user (post author)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Question purpose; raise weather/tornado concerns",
+      "text": "Why is OkC building the tallest skyscraper? Is there a real reason? Hopefully Oklahoma supercells don't see this and start walking towards it for lolz.",
+      "polarity": 0.2,
+      "subjectivity": 0.30000000000000004,
+      "sentiment": "positive",
+      "lex_score": 0
+    },
+    {
+      "id": "social_08",
+      "source_type": "social",
+      "source_label": "Reddit r/okc",
+      "date": null,
+      "url": "https://www.reddit.com/r/okc/comments/1m5y21z/legends_tower_update/",
+      "stakeholder": "Reddit user (post author)",
+      "stakeholder_kind": "Person",
+      "stance_role": "Neutral",
+      "intention": "Share update and solicit opinion (poll)",
+      "text": "Sounds like the Tower itself is ‘still in development,’ but it’s still on the table.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": 0
+    },
+    {
+      "id": "social_09",
+      "source_type": "social",
+      "source_label": "Reddit r/okc",
+      "date": null,
+      "url": "https://www.reddit.com/r/okc/comments/1m5y21z/legends_tower_update/",
+      "stakeholder": "Reddit user beernerd76",
+      "stakeholder_kind": "Person",
+      "stance_role": "Neutral",
+      "intention": "Predict it gets built but at lower height",
+      "text": "I believe the project will get built just not to the height.....bet they go to like 900-1000 to be over Devon and be done.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": -1
+    },
+    {
+      "id": "social_10",
+      "source_type": "social",
+      "source_label": "Reddit r/okc",
+      "date": null,
+      "url": "https://www.reddit.com/r/okc/comments/1m5y21z/legends_tower_update/",
+      "stakeholder": "Reddit user DifferentSoftware894",
+      "stakeholder_kind": "Person",
+      "stance_role": "Supporter",
+      "intention": "Express simple excitement about a big tower",
+      "text": "Big tower make brain happy",
+      "polarity": 0.4,
+      "subjectivity": 0.55,
+      "sentiment": "positive",
+      "lex_score": 2
+    },
+    {
+      "id": "social_11",
+      "source_type": "social",
+      "source_label": "Reddit r/okc",
+      "date": null,
+      "url": "https://www.reddit.com/r/okc/comments/1m5y21z/legends_tower_update/",
+      "stakeholder": "Reddit user lowiqreddituser",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Argue funding is insufficient",
+      "text": "You cannot build that structure with that amount of funding.",
+      "polarity": 0,
+      "subjectivity": 0,
+      "sentiment": "neutral",
+      "lex_score": -2
+    },
+    {
+      "id": "social_12",
+      "source_type": "social",
+      "source_label": "Reddit r/okc",
+      "date": null,
+      "url": "https://www.reddit.com/r/okc/comments/1m5y21z/legends_tower_update/",
+      "stakeholder": "Reddit user bubbafatok",
+      "stakeholder_kind": "Person",
+      "stance_role": "Opponent",
+      "intention": "Argue costs imply multiple billions; doubt feasibility",
+      "text": "Beyond that, residential build out is much more expensive than office space build out. If this project was to happen as they promised we're talking multiple billions.",
+      "polarity": 0,
+      "subjectivity": 0.39999999999999997,
+      "sentiment": "neutral",
+      "lex_score": 0
+    }
+  ]
+}

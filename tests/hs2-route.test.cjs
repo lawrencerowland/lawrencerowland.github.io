@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const html = fs.readFileSync(path.join(__dirname, '../examples/hs2-decision-graph.html'), 'utf8');
-const target = 'https://lawrencerowland.github.io/Project-web-apps/web_apps/hs2-decision-graph.html';
+const target = 'https://lawrencerowland.github.io/library/apps/project-decision-graph/';
 const script = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)]
   .map(match => match[1]).find(source => source.includes('location.replace'));
 

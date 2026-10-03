@@ -121,5 +121,42 @@
       "project_time_exchange_explainer": "https://lawrencerowland.github.io/library/apps/project-time-exchange/#explainer",
       "scenario_barrier_proof_fca_lattice": "https://lawrencerowland.github.io/library/apps/scenario-control-lattice/"
     }
+  },
+  "phase_three": {
+    "date": "2026-10-03",
+    "repository": "lawrencerowland/Project-web-apps",
+    "base_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
+    "before_rows": 28,
+    "after_rows": 20,
+    "removed_names": [
+      "dico_module_map_d3",
+      "tokyo_stadium_dicon_graph",
+      "hs2_stakeholders_network",
+      "hs2-decision-graph",
+      "lower_thames_crossing_geo_kg",
+      "project_viability_state_space_navigator_plus",
+      "grounded-theory-approach",
+      "legends_tower_sentiment_report"
+    ],
+    "source_sha256": {
+      "dico_module_map_d3": "56f386d262078cc5f292ec83680c1e1b5688f5271aa1ee7c823557337963de0a",
+      "tokyo_stadium_dicon_graph": "54a68482f80e0838fcc82f551a3e07e2b68d67eed23a801b985ec74228aa2c10",
+      "hs2_stakeholders_network": "54f38cc7c70954eb6e481148e5d1ea582e41bb2c7626951b9d81806d6357f3a1",
+      "hs2-decision-graph": "c0df5196d63783d2a1e4ab3895b0ea47a8700306ca90102a9ca18643d0857306",
+      "lower_thames_crossing_geo_kg": "3efc41b26b20a27af56d6575cd3031d20814bef7732a1cca7e1ee690036944a7",
+      "project_viability_state_space_navigator_plus": "007068f1be681fa6696deca22b687e4eef5adace26eea28c6589409726d1bee0",
+      "grounded-theory-approach": "2c0a689f5f8fd8a30df1045eb27072452b9448fff4966fadb2fe777551b5aecd",
+      "legends_tower_sentiment_report": "af49f45e50a1de174715eb71397accffeedc4f4ec6e9bf99ba992f7d4b254ef1"
+    },
+    "destinations": {
+      "dico_module_map_d3": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/#modules",
+      "tokyo_stadium_dicon_graph": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/#tokyo",
+      "hs2_stakeholders_network": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/#hs2",
+      "hs2-decision-graph": "https://lawrencerowland.github.io/library/apps/project-decision-graph/",
+      "lower_thames_crossing_geo_kg": "https://lawrencerowland.github.io/library/apps/crossing-project-map/",
+      "project_viability_state_space_navigator_plus": "https://lawrencerowland.github.io/library/apps/project-viability-navigator/",
+      "grounded-theory-approach": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/#coding",
+      "legends_tower_sentiment_report": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/#stance"
+    }
   }
 }
