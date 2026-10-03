@@ -158,5 +158,43 @@
       "grounded-theory-approach": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/#coding",
       "legends_tower_sentiment_report": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/#stance"
     }
+  },
+  "phase_four": {
+    "date": "2026-10-03",
+    "repository": "lawrencerowland/Project-web-apps",
+    "base_revision": "676cbc7417d58ec9dd2d6fa751a54bd1000bc03a",
+    "before_rows": 20,
+    "after_rows": 17,
+    "removed_names": [
+      "interactive-nec-contract-journey",
+      "hs2-contract-game",
+      "regulatory-negotiation-rehearsal-board"
+    ],
+    "source_sha256": {
+      "interactive-nec-contract-journey": "b6f0390a4d1de64a61272b94496942a7f4d52489bb909d21581669da3d593374",
+      "hs2-contract-game": "177b7f8dcc6900e1ed527cb950067f7be1bb7a5d746c0b2f4f823fb700048f9a",
+      "regulatory-negotiation-rehearsal-board": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21"
+    },
+    "source_files": {
+      "project-contract-lab": {
+        "web_apps/interactive-nec-contract-journey.html": "b6f0390a4d1de64a61272b94496942a7f4d52489bb909d21581669da3d593374",
+        "tsx_apps/interactive-nec-contract-journey.tsx": "c0b13972219bb017f3e9308d9600defb18f06fbd43aee37049a6b623f44e7ecf",
+        "web_apps/hs2-contract-game.html": "177b7f8dcc6900e1ed527cb950067f7be1bb7a5d746c0b2f4f823fb700048f9a",
+        "tsx_apps/hs2-contract-game.tsx": "5cb51eaeea3d4343c0fe82d595354eaa8f8c410552c55721f81e8c55510d1ae4"
+      },
+      "regulatory-rehearsal": {
+        "web_apps/regulatory-negotiation-rehearsal-board.html": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21"
+      }
+    },
+    "destinations": {
+      "interactive-nec-contract-journey": "https://lawrencerowland.github.io/library/apps/project-contract-lab/#nec",
+      "hs2-contract-game": "https://lawrencerowland.github.io/library/apps/project-contract-lab/#bargaining",
+      "regulatory-negotiation-rehearsal-board": "https://lawrencerowland.github.io/library/apps/regulatory-rehearsal/"
+    },
+    "ontology_relocations": {
+      "dico_module_map_d3": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#modules",
+      "tokyo_stadium_dicon_graph": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#tokyo",
+      "hs2_stakeholders_network": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#hs2"
+    }
   }
 }

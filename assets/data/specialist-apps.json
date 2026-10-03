@@ -867,8 +867,8 @@
     "explainer post": "",
     "notes": "",
     "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/#modules",
-    "home": "Library · Project states & relationships"
+    "url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#modules",
+    "home": "Solway · Ontology before work"
   },
   {
     "#": "66",
@@ -880,8 +880,8 @@
     "explainer post": "",
     "notes": "",
     "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/#tokyo",
-    "home": "Library · Project states & relationships"
+    "url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#tokyo",
+    "home": "Solway · Ontology before work"
   },
   {
     "#": "67",
@@ -893,8 +893,8 @@
     "explainer post": "",
     "notes": "",
     "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/library/apps/digital-construction-ontology/#hs2",
-    "home": "Library · Project states & relationships"
+    "url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#hs2",
+    "home": "Solway · Ontology before work"
   },
   {
     "#": "5",
@@ -960,5 +960,44 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/reading-project-evidence/#stance",
     "home": "Library · Data, evidence & assurance"
+  },
+  {
+    "#": "13",
+    "name": "interactive-nec-contract-journey",
+    "description": "Follow a seven-part NEC lesson, then bargain over five illustrative rail packages.",
+    "origin": "Claude",
+    "model": "Cant remember",
+    "tags": "tsx, learning, contract_management, procurement",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-contract-lab/#nec",
+    "home": "Library · Decisions & trade-offs"
+  },
+  {
+    "#": "19",
+    "name": "hs2-contract-game",
+    "description": "Follow a seven-part NEC lesson, then bargain over five illustrative rail packages.",
+    "origin": "Claude",
+    "model": "Sonnet3.7",
+    "tags": "gamification, negotiation, contract_management, hs2, tsx",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-contract-lab/#bargaining",
+    "home": "Library · Decisions & trade-offs"
+  },
+  {
+    "#": "74",
+    "name": "regulatory-negotiation-rehearsal-board",
+    "description": "Explore how a fictional package of commitments affects joint value, coalition contributions and consent scores.",
+    "origin": "User",
+    "model": "GPT-5.2-Codex",
+    "tags": "regulatory, negotiation, contracts, simulation, decision_support, visualization",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/regulatory-rehearsal/",
+    "home": "Library · Decisions & trade-offs"
   }
 ]

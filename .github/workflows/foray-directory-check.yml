@@ -46,6 +46,7 @@ on:
       - 'tests/step-one-*.test.cjs'
       - 'tests/phase-two-*.test.cjs'
       - 'tests/phase-three-*.test.cjs'
+      - 'tests/phase-four-*.test.cjs'
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
@@ -116,6 +117,7 @@ on:
       - 'tests/step-one-*.test.cjs'
       - 'tests/phase-two-*.test.cjs'
       - 'tests/phase-three-*.test.cjs'
+      - 'tests/phase-four-*.test.cjs'
       - 'tests/fixtures/phase-three*'
       - 'library/articles/**'
       - 'library/models/**'
@@ -193,8 +195,12 @@ jobs:
           node tests/phase-two-library-migration.test.cjs
       - name: Check graph, evidence and state examples
         run: |
-          node --test tests/phase-three-evidence.test.cjs tests/phase-three-maps.test.cjs tests/phase-three-ontology.test.cjs tests/phase-three-viability.test.cjs
+          node --test tests/phase-three-evidence.test.cjs tests/phase-three-maps.test.cjs tests/phase-three-viability.test.cjs
           node tests/phase-three-library-migration.test.cjs
+      - name: Check contracts, bargaining and Solway relocation
+        run: |
+          node --test library/apps/project-contract-lab/tests/*.cjs library/apps/regulatory-rehearsal/tests/*.cjs
+          node tests/phase-four-library-migration.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs
       - name: Check public front door and navigation
@@ -263,6 +269,7 @@ jobs:
           node tests/step-one-library-migration.test.cjs _site
           node tests/phase-two-library-migration.test.cjs _site
           node tests/phase-three-library-migration.test.cjs _site
+          node tests/phase-four-library-migration.test.cjs _site
       - name: Save the built site for preview
         uses: actions/upload-artifact@v4
         with:

@@ -312,3 +312,12 @@ The Project Apps TSX version has the same 56 concept identities, but supplied pr
 55 model/interaction tests pass across 18 files. All 16 apps have desktop and 390px browser journeys, with no page exceptions or document overflow. The site-occupancy model compiled with the official NetLogo Web compiler and completed nine checked full-day runs; downloaded bytes match the maintained model. The combined catalogue checks 35 original repository/name identities and 272 saved selectors across four source states. Forty legacy entry journeys preserve query and fragment state, including the three apps moved earlier. The repository remains pending until the receiving site is merged and public checks complete.
 
 Independent receiving-site review found and corrected two small guidance issues: the copula frame now describes the fixed marginal distributions correctly, and the compatible CSV describes the stakeholder app as a concept schema. The actual Gap Map loader retains all 16 canonical URLs and reciprocal capability links without fetching the retiring repository. Original catalogue metadata and licence were checked byte-for-byte.
+
+
+## 3 October 2026 — Solway ontology move and contracts family
+
+Digital Construction ontology has its sole primary home in Solway as **Ontology before work**, an early essai connecting vocabulary, project assertions and contextual roles to the foray’s explainable-work question. All three cases, source files, model, controls and exports are preserved there. The old Library folder now contains only a bookmark forward. Its model regression tests and original fixture move to Solway with the app.
+
+Three remaining general apps become two pictured Decisions & trade-offs entries: **Explore a project agreement** (separate NEC and bargaining lessons) and **Rehearse a regulatory negotiation**. Source count 20→17; maintained Library apps 44−1+2=45; peer cards 67. No new subject or foray was needed for the finite commercial exercises. Contract Portfolio Board remains retained. Exact sources, changes and verification are documented beside each model; source commit 676cbc7 and CSV preservation are pinned in phase_four of the migration fixture.
+
+Merge Solway PR39 first, then this website change, then the Project-web-apps retirement; verify each receiving deployment before switching its source routes. Model tests are bounded evidence, separate from legal advice, regulator behaviour or human-use validation.

@@ -948,34 +948,6 @@
     "reviewed": "3 October 2026"
   },
   {
-    "id": "digital-construction-ontology",
-    "theme": "states-and-relationships",
-    "title": "Read a construction ontology",
-    "description": "Explore modules, an illustrative stadium model and dated HS2 appointments as three different kinds of graph.",
-    "try_this": "Switch cases, follow an arrow, and compare its meaning with its source and exported triples.",
-    "limitation": "Versioned ontology terms, illustrative mappings and historical appointments have different evidence boundaries.",
-    "url": "/library/apps/digital-construction-ontology/",
-    "image": "/images/library-apps/digital-construction-ontology.jpg",
-    "image_alt": "Read a construction ontology interactive example",
-    "original_id": "62",
-    "original_name": "dico_module_map_d3",
-    "tags": "ontology, construction, knowledge_graph, visualization, interactive",
-    "origin": "ChatGPT",
-    "original_model": "GPT-5.2-Codex",
-    "original_notes": "",
-    "reviewed": "3 October 2026",
-    "order": 800,
-    "kind": "app",
-    "build": "static",
-    "source_revision": "cd0528939fd0e1f5de1df7cda9930785349e4946",
-    "source_sha256": "56f386d262078cc5f292ec83680c1e1b5688f5271aa1ee7c823557337963de0a",
-    "source_files": {
-      "web_apps/dico_module_map_d3.html": "56f386d262078cc5f292ec83680c1e1b5688f5271aa1ee7c823557337963de0a",
-      "web_apps/tokyo_stadium_dicon_graph.html": "54a68482f80e0838fcc82f551a3e07e2b68d67eed23a801b985ec74228aa2c10",
-      "web_apps/hs2_stakeholders_network.html": "54f38cc7c70954eb6e481148e5d1ea582e41bb2c7626951b9d81806d6357f3a1"
-    }
-  },
-  {
     "id": "project-decision-graph",
     "theme": "decisions-and-trade-offs",
     "title": "Follow a decision through a project graph",
@@ -1078,6 +1050,61 @@
     "source_files": {
       "web_apps/grounded-theory-approach.html": "2c0a689f5f8fd8a30df1045eb27072452b9448fff4966fadb2fe777551b5aecd",
       "web_apps/legends_tower_sentiment_report.html": "af49f45e50a1de174715eb71397accffeedc4f4ec6e9bf99ba992f7d4b254ef1"
+    }
+  },
+  {
+    "id": "project-contract-lab",
+    "theme": "decisions-and-trade-offs",
+    "title": "Explore a project agreement",
+    "description": "Follow a seven-part NEC lesson, then bargain over five illustrative rail packages.",
+    "try_this": "Compare the supplier’s minimum with the client’s maximum, then test whether their offers can actually meet.",
+    "limitation": "A simplified NEC4 ECC lesson and declared bargaining rules; no model of an actual HS2 contract or negotiating party.",
+    "url": "/library/apps/project-contract-lab/",
+    "image": "/library/apps/project-contract-lab/thumbnail.svg",
+    "image_alt": "Explore a project agreement diagram",
+    "original_id": "13",
+    "original_name": "interactive-nec-contract-journey",
+    "tags": "tsx, learning, contract_management, procurement",
+    "origin": "Claude",
+    "original_model": "Cant remember",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "order": 900,
+    "kind": "app",
+    "build": "static",
+    "source_revision": "676cbc7417d58ec9dd2d6fa751a54bd1000bc03a",
+    "source_sha256": "b6f0390a4d1de64a61272b94496942a7f4d52489bb909d21581669da3d593374",
+    "source_files": {
+      "web_apps/interactive-nec-contract-journey.html": "b6f0390a4d1de64a61272b94496942a7f4d52489bb909d21581669da3d593374",
+      "tsx_apps/interactive-nec-contract-journey.tsx": "c0b13972219bb017f3e9308d9600defb18f06fbd43aee37049a6b623f44e7ecf",
+      "web_apps/hs2-contract-game.html": "177b7f8dcc6900e1ed527cb950067f7be1bb7a5d746c0b2f4f823fb700048f9a",
+      "tsx_apps/hs2-contract-game.tsx": "5cb51eaeea3d4343c0fe82d595354eaa8f8c410552c55721f81e8c55510d1ae4"
+    }
+  },
+  {
+    "id": "regulatory-rehearsal",
+    "theme": "decisions-and-trade-offs",
+    "title": "Rehearse a regulatory negotiation",
+    "description": "Explore how a fictional package of commitments affects joint value, coalition contributions and consent scores.",
+    "try_this": "Change a lever or party assumption, compare the resulting coalition contributions, then save a reproducible receipt.",
+    "limitation": "Illustrative worth and consent formulas, not measured regulator behaviour, an approval probability or a binding allocation.",
+    "url": "/library/apps/regulatory-rehearsal/",
+    "image": "/library/apps/regulatory-rehearsal/thumbnail.svg",
+    "image_alt": "Rehearse a regulatory negotiation diagram",
+    "original_id": "74",
+    "original_name": "regulatory-negotiation-rehearsal-board",
+    "tags": "regulatory, negotiation, contracts, simulation, decision_support, visualization",
+    "origin": "User",
+    "original_model": "GPT-5.2-Codex",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "order": 920,
+    "kind": "app",
+    "build": "static",
+    "source_revision": "676cbc7417d58ec9dd2d6fa751a54bd1000bc03a",
+    "source_sha256": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21",
+    "source_files": {
+      "web_apps/regulatory-negotiation-rehearsal-board.html": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21"
     }
   }
 ]

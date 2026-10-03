@@ -19,7 +19,6 @@ const themes = json('_data/library_themes.json');
 const provenance = json('tests/fixtures/app-migration/provenance.json').phase_three;
 const revision = 'cd0528939fd0e1f5de1df7cda9930785349e4946';
 const expected = {
-  'digital-construction-ontology': {theme:'states-and-relationships', sources:['dico_module_map_d3', 'tokyo_stadium_dicon_graph', 'hs2_stakeholders_network']},
   'project-decision-graph': {theme:'decisions-and-trade-offs', sources:['hs2-decision-graph']},
   'crossing-project-map': {theme:'data-and-assurance', sources:['lower_thames_crossing_geo_kg']},
   'project-viability-navigator': {theme:'states-and-relationships', sources:['project_viability_state_space_navigator_plus']},
@@ -36,6 +35,8 @@ const sourceHashes = {
   'grounded-theory-approach':'2c0a689f5f8fd8a30df1045eb27072452b9448fff4966fadb2fe777551b5aecd',
   legends_tower_sentiment_report:'af49f45e50a1de174715eb71397accffeedc4f4ec6e9bf99ba992f7d4b254ef1'
 };
+// Historical receipt remains pinned; the three ontology routes now go directly to Solway.
+const relocations=json('tests/fixtures/app-migration/provenance.json').phase_four.ontology_relocations;
 const destinations = {
   dico_module_map_d3: origin+'/library/apps/digital-construction-ontology/#modules',
   tokyo_stadium_dicon_graph: origin+'/library/apps/digital-construction-ontology/#tokyo',
@@ -46,11 +47,11 @@ const destinations = {
   'grounded-theory-approach': origin+'/library/apps/reading-project-evidence/#coding',
   legends_tower_sentiment_report: origin+'/library/apps/reading-project-evidence/#stance'
 };
-assert.equal(apps.length, 44, '44 maintained apps');
+assert.equal(apps.length, 45, '45 maintained apps');
 assert.equal(materials.length, 22, 'existing reading/worked-example peers retained');
-assert.equal(apps.length + materials.length, 66, '66 flat subject entries');
+assert.equal(apps.length + materials.length, 67, '67 flat subject entries');
 assert.equal(listing.length, apps.length, 'legacy app listing mirrors the maintained homes');
-assert.equal(new Set([...apps,...materials].map(a=>a.id)).size, 66, 'every subject card has one unique identity');
+assert.equal(new Set([...apps,...materials].map(a=>a.id)).size, 67, 'every subject card has one unique identity');
 assert.equal(provenance.repository, 'lawrencerowland/Project-web-apps');
 assert.equal(provenance.base_revision, revision);
 assert.equal(provenance.before_rows, 28);
@@ -117,7 +118,8 @@ for (const [id, rule] of Object.entries(expected)) {
 for(const [name,destination] of Object.entries(destinations)) {
   const rows=specialists.filter(item=>item.repo==='Project-web-apps'&&item.name===name);
   assert.equal(rows.length,1,name+': one retained specialist identity');
-  assert.equal(rows[0].url,destination,name+': specialist bookmark reaches exact new home/case');
+  assert.equal(rows[0].url,relocations[name]||destination,name+': specialist bookmark reaches exact maintained home/case');
+  if(relocations[name]) continue; // Receiver owns model and case tests; relocation tests cover the forwarding shell.
   const url=new URL(destination),id=url.pathname.split('/').filter(Boolean).at(-1),{doc,html}=pages.get(id);
   if(url.hash) {
     const anchor=url.hash.slice(1);
@@ -210,7 +212,7 @@ if(built) {
     }
     dom.window.close();
   }
-  assert.equal(cardTotal,66,'built subject pages expose exactly 66 peer cards');
+  assert.equal(cardTotal,67,'built subject pages expose exactly 67 peer cards');
 }
 for(const {dom}of pages.values())dom.window.close();forwardDoc.window.close();
-console.log('PASS: five pictured Library homes, eight source identities and exact destinations, pinned provenance, retained bookmarks and 28 → 20 byte-exact source rows'+(built?'; 66 rendered subject cards and local dependencies.':'.'));
+console.log('PASS: four retained pictured Library homes and three Solway routes, eight source identities and exact destinations, pinned provenance, retained bookmarks and 28 → 20 byte-exact source rows'+(built?'; 67 rendered subject cards and local dependencies.':'.'));
