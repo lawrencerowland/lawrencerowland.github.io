@@ -427,13 +427,26 @@ function showMovedAppFromQuery(specialists) {
   notice.scrollIntoView({behavior: 'smooth', block: 'center'});
 }
 
+function showRetiredAppFromQuery(retired) {
+  const slug = new URLSearchParams(window.location.search).get('app');
+  const item = retired.find(item => slugify(item.name) === slug);
+  if (!item) return;
+  const notice = document.getElementById('moved-app-notice');
+  const message = document.createElement('p');
+  message.textContent = item.reason;
+  notice.appendChild(message);
+  notice.hidden = false;
+  notice.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
 function loadData() {
   Promise.all([
     fetch('/Project-web-apps/app-index.csv?t=' + Date.now()).then(r => r.text()),
-    fetch('/assets/data/specialist-apps.json').then(r => { if (!r.ok) throw new Error('Specialist catalogue unavailable'); return r.json(); })
-  ]).then(([c1, specialists]) => {
+    fetch('/assets/data/specialist-apps.json').then(r => { if (!r.ok) throw new Error('Specialist catalogue unavailable'); return r.json(); }),
+    fetch('/assets/data/retired-apps.json').then(r => { if (!r.ok) throw new Error('Retirement catalogue unavailable'); return r.json(); })
+  ]).then(([c1, specialists, retired]) => {
     const d1 = parseCSV(c1).map(d => { d.repo = 'Project-web-apps'; return d; });
-    const movedNames = new Set(specialists.map(item => item.repo + ":" + item.name));
+    const movedNames = new Set([...specialists, ...retired].map(item => item.repo + ":" + item.name));
     const data = d1.filter(item => item.name && !movedNames.has(item.repo + ":" + item.name));
     const allTags = Array.from(new Set(data.flatMap(d => {
       const tagField = d.tags || d.tag || d.keywords || d.categories || '';
@@ -445,6 +458,7 @@ function loadData() {
     renderHeatmap(data);
     if (!specialists.some(item => slugify(item.name) === new URLSearchParams(window.location.search).get('app'))) highlightFromQuery();
     showMovedAppFromQuery(specialists);
+    showRetiredAppFromQuery(retired);
   });
 }
 

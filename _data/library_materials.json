@@ -233,5 +233,19 @@
     "historical_url": "/library/articles/data-models-for-project-portfolios.html",
     "image": "/images/Portfolio-data-model/Graph_Option.png",
     "image_alt": "A graph-based view of a project portfolio"
+  },
+  {
+    "id": "idea-notebook",
+    "theme": "capabilities-and-futures",
+    "order": 35,
+    "kind": "material",
+    "title": "Idea notebook",
+    "url": "https://lawrencerowland.github.io/project_innovation_app/webapp/index.html",
+    "image": "/images/library-apps/idea-notebook.png",
+    "image_alt": "Idea notebook with title, description and category fields, followed by the searchable idea list",
+    "description": "Record project ideas and comments with your own categories. Reopen the same notebook to continue working with your saved entries.",
+    "label": "Interactive notebook · GI2MO-inspired prototype",
+    "action": "Open the notebook",
+    "limitation": "Browser-local ideas and comments. No shared review, approval or project-tracking workflow."
   }
 ]

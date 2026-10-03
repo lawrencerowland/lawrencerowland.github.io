@@ -37,7 +37,8 @@ assert.equal(served('React_proj-apps/apps/building-site-occupancy-simulation/'+n
 assert.ok(!read('_data/side_projects.yml').includes('id: react-project-apps'));
 assert.ok(!read('all-project-apps.md').includes("fetch('/React_proj-apps/"));
 assert.ok(!read('gap-map.md').includes("fetch('/React_proj-apps/"));
-assert.ok(read('gap-map.md').includes('url:app.url ||'),'Gap Map follows canonical app URLs');
+assert.ok(read('gap-map.md').includes('/assets/js/gap-map-model.js'),'Gap Map uses the tested canonical catalogue loader');
+assert.ok(read('assets/js/gap-map-model.js').includes('loadCatalogues'),'Gap Map canonical loader remains present');
 if(process.argv[2]){
  const library=served('library.html');for(const theme of themes){assert.ok(library.includes('/library/methods/'+theme.id+'.html'));const page=served('library/methods/'+theme.id+'.html');assert.ok(!page.includes('{%'));for(const app of apps.filter(a=>a.theme===theme.id))assert.ok(page.includes(app.url));}
 }

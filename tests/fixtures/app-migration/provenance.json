@@ -65,5 +65,30 @@
       "governance-trio-replay-rules-lineage",
       "probecrafter"
     ]
+  },
+  "step_one": {
+    "repository": "lawrencerowland/Project-web-apps",
+    "base_revision": "72e90ed92af79205776ceac87b1d81136f85e4ec",
+    "removed_names": [
+      "what_AI_model_for_what",
+      "idea-notebook",
+      "pm_gap_map",
+      "gap_map_gemini",
+      "Graph to sharp",
+      "Graph-sharp1",
+      "contract-portfolio-board",
+      "3D_Construction_Workflow"
+    ],
+    "source_sha256": {
+      "what_AI_model_for_what": "eee419106e0d5681253412b6882ca8ed07cfff509f1b3121490001ec1fe4c093",
+      "idea-notebook": "f231f7017ebde724f7b7f45dc5fd187c3915a10c3b80b9666062ce0f13261ab4",
+      "pm_gap_map": "64325cbbba63e918a55d424d46661fd8027a5198100a04c994d0b671dc45bce2",
+      "gap_map_gemini": "70bd5bd2e935f7d63359d4a37a7981c922c2b76048193224bb1a217cef914e8e",
+      "Graph to sharp": "04f41cc5db806c0df27c4fb68649ddd850edcadb032dfd736c634bbfb7902726",
+      "Graph-sharp1": "fc3d4506be6dd153db453157d9a80c3c46da27d8216825c41a2bcdc183ee9ac7",
+      "contract-portfolio-board": "fffcb5f9ee7199aad62c8bc5e5f834453c5c9231cbe3e705e1f4b7c8650613b5",
+      "3D_Construction_Workflow": "9de8b2b04dab1b661c8c7a40eaf470f54a03d61955ee1699f1595a5235485c1f"
+    },
+    "retained_contract_board": true
   }
 }

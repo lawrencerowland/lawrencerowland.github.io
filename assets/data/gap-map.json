@@ -1,0 +1,751 @@
+{
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "Integration of AI and Data Analytics in Project Management",
+      "domains": [
+        "Technology Integration",
+        "Risk Management",
+        "Schedule & Time Management",
+        "Resource Allocation & Optimization"
+      ],
+      "description": "How can project teams use AI and data analysis for decision support, with suitable data and checks?",
+      "linkedCapabilities": [
+        "C1",
+        "C11",
+        "C16",
+        "C21"
+      ]
+    },
+    {
+      "id": "G2",
+      "title": "Managing Hybrid and Remote Project Teams",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Stakeholder Engagement"
+      ],
+      "description": "How can distributed teams sustain cohesion, inclusion and useful collaboration?",
+      "linkedCapabilities": [
+        "C2",
+        "C3"
+      ]
+    },
+    {
+      "id": "G3",
+      "title": "Embedding Sustainability and Social Value in Projects",
+      "domains": [
+        "Project Governance",
+        "Stakeholder Engagement",
+        "Innovation in PM"
+      ],
+      "description": "How can sustainability and social-value measures be integrated across a project lifecycle?",
+      "linkedCapabilities": [
+        "C4",
+        "C7"
+      ]
+    },
+    {
+      "id": "G4",
+      "title": "Project Management Skills Gap and Talent Development",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Emerging Practice"
+      ],
+      "description": "What training, mentoring and professional-development paths support emerging project skills?",
+      "linkedCapabilities": [
+        "C5",
+        "C18",
+        "C3",
+        "C10"
+      ]
+    },
+    {
+      "id": "G5",
+      "title": "Adapting Agile and Hybrid Methodologies in Traditional Projects",
+      "domains": [
+        "Change Management",
+        "Schedule & Time Management",
+        "Project Governance"
+      ],
+      "description": "How can iterative delivery be combined with governance in traditional or asset-heavy sectors?",
+      "linkedCapabilities": [
+        "C6",
+        "C9"
+      ]
+    },
+    {
+      "id": "G6",
+      "title": "Effective Stakeholder Engagement in Complex Projects",
+      "domains": [
+        "Stakeholder Engagement",
+        "Project Governance",
+        "Change Management"
+      ],
+      "description": "How can multi-party programmes understand stakeholders and agree practical engagement?",
+      "linkedCapabilities": [
+        "C7",
+        "C8",
+        "C17",
+        "C19",
+        "C2",
+        "C4",
+        "C14"
+      ]
+    },
+    {
+      "id": "G7",
+      "title": "Integrating Organizational Change Management with Projects",
+      "domains": [
+        "Change Management",
+        "Stakeholder Engagement",
+        "Project Leadership & Team Dynamics"
+      ],
+      "description": "How can people-change activities and measures be planned alongside technical delivery?",
+      "linkedCapabilities": [
+        "C10",
+        "C5"
+      ]
+    },
+    {
+      "id": "G8",
+      "title": "Modernizing Project Controls and Performance Management",
+      "domains": [
+        "Project Controls",
+        "Schedule & Time Management",
+        "Technology Integration"
+      ],
+      "description": "How can schedule, cost and risk information become more timely, connected and usable?",
+      "linkedCapabilities": [
+        "C1",
+        "C11",
+        "C15"
+      ]
+    },
+    {
+      "id": "G9",
+      "title": "Benefits Realization and Project Value Measurement",
+      "domains": [
+        "Project Evaluation & Measurement",
+        "Project Governance"
+      ],
+      "description": "How can intended outcomes and benefits be defined, tracked and reviewed beyond delivery?",
+      "linkedCapabilities": [
+        "C12",
+        "C13",
+        "C20"
+      ]
+    },
+    {
+      "id": "G10",
+      "title": "Addressing Cognitive Biases in Project Risk Management",
+      "domains": [
+        "Risk Management",
+        "Project Governance"
+      ],
+      "description": "How can teams examine optimism bias, challenge assumptions and discuss uncertainty openly?",
+      "linkedCapabilities": [
+        "C22",
+        "C23",
+        "C14",
+        "C20",
+        "C21",
+        "C8"
+      ]
+    },
+    {
+      "id": "G11",
+      "title": "Resource Allocation and Multi-Project Optimization Challenges",
+      "domains": [
+        "Resource Allocation & Optimization",
+        "Schedule & Time Management",
+        "Portfolio Management"
+      ],
+      "description": "How can scarce resources be balanced across projects and changing priorities?",
+      "linkedCapabilities": [
+        "C1",
+        "C16"
+      ]
+    },
+    {
+      "id": "G12",
+      "title": "Fostering Innovation and Continuous Improvement in PM Practices",
+      "domains": [
+        "Innovation in PM",
+        "Emerging Practice",
+        "Project Leadership & Team Dynamics"
+      ],
+      "description": "How can teams test new practices safely, learn across projects and improve existing methods?",
+      "linkedCapabilities": [
+        "C9",
+        "C13",
+        "C17",
+        "C19",
+        "C20",
+        "C6",
+        "C14",
+        "C15"
+      ]
+    },
+    {
+      "id": "G13",
+      "title": "Enhancing Team Engagement and Motivation in Projects",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Workforce Engagement",
+        "Emerging Practice"
+      ],
+      "description": "How can teams support motivation and engagement during long or demanding projects?",
+      "linkedCapabilities": [
+        "C17",
+        "C18"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "C1",
+      "title": "AI and Data-Driven PM Tools",
+      "domains": [
+        "Technology Integration",
+        "Risk Management",
+        "Schedule & Time Management",
+        "Resource Allocation & Optimization"
+      ],
+      "description": "Predictive analytics and AI assistants for PM.",
+      "linkedResources": [
+        "R10",
+        "R12"
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "Digital Collaboration Tools & Practices",
+      "domains": [
+        "Stakeholder Engagement",
+        "Project Leadership & Team Dynamics",
+        "Technology Integration"
+      ],
+      "description": "Platforms and norms for distributed collaboration.",
+      "linkedResources": [
+        "R12",
+        "R14"
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "Hybrid/Remote Team Leadership",
+      "domains": [
+        "Project Leadership & Team Dynamics"
+      ],
+      "description": "Leading partially remote teams with inclusive practices.",
+      "linkedResources": [
+        "R11",
+        "R1"
+      ]
+    },
+    {
+      "id": "C4",
+      "title": "Sustainable PM Practices",
+      "domains": [
+        "Project Governance",
+        "Innovation in PM",
+        "Stakeholder Engagement"
+      ],
+      "description": "Frameworks to integrate sustainability and social value.",
+      "linkedResources": [
+        "R9"
+      ]
+    },
+    {
+      "id": "C5",
+      "title": "Apprenticeships & Professional Development",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Emerging Practice"
+      ],
+      "description": "Structured training pathways and mentorship.",
+      "linkedResources": [
+        "R13",
+        "R11"
+      ]
+    },
+    {
+      "id": "C6",
+      "title": "Agile & Hybrid Delivery Approaches",
+      "domains": [
+        "Change Management",
+        "Schedule & Time Management",
+        "Innovation in PM"
+      ],
+      "description": "Combining iterative methods with traditional governance.",
+      "linkedResources": [
+        "R5",
+        "R6",
+        "R14"
+      ]
+    },
+    {
+      "id": "C7",
+      "title": "Stakeholder Engagement Strategies & Tools",
+      "domains": [
+        "Stakeholder Engagement",
+        "Change Management",
+        "Project Governance"
+      ],
+      "description": "Systematic identification and continuous engagement.",
+      "linkedResources": [
+        "R15",
+        "R8"
+      ]
+    },
+    {
+      "id": "C8",
+      "title": "Collaborative Partnerships & Contracting Models",
+      "domains": [
+        "Project Governance",
+        "Risk Management",
+        "Stakeholder Engagement"
+      ],
+      "description": "Alliance/IPD models with shared incentives.",
+      "linkedResources": [
+        "R9",
+        "R3"
+      ]
+    },
+    {
+      "id": "C9",
+      "title": "Adaptive Governance & Portfolio Management",
+      "domains": [
+        "Project Governance",
+        "Project Evaluation & Measurement",
+        "Innovation in PM"
+      ],
+      "description": "Flexible oversight and dynamic portfolio reprioritization.",
+      "linkedResources": [
+        "R8",
+        "R5"
+      ]
+    },
+    {
+      "id": "C10",
+      "title": "Change Management Integration",
+      "domains": [
+        "Change Management",
+        "Stakeholder Engagement",
+        "Project Leadership & Team Dynamics"
+      ],
+      "description": "Embedding OCM activities alongside project delivery.",
+      "linkedResources": [
+        "R7",
+        "R1"
+      ]
+    },
+    {
+      "id": "C11",
+      "title": "Integrated Project Controls & Analytics",
+      "domains": [
+        "Project Controls",
+        "Schedule & Time Management",
+        "Cost Management",
+        "Technology Integration"
+      ],
+      "description": "Unified schedule-cost-risk dashboards with analytics.",
+      "linkedResources": [
+        "R10",
+        "R6",
+        "R12"
+      ]
+    },
+    {
+      "id": "C12",
+      "title": "Benefits Realization Management",
+      "domains": [
+        "Project Evaluation & Measurement",
+        "Project Governance"
+      ],
+      "description": "Disciplined approach to define, track and realize benefits.",
+      "linkedResources": [
+        "R3",
+        "R12"
+      ]
+    },
+    {
+      "id": "C13",
+      "title": "Knowledge Management & Lessons Learned",
+      "domains": [
+        "Project Evaluation & Measurement",
+        "Innovation in PM"
+      ],
+      "description": "Repositories and communities to capture and reuse knowledge.",
+      "linkedResources": [
+        "R15"
+      ]
+    },
+    {
+      "id": "C14",
+      "title": "Cognitive Framing & Perspective Shifting",
+      "domains": [
+        "Project Governance",
+        "Innovation in PM"
+      ],
+      "description": "Tools and approaches to reframe problems and switch viewpoints.",
+      "linkedResources": [
+        "R17"
+      ]
+    },
+    {
+      "id": "C15",
+      "title": "Historical Insight & Trend Analysis",
+      "domains": [
+        "Project Controls",
+        "Project Governance"
+      ],
+      "description": "Learning from past evolution of PM tools and practices to anticipate future developments.",
+      "linkedResources": []
+    },
+    {
+      "id": "C16",
+      "title": "Resource Optimization Techniques",
+      "domains": [
+        "Resource Allocation & Optimization",
+        "Schedule & Time Management",
+        "Portfolio Management"
+      ],
+      "description": "Capacity planning, resource levelling and critical-chain approaches; choose a method suited to the scheduling constraints.",
+      "linkedResources": [
+        "R14"
+      ]
+    },
+    {
+      "id": "C17",
+      "title": "Gamification & Engagement",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Stakeholder Engagement"
+      ],
+      "description": "Game-design elements to explore participation and motivation; benefits depend on context and implementation.",
+      "linkedResources": [
+        "R2",
+        "R1"
+      ]
+    },
+    {
+      "id": "C18",
+      "title": "Coaching & Mentoring Programs",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Emerging Practice"
+      ],
+      "description": "One-on-one or team coaching and structured mentoring.",
+      "linkedResources": [
+        "R1",
+        "R11"
+      ]
+    },
+    {
+      "id": "C19",
+      "title": "Hypothesis Generation Workshops",
+      "domains": [
+        "Innovation in PM",
+        "Stakeholder Engagement",
+        "Emerging Practice"
+      ],
+      "description": "Structured sessions that turn ambiguous project problems into testable problem-solution hypotheses.",
+      "linkedResources": [
+        "R16",
+        "R17"
+      ]
+    },
+    {
+      "id": "C20",
+      "title": "Assumption Testing Backlog",
+      "domains": [
+        "Project Evaluation & Measurement",
+        "Risk Management",
+        "Innovation in PM"
+      ],
+      "description": "A lightweight backlog of hypotheses, assumptions, evidence tests and decision points for project teams.",
+      "linkedResources": [
+        "R16",
+        "R18"
+      ]
+    },
+    {
+      "id": "C21",
+      "title": "AI-Assisted Hypothesis Discovery",
+      "domains": [
+        "Technology Integration",
+        "Risk Management",
+        "Innovation in PM"
+      ],
+      "description": "Use AI prompts and project data to propose candidate explanations, risks and tests. Candidates require evidence; generation is not validation.",
+      "linkedResources": [
+        "R17",
+        "R18"
+      ]
+    },
+    {
+      "id": "C22",
+      "title": "Quantitative Risk Analysis Techniques",
+      "domains": [
+        "Risk Management",
+        "Schedule & Time Management",
+        "Cost Management"
+      ],
+      "description": "Monte‑Carlo, reference‑class forecasting, decision trees.",
+      "linkedResources": [
+        "R4",
+        "R10"
+      ]
+    },
+    {
+      "id": "C23",
+      "title": "Risk Culture & Bias Mitigation Training",
+      "domains": [
+        "Risk Management",
+        "Project Leadership & Team Dynamics"
+      ],
+      "description": "Workshops and practices to counter optimism bias and encourage open risk dialogue.",
+      "linkedResources": [
+        "R4",
+        "R1"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "R1",
+      "title": "Coaching in the Project Environment",
+      "type": "Report",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Emerging Practice"
+      ],
+      "url": "https://www.apm.org.uk/resources/find-a-resource/coaching-in-the-project-environment/",
+      "description": "APM report discussing coaching and mentoring in projects. Links to risk culture and change are editorial reading suggestions, not evidence of a specific intervention effect.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R2",
+      "title": "Introduction to Gamification",
+      "type": "Study",
+      "domains": [
+        "Project Leadership & Team Dynamics",
+        "Stakeholder Engagement"
+      ],
+      "url": "https://www.apm.org.uk/resources/find-a-resource/emerging-trends/",
+      "description": "APM landing page containing its Introduction to Gamification report and later study. A discussion resource, not a guarantee of better motivation.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R3",
+      "title": "Benefits Management in Government",
+      "type": "Guidance",
+      "domains": [
+        "Project Evaluation & Measurement",
+        "Project Governance"
+      ],
+      "url": "https://projectdelivery.gov.uk/library-product/benefits-management-in-government/",
+      "description": "Official government benefits-management guidance. The original 2017 guide link now redirects; use the current guidance collection.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R4",
+      "title": "HM Treasury Optimism Bias Guidance",
+      "type": "Guidance",
+      "domains": [
+        "Risk Management",
+        "Project Governance"
+      ],
+      "url": "https://www.gov.uk/government/publications/green-book-supplementary-guidance-optimism-bias",
+      "description": "HM Treasury guidance on optimism-bias adjustments in appraisal. It does not validate every quantitative risk method or provide risk-culture training.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R5",
+      "title": "PRINCE2 Agile",
+      "type": "Framework",
+      "domains": [
+        "Project Governance",
+        "Change Management"
+      ],
+      "url": "https://www.peoplecert.org/Frameworks-Professionals/PRINCE2-Agile-Framework",
+      "description": "Owner’s overview of combining agile practices with PRINCE2 governance; training and certification information may be commercial.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Owner / vendor"
+    },
+    {
+      "id": "R6",
+      "title": "Scaled Agile Framework (SAFe)",
+      "type": "Framework",
+      "domains": [
+        "Change Management",
+        "Innovation in PM"
+      ],
+      "url": "https://framework.scaledagile.com/",
+      "description": "Owner’s framework overview. Its connection to integrated controls is a suggested comparison, not an equivalence with project-controls practice.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Owner / vendor"
+    },
+    {
+      "id": "R7",
+      "title": "Prosci ADKAR Model",
+      "type": "Model",
+      "domains": [
+        "Change Management"
+      ],
+      "url": "https://www.prosci.com/methodology/adkar",
+      "description": "Prosci’s explanation of the ADKAR model for individual change; it is one model within a wider change approach.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Owner / vendor"
+    },
+    {
+      "id": "R8",
+      "title": "Directing Change – Governance Guide",
+      "type": "Guide",
+      "domains": [
+        "Project Governance"
+      ],
+      "url": "https://www.apm.org.uk/news/launch-of-the-second-edition-of-directing-change-a-guide-to-governance-of-project-management/",
+      "description": "APM’s publication introduction for Directing Change. Governance is relevant to stakeholder roles; this is not a complete engagement method.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R9",
+      "title": "Project 13 Initiative",
+      "type": "Industry Initiative",
+      "domains": [
+        "Project Governance",
+        "Stakeholder Engagement"
+      ],
+      "url": "https://www.project13.info/",
+      "description": "Industry-led enterprise delivery approach. Review its governance and integration principles; sustainability links are contextual, not quantified results.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R10",
+      "title": "nPlan AI Risk Forecasting",
+      "type": "Tool",
+      "domains": [
+        "Risk Management",
+        "Schedule & Time Management"
+      ],
+      "url": "https://www.nplan.io/",
+      "description": "Vendor description of AI-assisted schedule-risk analysis. Inclusion is not independent validation or a recommendation to purchase.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Owner / vendor"
+    },
+    {
+      "id": "R11",
+      "title": "Chartered Project Professional (ChPP)",
+      "type": "Credential",
+      "domains": [
+        "Project Leadership & Team Dynamics"
+      ],
+      "url": "https://www.apm.org.uk/chartered-standard/",
+      "description": "APM’s professional standard and application information. Recognition does not by itself demonstrate remote-team leadership or coaching expertise.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R12",
+      "title": "Microsoft Teams",
+      "type": "Tool",
+      "domains": [
+        "Stakeholder Engagement",
+        "Technology Integration"
+      ],
+      "url": "https://www.microsoft.com/en-us/microsoft-teams/file-sharing",
+      "description": "Microsoft’s collaboration and file-sharing overview. It can host project information; it is not itself a benefits, controls or predictive-risk method.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Owner / vendor"
+    },
+    {
+      "id": "R13",
+      "title": "Associate Project Manager Apprenticeship",
+      "type": "Training",
+      "domains": [
+        "Project Leadership & Team Dynamics"
+      ],
+      "url": "https://skillsengland.education.gov.uk/apprenticeships/st0310-v1-5",
+      "description": "Official apprenticeship standard. Check the provider’s page for the applicable version and delivery status.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R14",
+      "title": "Atlassian Jira",
+      "type": "Tool",
+      "domains": [
+        "Schedule & Time Management",
+        "Technology Integration"
+      ],
+      "url": "https://www.atlassian.com/software/jira/guides/getting-started/basics",
+      "description": "Atlassian’s introductory Jira guide. Boards and tracking can support agile work; a tool alone does not solve portfolio resource optimisation.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Owner / vendor"
+    },
+    {
+      "id": "R15",
+      "title": "APM/RICS Stakeholder Engagement Principles",
+      "type": "Guide",
+      "domains": [
+        "Stakeholder Engagement"
+      ],
+      "url": "https://www.apm.org.uk/resources/find-a-resource/stakeholder-engagement/key-principles/",
+      "description": "APM’s principles based on joint APM/RICS stakeholder guidance. The learning link concerns reuse of stakeholder insight, not a full knowledge-management method.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R16",
+      "title": "Lean Startup Build-Measure-Learn Loop",
+      "type": "Method",
+      "domains": [
+        "Innovation in PM",
+        "Project Evaluation & Measurement"
+      ],
+      "url": "https://theleanstartup.com/principles",
+      "description": "Eric Ries’s description of Build–Measure–Learn and testing product assumptions. Adapt the approach to the project context.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R17",
+      "title": "IDEO.org: Frame Your Design Challenge",
+      "type": "Method",
+      "domains": [
+        "Innovation in PM",
+        "Stakeholder Engagement"
+      ],
+      "url": "https://www.designkit.org/methods/frame-your-design-challenge.html",
+      "description": "IDEO.org’s primary guide to framing a design challenge. Use it for question framing; the AI-assisted-discovery link is an editorial extension.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    },
+    {
+      "id": "R18",
+      "title": "Evidence-Based Management Guide",
+      "type": "Guide",
+      "domains": [
+        "Project Evaluation & Measurement",
+        "Risk Management"
+      ],
+      "url": "https://www.scrum.org/resources/evidence-based-management-guide",
+      "description": "Scrum.org’s Evidence-Based Management guide. Supports goals and experiments; it does not establish that AI-generated hypotheses are valid. The official landing page blocked automated content access during the link review.",
+      "reviewed": "2026-10-02",
+      "sourceKind": "Primary guidance"
+    }
+  ],
+  "review": {
+    "date": "2026-10-02",
+    "sourceRevision": "72e90ed92af79205776ceac87b1d81136f85e4ec",
+    "note": "Curated questions and suggested relationships, not measured gaps or proof that a resource supplies a capability."
+  }
+}
