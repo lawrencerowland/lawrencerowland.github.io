@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {JSDOM}=require('../../../../tools/library-apps/node_modules/jsdom');
+const {JSDOM}=require('../../tools/library-apps/node_modules/jsdom');
 function app(hash='') {
-  const root=path.resolve(__dirname,'..'),dom=new JSDOM(fs.readFileSync(path.join(root,'index.html'),'utf8'),{runScripts:'outside-only',url:'https://example.test/library/apps/project-causal-lab/'+hash});
+  const root=path.resolve(__dirname,'..'),dom=new JSDOM(fs.readFileSync(path.join(root,'index.html'),'utf8'),{runScripts:'outside-only',url:'https://example.test/counterfactuals/'+hash});
   dom.window.eval(fs.readFileSync(path.join(root,'model.js'),'utf8'));dom.window.eval(fs.readFileSync(path.join(root,'app.js'),'utf8'));
   const $=id=>dom.window.document.getElementById(id),change=id=>$(id).dispatchEvent(new dom.window.Event('change',{bubbles:true}));
   return {dom,$,change};

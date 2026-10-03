@@ -13,6 +13,8 @@ tags: [KnowledgeManagement]
 
 [Meta Project Innovation]({{ '/meta-project-innovation/' | relative_url }})
 
+[Counterfactual programme steering]({{ '/counterfactuals/' | relative_url }})
+
 [Project Co-design]({{ '/project-co-design/' | relative_url }})
 
 <ul>

@@ -1,11 +1,19 @@
-# Project Causal Lab
+# Counterfactual programme steering — Project Causal Lab
 
-One maintained Library home, two deliberately distinct modes in **Decisions & trade-offs**:
+**Counterfactuals · Foray 471 · corrected early essai · 3 October 2026.** One discoverable home on Experiments, at `/counterfactuals/`, with two distinct modes:
 
 - `#paths`: edit a small assumed DAG, inspect connecting paths and test Pearl's back-door criterion.
 - `#policies`: fit the original four-equation delivery example and simulate policies under explicit structural and noise assumptions.
 
-Neither mode supplies causal evidence for a real project. Graph editing does not fit the simulation; importing telemetry does not identify a causal effect. These are bounded worked examples rather than an open research programme, so the Library is the appropriate single discoverable home. A future enquiry into causal identification, feedback or organisational evidence would require additional substance; shared vocabulary alone is not a reason to attach these lessons to a foray.
+## Why this belongs to the foray
+
+The retained August 2025 Counterfactual Programme recording in the local 471 folder shows the original policy app: matching title, staffing/automation/WIP choices, nine-column data schema and outcome distributions. Those details were checked against the pinned HTML source. This is direct lineage, rather than a topic match inferred from the word “counterfactual”. The graph mode supplies an explanatory companion for examining causal assumptions; it is not evidence that the historical recording contained that editor.
+
+The working question for this essai is whether explicit causal assumptions help a manager compare interventions and recognise what evidence the comparison still requires. Its existing mathematics is a means of pursuing that question. A bounded construction can contribute to a foray without claiming mathematical novelty or completion of its wider End.
+
+The repair preserves both source models while correcting their reasoning and making the limits visible. Neither mode supplies causal evidence for a real project. Graph editing does not fit the simulation; importing telemetry does not identify a causal effect. Policy comparisons sample new scenarios under supplied equations, not evidence-conditioned counterfactuals for an observed unit. This is not yet a demonstration that the approach supports a real management intervention.
+
+The public entrance states End, Ways, Means and the unresolved question. Primary references remain below and in the app. There is no separate Library card or duplicate working copy. The programme-policy and graph bookmarks land directly on their respective modes.
 
 ## Use
 
@@ -95,7 +103,7 @@ Sources checked 3 October 2026; implementation choices and synthetic examples ar
 Run from the website repository:
 
 ```
-node --test library/apps/project-causal-lab/tests/*.test.cjs
+node --test counterfactuals/tests/*.test.cjs
 ```
 
 20 maintained tests pass: 16 model and 4 jsdom UI tests. jsdom is the existing test-only dependency at `tools/library-apps/node_modules/jsdom`; it is not served to readers. Graph tests independently enumerate skeleton paths, check all 3,072 four-node endpoint/conditioning cases and 200 seeded six-node graphs, and cover collider descendants, hidden confounding, valid collider-containing sets, redundant ancestor sets, descendant exclusion, cycles and display truncation. Regression tests use exact analytic solutions, scaled designs and rank failures. Simulation tests use a hand-computed cascade, zero-noise/paired-draw invariants, full residual-scale checks and domain/floor boundaries. CSV and UI tests exercise round trips, hostile text, invalid/rank-deficient imports, graph edits, presets, reset and data replacement with invalid run controls.

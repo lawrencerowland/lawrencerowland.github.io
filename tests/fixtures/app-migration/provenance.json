@@ -229,10 +229,23 @@
       }
     },
     "destinations": {
-      "pm_causal_playground": "https://lawrencerowland.github.io/library/apps/project-causal-lab/#paths",
-      "counterfactual_programme_steering": "https://lawrencerowland.github.io/library/apps/project-causal-lab/#policies",
+      "pm_causal_playground": "https://lawrencerowland.github.io/counterfactuals/#paths",
+      "counterfactual_programme_steering": "https://lawrencerowland.github.io/counterfactuals/#policies",
       "SMR_governance_simulator": "https://lawrencerowland.github.io/library/apps/signed-feedback-lab/",
       "project-dependency-atlas": "https://lawrencerowland.github.io/library/apps/project-dependency-atlas/"
+    },
+    "placement": {
+      "project-causal-lab": {
+        "foray": "471 Counterfactuals",
+        "path": "/counterfactuals/",
+        "evidence": "Original programme-policy app identified in the retained August 2025 recording; reviewed 3 October 2026."
+      },
+      "signed-feedback-lab": {
+        "theme": "delivery-dynamics"
+      },
+      "project-dependency-atlas": {
+        "theme": "delivery-dynamics"
+      }
     }
   }
 }

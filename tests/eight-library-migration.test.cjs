@@ -13,7 +13,7 @@ const expected={
  'governance-trio':['governance-trio-replay-rules-lineage','data-and-assurance'],
  'probecrafter':['probecrafter','capabilities-and-futures']
 };
-assert.equal(all.length,48);assert.equal(apps.length,8);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
+assert.equal(all.length,47);assert.equal(apps.length,8);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
 const manifest=JSON.parse(read('assets/data/library-apps.json')),specialists=JSON.parse(read('assets/data/specialist-apps.json'));
 for(const app of apps){
  assert.equal(app.original_name,expected[app.id][0]);assert.equal(app.theme,expected[app.id][1]);

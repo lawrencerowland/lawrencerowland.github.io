@@ -585,19 +585,6 @@
     "home": "Library · Decisions & trade-offs"
   },
   {
-    "#": "37",
-    "name": "pm_causal_playground",
-    "description": "Explore causal paths and adjustment, then compare policies inside an explicit assumed project model.",
-    "origin": "ChatGPT",
-    "model": "GPT5",
-    "tags": "causal, visualization, project_management, education",
-    "explainer post": "",
-    "notes": "",
-    "repo": "Project-web-apps",
-    "url": "https://lawrencerowland.github.io/library/apps/project-causal-lab/",
-    "home": "Library · Decisions & trade-offs"
-  },
-  {
     "#": "36",
     "name": "SMR_governance_simulator",
     "description": "Step through a three-state signed feedback model and inspect how contributions and eigenvalues explain its behaviour.",

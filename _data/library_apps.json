@@ -1108,33 +1108,6 @@
     }
   },
   {
-    "id": "project-causal-lab",
-    "theme": "decisions-and-trade-offs",
-    "title": "Ask what a project change would cause",
-    "description": "Explore causal paths and adjustment, then compare policies inside an explicit assumed project model.",
-    "try_this": "Test a confounder or collider in the graph; then compare interventions using the same simulated disturbances.",
-    "limitation": "Causal conclusions depend on supplied arrows and structural assumptions. Regression fit alone does not establish them.",
-    "url": "/library/apps/project-causal-lab/",
-    "image": "/library/apps/project-causal-lab/thumbnail.svg",
-    "image_alt": "Ask what a project change would cause diagram",
-    "original_id": "37",
-    "original_name": "pm_causal_playground",
-    "tags": "causal, visualization, project_management, education",
-    "origin": "ChatGPT",
-    "original_model": "GPT5",
-    "original_notes": "",
-    "reviewed": "3 October 2026",
-    "order": 940,
-    "kind": "app",
-    "build": "static",
-    "source_revision": "8221f32b398d582801e639b5460aa674805f1671",
-    "source_sha256": "a2e291100c6714965e04420d8b627f5d3e6198f74d13f9a206e97233d9ed4480",
-    "source_files": {
-      "web_apps/pm_causal_playground.html": "a2e291100c6714965e04420d8b627f5d3e6198f74d13f9a206e97233d9ed4480",
-      "web_apps/counterfactual_programme_steering.html": "2276c0445e8150ca39f13b356f22a795c3d39b7481d3403c32686786b9597022"
-    }
-  },
-  {
     "id": "signed-feedback-lab",
     "theme": "delivery-dynamics",
     "title": "See when feedback settles or grows",

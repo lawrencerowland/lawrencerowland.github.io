@@ -19,6 +19,7 @@ on:
       - 'tools/library-apps/**'
       - 'library/apps/**'
       - 'meta-project-innovation/**'
+      - 'counterfactuals/**'
       - 'library/methods/**'
       - 'React_proj-apps/**'
       - '_data/library_*.json'
@@ -91,6 +92,7 @@ on:
       - 'tools/library-apps/**'
       - 'library/apps/**'
       - 'meta-project-innovation/**'
+      - 'counterfactuals/**'
       - 'library/methods/**'
       - 'React_proj-apps/**'
       - '_data/library_*.json'
@@ -205,7 +207,7 @@ jobs:
           node tests/phase-four-library-migration.test.cjs
       - name: Check causal, feedback and dependency models
         run: |
-          node --test library/apps/project-causal-lab/tests/*.cjs library/apps/signed-feedback-lab/tests/*.cjs library/apps/project-dependency-atlas/tests/*.cjs
+          node --test counterfactuals/tests/*.cjs library/apps/signed-feedback-lab/tests/*.cjs library/apps/project-dependency-atlas/tests/*.cjs
           node tests/phase-five-library-migration.test.cjs
       - name: Check weighted decision sampling
         run: node tests/decision-sampling.test.cjs

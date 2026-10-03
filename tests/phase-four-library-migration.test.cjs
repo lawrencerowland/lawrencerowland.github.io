@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const root=path.resolve(__dirname,'..'),site=process.argv[2]?path.resolve(process.argv[2]):root,read=p=>fs.readFileSync(path.join(root,p),'utf8'),json=p=>JSON.parse(read(p));
 const {JSDOM}=require('../tools/library-apps/node_modules/jsdom');
 const apps=json('_data/library_apps.json'),listing=json('assets/data/library-apps.json'),specialists=json('assets/data/specialist-apps.json'),p=json('tests/fixtures/app-migration/provenance.json').phase_four;
-assert.equal(apps.length,48);assert.equal(apps.length+json('_data/library_materials.json').length,70);assert.equal(listing.length,48);
+assert.equal(apps.length,47);assert.equal(apps.length+json('_data/library_materials.json').length,69);assert.equal(listing.length,47);
 assert.ok(apps.some(a=>a.id==='contract-portfolio-board'),'user-valued Contract Board remains');
 assert.ok(!apps.some(a=>a.id==='digital-construction-ontology'),'ontology has only its Solway primary home');
 assert.ok(!listing.some(a=>a.name==='dico_module_map_d3'),'no obsolete primary Library app listing');
@@ -42,4 +42,4 @@ for(const hash of ['','#modules','#tokyo','#hs2'])for(const search of ['','?repe
 }
 for(const [name,destination] of Object.entries(p.ontology_relocations)){assert.equal(specialists.find(x=>x.repo==='Project-web-apps'&&x.name===name).url,destination);assert.ok(destination.startsWith(target));}
 if(process.argv[2]){const states=fs.readFileSync(path.join(site,'library/methods/states-and-relationships.html'),'utf8');assert.ok(!states.includes('id="digital-construction-ontology"'),'former subject card is gone');}
-console.log('PASS: two pictured contract homes, 48 Library apps / 70 flat cards, three retained case routes into Solway, no old ontology working copy, and exact 20 → 17 source rows.');
+console.log('PASS: two pictured contract homes, 47 Library apps / 69 flat cards, three retained case routes into Solway, no old ontology working copy, and exact 20 → 17 source rows.');
