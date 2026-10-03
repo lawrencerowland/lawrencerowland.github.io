@@ -15,7 +15,7 @@ const expected={
  'service-trident':['service_trident','capabilities-and-futures'],
  'stakeholder-mapper':['stakeholder-mapper','states-and-relationships']
 };
-assert.equal(all.length,45);assert.equal(apps.length,10);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
+assert.equal(all.length,47);assert.equal(apps.length,10);assert.deepEqual(new Set(apps.map(a=>a.id)),new Set(Object.keys(expected)));
 const manifest=JSON.parse(read('assets/data/library-apps.json')),specialists=JSON.parse(read('assets/data/specialist-apps.json'));
 for(const app of apps){
  assert.equal(app.original_name,expected[app.id][0]);assert.equal(app.theme,expected[app.id][1]);

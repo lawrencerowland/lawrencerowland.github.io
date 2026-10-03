@@ -1,0 +1,21 @@
+digraph GovernanceLoops {
+  rankdir=LR;
+  node [shape=ellipse, style=filled, fillcolor="#e6f3ff", color="#9cc4ef", fontname="Helvetica"];
+  Reg [label="Regulator"];
+  Op  [label="Operator"];
+  Ov  [label="Oversight"];
+
+  node [shape=circle, style=filled, fillcolor="#ffffe6", color="#e6e0a3"];
+  AV_e1 [label="AV(Reg→Op)\nLicence conditions"];
+  AV_e2 [label="AV(Op→Reg)\nIncident reports"];
+  AV_e3 [label="AV(Ov→Reg)\nParliamentary pressure"];
+  AV_e4 [label="AV(Op→Ov)\nTransparency metrics"];
+
+  edge [color="#3c8", penwidth=2];
+  Reg -> AV_e1 -> Op [label="+0.35"];
+  Ov  -> AV_e3 -> Reg [label="+0.20"];
+  Op  -> AV_e4 -> Ov  [label="+0.30"];
+
+  edge [color="#c44", penwidth=2];
+  Op  -> AV_e2 -> Reg [label="-0.25"];
+}

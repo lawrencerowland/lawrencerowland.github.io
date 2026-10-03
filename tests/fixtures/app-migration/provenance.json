@@ -196,5 +196,56 @@
       "tokyo_stadium_dicon_graph": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#tokyo",
       "hs2_stakeholders_network": "https://lawrencerowland.github.io/Solway_tunnel_ontology/apps/digital-construction-ontology/#hs2"
     }
+  },
+  "phase_five": {
+    "date": "2026-10-03",
+    "repository": "lawrencerowland/Project-web-apps",
+    "base_revision": "8221f32b398d582801e639b5460aa674805f1671",
+    "before_rows": 17,
+    "after_rows": 13,
+    "removed_names": [
+      "pm_causal_playground",
+      "counterfactual_programme_steering",
+      "SMR_governance_simulator",
+      "project-dependency-atlas"
+    ],
+    "source_sha256": {
+      "pm_causal_playground": "a2e291100c6714965e04420d8b627f5d3e6198f74d13f9a206e97233d9ed4480",
+      "counterfactual_programme_steering": "2276c0445e8150ca39f13b356f22a795c3d39b7481d3403c32686786b9597022",
+      "SMR_governance_simulator": "1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654",
+      "project-dependency-atlas": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1"
+    },
+    "source_files": {
+      "project-causal-lab": {
+        "web_apps/pm_causal_playground.html": "a2e291100c6714965e04420d8b627f5d3e6198f74d13f9a206e97233d9ed4480",
+        "web_apps/counterfactual_programme_steering.html": "2276c0445e8150ca39f13b356f22a795c3d39b7481d3403c32686786b9597022"
+      },
+      "signed-feedback-lab": {
+        "web_apps/SMR_governance_simulator.html": "1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654",
+        "web_apps/SMR_governance_simulator_av.dot": "9ed272b8d9d47fbeae74cbb12375d886a546ecc5c681b6f0adcfb1f5953048a6"
+      },
+      "project-dependency-atlas": {
+        "web_apps/project-dependency-atlas.html": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1"
+      }
+    },
+    "destinations": {
+      "pm_causal_playground": "https://lawrencerowland.github.io/counterfactuals/#paths",
+      "counterfactual_programme_steering": "https://lawrencerowland.github.io/counterfactuals/#policies",
+      "SMR_governance_simulator": "https://lawrencerowland.github.io/library/apps/signed-feedback-lab/",
+      "project-dependency-atlas": "https://lawrencerowland.github.io/library/apps/project-dependency-atlas/"
+    },
+    "placement": {
+      "project-causal-lab": {
+        "foray": "471 Counterfactuals",
+        "path": "/counterfactuals/",
+        "evidence": "Original programme-policy app identified in the retained August 2025 recording; reviewed 3 October 2026."
+      },
+      "signed-feedback-lab": {
+        "theme": "delivery-dynamics"
+      },
+      "project-dependency-atlas": {
+        "theme": "delivery-dynamics"
+      }
+    }
   }
 }

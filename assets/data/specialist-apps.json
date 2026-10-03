@@ -999,5 +999,57 @@
     "repo": "Project-web-apps",
     "url": "https://lawrencerowland.github.io/library/apps/regulatory-rehearsal/",
     "home": "Library · Decisions & trade-offs"
+  },
+  {
+    "#": "37",
+    "name": "pm_causal_playground",
+    "description": "Explore causal paths and adjustment, then compare policies inside an explicit assumed project model.",
+    "origin": "ChatGPT",
+    "model": "GPT5",
+    "tags": "causal, visualization, project_management, education",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/counterfactuals/#paths",
+    "home": "Counterfactuals · early essai"
+  },
+  {
+    "#": "44",
+    "name": "counterfactual_programme_steering",
+    "description": "Explore causal paths and adjustment, then compare policies inside an explicit assumed project model.",
+    "origin": "ChatGPT",
+    "model": "GPT-5.2-Codex",
+    "tags": "causal, simulation, decision_support, visualization",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/counterfactuals/#policies",
+    "home": "Counterfactuals · early essai"
+  },
+  {
+    "#": "36",
+    "name": "SMR_governance_simulator",
+    "description": "Step through a three-state signed feedback model and inspect how contributions and eigenvalues explain its behaviour.",
+    "origin": "ChatGPT",
+    "model": "GPT5.1_Pro",
+    "tags": "governance, design, simulator, gates",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/signed-feedback-lab/",
+    "home": "Library · Delivery dynamics & feedback"
+  },
+  {
+    "#": "79",
+    "name": "project-dependency-atlas",
+    "description": "Compare bundled phase and gate relationships with faceted timelines in four supplied programme views.",
+    "origin": "User",
+    "model": "GPT-5.2-Codex",
+    "tags": "project_management, dependencies, scheduling, edge_bundling, timelines, visualization, programme_controls",
+    "explainer post": "",
+    "notes": "",
+    "repo": "Project-web-apps",
+    "url": "https://lawrencerowland.github.io/library/apps/project-dependency-atlas/",
+    "home": "Library · Delivery dynamics & feedback"
   }
 ]

@@ -307,3 +307,20 @@
   tags: ["project-management", "planning", "evidence", "innovation"]
   path: "https://lawrencerowland.github.io/meta-project-innovation/"
   action: "Explore Frontier Lab"
+- title: "Counterfactual programme steering"
+  id: counterfactual-steering
+  gallery_order: 18
+  role: open-enquiry
+  placement: project
+  source_url: https://github.com/lawrencerowland/lawrencerowland.github.io/tree/master/counterfactuals
+  image: "/counterfactuals/thumbnail.svg"
+  image_alt: "A causal path and a policy flowing through rework, throughput and delivery outcomes"
+  scenario: "A delivery team considers more automation, extra staff or a lower WIP limit."
+  group: "other"
+  entry_question: "What would change if we chose a different management policy?"
+  entry_purpose: "Inspect causal assumptions and compare simulated interventions in an early essai."
+  question: "What would change if we chose a different management policy?"
+  description: "Project Causal Lab pairs a causal-graph explorer with a separate programme-policy model. An early Counterfactuals trial, with the boundary between assumptions, fitted data and causal evidence made explicit."
+  tags: ["causality", "counterfactuals", "decisions", "simulation"]
+  path: "https://lawrencerowland.github.io/counterfactuals/"
+  action: "Explore the first trial"

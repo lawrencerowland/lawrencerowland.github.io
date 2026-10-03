@@ -38,13 +38,14 @@ const expected={
  'social-debt-explorer':'more-project-apps/web_apps/social-debt-explorer.html'
 };
 Object.assign(expected,{"dico_module_map_d3": "Solway_tunnel_ontology/apps/digital-construction-ontology/#modules", "tokyo_stadium_dicon_graph": "Solway_tunnel_ontology/apps/digital-construction-ontology/#tokyo", "hs2_stakeholders_network": "Solway_tunnel_ontology/apps/digital-construction-ontology/#hs2", "hs2-decision-graph": "library/apps/project-decision-graph/", "lower_thames_crossing_geo_kg": "library/apps/crossing-project-map/", "project_viability_state_space_navigator_plus": "library/apps/project-viability-navigator/", "grounded-theory-approach": "library/apps/reading-project-evidence/#coding", "legends_tower_sentiment_report": "library/apps/reading-project-evidence/#stance"});
+Object.assign(expected,{"pm_causal_playground": "counterfactuals/#paths", "counterfactual_programme_steering": "counterfactuals/#policies", "SMR_governance_simulator": "library/apps/signed-feedback-lab/", "project-dependency-atlas": "library/apps/project-dependency-atlas/"});
 Object.assign(expected,{'interactive-nec-contract-journey':'library/apps/project-contract-lab/#nec','hs2-contract-game':'library/apps/project-contract-lab/#bargaining','regulatory-negotiation-rehearsal-board':'library/apps/regulatory-rehearsal/'});
 const migratedLibrary=JSON.parse(fs.readFileSync(path.join(root,'_data/library_apps.json'),'utf8'));
 for(const app of migratedLibrary)expected[app.original_name||app.id] ||= app.url.slice(1);
-assert.equal(specialists.length,77);
-assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,77);
-assert.equal(new Set(specialists.map(x=>x.url.split('#')[0])).size,67,'distinct maintained routes');
-assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,76,'unambiguous legacy query identities');
+assert.equal(specialists.length,81);
+assert.equal(new Set(specialists.map(x=>x.repo+':'+x.name)).size,81);
+assert.equal(new Set(specialists.map(x=>x.url.split('#')[0])).size,70,'distinct maintained routes');
+assert.equal(new Set(specialists.map(x=>x.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'))).size,80,'unambiguous legacy query identities');
 assert.deepEqual(new Set(specialists.map(x=>x.name)),new Set(Object.keys(expected)));
 assert.equal(specialists.filter(x=>x.name==='project-controls-knowledge-graph').length,2,'two original source identities now share the consolidated graph');
 for(const row of specialists){
@@ -112,7 +113,7 @@ async function load(phase,query='',hash=''){
  return {cards,context,elements};
 }
 (async()=>{
- for(const phase of ['before','after','current-before','current-after','library-before','library-after','eight-before','eight-after','step-one-before','step-one-after','phase-two-before','phase-two-after','phase-three-before','phase-three-after','phase-four-before','phase-four-after']){
+ for(const phase of ['before','after','current-before','current-after','library-before','library-after','eight-before','eight-after','step-one-before','step-one-after','phase-two-before','phase-two-after','phase-three-before','phase-three-after','phase-four-before','phase-four-after','phase-five-before','phase-five-after']){
   const result=await load(phase);assert.equal(result.cards.filter(c=>c.classList.contains('highlight')).length,0);
   assert.equal(result.elements['moved-app-notice'].hidden,true,'ordinary browsing does not show a moved-app notice');
   result.context.filterCards('risk_management');assert.ok(result.cards.some(c=>c.style.display==='block'));assert.ok(result.cards.some(c=>c.style.display==='none'));
@@ -144,5 +145,5 @@ async function load(phase,query='',hash=''){
  for(const query of ['?app=does-not-exist','?app=decision-tree-extra','?app=https://example.org/','?app=%3Cscript%3E']){
   const absent=await load('current-after',query);assert.ok(absent.cards.every(c=>!c.classList.contains('highlight')));assert.equal(absent.elements['moved-app-notice'].hidden,true,'unknown selectors never become destination links');
  }
- console.log('PASS: 77 original app identities and one retirement absent from ordinary cards across sixteen source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
+ console.log('PASS: 81 original app identities and one retirement absent from ordinary cards across eighteen source states; exact-query destination journeys preserve app state; unrelated rows, ordinary query highlights, filters, heatmap and tags retained'+(process.argv[2]?'; rendered Jekyll page.':'.'));
 })().catch(error=>{console.error(error);process.exitCode=1;});

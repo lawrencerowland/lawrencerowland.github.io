@@ -1106,5 +1106,58 @@
     "source_files": {
       "web_apps/regulatory-negotiation-rehearsal-board.html": "3ec5fe335dbf5f8e5e9d5b7a77ad87383a523b19e6d05057b66fc52efc153a21"
     }
+  },
+  {
+    "id": "signed-feedback-lab",
+    "theme": "delivery-dynamics",
+    "title": "See when feedback settles or grows",
+    "description": "Step through a three-state signed feedback model and inspect how contributions and eigenvalues explain its behaviour.",
+    "try_this": "Change a gain, follow its contribution through a feedback loop, and compare the trajectory with the stability calculation.",
+    "limitation": "A discrete linear teaching model with supplied gains; it does not simulate nuclear governance, regulatory approval or a calibrated delivery system.",
+    "url": "/library/apps/signed-feedback-lab/",
+    "image": "/library/apps/signed-feedback-lab/thumbnail.svg",
+    "image_alt": "See when feedback settles or grows diagram",
+    "original_id": "36",
+    "original_name": "SMR_governance_simulator",
+    "tags": "governance, design, simulator, gates",
+    "origin": "ChatGPT",
+    "original_model": "GPT5.1_Pro",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "order": 960,
+    "kind": "app",
+    "build": "static",
+    "source_revision": "8221f32b398d582801e639b5460aa674805f1671",
+    "source_sha256": "1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654",
+    "source_files": {
+      "web_apps/SMR_governance_simulator.html": "1e050043a60b6d2b5be2a64707ba3470d2d99b5c675453b1f7a4ea8af2bb3654",
+      "web_apps/SMR_governance_simulator_av.dot": "9ed272b8d9d47fbeae74cbb12375d886a546ecc5c681b6f0adcfb1f5953048a6"
+    }
+  },
+  {
+    "id": "project-dependency-atlas",
+    "theme": "delivery-dynamics",
+    "title": "Trace dependencies across phases and time",
+    "description": "Compare bundled phase and gate relationships with faceted timelines in four supplied programme views.",
+    "try_this": "Select a node to follow its incident dependencies, then inspect dated activities and calendar overlaps in the timeline.",
+    "limitation": "Illustrative relationships and dates. Calendar overlap alone does not prove resource conflict, criticality or delay.",
+    "url": "/library/apps/project-dependency-atlas/",
+    "image": "/library/apps/project-dependency-atlas/thumbnail.svg",
+    "image_alt": "Trace dependencies across phases and time diagram",
+    "original_id": "79",
+    "original_name": "project-dependency-atlas",
+    "tags": "project_management, dependencies, scheduling, edge_bundling, timelines, visualization, programme_controls",
+    "origin": "User",
+    "original_model": "GPT-5.2-Codex",
+    "original_notes": "",
+    "reviewed": "3 October 2026",
+    "order": 980,
+    "kind": "app",
+    "build": "static",
+    "source_revision": "8221f32b398d582801e639b5460aa674805f1671",
+    "source_sha256": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1",
+    "source_files": {
+      "web_apps/project-dependency-atlas.html": "b67aa2e234930c472dffb1dfa35d5f696e125c3063b014f8300c3ce6810ea1e1"
+    }
   }
 ]

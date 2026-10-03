@@ -321,3 +321,12 @@ Digital Construction ontology has its sole primary home in Solway as **Ontology 
 Three remaining general apps become two pictured Decisions & trade-offs entries: **Explore a project agreement** (separate NEC and bargaining lessons) and **Rehearse a regulatory negotiation**. Source count 20→17; maintained Library apps 44−1+2=45; peer cards 67. No new subject or foray was needed for the finite commercial exercises. Contract Portfolio Board remains retained. Exact sources, changes and verification are documented beside each model; source commit 676cbc7 and CSV preservation are pinned in phase_four of the migration fixture.
 
 Merge Solway PR39 first, then this website change, then the Project-web-apps retirement; verify each receiving deployment before switching its source routes. Model tests are bounded evidence, separate from legal advice, regulator behaviour or human-use validation.
+
+
+## 3 October 2026 — phase5 cause, feedback and changing plans
+
+Four former source identities receive three homes. **Counterfactual programme steering / Project Causal Lab** moves to `/counterfactuals/` as a corrected early essai in the existing local Counterfactuals foray (471), discovered through one pictured Experiments entrance. The retained August 2025 recording depicts its original policy app, so this placement rests on direct provenance. The distinct graph/adjustment mode supports explanation; it does not generate the policy model.
+
+**See when feedback settles or grows** and **Trace dependencies across phases and time** remain Library examples under Delivery dynamics & feedback. Library apps45→47 and flat peer entries67→69; Experiments17→18; old catalogue17→13. No new Library subject is added. The feedback model can support Projects as behaviour loops (340), but does not yet address its schedule, cadences and nonlinearities. The Atlas can support Four project management jobs (280), but currently displays supplied dependencies rather than discovering missing business relationships. Those potential contributions do not change their present primary homes. The ontology relocation remains in Solway and Contract Portfolio Board remains retained.
+
+Source revision8221f32 and exact source hashes, before/after CSV and destination identities are pinned in phase_five of the migration fixture. Numerical/model limits and retention are documented alongside each receiving app. Source retirement is a companion PR to merge only after these receiving routes publish and are verified.
