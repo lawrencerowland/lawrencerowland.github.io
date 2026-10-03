@@ -20,7 +20,8 @@ const scenarios = json('_data/project_scenarios.json');
 const projects = yaml('_data/side_projects.yml').filter(item => item.placement === 'project').sort((a, b) => a.gallery_order - b.gallery_order);
 const worked = yaml('_data/worked_examples.yml');
 const articles = json('_data/historical_articles.yml');
-const entrances = [['Experiments', '/side-projects.html'], ['Methods library', '/library.html'], ['Project scenarios', '/project-scenarios.html']];
+const homeEntrances = [['Experiments', '/side-projects.html'], ['Methods library', '/library.html'], ['Project scenarios', '/project-scenarios.html']];
+const entrances = [...homeEntrances, ['Working views', '/explore-visually.html']];
 const clean = value => value.replace(/\s+/g, ' ').trim();
 const sourceHref = value => value.replace(/\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}/, '$1');
 const sourceDocument = file => new JSDOM(read(file).replace(/^---\r?\n[\s\S]*?\r?\n---/, '')).window.document;
@@ -58,12 +59,12 @@ function assertPicturedRecords(records) {
   }
 }
 
-test('the homepage and shared navigation have the same three direct entrances', () => {
+test('the shared navigation has four tabs and preserves the three home tiles', () => {
   const nav = sourceDocument('_includes/nav.html');
   assert.deepEqual([...nav.querySelectorAll('#main-nav-links a')].map(a => [clean(a.textContent), sourceHref(a.getAttribute('href'))]), entrances);
   const home = sourceDocument('index.md');
   const tiles = [...home.querySelectorAll('.pw-home-question')];
-  assert.deepEqual(tiles.map(tile => [clean(tile.querySelector('h2').textContent), sourceHref(tile.querySelector('a').getAttribute('href'))]), entrances);
+  assert.deepEqual(tiles.map(tile => [clean(tile.querySelector('h2').textContent), sourceHref(tile.querySelector('a').getAttribute('href'))]), homeEntrances);
   for (const tile of tiles) {
     const link = tile.querySelector('a'), title = tile.querySelector('h2');
     assert.equal(link.getAttribute('aria-labelledby'), title.id, 'each whole-tile link is named by its visible title');
@@ -89,14 +90,13 @@ test('all eight Wider entries have a pictured home with their established destin
   assert.ok(!gallery.includes('More Project Apps'), 'the retired collection is not an additional gallery');
 });
 
-test('Library retains six subjects and five additional pictured tiles, with Sitemap last', () => {
+test('Library retains six subjects and four additional pictured tiles, with Sitemap last', () => {
   assert.equal(themes.length, 5);
   assert.equal(apps.length, 52);
   assert.equal(materials.length, 22);
   assert.deepEqual(additional.map(entry => [entry.id, entry.url]), [
     ['social-debt', '/library/apps/social-debt-explorer/'],
     ['wider-interest', '/wider-interest/'],
-    ['working-views', '/explore-visually.html'],
     ['about', '/about_me.html'],
     ['site-map', '/sitemap.html']
   ]);
@@ -161,10 +161,12 @@ if (process.argv[2]) {
   test('rendered entrances and pictured galleries exactly match their metadata', () => {
     for (const route of ['index.html', 'library.html', 'sitemap.html', 'wider-interest/index.html', 'explore-visually.html']) {
       const d = documentFor(route);
-      assert.deepEqual([...d.querySelectorAll('#main-nav-links a')].map(a => [clean(a.textContent), a.getAttribute('href')]), entrances, route + ': three main entrances');
+      assert.deepEqual([...d.querySelectorAll('#main-nav-links a')].map(a => [clean(a.textContent), a.getAttribute('href')]), entrances, route + ': four navigation tabs');
     }
+    const working = documentFor('explore-visually.html');
+    assert.deepEqual([...working.querySelectorAll('#main-nav-links [aria-current=page]')].map(a => clean(a.textContent)), ['Working views']);
     const home = documentFor('index.html');
-    assert.deepEqual([...home.querySelectorAll('.pw-home-question')].map(card => [clean(card.querySelector('h2').textContent), card.querySelector('a').getAttribute('href')]), entrances);
+    assert.deepEqual([...home.querySelectorAll('.pw-home-question')].map(card => [clean(card.querySelector('h2').textContent), card.querySelector('a').getAttribute('href')]), homeEntrances);
     const library = documentFor('library.html');
     const subjects = [...library.querySelectorAll('.pw-library-subjects .pw-picture-card')];
     assert.equal(subjects.length, themes.length + 1);
@@ -181,7 +183,7 @@ if (process.argv[2]) {
   test('rendered sitemap branches match every current title, destination, count and order', () => {
     const d = documentFor('sitemap.html');
     const branches = [...d.querySelectorAll('.pw-map-branch')];
-    assert.equal(branches.length, 3);
+    assert.equal(branches.length, 4);
     entrances.forEach(([title, url], i) => assertLink(branches[i].querySelector('h2 a'), title, url));
     assertLink(d.querySelector('.pw-map-root a'), 'Home', '/');
     const projectList = branches[0].querySelector(':scope > details > ol');
@@ -218,7 +220,7 @@ if (process.argv[2]) {
     const scenarioLinks = [...branches[2].querySelectorAll(':scope > details > ol > li > a')];
     assert.equal(scenarioLinks.length, scenarios.length);
     scenarios.forEach((entry, i) => assertLink(scenarioLinks[i], entry.title, entry.url));
-    const workItem = further[additional.findIndex(entry => entry.id === 'working-views')];
+    const workItem = branches[3];
     const atlasLinks = [...workItem.querySelectorAll(':scope > details > ol > li > a')];
     assert.equal(atlasLinks.length, atlas.length);
     atlas.forEach((entry, i) => assertLink(atlasLinks[i], entry.title, '/explore-visually.html?view=' + encodeURIComponent(entry.id)));

@@ -14,13 +14,6 @@
     "description": "Books, journeys, shapes and small games."
   },
   {
-    "id": "working-views",
-    "title": "Working views",
-    "url": "/explore-visually.html",
-    "image": "/images/visual-explorer/boundary-net-thumb.webp",
-    "description": "The nets, maps and diagrams you work with inside the examples."
-  },
-  {
     "id": "about",
     "title": "About",
     "url": "/about_me.html",

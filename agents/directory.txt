@@ -11,11 +11,12 @@ Lawrence Rowland explores project work through small scenarios, executable model
 
 Each project keeps its own question, scope and account of what its examples establish. An essay here is a trial; a useful result may be a limitation or a failed attempt. Scenarios help people think; future enquiries may change their setting or method. This guide describes the collection and leaves research direction with each project.
 
-## Three entrances
+## Four navigation entrances
 
 - [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
 - [Methods library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
 - [Project scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
+- [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps, matrices and screens used inside the examples.
 
 The question, scenario, approach and concept labels below follow the public catalogue. The short boundary notes are editorial orientation; the linked project owns its fuller scope. SMC means symmetric monoidal category; WBS means work breakdown structure. Each example explains how, and how far, it uses its named methods.
 
@@ -217,7 +218,6 @@ Library placement means a reusable or more established example has a home; it do
 - [Custom GPTs](https://lawrencerowland.github.io/gpt-links-page.html): coaches, co-pilots and agents for thinking through project work.
 - [Social Debt](https://lawrencerowland.github.io/library/apps/social-debt-explorer/): The code is ready. The team is waiting. Read a paper’s ontology through a software-team situation.
 - [Wider interest](https://lawrencerowland.github.io/wider-interest/): Books, journeys, shapes and small games.
-- [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps and diagrams you work with inside the examples.
 - [About](https://lawrencerowland.github.io/about_me.html): Lawrence Rowland and this collection.
 - [Sitemap](https://lawrencerowland.github.io/sitemap.html): Follow the branches from the front door.
 

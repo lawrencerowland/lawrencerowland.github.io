@@ -11,7 +11,7 @@ const themes = JSON.parse(fs.readFileSync('_data/library_themes.json', 'utf8'));
 const additional = JSON.parse(fs.readFileSync('_data/library_additional.json', 'utf8'));
 const themeLayout = fs.readFileSync('_layouts/library-theme.html', 'utf8');
 const materialFor = url => materials.find(item => item.url === url || item.url?.split('#')[0] === url);
-assert.deepEqual([...nav.matchAll(/>(Experiments|Methods library|Project scenarios|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Methods library', 'Project scenarios']);
+assert.deepEqual([...nav.matchAll(/>(Experiments|Methods library|Project scenarios|Working views|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Methods library', 'Project scenarios', 'Working views']);
 assert.match(nav, /<span>Lawrence Rowland<\/span><small>Project Experiments in AI<\/small>/, 'the top brand keeps the name and requested subtitle');
 assert.ok(!nav.includes('Independent project experiments'), 'the former brand subtitle is retired');
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
@@ -63,7 +63,7 @@ for (const source of [home, library]) {
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');
   for (const img of source.matchAll(/<img\b[^>]*>/g)) assert.match(img[0], /\balt="[^"]*"/, 'images expose an accessible description or are decorative');
 }
-assert.deepEqual([...home.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Experiments', 'Methods library', 'Project scenarios'], 'the front door presents the three entrances');
+assert.deepEqual([...home.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Experiments', 'Methods library', 'Project scenarios'], 'the front door retains its three pictured entrances');
 assert.ok(home.includes('/side-projects.html'), 'project-specific questions remain under the Experiments entrance');
 
 // Exercise the real navigation script: disclosure, Escape, link selection and

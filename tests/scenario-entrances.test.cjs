@@ -126,14 +126,14 @@ test('the entrance redesign preserves all Library and Working views catalogue co
   assert.equal(themes.length + 1, 6, 'five subjects plus Custom GPTs');
   assert.equal(entries.length, 74);
   assert.equal(views.length, 38);
-  assert.equal(json('library_additional').filter(e => e.url === '/explore-visually.html').length, 1, 'one supporting Working views entrance');
+  assert.equal(json('library_additional').filter(e => e.url === '/explore-visually.html').length, 0, 'Working views has its own tab, not a duplicate Library tile');
 });
 
-test('agent orientation is regenerated from the current three routes and scenario metadata', () => {
+test('agent orientation is regenerated from the current four navigation routes and scenario metadata', () => {
   const { generate, model } = require('../tools/agent-orientation/generate.cjs');
   assert.equal(generate({ check: true }), 5);
   assert.deepEqual(model().scenarios, scenarios);
-  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Methods library', 'Project scenarios']);
+  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Methods library', 'Project scenarios', 'Working views']);
   const directory = read('agents/directory.txt');
   for (const s of scenarios) {
     assert.ok(directory.includes('[' + s.title + '](' + origin + s.url + ')'));
@@ -162,7 +162,7 @@ if (built) {
     assert.equal(d.querySelector('main').querySelectorAll('h1').length, 1, route + ': one page heading');
     assert.equal(d.querySelector('#home-main').getAttribute('tabindex'), '-1');
     assert.equal(d.querySelector('.pw-skip-link').getAttribute('href'), '#home-main');
-    assert.deepEqual([...d.querySelectorAll('.nav-links a')].map(a => clean(a.textContent)), ['Experiments', 'Methods library', 'Project scenarios']);
+    assert.deepEqual([...d.querySelectorAll('.nav-links a')].map(a => clean(a.textContent)), ['Experiments', 'Methods library', 'Project scenarios', 'Working views']);
     for (const a of d.querySelectorAll('.pw-picture-tile')) {
       assert.ok(a.hasAttribute('href') && !a.hasAttribute('onclick'), route + ': native link works without scripting');
       assert.ok(!a.hasAttribute('tabindex') || Number(a.getAttribute('tabindex')) >= 0, route + ': tile is keyboard reachable');
@@ -174,7 +174,7 @@ if (built) {
       assert.equal(a.querySelectorAll('a,button,input,select').length, 0, route + ': no nested interactive target');
     }
   }
-  test('built galleries have complete native links, unique accessible IDs and the three primary routes', () => {
+  test('built galleries have complete native links, unique accessible IDs and the four navigation routes', () => {
     for (const route of ['index.html', 'side-projects.html', 'library.html', 'project-scenarios.html', ...scenarios.map(s => outputPath(s.url))]) {
       const d = document(route);
       accessibility(d, route);

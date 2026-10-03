@@ -18,6 +18,11 @@
       "title": "Project scenarios",
       "url": "/project-scenarios.html",
       "description": "Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method."
+    },
+    {
+      "title": "Working views",
+      "url": "/explore-visually.html",
+      "description": "The nets, maps, matrices and screens used inside the examples."
     }
   ],
   "visual_guidance": "Working views collects the nets, maps, matrices and screens used inside the examples, rather than project emblems or scene illustrations. Read the caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model’s claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.",
