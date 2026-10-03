@@ -2,7 +2,7 @@
 'use strict';
 const model=HandoverModel,guard=model.createRevisionGuard();
 const $=id=>document.getElementById(id);
-let baseline=null,pack=null;
+let baseline=null,pack=null,exportURL=null;
 const descriptions={
   complete:'The supplied text matches its declared hashes. Package checks can pass while acceptance stays unverified.',
   changed:'One line was added to the concept note, but the recorded digest was kept. The hash check should fail.',
@@ -14,7 +14,13 @@ const descriptions={
 };
 function snapshot(){return JSON.parse(JSON.stringify(pack));}
 function renderRecord(){$('handover-record').textContent=JSON.stringify({record:pack.record,digests:pack.digests,policy:pack.policy},null,2);}
-function invalidate(){guard.change();$('handover-results').replaceChildren();$('handover-status').textContent='Inputs changed. Run checks again; the previous result no longer applies.';renderRecord();}
+function clearExport(){
+  if(exportURL){URL.revokeObjectURL(exportURL);exportURL=null;}
+  $('handover-save-link').removeAttribute('href');$('handover-save-link').hidden=true;
+  $('handover-export-json').value='';$('handover-export-fallback').hidden=true;$('handover-export-fallback').open=false;
+  $('handover-download-note').textContent='';
+}
+function invalidate(){guard.change();clearExport();$('handover-results').replaceChildren();$('handover-status').textContent='Inputs changed. Run checks again; the previous result no longer applies.';renderRecord();}
 function fill(){
   $('handover-owner').value=pack.record.owner;
   $('handover-signer').value=pack.record.signoff[1].by;
@@ -48,9 +54,16 @@ async function run(){
 }
 function loadExample(){pack=model.example(baseline,$('handover-example').value);invalidate();fill();run();}
 function download(){
-  const blob=new Blob([JSON.stringify(snapshot(),null,2)+'\n'],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');
-  link.href=url;link.download='handover-inputs.json';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-  $('handover-download-note').textContent='Download requested: inputs only, without a claimed result. The local checker recomputes their hashes; the simulated browser hash outage is not part of the inputs.';
+  clearExport();
+  const json=JSON.stringify(snapshot(),null,2)+'\n';
+  $('handover-export-json').value=json;$('handover-export-fallback').hidden=false;$('handover-export-fallback').open=true;
+  $('handover-download-note').textContent='Download requested: inputs only, without a claimed result. If no file appears, use the save link or copy the JSON below. The local checker recomputes hashes; the simulated browser hash outage is not part of the inputs.';
+  try{
+    exportURL=URL.createObjectURL(new Blob([json],{type:'application/json'}));
+    const savedLink=$('handover-save-link');savedLink.href=exportURL;savedLink.hidden=false;
+    const link=document.createElement('a');link.href=exportURL;link.download='handover-inputs.json';document.body.append(link);
+    try{link.click();}finally{link.remove();}
+  }catch(error){$('handover-download-note').textContent='Automatic download is unavailable. Copy the JSON below and save it as handover-inputs.json. No saved file or check result is claimed.';}
 }
 async function start(){
   try{
@@ -64,9 +77,11 @@ async function start(){
     $('handover-run').addEventListener('click',run);
     $('handover-reset').addEventListener('click',loadExample);
     $('handover-download').addEventListener('click',download);
+    $('handover-select-json').addEventListener('click',()=>{const field=$('handover-export-json');field.focus();field.select();$('handover-download-note').textContent='JSON selected. Copy it, then save it in a plain-text editor as handover-inputs.json using UTF-8. This page has not saved the file for you.';});
     for(const el of document.querySelectorAll('#handover [disabled]'))el.disabled=false;
     loadExample();
   }catch(error){$('handover-status').textContent='The exercise could not load: '+error.message+'. The explanation and downloadable pack remain available.';}
 }
 window.addEventListener('DOMContentLoaded',start);
+window.addEventListener('pagehide',clearExport);
 })();

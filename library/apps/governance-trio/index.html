@@ -195,6 +195,14 @@ nav,.orientation,#status,.shareLabel,#shareLink{margin:12px auto;max-width:1150p
       <div class="handover-actions"><a href="handover-pack.zip" download>Download checker and sample pack (.zip)</a><button id="handover-download" disabled>Download current inputs</button></div>
       <p>To check your edited browser inputs, save the JSON alongside the unpacked checker and run <code>node check.cjs handover-inputs.json</code>. The download contains inputs, not a trusted receipt. Hashing unavailable in this browser can still work locally.</p>
       <p id="handover-download-note" role="status"></p>
+      <details id="handover-export-fallback" hidden>
+        <summary>Save or copy these inputs</summary>
+        <p><a id="handover-save-link" download="handover-inputs.json" hidden>Save these inputs</a></p>
+        <p>If your browser blocks the download, select the JSON below, copy it and paste it into a plain-text editor. Save it as <code>handover-inputs.json</code> using UTF-8, then check it with the unpacked checker as described above. This text is the same input snapshot requested for download; it contains no claimed result.</p>
+        <button id="handover-select-json" type="button">Select JSON to copy</button>
+        <label for="handover-export-json">Current input snapshot (read only)</label><textarea id="handover-export-json" readonly spellcheck="false"></textarea>
+        <p class="subtle">Further edits, restoring or changing examples remove this snapshot and save link. Request a new export after making changes. Reloading also clears them.</p>
+      </details>
     </details>
     <details><summary>Source and corrected failure modes</summary>
       <p>Adapted from the mountain-refuge handover prototype, historical repository <code>lawrencerowland/more-project-apps</code>, revision <code>f7f084a</code>. Its useful idea was to join responsibility, review declarations and evidence in a stage handover. The <a href="handover-pack/PROVENANCE.md">maintained provenance receipt</a> records its source and corrections.</p>

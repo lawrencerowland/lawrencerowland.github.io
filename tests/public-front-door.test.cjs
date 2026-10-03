@@ -108,10 +108,19 @@ const examples = JSON.parse(require('node:child_process').execFileSync('ruby', [
   'puts JSON.generate(YAML.load_file("_data/worked_examples.yml"))'], {encoding:'utf8'}));
 assert.equal(examples.length, 2);
 assert.equal(new Set(examples.map(x => x.id)).size, examples.length);
+const originalExampleIdentity = {
+  'feedback-groups': ['0877b95801274a740cf3b1e59533fbaf95b2670b', 'lawrencerowland/Project-web-apps:web_apps/frobenius-dsm-explorer.html', '5863feaa2293505df2c2475f1291a26f54e624603305507db6f39466babdb6b7'],
+  'buffer-day': ['3228f1badb656be3d37ba8d00ca4b7af5907e996', 'lawrencerowland/Project-web-apps:web_apps/project-risk-gradient.html', '8c67552d5593cffcd18190c4aeb8abe020e7670c03fd59f4eaa2c90169e7797f']
+};
 for (const example of examples) {
   for (const key of ['id','title','canonical_url','image','image_alt','inputs','try','limitation','revision_context','source_commit','source_url']) assert.ok(example[key], `${example.id}: ${key}`);
   assert.equal(new URL(example.canonical_url).origin, 'https://lawrencerowland.github.io');
-  assert.ok(example.source_url.includes(`/blob/${example.source_commit}/`));
+  assert.deepEqual([example.source_commit, example.historical_source, example.source_sha256], originalExampleIdentity[example.id], 'historical source identities survive repository retirement');
+  for (const url of [example.source_url, example.checks_url].filter(Boolean)) {
+    const prefix = 'https://github.com/lawrencerowland/lawrencerowland.github.io/blob/master/';
+    assert.ok(url.startsWith(prefix), 'reader source links lead to the maintained repository');
+    assert.ok(fs.statSync(url.slice(prefix.length)).isFile(), 'maintained source or checks exist');
+  }
   assert.ok(['app_revision','source_commit'].includes(example.date_kind));
   assert.match(example.date, /^\d{4}-\d{2}-\d{2}$/);
   assert.equal(example.role, 'bounded-worked-example');

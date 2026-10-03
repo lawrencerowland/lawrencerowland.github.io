@@ -97,7 +97,25 @@ test('an asynchronous old result cannot overwrite newer edited inputs',async t=>
 test('browser download contains current inputs, no result claim, and rechecks consistently',async t=>{
   const win=await ui(t);let blob,filename;win.URL.createObjectURL=value=>{blob=value;return 'blob:test';};win.URL.revokeObjectURL=()=>{};win.HTMLAnchorElement.prototype.click=function(){filename=this.download;};
   const $=id=>win.document.getElementById(id);$('handover-evidence').value+='downloaded edit';$('handover-evidence').dispatchEvent(new win.Event('input'));$('handover-download').click();
-  assert.equal(filename,'handover-inputs.json');const input=JSON.parse(await blob.text());assert.equal(input.result,undefined);assert.equal((await model.evaluate(input,sha)).status,'fail');assert.match($('handover-download-note').textContent,/Download requested/);
+  assert.equal(filename,'handover-inputs.json');const text=await blob.text(),input=JSON.parse(text);assert.equal(input.result,undefined);assert.equal((await model.evaluate(input,sha)).status,'fail');assert.match($('handover-download-note').textContent,/Download requested/);
+  assert.equal($('handover-export-fallback').hidden,false);assert.equal($('handover-export-fallback').open,true);assert.equal($('handover-export-json').readOnly,true);assert.equal($('handover-export-json').value,text);assert.equal($('handover-save-link').href,'blob:test');assert.equal($('handover-save-link').download,'handover-inputs.json');
+  $('handover-select-json').click();assert.equal(win.document.activeElement,$('handover-export-json'));assert.equal($('handover-export-json').selectionStart,0);assert.equal($('handover-export-json').selectionEnd,text.length);assert.match($('handover-download-note').textContent,/JSON selected/);
+  const dir=tempPack(t);fs.writeFileSync(path.join(dir,'handover-inputs.json'),$('handover-export-json').value);assert.equal(run(dir,'handover-inputs.json').status,1);
+  $('handover-reset').click();await settle();$('handover-download').click();fs.writeFileSync(path.join(dir,'handover-inputs.json'),$('handover-export-json').value);assert.equal(run(dir,'handover-inputs.json').status,0);
+});
+test('readable export survives unavailable Blob downloads and remains usable by the checker',async t=>{
+  const win=await ui(t),$=id=>win.document.getElementById(id);win.URL.createObjectURL=()=>{throw new Error('blocked');};
+  $('handover-download').click();assert.equal($('handover-export-fallback').hidden,false);assert.equal($('handover-save-link').hidden,true);assert.match($('handover-download-note').textContent,/Automatic download is unavailable/);
+  const dir=tempPack(t);fs.writeFileSync(path.join(dir,'handover-inputs.json'),$('handover-export-json').value);assert.equal(run(dir,'handover-inputs.json').status,0);
+});
+test('exports persist for unchanged inputs and are revoked on edits, restore, example switch or page exit',async t=>{
+  const win=await ui(t),$=id=>win.document.getElementById(id),revoked=[];let next=0;
+  win.URL.createObjectURL=()=> 'blob:https://example.test/snapshot-'+(++next);win.URL.revokeObjectURL=url=>revoked.push(url);win.HTMLAnchorElement.prototype.click=()=>{};
+  $('handover-download').click();const first=$('handover-save-link').getAttribute('href');$('handover-run').click();await settle();assert.equal($('handover-save-link').getAttribute('href'),first);assert.deepEqual(revoked,[]);
+  for(const mutate of [()=>{$('handover-owner').value+='edit';$('handover-owner').dispatchEvent(new win.Event('input'));},()=>{$('handover-signer').value+='edit';$('handover-signer').dispatchEvent(new win.Event('input'));},()=>{$('handover-evidence').value+='edit';$('handover-evidence').dispatchEvent(new win.Event('input'));},()=>{$('handover-reset').click();},()=>{$('handover-example').value='missing';$('handover-example').dispatchEvent(new win.Event('change'));},()=>win.dispatchEvent(new win.Event('pagehide'))]){
+    const old=$('handover-save-link').getAttribute('href');mutate();await settle();assert.ok(revoked.includes(old));assert.equal($('handover-save-link').hasAttribute('href'),false);assert.equal($('handover-save-link').hidden,true);assert.equal($('handover-export-fallback').hidden,true);assert.equal($('handover-export-json').value,'');assert.equal($('handover-download-note').textContent,'');$('handover-download').click();
+  }
+  const old=$('handover-save-link').getAttribute('href');$('handover-download').click();assert.ok(revoked.includes(old));assert.notEqual($('handover-save-link').getAttribute('href'),old);
 });
 test('handover reading anchor is preserved without a false saved-scenario error',async t=>{
   const {JSDOM}=createRequire(path.join(root,'tools/library-apps/package.json'))('jsdom');
