@@ -6,23 +6,13 @@
   "entrances": [
     {
       "title": "Experiments",
-      "url": "/side-projects.html",
-      "description": "Open enquiries and exploratory collections, each with its own question and scope."
+      "url": "/experiments.html",
+      "description": "An entrance to Scenarios, Experiments and Working views: three ways into the same exploratory work."
     },
     {
       "title": "Library",
       "url": "/library.html",
       "description": "Reusable methods, bounded worked examples and earlier material, organised by subject."
-    },
-    {
-      "title": "Scenarios",
-      "url": "/project-scenarios.html",
-      "description": "Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method."
-    },
-    {
-      "title": "Working views",
-      "url": "/explore-visually.html",
-      "description": "The nets, maps, matrices and screens used inside the examples."
     }
   ],
   "visual_guidance": "Working views collects the nets, maps, matrices and screens used inside the examples, rather than project emblems or scene illustrations. Read the caption, depicted state and limitation before opening the example. A screenshot records one view; it does not prove the model’s claims or show its current state. Text descriptions and source links remain available when pictures or interaction are unavailable.",
@@ -109,5 +99,23 @@
         }
       ]
     }
-  }
+  },
+  "experiment_routes": [
+    {
+      "title": "Scenarios",
+      "url": "/project-scenarios.html",
+      "description": "Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method."
+    },
+    {
+      "title": "Experiments",
+      "url": "/side-projects.html",
+      "description": "Open enquiries and exploratory collections, each with its own question and scope."
+    },
+    {
+      "title": "Working views",
+      "url": "/explore-visually.html",
+      "description": "The nets, maps, matrices and screens used inside the examples."
+    }
+  ],
+  "navigation": "Four persistent navigation shortcuts remain available: Experiments opens this landing page; Library, Scenarios and Working views open their respective collections."
 }

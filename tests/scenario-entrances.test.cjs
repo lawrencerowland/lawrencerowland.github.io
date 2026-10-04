@@ -129,11 +129,12 @@ test('the entrance redesign preserves all Library and Working views catalogue co
   assert.equal(json('library_additional').filter(e => e.url === '/explore-visually.html').length, 0, 'Working views has its own tab, not a duplicate Library tile');
 });
 
-test('agent orientation is regenerated from the current four navigation routes and scenario metadata', () => {
+test('agent orientation is regenerated from the home hierarchy and scenario metadata', () => {
   const { generate, model } = require('../tools/agent-orientation/generate.cjs');
   assert.equal(generate({ check: true }), 5);
   assert.deepEqual(model().scenarios, scenarios);
-  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Library', 'Scenarios', 'Working views']);
+  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Library']);
+  assert.deepEqual(model().copy.experiment_routes.map(e => e.title), ['Scenarios', 'Experiments', 'Working views']);
   const directory = read('agents/directory.txt');
   for (const s of scenarios) {
     assert.ok(directory.includes('[' + s.title + '](' + origin + s.url + ')'));
@@ -175,7 +176,7 @@ if (built) {
     }
   }
   test('built galleries have complete native links, unique accessible IDs and the four navigation routes', () => {
-    for (const route of ['index.html', 'side-projects.html', 'library.html', 'project-scenarios.html', ...scenarios.map(s => outputPath(s.url))]) {
+    for (const route of ['index.html', 'experiments.html', 'side-projects.html', 'library.html', 'project-scenarios.html', ...scenarios.map(s => outputPath(s.url))]) {
       const d = document(route);
       accessibility(d, route);
       for (const e of d.querySelectorAll('[href],[src]')) localTarget(e.getAttribute('href') || e.getAttribute('src'), route);

@@ -96,8 +96,9 @@ if (process.argv[2]) {
   const mapDocument = new JSDOM(humanMap, {url: origin + '/sitemap.html'}).window.document;
   const mapURLs = [...mapDocument.querySelectorAll('a[href]')].map(anchor => new URL(anchor.href));
   // The agent orientation can refer to the same canonical homes; the tree
-  // itself must still contain each retained destination exactly once.
-  const treeURLs = [...mapDocument.querySelectorAll('.pw-map-branch:nth-child(-n+2) a[href]')].map(anchor => new URL(anchor.href));
+  // project catalogue and Library must each keep their retained destinations.
+  // Scenario routes and working views can point to the same examples.
+  const treeURLs = [...mapDocument.querySelectorAll('.pw-map-route[aria-labelledby="map-experiment-catalogue"] a[href], .pw-map-branch[aria-labelledby="map-library"] a[href]')].map(anchor => new URL(anchor.href));
   for (const route of ['/gimmer-comparison/', '/project-co-design/', '/library/models/us-portfolio-questions.html']) {
     assert.equal(treeURLs.filter(url => url.href === new URL(route, origin).href).length, 1, 'one retained canonical sitemap tree route, absolute or relative: ' + route);
   }

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emblems with scenario stamps · Visual study</title>
+<meta name="description" content="Fifteen existing experiment and scenario pairings, with the experiment emblem prominent and the scenario as a small embossed stamp.">
+<style>
+:root{color-scheme:light;--ink:#294c40;--muted:#657065;--paper:#f6f3eb;--drawing:#eeeadd;--line:#d4d5c8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-underline-offset:4px}a:hover{color:#955e32}a:focus-visible,button:focus-visible{outline:3px solid #a66f35;outline-offset:5px;border-radius:2px}
+main{max-width:1480px;margin:0 auto;padding:44px 34px 60px}header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0 0 32px}.eyebrow{margin:0 0 9px;font-size:11px;font-weight:650;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,3vw,43px);font-weight:400;line-height:1.15;margin:0 0 9px}header p:last-child{margin:0;font-size:15px;color:var(--muted)}button{appearance:none;border:1px solid #adb9a9;background:transparent;color:var(--ink);padding:9px 14px;border-radius:3px;font:inherit;font-size:13px;white-space:nowrap;cursor:pointer}button:hover{background:#e8eadf}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 25px}.pair{margin:0;min-width:0}.picture{position:relative;aspect-ratio:640/520;isolation:isolate;overflow:hidden;background:var(--drawing);border:1px solid #dedecf;border-radius:5px;box-shadow:0 1px 0 #fffefa inset,0 2px 3px #394b3410}.pair-number{position:absolute;top:20px;left:22px;font-size:12px;letter-spacing:.13em;color:#889582;z-index:3}.emblem{position:absolute;bottom:0;left:0;width:100%;height:auto;display:block}.stamp{position:absolute;top:3.2%;right:3.5%;width:31.3%;padding:7px;background:#f6f2e8;border:1px solid #c8cab9;box-shadow:2px 4px 4px #3d4a3130,-1px -1px 0 #fffffb,1px 1px 0 #d2d1c3 inset;border-radius:2px;transform:rotate(3deg);z-index:2}.stamp::after{content:"";position:absolute;inset:3px;border:1px dashed #abb29a;pointer-events:none}.stamp-window{display:block;border:1px solid #c8ccbc;box-shadow:1px 1px 2px #53613b22 inset;background:#f5f2e8;aspect-ratio:8/5;overflow:hidden}.stamp img{display:block;width:100%;height:100%;object-fit:contain;filter:saturate(.82);opacity:.96}figcaption{padding:15px 4px 0}h2{font-family:Georgia,"Times New Roman",serif;font-size:21px;font-weight:400;line-height:1.25;margin:0 0 4px}h2 a{text-decoration:none}.scenario-name{margin:0;font-size:14px;color:var(--muted)}.scenario-name a{text-decoration:none;border-bottom:1px solid #b8bdb0}.family-note{font-size:12px;color:#7d6446;margin:8px 0 0;max-width:35ch}.notes{border-top:1px solid var(--line);margin-top:45px;padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:30px;color:var(--muted);font-size:13px}.notes p{margin:0;max-width:70ch}.notes strong{color:var(--ink);font-weight:550}.gallery.large{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery.large .pair-number{font-size:14px}
+@media(min-width:1440px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}h2{font-size:19px}.pair-number{top:15px;left:17px}}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.notes{grid-template-columns:1fr;gap:12px}}
+@media(max-width:570px){main{padding:28px 18px 40px}header{display:block;margin-bottom:22px}header button{margin-top:18px}.gallery,.gallery.large{grid-template-columns:1fr;gap:28px}.picture{max-width:560px}h2{font-size:22px}.notes{margin-top:32px}}
+@media print{header button{display:none}main{padding:0}.gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 16px}.pair{break-inside:avoid}.picture{print-color-adjust:exact}h2{font-size:16px}.scenario-name{font-size:12px}.notes{font-size:10px}}
+</style>
+</head>
+<body>
+<main>
+<header><div><p class="eyebrow">Visual study · 15 existing pairings</p><h1>The enquiry, with its setting</h1><p>A large emblem. A small scenario stamp.</p></div><button id="size-toggle" type="button" aria-pressed="false">Larger pictures</button></header>
+<div class="gallery" id="gallery">
+<figure class="pair" id="gimmer-processes-plans--gimmer">
+        <div class="picture" role="img" aria-label="Processes to plans in Gimmer refuge: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">01</span>
+          <img class="emblem" src="/images/experiment-emblems/gimmer-processes-plans.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/gimmer.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html">Processes to plans</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/gimmer/">Gimmer refuge</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="gimmer-higher-autonomy--gimmer">
+        <div class="picture" role="img" aria-label="Higher-autonomy experiments in Gimmer refuge: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">02</span>
+          <img class="emblem" src="/images/experiment-emblems/gimmer-higher-autonomy.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/gimmer.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/">Higher-autonomy experiments</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/gimmer/">Gimmer refuge</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="gimmer-broader--gimmer">
+        <div class="picture" role="img" aria-label="Project models in use in Gimmer refuge: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">03</span>
+          <img class="emblem" src="/images/experiment-emblems/gimmer-broader.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/gimmer.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/gimmer-crag/app-index.html">Project models in use</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/gimmer/">Gimmer refuge</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="project-spines--gimmer">
+        <div class="picture" role="img" aria-label="Project Spines in Gimmer refuge: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">04</span>
+          <img class="emblem" src="/images/experiment-emblems/project-spines.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/gimmer.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/project-spines/">Project Spines</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/gimmer/">Gimmer refuge</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="integrated-risks-tasks--farm-track">
+        <div class="picture" role="img" aria-label="Integrated risks &amp; tasks in The farm track: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">05</span>
+          <img class="emblem" src="/images/experiment-emblems/integrated-risks-tasks.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/farm-track.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/integrated_risks_tasks/">Integrated risks &amp; tasks</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/farm-track/">The farm track</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="wildlife-crossing--wildlife-crossing">
+        <div class="picture" role="img" aria-label="Project Co-design in A wildlife crossing: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">06</span>
+          <img class="emblem" src="/images/experiment-emblems/wildlife-crossing.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/project-co-design/assets/wildlife-crossing-scene.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="/project-co-design/apps/wildlife-crossing.html">Project Co-design</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/wildlife-crossing/">A wildlife crossing</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="bricklaying-rotunda--rotunda">
+        <div class="picture" role="img" aria-label="Changing project states in A brick rotunda: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">07</span>
+          <img class="emblem" src="/images/experiment-emblems/bricklaying-rotunda.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/rotunda.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/Possible-trajectories1.html#first-try">Changing project states</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/rotunda/">A brick rotunda</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="local-to-global--tangled-triangle">
+        <div class="picture" role="img" aria-label="Local to Global in The Tangled Triangle: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">08</span>
+          <img class="emblem" src="/images/experiment-emblems/local-to-global.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/tangled-triangle.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/local-to-global/tangled-triangle/">Local to Global</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/tangled-triangle/">The Tangled Triangle</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="shared-waters--shared-waters">
+        <div class="picture" role="img" aria-label="Composing open systems in Shared waters: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">09</span>
+          <img class="emblem" src="/images/experiment-emblems/shared-waters.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/shared-waters.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/shared-dynamics/compose.html">Composing open systems</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/shared-waters/">Shared waters</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="building-wall--wall-and-roof">
+        <div class="picture" role="img" aria-label="Composing work packages in A wall and its roof: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">10</span>
+          <img class="emblem" src="/images/experiment-emblems/building-wall.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/wall-and-roof.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/">Composing work packages</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/wall-and-roof/">A wall and its roof</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="solway-tunnel--solway-tunnel">
+        <div class="picture" role="img" aria-label="Semantic project planning in A tunnel beneath the Solway: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">11</span>
+          <img class="emblem" src="/images/experiment-emblems/solway-tunnel.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/solway-tunnel.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/Solway_tunnel_ontology/">Semantic project planning</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/solway-tunnel/">A tunnel beneath the Solway</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="knowing-enough--museum-whale">
+        <div class="picture" role="img" aria-label="Knowing enough to act together in Moving the museum whale: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">12</span>
+          <img class="emblem" src="/images/experiment-emblems/knowing-enough.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/museum-whale.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/knowing-enough/">Knowing enough to act together</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/museum-whale/">Moving the museum whale</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="bracken-vale--bracken-vale">
+        <div class="picture" role="img" aria-label="Useful project interventions in Bracken Vale railway: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">13</span>
+          <img class="emblem" src="/images/experiment-emblems/bracken-vale.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/bracken-vale.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/bracken-vale/">Useful project interventions</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/bracken-vale/">Bracken Vale railway</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="programme-decisions--mountain-festival-shuttle">
+        <div class="picture" role="img" aria-label="Programme Decision Sequences in The mountain-festival shuttle: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">14</span>
+          <img class="emblem" src="/images/experiment-emblems/programme-decisions.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/mountain-festival-shuttle.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/Programme-decision-sequences/">Programme Decision Sequences</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/mountain-festival-shuttle/">The mountain-festival shuttle</a></p>
+        </figcaption>
+      </figure>
+<figure class="pair" id="functors-for-projects--island-reading-room">
+        <div class="picture" role="img" aria-label="Functors for Projects in The Island Reading Room: the experiment emblem is the main picture, with its scenario shown as a small stamp at the top right.">
+          <span class="pair-number" aria-hidden="true">15</span>
+          <img class="emblem" src="/images/experiment-emblems/functors-for-projects.svg" alt="" width="640" height="400" decoding="async">
+          <span class="stamp" aria-hidden="true"><span class="stamp-window"><img src="/images/project-scenarios/island-reading-room.svg" alt="" width="640" height="400" decoding="async"></span></span>
+        </div>
+        <figcaption><h2><a href="https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/">Functors for Projects</a></h2>
+          <p class="scenario-name">in <a href="/project-scenarios/island-reading-room/">The Island Reading Room</a></p><p class="family-note">Collection emblem · the example is Geometry of Interaction.</p>
+        </figcaption>
+      </figure>
+</div>
+<aside class="notes" aria-label="Scope of this visual study">
+<p><strong>Fifteen pairings, twelve scenarios.</strong> Several apps can share one experiment and scenario. They appear once here. The four Gimmer enquiries deliberately share the same refuge stamp.</p>
+<p><strong>One provisional emblem.</strong> Island Reading Room uses the Functors for Projects collection emblem. The reading maps, Meta Project Innovation and Counterfactual programme steering have no registered scenario picture in this catalogue, so none has been invented for them.</p>
+</aside>
+</main>
+<script>
+const button=document.getElementById('size-toggle');
+button.addEventListener('click',()=>{const larger=button.getAttribute('aria-pressed')!=='true';button.setAttribute('aria-pressed',String(larger));button.textContent=larger?'Contact sheet':'Larger pictures';document.getElementById('gallery').classList.toggle('large',larger);});
+</script>
+</body>
+</html>

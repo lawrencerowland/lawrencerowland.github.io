@@ -11,12 +11,18 @@ Each project keeps its own question, scope and account of what its examples esta
 
 Library placement means a reusable or more established example has a home; it does not certify the method. A model check, a working interface, mathematical proof and demonstrated human benefit are different kinds of evidence. Read the selected example's assumptions, source uses and limits.
 
-## Four navigation entrances
+## Two home entrances
 
-- [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
+- [Experiments](https://lawrencerowland.github.io/experiments.html): An entrance to Scenarios, Experiments and Working views: three ways into the same exploratory work.
 - [Library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
+
+### Within Experiments
+
 - [Scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
+- [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
 - [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps, matrices and screens used inside the examples.
+
+Four persistent navigation shortcuts remain available: Experiments opens this landing page; Library, Scenarios and Working views open their respective collections.
 
 ## Orientation
 

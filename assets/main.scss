@@ -310,14 +310,14 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-skip-link { position: absolute; z-index: 100; top: -100px; left: 20px; padding: 12px 18px; background: #fffdf8; color: #233d38; font: 14px system-ui, sans-serif; }
 .pw-skip-link:focus { top: 12px; outline: 3px solid #9b612e; }
 .pw-navigation { margin: 0; background: var(--pw-paper); color: var(--pw-ink); border-bottom: 1px solid var(--pw-line); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.pw-navigation .nav-container { box-sizing: border-box; max-width: 1280px; min-height: 100px; padding: 23px 40px; margin: 0 auto; gap: 32px; }
+.pw-navigation .nav-container { box-sizing: border-box; max-width: 1280px; display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-rows:auto auto; min-height: 88px; padding: 12px 40px; margin: 0 auto; gap: 0 32px; }
 .pw-navigation .pw-site-brand { color: var(--pw-ink); text-decoration: none; flex: none; }
-.pw-navigation .pw-brand-block { display: flex; flex-direction: column; align-items: flex-start; flex: none; }
-.pw-navigation .pw-agent-link { display: inline-block; margin-top: 5px; padding: 4px 0; min-height: 24px; box-sizing: border-box; color: var(--pw-green); font: 500 12px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-decoration: underline; text-underline-offset: 3px; }
+.pw-navigation .pw-brand-block { grid-column:1; grid-row:1 / span 2; min-width:0; display: flex; flex-direction: column; align-items: flex-start; flex: none; }
+.pw-navigation .pw-agent-link { grid-column:2; grid-row:1; justify-self:end; display: inline-block; margin: 0; padding: 0; min-height: 20px; box-sizing: border-box; color: var(--pw-green); font: 500 12px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-decoration: underline; text-underline-offset: 3px; }
 .pw-navigation .pw-agent-link:hover { color: var(--pw-ink); }
 .pw-navigation .pw-site-brand > span { display: block; font: 400 16px/1.2 Georgia, 'Times New Roman', serif; letter-spacing: -.025em; }
 .pw-navigation .pw-site-brand small { display: block; margin-top: 7px; color: var(--pw-ink); font: 600 14px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-transform: uppercase; letter-spacing: .14em; }
-.pw-navigation .nav-links { flex: initial; gap: 30px; align-items: center; justify-content: flex-end; }
+.pw-navigation .nav-links { grid-column:2; grid-row:2; flex: initial; gap: 30px; align-items: center; justify-content: flex-end; }
 .pw-navigation .nav-links li { margin: 0; }
 .pw-navigation .nav-links a { display: inline-block; padding: 8px 0; border-bottom: 1px solid transparent; color: var(--pw-ink); text-decoration: none; font-size: 13px; line-height: 1.5; }
 .pw-navigation .nav-links a:hover, .pw-navigation .nav-links a.active { border-bottom-color: var(--pw-green); color: var(--pw-green); }
@@ -405,13 +405,14 @@ body:has(.pw-home) { background: #f8f6ef; }
   .pw-home-approach { gap: 45px; }
 }
 @media (max-width: 700px) {
-  .pw-navigation .nav-container { min-height: 85px; flex-wrap: wrap; padding: 18px 22px; gap: 10px 20px; }
+  .pw-navigation .nav-container { min-height: 0; padding: 12px 22px; gap: 0 16px; }
   .pw-navigation .pw-site-brand > span { font-size: 15px; }
   .pw-navigation .pw-site-brand small { font-size: 12px; letter-spacing: .1em; margin-top: 5px; }
-  .pw-navigation .nav-links { display: flex; flex: 1 0 100%; justify-content: flex-start; flex-direction: row; flex-wrap: wrap; gap: 12px 27px; width: 100%; background: transparent; border-top: 1px solid var(--pw-line); padding-top: 9px; }
+  .pw-navigation .nav-links { grid-column:1 / -1; grid-row:3; display: flex; flex: 1 0 100%; justify-content: flex-start; flex-direction: row; flex-wrap: wrap; gap: 12px 27px; width: 100%; background: transparent; border-top: 1px solid var(--pw-line); padding-top: 9px; }
   .pw-navigation[data-enhanced='true'] .nav-links { display: none; }
   .pw-navigation[data-enhanced='true'] .nav-links.show { display: flex; }
-  .pw-navigation .nav-toggle { display: inline-flex; margin-left: auto; }
+  .pw-navigation .nav-toggle { grid-column:2; grid-row:2; justify-self:end; display: inline-flex; margin-left: auto; }
+  .pw-navigation .pw-agent-link { font-size:11px; }
   .pw-navigation .nav-links li { margin: 0; }
   .pw-navigation .nav-links a { font-size: 13px; padding: 8px 0; }
   .pw-home { padding: 0 22px; }
@@ -441,7 +442,7 @@ body:has(.pw-home) { background: #f8f6ef; }
 }
 @media (max-width: 380px) {
   .pw-home { padding-inline: 18px; }
-  .pw-navigation .nav-container { padding-inline: 18px; gap: 10px; }
+  .pw-navigation .nav-container { padding-inline: 18px; gap: 0 10px; }
   .pw-navigation .pw-site-brand > span { font-size: 14px; }
   .pw-navigation .pw-site-brand small { font-size: 11px; }
   .pw-home-hero h1 { font-size: 48px; }
@@ -668,9 +669,9 @@ body:has(.pw-home) { background: #f8f6ef; }
 
 /* One tile language from the front door into the collections. */
 .pw-visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-.pw-four-doors { padding-top:60px; padding-bottom:60px; }
-.pw-four-doors .pw-home-question-copy { padding:18px 16px 22px; }
-.pw-four-doors .pw-home-question h2 { margin:0; font-size:clamp(18px,2vw,26px); }
+.pw-entrance { padding-top:60px; padding-bottom:60px; }
+.pw-entrance .pw-home-question-copy { padding:18px 16px 22px; }
+.pw-entrance .pw-home-question h2 { margin:0; font-size:clamp(18px,2vw,26px); }
 .pw-home .pw-home-field-notes { max-width:680px; margin:44px auto 0; background:#f8f6ef; border-radius:6px; }
 .pw-field-notes-labels { display:flex; justify-content:space-between; padding:14px 6% 0; color:#294c40; font:400 clamp(18px,2vw,22px)/1.4 Georgia,serif; }
 .pw-home-field-notes img { display:block; width:100%; height:auto; }
@@ -683,10 +684,14 @@ body:has(.pw-home) { background: #f8f6ef; }
 .pw-map-root { text-align:center; padding:6px 0 35px; position:relative; }
 .pw-map-root::after { content:""; position:absolute; bottom:0; left:50%; height:27px; border-left:1px solid #92a396; }
 .pw-map-root a { display:inline-block; padding:12px 34px; background:#e7ede1; border:1px solid #b5c4b4; border-radius:5px; text-decoration:none; }
-.pw-map-branches { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; position:relative; padding-top:30px; padding-bottom:45px; }
-.pw-map-branches::before { content:""; position:absolute; top:0; left:12.5%; right:12.5%; border-top:1px solid #92a396; }
+.pw-map-branches { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; position:relative; padding-top:30px; padding-bottom:45px; }
+.pw-map-branches::before { content:""; position:absolute; top:0; left:25%; right:25%; border-top:1px solid #92a396; }
 .pw-map-branch { min-width:0; position:relative; padding:0 12px; }
 .pw-map-branch::before { content:""; position:absolute; top:-30px; height:30px; left:50%; border-left:1px solid #92a396; }
+.pw-map-routes { border-left:1px solid #b7c3b5; margin:14px 0; padding-left:20px; }
+.pw-map-route { position:relative; margin-bottom:28px; }
+.pw-map-route::before { content:""; position:absolute; top:14px; left:-20px; width:14px; border-top:1px solid #b7c3b5; }
+.pw-map-route h3 { margin:0 0 10px; font:400 21px/1.4 Georgia,serif; }
 .pw-map-branch h2 { text-align:center; font-size:24px; margin:0 0 20px; }
 .pw-map-branch p,.pw-map-branch li,.pw-map-branch summary,.pw-map-branch>a { font-size:14px; line-height:1.55; }
 .pw-map-branch ol,.pw-map-branch ul { list-style:none; padding-left:17px; margin:12px 0; border-left:1px solid #b7c3b5; }
@@ -715,7 +720,7 @@ body:has(.pw-home) { background: #f8f6ef; }
 #for-agents caption { text-align: left; padding: 0 0 8px; color: var(--pw-muted); font-size: 13px; }
 #for-agents .pw-agent-formats { display: flex; flex-wrap: wrap; gap: 6px; }
 @media(max-width:700px) { #for-agents { padding: 18px; } #for-agents th, #for-agents td { padding: 8px; font-size: 13px; } }
-@media(max-width:700px){.pw-four-doors{padding-top:28px}.pw-library-additional .pw-home-question-grid{grid-template-columns:1fr}.pw-map-branches{grid-template-columns:1fr;border-left:1px solid #92a396;margin-left:10px;gap:28px}.pw-map-branches::before,.pw-map-root::after{display:none}.pw-map-root{text-align:left;padding:6px 0 16px}.pw-map-branch{padding-left:22px}.pw-map-branch::before{left:0;top:16px;height:0;width:15px;border-top:1px solid #92a396}.pw-map-branch h2{text-align:left}}
+@media(max-width:700px){.pw-entrance{padding-top:28px}.pw-library-additional .pw-home-question-grid{grid-template-columns:1fr}.pw-map-branches{grid-template-columns:1fr;border-left:1px solid #92a396;margin-left:10px;gap:28px}.pw-map-branches::before,.pw-map-root::after{display:none}.pw-map-root{text-align:left;padding:6px 0 16px}.pw-map-branch{padding-left:22px}.pw-map-branch::before{left:0;top:16px;height:0;width:15px;border-top:1px solid #92a396}.pw-map-branch h2{text-align:left}}
 
 .pw-wider-gallery .pw-home-question-copy{padding-bottom:24px}.pw-wider-gallery .pw-home-question h2{font:400 26px/1.3 Georgia,serif;margin:0 0 14px}.pw-wider-gallery{padding-bottom:40px}
 
@@ -790,12 +795,15 @@ body:has(.pw-home) { background: #f8f6ef; }
 .reading-output img { display: block; margin: 12px 0; }
 @media (max-width: 600px) { .public-reading-page { padding-left: 16px; padding-right: 16px; } }
 
-/* Two pairs of entrances, with the drawing that explains each pair underneath. */
-.pw-home-pairs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; align-items:start; }
-.pw-home-pair { min-width:0; }
-.pw-home-pair .pw-home-question-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:0; }
-.pw-home .pw-home-pair .pw-home-field-notes { margin:28px 0 0; }
-.pw-home-pair .pw-field-notes-labels { font-size:clamp(15px,1.65vw,20px); }
-.pw-home-pair .pw-field-overlay-method { font-size:clamp(13px,1.6vw,18px); }
-@media (max-width:800px) { .pw-home-pairs { grid-template-columns:1fr; gap:38px; } }
-@media (max-width:400px) { .pw-home-pair .pw-home-question-grid { gap:12px; } .pw-four-doors .pw-home-question-copy { padding:14px 10px 18px; } }
+/* The front door has two choices; the experiment landing adds three routes. */
+.pw-home-two { max-width:960px; }
+.pw-home-two .pw-home-question-grid { grid-template-columns:repeat(2,minmax(0,1fr)); margin:0; }
+.pw-experiment-entrance .pw-home-question-grid { grid-template-columns:repeat(3,minmax(0,1fr)); margin:0; }
+.pw-entrance .pw-home-field-notes { margin:28px auto 0; }
+@media (max-width:600px) {
+  .pw-experiment-entrance .pw-home-question-grid { grid-template-columns:1fr; }
+}
+@media (max-width:400px) {
+  .pw-home-two .pw-home-question-grid { gap:12px; }
+  .pw-entrance .pw-home-question-copy { padding:14px 10px 18px; }
+}
