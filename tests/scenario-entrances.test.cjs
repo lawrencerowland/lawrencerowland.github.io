@@ -122,18 +122,18 @@ test('the entrance redesign preserves all Library and Working views catalogue co
     library_materials: '25069450e689810a694fad1c48369743d1823e3cdf1f69f19b64cef3623cf360',
     visualisations: '6289a8756bc42568e5da2135b21da627ec208dc52f7c33c91dc65697a7fb6d42'
   };
-  for (const [name, expected] of Object.entries(snapshots)) assert.equal(createHash('sha256').update(JSON.stringify(json(name))).digest('hex'), expected, name + ': preserve pre-redesign content');
+  for (const [name, expected] of Object.entries(snapshots)) assert.equal(createHash('sha256').update(JSON.stringify(name === 'library_materials' ? json(name).filter(entry => entry.id !== 'social-debt') : json(name))).digest('hex'), expected, name + ': preserve pre-redesign content');
   assert.equal(themes.length + 1, 6, 'five subjects plus Custom GPTs');
-  assert.equal(entries.length, 74);
+  assert.equal(entries.length, 75);
   assert.equal(views.length, 38);
-  assert.equal(json('library_additional').filter(e => e.url === '/explore-visually.html').length, 1, 'one supporting Working views entrance');
+  assert.equal(json('library_additional').filter(e => e.url === '/explore-visually.html').length, 0, 'Working views has its own tab, not a duplicate Library tile');
 });
 
-test('agent orientation is regenerated from the current three routes and scenario metadata', () => {
+test('agent orientation is regenerated from the current four navigation routes and scenario metadata', () => {
   const { generate, model } = require('../tools/agent-orientation/generate.cjs');
   assert.equal(generate({ check: true }), 5);
   assert.deepEqual(model().scenarios, scenarios);
-  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Methods library', 'Project scenarios']);
+  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Library', 'Scenarios', 'Working views']);
   const directory = read('agents/directory.txt');
   for (const s of scenarios) {
     assert.ok(directory.includes('[' + s.title + '](' + origin + s.url + ')'));
@@ -162,7 +162,7 @@ if (built) {
     assert.equal(d.querySelector('main').querySelectorAll('h1').length, 1, route + ': one page heading');
     assert.equal(d.querySelector('#home-main').getAttribute('tabindex'), '-1');
     assert.equal(d.querySelector('.pw-skip-link').getAttribute('href'), '#home-main');
-    assert.deepEqual([...d.querySelectorAll('.nav-links a')].map(a => clean(a.textContent)), ['Experiments', 'Methods library', 'Project scenarios']);
+    assert.deepEqual([...d.querySelectorAll('.nav-links a')].map(a => clean(a.textContent)), ['Experiments', 'Library', 'Scenarios', 'Working views']);
     for (const a of d.querySelectorAll('.pw-picture-tile')) {
       assert.ok(a.hasAttribute('href') && !a.hasAttribute('onclick'), route + ': native link works without scripting');
       assert.ok(!a.hasAttribute('tabindex') || Number(a.getAttribute('tabindex')) >= 0, route + ': tile is keyboard reachable');
@@ -174,7 +174,7 @@ if (built) {
       assert.equal(a.querySelectorAll('a,button,input,select').length, 0, route + ': no nested interactive target');
     }
   }
-  test('built galleries have complete native links, unique accessible IDs and the three primary routes', () => {
+  test('built galleries have complete native links, unique accessible IDs and the four navigation routes', () => {
     for (const route of ['index.html', 'side-projects.html', 'library.html', 'project-scenarios.html', ...scenarios.map(s => outputPath(s.url))]) {
       const d = document(route);
       accessibility(d, route);
@@ -217,7 +217,7 @@ if (built) {
       const d = document('library/methods/' + theme.id + '.html');
       for (const e of entries.filter(e => e.theme === theme.id)) { assert.ok(d.getElementById(e.id), e.id + ': retained Library card'); count++; }
     }
-    assert.equal(count, 74);
+    assert.equal(count, 75);
     const atlas = document('explore-visually.html');
     assert.equal(atlas.querySelector('h1').textContent, 'Working views');
     assert.equal(atlas.querySelectorAll('.viz-tile').length, 38);

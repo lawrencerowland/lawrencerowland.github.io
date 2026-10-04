@@ -5,8 +5,8 @@ const root=path.resolve(__dirname,'..'),built=!!process.argv[2],site=built?path.
 const read=p=>fs.readFileSync(path.join(root,p),'utf8'),json=p=>JSON.parse(read(p));
 const apps=json('_data/library_apps.json'),listing=json('assets/data/library-apps.json'),specialists=json('assets/data/specialist-apps.json'),materials=json('_data/library_materials.json');
 const p=json('tests/fixtures/app-migration/provenance.json').phase_six,origin='https://lawrencerowland.github.io';
-assert.equal(apps.length,52);assert.equal(listing.length,52);assert.equal(apps.length+materials.length,74);
-assert.equal(new Set([...apps,...materials].map(x=>x.id)).size,74);
+assert.equal(apps.length,52);assert.equal(listing.length,52);assert.equal(apps.length+materials.length,75);
+assert.equal(new Set([...apps,...materials].map(x=>x.id)).size,75);
 assert.ok(apps.some(x=>x.id==='contract-portfolio-board'));
 assert.equal(p.base_revision,'7888f8a85aa9121e99190d392a622a4ee0cd4a7e');
 const expected={
@@ -57,4 +57,4 @@ const before=read('tests/fixtures/app-migration/Project-web-apps-phase-six-befor
 assert.equal(before.split(/\r?\n/).slice(1).filter(Boolean).length,13);assert.equal(after.split(/\r?\n/).slice(1).filter(Boolean).length,9);
 assert.equal(before.split(/(?<=\n)/).filter(line=>!p.removed_names.includes(line.split(',')[1])).join(''),after,'only the four agreed source records retire');
 assert.deepEqual(new Set(p.removed_names),new Set(Object.values(expected).flatMap(x=>x.names)));
-console.log('PASS: three pictured Library homes preserve four identities; two distinct health/benefit modes; 52 apps / 74 peer cards; exact 13 → 9 catalogue retirement'+(built?'; rendered routes.':'.'));
+console.log('PASS: three pictured Library homes preserve four identities; two distinct health/benefit modes; 52 apps / 75 peer cards; exact 13 → 9 catalogue retirement'+(built?'; rendered routes.':'.'));

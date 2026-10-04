@@ -70,7 +70,7 @@ home_front_door: true
     </div>
   </section>
 
-  <p class="pw-library-legacy-route" id="other-projects">Custom GPTs now live in the <a data-library-destination href="{{ '/library.html#custom-gpts' | relative_url }}">Methods library →</a>.</p>
+  <p class="pw-library-legacy-route" id="other-projects">Custom GPTs now live in the <a data-library-destination href="{{ '/library.html#custom-gpts' | relative_url }}">Library →</a>.</p>
 </div></div>
 <script src="{{ '/assets/js/library-routes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/forays.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

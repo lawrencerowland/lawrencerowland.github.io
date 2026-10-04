@@ -76,17 +76,21 @@ const expectedRedirects = {
   'feedback-groups': '/library/methods/delivery-dynamics.html#feedback-groups',
   'buffer-day': '/library/methods/decisions-and-trade-offs.html#buffer-day',
   'library-maps-title': '/library/methods/states-and-relationships.html#graphs-and-connections',
-  'library-reading': '/library/methods/capabilities-and-futures.html#deep-research'
+  'library-reading': '/library/methods/capabilities-and-futures.html#deep-research',
+  'social-debt': '/library/methods/states-and-relationships.html#social-debt',
+  'about': '/about_me.html',
+  'working-views': '/explore-visually.html'
 };
 assert.equal(new Set(redirects.map(item => item.id)).size, redirects.length, 'legacy fragments are unambiguous');
 for (const [id, url] of Object.entries(expectedRedirects)) assert.equal(redirects.find(item => item.id === id)?.url, url, id + ': forwards to the precise replacement card');
 for (const redirect of redirects) {
-  assert.ok(allItems.some(item => themeRoute(item) === redirect.url), redirect.id + ': replacement is an existing peer card');
+  if (redirect.id === 'about' || redirect.id === 'working-views') assert.ok(fs.existsSync(path.join(root, redirect.url.replace(/\.html$/, '.md'))), redirect.id + ': canonical page retained');
+  else assert.ok(allItems.some(item => themeRoute(item) === redirect.url), redirect.id + ': replacement is an existing peer card');
 }
 const library = read('library.md');
 for (const fragment of ['notes', 'blog-posts', 'earlier-notes--2020', 'historical-articles', 'library-starts', 'interactive-methods']) assert.ok(ids(library).includes(fragment), 'retain broad Library fragment ' + fragment);
 for (const phrase of ['Try an idea', 'Five ways into the work.', 'Two bounded worked examples', 'Three strands of earlier work.', 'Connecting the parts of a project.', 'Maps, connections &amp; reading']) assert.ok(!library.includes(phrase), 'retire type-based section: ' + phrase);
-assert.ok(!library.includes('/explore-visually.html'), 'Working views is supplied through the additional-tile registry');
+assert.ok(!library.includes('/explore-visually.html'), 'Working views is reached through its navigation tab');
 assert.ok(!library.includes('/project-examples.html'), 'unique earlier examples now have direct subject homes');
 assert.ok(library.includes('id="custom-gpts"') && library.includes('/gpt-links-page.html'), 'Custom GPTs has a direct sixth entrance');
 assert.ok(!allItems.some(item => item.id === 'custom-gpts'), 'Custom GPTs does not create artificial subject metadata');

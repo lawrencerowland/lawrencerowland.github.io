@@ -39,7 +39,7 @@ test('one source generates compact compatible overviews and plain Markdown perma
   }
 });
 
-test('human welcome is keyboard reachable above the unchanged three-branch tree', () => {
+test('human welcome is keyboard reachable above the four-branch tree', () => {
   const section = guide.getElementById('for-agents');
   assert.equal(section.getAttribute('tabindex'), '-1');
   assert.equal(section.getAttribute('aria-labelledby'), section.querySelector('h2').id);
@@ -54,10 +54,10 @@ test('human welcome is keyboard reachable above the unchanged three-branch tree'
   const sitemap = read('sitemap.md');
   assert.equal((sitemap.match(/include agent-orientation\.html/g) || []).length, 1);
   assert.ok(sitemap.indexOf('include agent-orientation.html') < sitemap.indexOf('class="pw-map-root"'));
-  assert.equal((sitemap.match(/class="pw-map-branch"/g) || []).length, 3);
+  assert.equal((sitemap.match(/class="pw-map-branch"/g) || []).length, 4);
   assert.ok(sitemap.includes('include site-map-entry.html entry=entry'));
   const entrances = [...guide.querySelectorAll('.pw-agent-entrances a')].map(a => [a.textContent, new URL(a.href).pathname]);
-  assert.deepEqual(entrances, [['Experiments', '/side-projects.html'], ['Methods library', '/library.html'], ['Project scenarios', '/project-scenarios.html']]);
+  assert.deepEqual(entrances, [['Experiments', '/side-projects.html'], ['Library', '/library.html'], ['Scenarios', '/project-scenarios.html'], ['Working views', '/explore-visually.html']]);
 });
 
 test('every project retains its current identity, question, scenario, approach, canonical home and boundary', () => {
@@ -154,7 +154,7 @@ if (process.argv[2]) {
     const sitemap = doc(published('sitemap.html'));
     const actual = sitemap.getElementById('for-agents');
     assert.equal(clean(actual.outerHTML), clean(guide.getElementById('for-agents').outerHTML));
-    assert.equal(sitemap.querySelectorAll('.pw-map-branch').length, 3);
+    assert.equal(sitemap.querySelectorAll('.pw-map-branch').length, 4);
     for (const name of ['index.html', 'sitemap.html', 'explore-visually.html', 'library.html']) {
       const d = doc(published(name)), cue = d.querySelector('.pw-agent-link');
       assert.ok(cue && cue.textContent.trim(), name + ': named masthead cue');

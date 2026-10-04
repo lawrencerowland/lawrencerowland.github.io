@@ -11,11 +11,12 @@ Lawrence Rowland explores project work through small scenarios, executable model
 
 Each project keeps its own question, scope and account of what its examples establish. An essay here is a trial; a useful result may be a limitation or a failed attempt. Scenarios help people think; future enquiries may change their setting or method. This guide describes the collection and leaves research direction with each project.
 
-## Three entrances
+## Four navigation entrances
 
 - [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
-- [Methods library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
-- [Project scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
+- [Library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
+- [Scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
+- [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps, matrices and screens used inside the examples.
 
 The question, scenario, approach and concept labels below follow the public catalogue. The short boundary notes are editorial orientation; the linked project owns its fuller scope. SMC means symmetric monoidal category; WBS means work breakdown structure. Each example explains how, and how far, it uses its named methods.
 
@@ -190,7 +191,7 @@ The question, scenario, approach and concept labels below follow the public cata
 - Scope and limits: Fictional project trials with inspectable inputs and results. First-version coverage does not establish adoption or practical human benefit.
 - [Open project](https://lawrencerowland.github.io/bracken-vale/) · [GitHub source (may require access)](https://github.com/lawrencerowland/bracken-vale) · [Public End, Ways and Means (3 October 2026 copy)](https://lawrencerowland.github.io/library/sources/bracken-vale/foray.html)
 
-## Project scenarios
+## Scenarios
 
 - [Gimmer refuge](https://lawrencerowland.github.io/project-scenarios/gimmer/): Build a small refuge halfway up a cliff. Enquiries: [Processes to plans](https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html); [Work packages and handovers](https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/); [Other accounts of the refuge](https://lawrencerowland.github.io/gimmer-crag/app-index.html); [Schedule structure](https://lawrencerowland.github.io/project-spines/); [Compare nine approaches](https://lawrencerowland.github.io/gimmer-comparison/).
 - [The farm track](https://lawrencerowland.github.io/project-scenarios/farm-track/): Deliver concrete while the farm carries on. Enquiries: [Tasks, risks and shared access](https://lawrencerowland.github.io/integrated_risks_tasks/).
@@ -209,16 +210,13 @@ The question, scenario, approach and concept labels below follow the public cata
 
 Library placement means a reusable or more established example has a home; it does not certify the method. A model check, a working interface, mathematical proof and demonstrated human benefit are different kinds of evidence. Read the selected example's assumptions, source uses and limits.
 
-- [Project states & relationships](https://lawrencerowland.github.io/library/methods/states-and-relationships.html): Connect tasks, states, people and resources. Explore shared project models, process diagrams and the relationships behind a portfolio. (17 entries.)
+- [Project states & relationships](https://lawrencerowland.github.io/library/methods/states-and-relationships.html): Connect tasks, states, people and resources. Explore shared project models, process diagrams and the relationships behind a portfolio. (18 entries.)
 - [Decisions & trade-offs](https://lawrencerowland.github.io/library/methods/decisions-and-trade-offs.html): Frame a decision, compare competing objectives, and inspect what buffer, delay assumptions and new information change. (14 entries.)
 - [Delivery dynamics & feedback](https://lawrencerowland.github.io/library/methods/delivery-dynamics.html): Explore dependency loops, learning, rework, reviews and site occupancy through deliberately small models. (14 entries.)
 - [Data, evidence & assurance](https://lawrencerowland.github.io/library/methods/data-and-assurance.html): Match methods to the available information. Examine data maturity, project controls and what earlier prediction experiments could establish. (13 entries.)
 - [Capabilities & futures](https://lawrencerowland.github.io/library/methods/capabilities-and-futures.html): Explore the practices, capabilities and tools a portfolio might need, with earlier reading, framework guides and clearly labelled future scenarios. (16 entries.)
 - [Custom GPTs](https://lawrencerowland.github.io/gpt-links-page.html): coaches, co-pilots and agents for thinking through project work.
-- [Social Debt](https://lawrencerowland.github.io/library/apps/social-debt-explorer/): The code is ready. The team is waiting. Read a paper’s ontology through a software-team situation.
 - [Wider interest](https://lawrencerowland.github.io/wider-interest/): Books, journeys, shapes and small games.
-- [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps and diagrams you work with inside the examples.
-- [About](https://lawrencerowland.github.io/about_me.html): Lawrence Rowland and this collection.
 - [Sitemap](https://lawrencerowland.github.io/sitemap.html): Follow the branches from the front door.
 
 ## Wider interest

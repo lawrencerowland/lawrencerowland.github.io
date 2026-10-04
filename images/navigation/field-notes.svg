@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" role="img" aria-labelledby="title description">
-  <title id="title">From experiments to the Methods library</title>
-  <desc id="description">Exploratory paths loop, branch and stop. One gently points right towards a shelf of reusable methods. Some experiments may become useful Methods library entries; others remain open.</desc>
+  <title id="title">From experiments to the Library</title>
+  <desc id="description">Exploratory paths loop, branch and stop. One gently points right towards a shelf of reusable methods. Some experiments may become useful Library entries; others remain open.</desc>
   <style>
     path,rect{stroke-linecap:round;stroke-linejoin:round}
     .sketch{stroke:#9caa94;stroke-width:2;fill:none;stroke-dasharray:4 7}

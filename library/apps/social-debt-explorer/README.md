@@ -2,6 +2,8 @@
 
 A fictional software release leads into a projection of the public Social Debt Ontology. The complete introduction, three accumulation examples, graph, seven guided readings, cards, filters, source notes and downloads moved from `lawrencerowland/more-project-apps` into the Library on 3 October 2026.
 
+The pictured Library entrance is under **Project states & relationships**. The app returns to that subject card; the former Library fragment continues to forward there.
+
 Canonical home: <https://lawrencerowland.github.io/library/apps/social-debt-explorer/>.
 
 ## Source and limits

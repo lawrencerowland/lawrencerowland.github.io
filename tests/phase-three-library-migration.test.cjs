@@ -48,10 +48,10 @@ const destinations = {
   legends_tower_sentiment_report: origin+'/library/apps/reading-project-evidence/#stance'
 };
 assert.equal(apps.length, 52, '52 maintained apps');
-assert.equal(materials.length, 22, 'existing reading/worked-example peers retained');
-assert.equal(apps.length + materials.length, 74, '74 flat subject entries');
+assert.equal(materials.length, 23, 'existing reading/worked-example peers retained');
+assert.equal(apps.length + materials.length, 75, '75 flat subject entries');
 assert.equal(listing.length, apps.length, 'legacy app listing mirrors the maintained homes');
-assert.equal(new Set([...apps,...materials].map(a=>a.id)).size, 74, 'every subject card has one unique identity');
+assert.equal(new Set([...apps,...materials].map(a=>a.id)).size, 75, 'every subject card has one unique identity');
 assert.equal(provenance.repository, 'lawrencerowland/Project-web-apps');
 assert.equal(provenance.base_revision, revision);
 assert.equal(provenance.before_rows, 28);
@@ -212,7 +212,7 @@ if(built) {
     }
     dom.window.close();
   }
-  assert.equal(cardTotal,74,'built subject pages expose exactly 74 peer cards');
+  assert.equal(cardTotal,75,'built subject pages expose exactly 75 peer cards');
 }
 for(const {dom}of pages.values())dom.window.close();forwardDoc.window.close();
-console.log('PASS: four retained pictured Library homes and three Solway routes, eight source identities and exact destinations, pinned provenance, retained bookmarks and 28 → 20 byte-exact source rows'+(built?'; 74 rendered subject cards and local dependencies.':'.'));
+console.log('PASS: four retained pictured Library homes and three Solway routes, eight source identities and exact destinations, pinned provenance, retained bookmarks and 28 → 20 byte-exact source rows'+(built?'; 75 rendered subject cards and local dependencies.':'.'));

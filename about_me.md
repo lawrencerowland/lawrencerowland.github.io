@@ -9,7 +9,7 @@ tags: [ProjectManagement, AI, Personal, PortfolioManagement, GraphDatabases, Mac
 <h1 id="about">About</h1>
 
 <section id="current-work">
-  <p>I'm Lawrence Rowland. I use small project scenarios—a farm lane, a mountain refuge or a wildlife crossing—to explore ideas about work, resources, decisions and how systems fit together. AI helps me build and explore; making the ideas understandable and inspectable is part of the work.</p>
+  <p>I'm Lawrence Rowland. I use small scenarios—a farm lane, a mountain refuge or a wildlife crossing—to explore ideas about work, resources, decisions and how systems fit together. AI helps me build and explore; making the ideas understandable and inspectable is part of the work.</p>
   <p>These public experiments bring together sources, visible models and their limits. A working demonstration is not proof that a method will work on a real project. My employment and client work are outside the scope of this collection.</p>
 </section>
 

@@ -8,8 +8,9 @@
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav-links" hidden><span>Menu</span><span class="pw-menu-icon" aria-hidden="true"></span></button>
     <ul class="nav-links" id="main-nav-links">
       <li><a href="{{ '/side-projects.html' | relative_url }}" {% if page.url == '/side-projects.html' %}class="active" aria-current="page"{% endif %}>Experiments</a></li>
-      <li><a href="{{ '/library.html' | relative_url }}" {% if page.url == '/library.html' or page.url contains '/library/' or page.url == '/graphs.html' or page.url == '/Books.html' or page.url == '/gap-map.html' or page.url == '/gpt-links-page.html' or page.url == '/about_me.html' or page.url == '/sitemap.html' or page.url contains '/wider-interest/' or page.url == '/explore-visually.html' %}class="active" aria-current="page"{% endif %}>Methods library</a></li>
-      <li><a href="{{ '/project-scenarios.html' | relative_url }}" {% if page.url == '/project-scenarios.html' or page.url contains '/project-scenarios/' %}class="active" aria-current="page"{% endif %}>Project scenarios</a></li>
+      <li><a href="{{ '/library.html' | relative_url }}" {% if page.url == '/library.html' or page.url contains '/library/' or page.url == '/graphs.html' or page.url == '/Books.html' or page.url == '/gap-map.html' or page.url == '/gpt-links-page.html' or page.url == '/about_me.html' or page.url == '/sitemap.html' or page.url contains '/wider-interest/' %}class="active" aria-current="page"{% endif %}>Library</a></li>
+      <li><a href="{{ '/project-scenarios.html' | relative_url }}" {% if page.url == '/project-scenarios.html' or page.url contains '/project-scenarios/' %}class="active" aria-current="page"{% endif %}>Scenarios</a></li>
+      <li><a href="{{ '/explore-visually.html' | relative_url }}" {% if page.url == '/explore-visually.html' %}class="active" aria-current="page"{% endif %}>Working views</a></li>
     </ul>
   </div>
 </nav>

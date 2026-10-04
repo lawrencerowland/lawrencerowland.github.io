@@ -11,7 +11,7 @@ const themes = JSON.parse(fs.readFileSync('_data/library_themes.json', 'utf8'));
 const additional = JSON.parse(fs.readFileSync('_data/library_additional.json', 'utf8'));
 const themeLayout = fs.readFileSync('_layouts/library-theme.html', 'utf8');
 const materialFor = url => materials.find(item => item.url === url || item.url?.split('#')[0] === url);
-assert.deepEqual([...nav.matchAll(/>(Experiments|Methods library|Project scenarios|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Methods library', 'Project scenarios']);
+assert.deepEqual([...nav.matchAll(/>(Experiments|Library|Scenarios|Working views|Wider interest)<\/a>/g)].map(m => m[1]), ['Experiments', 'Library', 'Scenarios', 'Working views']);
 assert.match(nav, /<span>Lawrence Rowland<\/span><small>Project Experiments in AI<\/small>/, 'the top brand keeps the name and requested subtitle');
 assert.ok(!nav.includes('Independent project experiments'), 'the former brand subtitle is retired');
 assert.ok(!nav.includes('all-project-apps.html'), 'generic catalogues are secondary');
@@ -47,23 +47,25 @@ for (const phrase of ['Try an idea', 'Five ways into the work.', 'Two bounded wo
 const historicalArticles = JSON.parse(fs.readFileSync('_data/historical_articles.yml', 'utf8'));
 assert.equal(historicalArticles.length, 4);
 assert.ok(historicalArticles.every(article => article.date.startsWith('2020-') && article.url.startsWith('/library/articles/')));
-assert.match(library, /<h1\b[^>]*>Methods library<\/h1>/, 'Library has a concise title');
+assert.match(library, /<h1\b[^>]*>Library<\/h1>/, 'Library has a concise title');
 assert.match(library, /<p\b[^>]*>A home for more established methods\.<\/p>/, 'Library has the requested subtitle');
 assert.ok(!/bounded problem|not all received a new technical review|Looking for the open enquiries|Some work asks an open question/.test(library), 'the former Library introduction is retired');
 for (const route of ['/explore-visually.html', '/side-projects.html']) assert.ok(!library.includes(route), 'peer pages are reached through the main navigation: ' + route);
-for (const [route, label] of [['/about_me.html', 'About'], ['/sitemap.html', 'Sitemap']]) {
+for (const [route, label] of [['/sitemap.html', 'Sitemap']]) {
   const entries = additional.filter(entry => entry.url === route);
   assert.equal(entries.length, 1, 'one Library utility tile: ' + label);
   assert.equal(entries[0].title, label);
 }
 assert.ok(library.includes('for entry in site.data.library_additional'), 'the utility tiles are rendered from their shared metadata');
 assert.ok(!library.includes('/about_the_site.html'), 'About has one canonical entrance');
+assert.ok(!additional.some(entry => entry.url === '/about_me.html'), 'About is below the sitemap, not a Library tile');
+assert.ok(fs.readFileSync('sitemap.md', 'utf8').includes('>About Lawrence and this collection</a>'));
 for (const source of [home, library]) {
   assert.equal((source.match(/<h1\b/g) || []).length, 1);
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');
   for (const img of source.matchAll(/<img\b[^>]*>/g)) assert.match(img[0], /\balt="[^"]*"/, 'images expose an accessible description or are decorative');
 }
-assert.deepEqual([...home.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Experiments', 'Methods library', 'Project scenarios'], 'the front door presents the three entrances');
+assert.deepEqual([...home.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Experiments', 'Library', 'Scenarios', 'Working views'], 'the front door has four pictured entrances');
 assert.ok(home.includes('/side-projects.html'), 'project-specific questions remain under the Experiments entrance');
 
 // Exercise the real navigation script: disclosure, Escape, link selection and
