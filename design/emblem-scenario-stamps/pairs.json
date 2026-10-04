@@ -1,0 +1,356 @@
+{
+  "basis": "Distinct project_ids in _data/project_scenarios.json, joined to _data/experiment_tiles.json. One composition per registered experiment/scenario pair, not per app.",
+  "pairs": [
+    {
+      "id": "gimmer-processes-plans--gimmer",
+      "experiment_id": "gimmer-processes-plans",
+      "experiment_title": "Processes to plans",
+      "emblem": "/images/experiment-emblems/gimmer-processes-plans.svg",
+      "experiment_description": "Which plans are allowed by the way the work actually happens?",
+      "scenario_id": "gimmer",
+      "scenario_title": "Gimmer refuge",
+      "scenario_image": "/images/project-scenarios/gimmer.svg",
+      "scenario_alt": "A timber refuge under construction on a narrow mountain ledge, with a pulley raising materials.",
+      "scenario_url": "/project-scenarios/gimmer/",
+      "example_url": "https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html",
+      "example_title": "Processes to plans",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Processes to plans",
+          "url": "https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html"
+        }
+      ]
+    },
+    {
+      "id": "gimmer-higher-autonomy--gimmer",
+      "experiment_id": "gimmer-higher-autonomy",
+      "experiment_title": "Higher-autonomy experiments",
+      "emblem": "/images/experiment-emblems/gimmer-higher-autonomy.svg",
+      "experiment_description": "How far can repeated agent-led experiments advance the same aim?",
+      "scenario_id": "gimmer",
+      "scenario_title": "Gimmer refuge",
+      "scenario_image": "/images/project-scenarios/gimmer.svg",
+      "scenario_alt": "A timber refuge under construction on a narrow mountain ledge, with a pulley raising materials.",
+      "scenario_url": "/project-scenarios/gimmer/",
+      "example_url": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/",
+      "example_title": "Work packages and handovers",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Work packages and handovers",
+          "url": "https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/"
+        }
+      ]
+    },
+    {
+      "id": "gimmer-broader--gimmer",
+      "experiment_id": "gimmer-broader",
+      "experiment_title": "Project models in use",
+      "emblem": "/images/experiment-emblems/gimmer-broader.svg",
+      "experiment_description": "What else must we understand beyond a task list and dates?",
+      "scenario_id": "gimmer",
+      "scenario_title": "Gimmer refuge",
+      "scenario_image": "/images/project-scenarios/gimmer.svg",
+      "scenario_alt": "A timber refuge under construction on a narrow mountain ledge, with a pulley raising materials.",
+      "scenario_url": "/project-scenarios/gimmer/",
+      "example_url": "https://lawrencerowland.github.io/gimmer-crag/app-index.html",
+      "example_title": "Other accounts of the refuge",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Other accounts of the refuge",
+          "url": "https://lawrencerowland.github.io/gimmer-crag/app-index.html"
+        }
+      ]
+    },
+    {
+      "id": "project-spines--gimmer",
+      "experiment_id": "project-spines",
+      "experiment_title": "Project Spines",
+      "emblem": "/images/experiment-emblems/project-spines.svg",
+      "experiment_description": "What can schedule structure reveal beyond dates?",
+      "scenario_id": "gimmer",
+      "scenario_title": "Gimmer refuge",
+      "scenario_image": "/images/project-scenarios/gimmer.svg",
+      "scenario_alt": "A timber refuge under construction on a narrow mountain ledge, with a pulley raising materials.",
+      "scenario_url": "/project-scenarios/gimmer/",
+      "example_url": "https://lawrencerowland.github.io/project-spines/",
+      "example_title": "Schedule structure",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Schedule structure",
+          "url": "https://lawrencerowland.github.io/project-spines/"
+        }
+      ]
+    },
+    {
+      "id": "integrated-risks-tasks--farm-track",
+      "experiment_id": "integrated-risks-tasks",
+      "experiment_title": "Integrated risks & tasks",
+      "emblem": "/images/experiment-emblems/integrated-risks-tasks.svg",
+      "experiment_description": "Can tasks and threats be understood through one process model?",
+      "scenario_id": "farm-track",
+      "scenario_title": "The farm track",
+      "scenario_image": "/images/project-scenarios/farm-track.svg",
+      "scenario_alt": "A concrete mixer waits at a farm gate while cows occupy the narrow lane to a foundation pour.",
+      "scenario_url": "/project-scenarios/farm-track/",
+      "example_url": "https://lawrencerowland.github.io/integrated_risks_tasks/",
+      "example_title": "Tasks, risks and shared access",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Tasks, risks and shared access",
+          "url": "https://lawrencerowland.github.io/integrated_risks_tasks/"
+        }
+      ]
+    },
+    {
+      "id": "wildlife-crossing--wildlife-crossing",
+      "experiment_id": "wildlife-crossing",
+      "experiment_title": "Project Co-design",
+      "emblem": "/images/experiment-emblems/wildlife-crossing.svg",
+      "experiment_description": "Can a feasible finished system be delivered through acceptable stages?",
+      "scenario_id": "wildlife-crossing",
+      "scenario_title": "A wildlife crossing",
+      "scenario_image": "/project-co-design/assets/wildlife-crossing-scene.svg",
+      "scenario_alt": "Deer on a green bridge, with guiding fences, a monitoring camera and a power cabinet.",
+      "scenario_url": "/project-scenarios/wildlife-crossing/",
+      "example_url": "/project-co-design/apps/wildlife-crossing.html",
+      "example_title": "Compose the crossing",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Compose the crossing",
+          "url": "/project-co-design/apps/wildlife-crossing.html"
+        },
+        {
+          "title": "Construct a delivery path",
+          "url": "/project-co-design/apps/staged-paths.html"
+        },
+        {
+          "title": "Compare programmes",
+          "url": "/project-co-design/apps/programme-studio.html"
+        },
+        {
+          "title": "Power the monitoring",
+          "url": "/project-co-design/apps/monitoring-power-loop.html"
+        }
+      ]
+    },
+    {
+      "id": "bricklaying-rotunda--rotunda",
+      "experiment_id": "bricklaying-rotunda",
+      "experiment_title": "Changing project states",
+      "emblem": "/images/experiment-emblems/bricklaying-rotunda.svg",
+      "experiment_description": "How can we explore changing project states?",
+      "scenario_id": "rotunda",
+      "scenario_title": "A brick rotunda",
+      "scenario_image": "/images/project-scenarios/rotunda.svg",
+      "scenario_alt": "A circular brick wall under construction, with stacked bricks and lifting equipment.",
+      "scenario_url": "/project-scenarios/rotunda/",
+      "example_url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/Possible-trajectories1.html#first-try",
+      "example_title": "Choices and histories",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Choices and histories",
+          "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/Possible-trajectories1.html#first-try"
+        },
+        {
+          "title": "What must a state remember?",
+          "url": "https://lawrencerowland.github.io/bricklaying-a-rotunda/apps/constructive-state/"
+        }
+      ]
+    },
+    {
+      "id": "local-to-global--tangled-triangle",
+      "experiment_id": "local-to-global",
+      "experiment_title": "Local to Global",
+      "emblem": "/images/experiment-emblems/local-to-global.svg",
+      "experiment_description": "When do local project views fit together?",
+      "scenario_id": "tangled-triangle",
+      "scenario_title": "The Tangled Triangle",
+      "scenario_image": "/images/project-scenarios/tangled-triangle.svg",
+      "scenario_alt": "A control-centre site squeezed between a canal, road and railway viaduct.",
+      "scenario_url": "/project-scenarios/tangled-triangle/",
+      "example_url": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/",
+      "example_title": "Interpret the site",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Interpret the site",
+          "url": "https://lawrencerowland.github.io/local-to-global/tangled-triangle/"
+        },
+        {
+          "title": "Test the local rules",
+          "url": "https://lawrencerowland.github.io/local-to-global/forays/003-tangled-triangle.html#first-try"
+        }
+      ]
+    },
+    {
+      "id": "shared-waters--shared-waters",
+      "experiment_id": "shared-waters",
+      "experiment_title": "Composing open systems",
+      "emblem": "/images/experiment-emblems/shared-waters.svg",
+      "experiment_description": "What do open-system methods reveal about useful project chunks?",
+      "scenario_id": "shared-waters",
+      "scenario_title": "Shared waters",
+      "scenario_image": "/images/project-scenarios/shared-waters.svg",
+      "scenario_alt": "A power barge moored beside an offshore depot, with a service connection between them.",
+      "scenario_url": "/project-scenarios/shared-waters/",
+      "example_url": "https://lawrencerowland.github.io/shared-dynamics/compose.html",
+      "example_title": "Join at a boundary",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Join at a boundary",
+          "url": "https://lawrencerowland.github.io/shared-dynamics/compose.html"
+        },
+        {
+          "title": "Compare an organisation",
+          "url": "https://lawrencerowland.github.io/shared-dynamics/compare.html"
+        },
+        {
+          "title": "Make sharing explicit",
+          "url": "https://lawrencerowland.github.io/shared-dynamics/interfaces.html"
+        }
+      ]
+    },
+    {
+      "id": "building-wall--wall-and-roof",
+      "experiment_id": "building-wall",
+      "experiment_title": "Composing work packages",
+      "emblem": "/images/experiment-emblems/building-wall.svg",
+      "experiment_description": "Can explicit interfaces turn project work into reusable blocks?",
+      "scenario_id": "wall-and-roof",
+      "scenario_title": "A wall and its roof",
+      "scenario_image": "/images/project-scenarios/wall-and-roof.svg",
+      "scenario_alt": "A brick wall and partly assembled pitched roof, with scaffold and building materials.",
+      "scenario_url": "/project-scenarios/wall-and-roof/",
+      "example_url": "https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/",
+      "example_title": "Keep the interfaces honest",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Keep the interfaces honest",
+          "url": "https://lawrencerowland.github.io/building_a_wall/apps/wall-roof-wiring-smc/"
+        },
+        {
+          "title": "One diagram, several meanings",
+          "url": "https://lawrencerowland.github.io/building_a_wall/apps/wiring-algebra/"
+        },
+        {
+          "title": "How a course repeats",
+          "url": "https://lawrencerowland.github.io/building_a_wall/apps/course-by-course/"
+        }
+      ]
+    },
+    {
+      "id": "solway-tunnel--solway-tunnel",
+      "experiment_id": "solway-tunnel",
+      "experiment_title": "Semantic project planning",
+      "emblem": "/images/experiment-emblems/solway-tunnel.svg",
+      "experiment_description": "How can a project ontology connect to a plan?",
+      "scenario_id": "solway-tunnel",
+      "scenario_title": "A tunnel beneath the Solway",
+      "scenario_image": "/images/project-scenarios/solway-tunnel.svg",
+      "scenario_alt": "A cutaway of a tunnel beneath the Solway, with shore access and construction underground.",
+      "scenario_url": "/project-scenarios/solway-tunnel/",
+      "example_url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/",
+      "example_title": "From an outcome to its work",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "From an outcome to its work",
+          "url": "https://lawrencerowland.github.io/Solway_tunnel_ontology/"
+        }
+      ]
+    },
+    {
+      "id": "knowing-enough--museum-whale",
+      "experiment_id": "knowing-enough",
+      "experiment_title": "Knowing enough to act together",
+      "emblem": "/images/experiment-emblems/knowing-enough.svg",
+      "experiment_description": "What must each participant know to act together?",
+      "scenario_id": "museum-whale",
+      "scenario_title": "Moving the museum whale",
+      "scenario_image": "/images/project-scenarios/museum-whale.svg",
+      "scenario_alt": "A large whale exhibit on a wheeled cradle while a surveyor, handler and curator consider the move.",
+      "scenario_url": "/project-scenarios/museum-whale/",
+      "example_url": "https://lawrencerowland.github.io/knowing-enough/",
+      "example_title": "Knowing enough to act together",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Knowing enough to act together",
+          "url": "https://lawrencerowland.github.io/knowing-enough/"
+        }
+      ]
+    },
+    {
+      "id": "bracken-vale--bracken-vale",
+      "experiment_id": "bracken-vale",
+      "experiment_title": "Useful project interventions",
+      "emblem": "/images/experiment-emblems/bracken-vale.svg",
+      "experiment_description": "Which small interventions help project people see and do something useful?",
+      "scenario_id": "bracken-vale",
+      "scenario_title": "Bracken Vale railway",
+      "scenario_image": "/images/project-scenarios/bracken-vale.svg",
+      "scenario_alt": "A team discussing a tabletop railway with a junction, station, power upgrade and monitoring project.",
+      "scenario_url": "/project-scenarios/bracken-vale/",
+      "example_url": "https://lawrencerowland.github.io/bracken-vale/",
+      "example_title": "Small interventions, useful questions",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Small interventions, useful questions",
+          "url": "https://lawrencerowland.github.io/bracken-vale/"
+        }
+      ]
+    },
+    {
+      "id": "programme-decisions--mountain-festival-shuttle",
+      "experiment_id": "programme-decisions",
+      "experiment_title": "Programme Decision Sequences",
+      "emblem": "/images/experiment-emblems/programme-decisions.svg",
+      "experiment_description": "How should a programme act as uncertainty unfolds?",
+      "scenario_id": "mountain-festival-shuttle",
+      "scenario_title": "The mountain-festival shuttle",
+      "scenario_image": "/images/project-scenarios/mountain-festival-shuttle.svg",
+      "scenario_alt": "Two small buses wait below festival tents and a mountain trailhead, while an organiser consults a booking sheet.",
+      "scenario_url": "/project-scenarios/mountain-festival-shuttle/",
+      "example_url": "https://lawrencerowland.github.io/Programme-decision-sequences/",
+      "example_title": "Evidence before commitment",
+      "family_emblem": false,
+      "works": [
+        {
+          "title": "Evidence before commitment",
+          "url": "https://lawrencerowland.github.io/Programme-decision-sequences/"
+        }
+      ]
+    },
+    {
+      "id": "functors-for-projects--island-reading-room",
+      "experiment_id": "functors-for-projects",
+      "experiment_title": "Functors for Projects",
+      "emblem": "/images/experiment-emblems/functors-for-projects.svg",
+      "experiment_description": "How might mathematical structures illuminate project work?",
+      "scenario_id": "island-reading-room",
+      "scenario_title": "The Island Reading Room",
+      "scenario_image": "/images/project-scenarios/island-reading-room.svg",
+      "scenario_alt": "A boat holds boxes of books beside a closed jetty. A shore path leads to a little reading room, with a seal watching from a rock.",
+      "scenario_url": "/project-scenarios/island-reading-room/",
+      "example_url": "https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/",
+      "example_title": "Policies in conversation",
+      "family_emblem": true,
+      "works": [
+        {
+          "title": "Policies in conversation",
+          "url": "https://lawrencerowland.github.io/functors-for_projects/apps/geometry-of-interaction/"
+        }
+      ]
+    }
+  ]
+}

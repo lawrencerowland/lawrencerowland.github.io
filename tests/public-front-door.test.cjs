@@ -5,6 +5,7 @@ const path = require('node:path');
 
 const nav = fs.readFileSync('_includes/nav.html', 'utf8');
 const home = fs.readFileSync('index.md', 'utf8');
+const experimentLanding = fs.readFileSync('experiments.md', 'utf8');
 const library = fs.readFileSync('library.md', 'utf8');
 const materials = JSON.parse(fs.readFileSync('_data/library_materials.json', 'utf8'));
 const themes = JSON.parse(fs.readFileSync('_data/library_themes.json', 'utf8'));
@@ -65,8 +66,12 @@ for (const source of [home, library]) {
   assert.ok(source.includes('id="home-main"'), 'skip link has a focusable destination');
   for (const img of source.matchAll(/<img\b[^>]*>/g)) assert.match(img[0], /\balt="[^"]*"/, 'images expose an accessible description or are decorative');
 }
-assert.deepEqual([...home.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Experiments', 'Library', 'Scenarios', 'Working views'], 'the front door has four pictured entrances');
-assert.ok(home.includes('/side-projects.html'), 'project-specific questions remain under the Experiments entrance');
+assert.deepEqual([...home.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Experiments', 'Library'], 'the front door has two pictured entrances');
+assert.ok(home.includes('/experiments.html'), 'home leads to the experiment landing');
+assert.deepEqual([...experimentLanding.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(match => match[1]), ['Scenarios', 'Experiments', 'Working views']);
+for (const route of ['/project-scenarios.html', '/side-projects.html', '/explore-visually.html']) assert.ok(experimentLanding.includes(route), 'existing gallery remains reachable: ' + route);
+assert.ok(home.includes('/images/navigation/field-notes.svg') && !home.includes('/images/navigation/field-overlay.svg'));
+assert.ok(experimentLanding.includes('/images/navigation/field-overlay.svg') && !experimentLanding.includes('/images/navigation/field-notes.svg'));
 
 // Exercise the real navigation script: disclosure, Escape, link selection and
 // resizing must keep the announced state and displayed state in agreement.
@@ -131,7 +136,7 @@ for (const example of examples) {
 
 if (process.argv[2]) {
   const root = process.argv[2];
-  for (const route of ['index.html', 'library.html', 'about_me.html', 'blog_summary.html', 'side-projects.html', 'explore-visually.html']) {
+  for (const route of ['index.html', 'experiments.html', 'library.html', 'about_me.html', 'blog_summary.html', 'side-projects.html', 'explore-visually.html']) {
     const html = fs.readFileSync(path.join(root, route), 'utf8');
     assert.ok(!html.includes('{%') && !html.includes('{{'), `${route}: Liquid fully rendered`);
     assert.match(html, /<meta[^>]+name="viewport"/);
@@ -139,7 +144,7 @@ if (process.argv[2]) {
     assert.match(html, /aria-controls="main-nav-links"/);
     assert.equal((html.match(/aria-label="Main navigation"/g) || []).length, 1, route + ': one main navigation');
     assert.ok(!/class="[^"]*(?:site-footer|pw-footer)/.test(html), route + ': no duplicate shared footer');
-    if (['index.html', 'library.html'].includes(route)) {
+    if (['index.html', 'experiments.html', 'library.html'].includes(route)) {
       assert.equal((html.match(/<h1\b/g) || []).length, 1, `${route}: one h1 after Jekyll processing`);
       for (const match of html.matchAll(/(?:href|src)="(\/[^"?#]*)(?:[?#][^"]*)?"/g)) {
         let local = decodeURIComponent(match[1]);
