@@ -9,8 +9,8 @@ Library placement means a reusable or more established example has a home; it do
 ## Four navigation entrances
 
 - [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
-- [Methods library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
-- [Project scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
+- [Library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
+- [Scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
 - [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps, matrices and screens used inside the examples.
 
 ## Orientation

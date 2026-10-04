@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Methods library
+title: Library
 description: Captured solutions, modelling examples and earlier methods for particular project and portfolio problems, kept distinct from open research enquiries.
 schema_type: CollectionPage
 wide: true
@@ -10,7 +10,7 @@ tags: [Projects, Examples, PortfolioManagement, Library]
 
 <div class="pw-home" id="home-main" tabindex="-1">
   <header class="pw-page-heading">
-    <h1 id="library-title">Methods library</h1>
+    <h1 id="library-title">Library</h1>
     <p>A home for more established methods.</p>
     <p class="pw-gallery-instruction"><span class="pw-gallery-desktop">Hover over a tile for details. Click to enter.</span><span class="pw-gallery-touch">Tap a tile to enter.</span></p>
   </header>

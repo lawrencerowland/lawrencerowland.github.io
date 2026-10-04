@@ -20,8 +20,8 @@ const scenarios = json('_data/project_scenarios.json');
 const projects = yaml('_data/side_projects.yml').filter(item => item.placement === 'project').sort((a, b) => a.gallery_order - b.gallery_order);
 const worked = yaml('_data/worked_examples.yml');
 const articles = json('_data/historical_articles.yml');
-const homeEntrances = [['Experiments', '/side-projects.html'], ['Methods library', '/library.html'], ['Project scenarios', '/project-scenarios.html']];
-const entrances = [...homeEntrances, ['Working views', '/explore-visually.html']];
+const homeEntrances = [['Experiments', '/side-projects.html'], ['Library', '/library.html'], ['Scenarios', '/project-scenarios.html'], ['Working views', '/explore-visually.html']];
+const entrances = homeEntrances;
 const clean = value => value.replace(/\s+/g, ' ').trim();
 const sourceHref = value => value.replace(/\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}/, '$1');
 const sourceDocument = file => new JSDOM(read(file).replace(/^---\r?\n[\s\S]*?\r?\n---/, '')).window.document;
@@ -59,7 +59,7 @@ function assertPicturedRecords(records) {
   }
 }
 
-test('the shared navigation has four tabs and preserves the three home tiles', () => {
+test('the shared navigation has four tabs and four paired home tiles', () => {
   const nav = sourceDocument('_includes/nav.html');
   assert.deepEqual([...nav.querySelectorAll('#main-nav-links a')].map(a => [clean(a.textContent), sourceHref(a.getAttribute('href'))]), entrances);
   const home = sourceDocument('index.md');

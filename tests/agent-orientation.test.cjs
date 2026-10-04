@@ -57,7 +57,7 @@ test('human welcome is keyboard reachable above the four-branch tree', () => {
   assert.equal((sitemap.match(/class="pw-map-branch"/g) || []).length, 4);
   assert.ok(sitemap.includes('include site-map-entry.html entry=entry'));
   const entrances = [...guide.querySelectorAll('.pw-agent-entrances a')].map(a => [a.textContent, new URL(a.href).pathname]);
-  assert.deepEqual(entrances, [['Experiments', '/side-projects.html'], ['Methods library', '/library.html'], ['Project scenarios', '/project-scenarios.html'], ['Working views', '/explore-visually.html']]);
+  assert.deepEqual(entrances, [['Experiments', '/side-projects.html'], ['Library', '/library.html'], ['Scenarios', '/project-scenarios.html'], ['Working views', '/explore-visually.html']]);
 });
 
 test('every project retains its current identity, question, scenario, approach, canonical home and boundary', () => {

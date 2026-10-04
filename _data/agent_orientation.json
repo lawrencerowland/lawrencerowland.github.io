@@ -10,12 +10,12 @@
       "description": "Open enquiries and exploratory collections, each with its own question and scope."
     },
     {
-      "title": "Methods library",
+      "title": "Library",
       "url": "/library.html",
       "description": "Reusable methods, bounded worked examples and earlier material, organised by subject."
     },
     {
-      "title": "Project scenarios",
+      "title": "Scenarios",
       "url": "/project-scenarios.html",
       "description": "Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method."
     },

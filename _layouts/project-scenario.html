@@ -3,7 +3,7 @@ layout: default
 ---
 {% assign scenario = site.data.project_scenarios | where: 'id', page.scenario_id | first %}
 <div class="pw-home pw-scenario" id="home-main" tabindex="-1">
-  <nav class="pw-breadcrumb" aria-label="Breadcrumb"><a href="{{ '/project-scenarios.html' | relative_url }}">Project scenarios</a> <span aria-hidden="true">/</span> <span>{{ scenario.title | escape }}</span></nav>
+  <nav class="pw-breadcrumb" aria-label="Breadcrumb"><a href="{{ '/project-scenarios.html' | relative_url }}">Scenarios</a> <span aria-hidden="true">/</span> <span>{{ scenario.title | escape }}</span></nav>
   <header class="pw-page-heading">
     <h1>{{ scenario.title | escape }}</h1>
     <p>{{ scenario.description | escape }}</p>
@@ -46,5 +46,5 @@ layout: default
       </ul>
     </details>
   </div>
-  <p class="pw-route-note"><a href="{{ '/project-scenarios.html' | relative_url }}">All project scenarios</a></p>
+  <p class="pw-route-note"><a href="{{ '/project-scenarios.html' | relative_url }}">All scenarios</a></p>
 </div>

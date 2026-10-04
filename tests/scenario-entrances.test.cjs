@@ -133,7 +133,7 @@ test('agent orientation is regenerated from the current four navigation routes a
   const { generate, model } = require('../tools/agent-orientation/generate.cjs');
   assert.equal(generate({ check: true }), 5);
   assert.deepEqual(model().scenarios, scenarios);
-  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Methods library', 'Project scenarios', 'Working views']);
+  assert.deepEqual(model().copy.entrances.map(e => e.title), ['Experiments', 'Library', 'Scenarios', 'Working views']);
   const directory = read('agents/directory.txt');
   for (const s of scenarios) {
     assert.ok(directory.includes('[' + s.title + '](' + origin + s.url + ')'));
@@ -162,7 +162,7 @@ if (built) {
     assert.equal(d.querySelector('main').querySelectorAll('h1').length, 1, route + ': one page heading');
     assert.equal(d.querySelector('#home-main').getAttribute('tabindex'), '-1');
     assert.equal(d.querySelector('.pw-skip-link').getAttribute('href'), '#home-main');
-    assert.deepEqual([...d.querySelectorAll('.nav-links a')].map(a => clean(a.textContent)), ['Experiments', 'Methods library', 'Project scenarios', 'Working views']);
+    assert.deepEqual([...d.querySelectorAll('.nav-links a')].map(a => clean(a.textContent)), ['Experiments', 'Library', 'Scenarios', 'Working views']);
     for (const a of d.querySelectorAll('.pw-picture-tile')) {
       assert.ok(a.hasAttribute('href') && !a.hasAttribute('onclick'), route + ': native link works without scripting');
       assert.ok(!a.hasAttribute('tabindex') || Number(a.getAttribute('tabindex')) >= 0, route + ': tile is keyboard reachable');

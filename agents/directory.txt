@@ -14,8 +14,8 @@ Each project keeps its own question, scope and account of what its examples esta
 ## Four navigation entrances
 
 - [Experiments](https://lawrencerowland.github.io/side-projects.html): Open enquiries and exploratory collections, each with its own question and scope.
-- [Methods library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
-- [Project scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
+- [Library](https://lawrencerowland.github.io/library.html): Reusable methods, bounded worked examples and earlier material, organised by subject.
+- [Scenarios](https://lawrencerowland.github.io/project-scenarios.html): Familiar situations, each linking to the enquiries that use it. A scenario can support more than one method.
 - [Working views](https://lawrencerowland.github.io/explore-visually.html): The nets, maps, matrices and screens used inside the examples.
 
 The question, scenario, approach and concept labels below follow the public catalogue. The short boundary notes are editorial orientation; the linked project owns its fuller scope. SMC means symmetric monoidal category; WBS means work breakdown structure. Each example explains how, and how far, it uses its named methods.
@@ -191,7 +191,7 @@ The question, scenario, approach and concept labels below follow the public cata
 - Scope and limits: Fictional project trials with inspectable inputs and results. First-version coverage does not establish adoption or practical human benefit.
 - [Open project](https://lawrencerowland.github.io/bracken-vale/) · [GitHub source (may require access)](https://github.com/lawrencerowland/bracken-vale) · [Public End, Ways and Means (3 October 2026 copy)](https://lawrencerowland.github.io/library/sources/bracken-vale/foray.html)
 
-## Project scenarios
+## Scenarios
 
 - [Gimmer refuge](https://lawrencerowland.github.io/project-scenarios/gimmer/): Build a small refuge halfway up a cliff. Enquiries: [Processes to plans](https://lawrencerowland.github.io/gimmer-crag/petri-smc-wbs.html); [Work packages and handovers](https://lawrencerowland.github.io/gimmer-crag-project-mountain-refuge/); [Other accounts of the refuge](https://lawrencerowland.github.io/gimmer-crag/app-index.html); [Schedule structure](https://lawrencerowland.github.io/project-spines/); [Compare nine approaches](https://lawrencerowland.github.io/gimmer-comparison/).
 - [The farm track](https://lawrencerowland.github.io/project-scenarios/farm-track/): Deliver concrete while the farm carries on. Enquiries: [Tasks, risks and shared access](https://lawrencerowland.github.io/integrated_risks_tasks/).
